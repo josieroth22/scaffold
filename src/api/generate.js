@@ -187,6 +187,7 @@ module.exports = async function handler(req, res) {
     await redis.hset(`submission:${id}`, {
       id,
       student_name: data.student_name,
+      student_last_name: data.student_last_name || "",
       email: data.email || "",
       city: data.city || "",
       income: data.income || "",

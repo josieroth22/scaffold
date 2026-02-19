@@ -24,6 +24,7 @@ module.exports = async function handler(req, res) {
     return res.status(200).json({
       id: data.id,
       student_name: data.student_name,
+      student_last_name: data.student_last_name || "",
       city: data.city,
       status: data.status,
       output: data.output || null,

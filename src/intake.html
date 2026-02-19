@@ -201,7 +201,7 @@
 
   .field-row {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
     gap: 1rem;
   }
 
@@ -655,8 +655,12 @@
 
       <div class="field-row">
         <div class="field">
-          <label class="field-label" for="student-name">Student's first name</label>
-          <input type="text" id="student-name" name="student_name" placeholder="e.g., Alex" required>
+          <label class="field-label" for="student-first-name">Student's first name</label>
+          <input type="text" id="student-first-name" name="student_first_name" placeholder="e.g., Alex" required>
+        </div>
+        <div class="field">
+          <label class="field-label" for="student-last-name">Last name</label>
+          <input type="text" id="student-last-name" name="student_last_name" placeholder="e.g., Chen" required>
         </div>
         <div class="field">
           <label class="field-label" for="student-age-grade">Age and current grade</label>
@@ -1292,6 +1296,10 @@
     const formData = new FormData(form);
     const data = {};
     formData.forEach((value, key) => { data[key] = value; });
+
+    // Combine first + last name into student_name for the prompt
+    data.student_name = (data.student_first_name || '') + ' ' + (data.student_last_name || '');
+    data.student_name = data.student_name.trim();
 
     // Add priority rankings from drag order
     const priorityItems = document.querySelectorAll('#priority-grid .priority-item');
