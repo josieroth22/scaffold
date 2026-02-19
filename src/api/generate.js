@@ -122,7 +122,7 @@ ${data.additional_context}
 
 ### SECTION 4: OUTPUT INSTRUCTIONS
 
-Generate Tier 1 ONLY: The Strategy Brief (~5,000 words). Do NOT generate the Reference Sections (Tier 2) yet. Tier 2 will be requested separately.
+Generate the Strategy Brief (~5,000 words). This is the core document the parent reads the day they get it. Write it like you're talking directly to them. Reference Sections will follow separately, so stop after the Monte Carlo Parameter Table.
 
 ---
 
@@ -150,7 +150,7 @@ End with a clearly formatted **Monte Carlo Parameter Table**. For each school on
    - Estimated net annual cost at this family's income level
    - Any special program probabilities (QuestBridge, recruited athlete, etc.)
 
-**STOP after the Monte Carlo Parameter Table. Do not write Tier 2 / Reference Sections.**
+Stop after the Monte Carlo Parameter Table. The Reference Sections come next in a separate pass.
 
 ---
 

@@ -48,9 +48,7 @@ module.exports = async function handler(req, res) {
 
   const tier1Output = data.output;
 
-  const prompt = `You previously generated Tier 1 (The Strategy Brief) for a family's college strategy document. Now generate Tier 2: The Reference Sections.
-
-Here is the family's information and the Tier 1 output you already wrote. Use the same schools, same narrative threads, same financial assumptions, and same tone. Tier 2 should be fully consistent with Tier 1.
+  const prompt = `You wrote the Strategy Brief below for this family. Now write the Reference Sections. These are the detailed planning tools the parent comes back to over the years. Keep the same voice, the same schools, the same financial assumptions. Write like you're still talking to the same parent. Use their kid's name. Be specific.
 
 ---
 
@@ -92,7 +90,7 @@ Then generate each of these sections. Each should stand alone so a parent can ju
 - Senior Year Application Timeline (month-by-month from August through May)
 - External Scholarships table
 
-**TONE:** Same as Tier 1. Direct, honest, specific. Not consultant-speak. No em dashes. Use commas, periods, or restructure the sentence.`;
+**TONE:** Direct, honest, specific. Not consultant-speak. Acknowledge uncertainty. Use the family's own language and values. Reference specific details they provided naturally throughout. The plan should feel like it was written by a smart friend who knows college admissions, not by a brochure. Use humor sparingly but don't be afraid of it. Call out the parents directly when needed. No em dashes. Use commas, periods, or restructure the sentence.`;
 
   try {
     res.setHeader("Content-Type", "text/event-stream");
