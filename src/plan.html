@@ -136,7 +136,11 @@
   .toc {
     max-width: 780px;
     margin: 0 auto;
-    padding: 2rem 2rem 0;
+    padding: 1.75rem 2rem;
+    background: var(--cream);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    margin-top: 2rem;
   }
 
   .toc-title {
@@ -145,15 +149,21 @@
     text-transform: uppercase;
     letter-spacing: 0.12em;
     color: var(--sage);
-    margin-bottom: 0.75rem;
+    margin-bottom: 1rem;
+    padding-bottom: 0.6rem;
+    border-bottom: 1px solid var(--border);
   }
 
   .toc-list {
     list-style: none;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.4rem 1rem;
     margin-bottom: 0;
+    columns: 2;
+    column-gap: 2rem;
+  }
+
+  .toc-list li {
+    break-inside: avoid;
+    margin-bottom: 0.2rem;
   }
 
   .toc-list a {
@@ -161,9 +171,22 @@
     color: var(--muted);
     text-decoration: none;
     padding: 0.3rem 0;
+    display: block;
     transition: color 0.2s;
   }
   .toc-list a:hover { color: var(--sage); }
+
+  .toc-list .toc-h1 a {
+    font-weight: 600;
+    color: var(--ink);
+    font-size: 0.85rem;
+    margin-top: 0.6rem;
+  }
+  .toc-list .toc-h1:first-child a { margin-top: 0; }
+  .toc-list .toc-h1 a:hover { color: var(--sage); }
+
+  .toc-list .toc-h2 { padding-left: 0.75rem; }
+  .toc-list .toc-h2 a { font-size: 0.78rem; }
 
   /* ---- STRATEGY BODY ---- */
   .strategy-body {
@@ -174,30 +197,39 @@
 
   .strategy-body h1 {
     font-family: 'Newsreader', serif;
-    font-size: 1.8rem;
+    font-size: 1.9rem;
     font-weight: 500;
     letter-spacing: -0.02em;
-    margin-top: 3rem;
-    margin-bottom: 0.5rem;
+    margin-top: 3.5rem;
+    margin-bottom: 0.25rem;
     padding-top: 2.5rem;
-    border-top: 2px solid var(--sage-light);
+    border-top: 3px solid var(--sage);
     scroll-margin-top: 80px;
   }
 
   .strategy-body h1:first-child { margin-top: 0; padding-top: 0; border-top: none; }
 
+  .section-rule {
+    width: 36px;
+    height: 3px;
+    background: var(--sage-light);
+    border-radius: 2px;
+    margin-bottom: 1.25rem;
+  }
+
   .strategy-body h2 {
     font-family: 'Newsreader', serif;
-    font-size: 1.5rem;
+    font-size: 1.45rem;
     font-weight: 500;
     letter-spacing: -0.02em;
     margin-top: 2.75rem;
     margin-bottom: 0.4rem;
     padding-top: 2rem;
+    border-top: 1px solid var(--border);
     scroll-margin-top: 80px;
   }
 
-  .strategy-body h2:first-child { margin-top: 0; padding-top: 0; }
+  .strategy-body h2:first-child { margin-top: 0; padding-top: 0; border-top: none; }
 
   .strategy-body h3 {
     font-size: 1.05rem;
@@ -359,7 +391,8 @@
     .topbar { padding: 0 1rem; }
     .hero { padding: 5.5rem 1.25rem 2.5rem; }
     .strategy-body { padding: 1.5rem 1.25rem 3rem; }
-    .toc { padding: 1.5rem 1.25rem 0; }
+    .toc { padding: 1.25rem; margin-left: 1.25rem; margin-right: 1.25rem; }
+    .toc-list { columns: 1; }
     .strategy-body table { font-size: 0.75rem; }
     .strategy-body th, .strategy-body td { padding: 0.5rem; }
   }
@@ -495,14 +528,15 @@
     return html;
   }
 
-  // Build table of contents from h1 and h2 elements
+  // Build table of contents with two levels
   function buildToc(container) {
     const headings = container.querySelectorAll('h1[id], h2[id]');
-    if (headings.length < 3) return; // Not enough sections for a TOC
+    if (headings.length < 3) return;
 
     const tocList = document.getElementById('toc-list');
     headings.forEach(h => {
       const li = document.createElement('li');
+      li.className = h.tagName === 'H1' ? 'toc-h1' : 'toc-h2';
       const a = document.createElement('a');
       a.href = '#' + h.id;
       a.textContent = h.textContent;
@@ -511,6 +545,13 @@
     });
 
     document.getElementById('toc').style.display = 'block';
+
+    // Add section rules after h1 headers in the content
+    container.querySelectorAll('h1[id]').forEach(h1 => {
+      const rule = document.createElement('div');
+      rule.className = 'section-rule';
+      h1.after(rule);
+    });
   }
 
   // Load the plan
