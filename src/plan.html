@@ -255,8 +255,11 @@
 
   .section-content {
     overflow: hidden;
-    transition: max-height 0.35s ease, opacity 0.25s ease;
     opacity: 1;
+  }
+
+  .section-content.collapsible {
+    transition: max-height 0.35s ease, opacity 0.25s ease;
   }
 
   .section-content.collapsed {
@@ -1472,17 +1475,16 @@
       // Only wrap if there's content to collapse
       if (content.children.length > 0) {
         h2.after(content);
-        // Set max-height to actual content height (avoids 5000px cap)
-        content.style.maxHeight = content.scrollHeight + 'px';
         h2.addEventListener('click', () => {
           if (content.classList.contains('collapsed')) {
-            // Expanding: recalculate in case content changed
+            // Expanding
             content.classList.remove('collapsed');
             h2.classList.remove('collapsed');
             content.style.maxHeight = content.scrollHeight + 'px';
           } else {
             // Collapsing: set explicit height first for smooth transition
             content.style.maxHeight = content.scrollHeight + 'px';
+            content.classList.add('collapsible');
             requestAnimationFrame(() => {
               h2.classList.add('collapsed');
               content.classList.add('collapsed');
