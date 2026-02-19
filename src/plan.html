@@ -232,6 +232,38 @@
     border-top: 1px solid var(--border);
     scroll-margin-top: 80px;
     text-wrap: balance;
+    cursor: pointer;
+    user-select: none;
+    display: flex;
+    align-items: baseline;
+    gap: 0.5rem;
+  }
+
+  .strategy-body h2::after {
+    content: '▾';
+    font-size: 0.85rem;
+    color: var(--muted);
+    transition: transform 0.2s;
+    flex-shrink: 0;
+  }
+
+  .strategy-body h2.collapsed::after {
+    transform: rotate(-90deg);
+  }
+
+  .strategy-body h2:hover::after { color: var(--sage); }
+
+  .section-content {
+    overflow: hidden;
+    transition: max-height 0.3s ease, opacity 0.25s ease;
+    max-height: 5000px;
+    opacity: 1;
+  }
+
+  .section-content.collapsed {
+    max-height: 0;
+    opacity: 0;
+    margin: 0;
   }
 
   .strategy-body h2:first-child { margin-top: 0; padding-top: 0; border-top: none; }
@@ -1405,6 +1437,32 @@
     });
   }
 
+  // Wrap content between h2 headings into collapsible sections
+  function makeCollapsible(container) {
+    const h2s = container.querySelectorAll('h2[id]');
+    h2s.forEach(h2 => {
+      // Collect all siblings between this h2 and the next h1/h2
+      const content = document.createElement('div');
+      content.className = 'section-content';
+
+      let next = h2.nextElementSibling;
+      while (next && next.tagName !== 'H1' && next.tagName !== 'H2') {
+        const toMove = next;
+        next = next.nextElementSibling;
+        content.appendChild(toMove);
+      }
+
+      // Only wrap if there's content to collapse
+      if (content.children.length > 0) {
+        h2.after(content);
+        h2.addEventListener('click', () => {
+          h2.classList.toggle('collapsed');
+          content.classList.toggle('collapsed');
+        });
+      }
+    });
+  }
+
   // Build table of contents with two columns: Strategy Brief | Reference Sections
   function buildToc(container) {
     const headings = container.querySelectorAll('h1[id], h2[id]');
@@ -1425,6 +1483,18 @@
       const a = document.createElement('a');
       a.href = '#' + h.id;
       a.textContent = h.textContent;
+      a.addEventListener('click', e => {
+        e.preventDefault();
+        const target = document.getElementById(h.id);
+        if (target && target.classList.contains('collapsed')) {
+          target.classList.remove('collapsed');
+          const wrapper = target.nextElementSibling;
+          if (wrapper && wrapper.classList.contains('section-content')) {
+            wrapper.classList.remove('collapsed');
+          }
+        }
+        target.scrollIntoView({ behavior: 'smooth' });
+      });
       li.appendChild(a);
 
       if (inRefSections) {
@@ -1460,7 +1530,16 @@
       a.dataset.target = h.id;
       a.addEventListener('click', e => {
         e.preventDefault();
-        document.getElementById(h.id).scrollIntoView({ behavior: 'smooth' });
+        const target = document.getElementById(h.id);
+        // If this is a collapsed h2, expand it first
+        if (target && target.classList.contains('collapsed')) {
+          target.classList.remove('collapsed');
+          const wrapper = target.nextElementSibling;
+          if (wrapper && wrapper.classList.contains('section-content')) {
+            wrapper.classList.remove('collapsed');
+          }
+        }
+        target.scrollIntoView({ behavior: 'smooth' });
       });
       li.appendChild(a);
       list.appendChild(li);
@@ -1746,6 +1825,9 @@
 
       // Enhance tables, badges, and inline tags
       enhanceContent(body);
+
+      // Make h2 sections collapsible
+      makeCollapsible(body);
 
       // Build table of contents
       buildToc(body);
