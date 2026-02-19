@@ -80,15 +80,21 @@ Start with this divider:
 
 Then generate each of these sections. Each should stand alone so a parent can jump to "Essay Strategy" in year 3 without reading anything else:
 
-- Developmental Roadmap (grade-by-grade course tables, extracurricular plans, milestones, What Not to Do)
-- Activities List (10 items, Common App format)
-- Honors and Awards (projected, with aspirational vs likely flags)
+- Developmental Roadmap (grade-by-grade course tables, extracurricular plans, summer plans for each remaining summer, milestones, What Not to Do). Note course rigor relative to what this student's school likely offers.
+- Activities List (10 items, Common App format). CRITICAL: Clearly label each activity as "Current" or "Projected." For projected activities, describe the target role and trajectory, NOT fabricated accomplishments. Do not invent specific outcomes like "won award" or "increased membership 40%" for things that haven't happened yet. Write realistic descriptions of what the student should AIM for.
+- Honors and Awards (projected, with "Likely" vs "Aspirational" flags)
 - Essay Strategy (Common App angle, supplemental essay table by school, what the essay should NOT be)
-- Recommendation Letter Strategy (who, when, what each letter should convey)
+- Recommendation Letter Strategy (describe the TYPE of teacher needed, not specific names. When to ask, what each letter should convey, how to make the ask)
 - Writing Portfolio or Maker Portfolio Guidance (if applicable: arts supplement, engineering/maker portfolio with project documentation and photos, research abstract, athletic recruitment materials, or other supplemental materials)
 - Financial Aid Negotiation Guide (how to compare offers side by side, when and how to ask schools to match competing packages, which schools have flexibility)
-- Senior Year Application Timeline (month-by-month from August through May)
-- External Scholarships table
+- Senior Year Application Timeline (month-by-month from August through May, including specific application rounds for each school)
+- External Scholarships: Do NOT invent specific local scholarship names or deadlines. Instead, recommend TYPES of scholarships to search for (e.g., "local bar association scholarships," "community foundation awards"), name well-known national scholarships that apply, and tell the family exactly where to search (school counselor's list, state scholarship database URL, Scholarships360, Going Merry, FastWeb). Include a realistic time-investment analysis.
+
+**CRITICAL RULES:**
+- Never invent teacher names, counselor names, coach names, or any person's name the family didn't provide.
+- Never write projected activities or awards as though they already happened. Label "Current" vs "Projected" vs "Aspirational."
+- Never fabricate local scholarship names or deadlines. Recommend search strategies instead.
+- Never fabricate specific dollar amounts for scholarships. Use ranges or say "check the school's website."
 
 **TONE:** Direct, honest, specific. Not consultant-speak. Acknowledge uncertainty. Use the family's own language and values. Reference specific details they provided naturally throughout. The plan should feel like it was written by a smart friend who knows college admissions, not by a brochure. Use humor sparingly but don't be afraid of it. Call out the parents directly when needed. No em dashes. Use commas, periods, or restructure the sentence.`;
 

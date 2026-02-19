@@ -56,7 +56,12 @@ function buildPrompt(data) {
 
 Use the family details and priorities below to personalize everything. Be specific to our geography, schools, and community. Where you make assumptions, state them. Where something is uncertain, flag it as a decision point. Include "What Not to Do" guidance at each stage.
 
-**Important:** Only recommend Early Decision if it is genuinely the best strategic move for this family's financial situation. ED is binding and eliminates the ability to compare financial aid packages. For families where cost is a top priority or where the budget is tight, ED is usually the wrong call unless the school meets full demonstrated need and the family's EFC is clear. If ED doesn't make strategic sense, say so directly and explain why.
+**Application Strategy Principles:**
+- **Application round strategy:** For EACH school on the list, recommend a specific application round (EA, ED, ED2, RD) and explain why. Early Action is almost always better than Regular Decision when available. Only recommend Early Decision if it is genuinely the best strategic move for this family's financial situation. ED is binding and eliminates the ability to compare financial aid packages. For families where cost is a top priority or where the budget is tight, ED is usually the wrong call unless the school meets full demonstrated need and the family's EFC is clear. If ED doesn't make strategic sense, say so directly and explain why.
+- **Build a coherent application narrative ("spike"):** Modern admissions favors applicants with a clear, distinctive theme over generic well-roundedness. Identify the student's "spike" from their interests and activities, and build the entire strategy around deepening it. Every activity, essay, and recommender should reinforce the same story. Don't recommend starting random new activities just to fill boxes.
+- **Depth over breadth:** 3-4 activities pursued deeply with leadership and impact will always beat 10 activities at surface level. If the student already has a strong core, say "don't add anything new" rather than suggesting they join more clubs.
+- **Course rigor in context:** Admissions officers evaluate course load relative to what's available at the student's school. If the school offers 20 APs but the student takes 4, that's different from a school that offers 4 total. Recommend a course load that's rigorous FOR THIS SCHOOL, and note how it will look to admissions readers.
+- **Summer strategy is critical:** For each remaining summer before application, provide a specific plan. Summers between 10th-11th and 11th-12th are high-impact. Options: pre-college programs, internships, research, meaningful work, community service projects. A summer job is fine and shows maturity. Don't recommend expensive "resume padding" programs unless they're genuinely selective and valuable.
 
 **Financial Aid Knowledge You Must Apply:**
 - **No-merit schools:** All eight Ivy League schools, MIT, Stanford, Caltech, Georgetown, and most elite LACs (Amherst, Williams, Bowdoin, Pomona, Swarthmore, Wellesley, Middlebury, Colby, Barnard, Haverford, Reed) offer ONLY need-based aid. Never suggest a family will get a "merit scholarship" from these schools. If you recommend one of these schools, be explicit that aid is 100% need-based and tied to family income.
@@ -71,12 +76,15 @@ Use the family details and priorities below to personalize everything. Be specif
 - **State-specific opportunities:** Always research and recommend relevant state scholarship programs (e.g., Georgia HOPE/Zell Miller, Florida Bright Futures, Texas top 10% auto-admit, California UC/CSU system). These are often the highest-value, lowest-risk financial plays.
 - **Financial safeties:** Every school list MUST include at least one financial safety: a school where admission is near-certain AND the cost is affordable without significant aid. This is usually an in-state public. Name it explicitly and give the estimated cost.
 
-**Critical: Do Not Hallucinate.**
-- Never invent teacher names, counselor names, coach names, or any specific person's name that the family did not provide.
+**Critical: Do Not Hallucinate or Fabricate.**
+- Never invent teacher names, counselor names, coach names, or any specific person's name that the family did not provide. For recommendation letters, describe the TYPE of recommender needed (e.g., "a STEM teacher who has seen her problem-solving") rather than inventing names.
 - Never invent specific club names, program names, or organizations at the student's school unless you are confident they exist (e.g., well-known national programs like DECA, Science Olympiad, Key Club are fine; made-up school-specific clubs are not).
-- Never fabricate specific scholarship names or amounts. If you're unsure of the exact name or value, say "check the school's scholarship page" or give a range.
-- When citing admission rates, scholarship amounts, or financial data, note the source year. If you're uncertain, say so. A wrong number presented confidently is worse than an honest "this was approximately X as of [year], verify current figures."
-- For the recommendation letter strategy, describe the TYPE of recommender needed (e.g., "a STEM teacher who has seen her problem-solving," "the humanities teacher who knows his writing best") rather than inventing specific teacher names.
+- **Projected vs. current:** When writing a projected activities list or honors list, clearly label items as "Current" vs. "Projected" vs. "Aspirational." Never write projected future accomplishments as though they already happened. Don't invent specific outcomes (e.g., "Elected president," "Won regional award," "Increased membership 40%") for things that haven't occurred. Instead, describe the ROLE and TRAJECTORY (e.g., "Aim for captain by senior year," "Deepen involvement to 5+ hrs/week with a specific project").
+- **External scholarships:** Do NOT invent local scholarship names. Instead, recommend the family search their state's scholarship database, their school counselor's list, and sites like Scholarships360 or Going Merry. You may mention well-known national scholarships (Coca-Cola Scholars, QuestBridge, National Merit) and TYPES of local scholarships to search for (e.g., "bar association scholarships," "community foundation awards"), but do not fabricate specific names and deadlines.
+- When citing admission rates, scholarship amounts, or financial data, note that these are approximate and the family should verify current figures. Do not cite a specific "CDS year" unless you are confident the data is accurate. If you're estimating, say "approximately" or "as of recent data."
+- Never fabricate specific scholarship dollar amounts. Use ranges or say "check the school's scholarship page for current amounts."
+
+**Include a "What If the Profile Lands Lower" section.** For every plan, address what happens if test scores don't improve, if GPA drops, or if activities don't develop as projected. Give a concrete backup plan: which schools from the list are still solid options, what the financial picture looks like, and what changes in strategy. This section should feel reassuring, not scary. The point is: there's a good plan even in the downside scenario.
 
 The tone should be direct and honest, not salesy. Acknowledge uncertainty. Call out where the plan is optimistic and what happens if the kid's profile lands lower than projected.
 
@@ -150,26 +158,29 @@ Generate the Strategy Brief (~5,000 words). This is the core document the parent
 
 **Executive Summary (one page max):** This is the first thing the parent reads and the page they come back to. Include:
    - A brief projected applicant profile (3-4 sentences: GPA range, test score range, key strengths, key gaps)
-   - The school list as a simple table: school name, tier (reach/target/safety), estimated net annual cost, and financial risk rating (very low / moderate / high)
+   - The school list as a simple table: school name, tier (reach/target/safety), recommended application round (EA/ED/RD), estimated net annual cost, and financial risk rating (very low / moderate / high)
    - The top 3 things to do in the next 6 months (specific, actionable, no jargon)
    - The financial floor: the cheapest guaranteed-admission option with its estimated annual cost. Name the school, name the cost, and say clearly that this is the worst-case scenario and it's a good one.
 
 **Then continue with the full Strategy Brief, which should include:**
 - Executive Summary (already specified above)
 - The Four Threads (what the application narrative is built around)
-- School List with full financial analysis and honest commentary for each school (this is the core value, don't compress it)
+- School List with full financial analysis and honest commentary for each school. For each school include: recommended application round (EA/ED/RD) with reasoning, whether CSS Profile is required, whether the school tracks demonstrated interest, and what specific actions to take for that school. This is the core value, don't compress it.
 - QuestBridge explanation (if applicable to this family's income)
 - Financial Aid Strategy (FAFSA/CSS, non-custodial parent issues, state scholarships)
+- Summer Plan: Specific recommendations for each remaining summer before application season
 - Monte Carlo results summary (headline stats, the 3-5 decision scenarios, financial floor)
+- What If the Profile Lands Lower: Concrete backup plan if test scores, GPA, or activities don't develop as projected
 - What to Do Now (the 3-5 most important actions for the current stage)
 
 Write this as a continuous, readable document with the same direct tone. This is the thing a parent reads on their phone at midnight.
 
 End with a clearly formatted **Monte Carlo Parameter Table**. For each school on the list, provide:
-   - Admit probability (cite the CDS or published rate you're adjusting from)
-   - Merit scholarship probability and estimated amount
+   - Admit probability (note the approximate overall admit rate you're adjusting from; do not cite a specific CDS year unless you're confident in the number)
+   - Merit scholarship probability and estimated amount range
    - Honors program probability (if applicable)
    - Estimated net annual cost at this family's income level
+   - Recommended application round (EA/ED/RD)
    - Any special program probabilities (QuestBridge, recruited athlete, etc.)
 
 Stop after the Monte Carlo Parameter Table. The Reference Sections come next in a separate pass.
