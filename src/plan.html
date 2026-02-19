@@ -281,15 +281,22 @@
     margin: 2.5rem 0;
   }
 
+  /* ---- CALLOUT BOXES (blockquotes) ---- */
   .strategy-body blockquote {
-    font-family: 'Newsreader', serif;
-    font-style: italic;
-    font-size: 1.1rem;
+    font-family: 'DM Sans', sans-serif;
+    font-style: normal;
+    font-size: 0.88rem;
     border-left: 3px solid var(--sage);
-    padding-left: 1.25rem;
-    margin: 2rem 0;
-    color: var(--muted);
-    line-height: 1.5;
+    background: var(--sage-light);
+    padding: 1rem 1.25rem;
+    margin: 1.5rem 0;
+    border-radius: 0 8px 8px 0;
+    color: #3d3d3a;
+    line-height: 1.6;
+  }
+
+  .strategy-body blockquote strong {
+    color: var(--sage-dark);
   }
 
   /* Tables */
@@ -301,6 +308,12 @@
     border: 1px solid var(--border);
     border-radius: 8px;
     overflow: hidden;
+  }
+
+  .strategy-body thead {
+    position: sticky;
+    top: 52px;
+    z-index: 5;
   }
 
   .strategy-body th {
@@ -323,7 +336,83 @@
     vertical-align: top;
   }
 
+  .strategy-body tbody tr:nth-child(even) td {
+    background: rgba(248, 245, 240, 0.5);
+  }
+
   .strategy-body tr:hover td { background: rgba(232,237,230,0.3); }
+
+  /* Tier badges in table cells */
+  .tier-badge {
+    display: inline-block;
+    font-size: 0.65rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 0.15rem 0.5rem;
+    border-radius: 3px;
+    white-space: nowrap;
+  }
+  .tier-reach { background: var(--terra-light); color: var(--terra); }
+  .tier-target { background: var(--sage-light); color: var(--sage-dark); }
+  .tier-safety { background: var(--cream); color: var(--muted); border: 1px solid var(--border); }
+
+  /* Financial risk badges */
+  .risk-badge {
+    display: inline-block;
+    font-size: 0.65rem;
+    font-weight: 600;
+    padding: 0.1rem 0.4rem;
+    border-radius: 3px;
+    white-space: nowrap;
+  }
+  .risk-very-low { background: #e8f5e9; color: #2e7d32; }
+  .risk-low { background: #e8f5e9; color: #2e7d32; }
+  .risk-moderate { background: #fff8e1; color: #f57f17; }
+  .risk-high { background: #fce4ec; color: #c62828; }
+
+  /* First table (exec summary) gets special treatment */
+  .strategy-body table.exec-summary {
+    border: 2px solid var(--sage);
+    font-size: 0.85rem;
+  }
+  .strategy-body table.exec-summary th {
+    background: var(--sage);
+    color: white;
+    font-size: 0.7rem;
+    border-bottom-color: var(--sage-dark);
+  }
+  .strategy-body table.exec-summary td {
+    padding: 0.75rem;
+  }
+
+  /* ---- BACK TO TOP ---- */
+  .back-to-top {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    width: 40px;
+    height: 40px;
+    background: var(--sage);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s, background 0.2s;
+    pointer-events: none;
+    z-index: 50;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  }
+  .back-to-top.visible {
+    opacity: 1;
+    pointer-events: auto;
+  }
+  .back-to-top:hover { background: var(--sage-dark); }
 
   /* ---- LOADING ---- */
   .loading {
@@ -400,6 +489,7 @@
     .toc-columns { grid-template-columns: 1fr; }
     .strategy-body table { font-size: 0.75rem; }
     .strategy-body th, .strategy-body td { padding: 0.5rem; }
+    .back-to-top { bottom: 1rem; right: 1rem; }
   }
 </style>
 </head>
@@ -414,6 +504,9 @@
     <a href="intake.html" class="topbar-cta">Get Your Plan</a>
   </div>
 </nav>
+
+<!-- BACK TO TOP -->
+<button class="back-to-top" id="back-to-top" title="Back to top">&uarr;</button>
 
 <!-- LOADING STATE -->
 <div class="loading" id="loading">
@@ -454,12 +547,19 @@
 </div>
 
 <script>
-  // Read scroll progress
+  // Scroll progress + back to top
+  const backBtn = document.getElementById('back-to-top');
   window.addEventListener('scroll', () => {
     const bar = document.getElementById('progress-bar');
     const h = document.documentElement.scrollHeight - window.innerHeight;
     if (h > 0) bar.style.width = (window.scrollY / h * 100) + '%';
+    if (window.scrollY > 600) {
+      backBtn.classList.add('visible');
+    } else {
+      backBtn.classList.remove('visible');
+    }
   });
+  backBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 
   // Markdown to HTML converter
   function markdownToHtml(md) {
@@ -534,6 +634,45 @@
     html = html.replace(/__ID__/g, () => 'section-' + (idCounter++));
 
     return html;
+  }
+
+  // Post-process: add tier badges and risk badges to table cells
+  function enhanceTables(container) {
+    const tables = container.querySelectorAll('table');
+    let isFirst = true;
+
+    tables.forEach(table => {
+      // Make the first table the exec summary
+      if (isFirst) {
+        table.classList.add('exec-summary');
+        isFirst = false;
+      }
+
+      // Process all cells for tier and risk badges
+      table.querySelectorAll('td').forEach(td => {
+        const text = td.textContent.trim().toLowerCase();
+
+        // Tier badges
+        if (text === 'reach') {
+          td.innerHTML = '<span class="tier-badge tier-reach">Reach</span>';
+        } else if (text === 'target') {
+          td.innerHTML = '<span class="tier-badge tier-target">Target</span>';
+        } else if (text === 'safety') {
+          td.innerHTML = '<span class="tier-badge tier-safety">Safety</span>';
+        }
+
+        // Financial risk badges
+        if (text === 'very low') {
+          td.innerHTML = '<span class="risk-badge risk-very-low">Very Low</span>';
+        } else if (text === 'low') {
+          td.innerHTML = '<span class="risk-badge risk-low">Low</span>';
+        } else if (text === 'moderate') {
+          td.innerHTML = '<span class="risk-badge risk-moderate">Moderate</span>';
+        } else if (text === 'high') {
+          td.innerHTML = '<span class="risk-badge risk-high">High</span>';
+        }
+      });
+    });
   }
 
   // Build table of contents with two columns: Strategy Brief | Reference Sections
@@ -615,6 +754,9 @@
       // Render content
       const body = document.getElementById('strategy-body');
       body.innerHTML = markdownToHtml(data.output);
+
+      // Enhance tables with badges
+      enhanceTables(body);
 
       // Build table of contents
       buildToc(body);
