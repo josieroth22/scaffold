@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Scaffold Admin</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1a1a18;
+    --cream: #f8f5f0;
+    --warm-white: #fdfcfa;
+    --sage: #4a6741;
+    --sage-light: #e8ede6;
+    --muted: #6b6860;
+    --border: #d9d4cc;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'DM Sans', sans-serif; color: var(--ink); background: var(--warm-white); padding: 2rem; }
+  h1 { font-size: 1.4rem; font-weight: 600; margin-bottom: 0.5rem; }
+  .subtitle { font-size: 0.85rem; color: var(--muted); margin-bottom: 2rem; }
+  .gate { text-align: center; padding: 4rem 1rem; }
+  .gate input { padding: 0.6rem 1rem; border: 1px solid var(--border); border-radius: 6px; font-size: 0.9rem; font-family: 'DM Sans', sans-serif; width: 200px; }
+  .gate button { padding: 0.6rem 1.25rem; background: var(--sage); color: white; border: none; border-radius: 6px; font-size: 0.9rem; font-weight: 600; cursor: pointer; margin-left: 0.5rem; font-family: 'DM Sans', sans-serif; }
+  table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+  th { text-align: left; padding: 0.6rem 0.75rem; background: var(--cream); border: 1px solid var(--border); font-weight: 600; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.03em; }
+  td { padding: 0.6rem 0.75rem; border: 1px solid var(--border); }
+  .status-generating { color: #b8860b; font-weight: 600; }
+  .status-completed { color: var(--sage); font-weight: 600; }
+  .btn-view { font-size: 0.78rem; color: var(--sage); font-weight: 600; cursor: pointer; text-decoration: underline; background: none; border: none; font-family: 'DM Sans', sans-serif; }
+  .empty { text-align: center; padding: 3rem; color: var(--muted); }
+  .detail-panel { margin-top: 2rem; padding: 1.5rem; background: var(--cream); border: 1px solid var(--border); border-radius: 8px; display: none; }
+  .detail-panel h2 { font-size: 1.1rem; margin-bottom: 1rem; }
+  .detail-section { margin-bottom: 1.5rem; }
+  .detail-section h3 { font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--sage); margin-bottom: 0.5rem; }
+  .detail-section pre { background: white; border: 1px solid var(--border); border-radius: 6px; padding: 1rem; font-size: 0.82rem; white-space: pre-wrap; word-wrap: break-word; max-height: 400px; overflow-y: auto; font-family: 'DM Sans', sans-serif; line-height: 1.6; }
+  .close-btn { float: right; font-size: 0.82rem; color: var(--muted); cursor: pointer; background: none; border: none; font-family: 'DM Sans', sans-serif; }
+</style>
+</head>
+<body>
+
+<div class="gate" id="gate">
+  <h1>Scaffold Admin</h1>
+  <p class="subtitle">Enter admin code to view submissions</p>
+  <input type="password" id="code-input" placeholder="Admin code">
+  <button onclick="login()">Enter</button>
+</div>
+
+<div id="dashboard" style="display: none;">
+  <h1>Submissions</h1>
+  <p class="subtitle" id="count"></p>
+  <table id="table" style="display: none;">
+    <thead>
+      <tr>
+        <th>Student</th>
+        <th>City</th>
+        <th>Income</th>
+        <th>Email</th>
+        <th>Status</th>
+        <th>Submitted</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody id="tbody"></tbody>
+  </table>
+  <div class="empty" id="empty" style="display: none;">No submissions yet.</div>
+  <div class="detail-panel" id="detail">
+    <button class="close-btn" onclick="closeDetail()">Close</button>
+    <h2 id="detail-title"></h2>
+    <div class="detail-section">
+      <h3>Form Data</h3>
+      <pre id="detail-form"></pre>
+    </div>
+    <div class="detail-section">
+      <h3>Generated Output</h3>
+      <pre id="detail-output"></pre>
+    </div>
+  </div>
+</div>
+
+<script>
+  let adminCode = '';
+
+  function login() {
+    adminCode = document.getElementById('code-input').value;
+    loadSubmissions();
+  }
+
+  document.getElementById('code-input').addEventListener('keypress', e => {
+    if (e.key === 'Enter') login();
+  });
+
+  async function loadSubmissions() {
+    try {
+      const res = await fetch('/api/submissions?code=' + encodeURIComponent(adminCode));
+      if (!res.ok) {
+        alert('Invalid code');
+        return;
+      }
+      const data = await res.json();
+      document.getElementById('gate').style.display = 'none';
+      document.getElementById('dashboard').style.display = 'block';
+
+      const subs = data.submissions || [];
+      document.getElementById('count').textContent = subs.length + ' submission' + (subs.length !== 1 ? 's' : '');
+
+      if (subs.length === 0) {
+        document.getElementById('empty').style.display = 'block';
+        return;
+      }
+
+      document.getElementById('table').style.display = 'table';
+      const tbody = document.getElementById('tbody');
+      tbody.innerHTML = '';
+
+      for (const s of subs) {
+        const tr = document.createElement('tr');
+        const date = s.submitted_at ? new Date(s.submitted_at).toLocaleDateString() + ' ' + new Date(s.submitted_at).toLocaleTimeString() : '-';
+        tr.innerHTML = `
+          <td><strong>${s.student_name || '-'}</strong></td>
+          <td>${s.city || '-'}</td>
+          <td>${s.income || '-'}</td>
+          <td>${s.email || '-'}</td>
+          <td class="status-${s.status}">${s.status || '-'}</td>
+          <td>${date}</td>
+          <td><button class="btn-view" onclick="viewSubmission('${s.id}')">View</button></td>
+        `;
+        tbody.appendChild(tr);
+      }
+    } catch (err) {
+      alert('Error: ' + err.message);
+    }
+  }
+
+  async function viewSubmission(id) {
+    try {
+      const res = await fetch('/api/submission?code=' + encodeURIComponent(adminCode) + '&id=' + id);
+      const data = await res.json();
+
+      document.getElementById('detail-title').textContent = (data.student_name || 'Unknown') + ' - ' + (data.city || '');
+      document.getElementById('detail-form').textContent = JSON.stringify(data.form_data || {}, null, 2);
+      document.getElementById('detail-output').textContent = data.output || '(No output yet)';
+      document.getElementById('detail').style.display = 'block';
+      document.getElementById('detail').scrollIntoView({ behavior: 'smooth' });
+    } catch (err) {
+      alert('Error loading submission: ' + err.message);
+    }
+  }
+
+  function closeDetail() {
+    document.getElementById('detail').style.display = 'none';
+  }
+</script>
+</body>
+</html>

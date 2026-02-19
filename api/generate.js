@@ -1,6 +1,11 @@
 const Anthropic = require("@anthropic-ai/sdk");
+const { Redis } = require("@upstash/redis");
 
 const client = new Anthropic.default();
+const redis = new Redis({
+  url: process.env.KV_REST_API_URL,
+  token: process.env.KV_REST_API_TOKEN,
+});
 
 // Build the filled prompt from form data
 function buildPrompt(data) {
@@ -200,11 +205,38 @@ module.exports = async function handler(req, res) {
 
   const prompt = buildPrompt(data);
 
+  // Generate a unique ID for this submission
+  const id = Date.now().toString(36) + Math.random().toString(36).slice(2, 8);
+
+  // Store the submission immediately
+  try {
+    await redis.hset(`submission:${id}`, {
+      id,
+      student_name: data.student_name,
+      email: data.email || "",
+      city: data.city || "",
+      income: data.income || "",
+      submitted_at: new Date().toISOString(),
+      status: "generating",
+      form_data: JSON.stringify(data),
+    });
+    // Add to the submissions list
+    await redis.lpush("submissions", id);
+  } catch (storeErr) {
+    console.error("Failed to store submission:", storeErr);
+    // Don't block generation if storage fails
+  }
+
   try {
     // Stream the response
     res.setHeader("Content-Type", "text/event-stream");
     res.setHeader("Cache-Control", "no-cache");
     res.setHeader("Connection", "keep-alive");
+
+    // Send the ID to the client
+    res.write(`data: ${JSON.stringify({ id })}\n\n`);
+
+    let fullOutput = "";
 
     const stream = await client.messages.stream({
       model: "claude-opus-4-20250514",
@@ -217,11 +249,23 @@ module.exports = async function handler(req, res) {
         event.type === "content_block_delta" &&
         event.delta.type === "text_delta"
       ) {
+        fullOutput += event.delta.text;
         res.write(`data: ${JSON.stringify({ text: event.delta.text })}\n\n`);
       }
     }
 
-    res.write(`data: ${JSON.stringify({ done: true })}\n\n`);
+    // Store the completed output
+    try {
+      await redis.hset(`submission:${id}`, {
+        status: "completed",
+        output: fullOutput,
+        completed_at: new Date().toISOString(),
+      });
+    } catch (storeErr) {
+      console.error("Failed to store output:", storeErr);
+    }
+
+    res.write(`data: ${JSON.stringify({ done: true, id })}\n\n`);
     res.end();
   } catch (err) {
     console.error("Generation error:", err);
