@@ -503,6 +503,54 @@
   }
   .gate a:hover { background: var(--sage-dark); }
 
+  .gate-divider {
+    font-size: 0.8rem;
+    color: var(--muted);
+    margin: 1.5rem auto;
+    max-width: 260px;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+  .gate-divider::before, .gate-divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+
+  .gate-code {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+  .gate-code input {
+    padding: 0.6rem 1rem;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    font-size: 0.9rem;
+    font-family: 'DM Sans', sans-serif;
+    width: 180px;
+  }
+  .gate-code button {
+    padding: 0.6rem 1.25rem;
+    background: var(--ink);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    font-family: 'DM Sans', sans-serif;
+  }
+  .gate-code button:hover { opacity: 0.85; }
+  .gate-code-error {
+    font-size: 0.82rem;
+    color: var(--error);
+    margin-top: 0.5rem;
+    display: none;
+  }
+
   /* ---- SECTION DIVIDER ---- */
   .section-divider {
     font-size: 0.68rem;
@@ -586,6 +634,12 @@
     <h2>You need a plan first</h2>
     <p>Purchase your Scaffold plan on the homepage, then you'll be directed here to fill in your family's details.</p>
     <a href="index.html#pricing">Get Your Plan ($50)</a>
+    <div class="gate-divider">or</div>
+    <div class="gate-code">
+      <input type="text" id="gate-code-input" placeholder="Enter code">
+      <button onclick="tryCode()">Go</button>
+    </div>
+    <p class="gate-code-error" id="gate-code-error">Invalid code. Try again.</p>
   </div>
 
   <!-- FORM -->
@@ -1012,14 +1066,33 @@
     const params = new URLSearchParams(window.location.search);
     const code = params.get('code');
     if (code === BYPASS_CODE) {
-      document.getElementById('intake-form').style.display = 'block';
-      document.querySelector('.progress-wrap').style.display = 'block';
+      unlockForm();
       return;
     }
     // For now, show the gate. Once Stripe is wired up, we'll check payment status.
     document.getElementById('gate').classList.add('active');
     document.querySelector('.progress-wrap').style.display = 'none';
   }
+
+  function unlockForm() {
+    document.getElementById('gate').classList.remove('active');
+    document.getElementById('gate').style.display = 'none';
+    document.getElementById('intake-form').style.display = 'block';
+    document.querySelector('.progress-wrap').style.display = 'block';
+  }
+
+  function tryCode() {
+    const input = document.getElementById('gate-code-input').value.trim();
+    if (input === BYPASS_CODE) {
+      unlockForm();
+    } else {
+      document.getElementById('gate-code-error').style.display = 'block';
+    }
+  }
+
+  document.getElementById('gate-code-input').addEventListener('keypress', e => {
+    if (e.key === 'Enter') tryCode();
+  });
 
   // Step navigation
   function showStep(n) {

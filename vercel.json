@@ -1,7 +1,7 @@
 {
   "outputDirectory": "src",
   "functions": {
-    "api/*.js": {
+    "src/api/*.js": {
       "maxDuration": 300
     }
   }
