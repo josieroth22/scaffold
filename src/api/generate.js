@@ -107,9 +107,9 @@ The tone should be direct and honest, not salesy. Acknowledge uncertainty. Call 
 
 ---
 
-### SECTION 1: YOUR FAMILY'S DETAILS
+### SECTION 1: ABOUT OUR FAMILY
 
-**The Kid:**
+**Our Kid:**
 - Name: ${data.student_name}
 - Age / Current grade: ${data.student_age_grade}
 - School (name and type): ${data.school_name}, ${data.school_type}
@@ -119,45 +119,45 @@ The tone should be direct and honest, not salesy. Acknowledge uncertainty. Call 
 - Academic weaknesses or gaps: ${data.academic_weaknesses}
 - Interests, hobbies, obsessions: ${data.interests}
 - Personality / temperament: ${data.personality}
-- Anything a teacher has said about them that stuck with you: ${data.teacher_quote || "Nothing specific shared"}
+- Anything a teacher has said that stuck with us: ${data.teacher_quote || "Nothing specific shared"}
 
-**The Parents:**
-- Parent 1: ${data.parent1_name}, ${data.parent1_education}, ${data.parent1_profession}
-- Parent 2: ${parent2}
+**About Us (the Parents):**
+- I'm ${data.parent1_name}, ${data.parent1_education}, ${data.parent1_profession}
+- My partner: ${parent2}
 - Family structure: ${data.family_structure}
 ${divorceSection}
 
-**Siblings (if any):**
+**Siblings:**
 ${data.siblings || "None / not specified"}
 
-**Geography:**
+**Where We Live:**
 - City and state: ${data.city}
 - Urban / suburban / rural: ${data.area_type}
 ${data.area_context ? "- Area context: " + data.area_context : ""}
 - Willing to relocate for a school? ${data.relocation}
 
-**Finances:**
+**Our Finances:**
 - Approximate household income: ${data.income}
 - Any significant assets: ${data.assets}
-- What can you realistically afford per year for college: ${data.college_budget}
+- What we can realistically afford per year for college: ${data.college_budget}
 - Any special financial circumstances: ${data.financial_special || "None specified"}
 
-**School Preferences:**
+**What We're Looking For in a School:**
 - Size preference: ${data.size_preference}
 - Geographic preference: ${data.geographic_preference}
-- Any must-haves: ${data.must_haves || "None specified"}
-- Any deal-breakers: ${data.deal_breakers || "None specified"}
-- Schools already on your radar: ${data.schools_on_radar || "None specified"}
+- Must-haves: ${data.must_haves || "None specified"}
+- Deal-breakers: ${data.deal_breakers || "None specified"}
+- Schools already on our radar: ${data.schools_on_radar || "None specified"}
 
 ---
 
-### SECTION 2: WHAT YOU CARE ABOUT
+### SECTION 2: WHAT MATTERS MOST TO US
 
-Rank these 1-7 (1 = most important):
+Our priorities, ranked (1 = most important):
 
 ${priorityLines}
 
-Anything else that matters to you that isn't on this list: ${data.priority_other || "Nothing additional"}
+Anything else that matters to us: ${data.priority_other || "Nothing additional"}
 
 ---
 

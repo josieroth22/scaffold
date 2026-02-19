@@ -54,17 +54,17 @@ module.exports = async function handler(req, res) {
 
   const prompt = `**Today's date is ${currentDate}.** All timelines, deadlines, summer plans, and recommendations must reflect this. Do not reference dates that have already passed. "This summer" means the upcoming summer, not a past one.
 
-You wrote the Strategy Brief below for this family. Now write the Reference Sections. These are the detailed planning tools the parent comes back to over the years. Keep the same voice, the same schools, the same financial assumptions. Write like you're still talking to the same parent. Use their kid's name. Be specific.
+You wrote the Strategy Brief below for our family. Now write the Reference Sections. These are the detailed planning tools I come back to over the years. Keep the same voice, the same schools, the same financial assumptions. Write like you're still talking to me. Use my kid's name. Be specific.
 
 ---
 
-**FAMILY DETAILS:**
-- Student: ${formData.student_name}, ${formData.student_age_grade}
+**ABOUT OUR FAMILY:**
+- Our kid: ${formData.student_name}, ${formData.student_age_grade}
 - School: ${formData.school_name}, ${formData.school_type}
-- City: ${formData.city}
-- Income: ${formData.income}
-- College budget: ${formData.college_budget}
-- Interests: ${formData.interests}
+- We live in: ${formData.city}
+- Our income: ${formData.income}
+- What we can afford for college: ${formData.college_budget}
+- Our kid's interests: ${formData.interests}
 - Academic profile: ${formData.academic_profile}
 
 ---
