@@ -1221,6 +1221,49 @@
     touchItem = null;
   });
 
+  // Stream an SSE response, calling onText for each chunk. Returns submission ID if present.
+  async function streamResponse(response, statusEl, progressEl, onText, pctStart, pctEnd) {
+    const reader = response.body.getReader();
+    const decoder = new TextDecoder();
+    let chunks = 0;
+    let submissionId = null;
+
+    while (true) {
+      const { done, value } = await reader.read();
+      if (done) break;
+
+      const text = decoder.decode(value);
+      const lines = text.split('\n');
+
+      for (const line of lines) {
+        if (!line.startsWith('data: ')) continue;
+        try {
+          const parsed = JSON.parse(line.slice(6));
+          if (parsed.id) submissionId = parsed.id;
+          if (parsed.text) {
+            onText(parsed.text);
+            chunks++;
+            const pct = Math.min(pctEnd, pctStart + (chunks / 500) * (pctEnd - pctStart));
+            progressEl.style.width = pct + '%';
+            if (chunks % 50 === 0) {
+              statusEl.textContent = 'Generating... (' + Math.round(pct) + '%)';
+            }
+          }
+          if (parsed.done || parsed.tier1_done) {
+            break;
+          }
+          if (parsed.error) {
+            throw new Error(parsed.error);
+          }
+        } catch (e) {
+          if (e.message && !e.message.includes('JSON')) throw e;
+        }
+      }
+    }
+
+    return submissionId;
+  }
+
   // Form submission
   async function submitForm() {
     // Validate step 7
@@ -1274,47 +1317,36 @@
         throw new Error('Server returned ' + response.status);
       }
 
-      const reader = response.body.getReader();
-      const decoder = new TextDecoder();
       let markdown = '';
-      let chunks = 0;
+      let submissionId = null;
 
       const statusEl = document.getElementById('gen-status');
       const progressEl = document.getElementById('gen-progress');
 
-      while (true) {
-        const { done, value } = await reader.read();
-        if (done) break;
+      // Stream Tier 1
+      submissionId = await streamResponse(response, statusEl, progressEl, (text) => {
+        markdown += text;
+      }, 0, 50);
 
-        const text = decoder.decode(value);
-        const lines = text.split('\n');
+      statusEl.textContent = 'Building reference sections...';
 
-        for (const line of lines) {
-          if (!line.startsWith('data: ')) continue;
-          try {
-            const parsed = JSON.parse(line.slice(6));
-            if (parsed.text) {
-              markdown += parsed.text;
-              chunks++;
-              // Update progress (estimate: ~800 chunks for a full doc)
-              const pct = Math.min(95, 5 + (chunks / 800) * 90);
-              progressEl.style.width = pct + '%';
-              if (chunks % 50 === 0) {
-                statusEl.textContent = 'Generating... (' + Math.round(pct) + '%)';
-              }
-            }
-            if (parsed.done) {
-              progressEl.style.width = '100%';
-              statusEl.textContent = 'Done!';
-            }
-            if (parsed.error) {
-              throw new Error(parsed.error);
-            }
-          } catch (e) {
-            if (e.message && !e.message.includes('JSON')) throw e;
-          }
-        }
+      // Stream Tier 2
+      const tier2Response = await fetch('/api/generate-tier2', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ id: submissionId }),
+      });
+
+      if (!tier2Response.ok) {
+        throw new Error('Tier 2 failed: ' + tier2Response.status);
       }
+
+      await streamResponse(tier2Response, statusEl, progressEl, (text) => {
+        markdown += text;
+      }, 50, 100);
+
+      progressEl.style.width = '100%';
+      statusEl.textContent = 'Done!';
 
       // Store the result
       localStorage.setItem('scaffold_result', markdown);

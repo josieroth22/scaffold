@@ -122,23 +122,17 @@ ${data.additional_context}
 
 ### SECTION 4: OUTPUT INSTRUCTIONS
 
-Generate the output as a single comprehensive strategy document (Phase 1 only, no Python code).
+Generate Tier 1 ONLY: The Strategy Brief (~5,000 words). Do NOT generate the Reference Sections (Tier 2) yet. Tier 2 will be requested separately.
 
 ---
 
-**PHASE 1: Strategy Document**
-
-1. **Executive Summary (one page max):** This is the first thing the parent reads and the page they come back to. Include:
+**Executive Summary (one page max):** This is the first thing the parent reads and the page they come back to. Include:
    - A brief projected applicant profile (3-4 sentences: GPA range, test score range, key strengths, key gaps)
    - The school list as a simple table: school name, tier (reach/target/safety), estimated net annual cost, and financial risk rating (very low / moderate / high)
    - The top 3 things to do in the next 6 months (specific, actionable, no jargon)
    - The financial floor: the cheapest guaranteed-admission option with its estimated annual cost. Name the school, name the cost, and say clearly that this is the worst-case scenario and it's a good one.
 
-Generate the strategy document in two tiers:
-
-**Tier 1: The Strategy Brief (~5,000 words)**
-
-This is what the parent reads the day they get it. It should include:
+**Then continue with the full Strategy Brief, which should include:**
 - Executive Summary (already specified above)
 - The Four Threads (what the application narrative is built around)
 - School List with full financial analysis and honest commentary for each school (this is the core value, don't compress it)
@@ -147,36 +141,16 @@ This is what the parent reads the day they get it. It should include:
 - Monte Carlo results summary (headline stats, the 3-5 decision scenarios, financial floor)
 - What to Do Now (the 3-5 most important actions for the current stage)
 
-Write Tier 1 as a continuous, readable document with the same direct tone. This is the thing a parent reads on their phone at midnight.
+Write this as a continuous, readable document with the same direct tone. This is the thing a parent reads on their phone at midnight.
 
-**Tier 2: The Reference Sections**
-
-These are detailed sections the parent comes back to over the years. Each should stand alone and be clearly labeled so a parent can jump to "Essay Strategy" in year 3 without reading anything else. Include:
-- Developmental Roadmap (grade-by-grade course tables, extracurricular plans, milestones, What Not to Do)
-- Activities List (10 items, Common App format)
-- Honors and Awards (projected, with aspirational vs likely flags)
-- Essay Strategy (Common App angle, supplemental essay table by school, what the essay should NOT be)
-- Recommendation Letter Strategy (who, when, what each letter should convey)
-- Writing Portfolio or Maker Portfolio Guidance (if applicable: arts supplement, engineering/maker portfolio with project documentation and photos, research abstract, athletic recruitment materials, or other supplemental materials)
-- Financial Aid Negotiation Guide (how to compare offers side by side, when and how to ask schools to match competing packages, which schools have flexibility)
-- Senior Year Application Timeline (month-by-month from August through May)
-- External Scholarships table
-
-Mark the transition between Tier 1 and Tier 2 with a clear divider like:
-
----
-# REFERENCE SECTIONS
-*The sections below are detailed planning tools. Come back to them when you need them.*
----
-
-The total document will still be comprehensive, but the first ~5,000 words should give a parent everything they need to understand the strategy and take action today.
-
-End Phase 1 with a clearly formatted **Monte Carlo Parameter Table**. For each school on the list, provide:
+End with a clearly formatted **Monte Carlo Parameter Table**. For each school on the list, provide:
    - Admit probability (cite the CDS or published rate you're adjusting from)
    - Merit scholarship probability and estimated amount
    - Honors program probability (if applicable)
    - Estimated net annual cost at this family's income level
    - Any special program probabilities (QuestBridge, recruited athlete, etc.)
+
+**STOP after the Monte Carlo Parameter Table. Do not write Tier 2 / Reference Sections.**
 
 ---
 
@@ -261,18 +235,17 @@ module.exports = async function handler(req, res) {
       }
     }
 
-    // Store the completed output
+    // Store the Tier 1 output
     try {
       await redis.hset(`submission:${id}`, {
-        status: "completed",
+        status: "tier1_complete",
         output: fullOutput,
-        completed_at: new Date().toISOString(),
       });
     } catch (storeErr) {
       console.error("Failed to store output:", storeErr);
     }
 
-    res.write(`data: ${JSON.stringify({ done: true, id })}\n\n`);
+    res.write(`data: ${JSON.stringify({ tier1_done: true, id })}\n\n`);
     res.end();
   } catch (err) {
     console.error("Generation error:", err);
