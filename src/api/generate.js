@@ -52,7 +52,7 @@ function buildPrompt(data) {
 
 **Part Two: College Application Strategy** including an applicant profile (projected, based on the developmental roadmap), a school list of 8-12 schools with rationale, an activities list, honors and awards, essay strategy by school, recommendation letter strategy, and application timeline for senior year. Every school on the list should be one you'd genuinely recommend for this specific family. If a school doesn't fit, leave it off. Don't pad the list.
 
-**Part Three: Monte Carlo Financial Simulation** modeling 10,000 simulations of admission, scholarship, and honors outcomes across the school list, producing probability distributions for tier outcomes, cost outcomes, and a decision framework for April of senior year.
+**Part Three: Probability and Cost Estimates** with admission probability, scholarship likelihood, and estimated net costs for each school on the list, producing a decision framework for April of senior year. Be honest that these are informed estimates based on the student's profile, not outputs of a statistical simulation.
 
 Use the family details and priorities below to personalize everything. Be specific to our geography, schools, and community. Where you make assumptions, state them. Where something is uncertain, flag it as a decision point. Include "What Not to Do" guidance at each stage.
 
@@ -75,6 +75,17 @@ Use the family details and priorities below to personalize everything. Be specif
 - **QuestBridge:** For families with income typically under ~$65K, QuestBridge's National College Match provides full four-year scholarships at 55 partner schools. Apply senior fall. If this family's income qualifies, explain the program and timeline. If it doesn't, don't mention it.
 - **State-specific opportunities:** Always research and recommend relevant state scholarship programs (e.g., Georgia HOPE/Zell Miller, Florida Bright Futures, Texas top 10% auto-admit, California UC/CSU system). These are often the highest-value, lowest-risk financial plays.
 - **Financial safeties:** Every school list MUST include at least one financial safety: a school where admission is near-certain AND the cost is affordable without significant aid. This is usually an in-state public. Name it explicitly and give the estimated cost.
+
+**Residency and State School Rules:**
+- ALWAYS check the student's home state for state university residency. A student living in Oregon is IN-STATE for University of Oregon, Oregon State, Portland State, etc. A student in Georgia is in-state for UGA, Georgia Tech, Georgia State, etc. In-state tuition is typically $10-15K/year, NOT $35K+. Getting this wrong destroys credibility.
+- For UC schools (Berkeley, UCLA, etc.), only California residents get in-state tuition. Out-of-state UC students pay ~$45K+/year and face much lower admission rates (often half the overall rate or less). If the student is not a California resident, label UC schools as "Reach" for both admission and cost.
+- WUE (Western Undergraduate Exchange) lets students from western states pay 150% of in-state tuition at participating out-of-state schools. WUE does NOT apply to a student attending their own state's public university (they already get in-state rates). Only mention WUE for out-of-state western schools.
+- When estimating admit probability for public universities, always distinguish in-state vs out-of-state rates. Out-of-state admission at competitive publics (UVA, Michigan, Berkeley, UCLA, UNC) is significantly harder.
+
+**Probability and Financial Estimates:**
+- Be conservative with admit probability estimates. A 3.85 GPA and 1320 SAT/PSAT does not get an 18% chance at a 15% acceptance rate school with no hooks. Apply realistic adjustments: above-average profile at a reach school still means single-digit to low-teens probability. Hooks (recruited athlete, legacy, URM at specific schools, first-gen) can meaningfully shift odds. No hooks = use the overall rate or slightly above as your estimate.
+- Keep financial estimates internally consistent. If you say a school costs "$45-55K" in one section, do not say "$55-65K" in another. Pick a range and use it throughout.
+- The Monte Carlo Parameter Table contains ESTIMATES, not simulations. Present them honestly as probability estimates based on the student's profile, not as outputs of an actual Monte Carlo simulation. Do not claim to have "run 10,000 simulations."
 
 **Critical: Do Not Hallucinate or Fabricate.**
 - Never invent teacher names, counselor names, coach names, or any specific person's name that the family did not provide. For recommendation letters, describe the TYPE of recommender needed (e.g., "a STEM teacher who has seen her problem-solving") rather than inventing names.
@@ -169,13 +180,13 @@ Generate the Strategy Brief (~5,000 words). This is the core document the parent
 - QuestBridge explanation (if applicable to this family's income)
 - Financial Aid Strategy (FAFSA/CSS, non-custodial parent issues, state scholarships)
 - Summer Plan: Specific recommendations for each remaining summer before application season
-- Monte Carlo results summary (headline stats, the 3-5 decision scenarios, financial floor)
+- Probability and Cost Estimates summary (headline stats, the 3-5 decision scenarios, financial floor)
 - What If the Profile Lands Lower: Concrete backup plan if test scores, GPA, or activities don't develop as projected
 - What to Do Now (the 3-5 most important actions for the current stage)
 
 Write this as a continuous, readable document with the same direct tone. This is the thing a parent reads on their phone at midnight.
 
-End with a clearly formatted **Monte Carlo Parameter Table**. For each school on the list, provide:
+End with a clearly formatted **Probability and Cost Estimates Table**. For each school on the list, provide:
    - Admit probability (note the approximate overall admit rate you're adjusting from; do not cite a specific CDS year unless you're confident in the number)
    - Merit scholarship probability and estimated amount range
    - Honors program probability (if applicable)
