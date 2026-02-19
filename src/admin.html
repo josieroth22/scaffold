@@ -83,6 +83,7 @@
   <table id="table" style="display: none;">
     <thead>
       <tr>
+        <th>ID</th>
         <th>Student</th>
         <th>City</th>
         <th>Income</th>
@@ -171,6 +172,7 @@
           simBadge = '<span class="badge-sim-fail" title="' + s.simulation_error.replace(/"/g, '&quot;') + '">Failed</span><button class="btn-retry" onclick="retrySim(\'' + s.id + '\', this)">Retry</button>';
         }
         tr.innerHTML = `
+          <td style="font-size:0.7rem; font-family:monospace; color:var(--muted);">${s.id}</td>
           <td><strong>${s.student_name || '-'}</strong></td>
           <td>${s.city || '-'}</td>
           <td>${s.income || '-'}</td>
