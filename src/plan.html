@@ -600,7 +600,8 @@
       }
 
       // Set title and meta
-      const title = data.student_name ? `The ${data.student_name} Family Plan` : 'Your Scaffold Plan';
+      const fullName = data.student_name || '';
+      const title = fullName ? `${fullName}'s Plan` : 'Your Scaffold Plan';
       document.getElementById('plan-title').textContent = title;
       document.title = title + ' — Scaffold';
 
