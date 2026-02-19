@@ -35,10 +35,33 @@
   .empty { text-align: center; padding: 3rem; color: var(--muted); }
   .detail-panel { margin-top: 2rem; padding: 1.5rem; background: var(--cream); border: 1px solid var(--border); border-radius: 8px; display: none; }
   .detail-panel h2 { font-size: 1.1rem; margin-bottom: 1rem; }
+  .detail-tabs { display: flex; gap: 0; margin-bottom: 1rem; border-bottom: 2px solid var(--border); }
+  .detail-tab { padding: 0.5rem 1.25rem; font-size: 0.82rem; font-weight: 600; color: var(--muted); background: none; border: none; cursor: pointer; font-family: 'DM Sans', sans-serif; border-bottom: 2px solid transparent; margin-bottom: -2px; transition: all 0.15s; }
+  .detail-tab:hover { color: var(--ink); }
+  .detail-tab.active { color: var(--sage); border-bottom-color: var(--sage); }
+  .tab-content { display: none; }
+  .tab-content.active { display: block; }
   .detail-section { margin-bottom: 1.5rem; }
   .detail-section h3 { font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--sage); margin-bottom: 0.5rem; }
-  .detail-section pre { background: white; border: 1px solid var(--border); border-radius: 6px; padding: 1rem; font-size: 0.82rem; white-space: pre-wrap; word-wrap: break-word; max-height: 400px; overflow-y: auto; font-family: 'DM Sans', sans-serif; line-height: 1.6; }
+  .detail-section pre { background: white; border: 1px solid var(--border); border-radius: 6px; padding: 1rem; font-size: 0.82rem; white-space: pre-wrap; word-wrap: break-word; max-height: 500px; overflow-y: auto; font-family: 'DM Sans', sans-serif; line-height: 1.6; }
+  .rendered-plan { background: white; border: 1px solid var(--border); border-radius: 6px; padding: 1.5rem 2rem; max-height: 600px; overflow-y: auto; font-size: 0.88rem; line-height: 1.7; }
+  .rendered-plan h1 { font-size: 1.4rem; font-weight: 600; margin: 2rem 0 0.5rem; padding-top: 1.5rem; border-top: 2px solid var(--sage); }
+  .rendered-plan h1:first-child { margin-top: 0; padding-top: 0; border-top: none; }
+  .rendered-plan h2 { font-size: 1.15rem; font-weight: 600; margin: 1.5rem 0 0.4rem; padding-top: 1rem; border-top: 1px solid var(--border); }
+  .rendered-plan h2:first-child { margin-top: 0; padding-top: 0; border-top: none; }
+  .rendered-plan h3 { font-size: 0.95rem; font-weight: 600; margin: 1.25rem 0 0.3rem; color: var(--sage); }
+  .rendered-plan h4 { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--sage); margin: 1rem 0 0.5rem; }
+  .rendered-plan p { margin-bottom: 0.75rem; color: #3d3d3a; }
+  .rendered-plan ul, .rendered-plan ol { padding-left: 1.25rem; margin-bottom: 0.75rem; }
+  .rendered-plan li { margin-bottom: 0.3rem; color: #3d3d3a; }
+  .rendered-plan table { width: 100%; border-collapse: collapse; font-size: 0.8rem; margin: 0.75rem 0; }
+  .rendered-plan th { background: var(--sage); color: white; padding: 0.5rem; font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.04em; text-align: left; }
+  .rendered-plan td { padding: 0.5rem; border-bottom: 1px solid var(--border); }
+  .rendered-plan blockquote { border-left: 3px solid var(--sage); background: var(--sage-light); padding: 0.75rem 1rem; margin: 0.75rem 0; border-radius: 0 6px 6px 0; font-size: 0.85rem; }
+  .rendered-plan hr { border: none; border-top: 1px solid var(--border); margin: 1.5rem 0; }
   .close-btn { float: right; font-size: 0.82rem; color: var(--muted); cursor: pointer; background: none; border: none; font-family: 'DM Sans', sans-serif; }
+  .plan-link-btn { display: inline-block; margin-top: 0.75rem; padding: 0.4rem 1rem; background: var(--sage); color: white; border-radius: 5px; text-decoration: none; font-size: 0.8rem; font-weight: 600; }
+  .plan-link-btn:hover { background: #3a5233; }
 </style>
 </head>
 <body>
@@ -64,7 +87,7 @@
         <th>Status</th>
         <th>Submitted</th>
         <th>Plan</th>
-        <th></th>
+        <th>Details</th>
       </tr>
     </thead>
     <tbody id="tbody"></tbody>
@@ -73,13 +96,24 @@
   <div class="detail-panel" id="detail">
     <button class="close-btn" onclick="closeDetail()">Close</button>
     <h2 id="detail-title"></h2>
-    <div class="detail-section">
-      <h3>Form Data</h3>
-      <pre id="detail-form"></pre>
+    <div class="detail-tabs">
+      <button class="detail-tab active" onclick="switchTab('form')">Form Data</button>
+      <button class="detail-tab" onclick="switchTab('output')">Raw Output</button>
+      <button class="detail-tab" onclick="switchTab('rendered')">Rendered Plan</button>
     </div>
-    <div class="detail-section">
-      <h3>Generated Output</h3>
-      <pre id="detail-output"></pre>
+    <div class="tab-content active" id="tab-form">
+      <div class="detail-section">
+        <pre id="detail-form"></pre>
+      </div>
+    </div>
+    <div class="tab-content" id="tab-output">
+      <div class="detail-section">
+        <pre id="detail-output"></pre>
+      </div>
+    </div>
+    <div class="tab-content" id="tab-rendered">
+      <div class="rendered-plan" id="detail-rendered"></div>
+      <a class="plan-link-btn" id="detail-plan-link" href="#" target="_blank">Open Full Plan Page</a>
     </div>
   </div>
 </div>
@@ -143,6 +177,53 @@
     }
   }
 
+  function switchTab(tab) {
+    document.querySelectorAll('.detail-tab').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+    document.querySelector(`.detail-tab[onclick="switchTab('${tab}')"]`).classList.add('active');
+    document.getElementById('tab-' + tab).classList.add('active');
+  }
+
+  // Simple markdown to HTML for admin preview
+  function mdToHtml(md) {
+    // Tables
+    const tableBlocks = [];
+    md = md.replace(/(?:^|\n)((?:\|.+\|\n?)+)/g, (match, block) => {
+      const rows = block.trim().split('\n').filter(r => r.trim());
+      if (rows.length < 2) return match;
+      if (!/^\|[\s\-:|]+\|$/.test(rows[1].trim())) return match;
+      const headers = rows[0].split('|').filter((c,i,a) => i>0 && i<a.length-1).map(c => c.trim());
+      let html = '<table><thead><tr>' + headers.map(h => '<th>'+h+'</th>').join('') + '</tr></thead><tbody>';
+      rows.slice(2).forEach(row => {
+        const cells = row.split('|').filter((c,i,a) => i>0 && i<a.length-1).map(c => c.trim());
+        html += '<tr>' + cells.map(c => '<td>'+c.replace(/\*\*(.+?)\*\*/g,'<strong>$1</strong>')+'</td>').join('') + '</tr>';
+      });
+      html += '</tbody></table>';
+      const ph = '\n<!--T'+tableBlocks.length+'-->\n';
+      tableBlocks.push(html);
+      return ph;
+    });
+
+    return md
+      .replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')
+      .replace(/&lt;!--T(\d+)--&gt;/g, (m,i) => tableBlocks[i])
+      .replace(/^#### (.+)$/gm, '<h4>$1</h4>')
+      .replace(/^### (.+)$/gm, '<h3>$1</h3>')
+      .replace(/^## (.+)$/gm, '<h2>$1</h2>')
+      .replace(/^# (.+)$/gm, '<h1>$1</h1>')
+      .replace(/\*\*\*(.+?)\*\*\*/g, '<strong><em>$1</em></strong>')
+      .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+      .replace(/\*(.+?)\*/g, '<em>$1</em>')
+      .replace(/^---+$/gm, '<hr>')
+      .replace(/^> (.+)$/gm, '<blockquote>$1</blockquote>')
+      .replace(/^- (.+)$/gm, '<li>$1</li>')
+      .replace(/^\d+\. (.+)$/gm, '<li>$1</li>')
+      .replace(/((?:<li>.+<\/li>\n?)+)/g, '<ul>$1</ul>')
+      .replace(/^(?!<[huptlbo]|<\/|<!--)(.+)$/gm, '<p>$1</p>')
+      .replace(/<p>\s*<\/p>/g, '')
+      .replace(/<\/blockquote>\n<blockquote>/g, '<br>');
+  }
+
   async function viewSubmission(id) {
     try {
       const res = await fetch('/api/submission?code=' + encodeURIComponent(adminCode) + '&id=' + id);
@@ -151,6 +232,21 @@
       document.getElementById('detail-title').textContent = (data.student_name || 'Unknown') + ' - ' + (data.city || '');
       document.getElementById('detail-form').textContent = JSON.stringify(data.form_data || {}, null, 2);
       document.getElementById('detail-output').textContent = data.output || '(No output yet)';
+
+      // Render the plan
+      const rendered = document.getElementById('detail-rendered');
+      if (data.output) {
+        rendered.innerHTML = mdToHtml(data.output);
+      } else {
+        rendered.innerHTML = '<p style="color:var(--muted)">No output yet.</p>';
+      }
+
+      // Set plan link
+      document.getElementById('detail-plan-link').href = 'plan.html?id=' + id;
+
+      // Reset to first tab
+      switchTab('form');
+
       document.getElementById('detail').style.display = 'block';
       document.getElementById('detail').scrollIntoView({ behavior: 'smooth' });
     } catch (err) {

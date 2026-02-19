@@ -585,6 +585,105 @@
     color: var(--muted);
   }
 
+  /* ---- SUBMISSION INFO TOGGLE ---- */
+  .submission-toggle {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  .submission-toggle-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--sage);
+    background: none;
+    border: 1px solid var(--sage-light);
+    border-radius: 6px;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  .submission-toggle-btn:hover {
+    background: var(--sage-light);
+  }
+
+  .submission-toggle-btn .arrow {
+    transition: transform 0.2s;
+    font-size: 0.7rem;
+  }
+
+  .submission-toggle-btn.open .arrow {
+    transform: rotate(90deg);
+  }
+
+  .submission-info {
+    max-width: 780px;
+    margin: 1rem auto 0;
+    padding: 0 2rem;
+    display: none;
+  }
+
+  .submission-info.visible { display: block; }
+
+  .submission-card {
+    background: var(--cream);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 1.5rem 2rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .submission-card h3 {
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--sage);
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .submission-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem 2rem;
+  }
+
+  .submission-field {
+    margin-bottom: 0.25rem;
+  }
+
+  .submission-field .label {
+    font-size: 0.72rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--muted);
+    margin-bottom: 0.15rem;
+  }
+
+  .submission-field .value {
+    font-size: 0.88rem;
+    color: var(--ink);
+    line-height: 1.5;
+  }
+
+  .submission-field.full-width {
+    grid-column: 1 / -1;
+  }
+
+  @media (max-width: 640px) {
+    .submission-grid { grid-template-columns: 1fr; }
+    .submission-toggle { padding: 0 1.25rem; }
+    .submission-info { padding: 0 1.25rem; }
+  }
+
   /* ---- FOOTER ---- */
   .plan-footer {
     max-width: 780px;
@@ -664,6 +763,16 @@
       <ul class="toc-list" id="toc-col2"></ul>
     </div>
   </nav>
+
+  <!-- SUBMISSION INFO (collapsible) -->
+  <div class="submission-toggle" id="submission-toggle" style="display: none;">
+    <button class="submission-toggle-btn" onclick="toggleSubmission()">
+      <span class="arrow">&#9654;</span> View What You Submitted
+    </button>
+  </div>
+  <div class="submission-info" id="submission-info">
+    <div class="submission-card" id="submission-card"></div>
+  </div>
 
   <div class="strategy-body" id="strategy-body"></div>
 
@@ -920,6 +1029,12 @@
       // Build table of contents
       buildToc(body);
 
+      // Build submission info if form_data exists
+      if (data.form_data && Object.keys(data.form_data).length > 0) {
+        buildSubmissionInfo(data.form_data);
+        document.getElementById('submission-toggle').style.display = 'block';
+      }
+
       // Show plan, hide loading
       document.getElementById('loading').style.display = 'none';
       document.getElementById('plan-content').style.display = 'block';
@@ -928,6 +1043,87 @@
       console.error('Failed to load plan:', err);
       showError();
     }
+  }
+
+  function toggleSubmission() {
+    const info = document.getElementById('submission-info');
+    const btn = document.querySelector('.submission-toggle-btn');
+    info.classList.toggle('visible');
+    btn.classList.toggle('open');
+  }
+
+  function buildSubmissionInfo(fd) {
+    const card = document.getElementById('submission-card');
+    const fields = [
+      { section: 'Student', items: [
+        { label: 'Name', key: 'student_name' },
+        { label: 'Age / Grade', key: 'student_age_grade' },
+        { label: 'School', key: 'school_name' },
+        { label: 'School Type', key: 'school_type' },
+        { label: 'District', key: 'school_district' },
+        { label: 'Academic Profile', key: 'academic_profile', full: true },
+        { label: 'Strengths', key: 'strengths', full: true },
+        { label: 'Weaknesses', key: 'weaknesses', full: true },
+      ]},
+      { section: 'Interests & Personality', items: [
+        { label: 'Interests', key: 'interests', full: true },
+        { label: 'Personality', key: 'personality', full: true },
+        { label: 'Teacher Quote', key: 'teacher_quote', full: true },
+      ]},
+      { section: 'Family', items: [
+        { label: 'Parent 1', key: 'parent1_name' },
+        { label: 'Parent 1 Education', key: 'parent1_education' },
+        { label: 'Parent 1 Profession', key: 'parent1_profession' },
+        { label: 'Parent 2', key: 'parent2_name' },
+        { label: 'Parent 2 Education', key: 'parent2_education' },
+        { label: 'Parent 2 Profession', key: 'parent2_profession' },
+        { label: 'Family Structure', key: 'family_structure' },
+        { label: 'Siblings', key: 'siblings', full: true },
+      ]},
+      { section: 'Location', items: [
+        { label: 'City', key: 'city' },
+        { label: 'Setting', key: 'urban_suburban_rural' },
+        { label: 'Relocation', key: 'relocation', full: true },
+      ]},
+      { section: 'Finances', items: [
+        { label: 'Household Income', key: 'income' },
+        { label: 'College Budget', key: 'college_budget' },
+        { label: 'Assets', key: 'assets', full: true },
+        { label: 'Special Circumstances', key: 'special_circumstances', full: true },
+      ]},
+      { section: 'School Preferences', items: [
+        { label: 'Size Preference', key: 'school_size' },
+        { label: 'Geography', key: 'school_geography', full: true },
+        { label: 'Must-Haves', key: 'must_haves', full: true },
+        { label: 'Deal Breakers', key: 'deal_breakers', full: true },
+        { label: 'Schools on Radar', key: 'schools_on_radar', full: true },
+      ]},
+      { section: 'Additional Context', items: [
+        { label: 'Additional Priorities', key: 'additional_priorities', full: true },
+        { label: 'Additional Context', key: 'additional_context', full: true },
+      ]},
+    ];
+
+    let html = '<h3>What You Submitted</h3>';
+
+    fields.forEach(section => {
+      const hasData = section.items.some(item => fd[item.key]);
+      if (!hasData) return;
+
+      html += '<div style="margin-bottom: 1.25rem;">';
+      html += '<div style="font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--sage); margin-bottom: 0.5rem;">' + section.section + '</div>';
+      html += '<div class="submission-grid">';
+      section.items.forEach(item => {
+        if (!fd[item.key]) return;
+        html += '<div class="submission-field' + (item.full ? ' full-width' : '') + '">';
+        html += '<div class="label">' + item.label + '</div>';
+        html += '<div class="value">' + fd[item.key] + '</div>';
+        html += '</div>';
+      });
+      html += '</div></div>';
+    });
+
+    card.innerHTML = html;
   }
 
   function showError() {
