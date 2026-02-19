@@ -1222,10 +1222,11 @@
   });
 
   // Stream an SSE response, calling onText for each chunk. Returns submission ID if present.
-  async function streamResponse(response, statusEl, progressEl, onText, pctStart, pctEnd) {
+  // expectedChars: approximate character count for this tier (Tier 1 ~12000, Tier 2 ~15000)
+  async function streamResponse(response, statusEl, progressEl, onText, pctStart, pctEnd, expectedChars) {
     const reader = response.body.getReader();
     const decoder = new TextDecoder();
-    let chunks = 0;
+    let totalChars = 0;
     let submissionId = null;
     let finished = false;
 
@@ -1243,14 +1244,15 @@
           if (parsed.id) submissionId = parsed.id;
           if (parsed.text) {
             onText(parsed.text);
-            chunks++;
-            const pct = Math.min(pctEnd, pctStart + (chunks / 500) * (pctEnd - pctStart));
+            totalChars += parsed.text.length;
+            // Use character count for smoother, more accurate progress
+            const progress = Math.min(0.95, totalChars / expectedChars);
+            const pct = pctStart + progress * (pctEnd - pctStart);
             progressEl.style.width = pct + '%';
-            if (chunks % 50 === 0) {
-              statusEl.textContent = 'Generating... (' + Math.round(pct) + '%)';
-            }
+            statusEl.textContent = 'Generating... (' + Math.round(pct) + '%)';
           }
           if (parsed.done || parsed.tier1_done) {
+            progressEl.style.width = pctEnd + '%';
             finished = true;
             break;
           }
@@ -1326,14 +1328,14 @@
       const statusEl = document.getElementById('gen-status');
       const progressEl = document.getElementById('gen-progress');
 
-      // Stream Tier 1
+      // Stream Tier 1 (Strategy Brief, ~12,000 chars)
       submissionId = await streamResponse(response, statusEl, progressEl, (text) => {
         markdown += text;
-      }, 0, 50);
+      }, 0, 50, 12000);
 
       statusEl.textContent = 'Building reference sections...';
 
-      // Stream Tier 2
+      // Stream Tier 2 (Reference Sections, ~15,000 chars)
       const tier2Response = await fetch('/api/generate-tier2', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -1346,7 +1348,7 @@
 
       await streamResponse(tier2Response, statusEl, progressEl, (text) => {
         markdown += text;
-      }, 50, 100);
+      }, 50, 100, 15000);
 
       progressEl.style.width = '100%';
       statusEl.textContent = 'Done! Redirecting to your plan...';

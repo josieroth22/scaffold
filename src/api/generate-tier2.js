@@ -38,12 +38,12 @@ module.exports = async function handler(req, res) {
     return res.status(500).json({ error: "Failed to load submission: " + err.message });
   }
 
-  // Parse the original form data
+  // Parse the original form data (Upstash may auto-deserialize)
   let formData;
-  try {
-    formData = JSON.parse(data.form_data || "{}");
-  } catch (e) {
-    return res.status(500).json({ error: "Failed to parse form data" });
+  if (typeof data.form_data === 'string') {
+    try { formData = JSON.parse(data.form_data); } catch (e) { formData = {}; }
+  } else {
+    formData = data.form_data || {};
   }
 
   const tier1Output = data.output;
