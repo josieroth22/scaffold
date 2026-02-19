@@ -1331,7 +1331,7 @@
       // Stream Tier 1 (Strategy Brief, ~12,000 chars)
       submissionId = await streamResponse(response, statusEl, progressEl, (text) => {
         markdown += text;
-      }, 0, 50, 12000);
+      }, 0, 48, 13000);
 
       statusEl.textContent = 'Building reference sections...';
 
@@ -1348,7 +1348,7 @@
 
       await streamResponse(tier2Response, statusEl, progressEl, (text) => {
         markdown += text;
-      }, 50, 100, 15000);
+      }, 50, 95, 20000);
 
       progressEl.style.width = '100%';
       statusEl.textContent = 'Done! Redirecting to your plan...';
