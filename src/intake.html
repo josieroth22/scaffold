@@ -516,6 +516,27 @@
     border-bottom: 2px solid var(--sage-light);
   }
 
+  /* ---- PULSE ANIMATION ---- */
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+  }
+
+  /* ---- STRATEGY OUTPUT ---- */
+  #strategy-content h1 { font-family: 'Newsreader', serif; font-size: 1.8rem; font-weight: 500; margin-top: 2.5rem; margin-bottom: 0.5rem; letter-spacing: -0.02em; }
+  #strategy-content h2 { font-family: 'Newsreader', serif; font-size: 1.4rem; font-weight: 500; margin-top: 2.5rem; margin-bottom: 0.4rem; letter-spacing: -0.02em; padding-top: 1.5rem; border-top: 1px solid var(--border); }
+  #strategy-content h3 { font-size: 1.05rem; font-weight: 600; margin-top: 1.75rem; margin-bottom: 0.4rem; }
+  #strategy-content h4 { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--sage); margin-top: 1.5rem; margin-bottom: 0.5rem; }
+  #strategy-content p { margin-bottom: 1rem; }
+  #strategy-content strong { font-weight: 600; color: var(--ink); }
+  #strategy-content table { width: 100%; border-collapse: collapse; margin: 1rem 0; font-size: 0.82rem; }
+  #strategy-content th { background: var(--cream); text-align: left; padding: 0.5rem 0.6rem; border: 1px solid var(--border); font-weight: 600; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.03em; }
+  #strategy-content td { padding: 0.5rem 0.6rem; border: 1px solid var(--border); }
+  #strategy-content ul, #strategy-content ol { padding-left: 1.25rem; margin-bottom: 1rem; }
+  #strategy-content li { margin-bottom: 0.4rem; }
+  #strategy-content hr { border: none; border-top: 2px solid var(--sage-light); margin: 2.5rem 0; }
+  #strategy-content blockquote { background: var(--sage-light); border-left: 3px solid var(--sage); padding: 1rem 1.25rem; border-radius: 0 8px 8px 0; margin: 1.5rem 0; font-size: 0.88rem; color: var(--sage-dark); }
+
   /* ---- RESPONSIVE ---- */
   @media (max-width: 600px) {
     .field-row {
@@ -955,13 +976,29 @@
 
   </form>
 
-  <!-- CONFIRMATION -->
-  <div class="confirmation" id="confirmation">
+  <!-- GENERATING -->
+  <div class="confirmation" id="generating">
+    <div class="confirmation-icon" style="animation: pulse 2s ease infinite;">&#9998;</div>
+    <h2>Building your plan...</h2>
+    <p>Claude is generating your personalized college strategy. This takes a few minutes. Don't close this tab.</p>
+    <div style="max-width: 500px; margin: 1.5rem auto;">
+      <div class="progress-track" style="height: 6px;">
+        <div class="progress-fill" id="gen-progress" style="width: 5%; transition: width 1s ease;"></div>
+      </div>
+      <p style="font-size: 0.78rem; color: var(--muted); margin-top: 0.5rem;" id="gen-status">Starting generation...</p>
+    </div>
+  </div>
+
+  <!-- RESULT -->
+  <div class="confirmation" id="result-screen">
     <div class="confirmation-icon">&#10003;</div>
-    <h2>We're building your plan</h2>
-    <p>Your personalized college strategy is being generated. This takes about 30 minutes.</p>
-    <p>We'll email your plan to <strong id="confirm-email"></strong> as soon as it's ready.</p>
-    <p style="margin-top: 2rem;"><a href="index.html" style="color: var(--sage); font-weight: 500; text-decoration: none;">Back to Scaffold</a></p>
+    <h2>Your plan is ready</h2>
+    <p style="margin-bottom: 2rem;">Scroll down to read your personalized Scaffold plan.</p>
+  </div>
+
+  <!-- STRATEGY OUTPUT -->
+  <div id="strategy-output" style="display: none; max-width: 760px; margin: 0 auto; padding: 0 1.5rem 4rem;">
+    <div id="strategy-content" style="font-size: 0.92rem; color: #3d3d3a; line-height: 1.7;"></div>
   </div>
 </div>
 
@@ -1112,7 +1149,7 @@
   });
 
   // Form submission
-  function submitForm() {
+  async function submitForm() {
     // Validate step 7
     const step = document.querySelector(`[data-step="7"]`);
     const required = step.querySelectorAll('[required]');
@@ -1143,19 +1180,150 @@
 
     // Store in localStorage as backup
     localStorage.setItem('scaffold_intake', JSON.stringify(data));
+    console.log('Scaffold intake data:', JSON.stringify(data, null, 2));
 
-    // Log for testing
-    console.log('Scaffold intake data:', data);
-    console.log('JSON:', JSON.stringify(data, null, 2));
-
-    // Show confirmation
+    // Show generating screen
     document.getElementById('intake-form').style.display = 'none';
     document.querySelector('.progress-wrap').style.display = 'none';
-    const confirmation = document.getElementById('confirmation');
-    confirmation.classList.add('active');
-    document.getElementById('confirm-email').textContent = data.email;
-
+    const generating = document.getElementById('generating');
+    generating.classList.add('active');
     window.scrollTo({ top: 0, behavior: 'smooth' });
+
+    // Call the API
+    try {
+      const response = await fetch('/api/generate', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      });
+
+      if (!response.ok) {
+        throw new Error('Server returned ' + response.status);
+      }
+
+      const reader = response.body.getReader();
+      const decoder = new TextDecoder();
+      let markdown = '';
+      let chunks = 0;
+
+      const statusEl = document.getElementById('gen-status');
+      const progressEl = document.getElementById('gen-progress');
+
+      while (true) {
+        const { done, value } = await reader.read();
+        if (done) break;
+
+        const text = decoder.decode(value);
+        const lines = text.split('\n');
+
+        for (const line of lines) {
+          if (!line.startsWith('data: ')) continue;
+          try {
+            const parsed = JSON.parse(line.slice(6));
+            if (parsed.text) {
+              markdown += parsed.text;
+              chunks++;
+              // Update progress (estimate: ~800 chunks for a full doc)
+              const pct = Math.min(95, 5 + (chunks / 800) * 90);
+              progressEl.style.width = pct + '%';
+              if (chunks % 50 === 0) {
+                statusEl.textContent = 'Generating... (' + Math.round(pct) + '%)';
+              }
+            }
+            if (parsed.done) {
+              progressEl.style.width = '100%';
+              statusEl.textContent = 'Done!';
+            }
+            if (parsed.error) {
+              throw new Error(parsed.error);
+            }
+          } catch (e) {
+            if (e.message && !e.message.includes('JSON')) throw e;
+          }
+        }
+      }
+
+      // Store the result
+      localStorage.setItem('scaffold_result', markdown);
+
+      // Show the result
+      generating.classList.remove('active');
+      document.getElementById('result-screen').classList.add('active');
+      const outputEl = document.getElementById('strategy-output');
+      outputEl.style.display = 'block';
+
+      // Simple markdown to HTML conversion
+      document.getElementById('strategy-content').innerHTML = markdownToHtml(markdown);
+
+    } catch (err) {
+      console.error('Generation failed:', err);
+      document.getElementById('gen-status').textContent = 'Error: ' + err.message + '. Your form data is saved. Please try again.';
+      document.getElementById('gen-progress').style.background = 'var(--error)';
+    }
+  }
+
+  // Basic markdown to HTML
+  function markdownToHtml(md) {
+    let html = md
+      // Escape HTML
+      .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+      // Headers
+      .replace(/^#### (.+)$/gm, '<h4>$1</h4>')
+      .replace(/^### (.+)$/gm, '<h3>$1</h3>')
+      .replace(/^## (.+)$/gm, '<h2>$1</h2>')
+      .replace(/^# (.+)$/gm, '<h1>$1</h1>')
+      // Bold and italic
+      .replace(/\*\*\*(.+?)\*\*\*/g, '<strong><em>$1</em></strong>')
+      .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+      .replace(/\*(.+?)\*/g, '<em>$1</em>')
+      // Horizontal rules
+      .replace(/^---+$/gm, '<hr>')
+      // Tables
+      .replace(/^\|(.+)\|$/gm, function(match, content) {
+        const cells = content.split('|').map(c => c.trim());
+        return '<tr>' + cells.map(c => {
+          if (/^[-:]+$/.test(c)) return null;
+          return '<td>' + c + '</td>';
+        }).filter(Boolean).join('') + '</tr>';
+      })
+      // Blockquotes
+      .replace(/^> (.+)$/gm, '<blockquote>$1</blockquote>')
+      // Line breaks into paragraphs
+      .replace(/\n\n+/g, '</p><p>')
+      // Unordered lists
+      .replace(/^- (.+)$/gm, '<li>$1</li>')
+      // Ordered lists
+      .replace(/^\d+\. (.+)$/gm, '<li>$1</li>');
+
+    // Wrap consecutive <li> in <ul>
+    html = html.replace(/(<li>.*?<\/li>\s*)+/g, '<ul>$&</ul>');
+
+    // Wrap consecutive <tr> in <table>
+    html = html.replace(/(<tr>.*?<\/tr>\s*)+/g, function(match) {
+      // First row is header
+      const rows = match.match(/<tr>.*?<\/tr>/g);
+      if (rows && rows.length > 1) {
+        const header = rows[0].replace(/<td>/g, '<th>').replace(/<\/td>/g, '</th>');
+        const body = rows.slice(1).join('');
+        // Remove separator row if it's just dashes
+        const cleanBody = body.replace(/<tr>(<td>[-:]+<\/td>)+<\/tr>/g, '');
+        return '<table><thead>' + header + '</thead><tbody>' + cleanBody + '</tbody></table>';
+      }
+      return '<table>' + match + '</table>';
+    });
+
+    // Remove empty table separator rows
+    html = html.replace(/<tr>(<td>[-:]+<\/td>)+<\/tr>/g, '');
+
+    // Wrap in paragraphs
+    html = '<p>' + html + '</p>';
+    // Clean up empty paragraphs
+    html = html.replace(/<p>\s*<\/p>/g, '');
+    // Don't wrap block elements in p
+    html = html.replace(/<p>\s*(<h[1-4]|<hr|<table|<ul|<ol|<blockquote)/g, '$1');
+    html = html.replace(/(<\/h[1-4]>|<\/table>|<\/ul>|<\/ol>|<\/blockquote>)\s*<\/p>/g, '$1');
+
+    return html;
   }
 
   // Initialize
