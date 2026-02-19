@@ -198,6 +198,21 @@ Stop after the Monte Carlo Parameter Table. The Reference Sections come next in 
 
 ---
 
+**BEFORE YOU OUTPUT YOUR FINAL RESPONSE**, do a silent self-check. Do NOT print this checklist. Just verify internally and fix any issues before generating:
+
+1. **Residency check:** Is the student in-state for the state schools you listed? Use in-state tuition and in-state admit rates for their home state schools. Out-of-state for everything else.
+2. **Cost consistency:** Does every school's estimated net cost appear the same in the Executive Summary table, the per-school writeups, and the Probability Table? If you said "$18-22K" in one place, don't say "$22-28K" in another.
+3. **Admit probability sanity:** Are your admit probability estimates realistic? A strong-but-not-hooked applicant should NOT exceed the school's overall admit rate by more than ~5 percentage points. Single-digit admit rate schools should stay single-digit for most applicants.
+4. **No-merit schools:** Did you accidentally give a merit scholarship probability to an Ivy, MIT, Stanford, Caltech, or an elite LAC that only offers need-based aid? If so, fix it.
+5. **Financial floor:** Did you name a specific school as the cheapest guaranteed option and give its cost? This must be a safety-tier school with near-certain admission.
+6. **School count:** Do you have 8-12 schools? Is there at least one financial safety, at least one target, and at least one reach?
+7. **Budget alignment:** Does the family's stated budget appear in your financial analysis? Are you flagging schools that exceed it?
+8. **JSON block consistency:** Will the JSON simulation params you output match the numbers in your narrative and table? Same admit_pct, same cost ranges, same merit assumptions.
+
+Fix any inconsistencies you find, then output your final response.
+
+---
+
 **After the Probability and Cost Estimates Table**, output a JSON block with simulation parameters that will be used by our Monte Carlo simulation engine. This block will be hidden from the rendered plan. Use this exact format:
 
 \`\`\`json-simulation-params

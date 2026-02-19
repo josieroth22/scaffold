@@ -636,7 +636,6 @@
   .sim-tier-label.safety { background: var(--cream); color: var(--muted); border: 1px solid var(--border); }
 
   .sim-schools-list {
-    counter-reset: sim-school;
   }
 
   .sim-school-card {
@@ -645,7 +644,6 @@
     border-radius: 10px;
     padding: 1.25rem 1.5rem;
     margin-bottom: 0.75rem;
-    counter-increment: sim-school;
   }
 
   .sim-school-header {
@@ -674,9 +672,7 @@
   }
 
   .sim-school-name::before {
-    content: counter(sim-school) ". ";
-    color: var(--sage);
-    font-weight: 700;
+    content: none;
   }
 
   .sim-school-tier {
@@ -1073,6 +1069,93 @@
     font-weight: 600;
   }
 
+  /* ---- SIDEBAR NAV ---- */
+  .sidebar-nav {
+    position: fixed;
+    top: 52px;
+    left: 0;
+    width: 240px;
+    height: calc(100vh - 52px);
+    overflow-y: auto;
+    padding: 1.5rem 1rem 2rem 1.25rem;
+    background: var(--warm-white);
+    border-right: 1px solid var(--border);
+    z-index: 40;
+    display: none;
+    scrollbar-width: thin;
+    scrollbar-color: var(--border) transparent;
+  }
+
+  .sidebar-nav::-webkit-scrollbar { width: 4px; }
+  .sidebar-nav::-webkit-scrollbar-track { background: transparent; }
+  .sidebar-nav::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+
+  .sidebar-title {
+    font-size: 0.65rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--sage);
+    margin-bottom: 0.75rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .sidebar-list {
+    list-style: none;
+  }
+
+  .sidebar-list li {
+    margin-bottom: 0.1rem;
+  }
+
+  .sidebar-list a {
+    display: block;
+    font-size: 0.75rem;
+    color: var(--muted);
+    text-decoration: none;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    border-left: 2px solid transparent;
+    transition: all 0.15s;
+    line-height: 1.4;
+  }
+
+  .sidebar-list a:hover {
+    color: var(--ink);
+    background: var(--cream);
+  }
+
+  .sidebar-list .sb-h1 a {
+    font-weight: 600;
+    color: var(--ink);
+    font-size: 0.78rem;
+    margin-top: 0.5rem;
+    padding-left: 0.5rem;
+  }
+
+  .sidebar-list .sb-h1:first-child a { margin-top: 0; }
+
+  .sidebar-list .sb-h2 a {
+    padding-left: 1rem;
+    font-size: 0.72rem;
+  }
+
+  .sidebar-list a.active {
+    color: var(--sage-dark);
+    background: var(--sage-light);
+    border-left-color: var(--sage);
+    font-weight: 600;
+  }
+
+  /* Show sidebar on wide screens, shift content right */
+  @media (min-width: 1100px) {
+    .sidebar-nav { display: block; }
+    .hero, .toc, .strategy-body, .sim-section, .plan-footer,
+    .submission-toggle, .submission-info { margin-left: 240px; }
+    .hero-inner, .strategy-body, .sim-section, .plan-footer { max-width: 780px; }
+  }
+
   /* ---- RESPONSIVE ---- */
   @media (max-width: 640px) {
     .topbar { padding: 0 1rem; }
@@ -1100,6 +1183,12 @@
 
 <!-- BACK TO TOP -->
 <button class="back-to-top" id="back-to-top" title="Back to top">&uarr;</button>
+
+<!-- SIDEBAR NAV (populated by JS, visible on wide screens) -->
+<nav class="sidebar-nav" id="sidebar-nav">
+  <div class="sidebar-title">Outline</div>
+  <ul class="sidebar-list" id="sidebar-list"></ul>
+</nav>
 
 <!-- LOADING STATE -->
 <div class="loading" id="loading">
@@ -1353,6 +1442,47 @@
       rule.className = 'section-rule';
       h1.after(rule);
     });
+
+    // Build sidebar nav from the same headings
+    buildSidebar(headings);
+  }
+
+  function buildSidebar(headings) {
+    const list = document.getElementById('sidebar-list');
+    if (!list || headings.length < 3) return;
+
+    headings.forEach(h => {
+      const li = document.createElement('li');
+      li.className = h.tagName === 'H1' ? 'sb-h1' : 'sb-h2';
+      const a = document.createElement('a');
+      a.href = '#' + h.id;
+      a.textContent = h.textContent;
+      a.dataset.target = h.id;
+      a.addEventListener('click', e => {
+        e.preventDefault();
+        document.getElementById(h.id).scrollIntoView({ behavior: 'smooth' });
+      });
+      li.appendChild(a);
+      list.appendChild(li);
+    });
+
+    // Track active section with IntersectionObserver
+    const sidebarLinks = list.querySelectorAll('a');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          sidebarLinks.forEach(a => a.classList.remove('active'));
+          const active = list.querySelector('a[data-target="' + entry.target.id + '"]');
+          if (active) {
+            active.classList.add('active');
+            // Scroll sidebar to keep active item visible
+            active.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+          }
+        }
+      });
+    }, { rootMargin: '-80px 0px -70% 0px', threshold: 0 });
+
+    headings.forEach(h => observer.observe(h));
   }
 
   function formatDollars(n) {
