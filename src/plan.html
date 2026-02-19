@@ -882,6 +882,27 @@
     margin-top: 0.25rem;
   }
 
+  .sim-budget-callout {
+    background: #fff8e1;
+    border: 1px solid #ffe082;
+    border-radius: 10px;
+    padding: 1.25rem 1.5rem;
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+    font-size: 0.88rem;
+    line-height: 1.6;
+    color: #5d4037;
+  }
+
+  .sim-budget-callout strong { color: #e65100; }
+
+  .sim-budget-callout .callout-title {
+    font-weight: 700;
+    font-size: 0.92rem;
+    margin-bottom: 0.4rem;
+    color: #bf360c;
+  }
+
   @media (max-width: 640px) {
     .sim-portfolio { grid-template-columns: 1fr; }
     .sim-metrics { grid-template-columns: 1fr; }
@@ -1609,6 +1630,26 @@
     html += '</div>';
 
     html += '</div>';
+
+    // Budget reality callout
+    const affRate = portfolio.at_least_one_affordable;
+    const budget = portfolio.family_budget;
+    const cheapest = portfolio.expected_cheapest ? portfolio.expected_cheapest.median : null;
+
+    if (affRate <= 0.15 && budget != null && cheapest != null) {
+      html += '<div class="sim-budget-callout">';
+      html += '<div class="callout-title">Budget gap flagged</div>';
+      if (affRate === 0) {
+        html += '<p>In none of our 10,000 simulations did any school on this list come in at or below the stated <strong>' + formatDollars(budget) + '/year</strong> budget. ';
+      } else {
+        html += '<p>Only <strong>' + formatPct(affRate) + '</strong> of simulations produced an affordable admission at the stated <strong>' + formatDollars(budget) + '/year</strong> budget. ';
+      }
+      html += 'The expected cheapest option is <strong>' + formatDollars(cheapest) + '/year</strong> (median). ';
+      html += 'This does not mean these schools are out of reach. It means the financial plan needs attention: ';
+      html += 'additional scholarships, work-study, parent PLUS loans, or adjusting the school list could close this gap. ';
+      html += 'The strategy sections above address this in detail.</p>';
+      html += '</div>';
+    }
 
     // Expand All / Collapse All control
     html += '<div class="sim-controls">';
