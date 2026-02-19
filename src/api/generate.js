@@ -332,7 +332,7 @@ module.exports = async function handler(req, res) {
         // Save partial output every 30 seconds so we don't lose progress on timeout
         if (Date.now() - lastSave > 30000) {
           lastSave = Date.now();
-          redis.hset(`submission:${id}`, { output: fullOutput }).catch(() => {});
+          redis.hset(`submission:${id}`, { output: fullOutput }).catch(err => console.error("Partial save failed for", id, err));
         }
       }
     }

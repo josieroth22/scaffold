@@ -1276,6 +1276,12 @@
 
   // Form submission
   async function submitForm() {
+    // Prevent double-submit
+    const submitBtn = document.querySelector('.btn-submit');
+    if (submitBtn.disabled) return;
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Submitting...';
+
     // Validate step 7
     const step = document.querySelector(`[data-step="7"]`);
     const required = step.querySelectorAll('[required]');
@@ -1290,7 +1296,11 @@
       }
     });
 
-    if (!valid) return;
+    if (!valid) {
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Submit and Build My Plan';
+      return;
+    }
 
     // Collect all form data
     const form = document.getElementById('intake-form');

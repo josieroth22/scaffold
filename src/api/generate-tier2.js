@@ -48,7 +48,13 @@ module.exports = async function handler(req, res) {
 
   const tier1Output = data.output;
 
-  const prompt = `You wrote the Strategy Brief below for this family. Now write the Reference Sections. These are the detailed planning tools the parent comes back to over the years. Keep the same voice, the same schools, the same financial assumptions. Write like you're still talking to the same parent. Use their kid's name. Be specific.
+  const today = new Date();
+  const monthNames = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+  const currentDate = `${monthNames[today.getMonth()]} ${today.getFullYear()}`;
+
+  const prompt = `**Today's date is ${currentDate}.** All timelines, deadlines, summer plans, and recommendations must reflect this. Do not reference dates that have already passed. "This summer" means the upcoming summer, not a past one.
+
+You wrote the Strategy Brief below for this family. Now write the Reference Sections. These are the detailed planning tools the parent comes back to over the years. Keep the same voice, the same schools, the same financial assumptions. Write like you're still talking to the same parent. Use their kid's name. Be specific.
 
 ---
 
@@ -134,7 +140,7 @@ Then generate each of these sections. Each should stand alone so a parent can ju
             .hset(`submission:${id}`, {
               output: tier1Output + "\n\n" + tier2Output,
             })
-            .catch(() => {});
+            .catch(err => console.error("Tier 2 partial save failed for", id, err));
         }
       }
     }
