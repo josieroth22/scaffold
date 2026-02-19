@@ -307,33 +307,65 @@
   .priority-grid {
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
+    gap: 0.4rem;
+    counter-reset: priority;
   }
 
   .priority-item {
     display: flex;
     align-items: center;
     gap: 0.75rem;
-    padding: 0.65rem 0.85rem;
+    padding: 0.7rem 0.85rem;
     background: white;
     border: 1px solid var(--border);
     border-radius: 8px;
-    transition: border-color 0.2s;
+    cursor: grab;
+    user-select: none;
+    transition: border-color 0.2s, box-shadow 0.2s, transform 0.15s;
+    counter-increment: priority;
   }
 
-  .priority-item select {
-    width: 58px;
-    padding: 0.4rem 0.5rem;
-    font-size: 0.85rem;
-    text-align: center;
+  .priority-item:active { cursor: grabbing; }
+
+  .priority-item.dragging {
+    opacity: 0.4;
+    transform: scale(0.97);
+  }
+
+  .priority-item.drag-over {
+    border-color: var(--sage);
+    box-shadow: 0 0 0 2px rgba(74, 103, 65, 0.15);
+  }
+
+  .priority-rank {
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    background: var(--sage-light);
+    color: var(--sage-dark);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+    font-weight: 700;
     flex-shrink: 0;
-    background-position: right 0.4rem center;
-    padding-right: 1.5rem;
+  }
+
+  .priority-rank::after {
+    content: counter(priority);
+  }
+
+  .priority-drag-handle {
+    color: var(--border);
+    font-size: 1rem;
+    flex-shrink: 0;
+    line-height: 1;
   }
 
   .priority-item-label {
     font-size: 0.88rem;
     color: var(--ink);
+    flex: 1;
   }
 
   .priority-note {
@@ -549,7 +581,7 @@
       <div class="field-row">
         <div class="field">
           <label class="field-label" for="student-name">Student's first name</label>
-          <input type="text" id="student-name" name="student_name" placeholder="e.g., Jaylen" required>
+          <input type="text" id="student-name" name="student_name" placeholder="e.g., Alex" required>
         </div>
         <div class="field">
           <label class="field-label" for="student-age-grade">Age and current grade</label>
@@ -560,7 +592,7 @@
       <div class="field-row">
         <div class="field">
           <label class="field-label" for="school-name">School name</label>
-          <input type="text" id="school-name" name="school_name" placeholder="e.g., North Atlanta High School" required>
+          <input type="text" id="school-name" name="school_name" placeholder="e.g., Lincoln High School" required>
         </div>
         <div class="field">
           <label class="field-label" for="school-type">School type</label>
@@ -577,13 +609,13 @@
 
       <div class="field">
         <label class="field-label" for="school-district">School district <span class="optional">(optional)</span></label>
-        <input type="text" id="school-district" name="school_district" placeholder="e.g., Atlanta Public Schools">
+        <input type="text" id="school-district" name="school_district" placeholder="e.g., Fairfax County Public Schools">
       </div>
 
       <div class="field">
         <label class="field-label" for="academic-profile">Academic profile</label>
         <p class="field-hint">Current GPA, any test scores (SAT, PSAT, AP exams), honors or AP courses, gifted identification, anything relevant.</p>
-        <textarea id="academic-profile" name="academic_profile" placeholder="e.g., 3.7 unweighted GPA. Taking Honors English and AP World History. Scored 1150 on practice PSAT. Identified for gifted program in elementary school." required></textarea>
+        <textarea id="academic-profile" name="academic_profile" placeholder="e.g., 3.7 unweighted GPA. Taking two honors classes and one AP. No SAT yet but scored well on practice PSAT. Identified for gifted program in elementary school." required></textarea>
       </div>
 
       <div class="field">
@@ -614,8 +646,8 @@
 
       <div class="field">
         <label class="field-label" for="interests">Interests, hobbies, obsessions</label>
-        <p class="field-hint">What do they do when nobody's grading them? Include things they might not think of as "college-worthy." The kid who rearranges furniture and watches architecture TikToks? That matters.</p>
-        <textarea id="interests" name="interests" class="large" placeholder="e.g., He cooks dinner three nights a week (West African recipes from his grandmother). Watches cooking shows constantly. Also plays basketball recreationally and is obsessed with 90s hip-hop history." required></textarea>
+        <p class="field-hint">What do they do when nobody's grading them? Include things they might not think of as "college-worthy."</p>
+        <textarea id="interests" name="interests" class="large" placeholder="e.g., Plays guitar in his room for hours. Watches YouTube videos about how things are built. Reads constantly but only sci-fi. Plays pickup basketball every weekend." required></textarea>
       </div>
 
       <div class="field">
@@ -627,7 +659,7 @@
       <div class="field">
         <label class="field-label" for="teacher-quote">Anything a teacher has said about them that stuck with you <span class="optional">(optional)</span></label>
         <p class="field-hint">A comment from a teacher, coach, or mentor that felt true.</p>
-        <textarea id="teacher-quote" name="teacher_quote" placeholder='e.g., His English teacher told me, "Jaylen sees things in texts that the other kids miss. He just needs someone to tell him that matters."'></textarea>
+        <textarea id="teacher-quote" name="teacher_quote" placeholder='e.g., Her math teacher said she has a way of explaining things to other students that shows real understanding, not just memorization.'></textarea>
       </div>
 
       <div class="step-nav">
@@ -648,17 +680,17 @@
 
       <div class="field">
         <label class="field-label" for="parent1-name">Name</label>
-        <input type="text" id="parent1-name" name="parent1_name" placeholder="e.g., Maya Washington" required>
+        <input type="text" id="parent1-name" name="parent1_name" placeholder="e.g., Sarah Chen" required>
       </div>
 
       <div class="field-row">
         <div class="field">
           <label class="field-label" for="parent1-education">Education</label>
-          <input type="text" id="parent1-education" name="parent1_education" placeholder="e.g., BA from Spelman College" required>
+          <input type="text" id="parent1-education" name="parent1_education" placeholder="e.g., BA from Penn State" required>
         </div>
         <div class="field">
           <label class="field-label" for="parent1-profession">Profession</label>
-          <input type="text" id="parent1-profession" name="parent1_profession" placeholder="e.g., Office manager at a dental practice" required>
+          <input type="text" id="parent1-profession" name="parent1_profession" placeholder="e.g., Project manager at a consulting firm" required>
         </div>
       </div>
 
@@ -666,17 +698,17 @@
 
       <div class="field">
         <label class="field-label" for="parent2-name">Name <span class="optional">(optional)</span></label>
-        <input type="text" id="parent2-name" name="parent2_name" placeholder="e.g., David Washington">
+        <input type="text" id="parent2-name" name="parent2_name" placeholder="e.g., Mike Chen">
       </div>
 
       <div class="field-row">
         <div class="field">
           <label class="field-label" for="parent2-education">Education <span class="optional">(optional)</span></label>
-          <input type="text" id="parent2-education" name="parent2_education" placeholder="e.g., Some college, Georgia State">
+          <input type="text" id="parent2-education" name="parent2_education" placeholder="e.g., Some college, community college">
         </div>
         <div class="field">
           <label class="field-label" for="parent2-profession">Profession <span class="optional">(optional)</span></label>
-          <input type="text" id="parent2-profession" name="parent2_profession" placeholder="e.g., Electrician, IBEW Local 613">
+          <input type="text" id="parent2-profession" name="parent2_profession" placeholder="e.g., Sales manager at a car dealership">
         </div>
       </div>
 
@@ -726,13 +758,13 @@
       <div class="field">
         <label class="field-label" for="siblings">Siblings <span class="optional">(optional)</span></label>
         <p class="field-hint">Names, ages, grades, and anything relevant to the college timeline. If they'll be in college at the same time, that matters for financial aid.</p>
-        <textarea id="siblings" name="siblings" placeholder="e.g., Eli, age 11, 5th grade. Less academically intense. Into Legos and basketball. College pipeline in about 7 years."></textarea>
+        <textarea id="siblings" name="siblings" placeholder="e.g., Younger sister, age 11, 5th grade. Will be applying to college in about 7 years."></textarea>
       </div>
 
       <div class="field-row">
         <div class="field">
           <label class="field-label" for="city">City and state</label>
-          <input type="text" id="city" name="city" placeholder="e.g., Atlanta, GA" required>
+          <input type="text" id="city" name="city" placeholder="e.g., Austin, TX" required>
         </div>
         <div class="field">
           <label class="field-label" for="area-type">Area type</label>
@@ -828,7 +860,7 @@
       <div class="field">
         <label class="field-label" for="must-haves">Must-haves <span class="optional">(optional)</span></label>
         <p class="field-hint">Specific major, D1 sports, religious community, co-op programs, research opportunities, anything non-negotiable.</p>
-        <textarea id="must-haves" name="must_haves" placeholder="e.g., Strong academics. Good campus life. Active Jewish community is a plus. Good mentoring and advising."></textarea>
+        <textarea id="must-haves" name="must_haves" placeholder="e.g., Strong academics. Good campus life. Diverse student body. Good mentoring and advising."></textarea>
       </div>
 
       <div class="field">
@@ -839,7 +871,7 @@
       <div class="field">
         <label class="field-label" for="schools-radar">Schools already on your radar <span class="optional">(optional)</span></label>
         <p class="field-hint">Schools you've talked about, visited, or are curious about. No wrong answers.</p>
-        <textarea id="schools-radar" name="schools_on_radar" placeholder="e.g., The Ivies (Harvard, Penn, Columbia). Georgetown. UVA. University of Maryland as a safety. Friend's sister goes to Tufts and loves it."></textarea>
+        <textarea id="schools-radar" name="schools_on_radar" placeholder="e.g., State flagship, maybe a couple reaches. A friend mentioned Tulane. We drove past Duke once and she liked it. No wrong answers here."></textarea>
       </div>
 
       <div class="step-nav">
@@ -857,44 +889,50 @@
       </div>
 
       <div class="field">
-        <label class="field-label">Rank these 1-7 (1 = most important)</label>
-        <p class="field-hint">Each number can only be used once.</p>
-        <div class="priority-grid">
-          <div class="priority-item">
-            <select name="priority_cost" class="priority-select" required><option value="" disabled selected>-</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option></select>
+        <label class="field-label">Drag to rank these (most important at top)</label>
+        <p class="field-hint">Drag and drop to reorder. #1 is what matters most to your family.</p>
+        <div class="priority-grid" id="priority-grid">
+          <div class="priority-item" draggable="true" data-key="cost">
+            <span class="priority-drag-handle">&#8942;&#8942;</span>
+            <span class="priority-rank"></span>
             <span class="priority-item-label">Minimize total cost of attendance</span>
           </div>
-          <div class="priority-item">
-            <select name="priority_prestige" class="priority-select" required><option value="" disabled selected>-</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option></select>
+          <div class="priority-item" draggable="true" data-key="prestige">
+            <span class="priority-drag-handle">&#8942;&#8942;</span>
+            <span class="priority-rank"></span>
             <span class="priority-item-label">Prestige / brand name</span>
           </div>
-          <div class="priority-item">
-            <select name="priority_academic_fit" class="priority-select" required><option value="" disabled selected>-</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option></select>
+          <div class="priority-item" draggable="true" data-key="academic_fit">
+            <span class="priority-drag-handle">&#8942;&#8942;</span>
+            <span class="priority-rank"></span>
             <span class="priority-item-label">Academic fit (programs, research, major strength)</span>
           </div>
-          <div class="priority-item">
-            <select name="priority_location" class="priority-select" required><option value="" disabled selected>-</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option></select>
+          <div class="priority-item" draggable="true" data-key="location">
+            <span class="priority-drag-handle">&#8942;&#8942;</span>
+            <span class="priority-rank"></span>
             <span class="priority-item-label">Geographic location</span>
           </div>
-          <div class="priority-item">
-            <select name="priority_culture" class="priority-select" required><option value="" disabled selected>-</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option></select>
+          <div class="priority-item" draggable="true" data-key="culture">
+            <span class="priority-drag-handle">&#8942;&#8942;</span>
+            <span class="priority-rank"></span>
             <span class="priority-item-label">Campus culture / social fit</span>
           </div>
-          <div class="priority-item">
-            <select name="priority_merit" class="priority-select" required><option value="" disabled selected>-</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option></select>
+          <div class="priority-item" draggable="true" data-key="merit">
+            <span class="priority-drag-handle">&#8942;&#8942;</span>
+            <span class="priority-rank"></span>
             <span class="priority-item-label">Merit scholarship likelihood</span>
           </div>
-          <div class="priority-item">
-            <select name="priority_outcomes" class="priority-select" required><option value="" disabled selected>-</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option></select>
+          <div class="priority-item" draggable="true" data-key="outcomes">
+            <span class="priority-drag-handle">&#8942;&#8942;</span>
+            <span class="priority-rank"></span>
             <span class="priority-item-label">Post-graduation outcomes (career, earnings, grad school)</span>
           </div>
         </div>
-        <p class="priority-note" id="priority-warning" style="color: var(--error); display: none;">Each rank (1-7) should be used exactly once.</p>
       </div>
 
       <div class="field">
         <label class="field-label" for="priority-other">Anything else that matters to you that isn't on that list? <span class="optional">(optional)</span></label>
-        <textarea id="priority-other" name="priority_other" placeholder="e.g., I know we ranked prestige #3 but it matters to us more than we want to admit. We need someone to help us think about this rationally, not emotionally."></textarea>
+        <textarea id="priority-other" name="priority_other" placeholder="e.g., Diversity on campus matters to us. Also, we'd love a school with good study abroad options."></textarea>
       </div>
 
       <div class="field">
@@ -995,17 +1033,82 @@
     }
   });
 
-  // Priority ranking validation
-  document.querySelectorAll('.priority-select').forEach(sel => {
-    sel.addEventListener('change', function() {
-      const warning = document.getElementById('priority-warning');
-      const values = [];
-      document.querySelectorAll('.priority-select').forEach(s => {
-        if (s.value) values.push(s.value);
-      });
-      const hasDupes = values.length !== new Set(values).size;
-      warning.style.display = hasDupes ? 'block' : 'none';
-    });
+  // Priority ranking: drag and drop
+  const grid = document.getElementById('priority-grid');
+  let dragItem = null;
+
+  grid.addEventListener('dragstart', e => {
+    dragItem = e.target.closest('.priority-item');
+    if (dragItem) dragItem.classList.add('dragging');
+  });
+
+  grid.addEventListener('dragend', e => {
+    const item = e.target.closest('.priority-item');
+    if (item) item.classList.remove('dragging');
+    grid.querySelectorAll('.priority-item').forEach(i => i.classList.remove('drag-over'));
+    dragItem = null;
+  });
+
+  grid.addEventListener('dragover', e => {
+    e.preventDefault();
+    const target = e.target.closest('.priority-item');
+    if (target && target !== dragItem) {
+      grid.querySelectorAll('.priority-item').forEach(i => i.classList.remove('drag-over'));
+      target.classList.add('drag-over');
+    }
+  });
+
+  grid.addEventListener('drop', e => {
+    e.preventDefault();
+    const target = e.target.closest('.priority-item');
+    if (target && target !== dragItem && dragItem) {
+      const items = [...grid.querySelectorAll('.priority-item')];
+      const dragIdx = items.indexOf(dragItem);
+      const targetIdx = items.indexOf(target);
+      if (dragIdx < targetIdx) {
+        target.after(dragItem);
+      } else {
+        target.before(dragItem);
+      }
+    }
+    grid.querySelectorAll('.priority-item').forEach(i => i.classList.remove('drag-over'));
+  });
+
+  // Touch support for mobile drag
+  let touchItem = null;
+  let touchClone = null;
+  let touchStartY = 0;
+
+  grid.addEventListener('touchstart', e => {
+    const item = e.target.closest('.priority-item');
+    if (!item) return;
+    touchItem = item;
+    touchStartY = e.touches[0].clientY;
+    touchItem.style.transition = 'none';
+  }, { passive: true });
+
+  grid.addEventListener('touchmove', e => {
+    if (!touchItem) return;
+    e.preventDefault();
+    const touchY = e.touches[0].clientY;
+    const items = [...grid.querySelectorAll('.priority-item')];
+    for (const item of items) {
+      if (item === touchItem) continue;
+      const rect = item.getBoundingClientRect();
+      const midY = rect.top + rect.height / 2;
+      if (touchY < midY && items.indexOf(touchItem) > items.indexOf(item)) {
+        item.before(touchItem);
+        break;
+      } else if (touchY > midY && items.indexOf(touchItem) < items.indexOf(item)) {
+        item.after(touchItem);
+        break;
+      }
+    }
+  }, { passive: false });
+
+  grid.addEventListener('touchend', () => {
+    if (touchItem) touchItem.style.transition = '';
+    touchItem = null;
   });
 
   // Form submission
@@ -1024,16 +1127,6 @@
       }
     });
 
-    // Check priority ranking for duplicates
-    const pValues = [];
-    document.querySelectorAll('.priority-select').forEach(s => {
-      if (s.value) pValues.push(s.value);
-    });
-    if (pValues.length !== 7 || pValues.length !== new Set(pValues).size) {
-      document.getElementById('priority-warning').style.display = 'block';
-      valid = false;
-    }
-
     if (!valid) return;
 
     // Collect all form data
@@ -1041,6 +1134,12 @@
     const formData = new FormData(form);
     const data = {};
     formData.forEach((value, key) => { data[key] = value; });
+
+    // Add priority rankings from drag order
+    const priorityItems = document.querySelectorAll('#priority-grid .priority-item');
+    priorityItems.forEach((item, i) => {
+      data['priority_' + item.dataset.key] = i + 1;
+    });
 
     // Store in localStorage as backup
     localStorage.setItem('scaffold_intake', JSON.stringify(data));
