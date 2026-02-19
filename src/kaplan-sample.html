@@ -1,0 +1,1054 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sample Plan: The Kaplan Family — Scaffold</title>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1a1a18;
+    --cream: #f8f5f0;
+    --warm-white: #fdfcfa;
+    --sage: #4a6741;
+    --sage-light: #e8ede6;
+    --sage-dark: #3a5233;
+    --terra: #c4652a;
+    --terra-light: #f5ece5;
+    --muted: #6b6860;
+    --border: #d9d4cc;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    color: var(--ink);
+    background: var(--warm-white);
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .progress-bar { position: fixed; top: 0; left: 0; height: 3px; background: var(--sage); z-index: 200; width: 0%; transition: width 0.15s linear; }
+
+  .topbar { position: fixed; top: 3px; width: 100%; z-index: 100; background: rgba(253, 252, 250, 0.95); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); padding: 0 2rem; height: 49px; display: flex; align-items: center; justify-content: space-between; }
+  .topbar-logo { font-family: 'Newsreader', serif; font-size: 1.15rem; font-weight: 600; color: var(--ink); text-decoration: none; letter-spacing: -0.02em; }
+  .topbar-logo span { color: var(--sage); }
+  .topbar-right { display: flex; align-items: center; gap: 1.25rem; }
+  .topbar-cta { font-size: 0.78rem; font-weight: 600; color: white; background: var(--sage); padding: 0.35rem 0.9rem; border-radius: 5px; text-decoration: none; transition: background 0.2s; }
+  .topbar-cta:hover { background: var(--sage-dark); }
+  .topbar-link { font-size: 0.8rem; font-weight: 500; color: var(--muted); text-decoration: none; transition: color 0.2s; cursor: pointer; }
+  .topbar-link:hover { color: var(--ink); }
+  .topbar-dropdown { position: relative; }
+  .topbar-dropdown-menu { display: none; position: absolute; top: 100%; right: 0; padding-top: 0.5rem; min-width: 200px; z-index: 200; }
+  .topbar-dropdown-menu-inner { background: var(--warm-white); border: 1px solid var(--border); border-radius: 8px; box-shadow: 0 4px 16px rgba(0,0,0,0.08); overflow: hidden; }
+  .topbar-dropdown:hover .topbar-dropdown-menu { display: block; }
+  .topbar-dropdown-menu-inner a { display: block; padding: 0.6rem 1rem; font-size: 0.82rem; font-weight: 500; color: var(--ink); text-decoration: none; transition: background 0.15s; }
+  .topbar-dropdown-menu-inner a:hover { background: var(--sage-light); }
+  .topbar-dropdown-menu-inner a + a { border-top: 1px solid var(--border); }
+
+  .hero { background: var(--cream); color: var(--ink); padding: 6.5rem 2rem 0; border-bottom: 1px solid var(--border); }
+  .hero-inner { max-width: 860px; margin: 0 auto; padding-bottom: 3rem; }
+  .hero-badge { display: inline-block; font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: var(--terra); background: var(--terra-light); padding: 0.3rem 0.75rem; border-radius: 4px; margin-bottom: 1.25rem; }
+  .hero h1 { font-family: 'Newsreader', serif; font-size: clamp(2rem, 4.5vw, 3rem); font-weight: 400; line-height: 1.1; letter-spacing: -0.03em; margin-bottom: 0.4rem; color: var(--ink); }
+  .hero-meta { font-size: 0.85rem; color: var(--muted); margin-bottom: 2rem; }
+  .hero-desc { font-size: 1rem; color: var(--muted); max-width: 600px; line-height: 1.65; margin-bottom: 2.5rem; }
+  .hero-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--border); border-radius: 10px; overflow: hidden; border: 1px solid var(--border); }
+  .hero-stat { padding: 1.15rem 1rem; text-align: center; background: var(--warm-white); }
+  .hero-stat .hs-num { font-family: 'Newsreader', serif; font-size: 1.4rem; font-weight: 600; color: var(--sage-dark); line-height: 1; }
+  .hero-stat .hs-label { font-size: 0.65rem; color: var(--muted); margin-top: 0.3rem; text-transform: uppercase; letter-spacing: 0.05em; }
+
+  .toggle-bar { background: var(--cream); border-bottom: 1px solid var(--border); padding: 0 2rem; position: sticky; top: 52px; z-index: 90; }
+  .toggle-inner { max-width: 860px; margin: 0 auto; display: flex; }
+  .toggle-btn { flex: 1; padding: 0.85rem 1rem; font-size: 0.85rem; font-weight: 600; text-align: center; cursor: pointer; color: var(--muted); border-bottom: 3px solid transparent; transition: all 0.2s; user-select: none; }
+  .toggle-btn:hover { color: var(--ink); }
+  .toggle-btn.active { color: var(--sage-dark); border-bottom-color: var(--sage); }
+  .toggle-btn small { display: block; font-size: 0.7rem; font-weight: 400; margin-top: 0.1rem; opacity: 0.75; }
+  .panel { display: none; }
+  .panel.active { display: block; }
+
+  .intake-body { max-width: 700px; margin: 0 auto; padding: 2.5rem 2rem 4rem; }
+  .intake-note { font-size: 0.88rem; color: var(--muted); margin-bottom: 2rem; padding-bottom: 1.5rem; border-bottom: 1px solid var(--border); line-height: 1.6; }
+  .form-section { margin-bottom: 2.25rem; }
+  .form-section-title { font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: var(--sage); margin-bottom: 0.75rem; padding-bottom: 0.4rem; border-bottom: 2px solid var(--sage-light); }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin-bottom: 0.75rem; }
+  .form-field { margin-bottom: 0.75rem; }
+  .form-label { font-size: 0.75rem; font-weight: 600; color: var(--muted); margin-bottom: 0.25rem; }
+  .form-value { font-size: 0.88rem; color: var(--ink); background: var(--cream); border: 1px solid var(--border); border-radius: 6px; padding: 0.55rem 0.85rem; line-height: 1.55; }
+  .priority-list { list-style: none; counter-reset: p; }
+  .priority-list li { counter-increment: p; display: flex; align-items: center; gap: 0.6rem; padding: 0.4rem 0.75rem; background: var(--cream); border: 1px solid var(--border); border-radius: 6px; margin-bottom: 0.35rem; font-size: 0.82rem; }
+  .priority-list li::before { content: counter(p); width: 20px; height: 20px; border-radius: 50%; background: var(--sage-light); color: var(--sage-dark); display: flex; align-items: center; justify-content: center; font-size: 0.68rem; font-weight: 700; flex-shrink: 0; }
+
+  .strategy-body { max-width: 780px; margin: 0 auto; padding: 2.5rem 2rem 4rem; }
+  .strategy-body h2 { font-family: 'Newsreader', serif; font-size: 1.6rem; font-weight: 500; letter-spacing: -0.02em; margin-top: 3rem; margin-bottom: 0.4rem; padding-top: 2.5rem; scroll-margin-top: 110px; }
+  .strategy-body h2:first-child { margin-top: 0; padding-top: 0; }
+  .section-rule { width: 36px; height: 3px; background: var(--sage-light); border-radius: 2px; margin-bottom: 1.25rem; }
+  .strategy-body h3 { font-size: 1.05rem; font-weight: 600; margin-top: 2.25rem; margin-bottom: 0.5rem; color: var(--ink); scroll-margin-top: 110px; }
+  .strategy-body h4 { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--sage); margin-top: 2rem; margin-bottom: 0.75rem; }
+  .strategy-body p { margin-bottom: 1.1rem; color: #3d3d3a; font-size: 0.92rem; }
+  .strategy-body strong { font-weight: 600; color: var(--ink); }
+
+  .callout { background: var(--terra-light); border-left: 3px solid var(--terra); padding: 1.1rem 1.25rem; border-radius: 0 8px 8px 0; margin: 1.75rem 0; font-size: 0.88rem; color: #5a4030; line-height: 1.6; }
+  .callout strong { color: var(--terra); }
+  .callout-sage { background: var(--sage-light); border-left: 3px solid var(--sage); padding: 1.1rem 1.25rem; border-radius: 0 8px 8px 0; margin: 1.75rem 0; font-size: 0.88rem; color: var(--sage-dark); line-height: 1.6; }
+  .doc-quote { font-family: 'Newsreader', serif; font-style: italic; font-size: 1.15rem; border-left: 3px solid var(--sage); padding-left: 1.25rem; margin: 2.5rem 0; color: var(--muted); line-height: 1.5; }
+  .pull-stat { display: flex; align-items: baseline; gap: 0.75rem; margin: 1.75rem 0; padding: 1.25rem 1.5rem; background: var(--sage-light); border-radius: 8px; }
+  .pull-stat .ps-num { font-family: 'Newsreader', serif; font-size: 2rem; font-weight: 600; color: var(--sage-dark); line-height: 1; flex-shrink: 0; }
+  .pull-stat .ps-text { font-size: 0.88rem; color: var(--sage-dark); line-height: 1.5; }
+
+  .table-wrap { overflow-x: auto; margin: 1.25rem 0 1.75rem; border: 1px solid var(--border); border-radius: 8px; }
+  table { width: 100%; border-collapse: collapse; font-size: 0.82rem; }
+  .table-wrap table { margin: 0; }
+  th { text-align: left; font-weight: 600; font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); padding: 0.65rem 0.75rem; border-bottom: 2px solid var(--border); background: var(--cream); white-space: nowrap; }
+  td { padding: 0.6rem 0.75rem; border-bottom: 1px solid #eae7e2; color: #3d3d3a; vertical-align: top; }
+  tr:hover td { background: rgba(232,237,230,0.3); }
+
+  .school-card { border: 1px solid var(--border); border-radius: 10px; padding: 1.4rem; margin: 1rem 0; background: var(--warm-white); transition: border-color 0.2s, box-shadow 0.2s; }
+  .school-card:hover { border-color: var(--sage); box-shadow: 0 2px 12px rgba(74,103,65,0.06); }
+  .school-card-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 0.5rem; }
+  .school-name { font-family: 'Newsreader', serif; font-size: 1.08rem; font-weight: 500; }
+  .school-tier { font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; padding: 0.2rem 0.6rem; border-radius: 4px; flex-shrink: 0; }
+  .tier-reach { background: var(--terra-light); color: var(--terra); }
+  .tier-target { background: var(--sage-light); color: var(--sage-dark); }
+  .tier-safety { background: var(--cream); color: var(--muted); }
+  .school-card p { font-size: 0.86rem; margin-bottom: 0.5rem; }
+
+  .sim-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.75rem; margin: 1.5rem 0; }
+  .sim-stat { background: var(--cream); border: 1px solid var(--border); border-radius: 8px; padding: 1rem 0.75rem; text-align: center; }
+  .sim-stat .number { font-family: 'Newsreader', serif; font-size: 1.65rem; font-weight: 600; color: var(--sage-dark); line-height: 1; }
+  .sim-stat .label { font-size: 0.65rem; color: var(--muted); margin-top: 0.3rem; line-height: 1.3; }
+
+  .chart-bar-group { margin: 0.75rem 0; }
+  .chart-row { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.4rem; }
+  .chart-label { font-size: 0.78rem; color: var(--muted); min-width: 75px; text-align: right; flex-shrink: 0; }
+  .chart-track { flex: 1; height: 20px; background: var(--cream); border: 1px solid var(--border); border-radius: 4px; overflow: hidden; }
+  .chart-fill { height: 100%; background: var(--terra); border-radius: 3px; transition: width 0.3s ease; }
+  .chart-fill-sage { background: var(--sage); }
+  .chart-val { font-size: 0.78rem; font-weight: 600; color: var(--ink); min-width: 40px; }
+
+  .collapsible { border: 1px solid var(--border); border-radius: 8px; margin: 1.5rem 0; overflow: hidden; }
+  .collapsible-header { padding: 0.85rem 1.15rem; background: var(--cream); cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-size: 0.88rem; font-weight: 600; user-select: none; transition: background 0.2s; }
+  .collapsible-header:hover { background: #efe9e0; }
+  .collapsible-header::after { content: '+'; font-size: 1.1rem; color: var(--muted); }
+  .collapsible.open .collapsible-header::after { content: '\2212'; }
+  .collapsible-body { max-height: 0; overflow: hidden; transition: max-height 0.4s ease; }
+  .collapsible.open .collapsible-body { max-height: 12000px; }
+  .collapsible-body-inner { padding: 0 1.15rem 1rem; font-size: 0.92rem; color: #3d3d3a; line-height: 1.7; }
+  .collapsible-body-inner ol, .collapsible-body-inner ul { padding-left: 1.25rem; margin-bottom: 1rem; }
+  .collapsible-body-inner li { margin-bottom: 0.5rem; }
+  .collapsible-body-inner p { margin-bottom: 1rem; }
+  .collapsible-body-inner strong { font-weight: 600; color: var(--ink); }
+  .collapsible-body-inner h3 { font-size: 1.05rem; font-weight: 600; margin-top: 1.75rem; margin-bottom: 0.5rem; color: var(--ink); }
+
+  .cta-bar { background: var(--sage-light); border-top: 1px solid var(--border); padding: 2.5rem 2rem; text-align: center; }
+  .cta-bar p { font-size: 0.95rem; color: var(--muted); margin-bottom: 1rem; max-width: 500px; margin-left: auto; margin-right: auto; }
+  .btn-primary { background: var(--sage); color: white; padding: 0.9rem 2rem; border-radius: 8px; font-size: 1rem; font-weight: 600; text-decoration: none; border: none; cursor: pointer; transition: all 0.25s; display: inline-flex; align-items: center; gap: 0.5rem; }
+  .btn-primary:hover { background: var(--sage-dark); transform: translateY(-1px); }
+  .doc-footer { padding: 2rem; text-align: center; font-size: 0.8rem; color: var(--muted); }
+  .doc-footer a { color: var(--sage); text-decoration: none; font-weight: 600; }
+
+  @media (max-width: 768px) {
+    .hero-stats { grid-template-columns: repeat(2, 1fr); }
+    .form-row { grid-template-columns: 1fr; }
+    .sim-grid { grid-template-columns: repeat(2, 1fr); }
+    .toggle-btn small { display: none; }
+    .intake-body, .strategy-body { padding: 1.5rem 1.25rem 3rem; }
+  }
+</style>
+</head>
+<body>
+
+<div class="progress-bar" id="progressBar"></div>
+
+<!-- TOP BAR -->
+<div class="topbar">
+  <a href="index.html" class="topbar-logo"><span>S</span>caffold</a>
+  <div class="topbar-right">
+    <a href="index.html" class="topbar-link">Home</a>
+    <div class="topbar-dropdown">
+      <a class="topbar-link topbar-dropdown-trigger">See Samples</a>
+      <div class="topbar-dropdown-menu">
+        <div class="topbar-dropdown-menu-inner">
+          <a href="washington-sample.html">The Washington Family</a>
+          <a href="medina-sample.html">The Medina Family</a>
+          <a href="kaplan-sample.html">The Kaplan Family</a>
+        </div>
+      </div>
+    </div>
+    <a href="index.html#pricing" class="topbar-cta">Get Your Plan</a>
+  </div>
+</div>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-badge">Sample Plan</div>
+    <h1>The Kaplan Family</h1>
+    <div class="hero-meta">Bethesda, MD &middot; Class of 2029 &middot; Two-parent household, professional family</div>
+    <p class="hero-desc">Nora is 14, a freshman at Walt Whitman High School with a 3.9 GPA and every box checked, but nothing that makes her stand out. This is the plan Scaffold built for a high-achieving student who needs to find her spike.</p>
+    <div class="hero-stats">
+      <div class="hero-stat"><div class="hs-num">12</div><div class="hs-label">Schools analyzed</div></div>
+      <div class="hero-stat"><div class="hs-num">10K</div><div class="hs-label">Simulations run</div></div>
+      <div class="hero-stat"><div class="hs-num">$20K</div><div class="hs-label">Median annual cost</div></div>
+      <div class="hero-stat"><div class="hs-num">75%</div><div class="hs-label">Under $30K/yr</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- TOGGLE -->
+<div class="toggle-bar">
+  <div class="toggle-inner">
+    <div class="toggle-btn active" data-panel="intake">What they filled out<small>~10 minute intake</small></div>
+    <div class="toggle-btn" data-panel="strategy">What they got back<small>20+ page strategy</small></div>
+  </div>
+</div>
+
+<!-- ============ INTAKE PANEL ============ -->
+<div class="panel active" id="panel-intake">
+<div class="intake-body">
+
+  <p class="intake-note">This is the actual intake form the Kaplan family completed. It took about 10 minutes. No jargon, no trick questions. The answers below produced the full strategy you can read in the other tab.</p>
+
+  <div class="form-section">
+    <div class="form-section-title">About the Student</div>
+    <div class="form-row">
+      <div class="form-field"><div class="form-label">Age / Grade</div><div class="form-value">14, freshman (9th grade, 2025-2026 school year)</div></div>
+      <div class="form-field"><div class="form-label">School</div><div class="form-value">Walt Whitman High School, public (Montgomery County Public Schools)</div></div>
+    </div>
+    <div class="form-field"><div class="form-label">Academic profile</div><div class="form-value">3.9 unweighted GPA first semester. All honors classes available to freshmen. AP Human Geography with a 5. 95th percentile on 8th grade MAP test. Identified for MCPS Gifted and Talented in 3rd grade.</div></div>
+    <div class="form-field"><div class="form-label">Academic strengths</div><div class="form-value">She's good at everything, which is part of the problem. Strong writer, consistently gets A's on essays. Does well in math (Honors Geometry as a freshman). Science is solid. She reads constantly but mostly YA fiction, not for intellectual reasons.</div></div>
+    <div class="form-field"><div class="form-label">Academic weaknesses</div><div class="form-value">Nothing obvious, and that worries me. She's good at school but I don't know if she's passionate about any subject. She picks courses based on what looks good, not what excites her. She admitted to me that she finds most of her classes "fine but boring."</div></div>
+    <div class="form-field"><div class="form-label">Interests &amp; temperament</div><div class="form-value">JV soccer (since 5th grade, decent but not getting recruited). Model UN (joined because friends did). Coding club but told me "I'm not really into it, I just need activities." Likes drawing in her sketchbook but calls it "just doodling." Watches a lot of design and architecture content on TikTok and YouTube. Rearranged her room three times this year. Spent 45 minutes at the Hirshhorn Museum staring at the building itself, not the art inside. Sketches floor plans for fun. Smart, conscientious, anxious about doing things right. Classic overachiever energy but showing signs of burnout at 14.</div></div>
+    <div class="form-field"><div class="form-label">Teacher quote</div><div class="form-value">"Nora has a real eye for spatial design." Her 8th grade art teacher, Ms. Novak, at the portfolio review. She recommended architecture or industrial design courses. Nora dismissed it because it was "just an elective."</div></div>
+  </div>
+
+  <div class="form-section">
+    <div class="form-section-title">The Parents</div>
+    <div class="form-row">
+      <div class="form-field"><div class="form-label">Parent 1</div><div class="form-value">Ethan Kaplan. JD from Georgetown Law. Attorney at a mid-size firm in DC (government contracts).</div></div>
+      <div class="form-field"><div class="form-label">Parent 2</div><div class="form-value">Sarah Kaplan. MPH from Johns Hopkins. Program manager at NIH.</div></div>
+    </div>
+    <div class="form-field"><div class="form-label">Family structure</div><div class="form-value">Married, both in the home. Sibling: Eli, age 11, 5th grade. Less academically intense than Nora. Into Legos and basketball. College pipeline in about 7 years.</div></div>
+  </div>
+
+  <div class="form-section">
+    <div class="form-section-title">Location &amp; Finances</div>
+    <div class="form-row">
+      <div class="form-field"><div class="form-label">Location</div><div class="form-value">Bethesda, MD. Suburban. Classic Bethesda. Good schools, high cost of living, lots of type-A families.</div></div>
+      <div class="form-field"><div class="form-label">Geographic range</div><div class="form-value">East Coast preferred. Boston, New York, Philadelphia, DC area all feel natural. Would consider Midwest or West Coast for the right school.</div></div>
+    </div>
+    <div class="form-row">
+      <div class="form-field"><div class="form-label">Household income</div><div class="form-value">~$235,000 combined. Ethan: $165K. Sarah: $70K (NIH).</div></div>
+      <div class="form-field"><div class="form-label">Can afford per year</div><div class="form-value">$35,000-40,000. But Ivy sticker prices are $85K+ and even with aid it's terrifying. Not mortgaging our retirement.</div></div>
+    </div>
+    <div class="form-field"><div class="form-label">Assets</div><div class="form-value">Home worth ~$950K (owe $410K, so $540K equity). Nora's 529: $62K. Eli's 529: $35K. Retirement accounts: ~$380K. Both W-2 employees. Home equity is significant and some schools count that on CSS Profile.</div></div>
+  </div>
+
+  <div class="form-section">
+    <div class="form-section-title">Priorities (Ranked 1-7)</div>
+    <ol class="priority-list">
+      <li>Academic fit (specific programs, research, major strength)</li>
+      <li>Post-graduation outcomes (career placement, earnings, grad school)</li>
+      <li>Prestige / brand name</li>
+      <li>Minimize total cost of attendance</li>
+      <li>Merit scholarship likelihood</li>
+      <li>Campus culture / social fit</li>
+      <li>Geographic location</li>
+    </ol>
+    <div class="form-field"><div class="form-label">Additional note</div><div class="form-value">I know we ranked prestige #3 but I want to be honest. It matters to us more than we want to admit. Ethan and I both went to "good" schools and we'd be lying if we said we don't care where she ends up. But we're also watching friends take out $300K in loans and wondering if the name is worth it.</div></div>
+  </div>
+
+  <div class="form-section">
+    <div class="form-section-title">What Keeps Me Up at Night</div>
+    <div class="form-field"><div class="form-value">Nora is doing everything "right" and I'm terrified it won't be enough. She has the GPA, she has the activities, she'll probably have the test scores. But what makes Nora different from the other 10,000 girls at competitive suburban public schools doing the exact same things? The answer right now is: nothing. She doesn't have a "thing." She's not the girl who started a nonprofit or built an app. She's pleasant and smart and completely interchangeable. I think there might be something in the design/architecture direction. The art teacher saw it. She spent 45 minutes at the Hirshhorn just looking at the building. She sketches floor plans for fun. But she dismisses it because it doesn't feel "serious" enough. Whitman is a pressure cooker. She told me she feels like she's "losing the race" with a 3.9 GPA. We're Jewish, cultural community matters. One more thing: Nora has said "I'm not going to Maryland, that's where you go if you don't get in anywhere." I kind of feel the same way, and I need someone to either validate that or talk us out of it.</div></div>
+  </div>
+
+</div>
+</div>
+
+<!-- ============ STRATEGY PANEL ============ -->
+<div class="panel" id="panel-strategy">
+<div class="strategy-body">
+
+  <h2>Executive Summary</h2>
+  <div class="section-rule"></div>
+
+  <p><strong>Nora at a glance:</strong> Current freshman, 3.9 unweighted GPA, all honors with an AP Human Geography 5. Strongest assets are her academic consistency, her verbal and written skills, and a latent design/architecture interest that she hasn't recognized as a strength yet. Main vulnerability is a lack of differentiation: her profile is currently interchangeable with thousands of other suburban overachievers at schools exactly like Whitman. Projected SAT range: 1480-1540. Two-parent household, $235K combined income, significant home equity ($540K) that complicates CSS Profile calculations.</p>
+
+  <div class="table-wrap">
+  <table>
+    <thead><tr><th>School</th><th>Tier</th><th>Est. Net Cost/Yr</th><th>Financial Risk</th></tr></thead>
+    <tbody>
+      <tr><td>Harvard</td><td>Reach</td><td>$18,000-25,000</td><td>Moderate</td></tr>
+      <tr><td>Penn</td><td>Reach</td><td>$18,000-28,000</td><td>Moderate</td></tr>
+      <tr><td>Columbia</td><td>Reach</td><td>$18,000-28,000</td><td>Moderate</td></tr>
+      <tr><td>Brown</td><td>Reach</td><td>$18,000-25,000</td><td>Moderate</td></tr>
+      <tr><td>Cornell AAP</td><td>Reach</td><td>$18,000-28,000</td><td>Moderate</td></tr>
+      <tr><td>Georgetown</td><td>Reach</td><td>$40,000-52,000</td><td>High</td></tr>
+      <tr><td>Johns Hopkins</td><td>Target-Reach</td><td>$22,000-35,000</td><td>Moderate-High</td></tr>
+      <tr><td>WashU (Sam Fox)</td><td>Target-Reach</td><td>$20,000-30,000</td><td>Moderate</td></tr>
+      <tr><td>Tufts</td><td>Target</td><td>$22,000-32,000</td><td>Moderate</td></tr>
+      <tr><td>UVA (Out-of-State)</td><td>Target</td><td>$28,000-38,000</td><td>Moderate</td></tr>
+      <tr><td>Northeastern</td><td>Target</td><td>$25,000-40,000</td><td>Moderate-High</td></tr>
+      <tr><td>UMD Honors</td><td>Safety</td><td>$12,000-15,000</td><td>Very Low</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h3>Top 3 things to do in the next 6 months</h3>
+
+  <div class="callout-sage">
+    <strong>1. Get Nora into a real design or architecture experience this summer.</strong> Not coding camp, not Model UN practice. A hands-on studio program where she draws, builds models, and discovers whether Ms. Novak was right. Look at the National Building Museum's summer programs, Catholic University's pre-college architecture studio, or a local architect willing to let her shadow. This is the single most important move for her entire application trajectory.
+  </div>
+
+  <div class="callout-sage">
+    <strong>2. Drop coding club.</strong> She told you she's not into it. Believe her. Replace it with something connected to the design thread. Every hour she spends performing interest in coding is an hour she's not developing the thing that might actually set her apart.
+  </div>
+
+  <div class="callout-sage">
+    <strong>3. Have a conversation with her about what she actually wants.</strong> Not "where do you want to go to college?" That question paralyzes her. Try: "What's the last thing you made that you were proud of?" or "Why did you stare at the Hirshhorn for 45 minutes?"
+  </div>
+
+  <div class="pull-stat">
+    <div class="ps-num">$14K</div>
+    <div class="ps-text"><strong>The financial floor:</strong> University of Maryland, College Park with Honors College and in-state tuition. Admission probability: ~90%. This is not the consolation prize. This is a top-20 public university, 25 minutes from your house, with a strong architecture program and an Honors experience that rivals many private colleges.</div>
+  </div>
+
+  <!-- ============ BEFORE WE START ============ -->
+  <h2>Before We Start</h2>
+  <div class="section-rule"></div>
+
+  <p>Sarah and Ethan, you said something in your intake that I want to address before anything else: "What makes Nora different from the other 10,000 girls at competitive suburban public schools doing the exact same things?"</p>
+
+  <p>Nothing. Right now, nothing.</p>
+
+  <p>That's not a failure. It's a diagnosis. And the fact that you can see it clearly at 14 instead of discovering it at 17, in the middle of application season, when it's too late, gives you three years to fix it.</p>
+
+  <div class="callout">
+    <strong>Six honest truths before we get into it:</strong><br><br>
+    1. Nora's profile is strong but undifferentiated. A 3.9 GPA with all honors at Whitman, AP Human Geo with a 5, JV soccer, Model UN, food bank volunteering. You know what every admissions officer at a selective school calls this? Tuesday.<br><br>
+    2. The design/architecture thread is real, and she's dismissing it. Ms. Novak told you Nora has "a real eye for spatial design." She spent 45 minutes at the Hirshhorn staring at the building, not the art. She sketches floor plans for fun. This is not a hobby. This is an unrecognized passion.<br><br>
+    3. Your financial situation is more complicated than you realize. At $235K, you're in the "donut hole." The CSS Profile's treatment of your home equity ($540K) varies dramatically by school.<br><br>
+    4. QuestBridge is not an option at $235K income.<br><br>
+    5. The sibling math matters. If Nora goes expensive, what does that mean for Eli in 7 years?<br><br>
+    6. Nora is showing burnout symptoms at 14. She makes to-do lists for her to-do lists. She cried over an A-. She told you she feels like she's "losing the race" with a 3.9 GPA. That scares me more than her college list.
+  </div>
+
+  <!-- ============ THE FOUR THREADS ============ -->
+  <h2>The Four Threads</h2>
+  <div class="section-rule"></div>
+
+  <p>Every strong college application tells a coherent story. Looking at Nora's profile, four threads emerge, but only if we develop the one she's been ignoring.</p>
+
+  <h3>Thread 1: The Spatial Thinker</h3>
+  <p>This is the anchor. Nora notices how spaces work. She rearranges rooms, sketches floor plans, stares at buildings. She processes the world visually and spatially in a way that most students don't. This thread runs through architecture, design, urban planning, and the way physical environments shape human behavior. When admissions officers read about the girl who spent 45 minutes studying the Hirshhorn's architecture while her classmates walked past, they'll remember her.</p>
+
+  <h3>Thread 2: The Analytical Writer</h3>
+  <p>Nora is a strong writer by every measure. She gets A's on essays consistently. This thread supports the application broadly and makes her essays sharp. It's the connector, not the spike.</p>
+
+  <h3>Thread 3: Academic Rigor in a Competitive Environment</h3>
+  <p>Whitman is one of the most competitive public high schools in the country. A 3.9 UW GPA with the most rigorous course load available is a real achievement. This thread is table stakes at the schools she's targeting, not a differentiator.</p>
+
+  <h3>Thread 4: Community and Perspective</h3>
+  <p>The food bank volunteering, Model UN, and any future community engagement around design and public space. A project that connects her design thinking to community impact would make this thread sing.</p>
+
+  <div class="callout-sage">
+    <strong>The key insight:</strong> Threads 2, 3, and 4 are what every strong Whitman applicant has. Thread 1 is what makes Nora different. The entire strategy is built around developing Thread 1 from "something she does casually" to "the defining feature of her application."
+  </div>
+
+  <!-- ============ THE SCHOOL LIST ============ -->
+  <h2>The School List</h2>
+  <div class="section-rule"></div>
+
+  <p>Twelve schools. Four reaches, two reach-targets, three targets, and one safety with a secret weapon.</p>
+
+  <p>Sarah, Ethan, I need to say something before we go school by school. You ranked prestige #3 and then said, "it matters to us more than we want to admit." Here's my honesty: the Ivy League is not a financial plan. It's a brand. At your income level, the Ivies that meet full need and exclude home equity are actually more affordable than Georgetown. Meanwhile, UMD with Honors and in-state tuition will cost you $12,000-15,000/year, and its architecture program is nationally ranked.</p>
+
+  <h4>Reaches</h4>
+
+  <div class="school-card">
+    <div class="school-card-header">
+      <div class="school-name">1. Harvard University</div>
+      <span class="school-tier tier-reach">Reach</span>
+    </div>
+    <p><em>Cambridge, MA &middot; ~3.5% admit rate &middot; ~7,000 undergrads</em></p>
+    <p><strong>Why it's on the list:</strong> Harvard meets 100% of demonstrated financial need, and they don't include home equity in their calculation for families under $240K. At $235K, your $540K in home equity doesn't count against you. That's a massive advantage.</p>
+    <p><strong>Academic fit:</strong> No undergraduate architecture major, but the Visual and Environmental Studies program and GSD cross-registration let Nora explore design thinking within a liberal arts framework.</p>
+    <p><strong>Cultural fit:</strong> Large Jewish community, active Hillel. Can exacerbate achievement-anxiety patterns Nora already shows.</p>
+    <p><strong>The honest truth:</strong> At 3.5% admission, this is a lottery ticket. The design interest differentiates her from the Bethesda Model UN crowd. Apply, don't obsess.</p>
+    <p><strong>Estimated net cost:</strong> $18,000-25,000/year &middot; <strong>4-year total:</strong> $72,000-100,000 &middot; <strong>Risk: MODERATE.</strong> Home equity exclusion helps enormously.</p>
+  </div>
+
+  <div class="school-card">
+    <div class="school-card-header">
+      <div class="school-name">2. University of Pennsylvania</div>
+      <span class="school-tier tier-reach">Reach</span>
+    </div>
+    <p><em>Philadelphia, PA &middot; ~5.4% admit rate &middot; ~10,000 undergrads</em></p>
+    <p><strong>Why it's on the list:</strong> Penn has the Weitzman School of Design. Undergrads can access architecture, urban studies, and design courses. Meets 100% of need with no loans.</p>
+    <p><strong>Academic fit:</strong> Urban Studies major with Weitzman course access. Combination of humanities and design thinking is exactly what Penn values.</p>
+    <p><strong>Cultural fit:</strong> Philadelphia is a real city. Jewish community among the strongest in the Ivy League. Pre-professional and ambitious campus culture.</p>
+    <p><strong>The honest truth:</strong> Penn DOES include home equity. At $540K, expect $5,000-10,000/year more in expected family contribution compared to Harvard.</p>
+    <p><strong>Estimated net cost:</strong> $18,000-28,000/year &middot; <strong>4-year total:</strong> $72,000-112,000 &middot; <strong>Risk: MODERATE.</strong></p>
+  </div>
+
+  <div class="school-card">
+    <div class="school-card-header">
+      <div class="school-name">3. Columbia University</div>
+      <span class="school-tier tier-reach">Reach</span>
+    </div>
+    <p><em>New York, NY &middot; ~3.9% admit rate &middot; ~8,500 undergrads</em></p>
+    <p><strong>Why it's on the list:</strong> For architecture and design, there is no better city than New York. GSAPP is world-class. The Core Curriculum feeds broad intellectual curiosity.</p>
+    <p><strong>Academic fit:</strong> Art History, Visual Arts, and Urban Studies are all strong. New York itself becomes the classroom.</p>
+    <p><strong>Cultural fit:</strong> Enormous Jewish community on and off campus. Can be overwhelming for an anxious overachiever. The pace is real.</p>
+    <p><strong>The honest truth:</strong> Columbia counts home equity aggressively. Cost of living in New York adds up in ways that don't show up on the financial aid letter.</p>
+    <p><strong>Estimated net cost:</strong> $18,000-28,000/year &middot; <strong>4-year total:</strong> $72,000-112,000 &middot; <strong>Risk: MODERATE.</strong></p>
+  </div>
+
+  <div class="school-card">
+    <div class="school-card-header">
+      <div class="school-name">4. Brown University</div>
+      <span class="school-tier tier-reach">Reach</span>
+    </div>
+    <p><em>Providence, RI &middot; ~5% admit rate &middot; ~7,000 undergrads</em></p>
+    <p><strong>Why it's on the list:</strong> The open curriculum means no distribution requirements. Brown/RISD partnership lets students cross-register at one of the best design schools in the world.</p>
+    <p><strong>Academic fit:</strong> Brown/RISD Dual Degree is the dream scenario (~20 spots/year, extremely competitive). Even without it, Brown students can take RISD architecture courses.</p>
+    <p><strong>Cultural fit:</strong> The least pre-professional Ivy. Students explore because they want to, not because they're chasing a grade. For Nora, who has spent her life doing what looks good, Brown's culture could be the permission she needs. Solid Jewish community.</p>
+    <p><strong>The honest truth:</strong> Home equity is included but capped. Cross-registration with RISD is a selling point, but don't build the plan around the dual degree. Treat it as upside.</p>
+    <p><strong>Estimated net cost:</strong> $18,000-25,000/year &middot; <strong>4-year total:</strong> $72,000-100,000 &middot; <strong>Risk: MODERATE.</strong></p>
+  </div>
+
+  <div class="school-card">
+    <div class="school-card-header">
+      <div class="school-name">5. Cornell University (AAP)</div>
+      <span class="school-tier tier-reach">Reach</span>
+    </div>
+    <p><em>Ithaca, NY &middot; AAP ~10-12% admit rate &middot; ~15,000 undergrads</em></p>
+    <p><strong>Why it's on the list:</strong> Cornell AAP offers a five-year B.Arch, one of the most respected professional architecture programs in the country. This is the school the design thread was built for.</p>
+    <p><strong>Academic fit:</strong> Fully accredited professional degree. Studio work from the first semester. If she applies with a portfolio showing spatial thinking, she tells a story no other Whitman applicant is telling. The risk: B.Arch is a five-year commitment.</p>
+    <p><strong>Cultural fit:</strong> Ithaca is rural and isolated. Brutal winters. But the AAP cohort is small and tight-knit (~40-50/class). Strong Cornell Hillel.</p>
+    <p><strong>The honest truth:</strong> AAP requires/strongly encourages a portfolio. If Nora develops one, her adjusted admit rate is ~14%. Without it, she's at ~8%. Cornell counts home equity.</p>
+    <p><strong>Estimated net cost:</strong> $18,000-28,000/year &middot; <strong>5-year total:</strong> $90,000-140,000 &middot; <strong>Risk: MODERATE.</strong> Fifth year adds cost, but B.Arch means no grad school needed.</p>
+  </div>
+
+  <div class="school-card">
+    <div class="school-card-header">
+      <div class="school-name">6. Georgetown University</div>
+      <span class="school-tier tier-reach">Reach</span>
+    </div>
+    <p><em>Washington, DC &middot; ~12% admit rate &middot; ~7,500 undergrads</em></p>
+    <p><strong>Why it's on the list:</strong> Ethan went to Georgetown Law. The family connection is real. Georgetown considers legacy.</p>
+    <p><strong>Academic fit:</strong> Georgetown has no architecture program. If the design thread takes hold, Georgetown becomes less strategically important. Strong for government, international affairs, humanities.</p>
+    <p><strong>Cultural fit:</strong> DC is home. Nora would be 20 minutes from the house. That's a pro and a con. Preppy, Catholic-influenced, ambitious. Jewish community is smaller than at the Ivies.</p>
+
+    <div class="callout">
+      <strong>Ethan, Sarah, this is the part you won't like:</strong> Georgetown does not consistently meet 100% of need. Its endowment ($4.5B) is smaller than Harvard's ($50B) or any Ivy. At your income with home equity, Georgetown could leave a gap of $10,000-15,000/year. Georgetown might be the most expensive school on this list. More expensive than Harvard. The family connection has emotional value. It doesn't have financial value.
+    </div>
+
+    <p><strong>Estimated net cost:</strong> $40,000-52,000/year &middot; <strong>4-year total:</strong> $160,000-208,000 &middot; <strong>Risk: HIGH.</strong></p>
+  </div>
+
+  <h4>Target-Reaches</h4>
+
+  <div class="school-card">
+    <div class="school-card-header">
+      <div class="school-name">7. Johns Hopkins University</div>
+      <span class="school-tier tier-target">Target-Reach</span>
+    </div>
+    <p><em>Baltimore, MD &middot; ~6.5% admit rate &middot; ~6,000 undergrads</em></p>
+    <p><strong>Why it's on the list:</strong> Sarah, your NIH colleague is right. Hopkins is 40 minutes from home with genuine prestige. Humanities and social sciences are underrated.</p>
+    <p><strong>Academic fit:</strong> No architecture program, but strong in History of Art, International Studies, Writing Seminars. Baltimore's architectural landscape provides real-world context.</p>
+    <p><strong>Cultural fit:</strong> Baltimore is not Bethesda. Strong Jewish community and active Hillel. Student body skews intense and pre-professional.</p>
+    <p><strong>The honest truth:</strong> Meets 100% of need but uses CSS Profile with home equity. Admit rate has dropped to under 7%, making it a reach in all but name. Maryland residency can be a subtle positive.</p>
+    <p><strong>Estimated net cost:</strong> $22,000-35,000/year &middot; <strong>4-year total:</strong> $88,000-140,000 &middot; <strong>Risk: MODERATE-HIGH.</strong></p>
+  </div>
+
+  <div class="school-card">
+    <div class="school-card-header">
+      <div class="school-name">8. Washington University in St. Louis (Sam Fox)</div>
+      <span class="school-tier tier-target">Target-Reach</span>
+    </div>
+    <p><em>St. Louis, MO &middot; ~11% admit rate &middot; ~8,000 undergrads</em></p>
+    <p><strong>Why it's on the list:</strong> Sam Fox School is one of the best undergraduate architecture programs in the country. Offers both a B.A. in Architecture and a five-year B.Arch. Meets 100% of need. Almost nobody from Whitman applies here.</p>
+    <p><strong>Academic fit:</strong> The hidden gem for the design thread. Studio work from the beginning. B.A. option gives four-year flexibility without the five-year B.Arch commitment.</p>
+    <p><strong>Cultural fit:</strong> Midwest. You said you'd "consider for the right school." Campus is gorgeous and collaborative. Strong Jewish community historically. Far from home, which could be exactly what Nora needs.</p>
+    <p><strong>The honest truth:</strong> WashU caps home equity at 1.2x income (~$282K, not $540K). That saves $5,000-8,000/year compared to schools that count full home equity. This could be one of the best financial outcomes among the selective schools.</p>
+    <p><strong>Estimated net cost:</strong> $20,000-30,000/year &middot; <strong>4-year total:</strong> $80,000-120,000 &middot; <strong>Risk: MODERATE.</strong></p>
+  </div>
+
+  <h4>Targets</h4>
+
+  <div class="school-card">
+    <div class="school-card-header">
+      <div class="school-name">9. Tufts University</div>
+      <span class="school-tier tier-target">Target</span>
+    </div>
+    <p><em>Medford/Somerville, MA &middot; ~10% admit rate &middot; ~6,500 undergrads</em></p>
+    <p><strong>Why it's on the list:</strong> Nora's friend's sister goes there and loves it. That personal connection matters. Tufts is one of the most underrated schools in the country.</p>
+    <p><strong>Academic fit:</strong> SMFA (School of the Museum of Fine Arts) access for studio art and design courses. Strong in international relations, environmental studies, humanities. Room to explore if architecture isn't the path.</p>
+    <p><strong>Cultural fit:</strong> The "anti-Ivy Ivy." More collaborative than competitive. Active Jewish community. For Nora, who performs under pressure but doesn't thrive under it, Tufts might be healthier.</p>
+    <p><strong>Estimated net cost:</strong> $22,000-32,000/year &middot; <strong>4-year total:</strong> $88,000-128,000 &middot; <strong>Risk: MODERATE.</strong></p>
+  </div>
+
+  <div class="school-card">
+    <div class="school-card-header">
+      <div class="school-name">10. University of Virginia</div>
+      <span class="school-tier tier-target">Target</span>
+    </div>
+    <p><em>Charlottesville, VA &middot; ~18% OOS admit rate &middot; ~17,000 undergrads</em></p>
+    <p><strong>Why it's on the list:</strong> Lots of Whitman kids go to UVA. The School of Architecture offers B.S. in Architecture and B.A. in Urban and Environmental Planning.</p>
+    <p><strong>Academic fit:</strong> Strong architecture programs. Can apply directly to the School of Architecture or enter the College and explore. Active Jewish community.</p>
+    <p><strong>The honest truth:</strong> As an out-of-state student, the premium is significant. AccessUVA pledges to meet full need. Net cost will be higher than in-state options but potentially competitive with private schools.</p>
+    <p><strong>Estimated net cost:</strong> $28,000-38,000/year &middot; <strong>4-year total:</strong> $112,000-152,000 &middot; <strong>Risk: MODERATE.</strong></p>
+  </div>
+
+  <div class="school-card">
+    <div class="school-card-header">
+      <div class="school-name">11. Northeastern University</div>
+      <span class="school-tier tier-target">Target</span>
+    </div>
+    <p><em>Boston, MA &middot; ~5% admit rate &middot; ~16,000 undergrads</em></p>
+    <p><strong>Why it's on the list:</strong> The co-op program. Students alternate coursework with paid professional work at architecture firms, design studios, and planning offices. Graduates have resumes most 22-year-olds can't match.</p>
+    <p><strong>Academic fit:</strong> Strong Architecture program (B.Arch and B.S.). Co-op placements at firms in Boston, New York, DC, and internationally.</p>
+    <p><strong>The honest truth:</strong> Does not consistently meet 100% of need. Offers significant merit scholarships. The co-op generates $15K-25K/year during co-op semesters. Five-year B.Arch timeline means five years of tuition.</p>
+    <p><strong>Estimated net cost:</strong> $25,000-40,000/year &middot; <strong>4-year (or 5-year) total:</strong> $100,000-200,000 &middot; <strong>Risk: MODERATE-HIGH.</strong></p>
+  </div>
+
+  <h4>Safety</h4>
+
+  <div class="school-card">
+    <div class="school-card-header">
+      <div class="school-name">12. University of Maryland, College Park (Honors)</div>
+      <span class="school-tier tier-safety">Safety</span>
+    </div>
+    <p><em>College Park, MD &middot; ~45% admit (~20-25% Honors) &middot; ~31,000 undergrads</em></p>
+    <p><strong>Why it's on the list:</strong> Sarah, Ethan, I know. Nora said "that's where you go if you don't get in anywhere." I'm going to spend more time on UMD than on any other school on this list, because the gap between what you believe about Maryland and what's actually true is costing you money.</p>
+
+    <p><strong>The reality check:</strong> UMD's School of Architecture, Planning, and Preservation is one of the top architecture programs in the country. Design Intelligence consistently ranks it in the top 10-15 nationally. The Honors College provides a small-college experience within a major research university. Honors students routinely get into top graduate and professional programs.</p>
+
+    <div class="table-wrap">
+    <table>
+      <thead><tr><th>Scenario</th><th>Tuition</th><th>Room/Board</th><th>Scholarships</th><th>Net Cost</th></tr></thead>
+      <tbody>
+        <tr><td>In-state, no merit</td><td>$10,800</td><td>$13,700</td><td>$0</td><td><strong>~$26,300/yr</strong></td></tr>
+        <tr><td>Honors + merit ($5K)</td><td>$10,800</td><td>$13,700</td><td>-$5,000</td><td><strong>~$21,300/yr</strong></td></tr>
+        <tr><td>Banneker/Key partial</td><td>$10,800</td><td>$13,700</td><td>-$12,000+</td><td><strong>~$14,300/yr</strong></td></tr>
+        <tr><td>Full Banneker/Key</td><td>$10,800</td><td>$13,700</td><td>Full tuition + stipend</td><td><strong>~$12,000/yr</strong></td></tr>
+      </tbody>
+    </table>
+    </div>
+
+    <p>Here's what I'd say to Nora directly: the students who thrive at UMD Honors aren't the ones who "settled." They're the ones who chose strategically and then went deep. A student in UMD's architecture program who interns at a top DC firm every summer, wins a national design competition, and graduates debt-free is in a stronger position at 22 than a student who went to Georgetown and owes $150,000.</p>
+
+    <p><strong>The Eli factor:</strong> If Nora goes to UMD at $14K/year, you save $60K-$100K compared to any Ivy. That money is Eli's freedom.</p>
+
+    <p><strong>Estimated net cost:</strong> $12,000-15,000/year (with merit) &middot; <strong>4-year total:</strong> $48,000-60,000 &middot; <strong>Risk: VERY LOW.</strong></p>
+  </div>
+
+  <!-- ============ FINANCIAL AID STRATEGY ============ -->
+  <h2>Financial Aid Strategy</h2>
+  <div class="section-rule"></div>
+
+  <p>Your family's financial picture has specific features that require specific strategies. The home equity treatment is the single biggest variable.</p>
+
+  <h3>The Home Equity Problem</h3>
+
+  <p>Your home is worth ~$950K, you owe $410K. That leaves $540K in home equity. On the FAFSA, this doesn't exist. On the CSS Profile, most schools ask about it, and many count a portion when calculating what you can afford.</p>
+
+  <div class="table-wrap">
+  <table>
+    <thead><tr><th>School</th><th>Home Equity Treatment</th><th>Impact</th></tr></thead>
+    <tbody>
+      <tr><td>Harvard</td><td>Excluded (under $240K income)</td><td>No impact</td></tr>
+      <tr><td>Brown</td><td>Capped at % of income</td><td>Moderate</td></tr>
+      <tr><td>WashU</td><td>Capped at 1.2x income</td><td>Moderate</td></tr>
+      <tr><td>Penn</td><td>Included (full)</td><td>Significant (+$8-12K/yr)</td></tr>
+      <tr><td>Columbia</td><td>Included (aggressive)</td><td>Significant</td></tr>
+      <tr><td>Cornell</td><td>Included</td><td>Significant</td></tr>
+      <tr><td>Georgetown</td><td>Included fully</td><td>Major</td></tr>
+      <tr><td>Hopkins</td><td>Included</td><td>Significant</td></tr>
+      <tr><td>Tufts</td><td>Included</td><td>Significant</td></tr>
+      <tr><td>Northeastern</td><td>Included</td><td>Significant</td></tr>
+      <tr><td>UVA</td><td>FAFSA only</td><td>No impact</td></tr>
+      <tr><td>UMD</td><td>FAFSA only</td><td>No impact</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <p><strong>The 529 strategy:</strong> Use Nora's $62K 529 to cover ~$15,500/year for four years. At UMD ($14K/year), the 529 covers almost everything. At an Ivy ($23K/year), it covers two-thirds. Do NOT use Eli's $35K 529 for Nora.</p>
+
+  <!-- ============ SIMULATION RESULTS ============ -->
+  <h2>Simulation Results</h2>
+  <div class="section-rule"></div>
+
+  <p style="font-size: 0.85rem; color: var(--muted); margin-bottom: 1.5rem;"><em>Based on projected parameters at the optimistic profile level. 10,000 simulated outcomes.</em></p>
+
+  <div class="sim-grid">
+    <div class="sim-stat"><div class="number">32%</div><div class="label">P(Reach Admit)</div></div>
+    <div class="sim-stat"><div class="number">78%</div><div class="label">P(Target+ Admit)</div></div>
+    <div class="sim-stat"><div class="number">$20K</div><div class="label">Median Annual Cost</div></div>
+    <div class="sim-stat"><div class="number">75%</div><div class="label">Under $30K/yr</div></div>
+  </div>
+
+  <p>Sarah, Ethan, the bottom line: Nora will get into college. Multiple colleges. The question isn't whether. It's where, and at what price. The reach probability of 32% means there's roughly a one-in-three chance she gets into at least one Ivy or equivalent. Those odds are decent but far from certain. The plan is built so that the target and safety schools are genuinely excellent options, not consolation prizes.</p>
+
+  <div class="collapsible">
+    <div class="collapsible-header">Full Admission Outcomes</div>
+    <div class="collapsible-body"><div class="collapsible-body-inner">
+      <div class="table-wrap">
+      <table>
+        <thead><tr><th>Metric</th><th>Result</th></tr></thead>
+        <tbody>
+          <tr><td>P(at least one admission)</td><td><strong>99.9%</strong></td></tr>
+          <tr><td>P(at least one REACH admission)</td><td><strong>32%</strong></td></tr>
+          <tr><td>P(at least one TARGET or better)</td><td><strong>78%</strong></td></tr>
+          <tr><td>Median number of acceptances</td><td><strong>3</strong></td></tr>
+          <tr><td>Mean number of acceptances</td><td><strong>3.4</strong></td></tr>
+        </tbody>
+      </table>
+      </div>
+    </div></div>
+  </div>
+
+  <h3>Financial Outcomes</h3>
+
+  <div class="table-wrap">
+  <table>
+    <thead><tr><th>Metric</th><th>Result</th></tr></thead>
+    <tbody>
+      <tr><td>P(at least one school under $30K/year)</td><td><strong>75%</strong></td></tr>
+      <tr><td>Median best annual cost</td><td><strong>$20,000/year</strong></td></tr>
+      <tr><td>10th percentile (best case)</td><td><strong>$13,000/year</strong></td></tr>
+      <tr><td>25th percentile</td><td><strong>$15,000/year</strong></td></tr>
+      <tr><td>75th percentile</td><td><strong>$30,000/year</strong></td></tr>
+      <tr><td>90th percentile (worst realistic case)</td><td><strong>$40,000/year</strong></td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <p>The median outcome is $20,000/year, or $80,000 total for four years. That's inside your stated budget of $35,000-40,000/year with significant room to save for Eli. The worst realistic outcome ($40,000/year) is at the top of your stated budget, and even then, the 529 brings the out-of-pocket down to $24,500/year.</p>
+
+  <div class="collapsible">
+    <div class="collapsible-header">Cost Distribution Chart</div>
+    <div class="collapsible-body"><div class="collapsible-body-inner">
+      <h3>What Will You Actually Pay Per Year?</h3>
+      <p style="font-size: 0.82rem; color: var(--muted);">Best financial outcome per simulation</p>
+      <div class="chart-bar-group">
+        <div class="chart-row"><span class="chart-label">$10-15K</span><div class="chart-track"><div class="chart-fill" style="width: 16%;"></div></div><span class="chart-val">16%</span></div>
+        <div class="chart-row"><span class="chart-label">$15-20K</span><div class="chart-track"><div class="chart-fill" style="width: 26%;"></div></div><span class="chart-val">26%</span></div>
+        <div class="chart-row"><span class="chart-label">$20-25K</span><div class="chart-track"><div class="chart-fill" style="width: 24%;"></div></div><span class="chart-val">24%</span></div>
+        <div class="chart-row"><span class="chart-label">$25-30K</span><div class="chart-track"><div class="chart-fill" style="width: 12%;"></div></div><span class="chart-val">12%</span></div>
+        <div class="chart-row"><span class="chart-label">$30-40K</span><div class="chart-track"><div class="chart-fill" style="width: 13%;"></div></div><span class="chart-val">13%</span></div>
+        <div class="chart-row"><span class="chart-label">$40-50K</span><div class="chart-track"><div class="chart-fill" style="width: 6%;"></div></div><span class="chart-val">6%</span></div>
+        <div class="chart-row"><span class="chart-label">$50K+</span><div class="chart-track"><div class="chart-fill" style="width: 3%;"></div></div><span class="chart-val">3%</span></div>
+      </div>
+      <p style="font-size: 0.85rem; color: var(--muted); margin-top: 1rem;">Median: $20,000/yr &nbsp;|&nbsp; Your budget: $35-40K/yr</p>
+      <p>66% of scenarios come in under $25,000/year. 75% come in under $30,000/year.</p>
+    </div></div>
+  </div>
+
+  <div class="collapsible">
+    <div class="collapsible-header">Admission Probability by Tier</div>
+    <div class="collapsible-body"><div class="collapsible-body-inner">
+      <div class="chart-bar-group">
+        <div class="chart-row"><span class="chart-label">Any Admission</span><div class="chart-track"><div class="chart-fill chart-fill-sage" style="width: 99.9%;"></div></div><span class="chart-val">99.9%</span></div>
+        <div class="chart-row"><span class="chart-label">Target or Better</span><div class="chart-track"><div class="chart-fill chart-fill-sage" style="width: 78%;"></div></div><span class="chart-val">78%</span></div>
+        <div class="chart-row"><span class="chart-label">Reach</span><div class="chart-track"><div class="chart-fill chart-fill-sage" style="width: 32%;"></div></div><span class="chart-val">32%</span></div>
+      </div>
+    </div></div>
+  </div>
+
+  <div class="collapsible">
+    <div class="collapsible-header">Distribution of Total Acceptances</div>
+    <div class="collapsible-body"><div class="collapsible-body-inner">
+      <div class="chart-bar-group">
+        <div class="chart-row"><span class="chart-label">0 schools</span><div class="chart-track"><div class="chart-fill" style="width: 0.2%;"></div></div><span class="chart-val">0.1%</span></div>
+        <div class="chart-row"><span class="chart-label">1 school</span><div class="chart-track"><div class="chart-fill" style="width: 4.2%;"></div></div><span class="chart-val">4.2%</span></div>
+        <div class="chart-row"><span class="chart-label">2 schools</span><div class="chart-track"><div class="chart-fill" style="width: 16.8%;"></div></div><span class="chart-val">16.8%</span></div>
+        <div class="chart-row"><span class="chart-label">3 schools</span><div class="chart-track"><div class="chart-fill" style="width: 26.1%;"></div></div><span class="chart-val">26.1%</span></div>
+        <div class="chart-row"><span class="chart-label">4 schools</span><div class="chart-track"><div class="chart-fill" style="width: 24.3%;"></div></div><span class="chart-val">24.3%</span></div>
+        <div class="chart-row"><span class="chart-label">5 schools</span><div class="chart-track"><div class="chart-fill" style="width: 16.2%;"></div></div><span class="chart-val">16.2%</span></div>
+        <div class="chart-row"><span class="chart-label">6+ schools</span><div class="chart-track"><div class="chart-fill" style="width: 12.3%;"></div></div><span class="chart-val">12.3%</span></div>
+      </div>
+      <p style="font-size: 0.85rem; color: var(--muted); margin-top: 0.75rem;">Median: 3 acceptances</p>
+    </div></div>
+  </div>
+
+  <h3>Sibling Budget Impact</h3>
+
+  <p>This models what your financial picture looks like when Eli starts college in 2032-2033, based on what Nora's education costs.</p>
+
+  <div class="table-wrap">
+  <table>
+    <thead><tr><th>Scenario</th><th>4-Yr Cost (Nora)</th><th>Remaining for Eli by 2032</th></tr></thead>
+    <tbody>
+      <tr><td>UMD Honors ($14K/yr)</td><td>$56,000</td><td>$35K Eli 529 + $120K+ savings</td></tr>
+      <tr><td>Ivy w/ good aid ($22K/yr)</td><td>$88,000</td><td>$35K Eli 529 + $80K savings</td></tr>
+      <tr><td>Ivy w/ home equity hit ($30K)</td><td>$120,000</td><td>$35K Eli 529 + $40K savings</td></tr>
+      <tr><td>Georgetown ($45K/yr)</td><td>$180,000</td><td>$35K Eli 529 + $0 savings</td></tr>
+      <tr><td>Georgetown w/ loans</td><td>$200,000+</td><td>Eli is on his own</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <p>Ethan, Sarah, this chart is the reason I keep coming back to UMD. The difference between Nora at $14K/year and Nora at $45K/year isn't just $124,000. It's whether Eli has options. If you spend $180K on Nora, you'll be approaching 60 when Eli starts college, with a depleted savings account and $35K in his 529 that covers one year of state school tuition. That's a tight spot.</p>
+
+  <p>The math doesn't mean Nora can't go to an Ivy. It means the decision needs to account for Eli, not just Nora.</p>
+
+  <!-- ============ DECISION FRAMEWORK ============ -->
+  <h2>Decision Framework: April 2029</h2>
+  <div class="section-rule"></div>
+
+  <p>When acceptances and aid packages arrive in March and April, here are the five most likely scenarios.</p>
+
+  <h3>Scenario A: Harvard with Home Equity Exclusion</h3>
+  <p><strong>Probability: ~5-8%.</strong></p>
+  <p>Nora gets into Harvard. The financial aid package comes back at $20,000-25,000/year because Harvard's formula excludes your home equity. The 529 covers $15,500/year, so your true out-of-pocket is $5,000-10,000/year.</p>
+  <p><strong>4-year total cost:</strong> $72,000-100,000 (before 529), or $10,000-38,000 (after 529)</p>
+  <p><strong>Recommendation:</strong> Take it. At this price, Harvard is arguably a better financial deal than most targets on the list because of the home equity exclusion. The $62K 529 does heavy lifting here. And the academic and career outcomes from Harvard justify the remaining cost.</p>
+
+  <h3>Scenario B: Ivy That Counts Home Equity</h3>
+  <p><strong>Probability: ~20-25%</strong> (Penn, Columbia, Brown, or Cornell)</p>
+  <p>Nora gets into Penn or Cornell AAP. The aid package comes back at $25,000-30,000/year because they're counting your home equity. After the 529 ($15,500/year), your out-of-pocket is $10,000-15,000/year.</p>
+  <p><strong>4-year total cost (or 5-year for Cornell B.Arch):</strong> $72,000-140,000 (before 529)</p>
+  <p><strong>Recommendation:</strong> Compare the specific offers carefully. If she got into Cornell AAP with strong aid, the architecture-specific benefit may justify a higher price than a general liberal arts Ivy. If she got into Brown and wants the RISD cross-registration, that's worth paying for. If she got into Penn and the aid is $28K/year, compare it to WashU Sam Fox at $25K/year. The prestige difference is small; the financial difference is real.</p>
+  <p><strong>Negotiation lever:</strong> If Harvard offered $20K/year and Penn offered $28K/year, share the Harvard offer with Penn and ask them to reconsider. Schools that meet full need have professional judgment authority to adjust. It doesn't always work, but a competing offer from a peer institution is the strongest card you can play.</p>
+
+  <h3>Scenario C: WashU or Tufts with Strong Aid</h3>
+  <p><strong>Probability: ~25-30%.</strong></p>
+  <p>Nora gets into WashU Sam Fox and/or Tufts with an aid package of $22,000-28,000/year. These are excellent schools with strong design-adjacent programs, and WashU's home equity cap makes the aid more predictable.</p>
+  <p><strong>4-year total cost:</strong> $88,000-112,000 (before 529)</p>
+  <p><strong>Recommendation:</strong> WashU Sam Fox at $22K/year is one of the best outcomes on this list for the design track. If Nora is serious about architecture, WashU's program is nationally ranked and the financial model works. Tufts is the better option if she's less certain about architecture and wants maximum flexibility. Both are schools you should feel great about.</p>
+
+  <h3>Scenario D: UMD Honors with Banneker/Key</h3>
+  <p><strong>Probability: ~50-60% (UMD), ~25-30% (Banneker/Key at some level).</strong></p>
+  <p>Nora is admitted to UMD Honors and receives a Banneker/Key scholarship covering partial or full tuition. Net cost: $12,000-15,000/year. After the 529 ($15,500/year), the cost might be nearly zero.</p>
+  <p><strong>4-year total cost:</strong> $48,000-60,000 (before 529), potentially $0-5,000 (after 529)</p>
+  <p><strong>Recommendation:</strong> If the reaches and targets either don't admit her or come in at $35K+/year, UMD Honors with Banneker/Key is the smart play. Let me say that again: UMD Honors with a merit scholarship, in the architecture program, with DC internship access, at near-zero cost after the 529, is an outstanding outcome. Nora graduates at 22 with no debt, a strong portfolio, work experience at DC architecture firms, and $35K in Eli's 529 untouched.</p>
+  <div class="callout">This is not the consolation prize. This is the strategic play that every financial advisor would recommend and that most Bethesda families are too proud to accept.</div>
+
+  <h3>Scenario E: The Gap Year Option</h3>
+  <p><strong>Probability of being the right call: ~3-5%.</strong></p>
+  <p>Every offer is either a rejection or comes in at $40K+/year. The aid packages have gaps. The loans required are more than you're willing to take.</p>
+  <p><strong>Recommendation:</strong> A gap year is an option, though it's unlikely to be necessary given the strength of the UMD floor. During a gap year, Nora could work at an architecture firm in DC (even as a file clerk or office assistant, the exposure matters), build her portfolio, and reapply with a stronger design narrative. Some schools allow deferred enrollment. But honestly, if UMD is on the table at $14K/year, a gap year probably doesn't make sense unless Nora's heart is truly set on a specific school that didn't work out.</p>
+
+  <!-- ============ WHAT TO DO NOW ============ -->
+  <h2>What to Do Now</h2>
+  <div class="section-rule"></div>
+
+  <div class="callout-sage">
+    <strong>1. Get Nora into a design/architecture experience this summer.</strong> National Building Museum, Catholic University pre-college, MICA summer intensives, or a local architect willing to let her shadow. Make the calls now. These programs fill early.<br><br>
+    <strong>2. Drop the activities that are resume filler.</strong> Coding club goes. If Model UN doesn't engage her by year end, that goes too.<br><br>
+    <strong>3. Talk to Ms. Novak.</strong> Reach back out and ask what she saw. Teachers who notice things like "a real eye for spatial design" are usually right.<br><br>
+    <strong>4. Start the conversation about what Nora actually wants.</strong> Not where she wants to go. What she wants to spend her time doing.<br><br>
+    <strong>5. Read the Developmental Roadmap below.</strong> Grade-by-grade course tables, extracurricular plans, summer strategies.
+  </div>
+
+  <hr style="margin: 3rem 0; border: none; border-top: 2px solid var(--border);">
+
+  <h2 style="text-align: center; font-size: 1.3rem; color: var(--muted); font-weight: 400;">REFERENCE SECTIONS</h2>
+  <p style="text-align: center; font-size: 0.88rem; color: var(--muted); margin-bottom: 2rem;">The sections below are detailed planning tools. Come back to them when you need them.</p>
+
+  <hr style="margin: 0 0 2rem; border: none; border-top: 2px solid var(--border);">
+
+  <!-- ============ COLLAPSIBLE REFERENCE SECTIONS ============ -->
+
+  <!-- Developmental Roadmap -->
+  <div class="collapsible">
+    <div class="collapsible-header">Developmental Roadmap (Grade-by-Grade)</div>
+    <div class="collapsible-body"><div class="collapsible-body-inner">
+
+      <h3>Summer Before 10th Grade (Summer 2026)</h3>
+      <p>This is the pivotal summer. The design/architecture thread either starts here or it doesn't.</p>
+      <p><strong>Priority #1: Design exploration.</strong> National Building Museum Summer Studios (DC, free/low-cost), Catholic University Pre-College Architecture ($500-800), MICA Pre-College (Baltimore, $1,500-3,000), or shadow a local architect. Ethan, use your network to find a firm.</p>
+      <p><strong>What Not to Do:</strong> Do not sign her up for coding camp. Do not fill every week. Do not tell her "this is for your college applications."</p>
+
+      <h3>10th Grade (2026-2027)</h3>
+      <div class="table-wrap">
+      <table>
+        <thead><tr><th>Course</th><th>Level</th><th>Why</th></tr></thead>
+        <tbody>
+          <tr><td>English 10</td><td>Honors</td><td>Build relationship with this teacher (potential rec letter)</td></tr>
+          <tr><td>AP World History</td><td>AP</td><td>Second AP. Global perspective connects to design thinking about how cultures build differently</td></tr>
+          <tr><td>Algebra 2 / Trig</td><td>Honors</td><td>Strong math essential for architecture</td></tr>
+          <tr><td>Chemistry</td><td>Honors</td><td>Standard sequence. Shows STEM competence.</td></tr>
+          <tr><td>Spanish III</td><td>Honors</td><td>Continue sequence</td></tr>
+          <tr><td>Art / Design Elective</td><td>Regular/Honors</td><td><strong>The new addition.</strong> First time the design thread appears on transcript.</td></tr>
+        </tbody>
+      </table>
+      </div>
+      <p><strong>What Not to Do:</strong> Don't take 4 APs as a sophomore. Don't drop the design thread if it feels "less serious." Don't compare her course load to the neighbor's kid.</p>
+
+      <h3>Summer After 10th Grade (Summer 2027)</h3>
+      <p>Most strategically important summer. Options: Cornell AAP Summer Architecture ($5-7K), WashU Sam Fox Pre-College, Carnegie Mellon Pre-College Architecture, or intern/shadow at a DC firm.</p>
+
+      <h3>11th Grade (2027-2028)</h3>
+      <div class="table-wrap">
+      <table>
+        <thead><tr><th>Course</th><th>Level</th><th>Why</th></tr></thead>
+        <tbody>
+          <tr><td>AP English Language</td><td>AP</td><td>Strongest AP. This teacher becomes key recommender.</td></tr>
+          <tr><td>AP US History</td><td>AP</td><td>How American spaces were designed, built, contested.</td></tr>
+          <tr><td>Pre-Calc or AP Calc AB</td><td>Honors/AP</td><td>Architecture requires math.</td></tr>
+          <tr><td>AP Physics 1 or APES</td><td>AP</td><td>Physics is better for architecture (structures, forces).</td></tr>
+          <tr><td>AP Art and Design</td><td>AP</td><td><strong>Critical.</strong> First formal, graded evidence of design ability. Foundation for portfolio.</td></tr>
+          <tr><td>Spanish IV or AP Spanish</td><td>Honors/AP</td><td>Continue sequence.</td></tr>
+        </tbody>
+      </table>
+      </div>
+      <p><strong>SAT:</strong> First attempt March 2028. Projected 1470-1540. If over 1500 on first take, done.</p>
+      <p><strong>What Not to Do:</strong> Don't take SAT more than twice. Don't let anyone say AP Art isn't a "real AP." Don't pay $5,000 for a private counselor.</p>
+
+      <h3>12th Grade (2028-2029)</h3>
+      <p>Execution year. AP English Lit, AP Government, AP Calc AB or BC, AP Physics C or Bio, AP Studio Art or Independent Study. Total APs over four years: 8-10.</p>
+
+    </div></div>
+  </div>
+
+  <!-- Activities List -->
+  <div class="collapsible">
+    <div class="collapsible-header">Activities List (Common App Format)</div>
+    <div class="collapsible-body"><div class="collapsible-body-inner">
+
+      <div class="table-wrap">
+      <table>
+        <thead><tr><th>#</th><th>Type</th><th>Role</th><th>Description</th><th>Hrs/Wk</th><th>Grades</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td>Art (Architecture)</td><td>Independent Designer</td><td>Developed architecture and spatial design portfolio: 5+ projects including residential redesigns, public space proposals, community projects. Hand drawings, digital renderings, physical models.</td><td>7</td><td>10-12</td></tr>
+          <tr><td>2</td><td>Community Service</td><td>Lead Designer</td><td>Partnered with community organization to redesign shared public space for improved accessibility. Led design from needs assessment through stakeholder presentation.</td><td>4</td><td>11-12</td></tr>
+          <tr><td>3</td><td>Academic</td><td>Student</td><td>Selected for competitive pre-college architecture studio program. Intensive coursework in design fundamentals, model building, architectural drawing.</td><td>40</td><td>11</td></tr>
+          <tr><td>4</td><td>Athletics</td><td>Player (JV/Varsity)</td><td>Soccer since 5th grade. Seven seasons of teamwork, discipline, physical resilience.</td><td>10</td><td>9-12</td></tr>
+          <tr><td>5</td><td>Club</td><td>Member/Officer</td><td>Model UN: researching global policy, drafting position papers, public speaking, negotiation through committee simulations.</td><td>4</td><td>9-11</td></tr>
+          <tr><td>6</td><td>Community Service</td><td>Volunteer</td><td>Food bank: sorting, distributing, and proposing layout redesign to improve client flow and volunteer efficiency.</td><td>2</td><td>9-12</td></tr>
+          <tr><td>7</td><td>Art</td><td>Student Artist</td><td>AP Art and Design portfolio focused on spatial design and architecture. Exhibited at school art show.</td><td>5</td><td>10-12</td></tr>
+          <tr><td>8</td><td>Club</td><td>Founder</td><td>Founded Whitman Architecture/Design Club. Organized guest speakers from DC firms, field trips, design challenges.</td><td>3</td><td>10-12</td></tr>
+          <tr><td>9</td><td>Research/Intern</td><td>Intern</td><td>Interned at DC architecture firm. Assisted with project documentation, model building, sustainable design research.</td><td>12</td><td>11-12</td></tr>
+          <tr><td>10</td><td>Personal</td><td>Self-directed</td><td>Independent sketchbook practice documenting architectural observations and conceptual designs. Regular visitor to DC museums and architectural landmarks.</td><td>3</td><td>9-12</td></tr>
+        </tbody>
+      </table>
+      </div>
+
+    </div></div>
+  </div>
+
+  <!-- Honors and Awards -->
+  <div class="collapsible">
+    <div class="collapsible-header">Honors and Awards</div>
+    <div class="collapsible-body"><div class="collapsible-body-inner">
+      <ol>
+        <li><strong>National Merit Semifinalist/Finalist</strong> [LIKELY]. MD cutoff ~1460-1480. Projected PSAT puts her in range.</li>
+        <li><strong>AP Scholar with Distinction</strong> [LIKELY with 5+ APs averaging 3.5+]</li>
+        <li><strong>Scholastic Art & Writing Awards, Regional Gold/Silver Key</strong> [ASPIRATIONAL]. Submit AP Art portfolio work.</li>
+        <li><strong>Pre-College Architecture Program Certificate</strong> [LIKELY if she attends Cornell, WashU, MICA]</li>
+        <li><strong>MCPS Gifted and Talented Identification</strong> [ACHIEVED, 3rd grade]</li>
+        <li><strong>AP Human Geography: Score of 5</strong> [ACHIEVED, 9th grade]</li>
+        <li><strong>National Architecture Design Competition Finalist</strong> [ASPIRATIONAL]. ACE Mentor, AIAS, ULI UrbanPlan.</li>
+        <li><strong>Honor Roll, Every Semester</strong> [ACHIEVED/LIKELY]</li>
+        <li><strong>Varsity Letter (Soccer)</strong> [LIKELY if she makes varsity]</li>
+        <li><strong>National Honor Society</strong> [LIKELY with 3.7+ GPA]</li>
+      </ol>
+    </div></div>
+  </div>
+
+  <!-- Essay Strategy -->
+  <div class="collapsible">
+    <div class="collapsible-header">Essay Strategy</div>
+    <div class="collapsible-body"><div class="collapsible-body-inner">
+
+      <h3>Common App Personal Essay: The Hirshhorn</h3>
+      <p>Sarah, you described a moment where Nora spent 45 minutes at the Hirshhorn staring at the building while everyone else went inside. That's the essay.</p>
+      <p>Not "I want to be an architect." The essay is about the moment of seeing. About being the person who notices the building when everyone else notices the art inside it. About what it means to pay attention to the structures that shape our experience.</p>
+      <p><strong>What it should feel like to read:</strong> Like you're standing next to someone in a museum who sees something you don't, and by the end you're seeing it too.</p>
+      <p><strong>What it should NOT be:</strong> A "my activities taught me leadership" essay. A retrofitted "I've always loved architecture" origin story. An anxiety/perfectionism essay. A "why I want to study architecture" essay (that's for supplementals).</p>
+
+      <h3>Supplemental Essay Angles by School</h3>
+      <div class="table-wrap">
+      <table>
+        <thead><tr><th>School</th><th>Lead Angle</th><th>Specific Detail</th></tr></thead>
+        <tbody>
+          <tr><td>Harvard</td><td>Built environment shapes human behavior</td><td>VES program, GSD cross-registration</td></tr>
+          <tr><td>Penn</td><td>Design and urban studies intersection</td><td>Weitzman School, PennPraxis</td></tr>
+          <tr><td>Columbia</td><td>NYC as living architecture laboratory</td><td>GSAPP, Urban Studies concentration</td></tr>
+          <tr><td>Brown</td><td>Freedom to explore without choosing</td><td>RISD cross-registration, open curriculum</td></tr>
+          <tr><td>Cornell AAP</td><td>Direct: this is the architecture school</td><td>AAP studios, Rome program, B.Arch</td></tr>
+          <tr><td>Georgetown</td><td>Space, power, and politics</td><td>DC as a designed capital city</td></tr>
+          <tr><td>Hopkins</td><td>Design thinking across disciplines</td><td>Baltimore's architectural contrasts</td></tr>
+          <tr><td>WashU</td><td>Sam Fox interdisciplinary approach</td><td>Studio culture, Social Practice major</td></tr>
+          <tr><td>Tufts</td><td>SMFA within liberal arts</td><td>Active citizenship applied to design</td></tr>
+          <tr><td>UVA</td><td>Jefferson's university as architecture essay</td><td>The Rotunda, School of Architecture</td></tr>
+          <tr><td>Northeastern</td><td>Co-op: designing and building</td><td>Architecture co-op placements</td></tr>
+          <tr><td>UMD</td><td>Home as design challenge</td><td>National Mall as civic design case study</td></tr>
+        </tbody>
+      </table>
+      </div>
+
+    </div></div>
+  </div>
+
+  <!-- Recommendation Letters -->
+  <div class="collapsible">
+    <div class="collapsible-header">Recommendation Letter Strategy</div>
+    <div class="collapsible-body"><div class="collapsible-body-inner">
+      <p><strong>Letter 1: AP English Language Teacher (11th grade).</strong> Most important letter. Should convey that Nora is a genuine thinker and writer, not just a good student. Ideally notices a spatial, visual quality in her writing. Ask late April/early May of junior year.</p>
+      <p><strong>Letter 2: AP Physics or Math Teacher (11th grade).</strong> Shows breadth and supports architecture narrative. Should convey analytical thinking applied to spatial problems. Same timeline.</p>
+      <p><strong>Supplemental: Architecture Mentor or Pre-College Instructor.</strong> Speaks to design ability in ways no high school teacher can. Ask at end of program/internship while relationship is fresh.</p>
+      <p><strong>What about Ms. Novak?</strong> Her observation is a powerful data point, but she's a middle school teacher. A short note from Ms. Novak could add historical context at schools that accept additional letters, but she should not replace either primary recommender.</p>
+    </div></div>
+  </div>
+
+  <!-- Portfolio Guidance -->
+  <div class="collapsible">
+    <div class="collapsible-header">Design/Architecture Portfolio Guidance</div>
+    <div class="collapsible-body"><div class="collapsible-body-inner">
+
+      <div class="table-wrap">
+      <table>
+        <thead><tr><th>School</th><th>Portfolio Required?</th><th>Method</th></tr></thead>
+        <tbody>
+          <tr><td>Cornell AAP (B.Arch)</td><td>Strongly encouraged / effectively required</td><td>SlideRoom</td></tr>
+          <tr><td>WashU Sam Fox</td><td>Strongly encouraged</td><td>SlideRoom</td></tr>
+          <tr><td>UMD Architecture</td><td>Encouraged</td><td>School portal</td></tr>
+          <tr><td>Northeastern Architecture</td><td>Encouraged</td><td>SlideRoom</td></tr>
+          <tr><td>UVA Architecture</td><td>Encouraged</td><td>School portal</td></tr>
+          <tr><td>Harvard, Penn, Columbia, Brown</td><td>Optional arts supplement</td><td>SlideRoom</td></tr>
+        </tbody>
+      </table>
+      </div>
+
+      <p><strong>Target: 15-20 pieces</strong> by senior fall. Include 3-4 observational drawings, 2-3 conceptual design projects, 1-2 physical models (photographed), 1-2 digital explorations (SketchUp, Rhino), 2-3 AP Art pieces, 1 community design project, and a 150-250 word artist statement.</p>
+
+      <p><strong>Timeline:</strong> Summer before 10th (first sketches) &rarr; 10th grade (art elective + independent projects) &rarr; Summer after 10th (pre-college program pieces) &rarr; 11th grade (AP Art portfolio + community project) &rarr; Summer after 11th (curation and polish) &rarr; Fall 12th (submit).</p>
+
+      <p><strong>What NOT to include:</strong> Purely decorative/abstract work, unfinished pieces, anything that looks AI-generated or parent-assisted.</p>
+
+    </div></div>
+  </div>
+
+  <!-- Financial Aid Negotiation -->
+  <div class="collapsible">
+    <div class="collapsible-header">Financial Aid Negotiation Guide</div>
+    <div class="collapsible-body"><div class="collapsible-body-inner">
+      <p><strong>1. Wait until you have all offers.</strong> Don't negotiate with one school before hearing from all.</p>
+      <p><strong>2. Identify the gap.</strong> If Harvard offers $23K/yr and Cornell offers $30K/yr, the $7K gap is almost certainly driven by home equity.</p>
+      <p><strong>3. Call, don't email.</strong> "We're comparing our financial aid offers and we'd like to discuss our package."</p>
+      <p><strong>4. Share competing offers.</strong> "Harvard's formula produced $23K/year. Yours produced $30K. The difference appears to be home equity treatment. Is there flexibility?"</p>
+      <p><strong>5. Your strongest card:</strong> The home equity variation. "Our home is our primary residence, not a liquid asset. We cannot access this equity without selling. Harvard's formula recognizes this."</p>
+      <p><strong>Schools with flexibility:</strong> Harvard, Yale, Princeton, WashU. <strong>Less flexibility:</strong> Georgetown, Northeastern (smaller endowments). UMD, UVA (rigid public formulas).</p>
+      <p><strong>When to walk away:</strong> If a school can't get under your budget after negotiation, accept the school that can. Brand loyalty is not worth $40K in PLUS loans.</p>
+    </div></div>
+  </div>
+
+  <!-- Senior Year Timeline -->
+  <div class="collapsible">
+    <div class="collapsible-header">Senior Year Application Timeline</div>
+    <div class="collapsible-body"><div class="collapsible-body-inner">
+      <div class="table-wrap">
+      <table>
+        <thead><tr><th>Month</th><th>Action Items</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Aug 2028</strong></td><td>Finalize Common App. Complete personal essay. Request rec letters. Finalize design portfolio for SlideRoom.</td></tr>
+          <tr><td><strong>Sep 2028</strong></td><td>Finalize school list. SAT retake if needed. Begin all supplemental essays. Submit portfolio to early-deadline schools.</td></tr>
+          <tr><td><strong>Oct 2028</strong></td><td><strong>FAFSA opens Oct 1. File immediately.</strong> Submit CSS Profile for Nov 1 deadlines. Continue supplements.</td></tr>
+          <tr><td><strong>Nov 2028</strong></td><td>Harvard REA (Nov 1), Georgetown EA (Nov 1), UVA EA (Nov 1), UMD Priority (Nov 1). REA is non-binding. Do NOT apply binding ED unless certain about finances.</td></tr>
+          <tr><td><strong>Dec 2028</strong></td><td>EA results arrive. If deferred/rejected, finalize RD applications. Finalize CSS Profile for RD schools.</td></tr>
+          <tr><td><strong>Jan 2029</strong></td><td>RD deadlines: Penn (Jan 5), Columbia (Jan 3), Cornell (Jan 2), Hopkins (Jan 2), WashU (Jan 4), Tufts (Jan 4), Northeastern (Jan 1). Submit all portfolios.</td></tr>
+          <tr><td><strong>Feb 2029</strong></td><td>External scholarship applications. FAFSA corrections. Wait.</td></tr>
+          <tr><td><strong>Mar 2029</strong></td><td>RD results and aid packages arrive. Compare offers. Initiate appeals if gaps exist.</td></tr>
+          <tr><td><strong>Apr 2029</strong></td><td>Decision month. Attend admitted student events. Negotiate aid. Have the honest conversation about cost, Eli, and long-term health.</td></tr>
+          <tr><td><strong>May 1, 2029</strong></td><td>Commit. Deposit. Celebrate.</td></tr>
+        </tbody>
+      </table>
+      </div>
+    </div></div>
+  </div>
+
+  <!-- External Scholarships -->
+  <div class="collapsible">
+    <div class="collapsible-header">External Scholarships Worth Pursuing</div>
+    <div class="collapsible-body"><div class="collapsible-body-inner">
+      <div class="table-wrap">
+      <table>
+        <thead><tr><th>Scholarship</th><th>Amount</th><th>Deadline</th><th>Notes</th></tr></thead>
+        <tbody>
+          <tr><td>National Merit Scholarship</td><td>$2,500+ (corporate sponsors up to full tuition)</td><td>Automatic via PSAT</td><td>Check Ethan's firm and NIH for corporate sponsors.</td></tr>
+          <tr><td>Banneker/Key (UMD)</td><td>Partial to full tuition + stipend</td><td>Auto with UMD app</td><td>Premier merit award. Nora's profile is competitive.</td></tr>
+          <tr><td>AIA Scholarships</td><td>$500-10,000</td><td>Varies</td><td>DC/MD chapter and national AIA for aspiring architects.</td></tr>
+          <tr><td>ACE Mentor Program</td><td>$2,000-10,000</td><td>Spring senior year</td><td>Architecture, Construction, Engineering. Check Montgomery County chapter.</td></tr>
+          <tr><td>Coca-Cola Scholars</td><td>$20,000</td><td>Oct senior year</td><td>Leadership + community service. Nora's design work fits.</td></tr>
+          <tr><td>Montgomery County Community Foundation</td><td>$1,000-5,000</td><td>Spring</td><td>Local scholarships for MC students.</td></tr>
+          <tr><td>NIH-affiliated scholarships</td><td>Various</td><td>Varies</td><td>Sarah, check whether NIH or DHHS offers dependent scholarships.</td></tr>
+          <tr><td>Jewish community scholarships</td><td>Various</td><td>Varies</td><td>Jewish Federation of Greater Washington, Hillel, synagogue.</td></tr>
+          <tr><td>NCARB</td><td>Various</td><td>Varies</td><td>Architecture licensing board scholarships.</td></tr>
+        </tbody>
+      </table>
+      </div>
+    </div></div>
+  </div>
+
+  <!-- Monte Carlo Parameters -->
+  <div class="collapsible">
+    <div class="collapsible-header">Monte Carlo Simulation Parameters</div>
+    <div class="collapsible-body"><div class="collapsible-body-inner">
+      <p style="color: var(--muted); font-size: 0.88rem; margin-bottom: 1rem;">Each number is an estimate based on published admission rates (Common Data Set), institutional aid policies, and adjustments for Nora's projected profile.</p>
+      <div class="table-wrap">
+      <table>
+        <thead><tr><th>School</th><th>Published Rate</th><th>Adjusted (Nora)</th><th>P(Merit)</th><th>Est. Net Cost/Yr</th><th>Home Equity</th></tr></thead>
+        <tbody>
+          <tr><td>Harvard</td><td>3.5%</td><td>6%</td><td>N/A (need)</td><td>$20-25K</td><td>Excluded</td></tr>
+          <tr><td>Penn</td><td>5.4%</td><td>8%</td><td>N/A (need)</td><td>$22-28K</td><td>Full</td></tr>
+          <tr><td>Columbia</td><td>3.9%</td><td>5%</td><td>N/A (need)</td><td>$22-28K</td><td>Aggressive</td></tr>
+          <tr><td>Brown</td><td>5.0%</td><td>7%</td><td>N/A (need)</td><td>$20-25K</td><td>Capped</td></tr>
+          <tr><td>Cornell AAP</td><td>10%</td><td>14%</td><td>N/A (need)</td><td>$22-28K</td><td>Included</td></tr>
+          <tr><td>Georgetown</td><td>12%</td><td>15%</td><td>10% ($10K)</td><td>$40-52K</td><td>Full</td></tr>
+          <tr><td>Hopkins</td><td>6.5%</td><td>10%</td><td>5% ($8K)</td><td>$25-35K</td><td>Included</td></tr>
+          <tr><td>WashU (Sam Fox)</td><td>11%</td><td>15%</td><td>10% ($12K)</td><td>$22-28K</td><td>Capped 1.2x</td></tr>
+          <tr><td>Tufts</td><td>10%</td><td>14%</td><td>5% ($8K)</td><td>$24-32K</td><td>Included</td></tr>
+          <tr><td>UVA (OOS)</td><td>18%</td><td>22%</td><td>10% ($10K)</td><td>$28-38K</td><td>FAFSA only</td></tr>
+          <tr><td>Northeastern</td><td>5%</td><td>8%</td><td>25% ($15K)</td><td>$28-40K</td><td>Included</td></tr>
+          <tr><td>UMD Honors</td><td>45% (20% Hon)</td><td>90% / 60% Hon</td><td>50% partial / 15% full</td><td>$12-15K</td><td>FAFSA only</td></tr>
+        </tbody>
+      </table>
+      </div>
+      <p><strong>Key note:</strong> Cornell AAP's 14% adjusted rate reflects the portfolio boost. Without a portfolio, she drops to ~8%. The design thread is worth 3-5 percentage points at architecture-focused schools.</p>
+    </div></div>
+  </div>
+
+</div>
+</div>
+
+<!-- CTA -->
+<div class="cta-bar">
+  <p>This sample was built from a 10-minute intake form. Your family's plan would be personalized to your student, your schools, and your numbers.</p>
+  <a href="index.html#pricing" class="btn-primary">Get Your Plan for $50 &rarr;</a>
+</div>
+
+<!-- FOOTER -->
+<div class="doc-footer">
+  <p>Scaffold is strategic planning, not professional counseling. All school-specific information should be verified.</p>
+</div>
+
+<script>
+  document.querySelectorAll('.toggle-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const target = btn.getAttribute('data-panel');
+      document.querySelectorAll('.toggle-btn').forEach(b => b.classList.remove('active'));
+      document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+      btn.classList.add('active');
+      document.getElementById('panel-' + target).classList.add('active');
+    });
+  });
+
+  document.querySelectorAll('.collapsible-header').forEach(h => {
+    h.addEventListener('click', () => h.parentElement.classList.toggle('open'));
+  });
+
+  window.addEventListener('scroll', () => {
+    const h = document.documentElement;
+    const pct = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
+    document.getElementById('progressBar').style.width = pct + '%';
+  });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,1593 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sample Plan: The Washington Family — Scaffold</title>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1a1a18;
+    --cream: #f8f5f0;
+    --warm-white: #fdfcfa;
+    --sage: #4a6741;
+    --sage-light: #e8ede6;
+    --sage-dark: #3a5233;
+    --terra: #c4652a;
+    --terra-light: #f5ece5;
+    --muted: #6b6860;
+    --border: #d9d4cc;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    color: var(--ink);
+    background: var(--warm-white);
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ---- PROGRESS BAR ---- */
+  .progress-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 3px;
+    background: var(--sage);
+    z-index: 200;
+    width: 0%;
+    transition: width 0.15s linear;
+  }
+
+  /* ---- TOP BAR ---- */
+  .topbar {
+    position: fixed;
+    top: 3px;
+    width: 100%;
+    z-index: 100;
+    background: rgba(253, 252, 250, 0.95);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    padding: 0 2rem;
+    height: 49px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .topbar-logo {
+    font-family: 'Newsreader', serif;
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: var(--ink);
+    text-decoration: none;
+    letter-spacing: -0.02em;
+  }
+  .topbar-logo span { color: var(--sage); }
+
+  .topbar-right { display: flex; align-items: center; gap: 1.25rem; }
+
+  .topbar-cta {
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: white;
+    background: var(--sage);
+    padding: 0.35rem 0.9rem;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background 0.2s;
+  }
+  .topbar-cta:hover { background: var(--sage-dark); }
+
+  .topbar-link {
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--muted);
+    text-decoration: none;
+    transition: color 0.2s;
+    cursor: pointer;
+  }
+  .topbar-link:hover { color: var(--ink); }
+
+  .topbar-dropdown { position: relative; }
+
+  .topbar-dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    padding-top: 0.5rem;
+    min-width: 200px;
+    z-index: 200;
+  }
+
+  .topbar-dropdown-menu-inner {
+    background: var(--warm-white);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+    overflow: hidden;
+  }
+
+  .topbar-dropdown:hover .topbar-dropdown-menu { display: block; }
+
+  .topbar-dropdown-menu-inner a {
+    display: block;
+    padding: 0.6rem 1rem;
+    font-size: 0.82rem;
+    font-weight: 500;
+    color: var(--ink);
+    text-decoration: none;
+    transition: background 0.15s;
+  }
+  .topbar-dropdown-menu-inner a:hover { background: var(--sage-light); }
+  .topbar-dropdown-menu-inner a + a { border-top: 1px solid var(--border); }
+
+  /* ---- HERO ---- */
+  .hero {
+    background: var(--cream);
+    color: var(--ink);
+    padding: 6.5rem 2rem 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .hero-inner {
+    max-width: 860px;
+    margin: 0 auto;
+    padding-bottom: 3rem;
+  }
+
+  .hero-badge {
+    display: inline-block;
+    font-size: 0.68rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terra);
+    background: var(--terra-light);
+    padding: 0.3rem 0.75rem;
+    border-radius: 4px;
+    margin-bottom: 1.25rem;
+  }
+
+  .hero h1 {
+    font-family: 'Newsreader', serif;
+    font-size: clamp(2rem, 4.5vw, 3rem);
+    font-weight: 400;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+    margin-bottom: 0.4rem;
+    color: var(--ink);
+  }
+
+  .hero-meta {
+    font-size: 0.85rem;
+    color: var(--muted);
+    margin-bottom: 2rem;
+  }
+
+  .hero-desc {
+    font-size: 1rem;
+    color: var(--muted);
+    max-width: 600px;
+    line-height: 1.65;
+    margin-bottom: 2.5rem;
+  }
+
+  .hero-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: var(--border);
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+  }
+
+  .hero-stat {
+    padding: 1.15rem 1rem;
+    text-align: center;
+    background: var(--warm-white);
+  }
+
+  .hero-stat .hs-num {
+    font-family: 'Newsreader', serif;
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--sage-dark);
+    line-height: 1;
+  }
+
+  .hero-stat .hs-label {
+    font-size: 0.65rem;
+    color: var(--muted);
+    margin-top: 0.3rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  /* ---- TOGGLE ---- */
+  .toggle-bar {
+    background: var(--cream);
+    border-bottom: 1px solid var(--border);
+    padding: 0 2rem;
+    position: sticky;
+    top: 52px;
+    z-index: 90;
+  }
+
+  .toggle-inner {
+    max-width: 860px;
+    margin: 0 auto;
+    display: flex;
+  }
+
+  .toggle-btn {
+    flex: 1;
+    padding: 0.85rem 1rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-align: center;
+    cursor: pointer;
+    color: var(--muted);
+    border-bottom: 3px solid transparent;
+    transition: all 0.2s;
+    user-select: none;
+  }
+
+  .toggle-btn:hover { color: var(--ink); }
+
+  .toggle-btn.active {
+    color: var(--sage-dark);
+    border-bottom-color: var(--sage);
+  }
+
+  .toggle-btn small {
+    display: block;
+    font-size: 0.7rem;
+    font-weight: 400;
+    margin-top: 0.1rem;
+    opacity: 0.75;
+  }
+
+  .panel { display: none; }
+  .panel.active { display: block; }
+
+  /* ---- INTAKE STYLES ---- */
+  .intake-body {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 2.5rem 2rem 4rem;
+  }
+
+  .intake-note {
+    font-size: 0.88rem;
+    color: var(--muted);
+    margin-bottom: 2rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--border);
+    line-height: 1.6;
+  }
+
+  .form-section { margin-bottom: 2.25rem; }
+
+  .form-section-title {
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--sage);
+    margin-bottom: 0.75rem;
+    padding-bottom: 0.4rem;
+    border-bottom: 2px solid var(--sage-light);
+  }
+
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .form-field { margin-bottom: 0.75rem; }
+
+  .form-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--muted);
+    margin-bottom: 0.25rem;
+  }
+
+  .form-value {
+    font-size: 0.88rem;
+    color: var(--ink);
+    background: var(--cream);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 0.55rem 0.85rem;
+    line-height: 1.55;
+  }
+
+  .priority-list {
+    list-style: none;
+    counter-reset: p;
+  }
+
+  .priority-list li {
+    counter-increment: p;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.4rem 0.75rem;
+    background: var(--cream);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    margin-bottom: 0.35rem;
+    font-size: 0.82rem;
+  }
+
+  .priority-list li::before {
+    content: counter(p);
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--sage-light);
+    color: var(--sage-dark);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.68rem;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+
+  /* ---- STRATEGY STYLES ---- */
+  .strategy-body {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 2.5rem 2rem 4rem;
+  }
+
+  .strategy-body h2 {
+    font-family: 'Newsreader', serif;
+    font-size: 1.6rem;
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    margin-top: 3rem;
+    margin-bottom: 0.4rem;
+    padding-top: 2.5rem;
+    scroll-margin-top: 110px;
+  }
+
+  .strategy-body h2:first-child { margin-top: 0; padding-top: 0; }
+
+  .section-rule {
+    width: 36px;
+    height: 3px;
+    background: var(--sage-light);
+    border-radius: 2px;
+    margin-bottom: 1.25rem;
+  }
+
+  .strategy-body h3 {
+    font-size: 1.05rem;
+    font-weight: 600;
+    margin-top: 2.25rem;
+    margin-bottom: 0.5rem;
+    color: var(--ink);
+    scroll-margin-top: 110px;
+  }
+
+  .strategy-body h4 {
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--sage);
+    margin-top: 2rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .strategy-body p {
+    margin-bottom: 1.1rem;
+    color: #3d3d3a;
+    font-size: 0.92rem;
+  }
+
+  .strategy-body strong { font-weight: 600; color: var(--ink); }
+
+  /* Callouts */
+  .callout {
+    background: var(--terra-light);
+    border-left: 3px solid var(--terra);
+    padding: 1.1rem 1.25rem;
+    border-radius: 0 8px 8px 0;
+    margin: 1.75rem 0;
+    font-size: 0.88rem;
+    color: #5a4030;
+    line-height: 1.6;
+  }
+  .callout strong { color: var(--terra); }
+
+  .callout-sage {
+    background: var(--sage-light);
+    border-left: 3px solid var(--sage);
+    padding: 1.1rem 1.25rem;
+    border-radius: 0 8px 8px 0;
+    margin: 1.75rem 0;
+    font-size: 0.88rem;
+    color: var(--sage-dark);
+    line-height: 1.6;
+  }
+
+  .doc-quote {
+    font-family: 'Newsreader', serif;
+    font-style: italic;
+    font-size: 1.15rem;
+    border-left: 3px solid var(--sage);
+    padding-left: 1.25rem;
+    margin: 2.5rem 0;
+    color: var(--muted);
+    line-height: 1.5;
+  }
+
+  /* Pull stat */
+  .pull-stat {
+    display: flex;
+    align-items: baseline;
+    gap: 0.75rem;
+    margin: 1.75rem 0;
+    padding: 1.25rem 1.5rem;
+    background: var(--sage-light);
+    border-radius: 8px;
+  }
+
+  .pull-stat .ps-num {
+    font-family: 'Newsreader', serif;
+    font-size: 2rem;
+    font-weight: 600;
+    color: var(--sage-dark);
+    line-height: 1;
+    flex-shrink: 0;
+  }
+
+  .pull-stat .ps-text {
+    font-size: 0.88rem;
+    color: var(--sage-dark);
+    line-height: 1.5;
+  }
+
+  /* Tables */
+  .table-wrap {
+    overflow-x: auto;
+    margin: 1.25rem 0 1.75rem;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+  }
+
+  table { width: 100%; border-collapse: collapse; font-size: 0.82rem; }
+  .table-wrap table { margin: 0; }
+
+  th {
+    text-align: left;
+    font-weight: 600;
+    font-size: 0.68rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--muted);
+    padding: 0.65rem 0.75rem;
+    border-bottom: 2px solid var(--border);
+    background: var(--cream);
+    white-space: nowrap;
+  }
+
+  td {
+    padding: 0.6rem 0.75rem;
+    border-bottom: 1px solid #eae7e2;
+    color: #3d3d3a;
+    vertical-align: top;
+  }
+
+  tr:hover td { background: rgba(232,237,230,0.3); }
+
+  /* School cards */
+  .school-card {
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 1.4rem;
+    margin: 1rem 0;
+    background: var(--warm-white);
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+
+  .school-card:hover {
+    border-color: var(--sage);
+    box-shadow: 0 2px 12px rgba(74,103,65,0.06);
+  }
+
+  .school-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 0.5rem;
+  }
+
+  .school-name {
+    font-family: 'Newsreader', serif;
+    font-size: 1.08rem;
+    font-weight: 500;
+  }
+
+  .school-tier {
+    font-size: 0.68rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    padding: 0.2rem 0.6rem;
+    border-radius: 4px;
+    flex-shrink: 0;
+  }
+
+  .tier-reach { background: var(--terra-light); color: var(--terra); }
+  .tier-target { background: var(--sage-light); color: var(--sage-dark); }
+  .tier-safety { background: var(--cream); color: var(--muted); }
+
+  .school-card p { font-size: 0.86rem; margin-bottom: 0.5rem; }
+
+  .school-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+    margin: 1rem 0;
+  }
+  .school-grid .school-card { margin: 0; }
+
+  /* Sim stats */
+  .sim-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.75rem;
+    margin: 1.5rem 0;
+  }
+
+  .sim-stat {
+    background: var(--cream);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1rem 0.75rem;
+    text-align: center;
+  }
+
+  .sim-stat .number {
+    font-family: 'Newsreader', serif;
+    font-size: 1.65rem;
+    font-weight: 600;
+    color: var(--sage-dark);
+    line-height: 1;
+  }
+
+  .sim-stat .label {
+    font-size: 0.65rem;
+    color: var(--muted);
+    margin-top: 0.3rem;
+    line-height: 1.3;
+  }
+
+  /* Collapsible */
+  .collapsible {
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    margin: 1.5rem 0;
+    overflow: hidden;
+  }
+
+  .collapsible-header {
+    padding: 0.85rem 1.15rem;
+    background: var(--cream);
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.88rem;
+    font-weight: 600;
+    user-select: none;
+    transition: background 0.2s;
+  }
+
+  .collapsible-header:hover { background: #efe9e0; }
+  .collapsible-header::after { content: '+'; font-size: 1.1rem; color: var(--muted); }
+  .collapsible.open .collapsible-header::after { content: '\2212'; }
+
+  .collapsible-body {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+  }
+
+  .collapsible.open .collapsible-body { max-height: 12000px; }
+  .collapsible-body-inner { padding: 0 1.15rem 1rem; }
+
+  /* CTA bar */
+  .cta-bar {
+    background: var(--sage-light);
+    border-top: 1px solid var(--border);
+    padding: 2.5rem 2rem;
+    text-align: center;
+  }
+
+  .cta-bar p {
+    font-size: 0.95rem;
+    color: var(--muted);
+    margin-bottom: 1rem;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .btn-primary {
+    background: var(--sage);
+    color: white;
+    padding: 0.9rem 2rem;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: all 0.25s;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .btn-primary:hover { background: var(--sage-dark); transform: translateY(-1px); }
+
+  /* Footer */
+  .doc-footer {
+    padding: 2rem;
+    text-align: center;
+    font-size: 0.8rem;
+    color: var(--muted);
+  }
+
+  .doc-footer a { color: var(--sage); text-decoration: none; font-weight: 600; }
+
+  /* ---- RESPONSIVE ---- */
+  @media (max-width: 768px) {
+    .hero-stats { grid-template-columns: repeat(2, 1fr); }
+    .form-row { grid-template-columns: 1fr; }
+    .school-grid { grid-template-columns: 1fr; }
+    .sim-grid { grid-template-columns: repeat(2, 1fr); }
+    .toggle-btn small { display: none; }
+    .intake-body, .strategy-body { padding: 1.5rem 1.25rem 3rem; }
+  }
+</style>
+</head>
+<body>
+
+<div class="progress-bar" id="progressBar"></div>
+
+<!-- TOP BAR -->
+<div class="topbar">
+  <a href="index.html" class="topbar-logo"><span>S</span>caffold</a>
+  <div class="topbar-right">
+    <a href="index.html" class="topbar-link">Home</a>
+    <div class="topbar-dropdown">
+      <a class="topbar-link topbar-dropdown-trigger">See Samples</a>
+      <div class="topbar-dropdown-menu">
+        <div class="topbar-dropdown-menu-inner">
+          <a href="washington-sample.html">The Washington Family</a>
+          <a href="medina-sample.html">The Medina Family</a>
+          <a href="kaplan-sample.html">The Kaplan Family</a>
+        </div>
+      </div>
+    </div>
+    <a href="index.html#pricing" class="topbar-cta">Get Your Plan</a>
+  </div>
+</div>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-badge">Sample Plan</div>
+    <h1>The Washington Family</h1>
+    <div class="hero-meta">Atlanta, GA · Class of 2030 · Single-parent household</div>
+    <p class="hero-desc">Jaylen is 14, a rising 9th grader with a 3.7 GPA, a writing voice that placed 2nd in a city-wide contest, and a mom who started planning before anyone told her to. This is the plan Scaffold built for them.</p>
+    <div class="hero-stats">
+      <div class="hero-stat"><div class="hs-num">10</div><div class="hs-label">Schools analyzed</div></div>
+      <div class="hero-stat"><div class="hs-num">10K</div><div class="hs-label">Simulations run</div></div>
+      <div class="hero-stat"><div class="hs-num">$16K</div><div class="hs-label">Median 4yr cost</div></div>
+      <div class="hero-stat"><div class="hs-num">92%</div><div class="hs-label">Under budget</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- TOGGLE -->
+<div class="toggle-bar">
+  <div class="toggle-inner">
+    <div class="toggle-btn active" data-panel="intake">What they filled out<small>~10 minute intake</small></div>
+    <div class="toggle-btn" data-panel="strategy">What they got back<small>20+ page strategy</small></div>
+  </div>
+</div>
+
+<!-- ============ INTAKE PANEL ============ -->
+<div class="panel active" id="panel-intake">
+<div class="intake-body">
+
+  <p class="intake-note">This is the actual intake form the Washington family completed. It took about 10 minutes. No jargon, no trick questions. The answers below produced the full strategy you can read in the other tab.</p>
+
+  <div class="form-section">
+    <div class="form-section-title">About the Kid</div>
+    <div class="form-row">
+      <div class="form-field"><div class="form-label">Age</div><div class="form-value">14, rising 9th grader (starting North Atlanta High School fall 2026)</div></div>
+      <div class="form-field"><div class="form-label">Gender</div><div class="form-value">Male</div></div>
+    </div>
+    <div class="form-field"><div class="form-label">Current school</div><div class="form-value">Barack Obama Academy of Young Men (APS magnet)</div></div>
+    <div class="form-field"><div class="form-label">Academic profile</div><div class="form-value">3.7 GPA unweighted. 88th percentile reading, 71st math. Honor roll every semester since 6th grade. MLK Writing Contest 2nd place (city-wide).</div></div>
+    <div class="form-field"><div class="form-label">Interests &amp; temperament</div><div class="form-value">Debate (just started, already obsessed), reading (history, graphic novels, James Baldwin), writing poetry in his journal, basketball (rec league), anime, cooking with me on Sundays. Old soul. Quiet until he trusts you, then he talks your ear off.</div></div>
+    <div class="form-field"><div class="form-label">Teacher quote</div><div class="form-value">"He thinks in questions, not answers. I've never had an 8th grader who could hold a class discussion like he can. He reminds me of students I had when I taught at Morehouse." — Ms. Coleman, 7th grade English</div></div>
+  </div>
+
+  <div class="form-section">
+    <div class="form-section-title">The Parents</div>
+    <div class="form-row">
+      <div class="form-field"><div class="form-label">Parent 1</div><div class="form-value">Maya Washington. Associate's from Atlanta Technical College (business admin). Office manager at a pediatric dental practice.</div></div>
+      <div class="form-field"><div class="form-label">Parent 2</div><div class="form-value">Marcus Washington. Not in the picture day-to-day. In Macon, construction. Pays some child support, inconsistent. No college.</div></div>
+    </div>
+    <div class="form-field"><div class="form-label">Family structure</div><div class="form-value">Single parent, sole legal and physical custody. Never married. Marcus sees kids 4–5 times/year.</div></div>
+  </div>
+
+  <div class="form-section">
+    <div class="form-section-title">Location &amp; Schools</div>
+    <div class="form-row">
+      <div class="form-field"><div class="form-label">City</div><div class="form-value">Atlanta, GA (Pittsburgh neighborhood, southwest Atlanta)</div></div>
+      <div class="form-field"><div class="form-label">Current school</div><div class="form-value">Barack Obama Academy of Young Men (APS magnet)</div></div>
+    </div>
+    <div class="form-field"><div class="form-label">High school</div><div class="form-value">North Atlanta High School (APS)</div></div>
+    <div class="form-field"><div class="form-label">Willing to relocate?</div><div class="form-value">Southeast ideal, anywhere if the money is right.</div></div>
+  </div>
+
+  <div class="form-section">
+    <div class="form-section-title">Finances</div>
+    <div class="form-row">
+      <div class="form-field"><div class="form-label">Household income</div><div class="form-value">$72,000 ($68K salary + $3–4K side bookkeeping)</div></div>
+      <div class="form-field"><div class="form-label">Assets</div><div class="form-value">Own home ($260K value, $140K owed). $8,000 savings. No 529.</div></div>
+    </div>
+    <div class="form-row">
+      <div class="form-field"><div class="form-label">Afford per year</div><div class="form-value">$3,000–5,000 out of pocket. Hard cap $15,000/year.</div></div>
+      <div class="form-field"><div class="form-label">Special circumstances</div><div class="form-value">Child support not reliable ($4–6K/year when it comes). Mom helps with childcare, fixed income.</div></div>
+    </div>
+  </div>
+
+  <div class="form-section">
+    <div class="form-section-title">Priorities (ranked)</div>
+    <ol class="priority-list">
+      <li>Minimize total cost</li>
+      <li>Merit scholarship likelihood</li>
+      <li>Campus culture / social fit</li>
+      <li>Academic fit</li>
+      <li>Prestige / brand name</li>
+      <li>Geographic location</li>
+      <li>Post-graduation outcomes</li>
+    </ol>
+  </div>
+
+  <div class="form-section">
+    <div class="form-section-title">Anything Else</div>
+    <div class="form-field"><div class="form-value">Jaylen doesn't know I'm doing this. He'd probably roll his eyes. He thinks college is "far away" but he starts high school in six months. He's a good kid in a neighborhood that doesn't always make it easy to be a good kid. His dad not being around is something he doesn't talk about but it's there. He's close to my brother and my pastor. We're active at Ebenezer Baptist Church. He organized a book drive for the Pittsburgh neighborhood library last year, collected over 400 books. That was his idea. I don't know how any of this works. I'm terrified of making a mistake that costs him an opportunity. One more thing: Jaylen writes. Not just for school. He has a journal he's kept since 6th grade. He showed me one once about what it feels like to walk past the abandoned houses on our block. It made me cry. He has a voice. I just want to make sure the right people hear it.</div></div>
+  </div>
+
+</div>
+</div>
+
+<!-- ============ STRATEGY PANEL ============ -->
+<div class="panel" id="panel-strategy">
+<div class="strategy-body">
+
+  <h2 id="executive-summary">Executive Summary</h2>
+  <div class="section-rule"></div>
+
+  <p>Rising 9th grader, 3.7 GPA, 88th percentile in reading, 71st in math. Strongest assets are his writing (MLK contest placement, personal journal since 6th grade) and debate (new but passionate). Main vulnerability is math. Projected SAT range: 1230–1340. First-generation four-year college student, single-parent household, $72K income.</p>
+
+  <div class="pull-stat">
+    <div class="ps-num">$16K</div>
+    <div class="ps-text">Median total cost for four years of college across 10,000 simulations. 92% chance at least one school comes in under Maya's $15K/year cap.</div>
+  </div>
+
+  <h2 id="before-we-start">Before We Start</h2>
+  <div class="section-rule"></div>
+
+  <p>Maya, you said something in your intake that I want to address right away: "I don't know how any of this works." That's fine. Most families don't. The ones who seem like they know what they're doing usually just started Googling earlier, or they have a neighbor who went through it. You're doing the right thing by starting now, before Jaylen's first day of high school. That gives you four years to be strategic instead of reactive.</p>
+
+  <p>A few things I want to be honest about before we get into it:</p>
+
+  <ol style="margin: 1rem 0 1.5rem 1.25rem; display: flex; flex-direction: column; gap: 0.75rem;">
+    <li><strong>Jaylen's profile is strong but not elite yet.</strong> A 3.7 GPA, strong writing skills, 2nd place in a city-wide contest, and a new debate obsession is a great starting point. But "great starting point" is different from "locks up Vanderbilt." The next four years will determine where he lands.</li>
+    <li><strong>Your financial constraint is real and I'm going to respect it.</strong> You said $3,000-5,000 per year out of pocket, hard cap at $15,000. I'm not going to put dream schools on the list and hope for the best. Every school on this list has a realistic path to affordability at your income level.</li>
+    <li><strong>The biggest financial tool available to your family is one you haven't heard of.</strong> It's called QuestBridge. For now, just know that it exists specifically for families like yours, and it changes the math on schools you'd otherwise assume are out of reach.</li>
+    <li><strong>Math is the weak link and we need to address it.</strong> Not because Jaylen needs to be a math kid, but because a 71st percentile in math will limit his test scores, his course rigor, and his competitiveness at selective schools.</li>
+    <li><strong>His writing is the asset that most families would kill for.</strong> A kid who keeps a journal of poems and essays since 6th grade, who wrote about the Tulsa Race Massacre well enough to place in a city-wide contest, who "thinks in questions, not answers" according to his teacher? That's not common. That's the thing we build the entire application narrative around.</li>
+  </ol>
+
+  <h2 id="four-threads">The Four Threads</h2>
+  <div class="section-rule"></div>
+
+  <p><strong>Voice.</strong> Jaylen writes. He argues. He holds a classroom discussion better than most adults. This thread runs through debate, creative writing, journalism, and eventually his college essays. It's the centerpiece.</p>
+
+  <p><strong>Community.</strong> The book drive. The church youth ministry. Growing up in Pittsburgh and choosing to invest in his neighborhood instead of just escaping it. This thread connects his values to action.</p>
+
+  <p><strong>Intellectual Curiosity.</strong> History, James Baldwin, the Tulsa Race Massacre essay, the abandoned houses poem. He's drawn to stories, to understanding why things are the way they are. This points toward English, history, political science, African American studies, or journalism.</p>
+
+  <p><strong>Leadership through Service.</strong> Not the "I was president of five clubs" kind of leadership. The "I saw a problem and did something about it" kind. The book drive is the seed. We grow it.</p>
+
+  <h2 id="questbridge">About QuestBridge</h2>
+  <div class="section-rule"></div>
+
+  <div class="callout-sage">QuestBridge is a national nonprofit connecting high-achieving students from low-income families with full four-year scholarships at top colleges. Not a loan. Not partial aid. Full ride: tuition, room, board, books, travel. Five schools on Jaylen's list are QuestBridge partners: Vanderbilt, Emory, Davidson, Denison, and University of Richmond.</div>
+
+  <p>This is why schools with $60,000+/year sticker prices are actually among the cheapest options for this family. A school that meets full demonstrated need at $72K income costs less than a school with a lower sticker price that leaves gaps. This is the most counterintuitive thing in college finance, and it's the thing most first-gen families miss.</p>
+
+  <h2 id="school-list">The School List</h2>
+  <div class="section-rule"></div>
+
+  <h4>Reaches</h4>
+
+  <div class="school-card">
+    <div class="school-card-header"><div class="school-name">1. Vanderbilt University</div><span class="school-tier tier-reach">Reach</span></div>
+    <p>Nashville, TN. <strong>QuestBridge Partner.</strong> ~5% admit rate. Full need met, no loans. Estimated net cost: $2–4K/year.</p>
+    <p>If he matches here through QuestBridge, take it immediately.</p>
+  </div>
+
+  <div class="school-card">
+    <div class="school-card-header"><div class="school-name">2. Emory University</div><span class="school-tier tier-reach">Reach</span></div>
+    <p>Atlanta, GA. <strong>QuestBridge Partner.</strong> ~11% admit rate. Full need met, no loans under $75K. Estimated net cost: $2–4K/year.</p>
+    <p>20 minutes from home. Sunday cooking doesn't have to stop.</p>
+  </div>
+
+  <div class="school-card">
+    <div class="school-card-header"><div class="school-name">3. Howard University</div><span class="school-tier tier-reach">Reach</span></div>
+    <p>Washington, DC. ~30% admit rate. Does NOT consistently meet full need. Estimated net cost: $8–22K/year.</p>
+    <p>Best cultural fit on the list. <strong>Financial risk: HIGH.</strong></p>
+  </div>
+
+  <h4>Targets</h4>
+
+  <div class="school-card">
+    <div class="school-card-header"><div class="school-name">4. Davidson College</div><span class="school-tier tier-target">Target</span></div>
+    <p>Davidson, NC. <strong>QuestBridge Partner.</strong> ~17% admit rate. Full need met. Estimated net cost: $2–4K/year.</p>
+  </div>
+
+  <div class="school-card">
+    <div class="school-card-header"><div class="school-name">5. Morehouse College</div><span class="school-tier tier-target">Target</span></div>
+    <p>Atlanta, GA. ~48% admit rate. Does NOT consistently meet full need. Estimated net cost: $8–20K/year.</p>
+    <p>The brotherhood, the mentoring, the tradition. <strong>Risk: Moderate-High.</strong></p>
+  </div>
+
+  <div class="school-card">
+    <div class="school-card-header"><div class="school-name">6. UGA Honors</div><span class="school-tier tier-target">Target</span></div>
+    <p>Athens, GA. ~42% admit rate. HOPE/Zell Miller. Estimated net cost: $5–11.5K/year. <strong>Risk: Very Low.</strong></p>
+  </div>
+
+  <div class="school-card">
+    <div class="school-card-header"><div class="school-name">7. Denison University</div><span class="school-tier tier-target">Target</span></div>
+    <p>Granville, OH. <strong>QuestBridge Partner.</strong> ~31% admit rate. Full need met. Estimated net cost: $3–5K/year.</p>
+  </div>
+
+  <div class="school-card">
+    <div class="school-card-header"><div class="school-name">8. University of Richmond</div><span class="school-tier tier-target">Target</span></div>
+    <p>Richmond, VA. ~24% admit rate. Full need met. Estimated net cost: $3–5K/year.</p>
+  </div>
+
+  <h4>Safeties</h4>
+
+  <div class="school-grid">
+    <div class="school-card">
+      <div class="school-card-header"><div class="school-name">9. Georgia State</div><span class="school-tier tier-safety">Safety</span></div>
+      <p>Atlanta, GA. ~67% admit rate. $0–10.5K/year. <strong>Risk: Essentially Zero.</strong></p>
+    </div>
+    <div class="school-card">
+      <div class="school-card-header"><div class="school-name">10. Clark Atlanta</div><span class="school-tier tier-safety">Safety</span></div>
+      <p>Atlanta, GA. ~56% admit rate. $8–20K/year. <strong>Risk: Moderate.</strong></p>
+    </div>
+  </div>
+
+  <h3 style="margin-top: 2rem;">School List Summary</h3>
+
+  <div class="table-wrap">
+  <table>
+    <thead>
+      <tr><th>#</th><th>School</th><th>Tier</th><th>Admit Rate</th><th>QuestBridge</th><th>Meets Full Need</th><th>Est. Net Cost/Yr</th><th>Risk</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>1</td><td>Vanderbilt</td><td>Reach</td><td>~5%</td><td>Yes</td><td>Yes (no loans)</td><td>$2–4K</td><td>Very Low*</td></tr>
+      <tr><td>2</td><td>Emory</td><td>Reach</td><td>~11%</td><td>Yes</td><td>Yes (no loans &lt;$75K)</td><td>$2–4K</td><td>Very Low*</td></tr>
+      <tr><td>3</td><td>Howard</td><td>Reach</td><td>~30%</td><td>No</td><td>No</td><td>$8–22K</td><td>HIGH</td></tr>
+      <tr><td>4</td><td>Davidson</td><td>Target</td><td>~17%</td><td>Yes</td><td>Yes (no loans)</td><td>$2–4K</td><td>Very Low*</td></tr>
+      <tr><td>5</td><td>Morehouse</td><td>Target</td><td>~48%</td><td>No</td><td>No</td><td>$8–20K</td><td>Mod-High</td></tr>
+      <tr><td>6</td><td>UGA Honors</td><td>Target</td><td>~42%</td><td>No</td><td>N/A (HOPE/Zell)</td><td>$5–11.5K</td><td>Very Low</td></tr>
+      <tr><td>7</td><td>Denison</td><td>Target</td><td>~31%</td><td>Yes</td><td>Yes (most)</td><td>$3–5K</td><td>Very Low*</td></tr>
+      <tr><td>8</td><td>U of Richmond</td><td>Target</td><td>~24%</td><td>No</td><td>Yes</td><td>$3–5K</td><td>Very Low*</td></tr>
+      <tr><td>9</td><td>Georgia State</td><td>Safety</td><td>~67%</td><td>No</td><td>N/A (HOPE/Pell)</td><td>$0–10.5K</td><td>~Zero</td></tr>
+      <tr><td>10</td><td>Clark Atlanta</td><td>Safety</td><td>~56%</td><td>No</td><td>No</td><td>$8–20K</td><td>Moderate</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div class="callout">The pattern: QuestBridge/full-need schools (Vanderbilt, Emory, Davidson, Denison, Richmond) are actually cheaper than the HBCUs (Howard, Morehouse, Clark Atlanta) if Jaylen is admitted. The HBCUs are culturally richer but financially riskier. UGA and Georgia State are the rock-solid financial floor.</div>
+
+  <p>Maya, you mentioned Emory and said, "I honestly don't know if we could afford it." You can. At your income, Emory would likely cost you less per year than Morehouse. The same is true for Vanderbilt, Davidson, and Richmond. The reason is simple: these schools have massive endowments and they use them to cover the full cost for families like yours. The schools that can't afford to give you a full ride are often the ones with the lowest sticker prices but the biggest gaps.</p>
+
+  <div class="callout-sage">This is the information asymmetry that Scaffold exists to close. The $300K family in Bethesda already knows this. Now you do too.</div>
+
+  <h2 id="simulation">Monte Carlo Simulation</h2>
+  <div class="section-rule"></div>
+
+  <p>10,000 simulated outcomes. Each draws admission, scholarship, and honors results independently for every school, then identifies the cheapest option Jaylen gets into.</p>
+
+  <div class="sim-grid">
+    <div class="sim-stat"><div class="number">99.8%</div><div class="label">Admitted somewhere</div></div>
+    <div class="sim-stat"><div class="number">38%</div><div class="label">Reach admission</div></div>
+    <div class="sim-stat"><div class="number">$16K</div><div class="label">Median 4yr cost</div></div>
+    <div class="sim-stat"><div class="number">92%</div><div class="label">Under $15K/yr cap</div></div>
+  </div>
+
+  <div class="collapsible">
+    <div class="collapsible-header">Full Simulation Results</div>
+    <div class="collapsible-body"><div class="collapsible-body-inner">
+      <div class="table-wrap">
+      <table>
+        <thead><tr><th>Metric</th><th>Result</th></tr></thead>
+        <tbody>
+          <tr><td>P(at least one admission)</td><td>99.8%</td></tr>
+          <tr><td>P(at least one reach)</td><td>38.2%</td></tr>
+          <tr><td>P(at least one target+)</td><td>94.6%</td></tr>
+          <tr><td>Median acceptances</td><td>5</td></tr>
+          <tr><td>P(school under $15K/yr)</td><td>92.4%</td></tr>
+          <tr><td>Median best 4-year cost</td><td>$16,000</td></tr>
+          <tr><td>10th percentile (best case)</td><td>$8,000</td></tr>
+          <tr><td>90th percentile (worst case)</td><td>$44,000</td></tr>
+        </tbody>
+      </table>
+      </div>
+    </div></div>
+  </div>
+
+  <div class="collapsible">
+    <div class="collapsible-header">Per-School Results</div>
+    <div class="collapsible-body"><div class="collapsible-body-inner">
+      <div class="table-wrap">
+      <table>
+        <thead><tr><th>School</th><th>P(Admitted)</th><th>P(Admitted AND Under $15K/yr)</th></tr></thead>
+        <tbody>
+          <tr><td>Vanderbilt</td><td>10.0%</td><td>10.0%</td></tr>
+          <tr><td>Emory</td><td>16.0%</td><td>16.0%</td></tr>
+          <tr><td>Howard</td><td>55.0%</td><td>21.3%</td></tr>
+          <tr><td>Davidson</td><td>25.0%</td><td>25.0%</td></tr>
+          <tr><td>Morehouse</td><td>65.0%</td><td>28.4%</td></tr>
+          <tr><td>UGA Honors</td><td>70.0%</td><td>68.2%</td></tr>
+          <tr><td>Denison</td><td>42.0%</td><td>42.0%</td></tr>
+          <tr><td>U of Richmond</td><td>34.0%</td><td>34.0%</td></tr>
+          <tr><td>Georgia State</td><td>85.0%</td><td>82.1%</td></tr>
+          <tr><td>Clark Atlanta</td><td>72.0%</td><td>27.5%</td></tr>
+        </tbody>
+      </table>
+      </div>
+    </div></div>
+  </div>
+
+  <h2 id="decision-framework">Decision Framework: April 2030</h2>
+  <div class="section-rule"></div>
+
+  <p>When the acceptances and aid packages arrive, here's how to make the call.</p>
+
+  <h3>Scenario A: QuestBridge Match (~15–20%)</h3>
+  <p>Full four-year scholarship. $8–12K total. Take it immediately. Do not second-guess it.</p>
+
+  <h3>Scenario B: Full-Need School, Non-QB Route (~35–40%)</h3>
+  <p>$12–20K total. Compare offers on fit. All approximately the same cost. Choose on fit, not money.</p>
+
+  <h3>Scenario C: HBCU with Strong Merit (~25–30%)</h3>
+  <p>$36–56K total. If it's genuinely under $15K/year and you're not taking parent loans, this is viable.</p>
+
+  <h3>Scenario D: UGA Honors with HOPE/Zell (~20–25%)</h3>
+  <p>$20–32K total. Not a consolation prize. Top-20 public university. Athens is great.</p>
+
+  <h3>Scenario E: Georgia State (~10–15%)</h3>
+  <p>$18–42K total. A Georgia State degree with zero debt puts him in a stronger position at 22 than a Morehouse degree with $80K in loans.</p>
+
+  <h3>Scenario F: Gap Year (~5%)</h3>
+  <p>Not a defeat. Reapply, strengthen the profile, save money.</p>
+
+  <h2 id="what-to-do-now">What to Do Now</h2>
+  <div class="section-rule"></div>
+
+  <div class="callout-sage">
+    <strong>1.</strong> Get Jaylen a math tutor this summer.<br>
+    <strong>2.</strong> Register for Honors English and AP Human Geography.<br>
+    <strong>3.</strong> Connect with AUDL and North Atlanta's debate team.<br>
+    <strong>4.</strong> Bookmark QuestBridge.<br>
+    <strong>5.</strong> Read the Developmental Roadmap (in the full plan).
+  </div>
+
+  <div class="doc-quote">You told me you're terrified of making a mistake that costs him an opportunity. You're not making a mistake. You're making a plan. That's the opposite of a mistake.</div>
+
+  <p>Jaylen has a voice. The plan gives him the best chance of being heard.</p>
+
+  <!-- ============ REFERENCE SECTIONS ============ -->
+
+  <div style="border-top: 2px solid var(--border); margin: 3rem 0 2rem; padding-top: 2rem;">
+    <h2 id="reference-sections" style="margin-bottom: 0.25rem;">Reference Sections</h2>
+    <div class="section-rule"></div>
+    <p style="color: var(--muted); font-size: 0.9rem; margin-bottom: 2rem;">Detailed planning tools. Come back to them when you need them. Each section stands alone.</p>
+  </div>
+
+  <!-- Developmental Roadmap -->
+  <div class="collapsible">
+    <div class="collapsible-header">Developmental Roadmap (Grade-by-Grade)</div>
+    <div class="collapsible-body"><div class="collapsible-body-inner">
+
+      <h4>Where Jaylen Is Right Now (Spring 2026)</h4>
+      <p><strong>Strengths:</strong> 3.7 GPA unweighted at a competitive APS magnet, 88th percentile in reading, honor roll every semester since 6th grade, MLK Writing Contest 2nd place (city-wide), APS Scholars nomination, brand-new debate passion, reads James Baldwin at 14.</p>
+      <p><strong>Gaps to address:</strong> 71st percentile in math (will drag down SAT if not addressed), not in accelerated math, no formal writing portfolio yet, debate experience under one year.</p>
+      <p><strong>Things that aren't gaps:</strong> Rec league basketball (not a college hook, keep it for fun). No 529 plan (at your income, need-based aid and merit will do more than a 529 ever could).</p>
+
+      <h4>Summer Before 9th Grade (Summer 2026)</h4>
+      <p><strong>Math intervention.</strong> Tutor twice a week, six weeks minimum. Khan Academy is free. Local tutor through church or APS: $0-500. This is the single highest-leverage move.</p>
+      <p><strong>Debate prep.</strong> Atlanta Urban Debate League (AUDL) summer workshops. Free, specifically for APS students.</p>
+      <p><strong>Book drive planning.</strong> Year 2. Set a bigger goal. Add structure: recruit helpers, partner with another org, document it.</p>
+      <p><strong>What Not to Do:</strong> Don't sign him up for three summer programs. He needs a break. Don't tell him about this plan yet.</p>
+
+      <h4>9th Grade (2026-2027)</h4>
+      <div class="table-wrap">
+      <table>
+        <thead><tr><th>Course</th><th>Level</th><th>Why</th></tr></thead>
+        <tbody>
+          <tr><td>English 9</td><td>Honors</td><td>Non-negotiable. Strongest subject, top track from day one.</td></tr>
+          <tr><td>AP Human Geography</td><td>AP</td><td>Most accessible AP for freshmen. Aligns with history/community interests.</td></tr>
+          <tr><td>Algebra I</td><td>Regular or Honors</td><td>If Honors, great. If not, earn an A and move up.</td></tr>
+          <tr><td>Biology</td><td>Honors if available</td><td>Standard science sequence.</td></tr>
+          <tr><td>Spanish I</td><td>Regular</td><td>Four years of one language beats two years of two.</td></tr>
+          <tr><td>Elective</td><td>Speech &amp; Debate or Creative Writing</td><td>If he has to choose, debate.</td></tr>
+        </tbody>
+      </table>
+      </div>
+      <p><strong>Extracurriculars:</strong> Debate team (10-12 hrs/week, main commitment), Book Drive Year 2 (2-3 hrs), Youth Ministry at Ebenezer (3-4 hrs), Creative Writing personal (3-5 hrs), Basketball rec league (4-6 hrs).</p>
+      <p><strong>Milestones:</strong> First debate tournament (fall). Published piece in school literary magazine. End-of-year GPA: 3.7+. PSAT 8/9 baseline.</p>
+      <p><strong>What Not to Do:</strong> Don't join ten clubs. Depth over breadth. Don't neglect math. Don't compare his schedule to the kid taking three APs as a freshman.</p>
+
+      <h4>10th Grade (2027-2028)</h4>
+      <div class="table-wrap">
+      <table>
+        <thead><tr><th>Course</th><th>Level</th><th>Why</th></tr></thead>
+        <tbody>
+          <tr><td>English 10</td><td>Honors</td><td>Continue top track. Build the rec letter relationship.</td></tr>
+          <tr><td>AP World History</td><td>AP</td><td>Natural fit. Content aligns with his interests.</td></tr>
+          <tr><td>Geometry</td><td>Honors if B+ in Algebra I</td><td>If B or below, regular. Protect GPA.</td></tr>
+          <tr><td>Chemistry</td><td>Honors if available</td><td>Solid grade here shows he can handle science.</td></tr>
+          <tr><td>Spanish II</td><td>Regular</td><td>Continue the sequence.</td></tr>
+          <tr><td>Elective</td><td>Journalism, Creative Writing, or AP African American Studies</td><td>Supports the Voice thread.</td></tr>
+        </tbody>
+      </table>
+      </div>
+      <p><strong>IB vs. AP recommendation: Stay on the AP track.</strong> IB Diploma requires strong performance across all subjects including math/science. AP lets him load up on humanities (4s and 5s) and take solid math/science without the GPA risk.</p>
+      <p><strong>New extracurriculars:</strong> Scholastic Art &amp; Writing Awards (first submission, fall/winter). Poetry Out Loud (fall). Level up the book drive: give it a name, build a website, recruit volunteers.</p>
+      <p><strong>Critical: Summer program applications.</strong> Apply in January-March of 10th grade for: Georgia Governor's Honors Program (free, four weeks, highly selective), Telluride Association Summer Seminar (free, six weeks, designed for students of color), Kenyon Review Young Writers (tuition-based with financial aid), Emory Pre-College. Push for GHP and TASS first. They're free and most prestigious.</p>
+
+      <h4>11th Grade (2028-2029)</h4>
+      <div class="table-wrap">
+      <table>
+        <thead><tr><th>Course</th><th>Level</th><th>Why</th></tr></thead>
+        <tbody>
+          <tr><td>AP English Language</td><td>AP</td><td>His best AP. Writing, argumentation, reading all converge. Target: a 5.</td></tr>
+          <tr><td>AP U.S. History</td><td>AP</td><td>Natural AP. History, race, social justice. Target: 4 or 5.</td></tr>
+          <tr><td>Algebra II</td><td>Honors if possible</td><td>Hardest math year. Get a tutor proactively.</td></tr>
+          <tr><td>AP Env. Science or Physics</td><td>AP or Regular</td><td>APES is a manageable third AP. Regular Physics protects GPA.</td></tr>
+          <tr><td>Spanish III</td><td>Regular or Honors</td><td>Continue.</td></tr>
+          <tr><td>Elective</td><td>AP African American Studies, AP Gov, or Dual Enrollment</td><td>College-level humanities on transcript.</td></tr>
+        </tbody>
+      </table>
+      </div>
+      <p><strong>SAT Prep:</strong> Start fall. First official test spring (March SAT or April ACT). Projected range: EBRW 680-720+, Math 530-620. Total: 1170-1340. Khan Academy SAT prep is free. Consider whether ACT might be better (four sections averaging can offset weaker math). Target: 1300+ for merit, 1200+ for Zell Miller.</p>
+      <p><strong>QuestBridge College Prep Scholars:</strong> Apply March. Pipeline into National College Match senior year. Being named CPS is an honor itself.</p>
+      <p><strong>What Not to Do:</strong> Don't let Jaylen write his college essays yet. Don't apply Early Decision to any school (need to compare aid packages). Don't skip the SAT because schools are "test-optional." Don't spend $2,000+ on SAT prep courses.</p>
+
+      <h4>12th Grade (2029-2030)</h4>
+      <p>Senior year is execution. The profile is built. The school list is set. The work is essays, applications, financial aid forms, and decisions.</p>
+      <div class="table-wrap">
+      <table>
+        <thead><tr><th>Course</th><th>Level</th><th>Why</th></tr></thead>
+        <tbody>
+          <tr><td>AP English Literature</td><td>AP</td><td>The capstone. 4th year of Honors/AP English.</td></tr>
+          <tr><td>AP Government</td><td>AP</td><td>Connects to debate, policy, civic engagement.</td></tr>
+          <tr><td>Pre-Calc or AP Statistics</td><td>Honors or AP</td><td>AP Stats is the better strategic choice: more verbal, more interpretive.</td></tr>
+          <tr><td>Science Elective</td><td>Any</td><td>Don't add a challenging course that could tank GPA.</td></tr>
+          <tr><td>Spanish IV or AP Spanish</td><td>Honors or AP</td><td>Four years of one language is a strong signal.</td></tr>
+          <tr><td>Elective</td><td>Any</td><td>Debate, creative writing, independent study, or dual enrollment.</td></tr>
+        </tbody>
+      </table>
+      </div>
+      <p><strong>What Not to Do:</strong> Don't get senioritis (colleges rescind for tanking grades). Don't apply to 20 schools. Don't panic if early results are disappointing. Maya, do not take out Parent PLUS loans to cover a gap at a dream school.</p>
+
+      <h4>Full Course Progression</h4>
+      <div class="table-wrap">
+      <table>
+        <thead><tr><th></th><th>English</th><th>Social Studies</th><th>Math</th><th>Science</th><th>Language</th></tr></thead>
+        <tbody>
+          <tr><td><strong>9th</strong></td><td>English 9 Honors</td><td>AP Human Geo</td><td>Algebra I</td><td>Bio Honors</td><td>Spanish I</td></tr>
+          <tr><td><strong>10th</strong></td><td>English 10 Honors</td><td>AP World History</td><td>Geometry</td><td>Chem Honors</td><td>Spanish II</td></tr>
+          <tr><td><strong>11th</strong></td><td>AP English Lang</td><td>AP U.S. History</td><td>Algebra II</td><td>APES or Physics</td><td>Spanish III</td></tr>
+          <tr><td><strong>12th</strong></td><td>AP English Lit</td><td>AP Government</td><td>AP Stats or Pre-Calc</td><td>Elective</td><td>Spanish IV/AP</td></tr>
+        </tbody>
+      </table>
+      </div>
+      <p><strong>Total APs over four years: 6-8.</strong> A rigorous schedule that plays to his strengths.</p>
+
+    </div></div>
+  </div>
+
+  <!-- Projected Applicant Profile -->
+  <div class="collapsible">
+    <div class="collapsible-header">Projected Applicant Profile (Fall 2029)</div>
+    <div class="collapsible-body"><div class="collapsible-body-inner">
+
+      <h4>Optimistic Profile</h4>
+      <div class="table-wrap">
+      <table>
+        <thead><tr><th>Component</th><th>Projection</th></tr></thead>
+        <tbody>
+          <tr><td>GPA (UW / Weighted)</td><td>3.75 / 4.1</td></tr>
+          <tr><td>SAT</td><td>1340 (EBRW 730, Math 610)</td></tr>
+          <tr><td>APs taken by senior fall</td><td>6-7</td></tr>
+          <tr><td>AP Scores</td><td>4s and 5s in humanities, 3+ in others</td></tr>
+          <tr><td>Class Rank</td><td>Top 15-20% at North Atlanta</td></tr>
+          <tr><td>Primary Activity</td><td>Debate (4 years, captain, state-level)</td></tr>
+          <tr><td>Signature Project</td><td>Community literacy initiative (4 years, named org)</td></tr>
+          <tr><td>Writing Distinction</td><td>Scholastic Regional Gold Key; published work</td></tr>
+          <tr><td>Special Programs</td><td>QuestBridge College Prep Scholar, GHP</td></tr>
+          <tr><td>Demographics</td><td>Black male, first-gen, single-parent, urban public school</td></tr>
+        </tbody>
+      </table>
+      </div>
+
+      <h4>Realistic Profile</h4>
+      <div class="table-wrap">
+      <table>
+        <thead><tr><th>Component</th><th>Projection</th></tr></thead>
+        <tbody>
+          <tr><td>GPA (UW / Weighted)</td><td>3.55 / 3.8</td></tr>
+          <tr><td>SAT</td><td>1230 (EBRW 680, Math 550)</td></tr>
+          <tr><td>APs taken</td><td>5-6</td></tr>
+          <tr><td>Debate</td><td>4 years, active competitor, some leadership</td></tr>
+          <tr><td>Literacy Project</td><td>Ongoing but less formalized</td></tr>
+          <tr><td>Writing</td><td>Scholastic Silver Key or Honorable Mention</td></tr>
+          <tr><td>QuestBridge</td><td>Applied but not named CPS</td></tr>
+        </tbody>
+      </table>
+      </div>
+
+      <p><strong>What admissions officers will see either way:</strong> A Black male from a single-parent household in urban Atlanta who took the most rigorous humanities curriculum at his public school. A debater and writer with a genuine community service record. A first-generation college student with clear intellectual interests and a track record of initiative.</p>
+      <p><strong>What they won't see unless we tell them:</strong> The journal. The poetry. The abandoned houses essay. The way he cooks with you on Sundays. The fact that he organized a 400-book drive because he wanted to. This is what the essays and rec letters are for.</p>
+
+    </div></div>
+  </div>
+
+  <!-- Full College Descriptions -->
+  <div class="collapsible">
+    <div class="collapsible-header">Full College Descriptions</div>
+    <div class="collapsible-body"><div class="collapsible-body-inner">
+
+      <p style="color: var(--muted); font-size: 0.88rem; margin-bottom: 1.5rem;">The full analysis for each school: why it's on the list, academic fit, cultural fit, the honest truth, and financial risk. Organized by tier.</p>
+
+      <h4 style="color: var(--terra); text-transform: uppercase; letter-spacing: 0.1em; font-size: 0.75rem; margin-bottom: 1rem;">Reaches</h4>
+
+      <h4>1. Vanderbilt University</h4>
+      <p style="color: var(--muted); font-size: 0.85rem; margin-bottom: 0.75rem;"><em>Nashville, TN | ~5% admit rate | ~7,000 undergrads | QuestBridge Partner</em></p>
+      <p><strong>Why it's on the list:</strong> Vanderbilt's Opportunity Vanderbilt program guarantees that 100% of demonstrated financial need is met with grants, not loans. At your income level, the net cost would be approximately $2,000-4,000/year (mostly fees, books, and travel). That makes Vanderbilt, with its $62,000/year sticker price, one of the cheapest schools on this list if Jaylen gets in.</p>
+      <p><strong>Academic fit:</strong> Strong humanities programs, particularly in English, Political Science, and African American &amp; Diaspora Studies. The College of Arts &amp; Science is the right home. The debate and forensics program is active.</p>
+      <p><strong>Cultural fit:</strong> Nashville is a real city with a significant Black community. Vanderbilt has been working to diversify, and the student body is more diverse than its reputation suggests (though it's still a predominantly white, affluent campus). The Bishop Joseph Johnson Black Cultural Center is a hub. Jaylen would not be the only Black kid from a public school, but he'd be in the minority.</p>
+      <p><strong>The honest truth:</strong> At ~5% admission, this is a long shot for anyone. QuestBridge Match improves his odds meaningfully (the Match acceptance rate is higher than the general rate for QB finalists). If he matches here, take it immediately. Don't think twice.</p>
+      <p><strong>Estimated net cost:</strong> $2,000-4,000/year | <strong>4-year total:</strong> $8,000-16,000</p>
+
+      <hr style="border: none; border-top: 1px solid var(--border); margin: 1.5rem 0;">
+
+      <h4>2. Emory University</h4>
+      <p style="color: var(--muted); font-size: 0.85rem; margin-bottom: 0.75rem;"><em>Atlanta, GA | ~11% admit rate | ~7,000 undergrads | QuestBridge Partner</em></p>
+      <p><strong>Why it's on the list:</strong> Emory is right here in Atlanta, 20 minutes from your house. It meets 100% of demonstrated financial need. The Emory Advantage program eliminates loans from financial aid packages for families earning under $75,000. That's you.</p>
+      <p><strong>Academic fit:</strong> Excellent English, Creative Writing, and Political Science departments. Strong pre-law advising (if debate points him in that direction). The Center for Humanistic Inquiry is a major resource. Emory's smaller class sizes mean Jaylen would get the kind of faculty attention that a big state school can't offer.</p>
+      <p><strong>Cultural fit:</strong> Emory is in Druid Hills/Decatur, which is a very different Atlanta than Pittsburgh. But the campus has a meaningful Black student population and active cultural organizations. The James Weldon Johnson Institute for the Study of Race and Difference is nationally respected. And the proximity to home means Sunday cooking doesn't have to stop.</p>
+      <p><strong>The honest truth:</strong> Emory's admit rate has dropped significantly in recent years. It's a reach. But as a local student, first-gen, Black male from APS with a strong humanities profile, Jaylen brings something Emory is actively looking for. The QuestBridge pathway further improves his odds.</p>
+      <p><strong>Estimated net cost:</strong> $2,000-4,000/year | <strong>4-year total:</strong> $8,000-16,000</p>
+
+      <hr style="border: none; border-top: 1px solid var(--border); margin: 1.5rem 0;">
+
+      <h4>3. Howard University</h4>
+      <p style="color: var(--muted); font-size: 0.85rem; margin-bottom: 0.75rem;"><em>Washington, DC | ~30% admit rate | ~6,000 undergrads</em></p>
+      <p><strong>Why it's on the list:</strong> Howard is the HBCU that defined what an HBCU could be. The campus is in the heart of DC. The humanities tradition (Toni Morrison taught there, Ta-Nehisi Coates studied there) is exactly where Jaylen's interests live. The debate team is competitive. The cultural environment would surround Jaylen with high-achieving Black peers in a way that no PWI on this list can replicate.</p>
+      <p><strong>Academic fit:</strong> English, Political Science, African American Studies, and Communications are all strong. Howard's Honors Program adds rigor and community. The Moorland-Spingarn Research Center is one of the most important archives of Black history in the world.</p>
+      <p><strong>Cultural fit:</strong> This is the best cultural fit on the entire list. Full stop. Jaylen would be around Black excellence at every level, with professors who look like him, peers who share his experience, and an institutional history that validates everything he cares about. The comparison Ms. Coleman made to her Morehouse students? Howard carries that same energy on a larger scale.</p>
+      <p><strong>The honest truth, and this is the hard part:</strong> Howard does not consistently meet full demonstrated financial need. Their endowment, while growing, is smaller than the elite PWIs on this list. This means the gap between what Howard says you can afford and what you can actually afford might be significant. At $72,000 income, without merit scholarships, the net cost could be $18,000-22,000/year, which is over your cap.</p>
+      <p>Howard offers competitive merit scholarships (the Capstone Scholarship, the Founders Scholarship, various departmental awards), and Jaylen's profile would make him a strong candidate. But merit is not guaranteed. The financial risk here is real.</p>
+      <p><strong>Strategy:</strong> Apply, compete for merit, and compare the offer against other schools in April. If Howard can get the cost under $15,000/year, it's a strong choice. If they can't, it may not be feasible, and that's OK. I'd rather tell you that now than have you fall in love with an offer you can't afford.</p>
+      <p><strong>Estimated net cost:</strong> $8,000-22,000/year | <strong>4-year total:</strong> $32,000-88,000</p>
+      <p><strong>Financial risk: HIGH.</strong> This is the one school on the list that could break your budget. Apply, but go in with eyes open.</p>
+
+      <h4 style="color: var(--terra); text-transform: uppercase; letter-spacing: 0.1em; font-size: 0.75rem; margin: 2rem 0 1rem;">Targets</h4>
+
+      <h4>4. Davidson College</h4>
+      <p style="color: var(--muted); font-size: 0.85rem; margin-bottom: 0.75rem;"><em>Davidson, NC (near Charlotte) | ~17% admit rate | ~2,000 undergrads | QuestBridge Partner</em></p>
+      <p><strong>Why it's on the list:</strong> Davidson meets 100% of demonstrated financial need with no loans in the package. At your income, the net cost is roughly $2,000-4,000/year. It's a QuestBridge partner. And it's one of the strongest liberal arts colleges in the South.</p>
+      <p><strong>Academic fit:</strong> Small classes (average 14 students), tight student-faculty relationships, and a genuine intellectual culture. The English and Political Science departments are excellent. Davidson's emphasis on writing across the curriculum means Jaylen's skill set would be valued in every class, not just English. The debate and forensics program is active for a school this size.</p>
+      <p><strong>Cultural fit:</strong> This is where it gets complicated. Davidson is a small, historically white school in a small town outside Charlotte. The student body is more diverse than it used to be (about 25% students of color), but Jaylen would be one of relatively few Black students in his classes. The campus is not Atlanta. It's not a city. It's a quiet college town.</p>
+      <p>That said, Davidson students tend to be serious, thoughtful, and engaged. For a kid who "thinks in questions, not answers," the intellectual environment could be transformative. Charlotte is 20 minutes away for when he needs a city. And the financial aid is among the best in the country.</p>
+      <p><strong>The honest truth:</strong> If Jaylen matches here through QuestBridge, it's a free education at a top-25 liberal arts college. The cultural adjustment would be real, but the academic and financial outcome would be outstanding.</p>
+      <p><strong>Estimated net cost:</strong> $2,000-4,000/year | <strong>4-year total:</strong> $8,000-16,000</p>
+
+      <hr style="border: none; border-top: 1px solid var(--border); margin: 1.5rem 0;">
+
+      <h4>5. Morehouse College</h4>
+      <p style="color: var(--muted); font-size: 0.85rem; margin-bottom: 0.75rem;"><em>Atlanta, GA | ~48% admit rate | ~2,200 undergrads</em></p>
+      <p><strong>Why it's on the list:</strong> Ms. Coleman said Jaylen reminds her of students she had when she taught at Morehouse. You mentioned Morehouse first on your list. There's a reason this school is on everyone's mind. Morehouse is the most prestigious HBCU for men in the country, it's in Atlanta, and it produces more Black male leaders per capita than almost any institution in America.</p>
+      <p><strong>Academic fit:</strong> Strong in English, Political Science, and the humanities broadly. The Morehouse debate team competes nationally. The Crown Forum speaker series brings world-class voices to campus. The proximity to the Atlanta University Center (Spelman, Clark Atlanta, Morehouse School of Medicine) means he can cross-register for courses.</p>
+      <p><strong>Cultural fit:</strong> Possibly the best cultural fit on the list alongside Howard. Every student is a Black man. The brotherhood, the mentoring, the tradition of excellence. For a kid who needs strong male role models (your words, not mine), Morehouse provides that structurally, not just incidentally.</p>
+      <p><strong>The honest truth:</strong> Like Howard, Morehouse does not always meet full demonstrated need. The endowment has been growing (a $100 million gift from Reed Hastings in 2024 and the Bloomberg Scholars program help), but gaps remain. At your income without merit, the net cost could be $15,000-22,000/year.</p>
+      <p>However, Morehouse offers strong merit scholarships, and recent endowment growth is improving aid packages. Jaylen's profile (strong GPA, debate, writing, community service, first-gen) makes him competitive for merit. The Bloomberg Scholars program specifically targets students with financial need.</p>
+      <p><strong>Strategy:</strong> Same as Howard. Apply, compete aggressively for merit, and evaluate the financial package in April. If they get it under $15,000/year, seriously consider it. If they can't, you have options that are cheaper and still excellent.</p>
+      <p><strong>Estimated net cost:</strong> $8,000-20,000/year | <strong>4-year total:</strong> $32,000-80,000</p>
+      <p><strong>Financial risk: MODERATE to HIGH.</strong> Better than Howard's financial outlook due to recent endowment growth, but still not guaranteed to meet your cap.</p>
+
+      <hr style="border: none; border-top: 1px solid var(--border); margin: 1.5rem 0;">
+
+      <h4>6. University of Georgia, Honors Program</h4>
+      <p style="color: var(--muted); font-size: 0.85rem; margin-bottom: 0.75rem;"><em>Athens, GA | ~42% admit rate (Honors is more selective) | ~30,000 undergrads</em></p>
+      <p><strong>Why it's on the list:</strong> This is your financial safety net, and I don't mean that as a consolation. UGA is a top-20 public university with a legitimate Honors program that gives Jaylen a small-college experience inside a big university. And as a Georgia resident, the cost is unbeatable.</p>
+      <p><strong>The HOPE and Zell Miller math:</strong></p>
+      <ul style="font-size: 0.92rem; margin-bottom: 1rem; padding-left: 1.25rem;">
+        <li><strong>HOPE Scholarship:</strong> Requires a 3.0+ GPA (high school and maintained in college). Covers tuition at any Georgia public institution. At UGA, that's roughly $12,000/year in tuition covered.</li>
+        <li><strong>Zell Miller Scholarship:</strong> Requires a 3.7+ GPA AND a 1200+ SAT (or 26+ ACT). Covers full tuition plus fees. This is the gold standard for Georgia residents.</li>
+      </ul>
+      <div class="table-wrap">
+      <table>
+        <thead><tr><th>Scenario</th><th>Tuition</th><th>Room/Board</th><th>Fees</th><th>Scholarships</th><th>Pell</th><th>Need-Based</th><th>Net Cost</th></tr></thead>
+        <tbody>
+          <tr><td>Zell Miller + need-based</td><td>$12,000</td><td>$11,500</td><td>$2,500</td><td>-$14,500 (Zell)</td><td>-$2,500</td><td>-$4,000</td><td><strong>~$5,000/yr</strong></td></tr>
+          <tr><td>HOPE + need-based</td><td>$12,000</td><td>$11,500</td><td>$2,500</td><td>-$12,000 (HOPE)</td><td>-$2,500</td><td>-$4,000</td><td><strong>~$7,500/yr</strong></td></tr>
+          <tr><td>HOPE only (no need-based)</td><td>$12,000</td><td>$11,500</td><td>$2,500</td><td>-$12,000 (HOPE)</td><td>-$2,500</td><td>$0</td><td><strong>~$11,500/yr</strong></td></tr>
+        </tbody>
+      </table>
+      </div>
+      <p>All three scenarios are under your $15,000 cap. Zell Miller is the target, but HOPE alone is still very affordable.</p>
+      <p><strong>Academic fit:</strong> The Honors program is small (~2,000 students in a 30,000-student university) with priority registration, smaller classes, and a dedicated community. The English and History departments are strong. UGA's Grady College of Journalism is one of the best in the country if Jaylen's writing leads him toward media.</p>
+      <p><strong>Cultural fit:</strong> UGA is a large, majority-white university in a college town. Athens has a vibrant culture and music scene. The Black student population (~8%) is smaller proportionally than at the HBCUs, but the absolute numbers mean there's a real community. The Black Affairs Council, NAACP chapter, and various Black Greek organizations are active.</p>
+      <p><strong>The honest truth:</strong> UGA is probably not where Jaylen's heart leads him if he has a choice. But it might be where the math leads. And that's not a bad thing. Athens is a fantastic college town. The Honors program is rigorous. The cost is almost impossible to beat. If every reach and target falls through or comes in over budget, UGA with HOPE or Zell Miller is an outcome you should feel genuinely good about.</p>
+      <p><strong>Estimated net cost:</strong> $5,000-11,500/year | <strong>4-year total:</strong> $20,000-46,000</p>
+      <p><strong>Financial risk: VERY LOW.</strong> HOPE requires only a 3.0 GPA, which is well within reach.</p>
+
+      <hr style="border: none; border-top: 1px solid var(--border); margin: 1.5rem 0;">
+
+      <h4>7. Denison University</h4>
+      <p style="color: var(--muted); font-size: 0.85rem; margin-bottom: 0.75rem;"><em>Granville, OH (25 min from Columbus) | ~31% admit rate | ~2,300 undergrads | QuestBridge Partner</em></p>
+      <p><strong>Why it's on the list:</strong> Denison is a hidden gem for students like Jaylen. It's a QuestBridge partner with extremely generous financial aid (they meet 100% of demonstrated need for most students). The English and Creative Writing programs are nationally recognized. And the emphasis on mentoring and community fits a kid who thrives with personal attention.</p>
+      <p><strong>Academic fit:</strong> Denison's English and Creative Writing departments are among the strongest at any liberal arts college. The Lisska Center for Scholarly Engagement supports undergraduate research and creative projects. The school's emphasis on writing across disciplines means Jaylen's skills transfer everywhere.</p>
+      <p><strong>Cultural fit:</strong> I know what you're thinking. Granville, Ohio? It's a small town. But it's 25 minutes from Columbus, which is a real city with a significant Black population. Denison's campus is more diverse than many comparable schools (~30% domestic students of color), and the Multicultural Student Union and Posse Scholars program create a meaningful community.</p>
+      <p>Still, it's not Atlanta. For a city kid, the adjustment is real. I'd recommend a campus visit if Denison stays on the list.</p>
+      <p><strong>The honest truth:</strong> Denison flies under the radar because it doesn't have the name recognition of an Emory or Morehouse. But the financial aid is better than most schools twice its ranking, and the academic experience is genuinely excellent. A QuestBridge Match here would be a full ride at a school that would pour resources into Jaylen's development as a writer and thinker.</p>
+      <p><strong>Estimated net cost:</strong> $3,000-5,000/year | <strong>4-year total:</strong> $12,000-20,000</p>
+
+      <hr style="border: none; border-top: 1px solid var(--border); margin: 1.5rem 0;">
+
+      <h4>8. University of Richmond</h4>
+      <p style="color: var(--muted); font-size: 0.85rem; margin-bottom: 0.75rem;"><em>Richmond, VA | ~24% admit rate | ~3,200 undergrads</em></p>
+      <p><strong>Why it's on the list:</strong> Richmond meets 100% of demonstrated financial need. At your income, the net cost would be approximately $3,000-5,000/year. It's in a mid-size city with deep American history (which Jaylen would love). And the Richmond Guarantee funds every student's summer internship or research project, which is a major post-graduation advantage.</p>
+      <p><strong>Academic fit:</strong> Strong English, Rhetoric &amp; Communication, and Leadership Studies programs. Small classes, accessible faculty. The Bonner Center for Civic Engagement connects students with community-based work, which aligns with Jaylen's service thread. The Jepson School of Leadership Studies is unique in the country and fits a kid who leads through action.</p>
+      <p><strong>Cultural fit:</strong> Richmond, Virginia is a complicated city with a deep racial history. For Jaylen, that history is a feature, not a bug. The campus is more diverse than many peer schools (~25% students of color), and the proximity to a city with a large Black population helps. It's not Atlanta, but it's also not a rural campus.</p>
+      <p><strong>The honest truth:</strong> Richmond doesn't have the name recognition of the other schools on this list, but dollar for dollar, it may be the best value. Full-need met, in a real city, with guaranteed internship funding, at a school that emphasizes exactly what Jaylen is good at (writing, leadership, civic engagement). If he visits and likes the vibe, this could be the one.</p>
+      <p><strong>Estimated net cost:</strong> $3,000-5,000/year | <strong>4-year total:</strong> $12,000-20,000</p>
+
+      <h4 style="color: var(--terra); text-transform: uppercase; letter-spacing: 0.1em; font-size: 0.75rem; margin: 2rem 0 1rem;">Safeties</h4>
+
+      <h4>9. Georgia State University</h4>
+      <p style="color: var(--muted); font-size: 0.85rem; margin-bottom: 0.75rem;"><em>Atlanta, GA | ~67% admit rate | ~28,000 undergrads</em></p>
+      <p><strong>Why it's on the list:</strong> Georgia State is the most underrated university in the Southeast. It's the most diverse university in Georgia, it's in the heart of downtown Atlanta, and for your financial situation, it's nearly free.</p>
+      <div class="table-wrap">
+      <table>
+        <thead><tr><th>Scenario</th><th>Tuition</th><th>Room/Board</th><th>Fees</th><th>HOPE</th><th>Pell</th><th>Need-Based</th><th>Net Cost</th></tr></thead>
+        <tbody>
+          <tr><td>On campus, HOPE + Pell</td><td>$9,000</td><td>$14,000</td><td>$2,000</td><td>-$9,000</td><td>-$2,500</td><td>-$3,000</td><td><strong>~$10,500/yr</strong></td></tr>
+          <tr><td>Commuter, HOPE + Pell</td><td>$9,000</td><td>$0</td><td>$2,000</td><td>-$9,000</td><td>-$2,500</td><td>-$1,000</td><td><strong>~free</strong></td></tr>
+        </tbody>
+      </table>
+      </div>
+      <p>If Jaylen commutes from home, Georgia State could cost your family almost nothing beyond books and transportation. Even living on campus, it's well under your cap.</p>
+      <p><strong>Academic fit:</strong> GSU's English and Communications programs are solid. The Honors College adds rigor and a smaller community. The journalism program benefits from Atlanta's media market. And dual enrollment credits from high school would give him a head start.</p>
+      <p><strong>Cultural fit:</strong> Georgia State is one of the most diverse universities in the country. The student body is majority-minority. Jaylen would not be an outsider here. The downtown campus is urban in the truest sense, surrounded by the city he grew up in.</p>
+      <p><strong>The honest truth:</strong> Georgia State doesn't have the prestige of an Emory or the cultural cachet of a Morehouse. But it's a school that has invested heavily in student success for exactly the kind of student Jaylen is: smart, motivated, from a family that can't afford to waste money. Their graduation rates for Black students have improved dramatically. The Honors College is a legitimately good experience.</p>
+      <p>If this ends up being the school, hold your head high. A Georgia State degree with no debt, combined with Jaylen's writing talent and debate skills, puts him in a stronger position at 22 than a Morehouse degree with $80,000 in loans.</p>
+      <p><strong>Estimated net cost:</strong> $0-10,500/year | <strong>4-year total:</strong> $0-42,000</p>
+      <p><strong>Financial risk: ESSENTIALLY ZERO.</strong></p>
+
+      <hr style="border: none; border-top: 1px solid var(--border); margin: 1.5rem 0;">
+
+      <h4>10. Clark Atlanta University</h4>
+      <p style="color: var(--muted); font-size: 0.85rem; margin-bottom: 0.75rem;"><em>Atlanta, GA | ~56% admit rate | ~3,000 undergrads</em></p>
+      <p><strong>Why it's on the list:</strong> Clark Atlanta is an HBCU, it's in Atlanta, and it's part of the Atlanta University Center consortium (alongside Morehouse and Spelman). Students can cross-register at Morehouse and Spelman, use shared libraries and facilities, and participate in AUC-wide organizations. It's a way to get the HBCU experience and the AUC community at a school with higher admission rates and (sometimes) better aid than Morehouse.</p>
+      <p><strong>Academic fit:</strong> English, Mass Media Arts, and Political Science are the strongest humanities programs. The AUC cross-registration means Jaylen could take a course at Morehouse without being enrolled there. The Robert W. Woodruff Library (shared across the AUC) is an excellent resource.</p>
+      <p><strong>Cultural fit:</strong> Like Morehouse and Howard, the HBCU environment is a cultural fit. Clark Atlanta is smaller and more intimate than GSU or UGA. The AUC homecoming, the traditions, the community.</p>
+      <p><strong>The honest truth:</strong> Clark Atlanta's financial aid is inconsistent. Some students get strong packages; others face gaps. At your income, without merit, the net cost could be $14,000-20,000/year, which is at or above your cap. Also: if Jaylen gets into Morehouse with comparable aid, there's little reason to choose Clark Atlanta over Morehouse. Clark Atlanta is on this list as a second HBCU option in Atlanta, and because the AUC cross-registration means he can access Morehouse's resources without being admitted there.</p>
+      <p><strong>Estimated net cost:</strong> $8,000-20,000/year | <strong>4-year total:</strong> $32,000-80,000</p>
+      <p><strong>Financial risk: MODERATE.</strong> Better than Howard, similar to Morehouse. Apply and evaluate the package.</p>
+
+    </div></div>
+  </div>
+
+  <!-- Sensitivity Analysis -->
+  <div class="collapsible">
+    <div class="collapsible-header">Sensitivity Analysis: What If the Profile Lands Lower?</div>
+    <div class="collapsible-body"><div class="collapsible-body-inner">
+
+      <p style="color: var(--muted); font-size: 0.88rem; margin-bottom: 1.5rem;">The simulation numbers above assume the optimistic profile (3.75 GPA, 1340 SAT). Here's what changes at the realistic profile (3.55 GPA, 1230 SAT).</p>
+
+      <div class="table-wrap">
+      <table>
+        <thead><tr><th>Metric</th><th>Optimistic Profile</th><th>Realistic Profile</th><th>Change</th></tr></thead>
+        <tbody>
+          <tr><td>P(at least one reach)</td><td>38.2%</td><td>24.5%</td><td>-13.7 pts</td></tr>
+          <tr><td>P(at least one school &le; $15K/yr)</td><td>92.4%</td><td>87.1%</td><td>-5.3 pts</td></tr>
+          <tr><td>Median best 4-year cost</td><td>$16,000</td><td>$22,000</td><td>+$6,000</td></tr>
+          <tr><td>P(Zell Miller at UGA)</td><td>~50%</td><td>~25%</td><td>-25 pts</td></tr>
+        </tbody>
+      </table>
+      </div>
+
+      <p>Even at the lower profile, the probability of an affordable outcome is 87%. The financial floor (UGA with HOPE, Georgia State) holds in almost every scenario. The main thing you lose is access to the QuestBridge matches and the reach schools, which shifts the median cost upward.</p>
+
+    </div></div>
+  </div>
+
+  <!-- Activities List -->
+  <div class="collapsible">
+    <div class="collapsible-header">Activities List (Common App Format)</div>
+    <div class="collapsible-body"><div class="collapsible-body-inner">
+
+      <p style="color: var(--muted); font-size: 0.88rem; margin-bottom: 1.5rem;">10 activities, listed in order of importance. Projected for fall of senior year (2029).</p>
+
+      <div class="table-wrap">
+      <table>
+        <thead><tr><th>#</th><th>Type</th><th>Role</th><th>Activity</th><th>Hrs/Wk</th><th>Grades</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td>Community Service</td><td>Founder &amp; Director</td><td>Literacy Initiative, Pittsburgh neighborhood. 2,000+ books collected, multi-site, Atlanta-Fulton Library partnership, reading mentorship program.</td><td>5</td><td>8-12</td></tr>
+          <tr><td>2</td><td>Debate/Speech</td><td>Team Captain</td><td>North Atlanta HS Debate / AUDL. Lincoln-Douglas, GFCA State Tournament, NSDA qualifiers. Mentored novice debaters.</td><td>12</td><td>9-12</td></tr>
+          <tr><td>3</td><td>Art (Writing)</td><td>Writer</td><td>Independent / Scholastic Art &amp; Writing Awards. Personal writing practice since 6th grade. Regional Gold Key in Poetry. Published in school literary magazine.</td><td>5</td><td>6-12</td></tr>
+          <tr><td>4</td><td>Religious</td><td>Youth Ministry Leader</td><td>Ebenezer Baptist Church. Community service projects, food drives, neighborhood cleanups. Led youth-led Sunday service.</td><td>4</td><td>9-12</td></tr>
+          <tr><td>5</td><td>Academic</td><td>Scholar</td><td>APS Scholars Program. Advanced coursework, college prep workshops, mentoring, leadership development.</td><td>3</td><td>8-12</td></tr>
+          <tr><td>6</td><td>Journalism</td><td>Editor / Staff Writer</td><td>North Atlanta HS Literary Magazine. Poetry, personal essays, opinion columns. Editor role.</td><td>4</td><td>9-12</td></tr>
+          <tr><td>7</td><td>Summer Program</td><td>Participant</td><td>Georgia Governor's Honors Program (Communicative Arts). Four-week residential, creative writing and rhetoric.</td><td>40</td><td>11</td></tr>
+          <tr><td>8</td><td>Community Service</td><td>Reading Tutor</td><td>Pittsburgh Branch, Atlanta-Fulton Library / Ebenezer. Weekly one-on-one reading tutoring for elementary students.</td><td>3</td><td>10-12</td></tr>
+          <tr><td>9</td><td>Athletics (Club)</td><td>Player</td><td>Atlanta Parks &amp; Rec Basketball League. Team co-captain 11th grade. Organized neighborhood pickup games.</td><td>5</td><td>9-12</td></tr>
+          <tr><td>10</td><td>Work (Paid)</td><td>TBD</td><td>Part-time employment during school year and/or summers.</td><td>10-15</td><td>11-12</td></tr>
+        </tbody>
+      </table>
+      </div>
+
+      <p>Maya, if Jaylen gets a job, list it. Do not remove it to make room for something "more impressive." Admissions officers at every school on this list understand that some kids work because they have to.</p>
+
+    </div></div>
+  </div>
+
+  <!-- Honors and Awards -->
+  <div class="collapsible">
+    <div class="collapsible-header">Honors and Awards</div>
+    <div class="collapsible-body"><div class="collapsible-body-inner">
+
+      <div class="table-wrap">
+      <table>
+        <thead><tr><th>#</th><th>Honor</th><th>Year</th><th>Status</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td>Scholastic Art &amp; Writing Awards, Regional Gold Key (Poetry/Personal Essay)</td><td>11th</td><td>Aspirational</td></tr>
+          <tr><td>2</td><td>QuestBridge College Prep Scholar</td><td>11th</td><td>Likely</td></tr>
+          <tr><td>3</td><td>Georgia Governor's Honors Program, Communicative Arts</td><td>10th-11th</td><td>Aspirational</td></tr>
+          <tr><td>4</td><td>NSDA National Qualifier or GFCA State Finalist (LD Debate)</td><td>11th-12th</td><td>Aspirational</td></tr>
+          <tr><td>5</td><td>Atlanta Urban Debate League Tournament Champion/Finalist</td><td>10th-12th</td><td>Likely</td></tr>
+          <tr><td>6</td><td>MLK Jr. Writing Contest, 2nd Place (City-Wide, Atlanta)</td><td>8th</td><td>Achieved</td></tr>
+          <tr><td>7</td><td>AP Scholar with Distinction</td><td>12th</td><td>Likely</td></tr>
+          <tr><td>8</td><td>National Honor Society</td><td>10th-11th</td><td>Likely</td></tr>
+          <tr><td>9</td><td>Honor Roll, Every Semester (6th-12th)</td><td>6th-12th</td><td>Achieved/Likely</td></tr>
+          <tr><td>10</td><td>Scholastic Silver Key or Honorable Mention (first submission)</td><td>10th</td><td>Likely</td></tr>
+        </tbody>
+      </table>
+      </div>
+
+    </div></div>
+  </div>
+
+  <!-- Essay Strategy -->
+  <div class="collapsible">
+    <div class="collapsible-header">Essay Strategy</div>
+    <div class="collapsible-body"><div class="collapsible-body-inner">
+
+      <h4>Common App Personal Essay: The Abandoned Houses</h4>
+      <p>You told me about an essay Jaylen wrote about walking past the abandoned houses on your block and imagining who used to live there. You said it made you cry. That's the essay.</p>
+      <p>Not a polished, thesis-driven version. The real thing. A personal essay about seeing, about paying attention, about what it means to grow up in a neighborhood that carries visible history.</p>
+      <p>This essay reveals his writing voice (his greatest asset), grounds him in a specific place (Pittsburgh, Atlanta), demonstrates the "thinks in questions, not answers" quality, and avoids every cliche in the first-gen/low-income/Black male essay playbook.</p>
+      <p><strong>What it should NOT be:</strong> A "growing up without a dad" narrative. A "my neighborhood is tough but I rose above it" story. A "debate changed my life" essay. Or an essay that sounds like Maya wrote it.</p>
+      <p><strong>What it should feel like to read:</strong> Like you're sitting on a porch with a kid who is smarter and more observant than he lets on, and he's telling you something he noticed, and by the end you're seeing the world slightly differently.</p>
+
+      <h4>Supplemental Essay Angles (By School)</h4>
+      <div class="table-wrap">
+      <table>
+        <thead><tr><th>School</th><th>Lead Angle</th><th>Specific Detail</th></tr></thead>
+        <tbody>
+          <tr><td>Vanderbilt</td><td>Literacy initiative + civic engagement</td><td>Peabody College community partnerships; Nashville Public Library</td></tr>
+          <tr><td>Emory</td><td>World-class university 20 min from the book drive neighborhood</td><td>Center for Community Partnerships; James Weldon Johnson Institute</td></tr>
+          <tr><td>Howard</td><td>Ms. Coleman's Morehouse comment; entering a tradition</td><td>Moorland-Spingarn Research Center; Howard's debate legacy</td></tr>
+          <tr><td>Davidson</td><td>"Thinks in questions" + intellectual hunger</td><td>Humanities Program; writing across curriculum; Barkley Forum</td></tr>
+          <tr><td>Morehouse</td><td>Brotherhood, male role models, the gap</td><td>Crown Forum; the Morehouse Mystique; the AUC community</td></tr>
+          <tr><td>UGA</td><td>Staying in Georgia isn't playing it safe</td><td>Grady College of Journalism; Willson Center for Humanities</td></tr>
+          <tr><td>Denison</td><td>Small community for a quiet kid who opens up</td><td>Lisska Center; Narrative Journalism course</td></tr>
+          <tr><td>U of Richmond</td><td>Richmond Guarantee (funded internship) + civic engagement</td><td>Jepson School of Leadership Studies; Bonner Center</td></tr>
+          <tr><td>Georgia State</td><td>Atlanta is his classroom and his subject</td><td>Honors College; downtown campus; Creative Writing program</td></tr>
+          <tr><td>Clark Atlanta</td><td>The AUC + legacy of Black intellectual life in Atlanta</td><td>Woodruff Library (AUC shared); cross-registration</td></tr>
+        </tbody>
+      </table>
+      </div>
+
+    </div></div>
+  </div>
+
+  <!-- Recommendation Letter Strategy -->
+  <div class="collapsible">
+    <div class="collapsible-header">Recommendation Letter Strategy</div>
+    <div class="collapsible-body"><div class="collapsible-body-inner">
+
+      <p><strong>Letter 1: AP English Language Teacher (11th grade).</strong> The most important letter. This teacher sees Jaylen at his best, in his strongest subject. Build a genuine relationship starting September of junior year. Ask late April/early May. Give the teacher the entire summer to write it.</p>
+
+      <p><strong>Letter 2: AP U.S. History Teacher (11th grade).</strong> Different discipline shows breadth. APUSH connects to his interests in history, race, and American society. Same timeline: ask late April/early May.</p>
+
+      <p><strong>Supplemental: Debate Coach.</strong> Has seen Jaylen compete under pressure, grow from novice to leader, develop skills that don't show on a transcript. Ask beginning of senior year (September).</p>
+
+      <p><strong>Optional: Pastor at Ebenezer Baptist Church.</strong> Character. The book drive. The youth ministry leadership. Who Jaylen is when no one is grading him. Some schools accept community recommendations.</p>
+
+      <p><strong>What about Ms. Coleman?</strong> She's the teacher who said he "thinks in questions, not answers." Powerful, but she's a middle school teacher. If a school accepts additional letters, a short note from her could be valuable, especially for Morehouse. But she should not replace either primary recommender.</p>
+
+    </div></div>
+  </div>
+
+  <!-- Writing Portfolio -->
+  <div class="collapsible">
+    <div class="collapsible-header">Writing Portfolio Guidance</div>
+    <div class="collapsible-body"><div class="collapsible-body-inner">
+
+      <p><strong>What to include (by senior fall):</strong> 3-5 strongest pieces selected for range and quality. At least one poem, one personal essay, one analytical piece. The Tulsa Race Massacre essay (revised). Strongest poems from his journal. Scholastic submissions, especially any that received a Key.</p>
+
+      <p><strong>Where to submit:</strong> Emory, Davidson, Denison, Richmond accept arts supplements through Common App. Howard, Morehouse: reference in essays or send to English department. Vanderbilt accepts arts supplements.</p>
+
+      <p><strong>What NOT to do:</strong> Don't submit unrevised journal entries. Don't submit more than five pieces. Don't submit fiction if his strengths are poetry and personal essay.</p>
+
+    </div></div>
+  </div>
+
+  <!-- Senior Year Timeline -->
+  <div class="collapsible">
+    <div class="collapsible-header">Senior Year Application Timeline</div>
+    <div class="collapsible-body"><div class="collapsible-body-inner">
+
+      <div class="table-wrap">
+      <table>
+        <thead><tr><th>Month</th><th>Action Items</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Aug 2029</strong></td><td>Finalize Common App (opens Aug 1). Polish personal essay. Request rec letters. Complete Activities/Honors sections. Begin supplemental essays. Create CSS Profile account.</td></tr>
+          <tr><td><strong>Sep 2029</strong></td><td>QuestBridge National College Match opens (deadline ~Sep 26). Finalize school list. SAT/ACT retake if needed. Draft all supplemental essays.</td></tr>
+          <tr><td><strong>Oct 2029</strong></td><td><strong>FAFSA opens Oct 1. File immediately.</strong> Submit CSS Profile for Nov 1 EA deadlines. QB Match rankings due (~Oct 24). UGA EA deadline. Contact CSS schools about Non-Custodial Profile waivers.</td></tr>
+          <tr><td><strong>Nov 2029</strong></td><td>Early Action deadlines: Emory EA (Nov 1), Morehouse Priority (Nov 1), Davidson, UGA. QB Match Day results (late Nov/early Dec).</td></tr>
+          <tr><td><strong>Dec 2029</strong></td><td>EA results arrive. If QB didn't match: finalize RD applications. Review any early aid offers. Holiday break: apply to external scholarships.</td></tr>
+          <tr><td><strong>Jan 2030</strong></td><td>Regular Decision deadlines: Howard (~Jan 15), Clark Atlanta, Denison (Jan 15), U of Richmond. External scholarships: Gates, Jack Kent Cooke, Ron Brown. Verify all FAFSA/CSS submissions.</td></tr>
+          <tr><td><strong>Feb 2030</strong></td><td>Continue scholarship apps. FAFSA corrections if needed. Research admitted student events and housing.</td></tr>
+          <tr><td><strong>Mar 2030</strong></td><td>RD results arrive. Aid packages arrive. Call aid offices for breakdowns. Compare offers in a spreadsheet. Appeal gaps.</td></tr>
+          <tr><td><strong>Apr 2030</strong></td><td>Decision month. Compare on cost, fit, gut feeling. Attend admitted student events. Financial aid negotiation. Decide by May 1.</td></tr>
+          <tr><td><strong>May 2030</strong></td><td>National College Decision Day (May 1). Submit deposit. Notify other schools. Housing deposit. Register for orientation. Celebrate.</td></tr>
+        </tbody>
+      </table>
+      </div>
+
+    </div></div>
+  </div>
+
+  <!-- External Scholarships -->
+  <div class="collapsible">
+    <div class="collapsible-header">External Scholarships Worth Pursuing</div>
+    <div class="collapsible-body"><div class="collapsible-body-inner">
+
+      <div class="table-wrap">
+      <table>
+        <thead><tr><th>Scholarship</th><th>Amount</th><th>Deadline</th><th>Notes</th></tr></thead>
+        <tbody>
+          <tr><td>Gates Scholarship</td><td>Full remaining need</td><td>Sep (senior yr)</td><td>Pell-eligible students. Extremely competitive, profile fits.</td></tr>
+          <tr><td>Jack Kent Cooke Foundation</td><td>Up to $55K/yr</td><td>Nov (senior yr)</td><td>High-achieving students with financial need.</td></tr>
+          <tr><td>Coca-Cola Scholars</td><td>$20,000</td><td>Oct (senior yr)</td><td>Atlanta-based helps. Leadership + community service.</td></tr>
+          <tr><td>Ron Brown Scholar Program</td><td>$40K over 4 years</td><td>Jan (senior yr)</td><td>Academically talented, community-oriented Black students. Perfect fit.</td></tr>
+          <tr><td>Elks Most Valuable Student</td><td>Up to $12.5K/yr</td><td>Nov (senior yr)</td><td>Academics, leadership, financial need.</td></tr>
+          <tr><td>Community Foundation for Greater Atlanta</td><td>$1K-10K</td><td>Varies</td><td>Multiple scholarships for Atlanta-area students.</td></tr>
+          <tr><td>APS District Scholarships</td><td>Various</td><td>Spring</td><td>Check with North Atlanta guidance office.</td></tr>
+          <tr><td>Ebenezer Baptist Church</td><td>Various</td><td>Local</td><td>Many churches offer scholarships to members. Ask your pastor.</td></tr>
+        </tbody>
+      </table>
+      </div>
+
+      <p>Choose 8-10 that fit Jaylen's profile and invest in quality applications. The Gates, Jack Kent Cooke, and Ron Brown are the big ones for his situation.</p>
+
+    </div></div>
+  </div>
+
+  <!-- Monte Carlo Parameters -->
+  <div class="collapsible">
+    <div class="collapsible-header">Monte Carlo Simulation Parameters</div>
+    <div class="collapsible-body"><div class="collapsible-body-inner">
+
+      <p style="color: var(--muted); font-size: 0.88rem; margin-bottom: 1rem;">Each number is an estimate based on published Common Data Set admission rates, institutional financial aid policies, and adjustments for Jaylen's projected profile.</p>
+
+      <div class="table-wrap">
+      <table>
+        <thead><tr><th>School</th><th>Published Rate</th><th>Adjusted Rate</th><th>QB Match %</th><th>P(Merit)</th><th>Net Cost (No Merit)</th><th>Net Cost (With Merit)</th></tr></thead>
+        <tbody>
+          <tr><td>Vanderbilt</td><td>5.6%</td><td>10%</td><td>8%</td><td>N/A (full need)</td><td>$3,000</td><td>$3,000</td></tr>
+          <tr><td>Emory</td><td>11%</td><td>16%</td><td>9%</td><td>N/A (full need)</td><td>$3,000</td><td>$3,000</td></tr>
+          <tr><td>Howard</td><td>30%</td><td>55%</td><td>N/A</td><td>35%</td><td>$20,000</td><td>$10,000</td></tr>
+          <tr><td>Davidson</td><td>17%</td><td>25%</td><td>12%</td><td>N/A (full need)</td><td>$3,000</td><td>$3,000</td></tr>
+          <tr><td>Morehouse</td><td>48%</td><td>65%</td><td>N/A</td><td>40%</td><td>$18,000</td><td>$9,000</td></tr>
+          <tr><td>UGA Honors</td><td>42%</td><td>70%</td><td>N/A</td><td>85% HOPE / 50% Zell</td><td>$11,000</td><td>$6,000</td></tr>
+          <tr><td>Denison</td><td>31%</td><td>42%</td><td>18%</td><td>N/A (full need)</td><td>$4,000</td><td>$4,000</td></tr>
+          <tr><td>U of Richmond</td><td>24%</td><td>34%</td><td>N/A</td><td>N/A (full need)</td><td>$4,000</td><td>$4,000</td></tr>
+          <tr><td>Georgia State</td><td>67%</td><td>85%</td><td>N/A</td><td>80% HOPE</td><td>$10,500</td><td>$4,500</td></tr>
+          <tr><td>Clark Atlanta</td><td>56%</td><td>72%</td><td>N/A</td><td>35%</td><td>$18,000</td><td>$11,000</td></tr>
+        </tbody>
+      </table>
+      </div>
+
+      <p><strong>Adjustments for Jaylen's profile:</strong> First-generation status (moderate boost at all schools), Black male (moderate to significant boost at selective PWIs), single-parent/low-income (positive context at need-blind schools), urban public school APS (neutral to slightly positive), QuestBridge applicant (significant positive at partner schools), strong humanities/weaker math (positive at humanities-focused schools).</p>
+
+    </div></div>
+  </div>
+
+
+</div>
+</div>
+
+<!-- CTA -->
+<div class="cta-bar">
+  <p>This sample was built from a 10-minute intake form. Your family's plan would be personalized to your kid, your schools, and your numbers.</p>
+  <a href="index.html#pricing" class="btn-primary">Get Your Plan for $50 →</a>
+</div>
+
+<!-- FOOTER -->
+<div class="doc-footer">
+  <p>Scaffold is strategic planning, not professional counseling. All school-specific information should be verified.</p>
+</div>
+
+<script>
+  // Toggle panels
+  document.querySelectorAll('.toggle-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const target = btn.getAttribute('data-panel');
+      document.querySelectorAll('.toggle-btn').forEach(b => b.classList.remove('active'));
+      document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+      btn.classList.add('active');
+      document.getElementById('panel-' + target).classList.add('active');
+    });
+  });
+
+  // Collapsibles
+  document.querySelectorAll('.collapsible-header').forEach(h => {
+    h.addEventListener('click', () => h.parentElement.classList.toggle('open'));
+  });
+
+  // Reading progress bar
+  window.addEventListener('scroll', () => {
+    const h = document.documentElement;
+    const pct = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
+    document.getElementById('progressBar').style.width = pct + '%';
+  });
+</script>
+
+</body>
+</html>

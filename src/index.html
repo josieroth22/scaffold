@@ -1,0 +1,874 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="A $50 personalized college strategy document. School list, financial simulation, developmental roadmap, and honest advice. The same rigor as a $10K private counselor.">
+<title>Scaffold | Every Family Deserves a College Strategy</title>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1a1a18;
+    --cream: #f8f5f0;
+    --warm-white: #fdfcfa;
+    --sage: #4a6741;
+    --sage-light: #e8ede6;
+    --sage-dark: #3a5233;
+    --terra: #c4652a;
+    --terra-light: #f5ece5;
+    --muted: #6b6860;
+    --border: #d9d4cc;
+    --highlight: #fef3cd;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    color: var(--ink);
+    background: var(--warm-white);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ---- NAV ---- */
+  nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+    background: rgba(253, 252, 250, 0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    padding: 0 2rem;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .nav-logo {
+    font-family: 'Newsreader', serif;
+    font-size: 1.35rem;
+    font-weight: 600;
+    color: var(--ink);
+    letter-spacing: -0.02em;
+  }
+
+  .nav-logo span { color: var(--sage); }
+
+  .nav-links { display: flex; gap: 2rem; align-items: center; }
+
+  .nav-links a {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--muted);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--ink); }
+
+  .nav-dropdown {
+    position: relative;
+  }
+
+  .nav-dropdown-trigger {
+    cursor: pointer;
+  }
+
+  .nav-dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    padding-top: 0.5rem;
+    min-width: 200px;
+    z-index: 200;
+  }
+
+  .nav-dropdown-menu-inner {
+    background: var(--warm-white);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+    overflow: hidden;
+  }
+
+  .nav-dropdown:hover .nav-dropdown-menu {
+    display: block;
+  }
+
+  .nav-dropdown-menu-inner a {
+    display: block;
+    padding: 0.6rem 1rem;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--ink) !important;
+    text-decoration: none;
+    transition: background 0.15s;
+  }
+
+  .nav-dropdown-menu-inner a:hover {
+    background: var(--sage-light);
+  }
+
+  .nav-dropdown-menu-inner a + a {
+    border-top: 1px solid var(--border);
+  }
+
+  .nav-cta {
+    background: var(--sage) !important;
+    color: var(--warm-white) !important;
+    padding: 0.5rem 1.25rem;
+    border-radius: 6px;
+    font-weight: 600 !important;
+    transition: background 0.2s !important;
+  }
+
+  .nav-cta:hover { background: var(--sage-dark) !important; }
+
+  /* ---- HERO ---- */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 8rem 2rem 4rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+  }
+
+  .hero-eyebrow {
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--sage);
+    margin-bottom: 1.5rem;
+    opacity: 0;
+    animation: fadeUp 0.8s ease forwards;
+    animation-delay: 0.2s;
+  }
+
+  .hero h1 {
+    font-family: 'Newsreader', serif;
+    font-size: clamp(2.8rem, 6vw, 4.5rem);
+    font-weight: 400;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+    max-width: 800px;
+    opacity: 0;
+    animation: fadeUp 0.8s ease forwards;
+    animation-delay: 0.4s;
+  }
+
+  .hero h1 em {
+    font-style: italic;
+    color: var(--sage);
+  }
+
+  .hero-sub {
+    font-size: 1.2rem;
+    color: var(--muted);
+    max-width: 580px;
+    margin-top: 1.75rem;
+    line-height: 1.65;
+    opacity: 0;
+    animation: fadeUp 0.8s ease forwards;
+    animation-delay: 0.6s;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2.5rem;
+    align-items: center;
+    opacity: 0;
+    animation: fadeUp 0.8s ease forwards;
+    animation-delay: 0.8s;
+  }
+
+  .btn-primary {
+    background: var(--sage);
+    color: white;
+    padding: 1rem 2.25rem;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: all 0.25s;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .btn-primary:hover { background: var(--sage-dark); transform: translateY(-1px); }
+
+  .btn-secondary {
+    color: var(--muted);
+    font-size: 0.95rem;
+    font-weight: 500;
+    text-decoration: none;
+    padding: 1rem 0.5rem;
+    transition: color 0.2s;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+
+  .btn-secondary:hover { color: var(--ink); }
+
+  .hero-price {
+    margin-top: 1.5rem;
+    font-size: 0.85rem;
+    color: var(--muted);
+    opacity: 0;
+    animation: fadeUp 0.8s ease forwards;
+    animation-delay: 1s;
+  }
+
+  .hero-price strong {
+    color: var(--ink);
+    font-weight: 600;
+  }
+
+  /* ---- PROBLEM SECTION ---- */
+  .problem {
+    background: var(--cream);
+    padding: 6rem 2rem;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .problem-inner {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .section-label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--terra);
+    margin-bottom: 1rem;
+  }
+
+  .problem h2 {
+    font-family: 'Newsreader', serif;
+    font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+    font-weight: 400;
+    line-height: 1.25;
+    letter-spacing: -0.02em;
+    max-width: 700px;
+    margin-bottom: 2.5rem;
+  }
+
+  .problem-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-top: 1rem;
+  }
+
+  .problem-card {
+    background: var(--warm-white);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 2rem;
+    position: relative;
+  }
+
+  .problem-card::before {
+    content: attr(data-label);
+    position: absolute;
+    top: -0.65rem;
+    left: 1.5rem;
+    background: var(--warm-white);
+    padding: 0 0.5rem;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--muted);
+  }
+
+  .problem-card .income {
+    font-family: 'Newsreader', serif;
+    font-size: 1.6rem;
+    font-weight: 500;
+    margin-bottom: 0.25rem;
+  }
+
+  .problem-card .situation {
+    font-size: 0.9rem;
+    color: var(--muted);
+    margin-bottom: 1.25rem;
+    line-height: 1.5;
+  }
+
+  .problem-card .access {
+    font-size: 0.95rem;
+    font-weight: 500;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border);
+  }
+
+  .access-good { color: var(--sage); }
+  .access-bad { color: var(--terra); }
+
+  .problem-bottom {
+    margin-top: 3rem;
+    font-family: 'Newsreader', serif;
+    font-size: 1.35rem;
+    font-style: italic;
+    color: var(--ink);
+    max-width: 650px;
+    line-height: 1.55;
+  }
+
+  /* ---- HOW IT WORKS ---- */
+  .how {
+    padding: 6rem 2rem;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .how h2 {
+    font-family: 'Newsreader', serif;
+    font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+    font-weight: 400;
+    letter-spacing: -0.02em;
+    margin-bottom: 3.5rem;
+    text-align: center;
+  }
+
+  .steps {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.5rem;
+  }
+
+  .step {
+    text-align: center;
+    padding: 0 1rem;
+  }
+
+  .step-number {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: var(--sage-light);
+    color: var(--sage-dark);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Newsreader', serif;
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 1.25rem;
+  }
+
+  .step h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 0.6rem;
+  }
+
+  .step p {
+    font-size: 0.9rem;
+    color: var(--muted);
+    line-height: 1.6;
+  }
+
+  /* ---- WHAT YOU GET ---- */
+  .output {
+    background: var(--cream);
+    color: var(--ink);
+    padding: 6rem 2rem;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .output-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .output .section-label { color: var(--terra); }
+
+  .output h2 {
+    font-family: 'Newsreader', serif;
+    font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+    font-weight: 400;
+    letter-spacing: -0.02em;
+    margin-bottom: 1rem;
+    color: var(--ink);
+  }
+
+  .output-subtitle {
+    color: var(--muted);
+    font-size: 1.05rem;
+    max-width: 600px;
+    margin-bottom: 3rem;
+    line-height: 1.6;
+  }
+
+  .output-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem 3rem;
+  }
+
+  .output-item {
+    padding: 0.5rem 0;
+    font-size: 0.92rem;
+    line-height: 1.55;
+    color: var(--muted);
+  }
+
+  .output-item strong {
+    color: var(--ink);
+    font-weight: 600;
+  }
+
+
+
+  /* ---- PRICING ---- */
+  .pricing {
+    background: var(--sage-light);
+    padding: 6rem 2rem;
+    text-align: center;
+  }
+
+  .pricing h2 {
+    font-family: 'Newsreader', serif;
+    font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+    font-weight: 400;
+    letter-spacing: -0.02em;
+    margin-bottom: 0.75rem;
+  }
+
+  .pricing-subtitle {
+    color: var(--muted);
+    max-width: 500px;
+    margin: 0 auto 3rem;
+    font-size: 1rem;
+  }
+
+  .price-card {
+    background: var(--warm-white);
+    border: 2px solid var(--sage);
+    border-radius: 14px;
+    max-width: 440px;
+    margin: 0 auto;
+    padding: 3rem 2.5rem;
+    box-shadow: 0 8px 32px rgba(74,103,65,0.1);
+  }
+
+  .price-amount {
+    font-family: 'Newsreader', serif;
+    font-size: 3.5rem;
+    font-weight: 600;
+    color: var(--sage-dark);
+    line-height: 1;
+  }
+
+  .price-label {
+    font-size: 0.85rem;
+    color: var(--muted);
+    margin-bottom: 2rem;
+  }
+
+  .price-includes {
+    text-align: left;
+    margin-bottom: 2rem;
+  }
+
+  .price-includes li {
+    list-style: none;
+    font-size: 0.9rem;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #eae7e2;
+    display: flex;
+    align-items: flex-start;
+    gap: 0.6rem;
+    color: #3d3d3a;
+  }
+
+  .price-includes li::before {
+    content: '✓';
+    color: var(--sage);
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+
+  .price-card .btn-primary {
+    width: 100%;
+    justify-content: center;
+    font-size: 1.05rem;
+    padding: 1.1rem 2rem;
+  }
+
+  .price-compare {
+    margin-top: 2rem;
+    font-size: 0.82rem;
+    color: var(--muted);
+    max-width: 440px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* ---- FAQ ---- */
+  .faq {
+    padding: 6rem 2rem;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  .faq h2 {
+    font-family: 'Newsreader', serif;
+    font-size: clamp(1.8rem, 3.5vw, 2.4rem);
+    font-weight: 400;
+    letter-spacing: -0.02em;
+    margin-bottom: 2.5rem;
+  }
+
+  .faq-item {
+    border-bottom: 1px solid var(--border);
+    padding: 1.25rem 0;
+  }
+
+  .faq-q {
+    font-weight: 600;
+    font-size: 0.95rem;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .faq-q::after {
+    content: '+';
+    font-size: 1.2rem;
+    color: var(--muted);
+    transition: transform 0.2s;
+  }
+
+  .faq-item.open .faq-q::after { content: '−'; }
+
+  .faq-a {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease, padding 0.3s ease;
+    font-size: 0.9rem;
+    color: var(--muted);
+    line-height: 1.65;
+  }
+
+  .faq-item.open .faq-a {
+    max-height: 300px;
+    padding-top: 0.75rem;
+  }
+
+  /* ---- FOOTER ---- */
+  footer {
+    background: var(--ink);
+    color: #a09d96;
+    padding: 3rem 2rem;
+    text-align: center;
+    font-size: 0.82rem;
+  }
+
+  footer a { color: var(--sage-light); text-decoration: none; }
+  footer a:hover { color: var(--cream); }
+
+  .footer-mission {
+    font-family: 'Newsreader', serif;
+    font-style: italic;
+    font-size: 1rem;
+    color: #c8c4bc;
+    max-width: 500px;
+    margin: 0 auto 1.5rem;
+    line-height: 1.55;
+    text-wrap: balance;
+  }
+
+  /* ---- SAMPLE TOGGLE ---- */
+  .sample-toggle {
+    display: inline-flex;
+    gap: 0;
+    margin-bottom: 1.5rem;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  .sample-tab {
+    background: var(--warm-white);
+    border: none;
+    padding: 0.65rem 1.5rem;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--muted);
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  .sample-tab + .sample-tab {
+    border-left: 1px solid var(--border);
+  }
+
+  .sample-tab.active {
+    background: var(--sage);
+    color: white;
+    font-weight: 600;
+  }
+
+  .sample-detail {
+    font-size: 0.95rem;
+    color: var(--muted);
+    max-width: 500px;
+    margin: 0 auto 1.5rem;
+    line-height: 1.55;
+  }
+
+  /* ---- ANIMATIONS ---- */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ---- RESPONSIVE ---- */
+  @media (max-width: 768px) {
+    .problem-grid { grid-template-columns: 1fr; }
+    .steps { grid-template-columns: 1fr; gap: 2rem; }
+    .output-list { grid-template-columns: 1fr; }
+.hero { padding: 7rem 1.5rem 3rem; }
+    .nav-links > a:not(.nav-cta) { display: none; }
+    .nav-dropdown { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo"><span>S</span>caffold</div>
+  <div class="nav-links">
+    <a href="#how">How It Works</a>
+    <div class="nav-dropdown">
+      <a href="#samples" class="nav-dropdown-trigger">See Samples</a>
+      <div class="nav-dropdown-menu">
+        <div class="nav-dropdown-menu-inner">
+          <a href="washington-sample.html">The Washington Family</a>
+          <a href="medina-sample.html">The Medina Family</a>
+          <a href="kaplan-sample.html">The Kaplan Family</a>
+        </div>
+      </div>
+    </div>
+    <a href="#pricing">Pricing</a>
+    <a href="#pricing" class="nav-cta">Get Your Plan</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-eyebrow">College strategy for every family</div>
+  <h1>A $50 college plan that's better than a <em>$10,000 counselor</em></h1>
+  <p class="hero-sub">A personalized college strategy for your family. School list, financial plan, honest advice about what's realistic.</p>
+  <div class="hero-actions">
+    <a href="#pricing" class="btn-primary">Build Your Strategy →</a>
+    <a href="#samples" class="btn-secondary">See a sample plan →</a>
+  </div>
+  <p class="hero-price"><strong>$50, one time.</strong> No subscription. No upsell. Your plan in 30 minutes.</p>
+</section>
+
+<!-- PROBLEM -->
+<section class="problem" id="problem">
+  <div class="problem-inner">
+    <div class="section-label">The Problem</div>
+    <h2>College strategy quality shouldn't depend on family income</h2>
+    <div class="problem-grid">
+      <div class="problem-card" data-label="Family A">
+        <div class="income">$300K / year</div>
+        <div class="situation">Two-parent household in Bethesda, MD. Both parents attended selective schools. Network of friends who share scholarship tips at dinner parties.</div>
+        <div class="access access-good">✓ $10K private counselor, full strategy, every advantage</div>
+      </div>
+      <div class="problem-card" data-label="Family B">
+        <div class="income">$72K / year</div>
+        <div class="situation">Single mom in Atlanta. Spelman grad. School counselor has 400 students. Googling "how to pay for college" at midnight.</div>
+        <div class="access access-bad">✗ No counselor, no roadmap, no one explaining CSS waivers or QuestBridge</div>
+      </div>
+    </div>
+    <p class="problem-bottom">The information asymmetry is the injustice. Scaffold closes the gap.<br>Same data. Same rigor. Same honest advice. $50.</p>
+  </div>
+</section>
+
+<!-- WHY SCAFFOLD -->
+<section style="background: var(--sage-light); padding: 4rem 2rem; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);">
+  <div style="max-width: 900px; margin: 0 auto;">
+    <p class="problem-bottom" style="margin-top: 0;">A scaffold isn't the building. It's the structure you put up around the building while it's going up. It holds things steady, gives you something to stand on, and comes down when the work is done.</p>
+    <p style="font-family: 'Newsreader', serif; font-size: 2rem; font-weight: 500; line-height: 1.3; margin-top: 1.5rem; letter-spacing: -0.02em;">Your student is the building.<br>This plan is the scaffolding.</p>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how" id="how">
+  <h2>Three steps. Thirty minutes. Twenty pages of strategy.</h2>
+  <div class="steps">
+    <div class="step">
+      <div class="step-number">1</div>
+      <h3>Tell us about your family</h3>
+      <p>A guided form covering your student, your schools, your finances, your priorities, and what matters to you. Takes about 10 minutes. No jargon.</p>
+    </div>
+    <div class="step">
+      <div class="step-number">2</div>
+      <h3>We build your strategy</h3>
+      <p>Claude Opus (the most advanced AI model available) generates a personalized plan using real admissions data, Common Data Set statistics, and financial modeling specific to your situation.</p>
+    </div>
+    <div class="step">
+      <div class="step-number">3</div>
+      <h3>Read, share, revisit</h3>
+      <p>Your plan lives at a unique URL. Scroll through it, share it with your co-parent or counselor, and come back to it as things change.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SAMPLE CTA -->
+<section id="samples" style="padding: 5rem 2rem; text-align: center; border-bottom: 1px solid var(--border);">
+  <p style="font-family: 'Newsreader', serif; font-size: clamp(1.4rem, 3vw, 1.8rem); font-weight: 400; max-width: 600px; margin: 0 auto 1.5rem; line-height: 1.4;">Read a real Scaffold plan. 20+ pages of personalized strategy.</p>
+  <div class="sample-toggle">
+    <button class="sample-tab active" data-sample="washington">The Washingtons</button>
+    <button class="sample-tab" data-sample="medina">The Medinas</button>
+    <button class="sample-tab" data-sample="kaplan">The Kaplans</button>
+  </div>
+  <div class="sample-desc" id="sample-washington">
+    <p class="sample-detail">Atlanta, GA. Single mom, $72K. 10th-grader with strong humanities skills and no guidance.</p>
+    <a href="washington-sample.html" class="btn-primary" style="font-size: 1.05rem; padding: 1.1rem 2.5rem;">Read the Washington Plan →</a>
+  </div>
+  <div class="sample-desc" id="sample-medina" style="display: none;">
+    <p class="sample-detail">Orlando, FL. Two parents, $105K. Sophomore who works at his dad's auto shop and doesn't think he's college material.</p>
+    <a href="medina-sample.html" class="btn-primary" style="font-size: 1.05rem; padding: 1.1rem 2.5rem;">Read the Medina Plan →</a>
+  </div>
+  <div class="sample-desc" id="sample-kaplan" style="display: none;">
+    <p class="sample-detail">Bethesda, MD. Two parents, $235K. Freshman doing everything "right" but nothing distinctive. Ivy dreams vs. sticker shock.</p>
+    <a href="kaplan-sample.html" class="btn-primary" style="font-size: 1.05rem; padding: 1.1rem 2.5rem;">Read the Kaplan Plan →</a>
+  </div>
+</section>
+
+<!-- WHAT YOU GET -->
+<section class="output" id="output">
+  <div class="output-inner">
+    <div class="section-label">What You Get</div>
+    <h2>Not generic advice. A plan built for your student.</h2>
+    <p class="output-subtitle">Every Scaffold plan includes six sections, personalized to your family's specific schools, finances, and priorities.</p>
+    <div class="output-list">
+      <div class="output-item"><strong>Developmental Roadmap.</strong> Grade-by-grade plan through 12th grade, with course tables and "What Not to Do" at every stage.</div>
+      <div class="output-item"><strong>College List (8-12 Schools).</strong> Reaches, targets, and safeties with honest rationale, built around your finances and geography.</div>
+      <div class="output-item"><strong>Application Materials.</strong> Activities list, honors projections, essay angles by school, rec letter plan, and senior year timeline.</div>
+      <div class="output-item"><strong>Financial Simulation.</strong> 10,000-scenario Monte Carlo model showing what you'll actually pay, not the sticker price.</div>
+      <div class="output-item"><strong>Financial Floor.</strong> Your cheapest good outcome identified and built up from. The floor is not a consolation prize.</div>
+      <div class="output-item"><strong>Hidden Scholarships.</strong> QuestBridge, Jack Kent Cooke, state programs, denominational awards. The gap is "I didn't know this existed."</div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="pricing" id="pricing">
+  <h2>One price. No surprises.</h2>
+  <p class="pricing-subtitle">The same strategic rigor that wealthy families get from $10K counselors. For fifty dollars.</p>
+  <div class="price-card">
+    <div class="price-amount">$50</div>
+    <div class="price-label">One-time. Your plan forever.</div>
+    <ul class="price-includes">
+      <li>20+ page personalized strategy document</li>
+      <li>Developmental roadmap (current grade through 12th)</li>
+      <li>School list with honest financial analysis</li>
+      <li>Activities list, essay strategy, rec letter plan</li>
+      <li>Monte Carlo financial simulation (10,000 scenarios)</li>
+      <li>April decision framework with cost-by-cost comparison</li>
+      <li>Unique URL you can revisit and share</li>
+      <li>Powered by Claude Opus (most advanced AI available)</li>
+    </ul>
+    <a href="#" class="btn-primary">Build Your Strategy →</a>
+  </div>
+  <p class="price-compare">Private college counselors charge $5,000-15,000 for comparable planning. CollegeVine charges $30/month for generic advice. Scaffold gives you a better plan for a one-time $50.</p>
+</section>
+
+<!-- FAQ -->
+<section class="faq" id="faq">
+  <h2>Questions</h2>
+
+  <div class="faq-item">
+    <div class="faq-q">Is this just ChatGPT?</div>
+    <div class="faq-a">No. Scaffold uses Claude Opus, the most advanced AI model from Anthropic, running a proprietary prompt template that was developed over 100+ hours of iteration and tested across five very different family profiles. The template incorporates real admissions data, Common Data Set statistics, and financial modeling. The output is specific to your family, not generic advice.</div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q">My student is only 6. Is it too early?</div>
+    <div class="faq-a">No. The developmental roadmap is most useful when your student is young (5-12), because it gives you years to make informed decisions about schools, activities, and academic acceleration. The school list and financial modeling become more concrete as they get older. Think of it as a living document you revisit each year.</div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q">Are the Monte Carlo numbers real?</div>
+    <div class="faq-a">Yes. Every plan runs an actual Monte Carlo simulation (10,000 scenarios) using published admission rates, institutional financial aid policies, and adjustments for your student's projected profile. The code is included in your plan so you can see exactly what assumptions went in. The numbers are informed estimates for financial planning, not guarantees.</div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q">What if my student's interests change?</div>
+    <div class="faq-a">They will. The plan is designed as a scaffold, not a script. The academic foundation stays relevant regardless of interests. The extracurricular threads adapt. The financial strategy holds no matter what. When things change, you can generate an updated plan.</div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q">Does this replace a college counselor?</div>
+    <div class="faq-a">For most families, it replaces the need for one. For families who do have a counselor, it gives you a strategic framework to make those conversations more productive. The one thing Scaffold can't do is sit across the table from your student and have a conversation. If your student needs that personal touch, a counselor is worth it. But the strategy and data analysis? That's what Scaffold does better and cheaper.</div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q">What about financial aid strategy specifically?</div>
+    <div class="faq-a">Every plan includes FAFSA/CSS Profile guidance, net price estimates at your income level, merit scholarship identification, state-specific programs (like Georgia's Zell Miller or Texas's automatic admission), and a "financial floor" analysis. For divorced or non-custodial parent situations, the plan addresses which forms different schools require and how to handle non-custodial parent waivers.</div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q">Can I get a refund?</div>
+    <div class="faq-a">If you're not satisfied with the quality of your plan, email us within 7 days for a full refund. No questions asked.</div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p class="footer-mission">Every family deserves a strategy.<br>Not just the ones who can afford a $10,000 counselor.</p>
+  <p>Scaffold is strategic planning, not professional counseling. All school-specific information should be verified. No guarantee of admission or scholarship outcomes.</p>
+</footer>
+
+<script>
+  document.querySelectorAll('.sample-tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+      document.querySelectorAll('.sample-tab').forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+      document.querySelectorAll('.sample-desc').forEach(d => d.style.display = 'none');
+      document.getElementById('sample-' + tab.dataset.sample).style.display = 'block';
+    });
+  });
+
+  document.querySelectorAll('.faq-q').forEach(q => {
+    q.addEventListener('click', () => {
+      const item = q.parentElement;
+      const wasOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+      if (!wasOpen) item.classList.add('open');
+    });
+  });
+</script>
+
+</body>
+</html>

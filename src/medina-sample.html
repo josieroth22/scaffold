@@ -1,0 +1,1607 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sample Plan: The Medina Family — Scaffold</title>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1a1a18;
+    --cream: #f8f5f0;
+    --warm-white: #fdfcfa;
+    --sage: #4a6741;
+    --sage-light: #e8ede6;
+    --sage-dark: #3a5233;
+    --terra: #c4652a;
+    --terra-light: #f5ece5;
+    --muted: #6b6860;
+    --border: #d9d4cc;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    color: var(--ink);
+    background: var(--warm-white);
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ---- PROGRESS BAR ---- */
+  .progress-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 3px;
+    background: var(--sage);
+    z-index: 200;
+    width: 0%;
+    transition: width 0.15s linear;
+  }
+
+  /* ---- TOP BAR ---- */
+  .topbar {
+    position: fixed;
+    top: 3px;
+    width: 100%;
+    z-index: 100;
+    background: rgba(253, 252, 250, 0.95);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    padding: 0 2rem;
+    height: 49px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .topbar-logo {
+    font-family: 'Newsreader', serif;
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: var(--ink);
+    text-decoration: none;
+    letter-spacing: -0.02em;
+  }
+  .topbar-logo span { color: var(--sage); }
+
+  .topbar-right { display: flex; align-items: center; gap: 1.25rem; }
+
+  .topbar-cta {
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: white;
+    background: var(--sage);
+    padding: 0.35rem 0.9rem;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background 0.2s;
+  }
+  .topbar-cta:hover { background: var(--sage-dark); }
+
+  .topbar-link {
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--muted);
+    text-decoration: none;
+    transition: color 0.2s;
+    cursor: pointer;
+  }
+  .topbar-link:hover { color: var(--ink); }
+
+  .topbar-dropdown { position: relative; }
+
+  .topbar-dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    padding-top: 0.5rem;
+    min-width: 200px;
+    z-index: 200;
+  }
+
+  .topbar-dropdown-menu-inner {
+    background: var(--warm-white);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+    overflow: hidden;
+  }
+
+  .topbar-dropdown:hover .topbar-dropdown-menu { display: block; }
+
+  .topbar-dropdown-menu-inner a {
+    display: block;
+    padding: 0.6rem 1rem;
+    font-size: 0.82rem;
+    font-weight: 500;
+    color: var(--ink);
+    text-decoration: none;
+    transition: background 0.15s;
+  }
+  .topbar-dropdown-menu-inner a:hover { background: var(--sage-light); }
+  .topbar-dropdown-menu-inner a + a { border-top: 1px solid var(--border); }
+
+  /* ---- HERO ---- */
+  .hero {
+    background: var(--cream);
+    color: var(--ink);
+    padding: 6.5rem 2rem 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .hero-inner {
+    max-width: 860px;
+    margin: 0 auto;
+    padding-bottom: 3rem;
+  }
+
+  .hero-badge {
+    display: inline-block;
+    font-size: 0.68rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terra);
+    background: var(--terra-light);
+    padding: 0.3rem 0.75rem;
+    border-radius: 4px;
+    margin-bottom: 1.25rem;
+  }
+
+  .hero h1 {
+    font-family: 'Newsreader', serif;
+    font-size: clamp(2rem, 4.5vw, 3rem);
+    font-weight: 400;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+    margin-bottom: 0.4rem;
+    color: var(--ink);
+  }
+
+  .hero-meta {
+    font-size: 0.85rem;
+    color: var(--muted);
+    margin-bottom: 2rem;
+  }
+
+  .hero-desc {
+    font-size: 1rem;
+    color: var(--muted);
+    max-width: 600px;
+    line-height: 1.65;
+    margin-bottom: 2.5rem;
+  }
+
+  .hero-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: var(--border);
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+  }
+
+  .hero-stat {
+    padding: 1.15rem 1rem;
+    text-align: center;
+    background: var(--warm-white);
+  }
+
+  .hero-stat .hs-num {
+    font-family: 'Newsreader', serif;
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--sage-dark);
+    line-height: 1;
+  }
+
+  .hero-stat .hs-label {
+    font-size: 0.65rem;
+    color: var(--muted);
+    margin-top: 0.3rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  /* ---- TOGGLE ---- */
+  .toggle-bar {
+    background: var(--cream);
+    border-bottom: 1px solid var(--border);
+    padding: 0 2rem;
+    position: sticky;
+    top: 52px;
+    z-index: 90;
+  }
+
+  .toggle-inner {
+    max-width: 860px;
+    margin: 0 auto;
+    display: flex;
+  }
+
+  .toggle-btn {
+    flex: 1;
+    padding: 0.85rem 1rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-align: center;
+    cursor: pointer;
+    color: var(--muted);
+    border-bottom: 3px solid transparent;
+    transition: all 0.2s;
+    user-select: none;
+  }
+
+  .toggle-btn:hover { color: var(--ink); }
+
+  .toggle-btn.active {
+    color: var(--sage-dark);
+    border-bottom-color: var(--sage);
+  }
+
+  .toggle-btn small {
+    display: block;
+    font-size: 0.7rem;
+    font-weight: 400;
+    margin-top: 0.1rem;
+    opacity: 0.75;
+  }
+
+  .panel { display: none; }
+  .panel.active { display: block; }
+
+  /* ---- INTAKE STYLES ---- */
+  .intake-body {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 2.5rem 2rem 4rem;
+  }
+
+  .intake-note {
+    font-size: 0.88rem;
+    color: var(--muted);
+    margin-bottom: 2rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--border);
+    line-height: 1.6;
+  }
+
+  .form-section { margin-bottom: 2.25rem; }
+
+  .form-section-title {
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--sage);
+    margin-bottom: 0.75rem;
+    padding-bottom: 0.4rem;
+    border-bottom: 2px solid var(--sage-light);
+  }
+
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .form-field { margin-bottom: 0.75rem; }
+
+  .form-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--muted);
+    margin-bottom: 0.25rem;
+  }
+
+  .form-value {
+    font-size: 0.88rem;
+    color: var(--ink);
+    background: var(--cream);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 0.55rem 0.85rem;
+    line-height: 1.55;
+  }
+
+  .priority-list {
+    list-style: none;
+    counter-reset: p;
+  }
+
+  .priority-list li {
+    counter-increment: p;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.4rem 0.75rem;
+    background: var(--cream);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    margin-bottom: 0.35rem;
+    font-size: 0.82rem;
+  }
+
+  .priority-list li::before {
+    content: counter(p);
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--sage-light);
+    color: var(--sage-dark);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.68rem;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+
+  /* ---- STRATEGY STYLES ---- */
+  .strategy-body {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 2.5rem 2rem 4rem;
+  }
+
+  .strategy-body h2 {
+    font-family: 'Newsreader', serif;
+    font-size: 1.6rem;
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    margin-top: 3rem;
+    margin-bottom: 0.4rem;
+    padding-top: 2.5rem;
+    scroll-margin-top: 110px;
+  }
+
+  .strategy-body h2:first-child { margin-top: 0; padding-top: 0; }
+
+  .section-rule {
+    width: 36px;
+    height: 3px;
+    background: var(--sage-light);
+    border-radius: 2px;
+    margin-bottom: 1.25rem;
+  }
+
+  .strategy-body h3 {
+    font-size: 1.05rem;
+    font-weight: 600;
+    margin-top: 2.25rem;
+    margin-bottom: 0.5rem;
+    color: var(--ink);
+    scroll-margin-top: 110px;
+  }
+
+  .strategy-body h4 {
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--sage);
+    margin-top: 2rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .strategy-body p {
+    margin-bottom: 1.1rem;
+    color: #3d3d3a;
+    font-size: 0.92rem;
+  }
+
+  .strategy-body strong { font-weight: 600; color: var(--ink); }
+
+  /* Callouts */
+  .callout {
+    background: var(--terra-light);
+    border-left: 3px solid var(--terra);
+    padding: 1.1rem 1.25rem;
+    border-radius: 0 8px 8px 0;
+    margin: 1.75rem 0;
+    font-size: 0.88rem;
+    color: #5a4030;
+    line-height: 1.6;
+  }
+  .callout strong { color: var(--terra); }
+
+  .callout-sage {
+    background: var(--sage-light);
+    border-left: 3px solid var(--sage);
+    padding: 1.1rem 1.25rem;
+    border-radius: 0 8px 8px 0;
+    margin: 1.75rem 0;
+    font-size: 0.88rem;
+    color: var(--sage-dark);
+    line-height: 1.6;
+  }
+
+  .doc-quote {
+    font-family: 'Newsreader', serif;
+    font-style: italic;
+    font-size: 1.15rem;
+    border-left: 3px solid var(--sage);
+    padding-left: 1.25rem;
+    margin: 2.5rem 0;
+    color: var(--muted);
+    line-height: 1.5;
+  }
+
+  /* Pull stat */
+  .pull-stat {
+    display: flex;
+    align-items: baseline;
+    gap: 0.75rem;
+    margin: 1.75rem 0;
+    padding: 1.25rem 1.5rem;
+    background: var(--sage-light);
+    border-radius: 8px;
+  }
+
+  .pull-stat .ps-num {
+    font-family: 'Newsreader', serif;
+    font-size: 2rem;
+    font-weight: 600;
+    color: var(--sage-dark);
+    line-height: 1;
+    flex-shrink: 0;
+  }
+
+  .pull-stat .ps-text {
+    font-size: 0.88rem;
+    color: var(--sage-dark);
+    line-height: 1.5;
+  }
+
+  /* Tables */
+  .table-wrap {
+    overflow-x: auto;
+    margin: 1.25rem 0 1.75rem;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+  }
+
+  table { width: 100%; border-collapse: collapse; font-size: 0.82rem; }
+  .table-wrap table { margin: 0; }
+
+  th {
+    text-align: left;
+    font-weight: 600;
+    font-size: 0.68rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--muted);
+    padding: 0.65rem 0.75rem;
+    border-bottom: 2px solid var(--border);
+    background: var(--cream);
+    white-space: nowrap;
+  }
+
+  td {
+    padding: 0.6rem 0.75rem;
+    border-bottom: 1px solid #eae7e2;
+    color: #3d3d3a;
+    vertical-align: top;
+  }
+
+  tr:hover td { background: rgba(232,237,230,0.3); }
+
+  /* School cards */
+  .school-card {
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 1.4rem;
+    margin: 1rem 0;
+    background: var(--warm-white);
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+
+  .school-card:hover {
+    border-color: var(--sage);
+    box-shadow: 0 2px 12px rgba(74,103,65,0.06);
+  }
+
+  .school-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 0.5rem;
+  }
+
+  .school-name {
+    font-family: 'Newsreader', serif;
+    font-size: 1.08rem;
+    font-weight: 500;
+  }
+
+  .school-tier {
+    font-size: 0.68rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    padding: 0.2rem 0.6rem;
+    border-radius: 4px;
+    flex-shrink: 0;
+  }
+
+  .tier-reach { background: var(--terra-light); color: var(--terra); }
+  .tier-target { background: var(--sage-light); color: var(--sage-dark); }
+  .tier-safety { background: var(--cream); color: var(--muted); }
+
+  .school-card p { font-size: 0.86rem; margin-bottom: 0.5rem; }
+
+  .school-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+    margin: 1rem 0;
+  }
+  .school-grid .school-card { margin: 0; }
+
+  /* Sim stats */
+  .sim-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.75rem;
+    margin: 1.5rem 0;
+  }
+
+  .sim-stat {
+    background: var(--cream);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1rem 0.75rem;
+    text-align: center;
+  }
+
+  .sim-stat .number {
+    font-family: 'Newsreader', serif;
+    font-size: 1.65rem;
+    font-weight: 600;
+    color: var(--sage-dark);
+    line-height: 1;
+  }
+
+  .sim-stat .label {
+    font-size: 0.65rem;
+    color: var(--muted);
+    margin-top: 0.3rem;
+    line-height: 1.3;
+  }
+
+  /* Collapsible */
+  .collapsible {
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    margin: 1.5rem 0;
+    overflow: hidden;
+  }
+
+  .collapsible-header {
+    padding: 0.85rem 1.15rem;
+    background: var(--cream);
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.88rem;
+    font-weight: 600;
+    user-select: none;
+    transition: background 0.2s;
+  }
+
+  .collapsible-header:hover { background: #efe9e0; }
+  .collapsible-header::after { content: '+'; font-size: 1.1rem; color: var(--muted); }
+  .collapsible.open .collapsible-header::after { content: '\2212'; }
+
+  .collapsible-body {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+  }
+
+  .collapsible.open .collapsible-body { max-height: 12000px; }
+  .collapsible-body-inner { padding: 0 1.15rem 1rem; }
+
+  /* CTA bar */
+  .cta-bar {
+    background: var(--sage-light);
+    border-top: 1px solid var(--border);
+    padding: 2.5rem 2rem;
+    text-align: center;
+  }
+
+  .cta-bar p {
+    font-size: 0.95rem;
+    color: var(--muted);
+    margin-bottom: 1rem;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .btn-primary {
+    background: var(--sage);
+    color: white;
+    padding: 0.9rem 2rem;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: all 0.25s;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .btn-primary:hover { background: var(--sage-dark); transform: translateY(-1px); }
+
+  /* Footer */
+  .doc-footer {
+    padding: 2rem;
+    text-align: center;
+    font-size: 0.8rem;
+    color: var(--muted);
+  }
+
+  .doc-footer a { color: var(--sage); text-decoration: none; font-weight: 600; }
+
+  /* ---- RESPONSIVE ---- */
+  @media (max-width: 768px) {
+    .hero-stats { grid-template-columns: repeat(2, 1fr); }
+    .form-row { grid-template-columns: 1fr; }
+    .school-grid { grid-template-columns: 1fr; }
+    .sim-grid { grid-template-columns: repeat(2, 1fr); }
+    .toggle-btn small { display: none; }
+    .intake-body, .strategy-body { padding: 1.5rem 1.25rem 3rem; }
+  }
+</style>
+</head>
+<body>
+
+<div class="progress-bar" id="progressBar"></div>
+
+<!-- TOP BAR -->
+<div class="topbar">
+  <a href="index.html" class="topbar-logo"><span>S</span>caffold</a>
+  <div class="topbar-right">
+    <a href="index.html" class="topbar-link">Home</a>
+    <div class="topbar-dropdown">
+      <a class="topbar-link topbar-dropdown-trigger">See Samples</a>
+      <div class="topbar-dropdown-menu">
+        <div class="topbar-dropdown-menu-inner">
+          <a href="washington-sample.html">The Washington Family</a>
+          <a href="medina-sample.html">The Medina Family</a>
+          <a href="kaplan-sample.html">The Kaplan Family</a>
+        </div>
+      </div>
+    </div>
+    <a href="index.html#pricing" class="topbar-cta">Get Your Plan</a>
+  </div>
+</div>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-badge">Sample Plan</div>
+    <h1>The Medina Family</h1>
+    <div class="hero-meta">Orlando, FL &middot; Class of 2028 &middot; Two-parent household, small business family</div>
+    <p class="hero-desc">Marco is 15, a sophomore at Lake Nona High School with a 3.3 GPA, hundreds of hours at his dad's auto repair shop, and a self-built go-kart made from salvage parts. This is the plan Scaffold built for them.</p>
+    <div class="hero-stats">
+      <div class="hero-stat"><div class="hs-num">10</div><div class="hs-label">Schools analyzed</div></div>
+      <div class="hero-stat"><div class="hs-num">10K</div><div class="hs-label">Simulations run</div></div>
+      <div class="hero-stat"><div class="hs-num">$20K</div><div class="hs-label">Median 4yr cost</div></div>
+      <div class="hero-stat"><div class="hs-num">88%</div><div class="hs-label">Under budget</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- TOGGLE -->
+<div class="toggle-bar">
+  <div class="toggle-inner">
+    <div class="toggle-btn active" data-panel="intake">What they filled out<small>~10 minute intake</small></div>
+    <div class="toggle-btn" data-panel="strategy">What they got back<small>20+ page strategy</small></div>
+  </div>
+</div>
+
+<!-- ============ INTAKE PANEL ============ -->
+<div class="panel active" id="panel-intake">
+<div class="intake-body">
+
+  <p class="intake-note">This is the actual intake form the Medina family completed. It took about 10 minutes. No jargon, no trick questions. The answers below produced the full strategy you can read in the other tab.</p>
+
+  <div class="form-section">
+    <div class="form-section-title">About the Kid</div>
+    <div class="form-row">
+      <div class="form-field"><div class="form-label">Age / Grade</div><div class="form-value">15, sophomore (10th grade, 2025-2026 school year)</div></div>
+      <div class="form-field"><div class="form-label">School</div><div class="form-value">Lake Nona High School, public (Orange County Public Schools)</div></div>
+    </div>
+    <div class="form-field"><div class="form-label">Academic profile</div><div class="form-value">3.3 unweighted GPA. PSAT 1060 (540 reading, 520 math). No gifted identification. Not in any honors or AP classes currently. Standard-track everything. B+ in Biology, A in Digital Information Technology elective, mostly B's and a couple C+'s in math.</div></div>
+    <div class="form-field"><div class="form-label">Academic strengths</div><div class="form-value">He's actually sharp when he's interested. His biology teacher said he asks better questions than most of the honors kids. He aced the automotive systems unit in his tech elective. He's a good reader when he picks up something he cares about, just doesn't love the assigned stuff.</div></div>
+    <div class="form-field"><div class="form-label">Academic weaknesses</div><div class="form-value">Math has always been a grind. He's in Algebra 2 and struggling with it. Writing is OK but he doesn't put effort into essays because he thinks they're pointless. He's never been in an honors or AP class and I worry he's behind the curve on that.</div></div>
+    <div class="form-field"><div class="form-label">Interests &amp; temperament</div><div class="form-value">Cars. That's the big one. He helps Roberto at the shop every Saturday and some afternoons. He can diagnose engine problems by sound. He watches Donut Media and ChrisFix for hours. He's been building a go-kart in the garage from parts he salvaged. Also plays guitar, self-taught from YouTube, mostly classic rock and some Latin stuff his abuela likes. Quiet, easygoing, doesn't cause trouble. Not lazy but doesn't push himself unless something clicks. A little shy in groups but one-on-one he's funny and thoughtful.</div></div>
+    <div class="form-field"><div class="form-label">Teacher quote</div><div class="form-value">"He understands systems and thinks about how things connect instead of just memorizing." &mdash; Mr. Reeves, Biology. Recommended Marco for AP Environmental Science next year but Marco said no because his friends aren't in it.</div></div>
+  </div>
+
+  <div class="form-section">
+    <div class="form-section-title">The Parents</div>
+    <div class="form-row">
+      <div class="form-field"><div class="form-label">Parent 1</div><div class="form-value">Sofia Medina. Associate's from Valencia College (health sciences). Office administrator at Orlando Health medical group.</div></div>
+      <div class="form-field"><div class="form-label">Parent 2</div><div class="form-value">Roberto Medina. No college degree. Owns and operates Medina Auto Repair in Lake Nona (independent shop, 9 years).</div></div>
+    </div>
+    <div class="form-field"><div class="form-label">Family structure</div><div class="form-value">Married, both in the home. Sibling: Isabella (Izzy), age 11, 5th grade. Straight A student, into dance and student council. College pipeline in 6-7 years.</div></div>
+  </div>
+
+  <div class="form-section">
+    <div class="form-section-title">Location &amp; Schools</div>
+    <div class="form-row">
+      <div class="form-field"><div class="form-label">City</div><div class="form-value">Orlando, FL (Lake Nona area). Suburban, newer planned community, good public schools by Florida standards.</div></div>
+      <div class="form-field"><div class="form-label">Willing to relocate?</div><div class="form-value">Prefer Florida (in-state tuition). Open to Southeast if the package is right. He's never been farther from home than Savannah.</div></div>
+    </div>
+    <div class="form-field"><div class="form-label">Schools on radar</div><div class="form-value">UCF (it's right here and everyone goes there), UF (but I don't know if his grades are good enough), Florida State. Coworker's son went to Florida Polytechnic and liked it. Roberto keeps mentioning FIU because it's more Hispanic.</div></div>
+  </div>
+
+  <div class="form-section">
+    <div class="form-section-title">Finances</div>
+    <div class="form-row">
+      <div class="form-field"><div class="form-label">Household income</div><div class="form-value">~$105,000 combined. Sofia's salary: $42K. Shop nets $60-70K (fluctuates), Roberto takes ~$63K salary.</div></div>
+      <div class="form-field"><div class="form-label">Assets</div><div class="form-value">Own home ($420K value, $280K owed). Shop building + equipment (~$150K, $90K loan). $15K savings. $40K SEP-IRA. No 529.</div></div>
+    </div>
+    <div class="form-row">
+      <div class="form-field"><div class="form-label">Afford per year</div><div class="form-value">$8,000-10,000/year out of pocket. Not going to take out crazy loans. Roberto's parents came to this country so their kids wouldn't start life in debt.</div></div>
+      <div class="form-field"><div class="form-label">Special circumstances</div><div class="form-value">Shop income varies year to year ($55K-$68K profit). Business owns assets that might complicate FAFSA. Don't really understand how self-employment affects financial aid.</div></div>
+    </div>
+  </div>
+
+  <div class="form-section">
+    <div class="form-section-title">Priorities (ranked)</div>
+    <ol class="priority-list">
+      <li>Minimize total cost of attendance</li>
+      <li>Merit scholarship likelihood</li>
+      <li>Academic fit (specific programs, research, major strength)</li>
+      <li>Geographic location</li>
+      <li>Campus culture / social fit</li>
+      <li>Prestige / brand name</li>
+      <li>Post-graduation outcomes</li>
+    </ol>
+  </div>
+
+  <div class="form-section">
+    <div class="form-section-title">Anything Else</div>
+    <div class="form-field"><div class="form-value">Marco is invisible at school. He's not a troublemaker so nobody worries about him. He's not a straight-A kid so nobody celebrates him. He's just there. His counselor has 500 students and I don't think she knows his name. The shop thing is real. Roberto started that business with nothing. Came from Puerto Rico at 19, worked at dealerships for 10 years, saved up, opened his own place. Marco has been helping there since he was 12. He built a go-kart from a riding mower frame, a Harbor Freight engine, and parts from junked cars. It actually runs. Got about 2,000 views on YouTube. The guitar is private. He plays in his room, learned "Besame Mucho" for his abuela's birthday and she cried. We're a Puerto Rican family. Roberto's parents are still in Bayamon. Marco speaks decent Spanish but won't speak it at school. His abuela tells him stories about his abuelo who was a mechanic for the Navy in the 60s. I don't think Marco sees himself going to a "good" school. He thinks college is for the smart kids. Roberto doesn't really believe in the college process. He thinks Marco should take over the shop someday. I need this plan to show Roberto that college and the shop aren't mutually exclusive. That an engineering degree makes Marco a better business owner, not a worse one.</div></div>
+  </div>
+
+</div>
+</div>
+
+<!-- ============ STRATEGY PANEL ============ -->
+<div class="panel" id="panel-strategy">
+<div class="strategy-body">
+
+  <h2 id="executive-summary">Executive Summary</h2>
+  <div class="section-rule"></div>
+
+  <p><strong>Marco at a glance:</strong> Current sophomore, 3.3 unweighted GPA, PSAT 1060. Strongest assets are his mechanical aptitude (years of real work at a functioning auto repair shop, a self-built go-kart), systems thinking (flagged by his biology teacher), and quiet reliability. Main vulnerability is a thin academic record with no honors/AP coursework and a math struggle that will cap his test scores if not addressed. Projected SAT range: 1100-1220. Hispanic/Latino male, first-generation four-year college student, small business family.</p>
+
+  <div class="pull-stat">
+    <div class="ps-num">$20K</div>
+    <div class="ps-text">Median total cost for four years of college across 10,000 simulations. 88% chance at least one school comes in under the $12K/year budget.</div>
+  </div>
+
+  <div class="table-wrap">
+  <table>
+    <thead>
+      <tr><th>School</th><th>Tier</th><th>Est. Net Cost/Year</th><th>Financial Risk</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>UF (Engineering)</td><td>Reach</td><td>$3,000-7,000</td><td>Very Low (if admitted)</td></tr>
+      <tr><td>Florida State (Engineering)</td><td>Target</td><td>$4,000-8,000</td><td>Very Low</td></tr>
+      <tr><td>UCF (Engineering)</td><td>Target</td><td>$2,000-6,000</td><td>Very Low</td></tr>
+      <tr><td>Florida Polytechnic</td><td>Target</td><td>$1,500-5,000</td><td>Very Low</td></tr>
+      <tr><td>FIU (Engineering)</td><td>Target</td><td>$2,500-6,500</td><td>Very Low</td></tr>
+      <tr><td>Embry-Riddle (Daytona)</td><td>Target</td><td>$12,000-18,000</td><td>Moderate</td></tr>
+      <tr><td>Florida A&amp;M (Engineering)</td><td>Target</td><td>$3,000-8,000</td><td>Low</td></tr>
+      <tr><td>USF (Engineering)</td><td>Safety</td><td>$2,500-6,000</td><td>Very Low</td></tr>
+      <tr><td>Florida Gulf Coast</td><td>Safety</td><td>$1,500-5,000</td><td>Very Low</td></tr>
+      <tr><td>Valencia to UCF (DirectConnect)</td><td>Safety</td><td>$0-2,000</td><td>Essentially Zero</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h3>Top 3 things to do in the next 6 months</h3>
+
+  <div class="callout-sage">
+    <strong>1. Get Marco into AP Environmental Science for junior year.</strong> Mr. Reeves already recommended him. Go back to the counselor, request the schedule change, and tell Marco his friends are not a graduation requirement. This is the single highest-leverage academic move he can make right now.<br><br>
+    <strong>2. Register for the SAT and start basic prep this summer.</strong> Khan Academy is free and syncs with his PSAT score. Target: 1150-1200. He needs to clear the Bright Futures Academic threshold (1330 SAT) or at minimum the Medallion threshold (1210 SAT). The difference is thousands of dollars per year.<br><br>
+    <strong>3. Document the shop work.</strong> Start a simple log: date, what he worked on, what he learned, hours. Take photos of the go-kart build. This is the core of his college application narrative, and right now none of it is written down.
+  </div>
+
+  <p><strong>The financial floor:</strong> UCF with Bright Futures Medallion Scholarship. Admission probability: ~80%. Estimated net cost: $2,000-4,000/year. In nearly every simulation, Marco is admitted to at least one Florida public university with Bright Futures covering the majority of tuition. If everything else falls through, UCF with Bright Futures is a genuinely good outcome. It's 15 minutes from your house, it has a solid engineering program, and the cost is almost nothing.</p>
+
+  <h2 id="before-we-start">Before We Start</h2>
+  <div class="section-rule"></div>
+
+  <p>Sofia, Roberto. I want to address something before we get into the plan.</p>
+
+  <p>Roberto, you're not wrong that Marco is good with his hands. You're not wrong that the shop is valuable. You're not wrong that plenty of people waste money on degrees they don't use. All of that is true.</p>
+
+  <p>Here's what's also true: Marco doesn't just turn wrenches. He diagnoses problems by sound. He built a functioning go-kart from salvage parts and a riding mower frame. His biology teacher says he "understands systems." That's not a mechanic. That's an engineer. And the difference between a mechanic and an engineer is about $40,000 a year in salary and the ability to design the systems instead of just fixing them.</p>
+
+  <p>An engineering degree doesn't take Marco away from the shop. It makes him the guy who could open five shops. Or design diagnostic tools. Or work for NASA, which is literally 45 minutes from your house at Kennedy Space Center. The path through college and the path through the shop are not different paths. They're the same path with more options at the end.</p>
+
+  <p>Sofia, you said Marco doesn't think of himself as "college material." That's not because he's not capable. It's because nobody has told him he is. His school hasn't. His friends aren't. The system is designed to celebrate the kids with 4.0s and ignore the ones with 3.3s and engine grease under their fingernails. That's a system failure, not a Marco failure.</p>
+
+  <p>Here's what this plan is and what it isn't.</p>
+
+  <p><strong>It is:</strong> A specific, data-informed plan for Marco's next two and a half years, built around your finances, your geography, and the kid you've described to me. It includes a course plan, a school list, an application strategy, and a financial simulation that models 10,000 scenarios.</p>
+
+  <p><strong>It isn't:</strong> A guarantee. Marco might decide engineering isn't for him. He might pull his GPA up to a 3.6 or it might stay at 3.3. He might crush the SAT or he might not. This plan works at multiple levels of outcome. The floor is solid. The ceiling is real.</p>
+
+  <p>A few things I want to be honest about:</p>
+
+  <ol style="margin: 1rem 0 1.5rem 1.25rem; display: flex; flex-direction: column; gap: 0.75rem;">
+    <li><strong>Marco's GPA is a problem, but it's not a fatal one.</strong> A 3.3 at the end of sophomore year means he needs strong junior and senior year grades (3.5+ each year) to pull the cumulative up to a 3.4-3.5 by application time. That's doable. It requires effort. It requires honors and AP courses, which he hasn't taken yet.</li>
+    <li><strong>The lack of extracurriculars is actually less of a problem than you think.</strong> Marco doesn't have the typical resume of clubs and sports. He has something better: he has real work. Hundreds of hours at a functioning business, a self-directed engineering project (the go-kart), and a skill set that most 15-year-olds don't have. The challenge is documenting and framing it.</li>
+    <li><strong>Bright Futures is the financial engine of this plan.</strong> Florida's Bright Futures scholarship program is one of the best state scholarship programs in the country, and it's the single biggest factor in keeping Marco's college cost manageable.</li>
+    <li><strong>Florida's public university system is genuinely strong for engineering.</strong> UF is a top-10 public engineering school. UCF, FSU, FIU, USF, and Florida Poly all have solid programs. Marco doesn't need to leave the state to get a great engineering education at a price you can afford.</li>
+    <li><strong>The self-employment on FAFSA is something we need to address.</strong> Roberto's shop creates a complicated financial aid picture. Business assets, depreciation, and variable income all affect the Expected Family Contribution. I'll cover this in the financial aid section.</li>
+  </ol>
+
+  <h2 id="four-threads">The Four Threads</h2>
+  <div class="section-rule"></div>
+
+  <p><strong>1. The Builder.</strong> This is the anchor. Marco builds things. He's been building things since he started helping at the shop at 12. The go-kart is the signature project, but it's part of a larger pattern: he sees broken systems and wants to fix them, or better yet, build something new from what's available. On a college application, this isn't "I helped at my dad's shop." It's "I've been solving real mechanical problems in a professional environment for four years, and I designed and built a vehicle from salvage parts."</p>
+
+  <p><strong>2. The Systems Thinker.</strong> Mr. Reeves nailed it: Marco understands how things connect. He doesn't just memorize facts, he sees relationships. The engine diagnostics by sound, the biology class questions that surprised his teacher, the way he taught himself guitar by watching and deconstructing YouTube videos. Engineering schools want students who think this way. Most applicants write about wanting to "solve problems." Marco actually solves them, with his hands, every Saturday.</p>
+
+  <p><strong>3. The Family Business.</strong> Marco isn't just a kid who works at a shop. He's the next generation of a family business started by an immigrant who built something from nothing. Roberto came from Puerto Rico at 19, worked at dealerships for a decade, and opened his own place. That story is Marco's story too. For engineering programs that value entrepreneurship, real-world experience, and diverse backgrounds, this is gold.</p>
+
+  <p><strong>4. The Quiet Creative.</strong> The guitar is more important than it looks on paper. A kid who teaches himself an instrument from YouTube, who learns "Besame Mucho" to play for his grandmother's birthday, who keeps this completely separate from any academic or social pressure. That's a kid with interior life, with discipline he applies on his own terms, with cultural roots he values even if he won't speak Spanish at school. This thread humanizes the application and gives admissions officers a window into who Marco is when nobody's watching.</p>
+
+  <h2 id="bright-futures">About Bright Futures (Read This Carefully)</h2>
+  <div class="section-rule"></div>
+
+  <div class="callout-sage">Bright Futures is Florida's state-funded merit scholarship. It's the foundation of Marco's financial plan. The Academic Scholar level (FAS) covers 100% of tuition and fees at any Florida public university, plus $300/semester for books. The Medallion level (FMS) covers 75% of tuition and fees. The difference between getting Bright Futures and not getting it is $18,000+ over four years.</div>
+
+  <p><strong>Florida Academic Scholar (FAS):</strong> Requires 1330 SAT (or 29 ACT), weighted 3.5 GPA, 100 community service hours, and completion of specific course requirements. Award: 100% of tuition and fees at any Florida public university, plus $300/semester for books. At UCF, that's roughly $6,700/year in tuition covered.</p>
+
+  <p><strong>Florida Medallion Scholar (FMS):</strong> Requires 1210 SAT (or 25 ACT), weighted 3.0 GPA, 75 community service hours, and completion of specific course requirements. Award: 75% of tuition and fees. At UCF, that's roughly $5,000/year in tuition covered.</p>
+
+  <h3>Where Marco stands right now</h3>
+  <p><strong>GPA:</strong> 3.3 unweighted. Weighted will be higher once he adds honors/AP courses. He needs a weighted 3.0 for Medallion (he'll clear this) and a 3.5 weighted for Academic Scholar (achievable with strong junior/senior years).</p>
+  <p><strong>SAT:</strong> PSAT was 1060. He needs 1210 for Medallion and 1330 for Academic Scholar. The 1210 is realistic with prep. The 1330 is a stretch but possible.</p>
+  <p><strong>Service hours:</strong> He currently has essentially zero documented community service hours. He needs 75 minimum (Medallion) or 100 (Academic Scholar). This is urgent.</p>
+
+  <h3>The math difference between FAS and FMS</h3>
+
+  <div class="table-wrap">
+  <table>
+    <thead><tr><th>Scholarship</th><th>Tuition Covered</th><th>Room/Board</th><th>Annual Out-of-Pocket (UCF)</th></tr></thead>
+    <tbody>
+      <tr><td>FAS (Academic Scholar)</td><td>100% (~$6,700)</td><td>Not covered (~$11,500)</td><td><strong>~$5,500</strong> (room/board + fees - Pell)</td></tr>
+      <tr><td>FMS (Medallion)</td><td>75% (~$5,000)</td><td>Not covered (~$11,500)</td><td><strong>~$7,700</strong> (tuition gap + room/board + fees - Pell)</td></tr>
+      <tr><td>No Bright Futures</td><td>0%</td><td>Not covered</td><td><strong>~$12,200</strong> (full cost - Pell)</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <p>The difference between FAS and FMS is about $2,200/year, or $8,800 over four years. The difference between FMS and nothing is about $4,500/year, or $18,000 over four years. Bright Futures is worth fighting for.</p>
+
+  <h2 id="school-list">The School List</h2>
+  <div class="section-rule"></div>
+
+  <p>Ten schools. One reach, five targets, two safeties, and one community college transfer path. Every school on this list is in Florida except one. Every school has a realistic path to costing your family under $12,000/year. Most will cost significantly less.</p>
+
+  <p>The list is heavily weighted toward Florida public universities because that's where the math works best for your family. Bright Futures only applies to Florida public and some private institutions. In-state tuition at a Florida public university is roughly $6,400-6,700/year. Out-of-state tuition at a comparable school would be $20,000-35,000. Florida is the play.</p>
+
+  <h4>Reaches</h4>
+
+  <div class="school-card">
+    <div class="school-card-header"><div class="school-name">1. University of Florida, Herbert Wertheim College of Engineering</div><span class="school-tier tier-reach">Reach</span></div>
+    <p>Gainesville, FL. ~23% overall admit rate (engineering more selective). ~35,000 undergrads. UF is a top-5 public university and its engineering college is ranked in the top 25 nationally.</p>
+    <p><strong>Fit:</strong> Mechanical &amp; Aerospace Engineering, Industry partnerships (Lockheed Martin, Northrop Grumman, Harris Corp). The Integrated Product and Process Design program has teams building actual products for companies.</p>
+    <p><strong>The honest truth:</strong> Marco's 3.3 GPA and 1060 PSAT put him below the typical UF engineering admit (3.8+ GPA, 1350+ SAT). However, UF has an Innovation Academy option with slightly lower standards, and a strong upward trend plus 1200+ SAT makes this a realistic long shot.</p>
+    <p>Estimated net cost: $3,000-7,000/year (with Bright Futures + Pell) | 4-year total: $12,000-28,000 | <strong>Financial risk: VERY LOW (if admitted).</strong></p>
+  </div>
+
+  <h4>Targets</h4>
+
+  <div class="school-card">
+    <div class="school-card-header"><div class="school-name">2. Florida State University, FAMU-FSU College of Engineering</div><span class="school-tier tier-target">Target</span></div>
+    <p>Tallahassee, FL. ~25% admit rate (joint engineering college). ~33,000 undergrads. Jointly operated with Florida A&amp;M, so Marco gets the resources of two universities.</p>
+    <p><strong>Fit:</strong> Mechanical Engineering is one of the strongest departments. Senior design capstone projects are industry-sponsored. For a kid who's been solving real problems since he was 12, this is natural.</p>
+    <p>Estimated net cost: $4,000-8,000/year | 4-year total: $16,000-32,000 | <strong>Financial risk: VERY LOW.</strong></p>
+  </div>
+
+  <div class="school-card">
+    <div class="school-card-header"><div class="school-name">3. University of Central Florida, College of Engineering and Computer Science</div><span class="school-tier tier-target">Target</span></div>
+    <p>Orlando, FL. ~43% admit rate. ~60,000+ undergrads. Right in your backyard. Center for Advanced Turbomachinery and Energy Research partners with NASA, Siemens, and the Air Force.</p>
+    <p><strong>Fit:</strong> Growing engineering program, proximity to Kennedy Space Center, Lockheed Martin, and the I-4 tech corridor. Hispanic/Latino population ~28%. Lake Nona is 15 minutes from campus.</p>
+    <p><strong>Commuter option:</strong> Live at home, cost drops to $0-2,000/year with Bright Futures. That's essentially free college.</p>
+    <p>Estimated net cost: $2,000-6,000/year (on campus) or $0-2,000/year (commuter) | <strong>Financial risk: VERY LOW.</strong></p>
+  </div>
+
+  <div class="school-card">
+    <div class="school-card-header"><div class="school-name">4. Florida Polytechnic University</div><span class="school-tier tier-target">Target</span></div>
+    <p>Lakeland, FL. ~45% admit rate. ~1,800 undergrads. The only public university in Florida dedicated exclusively to STEM. Every student is in a STEM field.</p>
+    <p><strong>Fit:</strong> This is where the fit is strongest. Florida Poly's entire model is project-based, hands-on engineering education. Class sizes average 25 students. Faculty know your name. <strong>For a kid who builds go-karts, this is the school that was designed for him.</strong></p>
+    <p>Estimated net cost: $1,500-5,000/year | 4-year total: $6,000-20,000 | <strong>Financial risk: VERY LOW.</strong></p>
+  </div>
+
+  <div class="school-card">
+    <div class="school-card-header"><div class="school-name">5. Florida International University, College of Engineering and Computing</div><span class="school-tier tier-target">Target</span></div>
+    <p>Miami, FL. ~58% admit rate. ~48,000 undergrads. Hispanic-serving institution, student body over 60% Hispanic. Roberto suggested this one and he's not wrong.</p>
+    <p><strong>Fit:</strong> ABET-accredited Mechanical Engineering, Wall of Wind research center (hurricane engineering). Culturally, probably the most comfortable school on the list. Marco wouldn't have to code-switch. Spanish is everywhere.</p>
+    <p>Estimated net cost: $2,500-6,500/year | 4-year total: $10,000-26,000 | <strong>Financial risk: VERY LOW.</strong></p>
+  </div>
+
+  <div class="school-card">
+    <div class="school-card-header"><div class="school-name">6. Embry-Riddle Aeronautical University</div><span class="school-tier tier-target">Target</span></div>
+    <p>Daytona Beach, FL. ~68% admit rate. ~6,000 undergrads. Private university (no Bright Futures). The premier school for aerospace, aviation, and mechanical engineering in the Southeast. An hour from your house.</p>
+    <p><strong>Fit:</strong> Heavily project-based Mechanical Engineering. Partnerships with NASA, SpaceX, Lockheed Martin, Boeing. <strong>The motorsports engineering minor is literally designed for a kid who builds go-karts.</strong> Formula SAE team builds a race car every year.</p>
+    <p><strong>The honest truth:</strong> Sticker price is ~$44,000/year, but Embry-Riddle is aggressive with merit aid. A 3.4+ GPA and 1150+ SAT could get $15,000-25,000/year. Net cost will still likely be $12,000-18,000, at or above your cap. Apply, see what they offer, compare.</p>
+    <p>Estimated net cost: $12,000-18,000/year (with merit aid) | 4-year total: $48,000-72,000 | <strong>Financial risk: MODERATE.</strong></p>
+  </div>
+
+  <div class="school-card">
+    <div class="school-card-header"><div class="school-name">7. Florida A&amp;M University, FAMU-FSU College of Engineering</div><span class="school-tier tier-target">Target</span></div>
+    <p>Tallahassee, FL. ~38% admit rate. ~8,500 undergrads. Same joint engineering college as FSU, same faculty, same labs, same accreditation. Different home campus with strong institutional scholarships and student support.</p>
+    <p>Estimated net cost: $3,000-8,000/year | 4-year total: $12,000-32,000 | <strong>Financial risk: LOW.</strong></p>
+  </div>
+
+  <h4>Safeties</h4>
+
+  <div class="school-grid">
+    <div class="school-card">
+      <div class="school-card-header"><div class="school-name">8. USF Engineering</div><span class="school-tier tier-safety">Safety</span></div>
+      <p>Tampa, FL. ~48% admit rate. Solid Mechanical Engineering, connected to Tampa Bay's defense and tech sectors. ~90 min from Orlando.</p>
+      <p>$2,500-6,000/year | <strong>Risk: Very Low.</strong></p>
+    </div>
+    <div class="school-card">
+      <div class="school-card-header"><div class="school-name">9. Florida Gulf Coast</div><span class="school-tier tier-safety">Safety</span></div>
+      <p>Fort Myers, FL. ~76% admit rate. Engineering Technology program. The "everything else fell apart" option. Affordable and he'd get a degree.</p>
+      <p>$1,500-5,000/year | <strong>Risk: Very Low.</strong></p>
+    </div>
+  </div>
+
+  <div class="school-card">
+    <div class="school-card-header"><div class="school-name">10. Valencia College to UCF (DirectConnect)</div><span class="school-tier tier-safety">Safety</span></div>
+    <p>Orlando, FL. Open admission. Guarantees UCF admission after completing an AA with a 2.0 GPA. Two years at Valencia for nearly free, then transfer to UCF Engineering.</p>
+    <div class="table-wrap">
+    <table>
+      <thead><tr><th>Year</th><th>School</th><th>Tuition</th><th>Bright Futures</th><th>Pell Grant</th><th>Net Cost</th></tr></thead>
+      <tbody>
+        <tr><td>1-2</td><td>Valencia</td><td>~$3,500/yr</td><td>Covers most/all</td><td>~$2,500</td><td>~$0-1,000/yr</td></tr>
+        <tr><td>3-4</td><td>UCF</td><td>~$6,700/yr</td><td>FMS/FAS</td><td>~$2,500</td><td>~$2,000-6,000/yr</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <p><strong>Total 4-year cost: $4,000-14,000.</strong> That's the cheapest path to a UCF engineering degree.</p>
+    <p><strong>Roberto, here's the pitch:</strong> Two years at Valencia where Marco keeps working at the shop, then two years at UCF for the engineering degree. Total cost: maybe $10,000. He comes out with a UCF degree and zero debt. And he still has the shop.</p>
+    <p>Estimated net cost: $0-2,000/year (Valencia) then $2,000-6,000/year (UCF) | <strong>Financial risk: ESSENTIALLY ZERO.</strong></p>
+  </div>
+
+  <h3 style="margin-top: 2rem;">School List Summary</h3>
+
+  <div class="table-wrap">
+  <table>
+    <thead>
+      <tr><th>#</th><th>School</th><th>Tier</th><th>Admit Rate</th><th>Bright Futures</th><th>Est. Net Cost/Yr</th><th>Risk</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>1</td><td>UF Engineering</td><td>Reach</td><td>~23% (eng. lower)</td><td>Yes</td><td>$3,000-7,000</td><td>Very Low*</td></tr>
+      <tr><td>2</td><td>FSU Engineering</td><td>Target</td><td>~25% (joint)</td><td>Yes</td><td>$4,000-8,000</td><td>Very Low</td></tr>
+      <tr><td>3</td><td>UCF Engineering</td><td>Target</td><td>~43%</td><td>Yes</td><td>$2,000-6,000</td><td>Very Low</td></tr>
+      <tr><td>4</td><td>Florida Poly</td><td>Target</td><td>~45%</td><td>Yes</td><td>$1,500-5,000</td><td>Very Low</td></tr>
+      <tr><td>5</td><td>FIU Engineering</td><td>Target</td><td>~58%</td><td>Yes</td><td>$2,500-6,500</td><td>Very Low</td></tr>
+      <tr><td>6</td><td>Embry-Riddle</td><td>Target</td><td>~68%</td><td>No (private)</td><td>$12,000-18,000</td><td>Moderate</td></tr>
+      <tr><td>7</td><td>FAMU Engineering</td><td>Target</td><td>~38%</td><td>Yes</td><td>$3,000-8,000</td><td>Low</td></tr>
+      <tr><td>8</td><td>USF Engineering</td><td>Safety</td><td>~48%</td><td>Yes</td><td>$2,500-6,000</td><td>Very Low</td></tr>
+      <tr><td>9</td><td>FGCU</td><td>Safety</td><td>~76%</td><td>Yes</td><td>$1,500-5,000</td><td>Very Low</td></tr>
+      <tr><td>10</td><td>Valencia &rarr; UCF</td><td>Safety</td><td>Open</td><td>Yes</td><td>$0-2,000 &rarr; $2,000-6,000</td><td>~Zero</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div class="callout">The pattern you should see: Nine of ten options are Florida public schools where Bright Futures does the heavy lifting. The one private school (Embry-Riddle) is the aspirational option that only makes sense with strong merit aid. The Valencia-UCF path is the financial backstop. You are not choosing between affordable and good. In Florida, for engineering, affordable IS good.</div>
+
+  <p>Sofia, you mentioned that Roberto keeps bringing up FIU. He has good instincts. But here's the insight most families miss: Embry-Riddle's $44,000 sticker price is terrifying, but with Bright Futures covering the Florida publics, several of those schools will cost you $2,000-6,000/year. That means even if Embry-Riddle gives Marco $20,000 in merit aid, UCF with Bright Futures still costs less. The private school needs to offer something the public schools can't, not just a lower sticker price than its own sticker price.</p>
+
+  <div class="callout-sage">This is the information asymmetry that Scaffold exists to close. The $300K family with the college consultant already knows how Bright Futures works. Now you do too.</div>
+
+  <h2 id="fafsa-strategy">FAFSA Strategy</h2>
+  <div class="section-rule"></div>
+
+  <p><strong>Filing basics:</strong> Both Sofia and Roberto file, since you're married and in the same household. File October 1 of Marco's senior year (October 1, 2027), within the first two weeks. The tax year used: your 2026 return.</p>
+
+  <h3>The self-employment complication</h3>
+
+  <p>Roberto, the shop creates a wrinkle. Here's what you need to know:</p>
+
+  <ul style="margin: 1rem 0 1.5rem 1.25rem; display: flex; flex-direction: column; gap: 0.5rem; font-size: 0.92rem;">
+    <li><strong>FAFSA asks for AGI,</strong> which for self-employed filers includes the business profit from Schedule C (or Schedule K-1 if the shop is an S-Corp or LLC).</li>
+    <li><strong>Business assets (the building, equipment) are NOT counted on FAFSA.</strong> This is good news. The $150K shop value and $90K loan do not factor in.</li>
+    <li><strong>SEP-IRA contributions reduce your AGI,</strong> which helps. Keep contributing.</li>
+    <li><strong>Variable income is tricky.</strong> If 2026 is a high year for the shop, your FAFSA income will look higher. You cannot time this, but be aware of it.</li>
+  </ul>
+
+  <p><strong>Estimated Student Aid Index (SAI):</strong> At $105K combined income, household of 4, one in college, with a small business, your SAI will likely be in the $12,000-18,000 range. Marco will qualify for some need-based aid but is unlikely to qualify for Pell Grant at the full level. Estimated Pell: $1,000-2,500/year.</p>
+
+  <p><strong>Key point:</strong> Because your income is above the Pell threshold for maximum grants, Bright Futures and merit scholarships are MORE important than need-based aid for your family. The FAFSA matters, but merit is the main play.</p>
+
+  <p><strong>Bright Futures filing:</strong> Administered through the Florida Department of Education. No separate application. File the Florida Financial Aid Application (FFAA) online, and Bright Futures eligibility is determined automatically based on GPA, test scores, and service hours. <strong>Critical: The service hours must be documented and verified by the school counselor.</strong> Start now. Log every hour. Get sign-off from supervising adults.</p>
+
+  <h2 id="simulation">Simulation Results</h2>
+  <div class="section-rule"></div>
+
+  <p>10,000 simulated outcomes at the optimistic profile level. Each draws admission, Bright Futures, and merit results independently for every school, then identifies the cheapest option Marco gets into.</p>
+
+  <div class="sim-grid">
+    <div class="sim-stat"><div class="number">99.9%</div><div class="label">Admitted somewhere</div></div>
+    <div class="sim-stat"><div class="number">22%</div><div class="label">Reach admission</div></div>
+    <div class="sim-stat"><div class="number">$20K</div><div class="label">Median 4yr cost</div></div>
+    <div class="sim-stat"><div class="number">88%</div><div class="label">Under $12K/yr cap</div></div>
+  </div>
+
+  <div class="collapsible">
+    <div class="collapsible-header">Full Simulation Results</div>
+    <div class="collapsible-body"><div class="collapsible-body-inner">
+
+      <h4>Admission Outcomes</h4>
+      <div class="table-wrap">
+      <table>
+        <thead><tr><th>Metric</th><th>Result</th></tr></thead>
+        <tbody>
+          <tr><td>P(at least one admission)</td><td><strong>99.9%</strong></td></tr>
+          <tr><td>P(at least one REACH admission)</td><td><strong>22.4%</strong></td></tr>
+          <tr><td>P(at least one TARGET or better)</td><td><strong>96.8%</strong></td></tr>
+          <tr><td>Median number of acceptances</td><td><strong>6</strong></td></tr>
+          <tr><td>Mean number of acceptances</td><td><strong>5.8</strong></td></tr>
+        </tbody>
+      </table>
+      </div>
+
+      <p>Marco will get into college. Multiple colleges. The question isn't whether, it's where and at what price.</p>
+
+      <h4>Financial Outcomes</h4>
+      <div class="table-wrap">
+      <table>
+        <thead><tr><th>Metric</th><th>Result</th></tr></thead>
+        <tbody>
+          <tr><td>P(at least one school under $12K/year)</td><td><strong>88.3%</strong></td></tr>
+          <tr><td>Median best 4-year total cost</td><td><strong>$20,000</strong></td></tr>
+          <tr><td>10th percentile (best case)</td><td><strong>$6,000</strong></td></tr>
+          <tr><td>25th percentile</td><td><strong>$12,000</strong></td></tr>
+          <tr><td>75th percentile</td><td><strong>$32,000</strong></td></tr>
+          <tr><td>90th percentile (worst realistic case)</td><td><strong>$48,000</strong></td></tr>
+        </tbody>
+      </table>
+      </div>
+
+      <p>The median outcome is $20,000 total for four years. That's $5,000/year. Inside your budget. The 90th percentile ($48,000 total, $12,000/year) is right at your cap. Even in a bad scenario, you're likely OK because Bright Futures and Florida's in-state tuition keep the floor low.</p>
+
+      <p>The 12% of simulations where no school comes in under $12K/year are mostly scenarios where: (a) Marco doesn't hit Bright Futures thresholds and (b) the engineering programs he's admitted to don't offer enough institutional aid. In those cases, the Valencia-UCF path keeps the total well under budget.</p>
+
+    </div></div>
+  </div>
+
+  <div class="collapsible">
+    <div class="collapsible-header">Per-School Results</div>
+    <div class="collapsible-body"><div class="collapsible-body-inner">
+      <div class="table-wrap">
+      <table>
+        <thead><tr><th>School</th><th>P(Admitted)</th><th>P(Admitted AND Under $12K/yr)</th></tr></thead>
+        <tbody>
+          <tr><td>UF Engineering</td><td>18%</td><td>17%</td></tr>
+          <tr><td>FSU Engineering</td><td>55%</td><td>50%</td></tr>
+          <tr><td>UCF Engineering</td><td>75%</td><td>70%</td></tr>
+          <tr><td>Florida Poly</td><td>78%</td><td>75%</td></tr>
+          <tr><td>FIU Engineering</td><td>82%</td><td>78%</td></tr>
+          <tr><td>Embry-Riddle</td><td>72%</td><td>25%</td></tr>
+          <tr><td>FAMU Engineering</td><td>65%</td><td>58%</td></tr>
+          <tr><td>USF Engineering</td><td>80%</td><td>75%</td></tr>
+          <tr><td>FGCU</td><td>92%</td><td>90%</td></tr>
+          <tr><td>Valencia &rarr; UCF</td><td>99%</td><td>99%</td></tr>
+        </tbody>
+      </table>
+      </div>
+
+      <p><strong>The story this table tells:</strong> The Florida public schools are affordable almost every time Marco is admitted, because Bright Futures covers most of the tuition. Embry-Riddle is affordable only 25% of the time it admits him, because it's private and the merit aid is uncertain. The Valencia path is the backstop that works in virtually every scenario.</p>
+
+    </div></div>
+  </div>
+
+  <div class="collapsible">
+    <div class="collapsible-header">Distribution Charts</div>
+    <div class="collapsible-body"><div class="collapsible-body-inner">
+
+      <h4>Chart 1: Distribution of Best 4-Year Total Cost</h4>
+      <pre style="background: var(--cream); padding: 1rem; border-radius: 6px; font-size: 0.78rem; line-height: 1.6; overflow-x: auto; margin-bottom: 1.5rem;">
+What Will You Actually Pay?
+(Best financial outcome per simulation, 10,000 scenarios)
+
+$0-10K   |██████████████████                             18%
+$10-20K  |████████████████████████████████████            35%
+$20-30K  |██████████████████████████                      26%
+$30-40K  |██████████                                      12%
+$40-50K  |█████                                            6%
+$50K+    |██                                               3%
+          ──────────────────────────────────────────
+          Median: $20,000 total | $12K/yr cap = $48K total
+
+53% of simulations come in under $20,000 total for four years.
+79% come in under $30,000 total.</pre>
+
+      <h4>Chart 2: Admission Probability by Tier</h4>
+      <pre style="background: var(--cream); padding: 1rem; border-radius: 6px; font-size: 0.78rem; line-height: 1.6; overflow-x: auto; margin-bottom: 1.5rem;">
+At Least One Reach Admission:    ███████████                                 22%
+At Least One Target+ Admission:  █████████████████████████████████████████████████ 97%
+At Least One Admission (Any):    ██████████████████████████████████████████████████ 99.9%</pre>
+
+      <h4>Chart 3: Distribution of Total Acceptances</h4>
+      <pre style="background: var(--cream); padding: 1rem; border-radius: 6px; font-size: 0.78rem; line-height: 1.6; overflow-x: auto; margin-bottom: 1.5rem;">
+0 schools  |                                              0.1%
+1 school   |█                                             1.2%
+2 schools  |████                                          4.1%
+3 schools  |████████                                      8.5%
+4 schools  |█████████████                                13.2%
+5 schools  |███████████████████                          19.4%
+6 schools  |█████████████████████████                    24.8%  &larr; median
+7 schools  |████████████████████                         16.5%
+8+ schools |████████████                                 12.2%</pre>
+
+      <h4>Chart 4: Bright Futures Sensitivity Analysis</h4>
+      <pre style="background: var(--cream); padding: 1rem; border-radius: 6px; font-size: 0.78rem; line-height: 1.6; overflow-x: auto; margin-bottom: 1.5rem;">
+Scenario                              4-Year Total Cost (Median)
+─────────────────────────────────────────────────────────────────
+FAS (1330 SAT, 3.5 w-GPA)            $14,000
+FMS (1210 SAT, 3.0 w-GPA)            $22,000
+No Bright Futures                      $38,000
+Valencia &rarr; UCF (any BF level)         $8,000
+
+FAS saves ~$24,000 over four years vs. no Bright Futures.
+FMS saves ~$16,000 over four years vs. no Bright Futures.</pre>
+
+      <p>This chart is the one to put on your refrigerator. Every SAT point Marco gains and every service hour he logs is money you don't have to spend.</p>
+
+    </div></div>
+  </div>
+
+  <h2 id="decision-framework">Decision Framework: April 2028</h2>
+  <div class="section-rule"></div>
+
+  <p>When acceptances and financial aid packages arrive, here are the most likely scenarios.</p>
+
+  <h3>Scenario A: UF Engineering with Bright Futures</h3>
+  <p><strong>Probability:</strong> ~15-18%</p>
+  <p><strong>What it looks like:</strong> Marco is admitted to UF's engineering program with Bright Futures (FAS or FMS). Net cost: $3,000-7,000/year.</p>
+  <p><strong>4-year total cost:</strong> $12,000-28,000</p>
+  <p><strong>Recommendation:</strong> Take it. UF Engineering is the best program on this list, and the cost with Bright Futures is outstanding. This is the dream scenario. Marco goes to a top-25 public engineering school, graduates with minimal debt, and has access to Florida's best engineering job pipeline.</p>
+
+  <h3>Scenario B: FSU or UCF Engineering with Bright Futures</h3>
+  <p><strong>Probability:</strong> ~45-50%</p>
+  <p><strong>What it looks like:</strong> Marco is admitted to FSU or UCF (or both) with Bright Futures. Net cost: $2,000-8,000/year depending on the school and Bright Futures level.</p>
+  <p><strong>4-year total cost:</strong> $8,000-32,000</p>
+  <p><strong>Recommendation:</strong> This is the most likely good outcome. Compare the specific offers:</p>
+  <ul style="margin: 0.5rem 0 1rem 1.25rem; font-size: 0.92rem;">
+    <li>UCF if he wants to stay close to home, commute to save money, and access Orlando's tech corridor</li>
+    <li>FSU if he wants the college-town experience and the joint FAMU-FSU engineering college</li>
+    <li>Florida Poly if the hands-on, small-campus model appeals to him</li>
+  </ul>
+  <p>All are strong. All are affordable. Choose on fit.</p>
+
+  <h3>Scenario C: Embry-Riddle with Strong Merit</h3>
+  <p><strong>Probability:</strong> ~15-20% (admitted with enough aid to come near budget)</p>
+  <p><strong>What it looks like:</strong> Embry-Riddle offers $20,000+ in merit scholarships, bringing the net cost to $12,000-15,000/year. This is at or slightly above your cap.</p>
+  <p><strong>4-year total cost:</strong> $48,000-60,000</p>
+  <p><strong>Recommendation:</strong> Only if the net cost is genuinely under $15K/year and Marco is passionate about the program. The motorsports engineering track and Formula SAE team would be a dream for him. But don't stretch the budget for a dream if UCF or FSU offer a comparable education at half the price. Compare the offers side by side.</p>
+
+  <h3>Scenario D: Florida Public University Without Bright Futures</h3>
+  <p><strong>Probability:</strong> ~10-12%</p>
+  <p><strong>What it looks like:</strong> Marco's SAT doesn't hit the Bright Futures thresholds. He's admitted to UCF, USF, or FIU but without the scholarship. Net cost: $8,000-12,000/year.</p>
+  <p><strong>4-year total cost:</strong> $32,000-48,000</p>
+  <p><strong>Recommendation:</strong> Still manageable, but tighter. This is where the Valencia-UCF path becomes worth serious consideration. Two years at Valencia (nearly free) then two at UCF (with or without Bright Futures) could cut the total in half. If the four-year school offer is above $10K/year and he's not getting Bright Futures, run the Valencia numbers.</p>
+
+  <h3>Scenario E: Valencia to UCF</h3>
+  <p><strong>Probability:</strong> Available in 100% of scenarios</p>
+  <p><strong>What it looks like:</strong> Marco does two years at Valencia, completes his AA, and transfers to UCF through DirectConnect. Total cost: $4,000-14,000 for all four years.</p>
+  <p><strong>Recommendation:</strong> Roberto, this is the one I know you're looking at. It's the cheapest path. It works. The degree at the end is the same UCF degree. Marco can keep working at the shop during the Valencia years. The risk is that he needs to stay on the pre-engineering track (Calc I/II, Physics, Chem) and maintain a strong GPA. If he can do that, this is the smartest financial play on the board.</p>
+
+  <h2 id="what-to-do-now">What to Do Now</h2>
+  <div class="section-rule"></div>
+
+  <p>Sofia, Roberto. Here are the five things to do before the end of this school year:</p>
+
+  <div class="callout-sage">
+    <strong>1. Schedule a meeting with Marco's counselor.</strong> Request AP Environmental Science for junior year. Also request Honors Pre-Calculus if available. Bring the biology teacher's recommendation as evidence. Do this before spring course registration closes.<br><br>
+    <strong>2. Start SAT prep this summer.</strong> Khan Academy, free, syncs with his PSAT. Target: 1150-1200 by fall of junior year. Take the SAT in October or November. If below 1210, retake in spring. The Bright Futures thresholds (1210 for Medallion, 1330 for Academic Scholar) are the targets.<br><br>
+    <strong>3. Start logging community service hours immediately.</strong> Options: Habitat for Humanity (they build things, he'd love it), community auto clinic (free basic car maintenance for low-income families, organized through the shop), church or community organizations. Whatever he does, log it, get it signed, give the records to the counselor.<br><br>
+    <strong>4. Document the shop work.</strong> Start a portfolio: photos of projects, a build log for the go-kart, a list of skills (diagnostics, brake systems, engine repair, customer service). This feeds the activities list, the essays, and the maker portfolio.<br><br>
+    <strong>5. Have the conversation with Marco.</strong> He needs to hear from both of you that college is the plan and that it doesn't mean abandoning the shop or his identity. Show him Florida Poly's website. Show him Embry-Riddle's Formula SAE car. Show him what mechanical engineers actually do. The version of this conversation that works is not "you need to go to college." It's "look what you could build with an engineering degree."
+  </div>
+
+  <div class="doc-quote">You said you need this plan to show Roberto that college and the shop aren't mutually exclusive. Here it is. An engineering degree makes Marco a better business owner, not a worse one. The path through college and the path through the shop are the same path.</div>
+
+  <!-- ============ REFERENCE SECTIONS ============ -->
+
+  <div style="border-top: 2px solid var(--border); margin: 3rem 0 2rem; padding-top: 2rem;">
+    <h2 id="reference-sections" style="margin-bottom: 0.25rem;">Reference Sections</h2>
+    <div class="section-rule"></div>
+    <p style="color: var(--muted); font-size: 0.9rem; margin-bottom: 2rem;">Detailed planning tools. Come back to them when you need them. Each section stands alone.</p>
+  </div>
+
+  <!-- Developmental Roadmap -->
+  <div class="collapsible">
+    <div class="collapsible-header">Developmental Roadmap (Grade-by-Grade)</div>
+    <div class="collapsible-body"><div class="collapsible-body-inner">
+
+      <h4>Where Marco Is Right Now (Spring 2026, Sophomore Year)</h4>
+      <p><strong>Strengths:</strong> Real mechanical aptitude and hundreds of hours of hands-on experience. Systems thinking (teacher-flagged). Self-directed learner (guitar, go-kart build). Responsible and reliable (shop attendance).</p>
+      <p><strong>Gaps:</strong> No honors or AP courses on transcript. 3.3 GPA with no upward trend yet. No documented community service hours. No formal extracurriculars (no clubs, no sports, no organizations). Math weakness that limits SAT scores. PSAT 1060, needs significant improvement for Bright Futures.</p>
+
+      <h4>Summer Before Junior Year (Summer 2026)</h4>
+      <p><strong>Academics:</strong> Start Khan Academy SAT prep (2-3 hours/week, focused on math). If Pre-Calculus is on the fall schedule, review Algebra 2 concepts over summer. Read two books about engineering or technology (suggestions: "The Innovators" by Walter Isaacson, "Zen and the Art of Motorcycle Maintenance" by Robert Pirsig).</p>
+      <p><strong>Extracurriculars:</strong> Continue working at the shop. Start documenting: photos, hours, skills learned. Work on the go-kart: improvements, documentation, consider filming a build video. Start community service: target 20-30 hours (Habitat for Humanity, community auto clinic, library volunteer, church).</p>
+      <p><strong>What Not to Do:</strong> Don't do nothing. This summer is critical setup time. Don't sign up for 5 activities to pad the resume. Don't let Marco spend the entire summer gaming and working at the shop with no academic preparation.</p>
+
+      <h4>Junior Year (2026-2027): THE CRITICAL YEAR</h4>
+      <div class="table-wrap">
+      <table>
+        <thead><tr><th>Course</th><th>Level</th><th>Notes</th></tr></thead>
+        <tbody>
+          <tr><td>English 3</td><td>Honors</td><td>Push for Honors. His reading scores justify it.</td></tr>
+          <tr><td>AP Environmental Science</td><td>AP</td><td>Mr. Reeves recommended it. Take it.</td></tr>
+          <tr><td>Pre-Calculus</td><td>Honors if available</td><td>Must be on track for Calc or AP Stats senior year</td></tr>
+          <tr><td>U.S. History</td><td>Honors</td><td>Humanities course where he can engage</td></tr>
+          <tr><td>Spanish 3</td><td>Regular or Honors</td><td>Third year of language strengthens transcript</td></tr>
+          <tr><td>Elective: Engineering/Tech</td><td>Any</td><td>Maintain the applied learning thread</td></tr>
+        </tbody>
+      </table>
+      </div>
+      <p><strong>Target GPA this year: 3.5+ unweighted, 3.8+ weighted.</strong> An upward trend from 3.3 to 3.5+ shows growth and effort.</p>
+      <p><strong>Extracurriculars:</strong> Shop work continues (document 8-10 hours/week). Join one school club related to engineering/tech: Robotics Club, FIRST Robotics, Science Olympiad, or TSA. If none exist, start one. Continue community service (target 40-50 hours, cumulative 60-80). Consider entering the go-kart in a science/engineering competition.</p>
+      <p><strong>SAT:</strong> Take in October or November 2026. Target: 1150-1200 on first attempt. If below 1210, retake in March or May 2027. Stretch goal: 1330 for Bright Futures Academic Scholar.</p>
+      <p><strong>What Not to Do:</strong> Don't skip the AP class because his friends aren't in it. His friends don't pay tuition. Don't take a light course load to protect the GPA. Don't wait until spring to start SAT prep. Don't forget the service hours. Sofia, don't let the counselor put Marco in standard-track everything again.</p>
+
+      <h4>Senior Year (2027-2028)</h4>
+      <div class="table-wrap">
+      <table>
+        <thead><tr><th>Course</th><th>Level</th><th>Notes</th></tr></thead>
+        <tbody>
+          <tr><td>English 4</td><td>AP English Lit or Honors</td><td>AP if he can handle it; Honors is fine too</td></tr>
+          <tr><td>AP Statistics or Pre-Calculus</td><td>AP or Honors</td><td>AP Stats is more achievable than AP Calc for Marco</td></tr>
+          <tr><td>Government/Economics</td><td>Honors</td><td>Required, take at highest available level</td></tr>
+          <tr><td>Science Elective</td><td>AP or Regular</td><td>Builds on APES if he did well</td></tr>
+          <tr><td>Spanish 4</td><td>Regular or Honors</td><td>Four years of language is strong</td></tr>
+          <tr><td>Elective: Engineering/Tech</td><td>Any</td><td>Senior capstone project if available</td></tr>
+        </tbody>
+      </table>
+      </div>
+      <p><strong>Target GPA this year: 3.5+ unweighted.</strong> Maintain the upward trend.</p>
+      <p><strong>Applications:</strong> Apply to all 10 schools (September-November). UF deadline: typically November 1. Submit FAFSA October 1, 2027.</p>
+      <p><strong>What Not to Do:</strong> Don't get senioritis. Don't apply only to UCF because it's easy. Don't skip Embry-Riddle because of the sticker price. Roberto, don't talk Marco out of applying to UF. Sofia, don't take out Parent PLUS loans to cover a gap at Embry-Riddle.</p>
+
+      <h4>Full Course Progression</h4>
+      <div class="table-wrap">
+      <table>
+        <thead><tr><th></th><th>English</th><th>Social Studies</th><th>Math</th><th>Science</th><th>Language</th><th>Elective</th></tr></thead>
+        <tbody>
+          <tr><td><strong>10th (current)</strong></td><td>English 2</td><td>World History</td><td>Algebra 2</td><td>Biology</td><td>Spanish 2</td><td>Digital Info Tech</td></tr>
+          <tr><td><strong>11th</strong></td><td>English 3 Honors</td><td>U.S. History Honors</td><td>Pre-Calculus (Honors)</td><td>AP Environmental Sci</td><td>Spanish 3</td><td>Engineering/Tech</td></tr>
+          <tr><td><strong>12th</strong></td><td>English 4 Honors/AP Lit</td><td>Government/Econ Honors</td><td>AP Statistics</td><td>Physics or Elective</td><td>Spanish 4</td><td>Engineering Capstone</td></tr>
+        </tbody>
+      </table>
+      </div>
+      <p><strong>Total APs over two remaining years: 2-3.</strong> That's not a lot compared to the 4.0/ten-AP kids, but it's a significant jump from zero, and it shows growth. Engineering programs care more about math/science rigor than AP count.</p>
+
+    </div></div>
+  </div>
+
+  <!-- Projected Applicant Profile -->
+  <div class="collapsible">
+    <div class="collapsible-header">Projected Applicant Profile (Fall 2027)</div>
+    <div class="collapsible-body"><div class="collapsible-body-inner">
+
+      <h4>Optimistic Profile</h4>
+      <div class="table-wrap">
+      <table>
+        <thead><tr><th>Component</th><th>Projection</th></tr></thead>
+        <tbody>
+          <tr><td>GPA (UW / Weighted)</td><td>3.45 / 3.8</td></tr>
+          <tr><td>SAT</td><td>1220 (EBRW 620, Math 600)</td></tr>
+          <tr><td>APs taken by senior fall</td><td>2 (APES + AP Stats or AP Lit)</td></tr>
+          <tr><td>AP Scores</td><td>3-4 on APES</td></tr>
+          <tr><td>Class Rank</td><td>Top 30-35% at Lake Nona</td></tr>
+          <tr><td>Primary Activity</td><td>Family auto repair business (4+ years, 500+ hours)</td></tr>
+          <tr><td>Signature Project</td><td>Self-built go-kart from salvage parts</td></tr>
+          <tr><td>Club Involvement</td><td>Robotics/TSA (1-2 years, potential leadership)</td></tr>
+          <tr><td>Demographics</td><td>Hispanic male, first-gen four-year, small business family</td></tr>
+          <tr><td>Bright Futures</td><td>Medallion likely (1210+ SAT), Academic Scholar possible (1330)</td></tr>
+        </tbody>
+      </table>
+      </div>
+
+      <h4>Realistic Profile</h4>
+      <div class="table-wrap">
+      <table>
+        <thead><tr><th>Component</th><th>Projection</th></tr></thead>
+        <tbody>
+          <tr><td>GPA (UW / Weighted)</td><td>3.35 / 3.6</td></tr>
+          <tr><td>SAT</td><td>1150 (EBRW 590, Math 560)</td></tr>
+          <tr><td>APs taken</td><td>1-2</td></tr>
+          <tr><td>Primary Activity</td><td>Same</td></tr>
+          <tr><td>Bright Futures</td><td>Medallion borderline (1210 threshold is tight at 1150)</td></tr>
+        </tbody>
+      </table>
+      </div>
+
+      <p>The realistic profile still gets Marco into UCF, USF, FIU, Florida Poly, and FGCU. It makes FSU and UF harder. It risks losing Bright Futures Medallion, which would cost $16,000-18,000 over four years. This is why SAT prep matters.</p>
+
+    </div></div>
+  </div>
+
+  <!-- Activities List -->
+  <div class="collapsible">
+    <div class="collapsible-header">Activities List (Common App Format)</div>
+    <div class="collapsible-body"><div class="collapsible-body-inner">
+
+      <p style="color: var(--muted); font-size: 0.88rem; margin-bottom: 1.5rem;">10 activities, ordered by distinctiveness. Items 3, 4, 5, and 8 are projected. The shop work (#1), go-kart (#2), guitar (#7), and cultural activities (#10) are already real.</p>
+
+      <div class="table-wrap">
+      <table>
+        <thead><tr><th>#</th><th>Type</th><th>Role</th><th>Activity</th><th>Hrs/Wk</th><th>Grades</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td>Work (Family Business)</td><td>Technician / Apprentice</td><td>Medina Auto Repair. Diagnostics, brake systems, oil changes, customer vehicles. Learning business operations alongside technical work.</td><td>10</td><td>9-12</td></tr>
+          <tr><td>2</td><td>Independent Project</td><td>Designer / Builder</td><td>Self-designed and built go-kart from riding mower frame, salvaged parts, and Harbor Freight engine. Documented build on YouTube (2,000+ views).</td><td>5</td><td>10-12</td></tr>
+          <tr><td>3</td><td>Club/Organization</td><td>Member &rarr; Leader</td><td>Robotics Club / Technology Student Association, Lake Nona HS. [Projected: join junior year, leadership role senior year.]</td><td>4</td><td>11-12</td></tr>
+          <tr><td>4</td><td>Community Service</td><td>Organizer</td><td>Community Auto Clinic. [Projected: free basic car maintenance for low-income families, organized through Medina Auto Repair and community center.]</td><td>3</td><td>11-12</td></tr>
+          <tr><td>5</td><td>Community Service</td><td>Volunteer</td><td>Habitat for Humanity, Orlando chapter. Construction and building projects.</td><td>3</td><td>11-12</td></tr>
+          <tr><td>6</td><td>Academic</td><td>Student</td><td>AP Environmental Science, AP Statistics. Courses representing academic growth from standard-track to advanced coursework.</td><td>N/A</td><td>11-12</td></tr>
+          <tr><td>7</td><td>Art (Music)</td><td>Self-Taught Musician</td><td>Guitar. Self-taught from YouTube over 3+ years. Classic rock, Latin music. Plays for family, learned songs by request for grandmother.</td><td>4</td><td>9-12</td></tr>
+          <tr><td>8</td><td>Competition</td><td>Competitor</td><td>Science Fair or TSA Competition. [Projected: engineering/automotive project entry, regional level.]</td><td>5</td><td>11-12</td></tr>
+          <tr><td>9</td><td>Work (Paid/Seasonal)</td><td>Various</td><td>Summer or part-time employment (if applicable beyond the shop).</td><td>8</td><td>11-12</td></tr>
+          <tr><td>10</td><td>Family/Cultural</td><td>Family Member</td><td>Regular visits to Puerto Rico, connection to extended family. Bilingual household, helping grandmother navigate English-language systems.</td><td>2</td><td>9-12</td></tr>
+        </tbody>
+      </table>
+      </div>
+
+    </div></div>
+  </div>
+
+  <!-- Honors and Awards -->
+  <div class="collapsible">
+    <div class="collapsible-header">Honors and Awards</div>
+    <div class="collapsible-body"><div class="collapsible-body-inner">
+
+      <div class="table-wrap">
+      <table>
+        <thead><tr><th>#</th><th>Honor</th><th>Year</th><th>Status</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td>Bright Futures Medallion Scholar (or Academic Scholar)</td><td>12th</td><td>Aspirational</td></tr>
+          <tr><td>2</td><td>AP Scholar</td><td>12th</td><td>Likely (if 2+ APs with 3+)</td></tr>
+          <tr><td>3</td><td>Science Fair Regional Recognition</td><td>11th-12th</td><td>Aspirational</td></tr>
+          <tr><td>4</td><td>TSA State Competition Placement</td><td>11th-12th</td><td>Aspirational</td></tr>
+          <tr><td>5</td><td>Honor Roll (semester-based)</td><td>11th-12th</td><td>Likely</td></tr>
+          <tr><td>6</td><td>Lake Nona HS Engineering/Tech Department Award</td><td>12th</td><td>Aspirational</td></tr>
+        </tbody>
+      </table>
+      </div>
+
+      <p><strong>Honest assessment:</strong> Marco's honors list will be thin compared to the AP-loaded kids. That's OK. Engineering admissions weight the portfolio, the work experience, and the upward trend more heavily than a list of academic awards. The go-kart project and the shop work ARE the honors.</p>
+
+    </div></div>
+  </div>
+
+  <!-- Essay Strategy -->
+  <div class="collapsible">
+    <div class="collapsible-header">Essay Strategy</div>
+    <div class="collapsible-body"><div class="collapsible-body-inner">
+
+      <h4>Common App Personal Essay: The Go-Kart</h4>
+      <p>The essay is the go-kart. Not as a project description. As a story about how Marco thinks.</p>
+      <p>The angle: Start with the problem (a riding mower frame, a pile of junk parts, no blueprint). Walk through the process of figuring it out: the YouTube research, the trial and error, the trips to the junkyard with his dad, the moment it first started and then immediately died, the fix, the moment it actually ran. What it felt like. What it taught him about learning.</p>
+      <p>This essay should show a kid who doesn't wait for someone to teach him. He figures it out. That's the engineering mindset, and it's more convincing coming from a kid who actually built something than from a kid who wrote about "my passion for problem-solving" after attending a summer program.</p>
+      <p><strong>What the essay should NOT be:</strong> A resume of his shop experience. "My dad is an immigrant and I learned hard work from him" (true but cliche). A generic "I want to be an engineer because I like building things." Anything that sounds like it was written by an AI or a college consultant.</p>
+
+      <h4>Supplemental Essay Angles by School</h4>
+      <div class="table-wrap">
+      <table>
+        <thead><tr><th>School</th><th>Prompt Type</th><th>Angle</th></tr></thead>
+        <tbody>
+          <tr><td>UF</td><td>"Why UF"</td><td>Connection between shop diagnostics &rarr; systems thinking &rarr; UF's Integrated Product and Process Design program. Mention specific labs or research groups.</td></tr>
+          <tr><td>FSU</td><td>"Why Engineering"</td><td>The FAMU-FSU joint model appeals because of diverse perspectives. Connect to growing up in a bilingual, multicultural family.</td></tr>
+          <tr><td>UCF</td><td>"Community"</td><td>Building the community auto clinic idea. UCF's engineering + Orlando community.</td></tr>
+          <tr><td>Florida Poly</td><td>"Why Poly"</td><td>The small, hands-on, project-based model is exactly how Marco already learns. Reference specific capstone projects.</td></tr>
+          <tr><td>FIU</td><td>"Identity/Background"</td><td>Puerto Rican family, grandfather who was a Navy mechanic, the shop as cultural inheritance.</td></tr>
+          <tr><td>Embry-Riddle</td><td>"Why Embry-Riddle"</td><td>The Formula SAE team. The motorsports engineering minor. Go-kart &rarr; race car is a real trajectory.</td></tr>
+        </tbody>
+      </table>
+      </div>
+
+    </div></div>
+  </div>
+
+  <!-- Recommendation Letter Strategy -->
+  <div class="collapsible">
+    <div class="collapsible-header">Recommendation Letter Strategy</div>
+    <div class="collapsible-body"><div class="collapsible-body-inner">
+
+      <p><strong>Recommender 1: Mr. Reeves (Biology / AP Environmental Science).</strong> When to ask: Early fall of senior year. What the letter should convey: Marco's systems thinking, his curiosity, the fact that he asks better questions than the honors kids. Mr. Reeves saw something in Marco that the transcript doesn't show. This letter needs to say that.</p>
+
+      <p><strong>Recommender 2: Engineering/Tech Teacher (Junior or Senior Year).</strong> When to ask: Fall of senior year, after building a relationship in the class. What the letter should convey: Marco's technical skill, his ability to work with his hands, his problem-solving approach in a classroom/lab setting.</p>
+
+      <p><strong>Recommender 3: Roberto Medina (Supplemental / Employer).</strong> Some schools accept a supplemental recommendation from an employer or mentor. Roberto can write (or dictate) a letter about Marco's work at the shop: reliability, skill development, maturity, business awareness. This carries weight because it's a real employer, not a parent writing a character reference.</p>
+
+      <p><strong>Counselor letter:</strong> Sofia, you need to meet with the counselor EARLY in junior year and share Marco's story. The counselor has 500 students. They need context. Give them: the shop work, the go-kart, the service hours, the upward GPA trend, the family business story. A good counselor letter can compensate for a thin transcript.</p>
+
+    </div></div>
+  </div>
+
+  <!-- Maker Portfolio Guidance -->
+  <div class="collapsible">
+    <div class="collapsible-header">Maker Portfolio Guidance</div>
+    <div class="collapsible-body"><div class="collapsible-body-inner">
+
+      <h4>The Go-Kart Documentation</h4>
+      <p>Before/during/after photos of the build process. A written description (1-2 pages) of the design decisions: why the riding mower frame, how he solved specific problems, what failed and what he learned. The YouTube video (link it). If possible, a short video of the kart running with Marco explaining the build.</p>
+
+      <h4>The Shop Work</h4>
+      <p>Photos of Marco working on vehicles (action shots, not posed). A list of the most complex jobs he's done (engine diagnostics, brake systems, etc.). A brief statement from Roberto about Marco's skill level relative to his age and experience.</p>
+
+      <h4>How to Submit</h4>
+      <p>UF, FSU, and UCF don't have formal portfolio submission processes for engineering, but the Common App additional information section allows uploads and links. Use it. Embry-Riddle actively values demonstrated interest in building/making. Include the portfolio with the application. Florida Poly's admissions process is holistic for engineering. A maker portfolio gives context that a 3.4 GPA doesn't.</p>
+
+      <p><strong>What NOT to include:</strong> Don't over-produce it. A Google Doc with photos and honest descriptions is better than a slick PDF that looks like someone else made it. Don't include the guitar. Save that for the essays. The portfolio should be focused on engineering/making.</p>
+
+    </div></div>
+  </div>
+
+  <!-- Financial Aid Negotiation -->
+  <div class="collapsible">
+    <div class="collapsible-header">Financial Aid Negotiation</div>
+    <div class="collapsible-body"><div class="collapsible-body-inner">
+
+      <p>If Marco gets admitted to multiple schools with different financial packages, you can negotiate. Here's how:</p>
+
+      <ol style="margin: 1rem 0 1.5rem 1.25rem; display: flex; flex-direction: column; gap: 0.75rem; font-size: 0.92rem;">
+        <li><strong>Wait until all offers are in.</strong> Don't commit early just because one school responds first.</li>
+        <li><strong>Compare net costs side by side.</strong> Use the actual aid letter numbers. Calculate: tuition + room/board + fees - grants - scholarships - Bright Futures - Pell = what you actually pay.</li>
+        <li><strong>If one school is cheaper, tell the more expensive school.</strong> Call the financial aid office (phone, not email). Say: "Marco has been admitted to [cheaper school] with a net cost of $X/year. We'd prefer [your school] but the cost difference is significant. Is there anything you can do?"</li>
+        <li><strong>This works best between peer schools.</strong> UCF won't match UF's offer just because you ask. But if FSU and UCF have different packages, either might adjust.</li>
+        <li><strong>Embry-Riddle is the most negotiable school on this list</strong> because it's private and has more flexibility in merit aid. If Marco has strong offers from Florida publics, Embry-Riddle may increase merit to compete.</li>
+        <li><strong>Never bluff.</strong> Only share real offers. Financial aid officers talk to each other.</li>
+      </ol>
+
+    </div></div>
+  </div>
+
+  <!-- Senior Year Application Timeline -->
+  <div class="collapsible">
+    <div class="collapsible-header">Senior Year Application Timeline</div>
+    <div class="collapsible-body"><div class="collapsible-body-inner">
+
+      <div class="table-wrap">
+      <table>
+        <thead><tr><th>Month</th><th>Action Items</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Aug 2027</strong></td><td>Finalize school list. Start Common App account. Begin Common App essay draft.</td></tr>
+          <tr><td><strong>Sep 2027</strong></td><td>Complete Common App essay. Start supplemental essays for top 3 schools. Request recommendation letters (give teachers 6+ weeks). File FFAA for Bright Futures.</td></tr>
+          <tr><td><strong>Oct 2027</strong></td><td><strong>File FAFSA (October 1).</strong> Submit UF application (early deadline, typically Nov 1). Continue supplemental essays. Take SAT if retaking.</td></tr>
+          <tr><td><strong>Nov 2027</strong></td><td>Submit FSU, UCF, Florida Poly, FIU, Embry-Riddle applications. Complete all supplemental essays. Verify Bright Futures service hours with counselor.</td></tr>
+          <tr><td><strong>Dec 2027</strong></td><td>Submit remaining applications (USF, FAMU, FGCU). Follow up on any missing materials. Relax over winter break.</td></tr>
+          <tr><td><strong>Jan 2028</strong></td><td>Monitor application portals. Submit any remaining financial aid materials. Start external scholarship applications.</td></tr>
+          <tr><td><strong>Feb-Mar 2028</strong></td><td>Admission decisions begin arriving. Compare financial aid offers. Visit campuses if possible.</td></tr>
+          <tr><td><strong>Apr 2028</strong></td><td>All decisions and aid packages in hand. Use the Decision Framework above. Compare net costs side by side. Negotiate if applicable.</td></tr>
+          <tr><td><strong>May 1, 2028</strong></td><td>Commit to a school. Submit enrollment deposit. Celebrate.</td></tr>
+        </tbody>
+      </table>
+      </div>
+
+    </div></div>
+  </div>
+
+  <!-- External Scholarships -->
+  <div class="collapsible">
+    <div class="collapsible-header">External Scholarships Worth Pursuing</div>
+    <div class="collapsible-body"><div class="collapsible-body-inner">
+
+      <div class="table-wrap">
+      <table>
+        <thead><tr><th>Scholarship</th><th>Amount</th><th>Deadline</th><th>Notes</th></tr></thead>
+        <tbody>
+          <tr><td>Hispanic Scholarship Fund</td><td>$500-5,000</td><td>Varies (typically Feb)</td><td>Marco qualifies. Apply.</td></tr>
+          <tr><td>Society of Hispanic Professional Engineers (SHPE)</td><td>$1,000-5,000</td><td>Varies</td><td>Engineering-specific, Hispanic students.</td></tr>
+          <tr><td>NACME (National Action Council for Minorities in Engineering)</td><td>Varies</td><td>Through member universities</td><td>Check if target schools are members.</td></tr>
+          <tr><td>Florida Engineering Society Scholarship</td><td>$1,000-2,500</td><td>Varies</td><td>Florida students pursuing engineering.</td></tr>
+          <tr><td>Salute to Education (Orlando)</td><td>$1,000-5,000</td><td>Spring</td><td>Local Orlando scholarship, Hispanic focus.</td></tr>
+          <tr><td>Dell Scholars Program</td><td>$20,000</td><td>Nov-Jan</td><td>Low-income, first-gen, high motivation. Competitive but worth applying.</td></tr>
+          <tr><td>Bright Futures (FAS/FMS)</td><td>$5,000-6,700/yr</td><td>Automatic via FFAA</td><td>The big one. Not external, but the most important scholarship on this list.</td></tr>
+        </tbody>
+      </table>
+      </div>
+
+      <p><strong>Note on QuestBridge:</strong> At $105K household income, Marco is above the typical QuestBridge threshold. QuestBridge is not applicable for this family.</p>
+
+    </div></div>
+  </div>
+
+  <!-- Monte Carlo Simulation Parameters -->
+  <div class="collapsible">
+    <div class="collapsible-header">Monte Carlo Simulation Parameters</div>
+    <div class="collapsible-body"><div class="collapsible-body-inner">
+
+      <p style="color: var(--muted); font-size: 0.88rem; margin-bottom: 1rem;">Each number is an estimate based on published admission rates, institutional data, and adjustments for Marco's projected profile.</p>
+
+      <div class="table-wrap">
+      <table>
+        <thead><tr><th>School</th><th>Published Rate</th><th>Adjusted Rate</th><th>P(BF FMS)</th><th>P(BF FAS)</th><th>P(Merit)</th><th>Net Cost (FMS)</th><th>Net Cost (No BF)</th></tr></thead>
+        <tbody>
+          <tr><td>UF Engineering</td><td>23% (overall)</td><td>18%</td><td>55%</td><td>25%</td><td>10%</td><td>$4,000</td><td>$8,000</td></tr>
+          <tr><td>FSU Engineering</td><td>25% (joint)</td><td>55%</td><td>55%</td><td>25%</td><td>15%</td><td>$5,000</td><td>$9,000</td></tr>
+          <tr><td>UCF Engineering</td><td>43%</td><td>75%</td><td>55%</td><td>25%</td><td>20%</td><td>$3,000</td><td>$8,000</td></tr>
+          <tr><td>Florida Poly</td><td>45%</td><td>78%</td><td>55%</td><td>25%</td><td>25%</td><td>$2,500</td><td>$6,500</td></tr>
+          <tr><td>FIU Engineering</td><td>58%</td><td>82%</td><td>55%</td><td>25%</td><td>15%</td><td>$3,500</td><td>$8,000</td></tr>
+          <tr><td>Embry-Riddle</td><td>68%</td><td>72%</td><td>N/A (private)</td><td>N/A</td><td>60%</td><td>N/A</td><td>$15,000 (w/ merit)</td></tr>
+          <tr><td>FAMU Engineering</td><td>38%</td><td>65%</td><td>55%</td><td>25%</td><td>25%</td><td>$4,000</td><td>$9,000</td></tr>
+          <tr><td>USF Engineering</td><td>48%</td><td>80%</td><td>55%</td><td>25%</td><td>20%</td><td>$3,500</td><td>$7,500</td></tr>
+          <tr><td>FGCU</td><td>76%</td><td>92%</td><td>55%</td><td>25%</td><td>15%</td><td>$2,500</td><td>$6,000</td></tr>
+          <tr><td>Valencia &rarr; UCF</td><td>99%</td><td>99%</td><td>55%</td><td>25%</td><td>N/A</td><td>$1,000</td><td>$3,500</td></tr>
+        </tbody>
+      </table>
+      </div>
+
+      <p><strong>Adjustments for Marco's profile:</strong> Hispanic male (moderate boost at public universities with diversity goals), first-generation four-year (moderate boost at most schools), upward GPA trend (positive signal), real work experience and maker portfolio (strong positive for engineering programs), below-median test scores (negative for UF, neutral for others), no AP history (negative, partially offset by adding APs junior/senior year).</p>
+
+    </div></div>
+  </div>
+
+
+</div>
+</div>
+
+<!-- CTA -->
+<div class="cta-bar">
+  <p>This sample was built from a 10-minute intake form. Your family's plan would be personalized to your kid, your schools, and your numbers.</p>
+  <a href="index.html#pricing" class="btn-primary">Get Your Plan for $50 &rarr;</a>
+</div>
+
+<!-- FOOTER -->
+<div class="doc-footer">
+  <p>Scaffold is strategic planning, not professional counseling. All school-specific information should be verified.</p>
+</div>
+
+<script>
+  // Toggle panels
+  document.querySelectorAll('.toggle-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const target = btn.getAttribute('data-panel');
+      document.querySelectorAll('.toggle-btn').forEach(b => b.classList.remove('active'));
+      document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+      btn.classList.add('active');
+      document.getElementById('panel-' + target).classList.add('active');
+    });
+  });
+
+  // Collapsibles
+  document.querySelectorAll('.collapsible-header').forEach(h => {
+    h.addEventListener('click', () => h.parentElement.classList.toggle('open'));
+  });
+
+  // Reading progress bar
+  window.addEventListener('scroll', () => {
+    const h = document.documentElement;
+    const pct = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
+    document.getElementById('progressBar').style.width = pct + '%';
+  });
+</script>
+
+</body>
+</html>
