@@ -1441,7 +1441,7 @@
     // --- Inline badges: [CURRENT], [TARGET], [Already earned], [Likely], [Aspirational] ---
     const walker = document.createTreeWalker(container, NodeFilter.SHOW_TEXT, null, false);
     const replacements = [];
-    const badgePattern = /\[(CURRENT|TARGET|ASPIRATIONAL|Already earned|Already Earned|Likely|Aspirational|LIKELY)\]/i;
+    const badgePattern = /\[(CURRENT|TARGET|CURRENT\/TARGET|ASPIRATIONAL|Already earned|Already Earned|Likely|Aspirational|LIKELY)\]/i;
     while (walker.nextNode()) {
       const node = walker.currentNode;
       if (badgePattern.test(node.textContent)) {
@@ -1452,6 +1452,7 @@
     replacements.forEach(node => {
       const span = document.createElement('span');
       span.innerHTML = node.textContent
+        .replace(/\[CURRENT\/TARGET\]/gi, '<span class="activity-current">Current</span> <span class="activity-target">Target</span>')
         .replace(/\[CURRENT\]/gi, '<span class="activity-current">Current</span>')
         .replace(/\[TARGET\]/gi, '<span class="activity-target">Target</span>')
         .replace(/\[ASPIRATIONAL\]/gi, '<span class="flag-aspirational">Aspirational</span>')
