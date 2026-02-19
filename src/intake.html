@@ -1,0 +1,1067 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Tell us about your family. We'll build your personalized college strategy.">
+<title>Build Your Plan - Scaffold</title>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1a1a18;
+    --cream: #f8f5f0;
+    --warm-white: #fdfcfa;
+    --sage: #4a6741;
+    --sage-light: #e8ede6;
+    --sage-dark: #3a5233;
+    --terra: #c4652a;
+    --terra-light: #f5ece5;
+    --muted: #6b6860;
+    --border: #d9d4cc;
+    --error: #c94d4d;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    color: var(--ink);
+    background: var(--warm-white);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ---- TOP BAR ---- */
+  .topbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+    background: rgba(253, 252, 250, 0.95);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    padding: 0 2rem;
+    height: 52px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .topbar-logo {
+    font-family: 'Newsreader', serif;
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: var(--ink);
+    text-decoration: none;
+    letter-spacing: -0.02em;
+  }
+  .topbar-logo span { color: var(--sage); }
+
+  .topbar-right { display: flex; align-items: center; gap: 1.5rem; }
+
+  .topbar-link {
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--muted);
+    text-decoration: none;
+    transition: color 0.2s;
+    cursor: pointer;
+  }
+  .topbar-link:hover { color: var(--ink); }
+
+  .topbar-dropdown { position: relative; }
+  .topbar-dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    padding-top: 0.5rem;
+    min-width: 200px;
+    z-index: 200;
+  }
+  .topbar-dropdown-menu-inner {
+    background: var(--warm-white);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+    overflow: hidden;
+  }
+  .topbar-dropdown:hover .topbar-dropdown-menu { display: block; }
+  .topbar-dropdown-menu-inner a {
+    display: block;
+    padding: 0.6rem 1rem;
+    font-size: 0.82rem;
+    font-weight: 500;
+    color: var(--ink);
+    text-decoration: none;
+    transition: background 0.15s;
+  }
+  .topbar-dropdown-menu-inner a:hover { background: var(--sage-light); }
+  .topbar-dropdown-menu-inner a + a { border-top: 1px solid var(--border); }
+
+  .topbar-cta {
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: white;
+    background: var(--sage);
+    padding: 0.35rem 0.9rem;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background 0.2s;
+  }
+  .topbar-cta:hover { background: var(--sage-dark); }
+
+  /* ---- PROGRESS BAR ---- */
+  .progress-wrap {
+    position: fixed;
+    top: 52px;
+    left: 0;
+    width: 100%;
+    z-index: 99;
+    background: var(--cream);
+    border-bottom: 1px solid var(--border);
+    padding: 0.75rem 2rem;
+  }
+
+  .progress-inner {
+    max-width: 640px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .progress-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--muted);
+    white-space: nowrap;
+  }
+
+  .progress-track {
+    flex: 1;
+    height: 6px;
+    background: var(--border);
+    border-radius: 3px;
+    overflow: hidden;
+  }
+
+  .progress-fill {
+    height: 100%;
+    background: var(--sage);
+    border-radius: 3px;
+    transition: width 0.4s ease;
+    width: 14.28%;
+  }
+
+  /* ---- FORM CONTAINER ---- */
+  .form-container {
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 7.5rem 1.5rem 4rem;
+  }
+
+  /* ---- STEP ---- */
+  .step { display: none; }
+  .step.active { display: block; }
+
+  .step-header {
+    margin-bottom: 2rem;
+  }
+
+  .step-number {
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--terra);
+    margin-bottom: 0.4rem;
+  }
+
+  .step-title {
+    font-family: 'Newsreader', serif;
+    font-size: 1.6rem;
+    font-weight: 400;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+  }
+
+  .step-subtitle {
+    font-size: 0.88rem;
+    color: var(--muted);
+    margin-top: 0.5rem;
+    line-height: 1.55;
+  }
+
+  /* ---- FORM FIELDS ---- */
+  .field {
+    margin-bottom: 1.5rem;
+  }
+
+  .field-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+
+  .field-label {
+    display: block;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 0.35rem;
+  }
+
+  .field-label .optional {
+    font-weight: 400;
+    color: var(--muted);
+    font-size: 0.78rem;
+  }
+
+  .field-hint {
+    font-size: 0.78rem;
+    color: var(--muted);
+    margin-bottom: 0.4rem;
+    line-height: 1.5;
+  }
+
+  input[type="text"],
+  input[type="number"],
+  input[type="email"],
+  select,
+  textarea {
+    width: 100%;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.9rem;
+    color: var(--ink);
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 0.7rem 0.85rem;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    -webkit-appearance: none;
+  }
+
+  input:focus,
+  select:focus,
+  textarea:focus {
+    outline: none;
+    border-color: var(--sage);
+    box-shadow: 0 0 0 3px rgba(74, 103, 65, 0.1);
+  }
+
+  textarea {
+    resize: vertical;
+    min-height: 110px;
+    line-height: 1.6;
+  }
+
+  textarea.large {
+    min-height: 180px;
+  }
+
+  select {
+    cursor: pointer;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%236b6860' fill='none' stroke-width='1.5'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 0.85rem center;
+    padding-right: 2.5rem;
+  }
+
+  input::placeholder,
+  textarea::placeholder {
+    color: #b5b0a8;
+  }
+
+  .field-error input,
+  .field-error select,
+  .field-error textarea {
+    border-color: var(--error);
+  }
+
+  .field-error-msg {
+    font-size: 0.75rem;
+    color: var(--error);
+    margin-top: 0.3rem;
+    display: none;
+  }
+
+  .field-error .field-error-msg {
+    display: block;
+  }
+
+  /* ---- CONDITIONAL FIELDS ---- */
+  .conditional {
+    display: none;
+    margin-top: 1rem;
+    padding: 1.25rem;
+    background: var(--cream);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+  }
+  .conditional.visible { display: block; }
+  .conditional .field:last-child { margin-bottom: 0; }
+
+  /* ---- PRIORITY RANKING ---- */
+  .priority-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .priority-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.65rem 0.85rem;
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    transition: border-color 0.2s;
+  }
+
+  .priority-item select {
+    width: 58px;
+    padding: 0.4rem 0.5rem;
+    font-size: 0.85rem;
+    text-align: center;
+    flex-shrink: 0;
+    background-position: right 0.4rem center;
+    padding-right: 1.5rem;
+  }
+
+  .priority-item-label {
+    font-size: 0.88rem;
+    color: var(--ink);
+  }
+
+  .priority-note {
+    font-size: 0.75rem;
+    color: var(--muted);
+    margin-top: 0.5rem;
+  }
+
+  /* ---- NAVIGATION BUTTONS ---- */
+  .step-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 2.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border);
+  }
+
+  .btn-continue {
+    background: var(--sage);
+    color: white;
+    padding: 0.85rem 2rem;
+    border-radius: 8px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.1s;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+  .btn-continue:hover { background: var(--sage-dark); transform: translateY(-1px); }
+
+  .btn-back {
+    background: none;
+    border: none;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.88rem;
+    font-weight: 500;
+    color: var(--muted);
+    cursor: pointer;
+    padding: 0.85rem 1rem;
+    transition: color 0.2s;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+  }
+  .btn-back:hover { color: var(--ink); }
+
+  .btn-submit {
+    background: var(--sage);
+    color: white;
+    padding: 0.85rem 2.5rem;
+    border-radius: 8px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.1s;
+  }
+  .btn-submit:hover { background: var(--sage-dark); transform: translateY(-1px); }
+
+  /* ---- CONFIRMATION SCREEN ---- */
+  .confirmation {
+    display: none;
+    text-align: center;
+    padding: 4rem 1.5rem;
+  }
+  .confirmation.active { display: block; }
+
+  .confirmation-icon {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: var(--sage-light);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+    font-size: 1.8rem;
+    color: var(--sage-dark);
+  }
+
+  .confirmation h2 {
+    font-family: 'Newsreader', serif;
+    font-size: 1.8rem;
+    font-weight: 400;
+    margin-bottom: 1rem;
+  }
+
+  .confirmation p {
+    font-size: 0.95rem;
+    color: var(--muted);
+    max-width: 460px;
+    margin: 0 auto 1rem;
+    line-height: 1.65;
+  }
+
+  /* ---- ACCESS GATE ---- */
+  .gate {
+    display: none;
+    text-align: center;
+    padding: 6rem 1.5rem;
+  }
+  .gate.active { display: block; }
+
+  .gate h2 {
+    font-family: 'Newsreader', serif;
+    font-size: 1.6rem;
+    font-weight: 400;
+    margin-bottom: 0.75rem;
+  }
+
+  .gate p {
+    font-size: 0.92rem;
+    color: var(--muted);
+    max-width: 420px;
+    margin: 0 auto 1.5rem;
+    line-height: 1.6;
+  }
+
+  .gate a {
+    display: inline-block;
+    background: var(--sage);
+    color: white;
+    padding: 0.85rem 2rem;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background 0.2s;
+  }
+  .gate a:hover { background: var(--sage-dark); }
+
+  /* ---- SECTION DIVIDER ---- */
+  .section-divider {
+    font-size: 0.68rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--sage);
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    padding-bottom: 0.4rem;
+    border-bottom: 2px solid var(--sage-light);
+  }
+
+  /* ---- RESPONSIVE ---- */
+  @media (max-width: 600px) {
+    .field-row {
+      grid-template-columns: 1fr;
+      gap: 0;
+    }
+    .topbar-link, .topbar-dropdown { display: none; }
+    .form-container { padding: 7rem 1.25rem 3rem; }
+    .step-title { font-size: 1.35rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="topbar">
+  <a href="index.html" class="topbar-logo"><span>S</span>caffold</a>
+  <div class="topbar-right">
+    <a href="index.html" class="topbar-link">Home</a>
+    <div class="topbar-dropdown">
+      <a class="topbar-link topbar-dropdown-trigger">See Samples</a>
+      <div class="topbar-dropdown-menu">
+        <div class="topbar-dropdown-menu-inner">
+          <a href="washington-sample.html">The Washington Family</a>
+          <a href="medina-sample.html">The Medina Family</a>
+          <a href="kaplan-sample.html">The Kaplan Family</a>
+        </div>
+      </div>
+    </div>
+    <a href="index.html#pricing" class="topbar-cta">Get Your Plan</a>
+  </div>
+</div>
+
+<!-- PROGRESS BAR -->
+<div class="progress-wrap">
+  <div class="progress-inner">
+    <span class="progress-label">Step <span id="step-current">1</span> of 7</span>
+    <div class="progress-track">
+      <div class="progress-fill" id="progress-fill"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ACCESS GATE (shown when no valid code/payment) -->
+<div class="form-container">
+  <div class="gate" id="gate">
+    <h2>You need a plan first</h2>
+    <p>Purchase your Scaffold plan on the homepage, then you'll be directed here to fill in your family's details.</p>
+    <a href="index.html#pricing">Get Your Plan ($50)</a>
+  </div>
+
+  <!-- FORM -->
+  <form id="intake-form" style="display: none;" autocomplete="off">
+
+    <!-- ======== STEP 1: About Your Student ======== -->
+    <div class="step active" data-step="1">
+      <div class="step-header">
+        <div class="step-number">Step 1 of 7</div>
+        <h2 class="step-title">About your student</h2>
+        <p class="step-subtitle">Start with the basics. We'll get to the deeper stuff next.</p>
+      </div>
+
+      <div class="field-row">
+        <div class="field">
+          <label class="field-label" for="student-name">Student's first name</label>
+          <input type="text" id="student-name" name="student_name" placeholder="e.g., Jaylen" required>
+        </div>
+        <div class="field">
+          <label class="field-label" for="student-age-grade">Age and current grade</label>
+          <input type="text" id="student-age-grade" name="student_age_grade" placeholder="e.g., 15 / sophomore (10th)" required>
+        </div>
+      </div>
+
+      <div class="field-row">
+        <div class="field">
+          <label class="field-label" for="school-name">School name</label>
+          <input type="text" id="school-name" name="school_name" placeholder="e.g., North Atlanta High School" required>
+        </div>
+        <div class="field">
+          <label class="field-label" for="school-type">School type</label>
+          <select id="school-type" name="school_type" required>
+            <option value="" disabled selected>Select one</option>
+            <option value="public">Public</option>
+            <option value="private">Private</option>
+            <option value="charter">Charter</option>
+            <option value="magnet">Magnet</option>
+            <option value="homeschool">Homeschool</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="field">
+        <label class="field-label" for="school-district">School district <span class="optional">(optional)</span></label>
+        <input type="text" id="school-district" name="school_district" placeholder="e.g., Atlanta Public Schools">
+      </div>
+
+      <div class="field">
+        <label class="field-label" for="academic-profile">Academic profile</label>
+        <p class="field-hint">Current GPA, any test scores (SAT, PSAT, AP exams), honors or AP courses, gifted identification, anything relevant.</p>
+        <textarea id="academic-profile" name="academic_profile" placeholder="e.g., 3.7 unweighted GPA. Taking Honors English and AP World History. Scored 1150 on practice PSAT. Identified for gifted program in elementary school." required></textarea>
+      </div>
+
+      <div class="field">
+        <label class="field-label" for="academic-strengths">Academic strengths</label>
+        <p class="field-hint">What subjects come naturally? Where do they shine?</p>
+        <textarea id="academic-strengths" name="academic_strengths" placeholder="e.g., Strong writer. Always gets good feedback on essays. History is his best subject by far." required></textarea>
+      </div>
+
+      <div class="field">
+        <label class="field-label" for="academic-weaknesses">Academic weaknesses or gaps</label>
+        <p class="field-hint">Struggles, disinterest, or gaps. It's OK to say "nothing obvious" if that's true.</p>
+        <textarea id="academic-weaknesses" name="academic_weaknesses" placeholder="e.g., Math is a slog. He does fine but it takes twice the effort. Science is average." required></textarea>
+      </div>
+
+      <div class="step-nav">
+        <div></div>
+        <button type="button" class="btn-continue" onclick="nextStep()">Continue</button>
+      </div>
+    </div>
+
+    <!-- ======== STEP 2: Who They Are ======== -->
+    <div class="step" data-step="2">
+      <div class="step-header">
+        <div class="step-number">Step 2 of 7</div>
+        <h2 class="step-title">Who they really are</h2>
+        <p class="step-subtitle">This is where the plan gets personal. The more specific you are, the better the strategy.</p>
+      </div>
+
+      <div class="field">
+        <label class="field-label" for="interests">Interests, hobbies, obsessions</label>
+        <p class="field-hint">What do they do when nobody's grading them? Include things they might not think of as "college-worthy." The kid who rearranges furniture and watches architecture TikToks? That matters.</p>
+        <textarea id="interests" name="interests" class="large" placeholder="e.g., He cooks dinner three nights a week (West African recipes from his grandmother). Watches cooking shows constantly. Also plays basketball recreationally and is obsessed with 90s hip-hop history." required></textarea>
+      </div>
+
+      <div class="field">
+        <label class="field-label" for="personality">Personality and temperament</label>
+        <p class="field-hint">How would you describe them to a close friend? Not their resume, the real kid.</p>
+        <textarea id="personality" name="personality" class="large" placeholder="e.g., Quiet in class but hilarious at home. Hates asking for help. Gets anxious before tests but once he starts he's fine. Very loyal to his friends." required></textarea>
+      </div>
+
+      <div class="field">
+        <label class="field-label" for="teacher-quote">Anything a teacher has said about them that stuck with you <span class="optional">(optional)</span></label>
+        <p class="field-hint">A comment from a teacher, coach, or mentor that felt true.</p>
+        <textarea id="teacher-quote" name="teacher_quote" placeholder='e.g., His English teacher told me, "Jaylen sees things in texts that the other kids miss. He just needs someone to tell him that matters."'></textarea>
+      </div>
+
+      <div class="step-nav">
+        <button type="button" class="btn-back" onclick="prevStep()">Back</button>
+        <button type="button" class="btn-continue" onclick="nextStep()">Continue</button>
+      </div>
+    </div>
+
+    <!-- ======== STEP 3: About the Parents ======== -->
+    <div class="step" data-step="3">
+      <div class="step-header">
+        <div class="step-number">Step 3 of 7</div>
+        <h2 class="step-title">About the parents</h2>
+        <p class="step-subtitle">Your background matters for the strategy. First-gen status, professional networks, and family structure all shape the plan.</p>
+      </div>
+
+      <div class="section-divider">Parent 1</div>
+
+      <div class="field">
+        <label class="field-label" for="parent1-name">Name</label>
+        <input type="text" id="parent1-name" name="parent1_name" placeholder="e.g., Maya Washington" required>
+      </div>
+
+      <div class="field-row">
+        <div class="field">
+          <label class="field-label" for="parent1-education">Education</label>
+          <input type="text" id="parent1-education" name="parent1_education" placeholder="e.g., BA from Spelman College" required>
+        </div>
+        <div class="field">
+          <label class="field-label" for="parent1-profession">Profession</label>
+          <input type="text" id="parent1-profession" name="parent1_profession" placeholder="e.g., Office manager at a dental practice" required>
+        </div>
+      </div>
+
+      <div class="section-divider">Parent 2 <span class="optional">(if applicable)</span></div>
+
+      <div class="field">
+        <label class="field-label" for="parent2-name">Name <span class="optional">(optional)</span></label>
+        <input type="text" id="parent2-name" name="parent2_name" placeholder="e.g., David Washington">
+      </div>
+
+      <div class="field-row">
+        <div class="field">
+          <label class="field-label" for="parent2-education">Education <span class="optional">(optional)</span></label>
+          <input type="text" id="parent2-education" name="parent2_education" placeholder="e.g., Some college, Georgia State">
+        </div>
+        <div class="field">
+          <label class="field-label" for="parent2-profession">Profession <span class="optional">(optional)</span></label>
+          <input type="text" id="parent2-profession" name="parent2_profession" placeholder="e.g., Electrician, IBEW Local 613">
+        </div>
+      </div>
+
+      <div class="section-divider">Family Structure</div>
+
+      <div class="field">
+        <label class="field-label" for="family-structure">Family structure</label>
+        <select id="family-structure" name="family_structure" required>
+          <option value="" disabled selected>Select one</option>
+          <option value="married">Married, both in the home</option>
+          <option value="divorced">Divorced or separated</option>
+          <option value="single">Single parent</option>
+          <option value="other">Other</option>
+        </select>
+      </div>
+
+      <div class="conditional" id="divorce-details">
+        <div class="field">
+          <label class="field-label" for="custody">Custody arrangement</label>
+          <p class="field-hint">This affects financial aid forms. Some schools require the non-custodial parent's information.</p>
+          <textarea id="custody" name="custody" placeholder="e.g., Primary custody with mom. Dad has every other weekend. Relationship is civil but he's not involved in school decisions."></textarea>
+        </div>
+        <div class="field">
+          <label class="field-label" for="fafsa-parent">Which parent will file the FAFSA?</label>
+          <input type="text" id="fafsa-parent" name="fafsa_parent" placeholder="e.g., Mom (primary custody)">
+        </div>
+        <div class="field">
+          <label class="field-label" for="coparent-relationship">Relationship with co-parent regarding college planning <span class="optional">(optional)</span></label>
+          <textarea id="coparent-relationship" name="coparent_relationship" placeholder="e.g., He says he'll contribute but I'm not counting on it. I need a plan that works without his money."></textarea>
+        </div>
+      </div>
+
+      <div class="step-nav">
+        <button type="button" class="btn-back" onclick="prevStep()">Back</button>
+        <button type="button" class="btn-continue" onclick="nextStep()">Continue</button>
+      </div>
+    </div>
+
+    <!-- ======== STEP 4: Siblings & Geography ======== -->
+    <div class="step" data-step="4">
+      <div class="step-header">
+        <div class="step-number">Step 4 of 7</div>
+        <h2 class="step-title">Siblings and geography</h2>
+        <p class="step-subtitle">Siblings affect the financial math. Location shapes the school list.</p>
+      </div>
+
+      <div class="field">
+        <label class="field-label" for="siblings">Siblings <span class="optional">(optional)</span></label>
+        <p class="field-hint">Names, ages, grades, and anything relevant to the college timeline. If they'll be in college at the same time, that matters for financial aid.</p>
+        <textarea id="siblings" name="siblings" placeholder="e.g., Eli, age 11, 5th grade. Less academically intense. Into Legos and basketball. College pipeline in about 7 years."></textarea>
+      </div>
+
+      <div class="field-row">
+        <div class="field">
+          <label class="field-label" for="city">City and state</label>
+          <input type="text" id="city" name="city" placeholder="e.g., Atlanta, GA" required>
+        </div>
+        <div class="field">
+          <label class="field-label" for="area-type">Area type</label>
+          <select id="area-type" name="area_type" required>
+            <option value="" disabled selected>Select one</option>
+            <option value="urban">Urban</option>
+            <option value="suburban">Suburban</option>
+            <option value="rural">Rural</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="field">
+        <label class="field-label" for="area-context">Anything about your area that matters <span class="optional">(optional)</span></label>
+        <p class="field-hint">School competition, community context, opportunities available locally.</p>
+        <textarea id="area-context" name="area_context" placeholder="e.g., Good schools, high cost of living. Lots of type-A families competing over everything."></textarea>
+      </div>
+
+      <div class="field">
+        <label class="field-label" for="relocation">How far is your student willing to go for college?</label>
+        <textarea id="relocation" name="relocation" placeholder="e.g., East Coast preferred. Would consider Midwest for the right school. Probably not the deep South." required></textarea>
+      </div>
+
+      <div class="step-nav">
+        <button type="button" class="btn-back" onclick="prevStep()">Back</button>
+        <button type="button" class="btn-continue" onclick="nextStep()">Continue</button>
+      </div>
+    </div>
+
+    <!-- ======== STEP 5: Finances ======== -->
+    <div class="step" data-step="5">
+      <div class="step-header">
+        <div class="step-number">Step 5 of 7</div>
+        <h2 class="step-title">Finances</h2>
+        <p class="step-subtitle">This is private and it's essential. Financial aid strategy is the most valuable part of the plan, and it can't work without honest numbers.</p>
+      </div>
+
+      <div class="field-row">
+        <div class="field">
+          <label class="field-label" for="income">Approximate household income</label>
+          <p class="field-hint">Combined annual income, pre-tax.</p>
+          <input type="text" id="income" name="income" placeholder="e.g., $72,000" required>
+        </div>
+        <div class="field">
+          <label class="field-label" for="college-budget">What can you afford per year for college?</label>
+          <p class="field-hint">Be honest. There's no wrong answer.</p>
+          <input type="text" id="college-budget" name="college_budget" placeholder="e.g., $10,000-15,000" required>
+        </div>
+      </div>
+
+      <div class="field">
+        <label class="field-label" for="assets">Significant assets</label>
+        <p class="field-hint">Home equity, 529 plans, retirement accounts, other savings. Schools use this in financial aid formulas. Home equity especially matters for CSS Profile schools.</p>
+        <textarea id="assets" name="assets" placeholder="e.g., Home worth about $950K, owe $410K. 529 plan with $62,000. Retirement accounts totaling $380K." required></textarea>
+      </div>
+
+      <div class="field">
+        <label class="field-label" for="financial-special">Any special financial circumstances <span class="optional">(optional)</span></label>
+        <p class="field-hint">Business ownership, rental income, recent job change, medical expenses, anything that makes your financial picture non-standard.</p>
+        <textarea id="financial-special" name="financial_special" placeholder="e.g., Nothing unusual. Both W-2 employees, straightforward taxes."></textarea>
+      </div>
+
+      <div class="step-nav">
+        <button type="button" class="btn-back" onclick="prevStep()">Back</button>
+        <button type="button" class="btn-continue" onclick="nextStep()">Continue</button>
+      </div>
+    </div>
+
+    <!-- ======== STEP 6: School Preferences ======== -->
+    <div class="step" data-step="6">
+      <div class="step-header">
+        <div class="step-number">Step 6 of 7</div>
+        <h2 class="step-title">School preferences</h2>
+        <p class="step-subtitle">Tell us what you're looking for. We'll build the list, but it helps to know where your head is.</p>
+      </div>
+
+      <div class="field">
+        <label class="field-label" for="size-pref">Size preference</label>
+        <select id="size-pref" name="size_preference" required>
+          <option value="" disabled selected>Select one</option>
+          <option value="large">Large research university (15,000+)</option>
+          <option value="mid">Mid-size (5,000-15,000)</option>
+          <option value="small">Small liberal arts college (under 5,000)</option>
+          <option value="unsure">Not sure yet</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label class="field-label" for="geo-pref">Geographic preference</label>
+        <textarea id="geo-pref" name="geographic_preference" placeholder="e.g., East Coast preferred. Cities and suburbs feel natural. Boston, New York, Philadelphia, DC area all work." required></textarea>
+      </div>
+
+      <div class="field">
+        <label class="field-label" for="must-haves">Must-haves <span class="optional">(optional)</span></label>
+        <p class="field-hint">Specific major, D1 sports, religious community, co-op programs, research opportunities, anything non-negotiable.</p>
+        <textarea id="must-haves" name="must_haves" placeholder="e.g., Strong academics. Good campus life. Active Jewish community is a plus. Good mentoring and advising."></textarea>
+      </div>
+
+      <div class="field">
+        <label class="field-label" for="deal-breakers">Deal-breakers <span class="optional">(optional)</span></label>
+        <textarea id="deal-breakers" name="deal_breakers" placeholder="e.g., No party schools. Nothing where she'd feel academically unchallenged. No schools where $85K/year is the only option."></textarea>
+      </div>
+
+      <div class="field">
+        <label class="field-label" for="schools-radar">Schools already on your radar <span class="optional">(optional)</span></label>
+        <p class="field-hint">Schools you've talked about, visited, or are curious about. No wrong answers.</p>
+        <textarea id="schools-radar" name="schools_on_radar" placeholder="e.g., The Ivies (Harvard, Penn, Columbia). Georgetown. UVA. University of Maryland as a safety. Friend's sister goes to Tufts and loves it."></textarea>
+      </div>
+
+      <div class="step-nav">
+        <button type="button" class="btn-back" onclick="prevStep()">Back</button>
+        <button type="button" class="btn-continue" onclick="nextStep()">Continue</button>
+      </div>
+    </div>
+
+    <!-- ======== STEP 7: Priorities & Final Thoughts ======== -->
+    <div class="step" data-step="7">
+      <div class="step-header">
+        <div class="step-number">Step 7 of 7</div>
+        <h2 class="step-title">Priorities and final thoughts</h2>
+        <p class="step-subtitle">Last step. Rank what matters most, then tell us anything else.</p>
+      </div>
+
+      <div class="field">
+        <label class="field-label">Rank these 1-7 (1 = most important)</label>
+        <p class="field-hint">Each number can only be used once.</p>
+        <div class="priority-grid">
+          <div class="priority-item">
+            <select name="priority_cost" class="priority-select" required><option value="" disabled selected>-</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option></select>
+            <span class="priority-item-label">Minimize total cost of attendance</span>
+          </div>
+          <div class="priority-item">
+            <select name="priority_prestige" class="priority-select" required><option value="" disabled selected>-</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option></select>
+            <span class="priority-item-label">Prestige / brand name</span>
+          </div>
+          <div class="priority-item">
+            <select name="priority_academic_fit" class="priority-select" required><option value="" disabled selected>-</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option></select>
+            <span class="priority-item-label">Academic fit (programs, research, major strength)</span>
+          </div>
+          <div class="priority-item">
+            <select name="priority_location" class="priority-select" required><option value="" disabled selected>-</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option></select>
+            <span class="priority-item-label">Geographic location</span>
+          </div>
+          <div class="priority-item">
+            <select name="priority_culture" class="priority-select" required><option value="" disabled selected>-</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option></select>
+            <span class="priority-item-label">Campus culture / social fit</span>
+          </div>
+          <div class="priority-item">
+            <select name="priority_merit" class="priority-select" required><option value="" disabled selected>-</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option></select>
+            <span class="priority-item-label">Merit scholarship likelihood</span>
+          </div>
+          <div class="priority-item">
+            <select name="priority_outcomes" class="priority-select" required><option value="" disabled selected>-</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option></select>
+            <span class="priority-item-label">Post-graduation outcomes (career, earnings, grad school)</span>
+          </div>
+        </div>
+        <p class="priority-note" id="priority-warning" style="color: var(--error); display: none;">Each rank (1-7) should be used exactly once.</p>
+      </div>
+
+      <div class="field">
+        <label class="field-label" for="priority-other">Anything else that matters to you that isn't on that list? <span class="optional">(optional)</span></label>
+        <textarea id="priority-other" name="priority_other" placeholder="e.g., I know we ranked prestige #3 but it matters to us more than we want to admit. We need someone to help us think about this rationally, not emotionally."></textarea>
+      </div>
+
+      <div class="field">
+        <label class="field-label" for="additional-context">Tell us anything else</label>
+        <p class="field-hint">What keeps you up at night about this? What do you wish someone would just tell you? A story about your kid that captures who they are? The more you share, the more personal the plan.</p>
+        <textarea id="additional-context" name="additional_context" class="large" placeholder="This is your space. There's no wrong answer and no length limit. Some families write a sentence, others write a page. Both are fine." required></textarea>
+      </div>
+
+      <div class="field">
+        <label class="field-label" for="email">Email address</label>
+        <p class="field-hint">We'll send your completed plan to this address.</p>
+        <input type="email" id="email" name="email" placeholder="you@email.com" required>
+      </div>
+
+      <div class="step-nav">
+        <button type="button" class="btn-back" onclick="prevStep()">Back</button>
+        <button type="button" class="btn-submit" onclick="submitForm()">Submit and Build My Plan</button>
+      </div>
+    </div>
+
+  </form>
+
+  <!-- CONFIRMATION -->
+  <div class="confirmation" id="confirmation">
+    <div class="confirmation-icon">&#10003;</div>
+    <h2>We're building your plan</h2>
+    <p>Your personalized college strategy is being generated. This takes about 30 minutes.</p>
+    <p>We'll email your plan to <strong id="confirm-email"></strong> as soon as it's ready.</p>
+    <p style="margin-top: 2rem;"><a href="index.html" style="color: var(--sage); font-weight: 500; text-decoration: none;">Back to Scaffold</a></p>
+  </div>
+</div>
+
+<script>
+  let currentStep = 1;
+  const totalSteps = 7;
+  const BYPASS_CODE = 'SCAFFOLD2026';
+
+  // Check access
+  function checkAccess() {
+    const params = new URLSearchParams(window.location.search);
+    const code = params.get('code');
+    if (code === BYPASS_CODE) {
+      document.getElementById('intake-form').style.display = 'block';
+      document.querySelector('.progress-wrap').style.display = 'block';
+      return;
+    }
+    // For now, show the gate. Once Stripe is wired up, we'll check payment status.
+    document.getElementById('gate').classList.add('active');
+    document.querySelector('.progress-wrap').style.display = 'none';
+  }
+
+  // Step navigation
+  function showStep(n) {
+    document.querySelectorAll('.step').forEach(s => s.classList.remove('active'));
+    document.querySelector(`[data-step="${n}"]`).classList.add('active');
+    document.getElementById('step-current').textContent = n;
+    document.getElementById('progress-fill').style.width = ((n / totalSteps) * 100) + '%';
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  function nextStep() {
+    // Validate current step
+    const step = document.querySelector(`[data-step="${currentStep}"]`);
+    const required = step.querySelectorAll('[required]');
+    let valid = true;
+    required.forEach(el => {
+      const field = el.closest('.field') || el.closest('.priority-item');
+      if (!el.value.trim()) {
+        valid = false;
+        if (field) field.classList.add('field-error');
+      } else {
+        if (field) field.classList.remove('field-error');
+      }
+    });
+
+    if (!valid) return;
+
+    if (currentStep < totalSteps) {
+      currentStep++;
+      showStep(currentStep);
+    }
+  }
+
+  function prevStep() {
+    if (currentStep > 1) {
+      currentStep--;
+      showStep(currentStep);
+    }
+  }
+
+  // Conditional fields: divorce details
+  document.getElementById('family-structure').addEventListener('change', function() {
+    const details = document.getElementById('divorce-details');
+    if (this.value === 'divorced') {
+      details.classList.add('visible');
+    } else {
+      details.classList.remove('visible');
+    }
+  });
+
+  // Priority ranking validation
+  document.querySelectorAll('.priority-select').forEach(sel => {
+    sel.addEventListener('change', function() {
+      const warning = document.getElementById('priority-warning');
+      const values = [];
+      document.querySelectorAll('.priority-select').forEach(s => {
+        if (s.value) values.push(s.value);
+      });
+      const hasDupes = values.length !== new Set(values).size;
+      warning.style.display = hasDupes ? 'block' : 'none';
+    });
+  });
+
+  // Form submission
+  function submitForm() {
+    // Validate step 7
+    const step = document.querySelector(`[data-step="7"]`);
+    const required = step.querySelectorAll('[required]');
+    let valid = true;
+    required.forEach(el => {
+      const field = el.closest('.field') || el.closest('.priority-item');
+      if (!el.value.trim()) {
+        valid = false;
+        if (field) field.classList.add('field-error');
+      } else {
+        if (field) field.classList.remove('field-error');
+      }
+    });
+
+    // Check priority ranking for duplicates
+    const pValues = [];
+    document.querySelectorAll('.priority-select').forEach(s => {
+      if (s.value) pValues.push(s.value);
+    });
+    if (pValues.length !== 7 || pValues.length !== new Set(pValues).size) {
+      document.getElementById('priority-warning').style.display = 'block';
+      valid = false;
+    }
+
+    if (!valid) return;
+
+    // Collect all form data
+    const form = document.getElementById('intake-form');
+    const formData = new FormData(form);
+    const data = {};
+    formData.forEach((value, key) => { data[key] = value; });
+
+    // Store in localStorage as backup
+    localStorage.setItem('scaffold_intake', JSON.stringify(data));
+
+    // Log for testing
+    console.log('Scaffold intake data:', data);
+    console.log('JSON:', JSON.stringify(data, null, 2));
+
+    // Show confirmation
+    document.getElementById('intake-form').style.display = 'none';
+    document.querySelector('.progress-wrap').style.display = 'none';
+    const confirmation = document.getElementById('confirmation');
+    confirmation.classList.add('active');
+    document.getElementById('confirm-email').textContent = data.email;
+
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  // Initialize
+  checkAccess();
+</script>
+
+</body>
+</html>
