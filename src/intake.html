@@ -1343,7 +1343,25 @@
       // Stream Tier 1 (Strategy Brief, ~12,000 chars)
       submissionId = await streamResponse(response, statusEl, progressEl, (text) => {
         markdown += text;
-      }, 0, 48, 13000);
+      }, 0, 45, 13000);
+
+      // Run Monte Carlo simulation (non-blocking on failure)
+      statusEl.textContent = 'Running financial simulations...';
+      progressEl.style.width = '47%';
+      try {
+        const simRes = await fetch('/api/simulate', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ id: submissionId }),
+        });
+        if (!simRes.ok) {
+          const simErr = await simRes.json().catch(() => ({}));
+          console.warn('Simulation returned ' + simRes.status + ':', simErr.error || 'unknown');
+        }
+      } catch (e) {
+        console.warn('Simulation request failed:', e);
+      }
+      progressEl.style.width = '55%';
 
       statusEl.textContent = 'Building reference sections...';
 
@@ -1360,7 +1378,7 @@
 
       await streamResponse(tier2Response, statusEl, progressEl, (text) => {
         markdown += text;
-      }, 50, 95, 20000);
+      }, 55, 95, 20000);
 
       progressEl.style.width = '100%';
       statusEl.textContent = 'Done! Redirecting to your plan...';

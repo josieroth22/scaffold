@@ -39,6 +39,8 @@ module.exports = async function handler(req, res) {
             submitted_at: data.submitted_at,
             completed_at: data.completed_at,
             has_output: !!data.output,
+            has_simulation: !!data.simulation,
+            simulation_error: data.simulation_error || "",
           });
         }
       }

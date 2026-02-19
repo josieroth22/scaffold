@@ -176,7 +176,7 @@ Generate the Strategy Brief (~5,000 words). This is the core document the parent
 **Then continue with the full Strategy Brief, which should include:**
 - Executive Summary (already specified above)
 - The Four Threads (what the application narrative is built around)
-- School List with full financial analysis and honest commentary for each school. For each school include: recommended application round (EA/ED/RD) with reasoning, whether CSS Profile is required, whether the school tracks demonstrated interest, and what specific actions to take for that school. This is the core value, don't compress it.
+- School List with full financial analysis and honest commentary for each school. Number each school sequentially (1. School Name, 2. School Name, etc.). For each school include: recommended application round (EA/ED/RD) with reasoning, whether CSS Profile is required, whether the school tracks demonstrated interest, and what specific actions to take for that school. This is the core value, don't compress it.
 - QuestBridge explanation (if applicable to this family's income)
 - Financial Aid Strategy (FAFSA/CSS, non-custodial parent issues, state scholarships)
 - Summer Plan: Specific recommendations for each remaining summer before application season
@@ -195,6 +195,41 @@ End with a clearly formatted **Probability and Cost Estimates Table**. For each 
    - Any special program probabilities (QuestBridge, recruited athlete, etc.)
 
 Stop after the Monte Carlo Parameter Table. The Reference Sections come next in a separate pass.
+
+---
+
+**After the Probability and Cost Estimates Table**, output a JSON block with simulation parameters that will be used by our Monte Carlo simulation engine. This block will be hidden from the rendered plan. Use this exact format:
+
+\`\`\`json-simulation-params
+{
+  "schools": [
+    {
+      "name": "School Name",
+      "tier": "reach|target|safety",
+      "admit_pct": 0.15,
+      "merit_pct": 0.0,
+      "merit_low": 0,
+      "merit_high": 0,
+      "need_aid_low": 20000,
+      "need_aid_high": 35000,
+      "sticker_cost": 55000,
+      "round": "EA"
+    }
+  ],
+  "family_budget": 15000
+}
+\`\`\`
+
+Rules for the JSON block:
+- Include every school from the school list
+- \`admit_pct\`: your admission probability estimate for this student (0 to 1), same as in the table
+- \`merit_pct\`: probability of receiving a merit scholarship (0 for no-merit schools like Ivies, MIT, Stanford). For merit schools, estimate based on the student's profile
+- \`merit_low\` / \`merit_high\`: annual merit scholarship range if awarded (0/0 for no-merit schools)
+- \`need_aid_low\` / \`need_aid_high\`: estimated annual need-based aid range at this family's income level
+- \`sticker_cost\`: total annual cost of attendance before any aid
+- \`family_budget\`: the family's stated annual budget (use the midpoint if they gave a range, or the upper end if ambiguous)
+- All dollar amounts are integers, no dollar signs or commas
+- Keep values consistent with the estimates in your narrative and table
 
 ---
 

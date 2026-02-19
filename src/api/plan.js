@@ -29,6 +29,16 @@ module.exports = async function handler(req, res) {
       formData = data.form_data;
     }
 
+    // Parse simulation data if present
+    let simulation = null;
+    if (data.simulation) {
+      if (typeof data.simulation === 'string') {
+        try { simulation = JSON.parse(data.simulation); } catch (e) { simulation = null; }
+      } else if (typeof data.simulation === 'object') {
+        simulation = data.simulation;
+      }
+    }
+
     return res.status(200).json({
       id: data.id,
       student_name: data.student_name,
@@ -38,6 +48,7 @@ module.exports = async function handler(req, res) {
       output: data.output || null,
       completed_at: data.completed_at,
       form_data: formData,
+      simulation: simulation,
     });
   } catch (err) {
     console.error("Error fetching plan:", err);

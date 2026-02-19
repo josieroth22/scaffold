@@ -62,6 +62,10 @@
   .close-btn { float: right; font-size: 0.82rem; color: var(--muted); cursor: pointer; background: none; border: none; font-family: 'DM Sans', sans-serif; }
   .plan-link-btn { display: inline-block; margin-top: 0.75rem; padding: 0.4rem 1rem; background: var(--sage); color: white; border-radius: 5px; text-decoration: none; font-size: 0.8rem; font-weight: 600; }
   .plan-link-btn:hover { background: #3a5233; }
+  .badge-sim-ok { font-size: 0.72rem; font-weight: 600; background: #e8f5e9; color: #2e7d32; padding: 0.15rem 0.5rem; border-radius: 3px; }
+  .badge-sim-fail { font-size: 0.72rem; font-weight: 600; background: #fce4ec; color: #c62828; padding: 0.15rem 0.5rem; border-radius: 3px; cursor: help; }
+  .badge-sim-none { font-size: 0.72rem; font-weight: 600; background: var(--cream); color: var(--muted); padding: 0.15rem 0.5rem; border-radius: 3px; }
+  .btn-retry { font-size: 0.72rem; color: var(--sage); font-weight: 600; cursor: pointer; text-decoration: underline; background: none; border: none; font-family: 'DM Sans', sans-serif; margin-left: 0.3rem; }
 </style>
 </head>
 <body>
@@ -87,6 +91,7 @@
         <th>Status</th>
         <th>Submitted</th>
         <th>Plan</th>
+        <th>Sim</th>
         <th>Details</th>
       </tr>
     </thead>
@@ -159,6 +164,12 @@
         const type = s.payment_type || 'free';
         const typeBadge = type === 'paid' ? '<span class="badge-paid">Paid</span>' : '<span class="badge-free">Free</span>';
         const planLink = s.has_output ? `<a class="plan-link" href="plan.html?id=${s.id}" target="_blank">View Plan</a>` : '-';
+        let simBadge = '<span class="badge-sim-none">-</span>';
+        if (s.has_simulation) {
+          simBadge = '<span class="badge-sim-ok">OK</span>';
+        } else if (s.simulation_error) {
+          simBadge = '<span class="badge-sim-fail" title="' + s.simulation_error.replace(/"/g, '&quot;') + '">Failed</span><button class="btn-retry" onclick="retrySim(\'' + s.id + '\', this)">Retry</button>';
+        }
         tr.innerHTML = `
           <td><strong>${s.student_name || '-'}</strong></td>
           <td>${s.city || '-'}</td>
@@ -168,6 +179,7 @@
           <td class="status-${s.status}">${s.status || '-'}</td>
           <td>${date}</td>
           <td>${planLink}</td>
+          <td>${simBadge}</td>
           <td><button class="btn-view" onclick="viewSubmission('${s.id}')">View</button></td>
         `;
         tbody.appendChild(tr);
@@ -233,10 +245,11 @@
       document.getElementById('detail-form').textContent = JSON.stringify(data.form_data || {}, null, 2);
       document.getElementById('detail-output').textContent = data.output || '(No output yet)';
 
-      // Render the plan
+      // Render the plan (strip simulation params block)
       const rendered = document.getElementById('detail-rendered');
       if (data.output) {
-        rendered.innerHTML = mdToHtml(data.output);
+        const cleanOutput = data.output.replace(/```json-simulation-params[\s\S]*?```/g, '');
+        rendered.innerHTML = mdToHtml(cleanOutput);
       } else {
         rendered.innerHTML = '<p style="color:var(--muted)">No output yet.</p>';
       }
@@ -251,6 +264,31 @@
       document.getElementById('detail').scrollIntoView({ behavior: 'smooth' });
     } catch (err) {
       alert('Error loading submission: ' + err.message);
+    }
+  }
+
+  async function retrySim(id, btn) {
+    btn.textContent = '...';
+    btn.disabled = true;
+    try {
+      const res = await fetch('/api/simulate', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ id }),
+      });
+      if (res.ok) {
+        // Replace the whole cell content
+        btn.parentElement.innerHTML = '<span class="badge-sim-ok">OK</span>';
+      } else {
+        const err = await res.json().catch(() => ({}));
+        btn.textContent = 'Retry';
+        btn.disabled = false;
+        alert('Simulation failed: ' + (err.error || res.status));
+      }
+    } catch (e) {
+      btn.textContent = 'Retry';
+      btn.disabled = false;
+      alert('Simulation request failed: ' + e.message);
     }
   }
 

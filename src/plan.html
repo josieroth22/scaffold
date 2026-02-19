@@ -512,6 +512,358 @@
     color: var(--terra);
   }
 
+  /* ---- SIMULATION RESULTS ---- */
+  .sim-section {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 0 2rem 2rem;
+  }
+
+  .sim-header {
+    text-align: center;
+    margin-bottom: 2rem;
+    padding-top: 2.5rem;
+    border-top: 3px solid var(--sage);
+  }
+
+  .sim-header h2 {
+    font-family: 'Newsreader', serif;
+    font-size: 1.9rem;
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    margin-bottom: 0.25rem;
+    border-top: none;
+    padding-top: 0;
+  }
+
+  .sim-header p {
+    font-size: 0.82rem;
+    color: var(--muted);
+  }
+
+  .sim-portfolio {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .sim-stat-card {
+    background: var(--sage-light);
+    border-radius: 10px;
+    padding: 1.25rem;
+    text-align: center;
+  }
+
+  .sim-stat-value {
+    font-family: 'Newsreader', serif;
+    font-size: 2rem;
+    font-weight: 500;
+    color: var(--sage-dark);
+    line-height: 1.1;
+  }
+
+  .sim-stat-label {
+    font-size: 0.78rem;
+    color: var(--muted);
+    margin-top: 0.35rem;
+    line-height: 1.4;
+  }
+
+  .sim-controls {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 1rem;
+  }
+
+  .sim-expand-all {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: var(--sage);
+    background: none;
+    border: 1px solid var(--sage);
+    border-radius: 5px;
+    padding: 0.35rem 0.85rem;
+    cursor: pointer;
+    transition: all 0.15s;
+  }
+
+  .sim-expand-all:hover { background: var(--sage-light); }
+
+  .sim-tier-group {
+    margin-bottom: 1.75rem;
+  }
+
+  .sim-tier-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    cursor: pointer;
+    margin-bottom: 0.75rem;
+    user-select: none;
+  }
+
+  .sim-tier-header:hover .sim-tier-label { opacity: 0.85; }
+
+  .sim-tier-arrow {
+    font-size: 0.7rem;
+    color: var(--muted);
+    transition: transform 0.2s;
+  }
+
+  .sim-tier-group.collapsed .sim-tier-arrow { transform: rotate(0deg); }
+  .sim-tier-group:not(.collapsed) .sim-tier-arrow { transform: rotate(90deg); }
+  .sim-tier-group.collapsed .sim-schools-list { display: none; }
+
+  .sim-tier-label {
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    padding: 0.4rem 0.85rem;
+    border-radius: 5px;
+    display: inline-block;
+  }
+
+  .sim-tier-count {
+    font-size: 0.78rem;
+    color: var(--muted);
+  }
+
+  .sim-tier-label.reach { background: var(--terra-light); color: var(--terra); }
+  .sim-tier-label.target { background: var(--sage-light); color: var(--sage-dark); }
+  .sim-tier-label.safety { background: var(--cream); color: var(--muted); border: 1px solid var(--border); }
+
+  .sim-schools-list {
+    counter-reset: sim-school;
+  }
+
+  .sim-school-card {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 1.25rem 1.5rem;
+    margin-bottom: 0.75rem;
+    counter-increment: sim-school;
+  }
+
+  .sim-school-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    user-select: none;
+  }
+
+  .sim-school-header:hover .sim-school-name { color: var(--sage-dark); }
+
+  .sim-school-left {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex: 1;
+    min-width: 0;
+  }
+
+  .sim-school-name {
+    font-weight: 600;
+    font-size: 1rem;
+    color: var(--ink);
+    transition: color 0.15s;
+  }
+
+  .sim-school-name::before {
+    content: counter(sim-school) ". ";
+    color: var(--sage);
+    font-weight: 700;
+  }
+
+  .sim-school-tier {
+    display: inline-block;
+    font-size: 0.65rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 0.15rem 0.5rem;
+    border-radius: 3px;
+    flex-shrink: 0;
+  }
+
+  .sim-school-summary {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    flex-shrink: 0;
+  }
+
+  .sim-summary-stat {
+    text-align: right;
+  }
+
+  .sim-summary-stat .val {
+    font-size: 0.92rem;
+    font-weight: 600;
+    color: var(--ink);
+    line-height: 1.2;
+  }
+
+  .sim-summary-stat .lbl {
+    font-size: 0.65rem;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+
+  .sim-expand-arrow {
+    font-size: 0.7rem;
+    color: var(--muted);
+    transition: transform 0.2s;
+    margin-left: 0.5rem;
+  }
+
+  .sim-school-card.open .sim-expand-arrow {
+    transform: rotate(90deg);
+  }
+
+  .sim-school-details {
+    display: none;
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border);
+  }
+
+  .sim-school-card.open .sim-school-details {
+    display: block;
+  }
+
+  .sim-metrics {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+
+  .sim-metric {
+    margin-bottom: 0.5rem;
+  }
+
+  .sim-metric-label {
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--sage-dark);
+    margin-bottom: 0.4rem;
+  }
+
+  .sim-bar {
+    height: 24px;
+    background: var(--cream);
+    border-radius: 4px;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .sim-bar-fill {
+    height: 100%;
+    border-radius: 4px;
+    transition: width 0.6s ease;
+  }
+
+  .sim-bar-fill.sage { background: var(--sage); }
+  .sim-bar-fill.terra { background: var(--terra); }
+  .sim-bar-fill.green { background: #4caf50; }
+
+  .sim-bar-label {
+    position: absolute;
+    right: 0.5rem;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: var(--ink);
+  }
+
+  .sim-bar-label.inside { color: white; }
+
+  .sim-box-plot {
+    position: relative;
+    height: 32px;
+    background: var(--cream);
+    border-radius: 4px;
+    margin: 0.4rem 0;
+  }
+
+  .sim-box-plot-range {
+    position: absolute;
+    top: 4px;
+    height: 24px;
+    background: var(--sage-light);
+    border-radius: 3px;
+  }
+
+  .sim-box-plot-iqr {
+    position: absolute;
+    top: 2px;
+    height: 28px;
+    background: var(--sage);
+    opacity: 0.3;
+    border-radius: 3px;
+  }
+
+  .sim-box-plot-median {
+    position: absolute;
+    top: 0;
+    width: 3px;
+    height: 32px;
+    background: var(--sage-dark);
+    border-radius: 2px;
+  }
+
+  .sim-cost-labels {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.72rem;
+    color: var(--muted);
+    margin-top: 0.15rem;
+  }
+
+  .sim-cost-median {
+    font-size: 0.92rem;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 0.25rem;
+  }
+
+  .sim-affordable-badge {
+    display: inline-block;
+    font-size: 0.72rem;
+    font-weight: 700;
+    padding: 0.2rem 0.6rem;
+    border-radius: 4px;
+    margin-top: 0.25rem;
+  }
+
+  .sim-affordable-badge.good { background: #e8f5e9; color: #2e7d32; }
+  .sim-affordable-badge.ok { background: #fff8e1; color: #f57f17; }
+  .sim-affordable-badge.bad { background: #fce4ec; color: #c62828; }
+
+  .sim-merit-line {
+    font-size: 0.82rem;
+    color: #3d3d3a;
+    margin-top: 0.25rem;
+  }
+
+  @media (max-width: 640px) {
+    .sim-portfolio { grid-template-columns: 1fr; }
+    .sim-metrics { grid-template-columns: 1fr; }
+    .sim-section { padding: 0 1.25rem 2rem; }
+    .sim-stat-value { font-size: 1.6rem; }
+    .sim-school-summary { gap: 0.75rem; }
+    .sim-summary-stat .val { font-size: 0.82rem; }
+    .sim-school-name { font-size: 0.88rem; }
+  }
+
   /* ---- BACK TO TOP ---- */
   .back-to-top {
     position: fixed;
@@ -792,6 +1144,9 @@
 
   <div class="strategy-body" id="strategy-body"></div>
 
+  <!-- SIMULATION RESULTS (rendered if data available) -->
+  <div class="sim-section" id="sim-section" style="display: none;"></div>
+
   <div class="plan-footer">
     <p>This plan was generated by <a href="index.html">Scaffold</a>. Bookmark this page to come back to it.</p>
   </div>
@@ -1000,6 +1355,221 @@
     });
   }
 
+  function formatDollars(n) {
+    if (n == null) return '-';
+    return '$' + n.toLocaleString('en-US');
+  }
+
+  function formatPct(n) {
+    return Math.round(n * 100) + '%';
+  }
+
+  function renderSimulation(sim) {
+    if (!sim || !sim.schools || sim.schools.length === 0) return;
+
+    const section = document.getElementById('sim-section');
+    const portfolio = sim.portfolio;
+
+    // Find the max sticker cost for box plot scaling
+    const maxCost = Math.max(...sim.schools.map(s => s.sticker_cost || 0));
+
+    let html = '';
+
+    // Header
+    html += '<div class="sim-header">';
+    html += '<h2>Financial Simulation Results</h2>';
+    html += '<p>Based on ' + sim.iterations.toLocaleString() + ' Monte Carlo iterations using the admission and financial estimates above</p>';
+    html += '</div>';
+
+    // Portfolio summary cards
+    html += '<div class="sim-portfolio">';
+
+    html += '<div class="sim-stat-card">';
+    html += '<div class="sim-stat-value">' + formatPct(portfolio.at_least_one_admit) + '</div>';
+    html += '<div class="sim-stat-label">of simulations had at least one admission</div>';
+    html += '</div>';
+
+    html += '<div class="sim-stat-card">';
+    html += '<div class="sim-stat-value">' + formatPct(portfolio.at_least_one_affordable) + '</div>';
+    html += '<div class="sim-stat-label">had at least one affordable admission</div>';
+    html += '</div>';
+
+    html += '<div class="sim-stat-card">';
+    html += '<div class="sim-stat-value">' + formatDollars(portfolio.expected_cheapest.median) + '</div>';
+    html += '<div class="sim-stat-label">expected cheapest option (median)</div>';
+    html += '</div>';
+
+    html += '</div>';
+
+    // Expand All / Collapse All control
+    html += '<div class="sim-controls">';
+    html += '<button class="sim-expand-all" onclick="toggleAllSim()">Expand All</button>';
+    html += '</div>';
+
+    // Group schools by tier
+    const tierOrder = ['reach', 'target', 'safety'];
+    const tierLabels = { reach: 'Reaches', target: 'Targets', safety: 'Safeties' };
+    const grouped = {};
+    sim.schools.forEach(school => {
+      const t = tierOrder.includes(school.tier) ? school.tier : 'target';
+      if (!grouped[t]) grouped[t] = [];
+      grouped[t].push(school);
+    });
+
+    // Find the max sticker cost for box plot scaling (recalculated here for scope)
+    const maxCostForPlot = maxCost > 0 ? maxCost * 1.1 : 80000;
+
+    tierOrder.forEach(tier => {
+      const schools = grouped[tier];
+      if (!schools || schools.length === 0) return;
+
+      html += '<div class="sim-tier-group" data-tier="' + tier + '">';
+      html += '<div class="sim-tier-header" onclick="toggleSimTier(this)">';
+      html += '<span class="sim-tier-arrow">&#9654;</span>';
+      html += '<span class="sim-tier-label ' + tier + '">' + tierLabels[tier] + '</span>';
+      html += '<span class="sim-tier-count">' + schools.length + ' school' + (schools.length > 1 ? 's' : '') + '</span>';
+      html += '</div>';
+
+      html += '<div class="sim-schools-list">';
+
+      schools.forEach(school => {
+        const tierClass = school.tier === 'reach' ? 'tier-reach' : school.tier === 'target' ? 'tier-target' : 'tier-safety';
+
+        html += '<div class="sim-school-card">';
+
+        // Compact header with summary stats
+        html += '<div class="sim-school-header" onclick="toggleSimCard(this)">';
+        html += '<div class="sim-school-left">';
+        html += '<span class="sim-school-name">' + escapeHtml(school.name) + '</span>';
+        html += '</div>';
+        html += '<div class="sim-school-summary">';
+        html += '<div class="sim-summary-stat"><div class="val">' + formatPct(school.simulated_admit_rate) + '</div><div class="lbl">Admit</div></div>';
+        if (school.net_cost.median !== null) {
+          html += '<div class="sim-summary-stat"><div class="val">' + formatDollars(school.net_cost.median) + '</div><div class="lbl">Med. Cost</div></div>';
+          const affClass = school.affordable_rate >= 0.6 ? 'good' : school.affordable_rate >= 0.3 ? 'ok' : 'bad';
+          html += '<div class="sim-summary-stat"><div class="val"><span class="sim-affordable-badge ' + affClass + '">' + formatPct(school.affordable_rate) + '</span></div><div class="lbl">Affordable</div></div>';
+        }
+        html += '<span class="sim-expand-arrow">&#9654;</span>';
+        html += '</div>';
+        html += '</div>';
+
+        // Expandable details
+        html += '<div class="sim-school-details">';
+        html += '<div class="sim-metrics">';
+
+        // Admission rate bar
+        const admitPct = school.simulated_admit_rate;
+        const admitWidth = Math.max(2, admitPct * 100);
+        const admitLabelInside = admitPct > 0.25;
+
+        html += '<div class="sim-metric">';
+        html += '<div class="sim-metric-label">Simulated Admission Rate</div>';
+        html += '<div class="sim-bar">';
+        html += '<div class="sim-bar-fill sage" style="width: ' + admitWidth + '%;"></div>';
+        if (admitLabelInside) {
+          html += '<span class="sim-bar-label inside" style="right: auto; left: ' + (admitWidth - 1) + '%; transform: translateY(-50%) translateX(-100%); padding-right: 0.4rem;">' + formatPct(admitPct) + '</span>';
+        } else {
+          html += '<span class="sim-bar-label">' + formatPct(admitPct) + '</span>';
+        }
+        html += '</div>';
+        html += '</div>';
+
+        // Affordable rate
+        if (school.net_cost.median !== null) {
+          const affRate = school.affordable_rate;
+          const affWidth = Math.max(2, affRate * 100);
+          const affBarClass = affRate >= 0.6 ? 'green' : 'terra';
+
+          html += '<div class="sim-metric">';
+          html += '<div class="sim-metric-label">Affordable When Admitted</div>';
+          html += '<div class="sim-bar">';
+          html += '<div class="sim-bar-fill ' + affBarClass + '" style="width: ' + affWidth + '%;"></div>';
+          html += '<span class="sim-bar-label">' + formatPct(affRate) + '</span>';
+          html += '</div>';
+          html += '<div style="font-size: 0.72rem; color: var(--muted); margin-top: 0.2rem;">within ' + formatDollars(portfolio.family_budget) + '/yr budget</div>';
+          html += '</div>';
+        }
+
+        // Net cost distribution (box plot)
+        if (school.net_cost.median !== null) {
+          const scale = maxCostForPlot;
+          const minPct = (school.net_cost.min / scale) * 100;
+          const p25Pct = (school.net_cost.p25 / scale) * 100;
+          const medPct = (school.net_cost.median / scale) * 100;
+          const p75Pct = (school.net_cost.p75 / scale) * 100;
+          const maxPct = (school.net_cost.max / scale) * 100;
+
+          html += '<div class="sim-metric" style="grid-column: 1 / -1;">';
+          html += '<div class="sim-metric-label">Net Cost Distribution (when admitted)</div>';
+          html += '<div class="sim-cost-median">Median: ' + formatDollars(school.net_cost.median) + '/yr</div>';
+          html += '<div class="sim-box-plot">';
+          html += '<div class="sim-box-plot-range" style="left: ' + minPct + '%; width: ' + (maxPct - minPct) + '%;"></div>';
+          html += '<div class="sim-box-plot-iqr" style="left: ' + p25Pct + '%; width: ' + (p75Pct - p25Pct) + '%;"></div>';
+          html += '<div class="sim-box-plot-median" style="left: ' + medPct + '%;"></div>';
+          html += '</div>';
+          html += '<div class="sim-cost-labels">';
+          html += '<span>' + formatDollars(school.net_cost.min) + '</span>';
+          html += '<span>' + formatDollars(school.net_cost.p25) + ' - ' + formatDollars(school.net_cost.p75) + '</span>';
+          html += '<span>' + formatDollars(school.net_cost.max) + '</span>';
+          html += '</div>';
+          html += '</div>';
+        }
+
+        // Merit scholarship stats
+        if (school.merit.rate > 0) {
+          html += '<div class="sim-metric" style="grid-column: 1 / -1;">';
+          html += '<div class="sim-merit-line">Merit scholarship in <strong>' + formatPct(school.merit.rate) + '</strong> of admitted scenarios';
+          if (school.merit.median > 0) {
+            html += ' (median award: ' + formatDollars(school.merit.median) + '/yr)';
+          }
+          html += '</div>';
+          html += '</div>';
+        }
+
+        html += '</div>'; // sim-metrics
+        html += '</div>'; // sim-school-details
+        html += '</div>'; // sim-school-card
+      });
+
+      html += '</div>'; // sim-schools-list
+      html += '</div>'; // sim-tier-group
+    });
+
+    section.innerHTML = html;
+    section.style.display = 'block';
+  }
+
+  function toggleSimCard(headerEl) {
+    headerEl.closest('.sim-school-card').classList.toggle('open');
+  }
+
+  function toggleSimTier(headerEl) {
+    headerEl.closest('.sim-tier-group').classList.toggle('collapsed');
+  }
+
+  function toggleAllSim() {
+    const btn = document.querySelector('.sim-expand-all');
+    const cards = document.querySelectorAll('.sim-school-card');
+    const groups = document.querySelectorAll('.sim-tier-group');
+    const anyOpen = document.querySelector('.sim-school-card.open');
+
+    if (anyOpen) {
+      // Collapse all
+      cards.forEach(c => c.classList.remove('open'));
+      groups.forEach(g => g.classList.add('collapsed'));
+      btn.textContent = 'Expand All';
+    } else {
+      // Expand all
+      cards.forEach(c => c.classList.add('open'));
+      groups.forEach(g => g.classList.remove('collapsed'));
+      btn.textContent = 'Collapse All';
+    }
+  }
+
+  function escapeHtml(str) {
+    return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+  }
+
   // Load the plan
   async function loadPlan() {
     const params = new URLSearchParams(window.location.search);
@@ -1037,15 +1607,23 @@
       if (data.completed_at) metaParts.push('Generated ' + new Date(data.completed_at).toLocaleDateString());
       document.getElementById('plan-meta').textContent = metaParts.join(' · ');
 
+      // Strip simulation params JSON block before rendering
+      const cleanOutput = data.output.replace(/```json-simulation-params[\s\S]*?```/g, '');
+
       // Render content
       const body = document.getElementById('strategy-body');
-      body.innerHTML = markdownToHtml(data.output);
+      body.innerHTML = markdownToHtml(cleanOutput);
 
       // Enhance tables, badges, and inline tags
       enhanceContent(body);
 
       // Build table of contents
       buildToc(body);
+
+      // Render simulation results if available
+      if (data.simulation) {
+        renderSimulation(data.simulation);
+      }
 
       // Build submission info if form_data exists
       if (data.form_data && Object.keys(data.form_data).length > 0) {
