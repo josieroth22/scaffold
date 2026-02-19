@@ -205,7 +205,7 @@
     letter-spacing: -0.02em;
     margin-top: 3.5rem;
     margin-bottom: 0.25rem;
-    padding-top: 2.5rem;
+    padding: 2.5rem 0 0;
     border-top: 3px solid var(--sage);
     scroll-margin-top: 80px;
     text-wrap: balance;
@@ -216,7 +216,7 @@
   .section-rule {
     width: 36px;
     height: 3px;
-    background: var(--sage-light);
+    background: var(--sage);
     border-radius: 2px;
     margin-bottom: 1.25rem;
   }
@@ -241,7 +241,7 @@
     font-weight: 600;
     margin-top: 2rem;
     margin-bottom: 0.5rem;
-    color: var(--ink);
+    color: var(--sage-dark);
     scroll-margin-top: 80px;
   }
 
@@ -265,14 +265,64 @@
   .strategy-body em { font-style: italic; }
 
   .strategy-body ul, .strategy-body ol {
-    padding-left: 1.5rem;
+    padding-left: 0;
     margin-bottom: 1.1rem;
+    list-style: none;
   }
 
-  .strategy-body li {
-    margin-bottom: 0.4rem;
+  .strategy-body ul > li {
+    margin-bottom: 0.5rem;
     font-size: 0.92rem;
     color: #3d3d3a;
+    padding-left: 1.25rem;
+    position: relative;
+  }
+
+  .strategy-body ul > li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.55em;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--sage);
+  }
+
+  .strategy-body ol {
+    counter-reset: ol-counter;
+  }
+
+  .strategy-body ol > li {
+    margin-bottom: 0.5rem;
+    font-size: 0.92rem;
+    color: #3d3d3a;
+    padding-left: 2rem;
+    position: relative;
+    counter-increment: ol-counter;
+  }
+
+  .strategy-body ol > li::before {
+    content: counter(ol-counter);
+    position: absolute;
+    left: 0;
+    top: 0.1em;
+    width: 1.4rem;
+    height: 1.4rem;
+    border-radius: 50%;
+    background: var(--sage-light);
+    color: var(--sage-dark);
+    font-size: 0.72rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Nested lists */
+  .strategy-body li ul, .strategy-body li ol {
+    margin-top: 0.4rem;
+    margin-bottom: 0;
   }
 
   .strategy-body hr {
@@ -288,7 +338,7 @@
     font-size: 0.88rem;
     border-left: 3px solid var(--sage);
     background: var(--sage-light);
-    padding: 1rem 1.25rem;
+    padding: 1.1rem 1.5rem;
     margin: 1.5rem 0;
     border-radius: 0 8px 8px 0;
     color: #3d3d3a;
@@ -297,6 +347,24 @@
 
   .strategy-body blockquote strong {
     color: var(--sage-dark);
+  }
+
+  /* ---- SCHOOL CARDS (per-school detail sections) ---- */
+  .school-card {
+    background: var(--cream);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 1.5rem;
+    margin: 1.25rem 0;
+  }
+
+  .school-card h3 {
+    margin-top: 0;
+    color: var(--ink);
+    font-size: 1.1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 0.75rem;
   }
 
   /* Tables */
@@ -322,10 +390,10 @@
     font-size: 0.68rem;
     text-transform: uppercase;
     letter-spacing: 0.06em;
-    color: var(--muted);
+    color: white;
     padding: 0.65rem 0.75rem;
-    border-bottom: 2px solid var(--border);
-    background: var(--cream);
+    border-bottom: 2px solid var(--sage-dark);
+    background: var(--sage);
     white-space: nowrap;
   }
 
@@ -371,19 +439,77 @@
   .risk-moderate { background: #fff8e1; color: #f57f17; }
   .risk-high { background: #fce4ec; color: #c62828; }
 
-  /* First table (exec summary) gets special treatment */
+  /* First table (exec summary) gets extra prominence */
   .strategy-body table.exec-summary {
     border: 2px solid var(--sage);
     font-size: 0.85rem;
   }
   .strategy-body table.exec-summary th {
-    background: var(--sage);
-    color: white;
     font-size: 0.7rem;
-    border-bottom-color: var(--sage-dark);
+    padding: 0.75rem;
   }
   .strategy-body table.exec-summary td {
     padding: 0.75rem;
+  }
+
+  /* Activity status badges */
+  .activity-current {
+    display: inline-block;
+    font-size: 0.65rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 0.1rem 0.45rem;
+    border-radius: 3px;
+    background: #e8f5e9;
+    color: #2e7d32;
+    margin-right: 0.25rem;
+  }
+  .activity-target {
+    display: inline-block;
+    font-size: 0.65rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 0.1rem 0.45rem;
+    border-radius: 3px;
+    background: #e3f2fd;
+    color: #1565c0;
+    margin-right: 0.25rem;
+  }
+  .activity-aspirational {
+    display: inline-block;
+    font-size: 0.65rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 0.1rem 0.45rem;
+    border-radius: 3px;
+    background: var(--terra-light);
+    color: var(--terra);
+    margin-right: 0.25rem;
+  }
+
+  /* Likely vs Aspirational flags */
+  .flag-likely {
+    display: inline-block;
+    font-size: 0.65rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    padding: 0.1rem 0.4rem;
+    border-radius: 3px;
+    background: #e8f5e9;
+    color: #2e7d32;
+  }
+  .flag-aspirational {
+    display: inline-block;
+    font-size: 0.65rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    padding: 0.1rem 0.4rem;
+    border-radius: 3px;
+    background: var(--terra-light);
+    color: var(--terra);
   }
 
   /* ---- BACK TO TOP ---- */
@@ -636,19 +762,18 @@
     return html;
   }
 
-  // Post-process: add tier badges and risk badges to table cells
-  function enhanceTables(container) {
+  // Post-process: add badges and visual enhancements
+  function enhanceContent(container) {
+    // --- Table enhancements ---
     const tables = container.querySelectorAll('table');
     let isFirst = true;
 
     tables.forEach(table => {
-      // Make the first table the exec summary
       if (isFirst) {
         table.classList.add('exec-summary');
         isFirst = false;
       }
 
-      // Process all cells for tier and risk badges
       table.querySelectorAll('td').forEach(td => {
         const text = td.textContent.trim().toLowerCase();
 
@@ -657,7 +782,7 @@
           td.innerHTML = '<span class="tier-badge tier-reach">Reach</span>';
         } else if (text === 'target') {
           td.innerHTML = '<span class="tier-badge tier-target">Target</span>';
-        } else if (text === 'safety') {
+        } else if (text === 'safety' || text === 'likely safety') {
           td.innerHTML = '<span class="tier-badge tier-safety">Safety</span>';
         }
 
@@ -671,7 +796,41 @@
         } else if (text === 'high') {
           td.innerHTML = '<span class="risk-badge risk-high">High</span>';
         }
+
+        // Application round badges in table cells
+        if (text === 'ea' || text === 'early action') {
+          td.innerHTML = '<span class="tier-badge tier-target">EA</span>';
+        } else if (text === 'ed' || text === 'early decision' || text === 'ed1') {
+          td.innerHTML = '<span class="tier-badge tier-reach">ED</span>';
+        } else if (text === 'ed2' || text === 'early decision ii') {
+          td.innerHTML = '<span class="tier-badge tier-reach">ED2</span>';
+        } else if (text === 'rd' || text === 'regular decision') {
+          td.innerHTML = '<span class="tier-badge tier-safety">RD</span>';
+        } else if (text === 'rea' || text === 'restrictive early action') {
+          td.innerHTML = '<span class="tier-badge tier-reach">REA</span>';
+        }
       });
+    });
+
+    // --- Inline badges: [CURRENT], [TARGET], [ASPIRATIONAL] ---
+    const walker = document.createTreeWalker(container, NodeFilter.SHOW_TEXT, null, false);
+    const replacements = [];
+    while (walker.nextNode()) {
+      const node = walker.currentNode;
+      if (/\[(CURRENT|TARGET|ASPIRATIONAL|Likely|Aspirational)\]/i.test(node.textContent)) {
+        replacements.push(node);
+      }
+    }
+
+    replacements.forEach(node => {
+      const span = document.createElement('span');
+      span.innerHTML = node.textContent
+        .replace(/\[CURRENT\]/gi, '<span class="activity-current">Current</span>')
+        .replace(/\[TARGET\]/gi, '<span class="activity-target">Target</span>')
+        .replace(/\[ASPIRATIONAL\]/gi, '<span class="activity-aspirational">Aspirational</span>')
+        .replace(/\[Likely\]/gi, '<span class="flag-likely">Likely</span>')
+        .replace(/\[Aspirational\]/gi, '<span class="flag-aspirational">Aspirational</span>');
+      node.parentNode.replaceChild(span, node);
     });
   }
 
@@ -755,8 +914,8 @@
       const body = document.getElementById('strategy-body');
       body.innerHTML = markdownToHtml(data.output);
 
-      // Enhance tables with badges
-      enhanceTables(body);
+      // Enhance tables, badges, and inline tags
+      enhanceContent(body);
 
       // Build table of contents
       buildToc(body);

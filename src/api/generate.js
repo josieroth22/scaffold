@@ -224,6 +224,7 @@ module.exports = async function handler(req, res) {
       email: data.email || "",
       city: data.city || "",
       income: data.income || "",
+      payment_type: data.payment_type || "free",
       submitted_at: new Date().toISOString(),
       status: "generating",
       form_data: JSON.stringify(data),

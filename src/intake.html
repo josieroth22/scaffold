@@ -1064,6 +1064,7 @@
   let currentStep = 1;
   const totalSteps = 7;
   const BYPASS_CODE = 'SCAFFOLD2026';
+  let paymentType = 'free';
 
   // Check access
   function checkAccess() {
@@ -1306,6 +1307,9 @@
     priorityItems.forEach((item, i) => {
       data['priority_' + item.dataset.key] = i + 1;
     });
+
+    // Track payment type
+    data.payment_type = paymentType;
 
     // Store in localStorage as backup
     localStorage.setItem('scaffold_intake', JSON.stringify(data));
