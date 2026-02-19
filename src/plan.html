@@ -226,9 +226,9 @@
     font-size: 1.45rem;
     font-weight: 500;
     letter-spacing: -0.02em;
-    margin-top: 2.75rem;
+    margin-top: 2rem;
     margin-bottom: 0.4rem;
-    padding-top: 2rem;
+    padding-top: 1.5rem;
     border-top: 1px solid var(--border);
     scroll-margin-top: 80px;
     text-wrap: balance;
@@ -362,7 +362,12 @@
   .strategy-body hr {
     border: none;
     border-top: 2px solid var(--sage-light);
-    margin: 2.5rem 0;
+    margin: 2rem 0;
+  }
+
+  /* Hide trailing <hr> inside collapsible sections — the h2 border-top already provides separation */
+  .section-content > hr:last-child {
+    display: none;
   }
 
   /* ---- CALLOUT BOXES (blockquotes) ---- */
