@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Your Plan — Scaffold</title>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1a1a18;
+    --cream: #f8f5f0;
+    --warm-white: #fdfcfa;
+    --sage: #4a6741;
+    --sage-light: #e8ede6;
+    --sage-dark: #3a5233;
+    --terra: #c4652a;
+    --terra-light: #f5ece5;
+    --muted: #6b6860;
+    --border: #d9d4cc;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    color: var(--ink);
+    background: var(--warm-white);
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ---- PROGRESS BAR ---- */
+  .progress-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 3px;
+    background: var(--sage);
+    z-index: 200;
+    width: 0%;
+    transition: width 0.15s linear;
+  }
+
+  /* ---- TOP BAR ---- */
+  .topbar {
+    position: fixed;
+    top: 3px;
+    width: 100%;
+    z-index: 100;
+    background: rgba(253, 252, 250, 0.95);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    padding: 0 2rem;
+    height: 49px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .topbar-logo {
+    font-family: 'Newsreader', serif;
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: var(--ink);
+    text-decoration: none;
+    letter-spacing: -0.02em;
+  }
+  .topbar-logo span { color: var(--sage); }
+
+  .topbar-right { display: flex; align-items: center; gap: 1.25rem; }
+
+  .topbar-cta {
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: white;
+    background: var(--sage);
+    padding: 0.35rem 0.9rem;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background 0.2s;
+  }
+  .topbar-cta:hover { background: var(--sage-dark); }
+
+  .topbar-link {
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--muted);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .topbar-link:hover { color: var(--ink); }
+
+  /* ---- HERO ---- */
+  .hero {
+    background: var(--cream);
+    color: var(--ink);
+    padding: 6.5rem 2rem 3rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .hero-inner {
+    max-width: 780px;
+    margin: 0 auto;
+  }
+
+  .hero-badge {
+    display: inline-block;
+    font-size: 0.68rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--sage-dark);
+    background: var(--sage-light);
+    padding: 0.3rem 0.75rem;
+    border-radius: 4px;
+    margin-bottom: 1.25rem;
+  }
+
+  .hero h1 {
+    font-family: 'Newsreader', serif;
+    font-size: clamp(2rem, 4.5vw, 2.8rem);
+    font-weight: 400;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+    margin-bottom: 0.6rem;
+  }
+
+  .hero-meta {
+    font-size: 0.88rem;
+    color: var(--muted);
+    margin-bottom: 0.75rem;
+  }
+
+  /* ---- TABLE OF CONTENTS ---- */
+  .toc {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 2rem 2rem 0;
+  }
+
+  .toc-title {
+    font-size: 0.68rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--sage);
+    margin-bottom: 0.75rem;
+  }
+
+  .toc-list {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem 1rem;
+    margin-bottom: 0;
+  }
+
+  .toc-list a {
+    font-size: 0.82rem;
+    color: var(--muted);
+    text-decoration: none;
+    padding: 0.3rem 0;
+    transition: color 0.2s;
+  }
+  .toc-list a:hover { color: var(--sage); }
+
+  /* ---- STRATEGY BODY ---- */
+  .strategy-body {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 2.5rem 2rem 4rem;
+  }
+
+  .strategy-body h1 {
+    font-family: 'Newsreader', serif;
+    font-size: 1.8rem;
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    margin-top: 3rem;
+    margin-bottom: 0.5rem;
+    padding-top: 2.5rem;
+    border-top: 2px solid var(--sage-light);
+    scroll-margin-top: 80px;
+  }
+
+  .strategy-body h1:first-child { margin-top: 0; padding-top: 0; border-top: none; }
+
+  .strategy-body h2 {
+    font-family: 'Newsreader', serif;
+    font-size: 1.5rem;
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    margin-top: 2.75rem;
+    margin-bottom: 0.4rem;
+    padding-top: 2rem;
+    scroll-margin-top: 80px;
+  }
+
+  .strategy-body h2:first-child { margin-top: 0; padding-top: 0; }
+
+  .strategy-body h3 {
+    font-size: 1.05rem;
+    font-weight: 600;
+    margin-top: 2rem;
+    margin-bottom: 0.5rem;
+    color: var(--ink);
+    scroll-margin-top: 80px;
+  }
+
+  .strategy-body h4 {
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--sage);
+    margin-top: 1.75rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .strategy-body p {
+    margin-bottom: 1.1rem;
+    color: #3d3d3a;
+    font-size: 0.92rem;
+  }
+
+  .strategy-body strong { font-weight: 600; color: var(--ink); }
+  .strategy-body em { font-style: italic; }
+
+  .strategy-body ul, .strategy-body ol {
+    padding-left: 1.5rem;
+    margin-bottom: 1.1rem;
+  }
+
+  .strategy-body li {
+    margin-bottom: 0.4rem;
+    font-size: 0.92rem;
+    color: #3d3d3a;
+  }
+
+  .strategy-body hr {
+    border: none;
+    border-top: 2px solid var(--sage-light);
+    margin: 2.5rem 0;
+  }
+
+  .strategy-body blockquote {
+    font-family: 'Newsreader', serif;
+    font-style: italic;
+    font-size: 1.1rem;
+    border-left: 3px solid var(--sage);
+    padding-left: 1.25rem;
+    margin: 2rem 0;
+    color: var(--muted);
+    line-height: 1.5;
+  }
+
+  /* Tables */
+  .strategy-body table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.82rem;
+    margin: 1.25rem 0 1.75rem;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  .strategy-body th {
+    text-align: left;
+    font-weight: 600;
+    font-size: 0.68rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--muted);
+    padding: 0.65rem 0.75rem;
+    border-bottom: 2px solid var(--border);
+    background: var(--cream);
+    white-space: nowrap;
+  }
+
+  .strategy-body td {
+    padding: 0.6rem 0.75rem;
+    border-bottom: 1px solid #eae7e2;
+    color: #3d3d3a;
+    vertical-align: top;
+  }
+
+  .strategy-body tr:hover td { background: rgba(232,237,230,0.3); }
+
+  /* ---- LOADING ---- */
+  .loading {
+    text-align: center;
+    padding: 8rem 2rem;
+  }
+
+  .loading h2 {
+    font-family: 'Newsreader', serif;
+    font-size: 1.4rem;
+    font-weight: 400;
+    margin-bottom: 0.75rem;
+  }
+
+  .loading p {
+    font-size: 0.88rem;
+    color: var(--muted);
+  }
+
+  .spinner {
+    width: 32px;
+    height: 32px;
+    border: 3px solid var(--sage-light);
+    border-top-color: var(--sage);
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+    margin: 0 auto 1.5rem;
+  }
+
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  .error-msg {
+    text-align: center;
+    padding: 8rem 2rem;
+  }
+  .error-msg h2 {
+    font-family: 'Newsreader', serif;
+    font-size: 1.4rem;
+    font-weight: 400;
+    margin-bottom: 0.5rem;
+  }
+  .error-msg p {
+    font-size: 0.88rem;
+    color: var(--muted);
+  }
+
+  /* ---- FOOTER ---- */
+  .plan-footer {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 2rem 2rem 4rem;
+    text-align: center;
+    border-top: 1px solid var(--border);
+  }
+
+  .plan-footer p {
+    font-size: 0.82rem;
+    color: var(--muted);
+    line-height: 1.6;
+  }
+
+  .plan-footer a {
+    color: var(--sage);
+    text-decoration: none;
+    font-weight: 600;
+  }
+
+  /* ---- RESPONSIVE ---- */
+  @media (max-width: 640px) {
+    .topbar { padding: 0 1rem; }
+    .hero { padding: 5.5rem 1.25rem 2.5rem; }
+    .strategy-body { padding: 1.5rem 1.25rem 3rem; }
+    .toc { padding: 1.5rem 1.25rem 0; }
+    .strategy-body table { font-size: 0.75rem; }
+    .strategy-body th, .strategy-body td { padding: 0.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<div class="progress-bar" id="progress-bar"></div>
+
+<nav class="topbar">
+  <a href="index.html" class="topbar-logo"><span>S</span>caffold</a>
+  <div class="topbar-right">
+    <a href="index.html" class="topbar-link">Home</a>
+    <a href="intake.html" class="topbar-cta">Get Your Plan</a>
+  </div>
+</nav>
+
+<!-- LOADING STATE -->
+<div class="loading" id="loading">
+  <div class="spinner"></div>
+  <h2>Loading your plan...</h2>
+  <p>This should only take a moment.</p>
+</div>
+
+<!-- ERROR STATE -->
+<div class="error-msg" id="error" style="display: none;">
+  <h2>Plan not found</h2>
+  <p>This plan may still be generating, or the link may be incorrect. Check back shortly.</p>
+</div>
+
+<!-- PLAN CONTENT (hidden until loaded) -->
+<div id="plan-content" style="display: none;">
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="hero-badge">Your Scaffold Plan</div>
+      <h1 id="plan-title"></h1>
+      <p class="hero-meta" id="plan-meta"></p>
+    </div>
+  </section>
+
+  <nav class="toc" id="toc" style="display: none;">
+    <div class="toc-title">In this plan</div>
+    <ul class="toc-list" id="toc-list"></ul>
+  </nav>
+
+  <div class="strategy-body" id="strategy-body"></div>
+
+  <div class="plan-footer">
+    <p>This plan was generated by <a href="index.html">Scaffold</a>. Bookmark this page to come back to it.</p>
+  </div>
+</div>
+
+<script>
+  // Read scroll progress
+  window.addEventListener('scroll', () => {
+    const bar = document.getElementById('progress-bar');
+    const h = document.documentElement.scrollHeight - window.innerHeight;
+    if (h > 0) bar.style.width = (window.scrollY / h * 100) + '%';
+  });
+
+  // Markdown to HTML converter
+  function markdownToHtml(md) {
+    // Pre-process: extract tables before line-by-line processing
+    const tableBlocks = [];
+    md = md.replace(/(?:^|\n)((?:\|.+\|\n?)+)/g, (match, tableBlock) => {
+      const rows = tableBlock.trim().split('\n').filter(r => r.trim());
+      if (rows.length < 2) return match;
+
+      // Check if second row is separator
+      const sep = rows[1];
+      if (!/^\|[\s\-:|]+\|$/.test(sep.trim())) return match;
+
+      const headers = rows[0].split('|').filter((c, i, a) => i > 0 && i < a.length - 1).map(c => c.trim());
+      const bodyRows = rows.slice(2);
+
+      let html = '<table><thead><tr>';
+      headers.forEach(h => { html += `<th>${h}</th>`; });
+      html += '</tr></thead><tbody>';
+
+      bodyRows.forEach(row => {
+        const cells = row.split('|').filter((c, i, a) => i > 0 && i < a.length - 1).map(c => c.trim());
+        html += '<tr>';
+        cells.forEach(c => {
+          // Apply inline formatting to cell contents
+          c = c.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+          c = c.replace(/\*(.+?)\*/g, '<em>$1</em>');
+          html += `<td>${c}</td>`;
+        });
+        html += '</tr>';
+      });
+
+      html += '</tbody></table>';
+      const placeholder = `\n<!--TABLE_${tableBlocks.length}-->\n`;
+      tableBlocks.push(html);
+      return placeholder;
+    });
+
+    let html = md
+      // Escape HTML (but not our table placeholders)
+      .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+      // Restore table placeholders
+      .replace(/&lt;!--TABLE_(\d+)--&gt;/g, (m, i) => tableBlocks[i])
+      // Headers
+      .replace(/^#### (.+)$/gm, '<h4>$1</h4>')
+      .replace(/^### (.+)$/gm, '<h3>$1</h3>')
+      .replace(/^## (.+)$/gm, '<h2 id="__ID__">$1</h2>')
+      .replace(/^# (.+)$/gm, '<h1 id="__ID__">$1</h1>')
+      // Bold and italic
+      .replace(/\*\*\*(.+?)\*\*\*/g, '<strong><em>$1</em></strong>')
+      .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+      .replace(/\*(.+?)\*/g, '<em>$1</em>')
+      // Horizontal rules
+      .replace(/^---+$/gm, '<hr>')
+      // Blockquotes
+      .replace(/^> (.+)$/gm, '<blockquote>$1</blockquote>')
+      // Unordered lists
+      .replace(/^- (.+)$/gm, '<li>$1</li>')
+      // Ordered lists
+      .replace(/^\d+\. (.+)$/gm, '<li>$1</li>')
+      // Wrap consecutive <li> in <ul>
+      .replace(/((?:<li>.+<\/li>\n?)+)/g, '<ul>$1</ul>')
+      // Paragraphs: wrap lines that aren't already tags
+      .replace(/^(?!<[huptlbo]|<\/|<!--)(.+)$/gm, '<p>$1</p>')
+      // Clean up empty paragraphs
+      .replace(/<p>\s*<\/p>/g, '')
+      // Merge consecutive blockquotes
+      .replace(/<\/blockquote>\n<blockquote>/g, '<br>');
+
+    // Generate IDs for headers
+    let idCounter = 0;
+    html = html.replace(/__ID__/g, () => 'section-' + (idCounter++));
+
+    return html;
+  }
+
+  // Build table of contents from h1 and h2 elements
+  function buildToc(container) {
+    const headings = container.querySelectorAll('h1[id], h2[id]');
+    if (headings.length < 3) return; // Not enough sections for a TOC
+
+    const tocList = document.getElementById('toc-list');
+    headings.forEach(h => {
+      const li = document.createElement('li');
+      const a = document.createElement('a');
+      a.href = '#' + h.id;
+      a.textContent = h.textContent;
+      li.appendChild(a);
+      tocList.appendChild(li);
+    });
+
+    document.getElementById('toc').style.display = 'block';
+  }
+
+  // Load the plan
+  async function loadPlan() {
+    const params = new URLSearchParams(window.location.search);
+    const id = params.get('id');
+
+    if (!id) {
+      showError();
+      return;
+    }
+
+    try {
+      const res = await fetch('/api/plan?id=' + encodeURIComponent(id));
+      if (!res.ok) {
+        showError();
+        return;
+      }
+
+      const data = await res.json();
+
+      if (!data.output) {
+        // Still generating
+        document.getElementById('loading').querySelector('h2').textContent = 'Your plan is still generating...';
+        document.getElementById('loading').querySelector('p').textContent = 'Refresh this page in a few minutes.';
+        return;
+      }
+
+      // Set title and meta
+      const title = data.student_name ? `The ${data.student_name} Family Plan` : 'Your Scaffold Plan';
+      document.getElementById('plan-title').textContent = title;
+      document.title = title + ' — Scaffold';
+
+      let metaParts = [];
+      if (data.city) metaParts.push(data.city);
+      if (data.completed_at) metaParts.push('Generated ' + new Date(data.completed_at).toLocaleDateString());
+      document.getElementById('plan-meta').textContent = metaParts.join(' · ');
+
+      // Render content
+      const body = document.getElementById('strategy-body');
+      body.innerHTML = markdownToHtml(data.output);
+
+      // Build table of contents
+      buildToc(body);
+
+      // Show plan, hide loading
+      document.getElementById('loading').style.display = 'none';
+      document.getElementById('plan-content').style.display = 'block';
+
+    } catch (err) {
+      console.error('Failed to load plan:', err);
+      showError();
+    }
+  }
+
+  function showError() {
+    document.getElementById('loading').style.display = 'none';
+    document.getElementById('error').style.display = 'block';
+  }
+
+  loadPlan();
+</script>
+</body>
+</html>

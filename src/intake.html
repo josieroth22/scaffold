@@ -1346,19 +1346,15 @@
       }, 50, 100);
 
       progressEl.style.width = '100%';
-      statusEl.textContent = 'Done!';
+      statusEl.textContent = 'Done! Redirecting to your plan...';
 
-      // Store the result
+      // Store the result as backup
       localStorage.setItem('scaffold_result', markdown);
 
-      // Show the result
-      generating.classList.remove('active');
-      document.getElementById('result-screen').classList.add('active');
-      const outputEl = document.getElementById('strategy-output');
-      outputEl.style.display = 'block';
-
-      // Simple markdown to HTML conversion
-      document.getElementById('strategy-content').innerHTML = markdownToHtml(markdown);
+      // Redirect to the styled plan page
+      setTimeout(() => {
+        window.location.href = 'plan.html?id=' + submissionId;
+      }, 1500);
 
     } catch (err) {
       console.error('Generation failed:', err);
