@@ -5,7 +5,7 @@ const redis = new Redis({
   token: process.env.KV_REST_API_TOKEN,
 });
 
-const ADMIN_CODE = "SCAFFOLD2026";
+const ADMIN_CODE = "SCAFFOLD1216";
 
 module.exports = async function handler(req, res) {
   // Check admin code
