@@ -588,33 +588,36 @@
   /* ---- SUBMISSION INFO TOGGLE ---- */
   .submission-toggle {
     max-width: 780px;
-    margin: 0 auto;
+    margin: 1.5rem auto 0;
     padding: 0 2rem;
   }
 
   .submission-toggle-btn {
-    display: inline-flex;
+    display: flex;
     align-items: center;
-    gap: 0.5rem;
+    justify-content: center;
+    gap: 0.6rem;
+    width: 100%;
     font-family: 'DM Sans', sans-serif;
-    font-size: 0.82rem;
+    font-size: 0.9rem;
     font-weight: 600;
-    color: var(--sage);
-    background: none;
-    border: 1px solid var(--sage-light);
-    border-radius: 6px;
-    padding: 0.5rem 1rem;
+    color: var(--sage-dark);
+    background: var(--sage-light);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 0.85rem 1.5rem;
     cursor: pointer;
     transition: all 0.2s;
   }
 
   .submission-toggle-btn:hover {
-    background: var(--sage-light);
+    background: var(--cream);
+    border-color: var(--sage);
   }
 
   .submission-toggle-btn .arrow {
     transition: transform 0.2s;
-    font-size: 0.7rem;
+    font-size: 0.75rem;
   }
 
   .submission-toggle-btn.open .arrow {
@@ -623,19 +626,19 @@
 
   .submission-info {
     max-width: 780px;
-    margin: 1rem auto 0;
-    padding: 0 2rem;
+    margin: 0 auto;
+    padding: 0.75rem 2rem 0;
     display: none;
   }
 
   .submission-info.visible { display: block; }
 
   .submission-card {
-    background: var(--cream);
+    background: white;
     border: 1px solid var(--border);
     border-radius: 10px;
-    padding: 1.5rem 2rem;
-    margin-bottom: 1.5rem;
+    padding: 1.75rem 2rem;
+    margin-bottom: 1rem;
   }
 
   .submission-card h3 {
@@ -649,10 +652,23 @@
     border-bottom: 1px solid var(--border);
   }
 
+  .submission-section-label {
+    font-size: 0.68rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: white;
+    background: var(--sage);
+    padding: 0.3rem 0.75rem;
+    border-radius: 4px;
+    display: inline-block;
+    margin-bottom: 0.75rem;
+  }
+
   .submission-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 0.75rem 2rem;
+    gap: 1rem 2.5rem;
   }
 
   .submission-field {
@@ -661,17 +677,17 @@
 
   .submission-field .label {
     font-size: 0.72rem;
-    font-weight: 600;
+    font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 0.04em;
-    color: var(--muted);
-    margin-bottom: 0.15rem;
+    letter-spacing: 0.06em;
+    color: var(--sage-dark);
+    margin-bottom: 0.2rem;
   }
 
   .submission-field .value {
-    font-size: 0.88rem;
+    font-size: 0.9rem;
     color: var(--ink);
-    line-height: 1.5;
+    line-height: 1.6;
   }
 
   .submission-field.full-width {
@@ -681,7 +697,7 @@
   @media (max-width: 640px) {
     .submission-grid { grid-template-columns: 1fr; }
     .submission-toggle { padding: 0 1.25rem; }
-    .submission-info { padding: 0 1.25rem; }
+    .submission-info { padding: 0.75rem 1.25rem 0; }
   }
 
   /* ---- FOOTER ---- */
@@ -756,15 +772,7 @@
     </div>
   </section>
 
-  <nav class="toc" id="toc" style="display: none;">
-    <div class="toc-title">In this plan</div>
-    <div class="toc-columns">
-      <ul class="toc-list" id="toc-col1"></ul>
-      <ul class="toc-list" id="toc-col2"></ul>
-    </div>
-  </nav>
-
-  <!-- SUBMISSION INFO (collapsible) -->
+  <!-- SUBMISSION INFO (collapsible) - right after hero for visibility -->
   <div class="submission-toggle" id="submission-toggle" style="display: none;">
     <button class="submission-toggle-btn" onclick="toggleSubmission()">
       <span class="arrow">&#9654;</span> View What You Submitted
@@ -773,6 +781,14 @@
   <div class="submission-info" id="submission-info">
     <div class="submission-card" id="submission-card"></div>
   </div>
+
+  <nav class="toc" id="toc" style="display: none;">
+    <div class="toc-title">In this plan</div>
+    <div class="toc-columns">
+      <ul class="toc-list" id="toc-col1"></ul>
+      <ul class="toc-list" id="toc-col2"></ul>
+    </div>
+  </nav>
 
   <div class="strategy-body" id="strategy-body"></div>
 
@@ -1110,14 +1126,14 @@
       const hasData = section.items.some(item => fd[item.key]);
       if (!hasData) return;
 
-      html += '<div style="margin-bottom: 1.25rem;">';
-      html += '<div style="font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--sage); margin-bottom: 0.5rem;">' + section.section + '</div>';
+      html += '<div style="margin-bottom: 1.5rem;">';
+      html += '<span class="submission-section-label">' + section.section + '</span>';
       html += '<div class="submission-grid">';
       section.items.forEach(item => {
         if (!fd[item.key]) return;
         html += '<div class="submission-field' + (item.full ? ' full-width' : '') + '">';
         html += '<div class="label">' + item.label + '</div>';
-        html += '<div class="value">' + fd[item.key] + '</div>';
+        html += '<div class="value">' + (fd[item.key] + '').replace(/</g, '&lt;').replace(/>/g, '&gt;') + '</div>';
         html += '</div>';
       });
       html += '</div></div>';
