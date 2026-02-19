@@ -81,7 +81,14 @@ Start with this divider:
 Then generate each of these sections. Each should stand alone so a parent can jump to "Essay Strategy" in year 3 without reading anything else:
 
 - Developmental Roadmap (grade-by-grade course tables, extracurricular plans, summer plans for each remaining summer, milestones, What Not to Do). Note course rigor relative to what this student's school likely offers.
-- Activities List (10 items, Common App format). CRITICAL: Clearly label each activity as "Current" or "Projected." For projected activities, describe the target role and trajectory, NOT fabricated accomplishments. Do not invent specific outcomes like "won award" or "increased membership 40%" for things that haven't happened yet. Write realistic descriptions of what the student should AIM for.
+- Activities List (10 items, Common App format). CRITICAL: This student has NOT applied to college yet. The activities list is a PLANNING TOOL, not a finished application. For each activity:
+  - Mark it [CURRENT] if the student is already doing it, and describe ONLY what is actually true based on the family's input.
+  - Mark it [TARGET] if it's something you're recommending they pursue. Describe the GOAL, not a fabricated outcome.
+  - WRONG: "Completed 5 sections of Appalachian Trail. Lead monthly group hikes." (fabricated accomplishment)
+  - RIGHT: "[TARGET] Goal: Organize monthly group hikes with friends. Connect to interests in nature/reflection. Could become a small leadership role if formalized."
+  - WRONG: "Increased submissions 40% through Instagram campaign." (fabricated metric)
+  - RIGHT: "[CURRENT] Currently submitting short fiction to teen literary magazines. Goal by senior year: 3-5 published pieces."
+  - Do NOT write in past tense about things that haven't happened. Do NOT invent statistics, awards, or specific outcomes.
 - Honors and Awards (projected, with "Likely" vs "Aspirational" flags)
 - Essay Strategy (Common App angle, supplemental essay table by school, what the essay should NOT be)
 - Recommendation Letter Strategy (describe the TYPE of teacher needed, not specific names. When to ask, what each letter should convey, how to make the ask)
@@ -92,7 +99,7 @@ Then generate each of these sections. Each should stand alone so a parent can ju
 
 **CRITICAL RULES:**
 - Never invent teacher names, counselor names, coach names, or any person's name the family didn't provide.
-- Never write projected activities or awards as though they already happened. Label "Current" vs "Projected" vs "Aspirational."
+- The Activities List and Honors/Awards sections are PLANNING TOOLS for a student who hasn't applied yet. Write them as forward-looking goals, not as accomplished facts. This is the most common mistake. Double-check every activity description: if it describes something that hasn't happened yet, it MUST use future tense or goal-oriented language. If a hobby was mentioned casually (e.g., "likes hiking"), do NOT inflate it into a formal club with fabricated leadership roles and accomplishments.
 - Never fabricate local scholarship names or deadlines. Recommend search strategies instead.
 - Never fabricate specific dollar amounts for scholarships. Use ranges or say "check the school's website."
 
