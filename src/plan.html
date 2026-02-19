@@ -937,12 +937,13 @@
       });
     });
 
-    // --- Inline badges: [CURRENT], [TARGET], [ASPIRATIONAL] ---
+    // --- Inline badges: [CURRENT], [TARGET], [Already earned], [Likely], [Aspirational] ---
     const walker = document.createTreeWalker(container, NodeFilter.SHOW_TEXT, null, false);
     const replacements = [];
+    const badgePattern = /\[(CURRENT|TARGET|ASPIRATIONAL|Already earned|Already Earned|Likely|Aspirational|LIKELY)\]/i;
     while (walker.nextNode()) {
       const node = walker.currentNode;
-      if (/\[(CURRENT|TARGET|ASPIRATIONAL|Likely|Aspirational)\]/i.test(node.textContent)) {
+      if (badgePattern.test(node.textContent)) {
         replacements.push(node);
       }
     }
@@ -952,9 +953,10 @@
       span.innerHTML = node.textContent
         .replace(/\[CURRENT\]/gi, '<span class="activity-current">Current</span>')
         .replace(/\[TARGET\]/gi, '<span class="activity-target">Target</span>')
-        .replace(/\[ASPIRATIONAL\]/gi, '<span class="activity-aspirational">Aspirational</span>')
+        .replace(/\[ASPIRATIONAL\]/gi, '<span class="flag-aspirational">Aspirational</span>')
+        .replace(/\[Already earned\]/gi, '<span class="activity-current">Already Earned</span>')
         .replace(/\[Likely\]/gi, '<span class="flag-likely">Likely</span>')
-        .replace(/\[Aspirational\]/gi, '<span class="flag-aspirational">Aspirational</span>');
+        .replace(/\[LIKELY\]/gi, '<span class="flag-likely">Likely</span>');
       node.parentNode.replaceChild(span, node);
     });
   }
