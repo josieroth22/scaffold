@@ -46,7 +46,13 @@ function buildPrompt(data) {
     parent2 = `${data.parent2_name}, ${data.parent2_education || "education not specified"}, ${data.parent2_profession || "profession not specified"}`;
   }
 
-  return `I'd like you to build a comprehensive college application and scholarship strategy document for my family. This should include three parts:
+  const today = new Date();
+  const monthNames = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+  const currentDate = `${monthNames[today.getMonth()]} ${today.getFullYear()}`;
+
+  return `**Today's date is ${currentDate}.** All timelines, deadlines, and recommendations must reflect this. Do not reference dates that have already passed. If the student is in 10th grade and it is February 2026, "this summer" means summer 2026, not summer 2025.
+
+I'd like you to build a comprehensive college application and scholarship strategy document for my family. This should include three parts:
 
 **Part One: Developmental Roadmap** from the kid's current age (or from preschool if we're planning ahead) through 12th grade, covering academics, extracurriculars, community involvement, and key milestones by age/grade. This should be specific to our local schools and programs, not generic advice.
 
