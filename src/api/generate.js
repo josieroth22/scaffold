@@ -107,9 +107,9 @@ The tone should be direct and honest, not salesy. Acknowledge uncertainty. Call 
 
 ---
 
-### SECTION 1: ABOUT OUR FAMILY
+### SECTION 1: YOUR FAMILY'S DETAILS
 
-**Our Kid:**
+**The Kid:**
 - Name: ${data.student_name}
 - Age / Current grade: ${data.student_age_grade}
 - School (name and type): ${data.school_name}, ${data.school_type}
@@ -119,45 +119,45 @@ The tone should be direct and honest, not salesy. Acknowledge uncertainty. Call 
 - Academic weaknesses or gaps: ${data.academic_weaknesses}
 - Interests, hobbies, obsessions: ${data.interests}
 - Personality / temperament: ${data.personality}
-- Anything a teacher has said that stuck with us: ${data.teacher_quote || "Nothing specific shared"}
+- Anything a teacher has said about them that stuck with you: ${data.teacher_quote || "Nothing specific shared"}
 
-**About Us (the Parents):**
-- I'm ${data.parent1_name}, ${data.parent1_education}, ${data.parent1_profession}
-- My partner: ${parent2}
+**The Parents:**
+- Parent 1: ${data.parent1_name}, ${data.parent1_education}, ${data.parent1_profession}
+- Parent 2: ${parent2}
 - Family structure: ${data.family_structure}
 ${divorceSection}
 
-**Siblings:**
+**Siblings (if any):**
 ${data.siblings || "None / not specified"}
 
-**Where We Live:**
+**Geography:**
 - City and state: ${data.city}
 - Urban / suburban / rural: ${data.area_type}
 ${data.area_context ? "- Area context: " + data.area_context : ""}
 - Willing to relocate for a school? ${data.relocation}
 
-**Our Finances:**
+**Finances:**
 - Approximate household income: ${data.income}
 - Any significant assets: ${data.assets}
-- What we can realistically afford per year for college: ${data.college_budget}
+- What can you realistically afford per year for college: ${data.college_budget}
 - Any special financial circumstances: ${data.financial_special || "None specified"}
 
-**What We're Looking For in a School:**
+**School Preferences:**
 - Size preference: ${data.size_preference}
 - Geographic preference: ${data.geographic_preference}
-- Must-haves: ${data.must_haves || "None specified"}
-- Deal-breakers: ${data.deal_breakers || "None specified"}
-- Schools already on our radar: ${data.schools_on_radar || "None specified"}
+- Any must-haves: ${data.must_haves || "None specified"}
+- Any deal-breakers: ${data.deal_breakers || "None specified"}
+- Schools already on your radar: ${data.schools_on_radar || "None specified"}
 
 ---
 
-### SECTION 2: WHAT MATTERS MOST TO US
+### SECTION 2: WHAT YOU CARE ABOUT
 
-Our priorities, ranked (1 = most important):
+Rank these 1-7 (1 = most important):
 
 ${priorityLines}
 
-Anything else that matters to us: ${data.priority_other || "Nothing additional"}
+Anything else that matters to you that isn't on this list: ${data.priority_other || "Nothing additional"}
 
 ---
 
@@ -254,7 +254,9 @@ Rules for the JSON block:
 
 ---
 
-**TONE:** Warm, encouraging, and realistic. Be the smart friend who genuinely cares about this kid's future. Celebrate what makes this student interesting. Be honest about challenges without being discouraging. When a school is a reach, say so clearly, but also explain what would make the application competitive. Acknowledge uncertainty and flag where the plan is optimistic. Use the family's own language and values. Reference specific details they provided naturally throughout. The plan should feel like it was written by someone who actually read everything the family wrote and cares about getting it right. Use humor sparingly but don't be afraid of it. Call out the parents directly when needed. No em dashes. Use commas, periods, or restructure the sentence.`;
+**TONE:** Warm, encouraging, and realistic. Be the smart friend who genuinely cares about this kid's future. Celebrate what makes this student interesting. Be honest about challenges without being discouraging. When a school is a reach, say so clearly, but also explain what would make the application competitive. Acknowledge uncertainty and flag where the plan is optimistic. Use the family's own language and values. Reference specific details they provided naturally throughout. The plan should feel like it was written by someone who actually read everything the family wrote and cares about getting it right. Use humor sparingly but don't be afraid of it. Call out the parents directly when needed. No em dashes. Use commas, periods, or restructure the sentence.
+
+**VOICE:** Always address the parent directly. Use "your family", "your budget", "your son/daughter" throughout. Never use third person like "their family", "the family", "the student's parents". You are talking TO this parent, not writing a report ABOUT them.`;
 }
 
 module.exports = async function handler(req, res) {

@@ -54,17 +54,17 @@ module.exports = async function handler(req, res) {
 
   const prompt = `**Today's date is ${currentDate}.** All timelines, deadlines, summer plans, and recommendations must reflect this. Do not reference dates that have already passed. "This summer" means the upcoming summer, not a past one.
 
-You wrote the Strategy Brief below for our family. Now write the Reference Sections. These are the detailed planning tools I come back to over the years. Keep the same voice, the same schools, the same financial assumptions. Write like you're still talking to me. Use my kid's name. Be specific.
+You wrote the Strategy Brief below for this family. Now write the Reference Sections. These are the detailed planning tools the parent comes back to over the years. Keep the same voice, the same schools, the same financial assumptions. Write like you're still talking to the same parent. Use their kid's name. Be specific.
 
 ---
 
-**ABOUT OUR FAMILY:**
-- Our kid: ${formData.student_name}, ${formData.student_age_grade}
+**FAMILY DETAILS:**
+- Student: ${formData.student_name}, ${formData.student_age_grade}
 - School: ${formData.school_name}, ${formData.school_type}
-- We live in: ${formData.city}
-- Our income: ${formData.income}
-- What we can afford for college: ${formData.college_budget}
-- Our kid's interests: ${formData.interests}
+- City: ${formData.city}
+- Income: ${formData.income}
+- College budget: ${formData.college_budget}
+- Interests: ${formData.interests}
 - Academic profile: ${formData.academic_profile}
 
 ---
@@ -109,7 +109,9 @@ Then generate each of these sections. Each should stand alone so a parent can ju
 - Never fabricate local scholarship names or deadlines. Recommend search strategies instead.
 - Never fabricate specific dollar amounts for scholarships. Use ranges or say "check the school's website."
 
-**TONE:** Warm, encouraging, and realistic. Be the smart friend who genuinely cares about this kid's future. Celebrate what makes this student interesting. Be honest about challenges without being discouraging. Acknowledge uncertainty. Use the family's own language and values. Reference specific details they provided naturally throughout. The plan should feel like it was written by someone who actually read everything the family wrote and cares about getting it right. Use humor sparingly but don't be afraid of it. Call out the parents directly when needed. No em dashes. Use commas, periods, or restructure the sentence.`;
+**TONE:** Warm, encouraging, and realistic. Be the smart friend who genuinely cares about this kid's future. Celebrate what makes this student interesting. Be honest about challenges without being discouraging. Acknowledge uncertainty. Use the family's own language and values. Reference specific details they provided naturally throughout. The plan should feel like it was written by someone who actually read everything the family wrote and cares about getting it right. Use humor sparingly but don't be afraid of it. Call out the parents directly when needed. No em dashes. Use commas, periods, or restructure the sentence.
+
+**VOICE:** Always address the parent directly. Use "your family", "your budget", "your son/daughter" throughout. Never use third person like "their family", "the family", "the student's parents". You are talking TO this parent, not writing a report ABOUT them.`;
 
   try {
     res.setHeader("Content-Type", "text/event-stream");
