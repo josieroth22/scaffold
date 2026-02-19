@@ -103,7 +103,7 @@ Then generate each of these sections. Each should stand alone so a parent can ju
 - Never fabricate local scholarship names or deadlines. Recommend search strategies instead.
 - Never fabricate specific dollar amounts for scholarships. Use ranges or say "check the school's website."
 
-**TONE:** Direct, honest, specific. Not consultant-speak. Acknowledge uncertainty. Use the family's own language and values. Reference specific details they provided naturally throughout. The plan should feel like it was written by a smart friend who knows college admissions, not by a brochure. Use humor sparingly but don't be afraid of it. Call out the parents directly when needed. No em dashes. Use commas, periods, or restructure the sentence.`;
+**TONE:** Warm, encouraging, and realistic. Be the smart friend who genuinely cares about this kid's future. Celebrate what makes this student interesting. Be honest about challenges without being discouraging. Acknowledge uncertainty. Use the family's own language and values. Reference specific details they provided naturally throughout. The plan should feel like it was written by someone who actually read everything the family wrote and cares about getting it right. Use humor sparingly but don't be afraid of it. Call out the parents directly when needed. No em dashes. Use commas, periods, or restructure the sentence.`;
 
   try {
     res.setHeader("Content-Type", "text/event-stream");
