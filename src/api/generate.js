@@ -237,6 +237,7 @@ module.exports = async function handler(req, res) {
     res.write(`data: ${JSON.stringify({ id })}\n\n`);
 
     let fullOutput = "";
+    let lastSave = Date.now();
 
     const stream = await client.messages.stream({
       model: "claude-opus-4-20250514",
@@ -251,6 +252,12 @@ module.exports = async function handler(req, res) {
       ) {
         fullOutput += event.delta.text;
         res.write(`data: ${JSON.stringify({ text: event.delta.text })}\n\n`);
+
+        // Save partial output every 30 seconds so we don't lose progress on timeout
+        if (Date.now() - lastSave > 30000) {
+          lastSave = Date.now();
+          redis.hset(`submission:${id}`, { output: fullOutput }).catch(() => {});
+        }
       }
     }
 
