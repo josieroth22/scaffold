@@ -91,6 +91,51 @@
   }
   .topbar-link:hover { color: var(--ink); }
 
+  .sample-bar {
+    position: fixed;
+    top: 52px;
+    width: 100%;
+    z-index: 99;
+    background: var(--sage-light);
+    border-bottom: 1px solid var(--border);
+    padding: 0 2rem;
+    height: 38px;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    font-size: 0.78rem;
+    font-family: 'DM Sans', sans-serif;
+  }
+
+  .sample-bar.visible { display: flex; }
+
+  .sample-bar-label {
+    color: var(--muted);
+    font-weight: 500;
+    margin-right: 0.25rem;
+  }
+
+  .sample-bar a {
+    color: var(--sage-dark);
+    text-decoration: none;
+    font-weight: 600;
+    padding: 0.25rem 0.65rem;
+    border-radius: 4px;
+    transition: background 0.15s, color 0.15s;
+  }
+
+  .sample-bar a:hover { background: rgba(74, 103, 65, 0.12); }
+  .sample-bar a.active { background: var(--sage); color: white; }
+
+  .sample-bar-sep { color: var(--border); }
+
+  /* Shift content down when sample bar is visible */
+  body.has-sample-bar .hero { margin-top: 38px; }
+  body.has-sample-bar .sidebar-nav { top: 90px; }
+  body.has-sample-bar .strategy-body h1,
+  body.has-sample-bar .strategy-body h2 { scroll-margin-top: 118px; }
+
   /* ---- HERO ---- */
   .hero {
     background: var(--cream);
@@ -1238,6 +1283,15 @@
   </div>
 </nav>
 
+<div class="sample-bar" id="sample-bar">
+  <span class="sample-bar-label">Sample plans:</span>
+  <a href="plan.html?id=mltutk4ma02soi" data-sample-id="mltutk4ma02soi">Alejandra's Plan</a>
+  <span class="sample-bar-sep">|</span>
+  <a href="plan.html?id=mltutk640laqpi" data-sample-id="mltutk640laqpi">Priya's Plan</a>
+  <span class="sample-bar-sep">|</span>
+  <a href="plan.html?id=mltutjs3t6hf1q" data-sample-id="mltutjs3t6hf1q">Jake's Plan</a>
+</div>
+
 <!-- BACK TO TOP -->
 <button class="back-to-top" id="back-to-top" title="Back to top">&uarr;</button>
 
@@ -1865,6 +1919,16 @@
     if (!id) {
       showError();
       return;
+    }
+
+    // Show sample bar if this is a sample plan
+    const sampleIds = ['mltutk4ma02soi', 'mltutk640laqpi', 'mltutjs3t6hf1q'];
+    if (sampleIds.includes(id)) {
+      const bar = document.getElementById('sample-bar');
+      bar.classList.add('visible');
+      document.body.classList.add('has-sample-bar');
+      const activeLink = bar.querySelector(`[data-sample-id="${id}"]`);
+      if (activeLink) activeLink.classList.add('active');
     }
 
     try {
