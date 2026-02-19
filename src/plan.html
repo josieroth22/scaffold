@@ -1184,7 +1184,7 @@
   @media (min-width: 1100px) {
     .sidebar-nav { display: block; }
     .hero, .toc, .strategy-body, .sim-section, .plan-footer,
-    .submission-toggle, .submission-info { margin-left: 240px; }
+    .submission-toggle, .submission-info { margin-left: 270px; }
     .hero-inner, .strategy-body, .sim-section, .plan-footer { max-width: 780px; }
   }
 
@@ -1586,7 +1586,7 @@
 
     // Header
     html += '<div class="sim-header">';
-    html += '<h2>Financial Simulation Results</h2>';
+    html += '<h2 id="sim-results">Financial Simulation Results</h2>';
     html += '<p>Based on ' + sim.iterations.toLocaleString() + ' Monte Carlo iterations using the admission and financial estimates above</p>';
     html += '</div>';
 
@@ -1746,6 +1746,26 @@
 
     section.innerHTML = html;
     section.style.display = 'block';
+
+    // Add to sidebar
+    const list = document.getElementById('sidebar-list');
+    if (list) {
+      const simH2 = document.getElementById('sim-results');
+      if (simH2) {
+        const li = document.createElement('li');
+        li.className = 'sb-h1';
+        const a = document.createElement('a');
+        a.href = '#sim-results';
+        a.textContent = 'Financial Simulation';
+        a.dataset.target = 'sim-results';
+        a.addEventListener('click', e => {
+          e.preventDefault();
+          simH2.scrollIntoView({ behavior: 'smooth' });
+        });
+        li.appendChild(a);
+        list.appendChild(li);
+      }
+    }
   }
 
   function toggleSimCard(headerEl) {
