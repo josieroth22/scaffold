@@ -51,5 +51,16 @@ module.exports = async function handler(req, res) {
     }
   }
 
+  if (req.method === "DELETE") {
+    try {
+      await redis.del(`submission:${id}`);
+      await redis.lrem("submissions", 0, id);
+      return res.status(200).json({ deleted: true });
+    } catch (err) {
+      console.error("Error deleting submission:", err);
+      return res.status(500).json({ error: err.message });
+    }
+  }
+
   return res.status(405).json({ error: "Method not allowed" });
 };
