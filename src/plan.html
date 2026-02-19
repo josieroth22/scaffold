@@ -154,15 +154,18 @@
     border-bottom: 1px solid var(--border);
   }
 
+  .toc-columns {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0 2rem;
+  }
+
   .toc-list {
     list-style: none;
     margin-bottom: 0;
-    columns: 2;
-    column-gap: 2rem;
   }
 
   .toc-list li {
-    break-inside: avoid;
     margin-bottom: 0.2rem;
   }
 
@@ -392,7 +395,7 @@
     .hero { padding: 5.5rem 1.25rem 2.5rem; }
     .strategy-body { padding: 1.5rem 1.25rem 3rem; }
     .toc { padding: 1.25rem; margin-left: 1.25rem; margin-right: 1.25rem; }
-    .toc-list { columns: 1; }
+    .toc-columns { grid-template-columns: 1fr; }
     .strategy-body table { font-size: 0.75rem; }
     .strategy-body th, .strategy-body td { padding: 0.5rem; }
   }
@@ -435,7 +438,10 @@
 
   <nav class="toc" id="toc" style="display: none;">
     <div class="toc-title">In this plan</div>
-    <ul class="toc-list" id="toc-list"></ul>
+    <div class="toc-columns">
+      <ul class="toc-list" id="toc-col1"></ul>
+      <ul class="toc-list" id="toc-col2"></ul>
+    </div>
   </nav>
 
   <div class="strategy-body" id="strategy-body"></div>
@@ -528,20 +534,33 @@
     return html;
   }
 
-  // Build table of contents with two levels
+  // Build table of contents with two columns: Strategy Brief | Reference Sections
   function buildToc(container) {
     const headings = container.querySelectorAll('h1[id], h2[id]');
     if (headings.length < 3) return;
 
-    const tocList = document.getElementById('toc-list');
+    const col1 = document.getElementById('toc-col1');
+    const col2 = document.getElementById('toc-col2');
+    let inRefSections = false;
+
     headings.forEach(h => {
+      // "Reference Sections" and everything after goes in column 2
+      if (h.textContent.toLowerCase().includes('reference section')) {
+        inRefSections = true;
+      }
+
       const li = document.createElement('li');
       li.className = h.tagName === 'H1' ? 'toc-h1' : 'toc-h2';
       const a = document.createElement('a');
       a.href = '#' + h.id;
       a.textContent = h.textContent;
       li.appendChild(a);
-      tocList.appendChild(li);
+
+      if (inRefSections) {
+        col2.appendChild(li);
+      } else {
+        col1.appendChild(li);
+      }
     });
 
     document.getElementById('toc').style.display = 'block';
