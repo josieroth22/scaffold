@@ -207,7 +207,7 @@ Stop after the Monte Carlo Parameter Table. The Reference Sections come next in 
 
 **BEFORE YOU OUTPUT YOUR FINAL RESPONSE**, do a silent self-check. Do NOT print this checklist. Just verify internally and fix any issues before generating:
 
-1. **Residency check:** Is the student in-state for the state schools you listed? Use in-state tuition and in-state admit rates for their home state schools. Out-of-state for everything else.
+1. **Residency check:** Is the student in-state for the state schools you listed? Use in-state tuition and in-state admit rates for their home state schools. Out-of-state for everything else. IMPORTANT: DC residents are NOT in-state for Maryland or Virginia schools. Students from US territories are out-of-state everywhere. If the student is from DC, mention the DC TAG program ($10K/year toward out-of-state public tuition) but do NOT use in-state tuition rates for UMD, UVA, or any other state school.
 2. **Cost consistency:** Does every school's estimated net cost appear the same in the Executive Summary table, the per-school writeups, and the Probability Table? If you said "$18-22K" in one place, don't say "$22-28K" in another.
 3. **Admit probability sanity:** Are your admit probability estimates realistic? A strong-but-not-hooked applicant should NOT exceed the school's overall admit rate by more than ~5 percentage points. Single-digit admit rate schools should stay single-digit for most applicants.
 4. **No-merit schools:** Did you accidentally give a merit scholarship probability to an Ivy, MIT, Stanford, Caltech, or an elite LAC that only offers need-based aid? If so, fix it.
