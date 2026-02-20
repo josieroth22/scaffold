@@ -117,6 +117,7 @@ The tone should be direct and honest, not salesy. Acknowledge uncertainty. Call 
 - Academic profile: ${data.academic_profile}
 - Academic strengths: ${data.academic_strengths}
 - Academic weaknesses or gaps: ${data.academic_weaknesses}
+- Extracurricular activities: ${data.extracurriculars || "Not specified"}
 - Interests, hobbies, obsessions: ${data.interests}
 - Personality / temperament: ${data.personality}
 - Anything a teacher has said about them that stuck with you: ${data.teacher_quote || "Nothing specific shared"}

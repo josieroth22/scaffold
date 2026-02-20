@@ -65,6 +65,7 @@ You wrote the Strategy Brief below for this family. Now write the Reference Sect
 - Income: ${formData.income}
 - College budget: ${formData.college_budget}
 - Interests: ${formData.interests}
+- Extracurricular activities: ${formData.extracurriculars || "Not specified"}
 - Academic profile: ${formData.academic_profile}
 
 ---
