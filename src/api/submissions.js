@@ -41,6 +41,8 @@ module.exports = async function handler(req, res) {
             has_output: !!data.output,
             has_simulation: !!data.simulation,
             simulation_error: data.simulation_error || "",
+            has_review: !!data.review,
+            review_status: data.review ? (JSON.parse(typeof data.review === 'string' ? data.review : JSON.stringify(data.review)).overall || 'unknown') : null,
           });
         }
       }

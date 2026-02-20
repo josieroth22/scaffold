@@ -93,6 +93,7 @@
         <th>Submitted</th>
         <th>Plan</th>
         <th>Sim</th>
+        <th>Review</th>
         <th>Details</th>
       </tr>
     </thead>
@@ -182,6 +183,7 @@
           <td>${date}</td>
           <td>${planLink}</td>
           <td>${simBadge}</td>
+          <td>${s.has_review ? (s.review_status === 'PASS' ? '<span class="badge-sim-ok">PASS</span>' : '<span class="badge-sim-fail">' + (s.review_status || 'FAIL') + '</span>') : '-'}</td>
           <td><button class="btn-view" onclick="viewSubmission('${s.id}')">View</button></td>
         `;
         tbody.appendChild(tr);

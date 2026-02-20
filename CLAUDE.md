@@ -1,5 +1,9 @@
 # Scaffold
 
+## Model Preference
+
+Always use Claude Opus (claude-opus-4-20250514) for all API calls unless specifically asked to use a different model.
+
 ## What This Is
 
 Scaffold is a $50 consumer product that generates personalized college strategy documents for families. The core loop: family fills out a form, we run their details through a Claude Opus prompt template, and they get a 20+ page strategy doc at a unique URL.

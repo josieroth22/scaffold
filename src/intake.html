@@ -1410,7 +1410,23 @@
 
       await streamResponse(tier2Response, statusEl, progressEl, (text) => {
         markdown += text;
-      }, 55, 95, 20000);
+      }, 55, 90, 20000);
+
+      // Quality review (non-blocking on failure)
+      statusEl.textContent = 'Reviewing for accuracy...';
+      progressEl.style.width = '92%';
+      try {
+        const reviewRes = await fetch('/api/review', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ id: submissionId }),
+        });
+        if (!reviewRes.ok) {
+          console.warn('Review returned ' + reviewRes.status);
+        }
+      } catch (e) {
+        console.warn('Review request failed:', e);
+      }
 
       progressEl.style.width = '100%';
       statusEl.textContent = 'Done! Redirecting to your plan...';
