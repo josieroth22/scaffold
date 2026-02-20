@@ -332,9 +332,14 @@
     transform: scale(0.97);
   }
 
-  .priority-item.drag-over {
-    border-color: var(--sage);
-    box-shadow: 0 0 0 2px rgba(74, 103, 65, 0.15);
+  .priority-item.drag-over-above {
+    box-shadow: 0 -2px 0 0 var(--sage);
+    margin-top: 4px;
+  }
+
+  .priority-item.drag-over-below {
+    box-shadow: 0 2px 0 0 var(--sage);
+    margin-bottom: 4px;
   }
 
   .priority-rank {
@@ -1166,16 +1171,28 @@
   grid.addEventListener('dragend', e => {
     const item = e.target.closest('.priority-item');
     if (item) item.classList.remove('dragging');
-    grid.querySelectorAll('.priority-item').forEach(i => i.classList.remove('drag-over'));
+    clearDropIndicators();
     dragItem = null;
   });
+
+  function clearDropIndicators() {
+    grid.querySelectorAll('.priority-item').forEach(i => {
+      i.classList.remove('drag-over-above', 'drag-over-below');
+    });
+  }
 
   grid.addEventListener('dragover', e => {
     e.preventDefault();
     const target = e.target.closest('.priority-item');
     if (target && target !== dragItem) {
-      grid.querySelectorAll('.priority-item').forEach(i => i.classList.remove('drag-over'));
-      target.classList.add('drag-over');
+      clearDropIndicators();
+      const rect = target.getBoundingClientRect();
+      const midpoint = rect.top + rect.height / 2;
+      if (e.clientY < midpoint) {
+        target.classList.add('drag-over-above');
+      } else {
+        target.classList.add('drag-over-below');
+      }
     }
   });
 
@@ -1183,16 +1200,15 @@
     e.preventDefault();
     const target = e.target.closest('.priority-item');
     if (target && target !== dragItem && dragItem) {
-      const items = [...grid.querySelectorAll('.priority-item')];
-      const dragIdx = items.indexOf(dragItem);
-      const targetIdx = items.indexOf(target);
-      if (dragIdx < targetIdx) {
-        target.after(dragItem);
-      } else {
+      const rect = target.getBoundingClientRect();
+      const midpoint = rect.top + rect.height / 2;
+      if (e.clientY < midpoint) {
         target.before(dragItem);
+      } else {
+        target.after(dragItem);
       }
     }
-    grid.querySelectorAll('.priority-item').forEach(i => i.classList.remove('drag-over'));
+    clearDropIndicators();
   });
 
   // Touch support for mobile drag
