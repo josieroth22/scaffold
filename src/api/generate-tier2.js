@@ -63,7 +63,7 @@ You wrote the Strategy Brief below for this family. Now write the Reference Sect
 - School: ${formData.school_name}, ${formData.school_type}
 - City: ${formData.city}
 - Income: ${formData.income}
-- College budget: ${formData.college_budget}
+- College budget: ${formData.college_budget || "Not specified (use budget estimated in Tier 1)"}
 - Interests: ${formData.interests}
 - Extracurricular activities: ${formData.extracurriculars || "Not specified"}
 - Academic profile: ${formData.academic_profile}

@@ -140,7 +140,7 @@ ${data.area_context ? "- Area context: " + data.area_context : ""}
 **Finances:**
 - Approximate household income: ${data.income}
 - Any significant assets: ${data.assets}
-- What can you realistically afford per year for college: ${data.college_budget}
+- What can you realistically afford per year for college: ${data.college_budget || "Not specified (estimate a reasonable budget based on their income, assets, and family size, and explain your reasoning)"}
 - Any special financial circumstances: ${data.financial_special || "None specified"}
 
 **School Preferences:**
