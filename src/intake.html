@@ -1588,9 +1588,11 @@
       const statusEl = document.getElementById('gen-status');
       const progressEl = document.getElementById('gen-progress');
       const MAX_FIX_ATTEMPTS = 2;
+      const MAX_REGEN_ATTEMPTS = 1;
       let submissionId = null;
       let markdown = '';
       let reviewPassed = false;
+      let regenAttempt = 0;
 
       // === GENERATION PIPELINE (runs once) ===
 
@@ -1723,17 +1725,6 @@
               reviewPassed = true;
             } else {
               console.warn(`Review FAIL after fix attempt ${fixAttempt}:`, reReviewData.summary || reReviewData);
-              if (fixAttempt >= MAX_FIX_ATTEMPTS) {
-                console.warn('Max fix attempts reached. Proceeding with best attempt.');
-                // Mark as review_failed so it doesn't stay stuck at "reviewing"
-                try {
-                  await fetch('/api/update-status', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ id: submissionId, status: 'review_failed' }),
-                  });
-                } catch (e) { console.warn('Failed to update status:', e); }
-              }
             }
           } else {
             console.warn('Re-review returned ' + reReviewRes.status + '. Proceeding.');
@@ -1745,10 +1736,105 @@
         }
       }
 
+      // === REGENERATION: if fix loop exhausted and still failing, do a full regen ===
+      if (!reviewPassed && regenAttempt < MAX_REGEN_ATTEMPTS) {
+        regenAttempt++;
+        console.warn('Fix attempts exhausted. Triggering full regeneration (attempt ' + regenAttempt + ')...');
+        statusEl.textContent = 'Improving plan quality...';
+        progressEl.style.width = '70%';
+
+        try {
+          const regenRes = await fetch('/api/regenerate', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ id: submissionId }),
+          });
+
+          if (regenRes.ok) {
+            // Stream the regenerated output
+            markdown = '';
+            await streamResponse(regenRes, statusEl, progressEl, (text) => {
+              markdown += text;
+            }, 70, 82, 13000);
+
+            // Re-run simulation on the new output
+            statusEl.textContent = 'Improving plan quality...';
+            progressEl.style.width = '83%';
+            try {
+              await fetch('/api/simulate', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ id: submissionId }),
+              });
+            } catch (e) { console.warn('Regen simulation failed:', e); }
+
+            // Re-run cost reconciliation
+            try {
+              await fetch('/api/reconcile-costs', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ id: submissionId }),
+              });
+            } catch (e) { console.warn('Regen reconciliation failed:', e); }
+            progressEl.style.width = '85%';
+
+            // Re-run Tier 2
+            statusEl.textContent = 'Improving plan quality...';
+            const regenTier2Res = await fetch('/api/generate-tier2', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ id: submissionId }),
+            });
+            if (regenTier2Res.ok) {
+              await streamResponse(regenTier2Res, statusEl, progressEl, (text) => {
+                markdown += text;
+              }, 85, 93, 20000);
+            }
+
+            // Final review after regeneration
+            statusEl.textContent = 'Finalizing plan...';
+            progressEl.style.width = '95%';
+            try {
+              const finalReviewRes = await fetch('/api/review', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ id: submissionId }),
+              });
+              if (finalReviewRes.ok) {
+                const finalReview = await finalReviewRes.json();
+                if (finalReview.overall === 'PASS') {
+                  reviewPassed = true;
+                } else {
+                  console.warn('Review FAIL after regeneration:', finalReview.summary || finalReview);
+                }
+              }
+            } catch (e) {
+              console.warn('Post-regen review failed:', e);
+            }
+          } else {
+            console.warn('Regeneration returned ' + regenRes.status);
+          }
+        } catch (e) {
+          console.warn('Regeneration request failed:', e);
+        }
+      }
+
+      // If still not passed after everything, mark as review_failed
+      if (!reviewPassed) {
+        console.warn('All attempts exhausted. Proceeding with best version.');
+        try {
+          await fetch('/api/update-status', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ id: submissionId, status: 'review_failed' }),
+          });
+        } catch (e) { console.warn('Failed to update status:', e); }
+      }
+
       progressEl.style.width = '100%';
       statusEl.textContent = 'Done! Redirecting to your plan...';
 
-      // Mark as completed in Redis
+      // Mark as completed in Redis (if not already marked review_failed)
       try {
         await fetch('/api/update-status', {
           method: 'POST',
