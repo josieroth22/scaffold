@@ -65,7 +65,7 @@ I'd like you to build a comprehensive college application and scholarship strate
 
 **Part One: Developmental Roadmap** from the kid's current age (or from preschool if we're planning ahead) through 12th grade, covering academics, extracurriculars, community involvement, and key milestones by age/grade. This should be specific to our local schools and programs, not generic advice.
 
-**Part Two: College Application Strategy** including an applicant profile (projected, based on the developmental roadmap), a school list of 8-12 schools with rationale, an activities list, honors and awards, essay strategy by school, recommendation letter strategy, and application timeline for senior year. Every school on the list should be one you'd genuinely recommend for this specific family. If a school doesn't fit, leave it off. Don't pad the list.
+**Part Two: College Application Strategy** including an applicant profile (projected, based on the developmental roadmap), a school list of 8-12 schools with rationale, an activities list, honors and awards, essay strategy by school, recommendation letter strategy, and application timeline for senior year. Every school on the list should be one you'd genuinely recommend for this specific family. If a school doesn't fit, leave it off. Don't pad the list. **Do NOT include a school if it is financially unreachable for this family.** If sticker price is $85K and the family qualifies for minimal need-based aid and the school offers no merit aid, it doesn't belong on the list unless the family explicitly named it. A school the family can't afford is not a recommendation, it's a tease.
 
 **Part Three: Probability and Cost Estimates** with admission probability, scholarship likelihood, and estimated net costs for each school on the list, producing a decision framework for April of senior year. Be honest that these are informed estimates based on the student's profile, not outputs of a statistical simulation.
 
@@ -212,6 +212,8 @@ ${data.additional_context}
 
 Generate the Strategy Brief (~5,000 words). This is the core document the parent reads the day they get it. Write it like you're talking directly to them. Reference Sections will follow separately, so stop after the Monte Carlo Parameter Table.
 
+**Start with a title:** \`# [Student First Name]'s College Strategy\` followed by \`*[City], [State] | [Current Grade] | Scaffold [Month Year]*\` on the next line.
+
 **FORMATTING: Use ## markdown headers for every major section** (e.g., \`## Executive Summary\`, \`## The Four Threads\`, \`## School List\`, \`## Financial Aid Strategy\`, \`## Summer Plan\`, \`## Probability and Cost Estimates\`, \`## What If the Profile Lands Lower\`, \`## What to Do Now\`). Use ### for subsections (e.g., each school in the school list). Do NOT use **bold text** as section headers. This is critical for the web rendering.
 
 ---
@@ -227,7 +229,7 @@ Generate the Strategy Brief (~5,000 words). This is the core document the parent
 - The Four Threads (what the application narrative is built around)
 - School List with full financial analysis and honest commentary for each school. Number each school sequentially (1. School Name, 2. School Name, etc.). For each school include: recommended application round (EA/ED/RD) with reasoning, whether CSS Profile is required, whether the school tracks demonstrated interest, and what specific actions to take for that school. This is the core value, don't compress it.
 - QuestBridge explanation (if applicable to this family's income)
-- Financial Aid Strategy (FAFSA/CSS, non-custodial parent issues, state scholarships)
+- Financial Aid Strategy (FAFSA/CSS, non-custodial parent issues, state scholarships). **IMPORTANT: If the family owns a home, explicitly explain how the CSS Profile counts home equity as an asset and what that means for their aid at CSS Profile schools vs. FAFSA-only schools.** This is one of the biggest surprises for homeowner families and must be addressed directly.
 - Summer Plan: Specific recommendations for each remaining summer before application season
 - Probability and Cost Estimates summary (headline stats, the 3-5 decision scenarios, financial floor)
 - What If the Profile Lands Lower: Concrete backup plan if test scores, GPA, or activities don't develop as projected
@@ -306,6 +308,8 @@ Rules for the JSON block:
 ---
 
 **TONE:** Warm, encouraging, and realistic. Be the smart friend who genuinely cares about this kid's future. Celebrate what makes this student interesting. Be honest about challenges without being discouraging. When a school is a reach, say so clearly, but also explain what would make the application competitive. Acknowledge uncertainty and flag where the plan is optimistic. Use the family's own language and values. Reference specific details they provided naturally throughout. The plan should feel like it was written by someone who actually read everything the family wrote and cares about getting it right. Use humor sparingly but don't be afraid of it. Call out the parents directly when needed. No em dashes. Use commas, periods, or restructure the sentence.
+
+**USE ALL FAMILY DETAILS:** If both parents are listed with education backgrounds, reference BOTH in the plan (legacy considerations, first-gen status, etc.). Do not mention one parent's alma mater and ignore the other's. Every detail the family provided should be reflected somewhere in the plan. If they mentioned a school, a program, an award, a concern, or an interest, it should appear. A family paying $50 expects that you actually read everything they wrote.
 
 **VOICE:** Always address the parent directly. Use "your family", "your budget", "your son/daughter" throughout. Never use third person like "their family", "the family", "the student's parents". You are talking TO this parent, not writing a report ABOUT them.`;
 }
