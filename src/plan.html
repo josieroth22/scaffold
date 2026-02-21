@@ -578,11 +578,20 @@
   }
 
   /* "Currently:" / "Goal:" activity description labels */
+  .act-item {
+    display: block;
+    margin-top: 0.5rem;
+    padding-left: 0.75rem;
+    border-left: 2px solid var(--border);
+  }
+  .act-item.act-item-current { border-left-color: var(--sage); }
+  .act-item.act-item-goal { border-left-color: var(--terra); }
   .act-label {
-    font-size: 0.7rem;
+    font-size: 0.65rem;
     font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 0.04em;
+    letter-spacing: 0.05em;
+    margin-right: 0.3rem;
   }
   .act-current { color: var(--sage-dark); }
   .act-goal { color: var(--terra); }
@@ -1601,22 +1610,57 @@
           td.innerHTML = '<span class="tier-badge tier-reach">REA</span>' + roundNote;
         }
       });
+
+      // --- Fix decimal admit rates in table columns ---
+      // Detect columns with "admit" in the header and convert decimals to percentages
+      const headers = table.querySelectorAll('th');
+      headers.forEach((th, colIdx) => {
+        const hText = th.textContent.toLowerCase();
+        if (hText.includes('admit') || hText.includes('acceptance')) {
+          table.querySelectorAll('tbody tr').forEach(row => {
+            const td = row.querySelectorAll('td')[colIdx];
+            if (!td) return;
+            const val = parseFloat(td.textContent.trim());
+            if (!isNaN(val) && val > 0 && val < 1) {
+              td.textContent = (val * 100).toFixed(0) + '%';
+            }
+          });
+        }
+      });
     });
 
-    // --- Structure "Currently:" and "Goal:" activity descriptions ---
+    // --- Structure "Currently" and "Goal" activity descriptions ---
+    // Handles: "Currently:", "Currently studying...", "Goal:", "Goal by senior year:"
     container.querySelectorAll('p, li, td').forEach(el => {
+      // Skip elements with child block elements
+      if (el.querySelector('p, ul, ol, table')) return;
+      const text = el.textContent;
       const html = el.innerHTML;
-      const labels = (html.match(/(?:Currently|Goal):/g) || []);
+      // Count "Currently" or "Goal" as standalone words
+      const labels = (text.match(/\b(?:Currently|Goal)\b/gi) || []);
       if (labels.length >= 2) {
-        // Multiple labels crammed into one element — split with line breaks
-        el.innerHTML = html
-          .replace(/(Currently:)/g, '<br><strong class="act-label act-current">$1</strong>')
-          .replace(/(Goal:)/g, '<br><strong class="act-label act-goal">$1</strong>')
-          .replace(/^(\s*<br>\s*)+/, '');
+        // Multiple labels in one element — split into styled blocks
+        // Split the innerHTML on Currently/Goal boundaries
+        const parts = html.split(/(?=(?:<strong>)?(?:Currently|Goal)\b)/gi);
+        const styled = parts.map(part => {
+          const partText = part.replace(/<[^>]+>/g, '').trim();
+          if (/^Currently\b/i.test(partText)) {
+            return '<span class="act-item act-item-current"><strong class="act-label act-current">Currently:</strong> ' +
+              part.replace(/^(?:<strong>)?Currently\b[^:]*:?\s*(?:<\/strong>)?\s*/i, '') + '</span>';
+          } else if (/^Goal\b/i.test(partText)) {
+            return '<span class="act-item act-item-goal"><strong class="act-label act-goal">Goal:</strong> ' +
+              part.replace(/^(?:<strong>)?Goal\b[^:]*:?\s*(?:<\/strong>)?\s*/i, '') + '</span>';
+          }
+          return part;
+        }).join('');
+        el.innerHTML = styled;
       } else if (labels.length === 1) {
+        // Single label — style it in place
         el.innerHTML = html
-          .replace(/(Currently:)/g, '<strong class="act-label act-current">$1</strong>')
-          .replace(/(Goal:)/g, '<strong class="act-label act-goal">$1</strong>');
+          .replace(/(?:<strong>)?(Currently\b[^:]*:?)(?:<\/strong>)?/i,
+            '<strong class="act-label act-current">Currently:</strong>')
+          .replace(/(?:<strong>)?(Goal\b[^:]*:?)(?:<\/strong>)?/i,
+            '<strong class="act-label act-goal">Goal:</strong>');
       }
     });
 

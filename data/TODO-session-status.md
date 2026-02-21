@@ -66,6 +66,12 @@ All three data layers are populated and verified:
 
 ## STILL TODO
 
+### Plan Rendering Bugs (next session)
+- **Activities list wall of text**: Currently:/Goal: descriptions from all 10 activities render as one giant block. First fix deployed (plan.html: `<br>` splitting + styled labels) but not working — need to inspect actual DOM structure of Jaylen's plan to find why. Likely the content is in an element type not covered by `querySelectorAll('p, li, td')`, or the AI output format doesn't match expectations.
+- **EA (merit deadline) badge**: Fix deployed and should be working (strips parenthetical for matching, shows badge + italic note). Verify on Jaylen's plan.
+- **Admit rates showing as decimals**: e.g. "0.103" instead of "10.3%". Likely the school data formatting in `school-data.js` or the AI is echoing raw Scorecard values. Check `formatSchoolCompact()` and `formatSchoolRadar()` in `src/api/school-data.js`.
+- **Honors programs incomplete**: GSU (Honors College) and UNC (Honors Carolina) both show N/A. Current honors data only covers schools from the scholarship/honors PDF parse (~108 schools). Need to do a broader pass: audit all ~136 CDS schools + major state flagships for honors programs and populate reference.honors_program in their JSONs.
+
 ### Deploy + Verify
 - Deploy to Vercel
 - Manual test with Washington family (Atlanta, GA, $72K): verify HOPE/Zell Miller, UGA in-state tuition, no hallucinated scholarships
