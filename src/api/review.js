@@ -237,7 +237,10 @@ ${stateAid}
 
 11. **Simulation parameter sanity:** Check the JSON simulation parameters for obvious errors (see sub-checks below).
 
-12. **Verified data usage:** For each school on the list that has verified data in the VERIFIED SCHOOL DATA section, compare the plan's admit rate, sticker cost, and net price against the verified numbers. If any differ by more than 2 percentage points (admit rate) or $3,000 (costs), FAIL and list every discrepancy. The verified data is ground truth from CDS 2024-25 reports and the College Scorecard.
+12. **Verified data usage:** For each school on the list that has verified data in the VERIFIED SCHOOL DATA section:
+   - **Admit rates:** The plan should state the school's OVERALL verified admit rate as a baseline, then give a student-adjusted estimate. The overall rate cited must match verified data within 1 percentage point. The student-adjusted estimate can be higher (for strong applicants) but should not exceed the overall rate by more than 5 percentage points for an unhooked applicant. If the plan cites a wrong overall rate (e.g., says MIT is 8% when verified data shows 3.9%), FAIL.
+   - **Costs:** Compare sticker cost and net price against verified numbers. If any differ by more than $3,000, FAIL and list every discrepancy.
+   The verified data is ground truth from CDS 2024-25 reports and the College Scorecard.
 
 13. **REA/SCEA constraint:** If the plan recommends Restrictive Early Action or Single-Choice Early Action at any school (Harvard SCEA, Yale SCEA, Princeton SCEA, Stanford REA, Notre Dame REA, Georgetown REA), verify that NO other private school on the list is marked EA or ED. Only public/state universities may be EA alongside an REA/SCEA school. Other private schools must be RD or ED2. If the plan has Stanford REA and also MIT EA, that is a FAIL. Check every school's recommended round.
 
