@@ -137,6 +137,9 @@ The plan has three places where school costs and probabilities appear:
   // Detect whether Tier 2 is present (for conditional checks)
   const hasTier2 = (data.output || '').includes('REFERENCE SECTIONS');
 
+  // Radar schools for mandatory inclusion check
+  const radarSchools = formData.schools_on_radar || "None";
+
   const prompt = `You are a quality reviewer for a college planning product called Scaffold. A family paid $50 for a personalized college strategy document. Your job is to review the generated plan for errors, inconsistencies, and hallucinations.
 
 **FAMILY DETAILS (everything the family submitted):**
@@ -240,6 +243,8 @@ ${stateAid}
 
 14. **State aid programs:** If the STATE AID PROGRAMS section above lists programs for this family's state, does the plan mention them? For example, if the family is in Florida and the state aid section mentions Bright Futures, does the plan discuss Bright Futures and whether this student is on track? If significant state programs exist and are completely absent from the plan, FAIL.
 
+15. **Radar schools included:** The family listed these schools on their radar: "${radarSchools}". Every one of these schools MUST appear on the final school list with full analysis. If any radar school is missing from the plan entirely, FAIL and name the missing school(s). The family specifically asked about these schools.
+
 **Details for check 11 (simulation parameter sanity):**
     - sticker_cost should be reasonable ($15K-$85K range)
     - need_aid values shouldn't exceed sticker_cost
@@ -267,7 +272,8 @@ ${stateAid}
     "simulation_params": { "status": "PASS" or "FAIL", "detail": "..." },
     "verified_data_usage": { "status": "PASS" or "FAIL", "detail": "..." },
     "rea_scea_constraint": { "status": "PASS" or "FAIL", "detail": "..." },
-    "state_aid_programs": { "status": "PASS" or "FAIL", "detail": "..." }
+    "state_aid_programs": { "status": "PASS" or "FAIL", "detail": "..." },
+    "radar_schools_included": { "status": "PASS" or "FAIL", "detail": "..." }
   },
   "summary": "One paragraph summary of overall quality and any critical issues."
 }

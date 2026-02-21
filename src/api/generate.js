@@ -68,6 +68,8 @@ I'd like you to build a comprehensive college application and scholarship strate
 
 **Part Two: Probability and Cost Estimates** with admission probability, scholarship likelihood, and estimated net costs for each school on the list, producing a decision framework for April of senior year. Be honest that these are informed estimates based on the student's profile, not outputs of a statistical simulation.
 
+**RADAR SCHOOLS ARE MANDATORY.** If the family listed specific schools in "Schools on your radar," you MUST include every single one on your school list and provide full analysis. These are schools the family is actively interested in. Even if a school is a long shot or expensive, include it with honest analysis of the odds and costs. The family asked about it, so address it. Never silently drop a radar school.
+
 Use the family details and priorities below to personalize everything. Be specific to our geography, schools, and community. Where you make assumptions, state them. Where something is uncertain, flag it as a decision point. Include "What Not to Do" guidance at each stage.
 
 **Application Strategy Principles:**
@@ -270,6 +272,7 @@ ${schoolData.buildCheatSheet(data)}
 11. **Verified data check:** For every school on your list that appears in the VERIFIED SCHOOL DATA section, did you use the verified admit rate, sticker cost, and net price? If you used a different number, you have an error. Go back and fix it. Cross-reference against the QUICK REFERENCE table above.
 12. **REA/SCEA constraint:** If you recommended REA or SCEA for any school, scan every other school on the list. No other private school should be marked EA or ED. Only public schools can be EA alongside REA/SCEA. If you see a conflict, change the private school to RD.
 13. **State aid programs:** Did you mention the family's state-specific programs from the STATE AID PROGRAMS section? If not, add them.
+14. **Radar schools included:** Go back to "Schools already on your radar." Is every school the family named on your final list? If any are missing, add them now with full analysis. The family specifically asked about these schools. Never drop them.
 
 Fix any inconsistencies you find, then output your final response.
 
