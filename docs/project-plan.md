@@ -1,11 +1,5 @@
 # Scaffold: Project Plan
 
-## Founder
-
-Josie Roth. Background in tech and working with kids. Built Scaffold to combine those two worlds after seeing the equity gap in college planning firsthand. Her own college search experience showed her how stressful the information asymmetry is: families who can afford a private counselor get a roadmap, and everyone else gets Google. The $10K counselor isn't 200x better than what a smart system could produce for $50. Scaffold exists to prove that.
-
----
-
 ## What Scaffold Is
 
 Scaffold is a $50 consumer product that generates personalized 20+ page college strategy documents for families. A parent fills out a form, we run their details through Claude Opus with a proprietary prompt template, and they get a full strategy doc at a unique URL: school list, developmental roadmap, financial modeling, Monte Carlo simulation, essay strategy, and more.
