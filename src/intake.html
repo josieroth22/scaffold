@@ -1818,9 +1818,78 @@
       if (tier2Response.ok) {
         await streamResponse(tier2Response, statusEl, progressEl, (text) => {
           markdown += text;
-        }, 80, 98, 20000);
+        }, 80, 92, 20000);
       } else {
         console.warn('Tier 2 failed: ' + tier2Response.status);
+      }
+
+      // ============================================================
+      // PHASE 6: Final review + fix of the complete document
+      // ============================================================
+
+      statusEl.textContent = 'Final quality check...';
+      progressEl.style.width = '93%';
+      let finalPassed = false;
+      try {
+        const finalReviewRes = await fetch('/api/review', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ id: submissionId }),
+        });
+        if (finalReviewRes.ok) {
+          const finalReview = await finalReviewRes.json();
+          if (finalReview.overall === 'PASS') {
+            finalPassed = true;
+          } else {
+            console.warn('Final review FAIL:', finalReview.summary || finalReview);
+          }
+        } else {
+          finalPassed = true; // Don't block on review errors
+        }
+      } catch (e) {
+        console.warn('Final review failed:', e);
+        finalPassed = true;
+      }
+
+      // One fix attempt on the full doc if final review failed
+      if (!finalPassed) {
+        statusEl.textContent = 'Final polish...';
+        progressEl.style.width = '96%';
+        try {
+          const finalFixRes = await fetch('/api/fix-plan', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ id: submissionId }),
+          });
+          if (finalFixRes.ok) {
+            // One more review
+            try {
+              const lastReviewRes = await fetch('/api/review', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ id: submissionId }),
+              });
+              if (lastReviewRes.ok) {
+                const lastReview = await lastReviewRes.json();
+                if (lastReview.overall === 'PASS') {
+                  finalPassed = true;
+                } else {
+                  console.warn('Still failing after final fix:', lastReview.summary || lastReview);
+                }
+              }
+            } catch (e) { console.warn('Last review failed:', e); }
+          }
+        } catch (e) { console.warn('Final fix failed:', e); }
+      }
+
+      if (!finalPassed) {
+        try {
+          await fetch('/api/update-status', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ id: submissionId, status: 'review_failed' }),
+          });
+        } catch (e) { console.warn('Failed to update status:', e); }
       }
 
       // ============================================================
