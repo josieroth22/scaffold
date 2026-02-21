@@ -82,11 +82,18 @@ function parseIncomeNumber(s) {
 // Extract state abbreviation from city string like "Atlanta, GA"
 function parseState(cityStr) {
   if (!cityStr) return null;
+  // "Atlanta, GA" or "Atlanta,GA"
   const match = cityStr.match(/,\s*([A-Z]{2})\s*$/);
   if (match) return match[1];
-  // Try case-insensitive
+  // Case-insensitive: "Atlanta, ga"
   const match2 = cityStr.match(/,\s*([a-zA-Z]{2})\s*$/);
   if (match2) return match2[1].toUpperCase();
+  // No comma: "Boca Raton FL" or "Atlanta GA"
+  const match3 = cityStr.match(/\s([A-Z]{2})\s*$/);
+  if (match3) return match3[1];
+  // No comma, lowercase: "Boca Raton fl"
+  const match4 = cityStr.match(/\s([a-zA-Z]{2})\s*$/);
+  if (match4) return match4[1].toUpperCase();
   return null;
 }
 
