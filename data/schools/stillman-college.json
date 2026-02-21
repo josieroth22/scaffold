@@ -1,0 +1,36 @@
+{
+  "slug": "stillman-college",
+  "name": "Stillman College",
+  "ipeds_id": 102270,
+  "state": "AL",
+  "city": "Tuscaloosa",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.7422,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 11392,
+    "tuition_out_of_state": 11392,
+    "room_board": 9582,
+    "total_cost_in_state": 22974,
+    "total_cost_out_of_state": 22974,
+    "net_price": {
+      "0_30k": 11789,
+      "30_48k": 12252,
+      "48_75k": 11214,
+      "75_110k": 13001,
+      "110k_plus": 17500
+    },
+    "pell_rate": 0.682,
+    "federal_loan_rate": 0.6912,
+    "enrollment": 761
+  },
+  "cds": null,
+  "reference": null
+}

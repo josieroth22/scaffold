@@ -1,0 +1,36 @@
+{
+  "slug": "metropolitan-state-university",
+  "name": "Metropolitan State University",
+  "ipeds_id": 174020,
+  "state": "MN",
+  "city": "Saint Paul",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.9649,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": 16,
+    "act_75": 23,
+    "tuition_in_state": 9780,
+    "tuition_out_of_state": 9780,
+    "room_board": null,
+    "total_cost_in_state": 26057,
+    "total_cost_out_of_state": null,
+    "net_price": {
+      "0_30k": 17714,
+      "30_48k": 18480,
+      "48_75k": 18128,
+      "75_110k": 22145,
+      "110k_plus": 26057
+    },
+    "pell_rate": 0.443,
+    "federal_loan_rate": 0.3372,
+    "enrollment": 4998
+  },
+  "cds": null,
+  "reference": null
+}

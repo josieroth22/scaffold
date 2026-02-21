@@ -1,0 +1,36 @@
+{
+  "slug": "university-of-washington-bothell-campus",
+  "name": "University of Washington-Bothell Campus",
+  "ipeds_id": 377555,
+  "state": "WA",
+  "city": "Bothell",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.9177,
+    "sat_reading_25": 560,
+    "sat_reading_75": 700,
+    "sat_math_25": 610,
+    "sat_math_75": 770,
+    "act_25": 32,
+    "act_75": 34,
+    "tuition_in_state": 12559,
+    "tuition_out_of_state": 41913,
+    "room_board": 17115,
+    "total_cost_in_state": 31674,
+    "total_cost_out_of_state": 61028,
+    "net_price": {
+      "0_30k": 5081,
+      "30_48k": 5969,
+      "48_75k": 8059,
+      "75_110k": 16230,
+      "110k_plus": 23389
+    },
+    "pell_rate": 0.2843,
+    "federal_loan_rate": 0.2022,
+    "enrollment": 5228
+  },
+  "cds": null,
+  "reference": null
+}

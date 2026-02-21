@@ -1,0 +1,36 @@
+{
+  "slug": "ottawa-university-ottawa",
+  "name": "Ottawa University-Ottawa",
+  "ipeds_id": 155627,
+  "state": "KS",
+  "city": "Ottawa",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.8003,
+    "sat_reading_25": 460,
+    "sat_reading_75": 590,
+    "sat_math_25": 420,
+    "sat_math_75": 550,
+    "act_25": 16,
+    "act_75": 21,
+    "tuition_in_state": 35300,
+    "tuition_out_of_state": 35300,
+    "room_board": 12160,
+    "total_cost_in_state": 49460,
+    "total_cost_out_of_state": 49460,
+    "net_price": {
+      "0_30k": 21092,
+      "30_48k": 25749,
+      "48_75k": 28099,
+      "75_110k": 29480,
+      "110k_plus": 30254
+    },
+    "pell_rate": 0.3529,
+    "federal_loan_rate": 0.8535,
+    "enrollment": 935
+  },
+  "cds": null,
+  "reference": null
+}

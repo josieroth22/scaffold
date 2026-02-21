@@ -1,0 +1,36 @@
+{
+  "slug": "point-park-university",
+  "name": "Point Park University",
+  "ipeds_id": 215442,
+  "state": "PA",
+  "city": "Pittsburgh",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.9788,
+    "sat_reading_25": 520,
+    "sat_reading_75": 650,
+    "sat_math_25": 515,
+    "sat_math_75": 590,
+    "act_25": 19,
+    "act_75": 27,
+    "tuition_in_state": 38160,
+    "tuition_out_of_state": 38160,
+    "room_board": 12480,
+    "total_cost_in_state": 52640,
+    "total_cost_out_of_state": 52640,
+    "net_price": {
+      "0_30k": 18999,
+      "30_48k": 22027,
+      "48_75k": 23522,
+      "75_110k": 24599,
+      "110k_plus": 29375
+    },
+    "pell_rate": 0.3707,
+    "federal_loan_rate": 0.7477,
+    "enrollment": 2320
+  },
+  "cds": null,
+  "reference": null
+}

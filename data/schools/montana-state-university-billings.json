@@ -1,0 +1,36 @@
+{
+  "slug": "montana-state-university-billings",
+  "name": "Montana State University Billings",
+  "ipeds_id": 180179,
+  "state": "MT",
+  "city": "Billings",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": null,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 6706,
+    "tuition_out_of_state": 21347,
+    "room_board": 9800,
+    "total_cost_in_state": 18506,
+    "total_cost_out_of_state": 33147,
+    "net_price": {
+      "0_30k": 12147,
+      "30_48k": 13297,
+      "48_75k": 15803,
+      "75_110k": 18067,
+      "110k_plus": 18473
+    },
+    "pell_rate": 0.2647,
+    "federal_loan_rate": 0.2955,
+    "enrollment": 2710
+  },
+  "cds": null,
+  "reference": null
+}

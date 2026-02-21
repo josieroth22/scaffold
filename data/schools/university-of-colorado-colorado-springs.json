@@ -1,0 +1,36 @@
+{
+  "slug": "university-of-colorado-colorado-springs",
+  "name": "University of Colorado Colorado Springs",
+  "ipeds_id": 126580,
+  "state": "CO",
+  "city": "Colorado Springs",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.9657,
+    "sat_reading_25": 520,
+    "sat_reading_75": 630,
+    "sat_math_25": 500,
+    "sat_math_75": 610,
+    "act_25": 21,
+    "act_75": 28,
+    "tuition_in_state": 9712,
+    "tuition_out_of_state": 20492,
+    "room_board": 12278,
+    "total_cost_in_state": 23990,
+    "total_cost_out_of_state": 34770,
+    "net_price": {
+      "0_30k": 11562,
+      "30_48k": 11986,
+      "48_75k": 14717,
+      "75_110k": 20289,
+      "110k_plus": 21830
+    },
+    "pell_rate": 0.2625,
+    "federal_loan_rate": 0.3514,
+    "enrollment": 8870
+  },
+  "cds": null,
+  "reference": null
+}

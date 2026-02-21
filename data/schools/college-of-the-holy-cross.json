@@ -1,0 +1,38 @@
+{
+  "slug": "college-of-the-holy-cross",
+  "name": "College of the Holy Cross",
+  "ipeds_id": 166124,
+  "state": "MA",
+  "city": "Worcester",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.211,
+    "sat_reading_25": 630,
+    "sat_reading_75": 720,
+    "sat_math_25": 620,
+    "sat_math_75": 700,
+    "act_25": 28,
+    "act_75": 32,
+    "tuition_in_state": 60850,
+    "tuition_out_of_state": 60850,
+    "room_board": 17750,
+    "total_cost_in_state": 80600,
+    "total_cost_out_of_state": 80600,
+    "net_price": {
+      "0_30k": 14900,
+      "30_48k": 6282,
+      "48_75k": 20722,
+      "75_110k": 29535,
+      "110k_plus": 51228
+    },
+    "pell_rate": 0.1473,
+    "federal_loan_rate": 0.4019,
+    "enrollment": 3015
+  },
+  "cds": null,
+  "reference": {
+    "questbridge_partner": true
+  }
+}

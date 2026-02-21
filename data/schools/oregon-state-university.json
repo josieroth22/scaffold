@@ -1,0 +1,36 @@
+{
+  "slug": "oregon-state-university",
+  "name": "Oregon State University",
+  "ipeds_id": 209542,
+  "state": "OR",
+  "city": "Corvallis",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.7885,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 13494,
+    "tuition_out_of_state": 35664,
+    "room_board": 15075,
+    "total_cost_in_state": 30569,
+    "total_cost_out_of_state": 52739,
+    "net_price": {
+      "0_30k": 13219,
+      "30_48k": 14376,
+      "48_75k": 16992,
+      "75_110k": 22243,
+      "110k_plus": 26447
+    },
+    "pell_rate": 0.2236,
+    "federal_loan_rate": 0.3339,
+    "enrollment": 29557
+  },
+  "cds": null,
+  "reference": null
+}

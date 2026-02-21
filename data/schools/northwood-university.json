@@ -1,0 +1,36 @@
+{
+  "slug": "northwood-university",
+  "name": "Northwood University",
+  "ipeds_id": 171492,
+  "state": "MI",
+  "city": "Midland",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.839,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 33000,
+    "tuition_out_of_state": 33000,
+    "room_board": 12500,
+    "total_cost_in_state": 47500,
+    "total_cost_out_of_state": 47500,
+    "net_price": {
+      "0_30k": 23137,
+      "30_48k": 21931,
+      "48_75k": 25179,
+      "75_110k": 25556,
+      "110k_plus": 29125
+    },
+    "pell_rate": 0.2469,
+    "federal_loan_rate": 0.6629,
+    "enrollment": 1900
+  },
+  "cds": null,
+  "reference": null
+}

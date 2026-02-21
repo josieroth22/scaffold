@@ -1,0 +1,36 @@
+{
+  "slug": "texas-am-university-san-antonio",
+  "name": "Texas A&M University-San Antonio",
+  "ipeds_id": 459949,
+  "state": "TX",
+  "city": "San Antonio",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.92,
+    "sat_reading_25": 430,
+    "sat_reading_75": 540,
+    "sat_math_25": 420,
+    "sat_math_75": 530,
+    "act_25": 15,
+    "act_75": 21,
+    "tuition_in_state": 9548,
+    "tuition_out_of_state": 23124,
+    "room_board": 10760,
+    "total_cost_in_state": 22308,
+    "total_cost_out_of_state": 35884,
+    "net_price": {
+      "0_30k": 11412,
+      "30_48k": 11600,
+      "48_75k": 14295,
+      "75_110k": 18063,
+      "110k_plus": 20436
+    },
+    "pell_rate": 0.5083,
+    "federal_loan_rate": 0.4008,
+    "enrollment": 6224
+  },
+  "cds": null,
+  "reference": null
+}

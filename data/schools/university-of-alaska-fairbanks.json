@@ -1,0 +1,38 @@
+{
+  "slug": "university-of-alaska-fairbanks",
+  "name": "University of Alaska Fairbanks",
+  "api_name": "University of Alaska Fairbanks",
+  "ipeds_id": 102614,
+  "state": "AK",
+  "city": "Fairbanks",
+  "type": "public",
+  "tier": "A",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": null,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 8640,
+    "tuition_out_of_state": 22752,
+    "room_board": 10450,
+    "total_cost_in_state": 21090,
+    "total_cost_out_of_state": 35202,
+    "net_price": {
+      "0_30k": 7494,
+      "30_48k": 8206,
+      "48_75k": 9719,
+      "75_110k": 13515,
+      "110k_plus": 16203
+    },
+    "pell_rate": 0.2237,
+    "federal_loan_rate": 0.1765,
+    "enrollment": 4027
+  },
+  "cds": null,
+  "reference": null
+}

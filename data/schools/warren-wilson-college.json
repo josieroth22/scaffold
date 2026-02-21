@@ -1,0 +1,36 @@
+{
+  "slug": "warren-wilson-college",
+  "name": "Warren Wilson College",
+  "ipeds_id": 199865,
+  "state": "NC",
+  "city": "Swannanoa",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.7762,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": 25,
+    "act_75": 30,
+    "tuition_in_state": 40290,
+    "tuition_out_of_state": 40290,
+    "room_board": 12610,
+    "total_cost_in_state": 54900,
+    "total_cost_out_of_state": 54900,
+    "net_price": {
+      "0_30k": 19447,
+      "30_48k": 19640,
+      "48_75k": 15474,
+      "75_110k": 25134,
+      "110k_plus": 31599
+    },
+    "pell_rate": 0.3707,
+    "federal_loan_rate": 0.5643,
+    "enrollment": 720
+  },
+  "cds": null,
+  "reference": null
+}

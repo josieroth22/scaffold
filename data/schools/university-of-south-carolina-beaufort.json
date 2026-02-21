@@ -1,0 +1,36 @@
+{
+  "slug": "university-of-south-carolina-beaufort",
+  "name": "University of South Carolina Beaufort",
+  "ipeds_id": 218654,
+  "state": "SC",
+  "city": "Bluffton",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.6918,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 10730,
+    "tuition_out_of_state": 21776,
+    "room_board": 9810,
+    "total_cost_in_state": 22540,
+    "total_cost_out_of_state": 33586,
+    "net_price": {
+      "0_30k": 11858,
+      "30_48k": 12806,
+      "48_75k": 15774,
+      "75_110k": 18369,
+      "110k_plus": 19971
+    },
+    "pell_rate": 0.4028,
+    "federal_loan_rate": 0.4959,
+    "enrollment": 1958
+  },
+  "cds": null,
+  "reference": null
+}

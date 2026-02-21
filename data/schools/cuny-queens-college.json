@@ -1,0 +1,45 @@
+{
+  "slug": "cuny-queens-college",
+  "name": "CUNY Queens College",
+  "ipeds_id": 190664,
+  "state": "NY",
+  "city": "Queens",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.6852,
+    "sat_reading_25": 540,
+    "sat_reading_75": 660,
+    "sat_math_25": 560,
+    "sat_math_75": 660,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 7538,
+    "tuition_out_of_state": 15488,
+    "room_board": 16464,
+    "total_cost_in_state": 26002,
+    "total_cost_out_of_state": 33952,
+    "net_price": {
+      "0_30k": 1816,
+      "30_48k": 3530,
+      "48_75k": 7186,
+      "75_110k": 9157,
+      "110k_plus": 12359
+    },
+    "pell_rate": 0.4772,
+    "federal_loan_rate": 0.0893,
+    "enrollment": 13060
+  },
+  "cds": null,
+  "reference": {
+    "honors_program": {
+      "name": "Macaulay Honors College",
+      "description": "Highly selective CUNY-wide honors college. Scholars receive a full tuition scholarship, a laptop, an Opportunities Fund for enrichment activities, and personalized advising. ~2,080 students across 8 CUNY campuses.",
+      "separate_application": true,
+      "avg_sat": null,
+      "acceptance_rate": null,
+      "size": 2080
+    }
+  }
+}

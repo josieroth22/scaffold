@@ -1,0 +1,36 @@
+{
+  "slug": "franklin-university",
+  "name": "Franklin University",
+  "ipeds_id": 202806,
+  "state": "OH",
+  "city": "Columbus",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": null,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 9577,
+    "tuition_out_of_state": 9577,
+    "room_board": null,
+    "total_cost_in_state": 29433,
+    "total_cost_out_of_state": null,
+    "net_price": {
+      "0_30k": 23466,
+      "30_48k": 21170,
+      "48_75k": 22204,
+      "75_110k": null,
+      "110k_plus": null
+    },
+    "pell_rate": 0.3343,
+    "federal_loan_rate": 0.393,
+    "enrollment": 5111
+  },
+  "cds": null,
+  "reference": null
+}

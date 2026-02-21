@@ -1,0 +1,36 @@
+{
+  "slug": "california-college-of-the-arts",
+  "name": "California College of the Arts",
+  "ipeds_id": 110370,
+  "state": "CA",
+  "city": "San Francisco",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.734,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 57946,
+    "tuition_out_of_state": 57946,
+    "room_board": 21165,
+    "total_cost_in_state": 81111,
+    "total_cost_out_of_state": 81111,
+    "net_price": {
+      "0_30k": 32800,
+      "30_48k": 28423,
+      "48_75k": 42404,
+      "75_110k": 44139,
+      "110k_plus": 52438
+    },
+    "pell_rate": 0.2474,
+    "federal_loan_rate": 0.4564,
+    "enrollment": 1004
+  },
+  "cds": null,
+  "reference": null
+}

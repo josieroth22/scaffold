@@ -1,0 +1,36 @@
+{
+  "slug": "augsburg-university",
+  "name": "Augsburg University",
+  "ipeds_id": 173045,
+  "state": "MN",
+  "city": "Minneapolis",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.7653,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 43942,
+    "tuition_out_of_state": 43942,
+    "room_board": 16418,
+    "total_cost_in_state": 62360,
+    "total_cost_out_of_state": 62360,
+    "net_price": {
+      "0_30k": 21376,
+      "30_48k": 20901,
+      "48_75k": 20478,
+      "75_110k": 24741,
+      "110k_plus": 30427
+    },
+    "pell_rate": 0.515,
+    "federal_loan_rate": 0.7664,
+    "enrollment": 2429
+  },
+  "cds": null,
+  "reference": null
+}

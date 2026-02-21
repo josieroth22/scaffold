@@ -1,0 +1,36 @@
+{
+  "slug": "huntington-university",
+  "name": "Huntington University",
+  "ipeds_id": 150941,
+  "state": "IN",
+  "city": "Huntington",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.7115,
+    "sat_reading_25": 470,
+    "sat_reading_75": 590,
+    "sat_math_25": 530,
+    "sat_math_75": 600,
+    "act_25": 21,
+    "act_75": 25,
+    "tuition_in_state": 29982,
+    "tuition_out_of_state": 29982,
+    "room_board": 9880,
+    "total_cost_in_state": 41862,
+    "total_cost_out_of_state": 41862,
+    "net_price": {
+      "0_30k": 10313,
+      "30_48k": 10338,
+      "48_75k": 10726,
+      "75_110k": 14351,
+      "110k_plus": 19550
+    },
+    "pell_rate": 0.2937,
+    "federal_loan_rate": 0.7714,
+    "enrollment": 1016
+  },
+  "cds": null,
+  "reference": null
+}

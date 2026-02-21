@@ -1,0 +1,36 @@
+{
+  "slug": "oregon-institute-of-technology",
+  "name": "Oregon Institute of Technology",
+  "ipeds_id": 209506,
+  "state": "OR",
+  "city": "Klamath Falls",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.9167,
+    "sat_reading_25": 525,
+    "sat_reading_75": 650,
+    "sat_math_25": 520,
+    "sat_math_75": 650,
+    "act_25": 22,
+    "act_75": 26,
+    "tuition_in_state": 12687,
+    "tuition_out_of_state": 35592,
+    "room_board": 11604,
+    "total_cost_in_state": 26291,
+    "total_cost_out_of_state": 49196,
+    "net_price": {
+      "0_30k": 10338,
+      "30_48k": 13417,
+      "48_75k": 14959,
+      "75_110k": 18975,
+      "110k_plus": 22085
+    },
+    "pell_rate": 0.1922,
+    "federal_loan_rate": 0.2566,
+    "enrollment": 2913
+  },
+  "cds": null,
+  "reference": null
+}

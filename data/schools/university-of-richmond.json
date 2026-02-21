@@ -1,0 +1,51 @@
+{
+  "slug": "university-of-richmond",
+  "name": "University of Richmond",
+  "ipeds_id": 233374,
+  "state": "VA",
+  "city": "University of Richmond",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.2331,
+    "sat_reading_25": 690,
+    "sat_reading_75": 750,
+    "sat_math_25": 720,
+    "sat_math_75": 780,
+    "act_25": 32,
+    "act_75": 34,
+    "tuition_in_state": 62600,
+    "tuition_out_of_state": 62600,
+    "room_board": 16210,
+    "total_cost_in_state": 80810,
+    "total_cost_out_of_state": 80810,
+    "net_price": {
+      "0_30k": 11026,
+      "30_48k": 18646,
+      "48_75k": 15818,
+      "75_110k": 27086,
+      "110k_plus": 47669
+    },
+    "pell_rate": 0.1755,
+    "federal_loan_rate": 0.3335,
+    "enrollment": 3002
+  },
+  "cds": null,
+  "reference": {
+    "merit_scholarships": [
+      {
+        "name": "Richmond Scholars Program",
+        "amount": "Full COA (tuition, housing, food, plus $5,500 enrichment grant)",
+        "deadline": "December 1",
+        "requirements": "Virtual Interview"
+      }
+    ],
+    "national_merit": {
+      "semifinalist_award": "None",
+      "finalist_award": "$750-$2,000",
+      "first_choice_required": true,
+      "guaranteed": false
+    }
+  }
+}

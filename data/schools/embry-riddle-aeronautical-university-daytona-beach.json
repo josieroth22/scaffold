@@ -1,0 +1,36 @@
+{
+  "slug": "embry-riddle-aeronautical-university-daytona-beach",
+  "name": "Embry-Riddle Aeronautical University-Daytona Beach",
+  "ipeds_id": 133553,
+  "state": "FL",
+  "city": "Daytona Beach",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.6628,
+    "sat_reading_25": 570,
+    "sat_reading_75": 670,
+    "sat_math_25": 570,
+    "sat_math_75": 680,
+    "act_25": 24,
+    "act_75": 30,
+    "tuition_in_state": 42304,
+    "tuition_out_of_state": 42304,
+    "room_board": 13670,
+    "total_cost_in_state": 57974,
+    "total_cost_out_of_state": 57974,
+    "net_price": {
+      "0_30k": 35431,
+      "30_48k": 34066,
+      "48_75k": 39693,
+      "75_110k": 42233,
+      "110k_plus": 43073
+    },
+    "pell_rate": 0.1507,
+    "federal_loan_rate": 0.3072,
+    "enrollment": 7535
+  },
+  "cds": null,
+  "reference": null
+}

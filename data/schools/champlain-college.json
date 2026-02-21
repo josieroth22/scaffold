@@ -1,0 +1,36 @@
+{
+  "slug": "champlain-college",
+  "name": "Champlain College",
+  "ipeds_id": 230852,
+  "state": "VT",
+  "city": "Burlington",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.6672,
+    "sat_reading_25": 605,
+    "sat_reading_75": 680,
+    "sat_math_25": 560,
+    "sat_math_75": 660,
+    "act_25": 27,
+    "act_75": 31,
+    "tuition_in_state": 45550,
+    "tuition_out_of_state": 45550,
+    "room_board": 16900,
+    "total_cost_in_state": 64450,
+    "total_cost_out_of_state": 64450,
+    "net_price": {
+      "0_30k": 26378,
+      "30_48k": 26755,
+      "48_75k": 33025,
+      "75_110k": 35867,
+      "110k_plus": 40631
+    },
+    "pell_rate": 0.2314,
+    "federal_loan_rate": 0.5134,
+    "enrollment": 2870
+  },
+  "cds": null,
+  "reference": null
+}

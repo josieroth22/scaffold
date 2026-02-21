@@ -1,0 +1,36 @@
+{
+  "slug": "missouri-state-university-springfield",
+  "name": "Missouri State University-Springfield",
+  "ipeds_id": 179566,
+  "state": "MO",
+  "city": "Springfield",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.9105,
+    "sat_reading_25": 490,
+    "sat_reading_75": 620,
+    "sat_math_25": 500,
+    "sat_math_75": 600,
+    "act_25": 19,
+    "act_75": 25,
+    "tuition_in_state": 9024,
+    "tuition_out_of_state": 17928,
+    "room_board": 10230,
+    "total_cost_in_state": 21254,
+    "total_cost_out_of_state": 30158,
+    "net_price": {
+      "0_30k": 12238,
+      "30_48k": 13195,
+      "48_75k": 16688,
+      "75_110k": 18590,
+      "110k_plus": 19887
+    },
+    "pell_rate": 0.2134,
+    "federal_loan_rate": 0.3108,
+    "enrollment": 13407
+  },
+  "cds": null,
+  "reference": null
+}

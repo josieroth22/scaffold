@@ -1,0 +1,36 @@
+{
+  "slug": "university-of-bridgeport",
+  "name": "University of Bridgeport",
+  "ipeds_id": 128744,
+  "state": "CT",
+  "city": "Bridgeport",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.6431,
+    "sat_reading_25": 470,
+    "sat_reading_75": 585,
+    "sat_math_25": 410,
+    "sat_math_75": 530,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 35760,
+    "tuition_out_of_state": 35760,
+    "room_board": 16350,
+    "total_cost_in_state": 54110,
+    "total_cost_out_of_state": 54110,
+    "net_price": {
+      "0_30k": 21943,
+      "30_48k": 23572,
+      "48_75k": 25830,
+      "75_110k": 27339,
+      "110k_plus": 27063
+    },
+    "pell_rate": 0.5168,
+    "federal_loan_rate": 0.7245,
+    "enrollment": 1450
+  },
+  "cds": null,
+  "reference": null
+}

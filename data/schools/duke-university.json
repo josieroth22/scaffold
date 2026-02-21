@@ -1,0 +1,79 @@
+{
+  "slug": "duke-university",
+  "name": "Duke University",
+  "api_name": "Duke University",
+  "ipeds_id": 198419,
+  "state": "NC",
+  "city": "Durham",
+  "type": "private",
+  "tier": "B",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.0678,
+    "sat_reading_25": 740,
+    "sat_reading_75": 770,
+    "sat_math_25": 770,
+    "sat_math_75": 800,
+    "act_25": 34,
+    "act_75": 35,
+    "tuition_in_state": 65805,
+    "tuition_out_of_state": 65805,
+    "room_board": 17458,
+    "total_cost_in_state": 85263,
+    "total_cost_out_of_state": 85263,
+    "net_price": {
+      "0_30k": 3295,
+      "30_48k": 242,
+      "48_75k": 6901,
+      "75_110k": 16487,
+      "110k_plus": 54375
+    },
+    "pell_rate": 0.1274,
+    "federal_loan_rate": 0.1631,
+    "enrollment": 6417
+  },
+  "cds": {
+    "school_name": "Duke University",
+    "source_year": "2024-2025",
+    "total_applicants": 51795,
+    "total_admitted": 2957,
+    "admit_rate_overall": 0.057,
+    "ed_applicants": 6013,
+    "ed_admitted": 1042,
+    "ed_admit_rate": 0.173,
+    "ea_applicants": null,
+    "ea_admitted": null,
+    "ea_admit_rate": null,
+    "sat_reading_25": 740,
+    "sat_reading_75": 770,
+    "sat_math_25": 760,
+    "sat_math_75": 800,
+    "sat_composite_25": 1500,
+    "sat_composite_75": 1570,
+    "act_composite_25": 34,
+    "act_composite_75": 35,
+    "tuition_in_state": null,
+    "tuition_out_of_state": null,
+    "tuition_private": 70265,
+    "required_fees": 2907,
+    "room_board": 19247,
+    "pct_need_met": 100,
+    "avg_need_grant": 70439,
+    "avg_financial_aid_package": 76028,
+    "meets_full_need": true,
+    "pct_freshmen_receiving_need_aid": 43.3,
+    "pct_freshmen_receiving_merit_aid": 5.3,
+    "avg_merit_award": 85600
+  },
+  "reference": {
+    "merit_scholarships": [
+      {
+        "name": "Robertson Scholars Leadership Program",
+        "amount": "Full COA (tuition, room, board, fees, plus summer funding)",
+        "deadline": "November 15",
+        "requirements": "Group Activity, Semifinalist Interview, Finalist Interview"
+      }
+    ]
+  }
+}

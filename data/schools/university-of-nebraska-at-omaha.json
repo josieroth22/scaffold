@@ -1,0 +1,36 @@
+{
+  "slug": "university-of-nebraska-at-omaha",
+  "name": "University of Nebraska at Omaha",
+  "ipeds_id": 181394,
+  "state": "NE",
+  "city": "Omaha",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.869,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": 18,
+    "act_75": 26,
+    "tuition_in_state": 8370,
+    "tuition_out_of_state": 22358,
+    "room_board": 11610,
+    "total_cost_in_state": 21980,
+    "total_cost_out_of_state": 35968,
+    "net_price": {
+      "0_30k": 9908,
+      "30_48k": 10689,
+      "48_75k": 12407,
+      "75_110k": 15900,
+      "110k_plus": 17566
+    },
+    "pell_rate": 0.331,
+    "federal_loan_rate": 0.2823,
+    "enrollment": 11573
+  },
+  "cds": null,
+  "reference": null
+}

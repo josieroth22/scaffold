@@ -1,0 +1,36 @@
+{
+  "slug": "marymount-university",
+  "name": "Marymount University",
+  "ipeds_id": 232706,
+  "state": "VA",
+  "city": "Arlington",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.8052,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 39050,
+    "tuition_out_of_state": 39050,
+    "room_board": 16188,
+    "total_cost_in_state": 57238,
+    "total_cost_out_of_state": 57238,
+    "net_price": {
+      "0_30k": 21888,
+      "30_48k": 23980,
+      "48_75k": 24661,
+      "75_110k": 29865,
+      "110k_plus": 28619
+    },
+    "pell_rate": 0.2211,
+    "federal_loan_rate": 0.3503,
+    "enrollment": 1795
+  },
+  "cds": null,
+  "reference": null
+}

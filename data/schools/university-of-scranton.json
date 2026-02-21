@@ -1,0 +1,36 @@
+{
+  "slug": "university-of-scranton",
+  "name": "University of Scranton",
+  "ipeds_id": 215929,
+  "state": "PA",
+  "city": "Scranton",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.8435,
+    "sat_reading_25": 580,
+    "sat_reading_75": 660,
+    "sat_math_25": 570,
+    "sat_math_75": 660,
+    "act_25": 25,
+    "act_75": 30,
+    "tuition_in_state": 52309,
+    "tuition_out_of_state": 52309,
+    "room_board": 16918,
+    "total_cost_in_state": 71227,
+    "total_cost_out_of_state": 71227,
+    "net_price": {
+      "0_30k": 17968,
+      "30_48k": 17920,
+      "48_75k": 24999,
+      "75_110k": 29978,
+      "110k_plus": 38306
+    },
+    "pell_rate": 0.2229,
+    "federal_loan_rate": 0.6493,
+    "enrollment": 3589
+  },
+  "cds": null,
+  "reference": null
+}

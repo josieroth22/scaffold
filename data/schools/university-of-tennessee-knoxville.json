@@ -1,0 +1,38 @@
+{
+  "slug": "university-of-tennessee-knoxville",
+  "name": "University of Tennessee, Knoxville",
+  "api_name": "The University of Tennessee-Knoxville",
+  "ipeds_id": 221759,
+  "state": "TN",
+  "city": "Knoxville",
+  "type": "public",
+  "tier": "A",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.4599,
+    "sat_reading_25": 600,
+    "sat_reading_75": 670,
+    "sat_math_25": 590,
+    "sat_math_75": 670,
+    "act_25": 25,
+    "act_75": 31,
+    "tuition_in_state": 13484,
+    "tuition_out_of_state": 31974,
+    "room_board": 12500,
+    "total_cost_in_state": 27984,
+    "total_cost_out_of_state": 46474,
+    "net_price": {
+      "0_30k": 9397,
+      "30_48k": 12714,
+      "48_75k": 18820,
+      "75_110k": 23297,
+      "110k_plus": 25438
+    },
+    "pell_rate": 0.2068,
+    "federal_loan_rate": 0.3009,
+    "enrollment": 28763
+  },
+  "cds": null,
+  "reference": null
+}

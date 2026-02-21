@@ -1,0 +1,36 @@
+{
+  "slug": "georgia-southwestern-state-university",
+  "name": "Georgia Southwestern State University",
+  "ipeds_id": 139764,
+  "state": "GA",
+  "city": "Americus",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.7716,
+    "sat_reading_25": 470,
+    "sat_reading_75": 590,
+    "sat_math_25": 430,
+    "sat_math_75": 540,
+    "act_25": 16,
+    "act_75": 21,
+    "tuition_in_state": 4980,
+    "tuition_out_of_state": 15702,
+    "room_board": 9574,
+    "total_cost_in_state": 16554,
+    "total_cost_out_of_state": 27276,
+    "net_price": {
+      "0_30k": 10602,
+      "30_48k": 11031,
+      "48_75k": 13237,
+      "75_110k": 14813,
+      "110k_plus": 15617
+    },
+    "pell_rate": 0.4066,
+    "federal_loan_rate": 0.3917,
+    "enrollment": 2291
+  },
+  "cds": null,
+  "reference": null
+}

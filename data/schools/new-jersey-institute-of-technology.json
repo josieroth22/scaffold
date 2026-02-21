@@ -1,0 +1,43 @@
+{
+  "slug": "new-jersey-institute-of-technology",
+  "name": "New Jersey Institute of Technology",
+  "ipeds_id": 185828,
+  "state": "NJ",
+  "city": "Newark",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.669,
+    "sat_reading_25": 590,
+    "sat_reading_75": 710,
+    "sat_math_25": 620,
+    "sat_math_75": 760,
+    "act_25": 25,
+    "act_75": 32,
+    "tuition_in_state": 19022,
+    "tuition_out_of_state": 35934,
+    "room_board": 15000,
+    "total_cost_in_state": 36022,
+    "total_cost_out_of_state": 52934,
+    "net_price": {
+      "0_30k": 11534,
+      "30_48k": 12526,
+      "48_75k": 16317,
+      "75_110k": 21967,
+      "110k_plus": 27681
+    },
+    "pell_rate": 0.3897,
+    "federal_loan_rate": 0.3285,
+    "enrollment": 8762
+  },
+  "cds": null,
+  "reference": {
+    "national_merit": {
+      "semifinalist_award": "None",
+      "finalist_award": "Full COA",
+      "first_choice_required": false,
+      "guaranteed": false
+    }
+  }
+}

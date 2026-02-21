@@ -1,0 +1,36 @@
+{
+  "slug": "tennessee-technological-university",
+  "name": "Tennessee Technological University",
+  "ipeds_id": 221847,
+  "state": "TN",
+  "city": "Cookeville",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.8316,
+    "sat_reading_25": 520,
+    "sat_reading_75": 620,
+    "sat_math_25": 500,
+    "sat_math_75": 630,
+    "act_25": 20,
+    "act_75": 27,
+    "tuition_in_state": 10084,
+    "tuition_out_of_state": 20116,
+    "room_board": 10502,
+    "total_cost_in_state": 22586,
+    "total_cost_out_of_state": 32618,
+    "net_price": {
+      "0_30k": 9641,
+      "30_48k": 11325,
+      "48_75k": 14405,
+      "75_110k": 17795,
+      "110k_plus": 18329
+    },
+    "pell_rate": 0.3103,
+    "federal_loan_rate": 0.3691,
+    "enrollment": 8495
+  },
+  "cds": null,
+  "reference": null
+}

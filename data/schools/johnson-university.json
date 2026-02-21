@@ -1,0 +1,36 @@
+{
+  "slug": "johnson-university",
+  "name": "Johnson University",
+  "ipeds_id": 220473,
+  "state": "TN",
+  "city": "Knoxville",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.5377,
+    "sat_reading_25": 460,
+    "sat_reading_75": 530,
+    "sat_math_25": 430,
+    "sat_math_75": 560,
+    "act_25": 19,
+    "act_75": 24,
+    "tuition_in_state": 20318,
+    "tuition_out_of_state": 20318,
+    "room_board": 9278,
+    "total_cost_in_state": 31596,
+    "total_cost_out_of_state": 31596,
+    "net_price": {
+      "0_30k": 14271,
+      "30_48k": 17570,
+      "48_75k": 18930,
+      "75_110k": 22121,
+      "110k_plus": 23774
+    },
+    "pell_rate": 0.3827,
+    "federal_loan_rate": 0.565,
+    "enrollment": 703
+  },
+  "cds": null,
+  "reference": null
+}

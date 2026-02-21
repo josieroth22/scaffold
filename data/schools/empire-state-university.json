@@ -1,0 +1,36 @@
+{
+  "slug": "empire-state-university",
+  "name": "Empire State University",
+  "ipeds_id": 196264,
+  "state": "NY",
+  "city": "Saratoga Springs",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": null,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 7630,
+    "tuition_out_of_state": 17540,
+    "room_board": null,
+    "total_cost_in_state": 18221,
+    "total_cost_out_of_state": null,
+    "net_price": {
+      "0_30k": 9135,
+      "30_48k": 10581,
+      "48_75k": 11882,
+      "75_110k": 16857,
+      "110k_plus": 18178
+    },
+    "pell_rate": 0.35,
+    "federal_loan_rate": 0.3462,
+    "enrollment": 7046
+  },
+  "cds": null,
+  "reference": null
+}

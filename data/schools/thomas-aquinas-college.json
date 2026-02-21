@@ -1,0 +1,36 @@
+{
+  "slug": "thomas-aquinas-college",
+  "name": "Thomas Aquinas College",
+  "ipeds_id": 124292,
+  "state": "CA",
+  "city": "Santa Paula",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.7871,
+    "sat_reading_25": 590,
+    "sat_reading_75": 690,
+    "sat_math_25": 570,
+    "sat_math_75": 640,
+    "act_25": 25,
+    "act_75": 33,
+    "tuition_in_state": 28700,
+    "tuition_out_of_state": 28700,
+    "room_board": 10700,
+    "total_cost_in_state": 41400,
+    "total_cost_out_of_state": 41400,
+    "net_price": {
+      "0_30k": 16761,
+      "30_48k": 18508,
+      "48_75k": 19464,
+      "75_110k": 25048,
+      "110k_plus": 28063
+    },
+    "pell_rate": 0.1977,
+    "federal_loan_rate": 0.657,
+    "enrollment": 539
+  },
+  "cds": null,
+  "reference": null
+}

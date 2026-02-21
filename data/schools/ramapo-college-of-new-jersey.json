@@ -1,0 +1,36 @@
+{
+  "slug": "ramapo-college-of-new-jersey",
+  "name": "Ramapo College of New Jersey",
+  "ipeds_id": 186201,
+  "state": "NJ",
+  "city": "Mahwah",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.7322,
+    "sat_reading_25": 560,
+    "sat_reading_75": 640,
+    "sat_math_25": 560,
+    "sat_math_75": 630,
+    "act_25": 21,
+    "act_75": 26,
+    "tuition_in_state": 15978,
+    "tuition_out_of_state": 26388,
+    "room_board": 15834,
+    "total_cost_in_state": 33812,
+    "total_cost_out_of_state": 44222,
+    "net_price": {
+      "0_30k": 10142,
+      "30_48k": 12761,
+      "48_75k": 18536,
+      "75_110k": 25667,
+      "110k_plus": 26671
+    },
+    "pell_rate": 0.2672,
+    "federal_loan_rate": 0.3906,
+    "enrollment": 4664
+  },
+  "cds": null,
+  "reference": null
+}

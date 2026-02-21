@@ -1,0 +1,36 @@
+{
+  "slug": "widener-university",
+  "name": "Widener University",
+  "ipeds_id": 216852,
+  "state": "PA",
+  "city": "Chester",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.8402,
+    "sat_reading_25": 530,
+    "sat_reading_75": 640,
+    "sat_math_25": 520,
+    "sat_math_75": 620,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 53638,
+    "tuition_out_of_state": 53638,
+    "room_board": 15530,
+    "total_cost_in_state": 71168,
+    "total_cost_out_of_state": 71168,
+    "net_price": {
+      "0_30k": 25328,
+      "30_48k": 25620,
+      "48_75k": 28722,
+      "75_110k": 31013,
+      "110k_plus": 34560
+    },
+    "pell_rate": 0.2485,
+    "federal_loan_rate": 0.7346,
+    "enrollment": 2765
+  },
+  "cds": null,
+  "reference": null
+}

@@ -1,0 +1,36 @@
+{
+  "slug": "springfield-college",
+  "name": "Springfield College",
+  "ipeds_id": 167899,
+  "state": "MA",
+  "city": "Springfield",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.7023,
+    "sat_reading_25": 530,
+    "sat_reading_75": 650,
+    "sat_math_25": 540,
+    "sat_math_75": 610,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 43707,
+    "tuition_out_of_state": 43707,
+    "room_board": 14202,
+    "total_cost_in_state": 59909,
+    "total_cost_out_of_state": 59909,
+    "net_price": {
+      "0_30k": 21252,
+      "30_48k": 25092,
+      "48_75k": 24226,
+      "75_110k": 28385,
+      "110k_plus": 32494
+    },
+    "pell_rate": 0.2166,
+    "federal_loan_rate": 0.7151,
+    "enrollment": 1916
+  },
+  "cds": null,
+  "reference": null
+}

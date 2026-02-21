@@ -1,0 +1,51 @@
+{
+  "slug": "washington-and-lee-university",
+  "name": "Washington and Lee University",
+  "ipeds_id": 234207,
+  "state": "VA",
+  "city": "Lexington",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.1736,
+    "sat_reading_25": 710,
+    "sat_reading_75": 750,
+    "sat_math_25": 700,
+    "sat_math_75": 780,
+    "act_25": 32,
+    "act_75": 35,
+    "tuition_in_state": 64525,
+    "tuition_out_of_state": 64525,
+    "room_board": 17685,
+    "total_cost_in_state": 84210,
+    "total_cost_out_of_state": 84210,
+    "net_price": {
+      "0_30k": 76,
+      "30_48k": 887,
+      "48_75k": 6983,
+      "75_110k": 9222,
+      "110k_plus": 42745
+    },
+    "pell_rate": 0.1109,
+    "federal_loan_rate": 0.1505,
+    "enrollment": 1884
+  },
+  "cds": null,
+  "reference": {
+    "merit_scholarships": [
+      {
+        "name": "The Johnson Scholarship",
+        "amount": "Full COA (tuition, room, board, plus $10,000 for summer experiences)",
+        "deadline": "December 1",
+        "requirements": "W&L Johnson Scholarship Supplement (Essay), Finalist Weekend"
+      }
+    ],
+    "national_merit": {
+      "semifinalist_award": "None",
+      "finalist_award": "$750-$3,750",
+      "first_choice_required": true,
+      "guaranteed": true
+    }
+  }
+}

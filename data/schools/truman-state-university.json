@@ -1,0 +1,36 @@
+{
+  "slug": "truman-state-university",
+  "name": "Truman State University",
+  "ipeds_id": 178615,
+  "state": "MO",
+  "city": "Kirksville",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.7996,
+    "sat_reading_25": 573,
+    "sat_reading_75": 648,
+    "sat_math_25": 553,
+    "sat_math_75": 670,
+    "act_25": 23,
+    "act_75": 29,
+    "tuition_in_state": 9470,
+    "tuition_out_of_state": 17870,
+    "room_board": 10701,
+    "total_cost_in_state": 22171,
+    "total_cost_out_of_state": 30571,
+    "net_price": {
+      "0_30k": 7322,
+      "30_48k": 7585,
+      "48_75k": 11125,
+      "75_110k": 14616,
+      "110k_plus": 15816
+    },
+    "pell_rate": 0.153,
+    "federal_loan_rate": 0.2753,
+    "enrollment": 2666
+  },
+  "cds": null,
+  "reference": null
+}

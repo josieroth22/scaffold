@@ -1,0 +1,36 @@
+{
+  "slug": "austin-college",
+  "name": "Austin College",
+  "ipeds_id": 222983,
+  "state": "TX",
+  "city": "Sherman",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.4666,
+    "sat_reading_25": 590,
+    "sat_reading_75": 680,
+    "sat_math_25": 580,
+    "sat_math_75": 660,
+    "act_25": 26,
+    "act_75": 32,
+    "tuition_in_state": 46500,
+    "tuition_out_of_state": 46500,
+    "room_board": 13495,
+    "total_cost_in_state": 61995,
+    "total_cost_out_of_state": 61995,
+    "net_price": {
+      "0_30k": 19701,
+      "30_48k": 18021,
+      "48_75k": 22351,
+      "75_110k": 28185,
+      "110k_plus": 27503
+    },
+    "pell_rate": 0.3042,
+    "federal_loan_rate": 0.5176,
+    "enrollment": 1125
+  },
+  "cds": null,
+  "reference": null
+}

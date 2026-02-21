@@ -1,0 +1,36 @@
+{
+  "slug": "calumet-college-of-saint-joseph",
+  "name": "Calumet College of Saint Joseph",
+  "ipeds_id": 150172,
+  "state": "IN",
+  "city": "Whiting",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": null,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 22650,
+    "tuition_out_of_state": 22650,
+    "room_board": 10000,
+    "total_cost_in_state": 34650,
+    "total_cost_out_of_state": 34650,
+    "net_price": {
+      "0_30k": 19752,
+      "30_48k": 19938,
+      "48_75k": 22838,
+      "75_110k": 23258,
+      "110k_plus": 21254
+    },
+    "pell_rate": 0.4849,
+    "federal_loan_rate": 0.5861,
+    "enrollment": 560
+  },
+  "cds": null,
+  "reference": null
+}

@@ -1,0 +1,36 @@
+{
+  "slug": "illinois-institute-of-technology",
+  "name": "Illinois Institute of Technology",
+  "ipeds_id": 145725,
+  "state": "IL",
+  "city": "Chicago",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.5542,
+    "sat_reading_25": 570,
+    "sat_reading_75": 690,
+    "sat_math_25": 610,
+    "sat_math_75": 720,
+    "act_25": 25,
+    "act_75": 31,
+    "tuition_in_state": 51763,
+    "tuition_out_of_state": 51763,
+    "room_board": 16528,
+    "total_cost_in_state": 70291,
+    "total_cost_out_of_state": 70291,
+    "net_price": {
+      "0_30k": 13222,
+      "30_48k": 15488,
+      "48_75k": 16566,
+      "75_110k": 22765,
+      "110k_plus": 31456
+    },
+    "pell_rate": 0.2906,
+    "federal_loan_rate": 0.3261,
+    "enrollment": 2812
+  },
+  "cds": null,
+  "reference": null
+}

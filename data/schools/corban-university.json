@@ -1,0 +1,36 @@
+{
+  "slug": "corban-university",
+  "name": "Corban University",
+  "ipeds_id": 210331,
+  "state": "OR",
+  "city": "Salem",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.8974,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 37208,
+    "tuition_out_of_state": 37208,
+    "room_board": 11486,
+    "total_cost_in_state": 50694,
+    "total_cost_out_of_state": 50694,
+    "net_price": {
+      "0_30k": 18196,
+      "30_48k": 19113,
+      "48_75k": 21052,
+      "75_110k": 24879,
+      "110k_plus": 32241
+    },
+    "pell_rate": 0.281,
+    "federal_loan_rate": 0.43,
+    "enrollment": 636
+  },
+  "cds": null,
+  "reference": null
+}

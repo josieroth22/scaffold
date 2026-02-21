@@ -1,0 +1,36 @@
+{
+  "slug": "university-of-west-alabama",
+  "name": "University of West Alabama",
+  "ipeds_id": 101587,
+  "state": "AL",
+  "city": "Livingston",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.8711,
+    "sat_reading_25": 470,
+    "sat_reading_75": 550,
+    "sat_math_25": 350,
+    "sat_math_75": 428,
+    "act_25": 17,
+    "act_75": 22,
+    "tuition_in_state": 10990,
+    "tuition_out_of_state": 20090,
+    "room_board": 8166,
+    "total_cost_in_state": 21156,
+    "total_cost_out_of_state": 30256,
+    "net_price": {
+      "0_30k": 13773,
+      "30_48k": 12806,
+      "48_75k": 14480,
+      "75_110k": 16763,
+      "110k_plus": 16755
+    },
+    "pell_rate": 0.5401,
+    "federal_loan_rate": 0.6373,
+    "enrollment": 2666
+  },
+  "cds": null,
+  "reference": null
+}

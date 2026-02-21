@@ -1,0 +1,36 @@
+{
+  "slug": "suffolk-university",
+  "name": "Suffolk University",
+  "ipeds_id": 168005,
+  "state": "MA",
+  "city": "Boston",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.8474,
+    "sat_reading_25": 560,
+    "sat_reading_75": 660,
+    "sat_math_25": 530,
+    "sat_math_75": 620,
+    "act_25": 24,
+    "act_75": 32,
+    "tuition_in_state": 45380,
+    "tuition_out_of_state": 45380,
+    "room_board": 19562,
+    "total_cost_in_state": 66942,
+    "total_cost_out_of_state": 66942,
+    "net_price": {
+      "0_30k": 25575,
+      "30_48k": 26678,
+      "48_75k": 27191,
+      "75_110k": 29230,
+      "110k_plus": 35802
+    },
+    "pell_rate": 0.2741,
+    "federal_loan_rate": 0.5597,
+    "enrollment": 4434
+  },
+  "cds": null,
+  "reference": null
+}

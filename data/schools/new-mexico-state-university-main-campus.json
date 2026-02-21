@@ -1,0 +1,36 @@
+{
+  "slug": "new-mexico-state-university-main-campus",
+  "name": "New Mexico State University-Main Campus",
+  "ipeds_id": 188030,
+  "state": "NM",
+  "city": "Las Cruces",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.7573,
+    "sat_reading_25": 450,
+    "sat_reading_75": 560,
+    "sat_math_25": 435,
+    "sat_math_75": 550,
+    "act_25": 17,
+    "act_75": 24,
+    "tuition_in_state": 8147,
+    "tuition_out_of_state": 25271,
+    "room_board": 12026,
+    "total_cost_in_state": 22173,
+    "total_cost_out_of_state": 39297,
+    "net_price": {
+      "0_30k": 5104,
+      "30_48k": 5724,
+      "48_75k": 8877,
+      "75_110k": 10223,
+      "110k_plus": 10360
+    },
+    "pell_rate": 0.403,
+    "federal_loan_rate": 0.2288,
+    "enrollment": 11561
+  },
+  "cds": null,
+  "reference": null
+}

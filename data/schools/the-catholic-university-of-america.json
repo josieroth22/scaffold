@@ -1,0 +1,36 @@
+{
+  "slug": "the-catholic-university-of-america",
+  "name": "The Catholic University of America",
+  "ipeds_id": 131283,
+  "state": "DC",
+  "city": "Washington",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.8384,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 55834,
+    "tuition_out_of_state": 55834,
+    "room_board": 17370,
+    "total_cost_in_state": 75204,
+    "total_cost_out_of_state": 75204,
+    "net_price": {
+      "0_30k": 22216,
+      "30_48k": 19709,
+      "48_75k": 25667,
+      "75_110k": 31131,
+      "110k_plus": 39898
+    },
+    "pell_rate": 0.1674,
+    "federal_loan_rate": 0.4846,
+    "enrollment": 3063
+  },
+  "cds": null,
+  "reference": null
+}

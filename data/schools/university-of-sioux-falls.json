@@ -1,0 +1,36 @@
+{
+  "slug": "university-of-sioux-falls",
+  "name": "University of Sioux Falls",
+  "ipeds_id": 219383,
+  "state": "SD",
+  "city": "Sioux Falls",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.8208,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 20740,
+    "tuition_out_of_state": 20740,
+    "room_board": 8960,
+    "total_cost_in_state": 31700,
+    "total_cost_out_of_state": 31700,
+    "net_price": {
+      "0_30k": 17733,
+      "30_48k": 16406,
+      "48_75k": 18201,
+      "75_110k": 21244,
+      "110k_plus": 23609
+    },
+    "pell_rate": 0.2898,
+    "federal_loan_rate": 0.6694,
+    "enrollment": 1258
+  },
+  "cds": null,
+  "reference": null
+}

@@ -1,0 +1,43 @@
+{
+  "slug": "kenyon-college",
+  "name": "Kenyon College",
+  "ipeds_id": 203535,
+  "state": "OH",
+  "city": "Gambier",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.3071,
+    "sat_reading_25": 690,
+    "sat_reading_75": 750,
+    "sat_math_25": 670,
+    "sat_math_75": 750,
+    "act_25": 31,
+    "act_75": 34,
+    "tuition_in_state": 69330,
+    "tuition_out_of_state": 69330,
+    "room_board": 14410,
+    "total_cost_in_state": 85740,
+    "total_cost_out_of_state": 85740,
+    "net_price": {
+      "0_30k": 8865,
+      "30_48k": 11666,
+      "48_75k": 13777,
+      "75_110k": 22995,
+      "110k_plus": 45073
+    },
+    "pell_rate": 0.1008,
+    "federal_loan_rate": 0.2382,
+    "enrollment": 1753
+  },
+  "cds": null,
+  "reference": {
+    "national_merit": {
+      "semifinalist_award": "None",
+      "finalist_award": "$1,000",
+      "first_choice_required": false,
+      "guaranteed": true
+    }
+  }
+}

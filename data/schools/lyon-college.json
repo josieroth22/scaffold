@@ -1,0 +1,36 @@
+{
+  "slug": "lyon-college",
+  "name": "Lyon College",
+  "ipeds_id": 106342,
+  "state": "AR",
+  "city": "Batesville",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.6554,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 31000,
+    "tuition_out_of_state": 31000,
+    "room_board": 10750,
+    "total_cost_in_state": 43750,
+    "total_cost_out_of_state": 43750,
+    "net_price": {
+      "0_30k": 18857,
+      "30_48k": 17504,
+      "48_75k": 22559,
+      "75_110k": 25258,
+      "110k_plus": 26818
+    },
+    "pell_rate": 0.3596,
+    "federal_loan_rate": 0.6121,
+    "enrollment": 563
+  },
+  "cds": null,
+  "reference": null
+}

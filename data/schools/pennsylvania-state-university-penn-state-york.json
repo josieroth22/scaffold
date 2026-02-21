@@ -1,0 +1,36 @@
+{
+  "slug": "pennsylvania-state-university-penn-state-york",
+  "name": "Pennsylvania State University-Penn State York",
+  "ipeds_id": 214829,
+  "state": "PA",
+  "city": "York",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.922,
+    "sat_reading_25": 530,
+    "sat_reading_75": 630,
+    "sat_math_25": 540,
+    "sat_math_75": 640,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 15180,
+    "tuition_out_of_state": 25118,
+    "room_board": null,
+    "total_cost_in_state": 26812,
+    "total_cost_out_of_state": null,
+    "net_price": {
+      "0_30k": 11304,
+      "30_48k": 12138,
+      "48_75k": 15735,
+      "75_110k": 20962,
+      "110k_plus": 24237
+    },
+    "pell_rate": 0.2785,
+    "federal_loan_rate": 0.4895,
+    "enrollment": 668
+  },
+  "cds": null,
+  "reference": null
+}

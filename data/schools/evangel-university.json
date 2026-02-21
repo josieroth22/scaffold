@@ -1,0 +1,36 @@
+{
+  "slug": "evangel-university",
+  "name": "Evangel University",
+  "ipeds_id": 177339,
+  "state": "MO",
+  "city": "Springfield",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.693,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 27192,
+    "tuition_out_of_state": 27192,
+    "room_board": 9176,
+    "total_cost_in_state": 38368,
+    "total_cost_out_of_state": 38368,
+    "net_price": {
+      "0_30k": 13335,
+      "30_48k": 16026,
+      "48_75k": 18882,
+      "75_110k": 19692,
+      "110k_plus": 21472
+    },
+    "pell_rate": 0.3612,
+    "federal_loan_rate": 0.8989,
+    "enrollment": 1205
+  },
+  "cds": null,
+  "reference": null
+}

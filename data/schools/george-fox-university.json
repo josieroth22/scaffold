@@ -1,0 +1,36 @@
+{
+  "slug": "george-fox-university",
+  "name": "George Fox University",
+  "ipeds_id": 208822,
+  "state": "OR",
+  "city": "Newberg",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.9641,
+    "sat_reading_25": 540,
+    "sat_reading_75": 670,
+    "sat_math_25": 530,
+    "sat_math_75": 660,
+    "act_25": 17,
+    "act_75": 28,
+    "tuition_in_state": 40940,
+    "tuition_out_of_state": 40940,
+    "room_board": 13600,
+    "total_cost_in_state": 56540,
+    "total_cost_out_of_state": 56540,
+    "net_price": {
+      "0_30k": 19909,
+      "30_48k": 23048,
+      "48_75k": 25491,
+      "75_110k": 29546,
+      "110k_plus": 34826
+    },
+    "pell_rate": 0.2675,
+    "federal_loan_rate": 0.5824,
+    "enrollment": 2505
+  },
+  "cds": null,
+  "reference": null
+}

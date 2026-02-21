@@ -1,0 +1,36 @@
+{
+  "slug": "johnson-c-smith-university",
+  "name": "Johnson C Smith University",
+  "ipeds_id": 198756,
+  "state": "NC",
+  "city": "Charlotte",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.4287,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 20480,
+    "tuition_out_of_state": 20480,
+    "room_board": 9014,
+    "total_cost_in_state": 31494,
+    "total_cost_out_of_state": 31494,
+    "net_price": {
+      "0_30k": 19693,
+      "30_48k": 29425,
+      "48_75k": 17959,
+      "75_110k": 19673,
+      "110k_plus": 21063
+    },
+    "pell_rate": 0.6778,
+    "federal_loan_rate": 0.7348,
+    "enrollment": 1047
+  },
+  "cds": null,
+  "reference": null
+}

@@ -1,0 +1,36 @@
+{
+  "slug": "andrews-university",
+  "name": "Andrews University",
+  "ipeds_id": 168740,
+  "state": "MI",
+  "city": "Berrien Springs",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.874,
+    "sat_reading_25": 540,
+    "sat_reading_75": 690,
+    "sat_math_25": 530,
+    "sat_math_75": 680,
+    "act_25": 20,
+    "act_75": 28,
+    "tuition_in_state": 33710,
+    "tuition_out_of_state": 33710,
+    "room_board": 10050,
+    "total_cost_in_state": 45760,
+    "total_cost_out_of_state": 45760,
+    "net_price": {
+      "0_30k": 17008,
+      "30_48k": 15853,
+      "48_75k": 13563,
+      "75_110k": 17761,
+      "110k_plus": 24813
+    },
+    "pell_rate": 0.22,
+    "federal_loan_rate": 0.3471,
+    "enrollment": 1262
+  },
+  "cds": null,
+  "reference": null
+}

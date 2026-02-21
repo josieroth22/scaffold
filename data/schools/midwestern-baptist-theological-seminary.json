@@ -1,0 +1,36 @@
+{
+  "slug": "midwestern-baptist-theological-seminary",
+  "name": "Midwestern Baptist Theological Seminary",
+  "ipeds_id": 178208,
+  "state": "MO",
+  "city": "Kansas City",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.9433,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 9400,
+    "tuition_out_of_state": 9400,
+    "room_board": 11310,
+    "total_cost_in_state": 22710,
+    "total_cost_out_of_state": 22710,
+    "net_price": {
+      "0_30k": 23177,
+      "30_48k": 25389,
+      "48_75k": 25809,
+      "75_110k": 26718,
+      "110k_plus": 31765
+    },
+    "pell_rate": 0.3092,
+    "federal_loan_rate": 0.2626,
+    "enrollment": 791
+  },
+  "cds": null,
+  "reference": null
+}

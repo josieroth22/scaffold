@@ -1,0 +1,36 @@
+{
+  "slug": "southern-connecticut-state-university",
+  "name": "Southern Connecticut State University",
+  "ipeds_id": 130493,
+  "state": "CT",
+  "city": "New Haven",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.8112,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 12828,
+    "tuition_out_of_state": 26104,
+    "room_board": 14700,
+    "total_cost_in_state": 29528,
+    "total_cost_out_of_state": 42804,
+    "net_price": {
+      "0_30k": 18568,
+      "30_48k": 18126,
+      "48_75k": 18938,
+      "75_110k": 23340,
+      "110k_plus": 26783
+    },
+    "pell_rate": 0.3727,
+    "federal_loan_rate": 0.5439,
+    "enrollment": 6180
+  },
+  "cds": null,
+  "reference": null
+}

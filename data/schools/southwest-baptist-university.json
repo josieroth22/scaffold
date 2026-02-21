@@ -1,0 +1,36 @@
+{
+  "slug": "southwest-baptist-university",
+  "name": "Southwest Baptist University",
+  "ipeds_id": 179326,
+  "state": "MO",
+  "city": "Bolivar",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.9972,
+    "sat_reading_25": 500,
+    "sat_reading_75": 600,
+    "sat_math_25": 460,
+    "sat_math_75": 600,
+    "act_25": 18,
+    "act_75": 24,
+    "tuition_in_state": 28320,
+    "tuition_out_of_state": 28320,
+    "room_board": 8952,
+    "total_cost_in_state": 39272,
+    "total_cost_out_of_state": 39272,
+    "net_price": {
+      "0_30k": 22672,
+      "30_48k": 18056,
+      "48_75k": 20785,
+      "75_110k": 21889,
+      "110k_plus": 21292
+    },
+    "pell_rate": 0.3513,
+    "federal_loan_rate": 0.4706,
+    "enrollment": 1339
+  },
+  "cds": null,
+  "reference": null
+}

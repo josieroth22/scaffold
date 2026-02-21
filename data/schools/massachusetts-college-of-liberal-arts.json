@@ -1,0 +1,36 @@
+{
+  "slug": "massachusetts-college-of-liberal-arts",
+  "name": "Massachusetts College of Liberal Arts",
+  "ipeds_id": 167288,
+  "state": "MA",
+  "city": "North Adams",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.9235,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 11884,
+    "tuition_out_of_state": 20559,
+    "room_board": 14634,
+    "total_cost_in_state": 28518,
+    "total_cost_out_of_state": 37193,
+    "net_price": {
+      "0_30k": 14440,
+      "30_48k": 16990,
+      "48_75k": 15698,
+      "75_110k": 19147,
+      "110k_plus": 23800
+    },
+    "pell_rate": 0.4045,
+    "federal_loan_rate": 0.605,
+    "enrollment": 748
+  },
+  "cds": null,
+  "reference": null
+}

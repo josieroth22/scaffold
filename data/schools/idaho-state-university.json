@@ -1,0 +1,36 @@
+{
+  "slug": "idaho-state-university",
+  "name": "Idaho State University",
+  "ipeds_id": 142276,
+  "state": "ID",
+  "city": "Pocatello",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": null,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 8356,
+    "tuition_out_of_state": 27466,
+    "room_board": 7924,
+    "total_cost_in_state": 18280,
+    "total_cost_out_of_state": 37390,
+    "net_price": {
+      "0_30k": 14678,
+      "30_48k": 15971,
+      "48_75k": 17797,
+      "75_110k": 20328,
+      "110k_plus": 21084
+    },
+    "pell_rate": 0.2684,
+    "federal_loan_rate": 0.2479,
+    "enrollment": 7260
+  },
+  "cds": null,
+  "reference": null
+}

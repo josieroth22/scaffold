@@ -1,0 +1,36 @@
+{
+  "slug": "university-of-baltimore",
+  "name": "University of Baltimore",
+  "ipeds_id": 161873,
+  "state": "MD",
+  "city": "Baltimore",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.8555,
+    "sat_reading_25": 530,
+    "sat_reading_75": 580,
+    "sat_math_25": 480,
+    "sat_math_75": 530,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 9772,
+    "tuition_out_of_state": 23490,
+    "room_board": null,
+    "total_cost_in_state": 27477,
+    "total_cost_out_of_state": null,
+    "net_price": {
+      "0_30k": 14900,
+      "30_48k": 21339,
+      "48_75k": 17265,
+      "75_110k": 19477,
+      "110k_plus": 21327
+    },
+    "pell_rate": 0.4317,
+    "federal_loan_rate": 0.3996,
+    "enrollment": 1276
+  },
+  "cds": null,
+  "reference": null
+}

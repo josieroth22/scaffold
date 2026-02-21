@@ -1,0 +1,36 @@
+{
+  "slug": "university-of-alaska-anchorage",
+  "name": "University of Alaska Anchorage",
+  "ipeds_id": 102553,
+  "state": "AK",
+  "city": "Anchorage",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.6652,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 7566,
+    "tuition_out_of_state": 21693,
+    "room_board": 12412,
+    "total_cost_in_state": 21978,
+    "total_cost_out_of_state": 36105,
+    "net_price": {
+      "0_30k": 11436,
+      "30_48k": 11993,
+      "48_75k": 13543,
+      "75_110k": 18947,
+      "110k_plus": 19563
+    },
+    "pell_rate": 0.191,
+    "federal_loan_rate": 0.1488,
+    "enrollment": 6916
+  },
+  "cds": null,
+  "reference": null
+}

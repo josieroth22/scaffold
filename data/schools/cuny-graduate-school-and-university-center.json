@@ -1,0 +1,36 @@
+{
+  "slug": "cuny-graduate-school-and-university-center",
+  "name": "CUNY Graduate School and University Center",
+  "ipeds_id": 190576,
+  "state": "NY",
+  "city": "New York",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.3861,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 7410,
+    "tuition_out_of_state": 15360,
+    "room_board": null,
+    "total_cost_in_state": null,
+    "total_cost_out_of_state": null,
+    "net_price": {
+      "0_30k": null,
+      "30_48k": null,
+      "48_75k": null,
+      "75_110k": null,
+      "110k_plus": null
+    },
+    "pell_rate": 0.3788,
+    "federal_loan_rate": 0.1507,
+    "enrollment": 3067
+  },
+  "cds": null,
+  "reference": null
+}

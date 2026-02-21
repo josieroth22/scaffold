@@ -1,0 +1,36 @@
+{
+  "slug": "johnson-wales-university-providence",
+  "name": "Johnson & Wales University-Providence",
+  "ipeds_id": 217235,
+  "state": "RI",
+  "city": "Providence",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.837,
+    "sat_reading_25": 500,
+    "sat_reading_75": 630,
+    "sat_math_25": 470,
+    "sat_math_75": 600,
+    "act_25": 20,
+    "act_75": 26,
+    "tuition_in_state": 40408,
+    "tuition_out_of_state": 40408,
+    "room_board": 18776,
+    "total_cost_in_state": 61184,
+    "total_cost_out_of_state": 61184,
+    "net_price": {
+      "0_30k": 28488,
+      "30_48k": 29394,
+      "48_75k": 31538,
+      "75_110k": 33740,
+      "110k_plus": 35008
+    },
+    "pell_rate": 0.3018,
+    "federal_loan_rate": 0.7352,
+    "enrollment": 3913
+  },
+  "cds": null,
+  "reference": null
+}

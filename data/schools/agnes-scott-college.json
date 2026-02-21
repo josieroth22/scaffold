@@ -1,0 +1,36 @@
+{
+  "slug": "agnes-scott-college",
+  "name": "Agnes Scott College",
+  "ipeds_id": 138600,
+  "state": "GA",
+  "city": "Decatur",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.6731,
+    "sat_reading_25": 610,
+    "sat_reading_75": 710,
+    "sat_math_25": 570,
+    "sat_math_75": 640,
+    "act_25": 26,
+    "act_75": 31,
+    "tuition_in_state": 48150,
+    "tuition_out_of_state": 48150,
+    "room_board": 13375,
+    "total_cost_in_state": 63525,
+    "total_cost_out_of_state": 63525,
+    "net_price": {
+      "0_30k": 20042,
+      "30_48k": 22896,
+      "48_75k": 22407,
+      "75_110k": 25806,
+      "110k_plus": 28583
+    },
+    "pell_rate": 0.3613,
+    "federal_loan_rate": 0.5283,
+    "enrollment": 898
+  },
+  "cds": null,
+  "reference": null
+}

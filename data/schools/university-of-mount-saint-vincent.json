@@ -1,0 +1,36 @@
+{
+  "slug": "university-of-mount-saint-vincent",
+  "name": "University of Mount Saint Vincent",
+  "ipeds_id": 193399,
+  "state": "NY",
+  "city": "Bronx",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.8464,
+    "sat_reading_25": 480,
+    "sat_reading_75": 610,
+    "sat_math_25": 440,
+    "sat_math_75": 590,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 42740,
+    "tuition_out_of_state": 42740,
+    "room_board": 14300,
+    "total_cost_in_state": 59040,
+    "total_cost_out_of_state": 59040,
+    "net_price": {
+      "0_30k": 17656,
+      "30_48k": 19346,
+      "48_75k": 20674,
+      "75_110k": 19745,
+      "110k_plus": 24432
+    },
+    "pell_rate": 0.4325,
+    "federal_loan_rate": 0.5533,
+    "enrollment": 2373
+  },
+  "cds": null,
+  "reference": null
+}

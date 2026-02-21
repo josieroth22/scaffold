@@ -1,0 +1,36 @@
+{
+  "slug": "fayetteville-state-university",
+  "name": "Fayetteville State University",
+  "ipeds_id": 198543,
+  "state": "NC",
+  "city": "Fayetteville",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.7989,
+    "sat_reading_25": 445,
+    "sat_reading_75": 520,
+    "sat_math_25": 410,
+    "sat_math_75": 525,
+    "act_25": 15,
+    "act_75": 20,
+    "tuition_in_state": 3969,
+    "tuition_out_of_state": 7969,
+    "room_board": 11302,
+    "total_cost_in_state": 17271,
+    "total_cost_out_of_state": 21271,
+    "net_price": {
+      "0_30k": 5742,
+      "30_48k": 6901,
+      "48_75k": 8806,
+      "75_110k": 11448,
+      "110k_plus": 13998
+    },
+    "pell_rate": 0.5259,
+    "federal_loan_rate": 0.4589,
+    "enrollment": 5493
+  },
+  "cds": null,
+  "reference": null
+}

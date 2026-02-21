@@ -1,0 +1,51 @@
+{
+  "slug": "trinity-university",
+  "name": "Trinity University",
+  "ipeds_id": 229267,
+  "state": "TX",
+  "city": "San Antonio",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.2816,
+    "sat_reading_25": 670,
+    "sat_reading_75": 735,
+    "sat_math_25": 650,
+    "sat_math_75": 730,
+    "act_25": 30,
+    "act_75": 33,
+    "tuition_in_state": 51352,
+    "tuition_out_of_state": 51352,
+    "room_board": 14472,
+    "total_cost_in_state": 67824,
+    "total_cost_out_of_state": 67824,
+    "net_price": {
+      "0_30k": 14184,
+      "30_48k": 12334,
+      "48_75k": 15774,
+      "75_110k": 24156,
+      "110k_plus": 35186
+    },
+    "pell_rate": 0.164,
+    "federal_loan_rate": 0.2918,
+    "enrollment": 2518
+  },
+  "cds": null,
+  "reference": {
+    "merit_scholarships": [
+      {
+        "name": "Trinity Tower Scholarship",
+        "amount": "Full tuition",
+        "deadline": "November 1",
+        "requirements": "Trinity Tower Scholars Day Competition"
+      }
+    ],
+    "national_merit": {
+      "semifinalist_award": "None",
+      "finalist_award": "$2,000",
+      "first_choice_required": true,
+      "guaranteed": false
+    }
+  }
+}

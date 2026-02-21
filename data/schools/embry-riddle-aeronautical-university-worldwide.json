@@ -1,0 +1,36 @@
+{
+  "slug": "embry-riddle-aeronautical-university-worldwide",
+  "name": "Embry-Riddle Aeronautical University-Worldwide",
+  "ipeds_id": 426314,
+  "state": "FL",
+  "city": "Daytona Beach",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.6175,
+    "sat_reading_25": 540,
+    "sat_reading_75": 650,
+    "sat_math_25": 530,
+    "sat_math_75": 610,
+    "act_25": 24,
+    "act_75": 32,
+    "tuition_in_state": 11665,
+    "tuition_out_of_state": 11665,
+    "room_board": null,
+    "total_cost_in_state": 24015,
+    "total_cost_out_of_state": null,
+    "net_price": {
+      "0_30k": 18761,
+      "30_48k": 18701,
+      "48_75k": 20836,
+      "75_110k": 24015,
+      "110k_plus": 24015
+    },
+    "pell_rate": 0.2506,
+    "federal_loan_rate": 0.105,
+    "enrollment": 8786
+  },
+  "cds": null,
+  "reference": null
+}

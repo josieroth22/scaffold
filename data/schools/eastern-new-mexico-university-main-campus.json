@@ -1,0 +1,36 @@
+{
+  "slug": "eastern-new-mexico-university-main-campus",
+  "name": "Eastern New Mexico University-Main Campus",
+  "ipeds_id": 187648,
+  "state": "NM",
+  "city": "Portales",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.5492,
+    "sat_reading_25": 430,
+    "sat_reading_75": 540,
+    "sat_math_25": 420,
+    "sat_math_75": 530,
+    "act_25": 15,
+    "act_75": 21,
+    "tuition_in_state": 6863,
+    "tuition_out_of_state": 8843,
+    "room_board": 8446,
+    "total_cost_in_state": 17309,
+    "total_cost_out_of_state": 19289,
+    "net_price": {
+      "0_30k": 4722,
+      "30_48k": 5663,
+      "48_75k": 7332,
+      "75_110k": 8346,
+      "110k_plus": 11849
+    },
+    "pell_rate": 0.3201,
+    "federal_loan_rate": 0.1965,
+    "enrollment": 3186
+  },
+  "cds": null,
+  "reference": null
+}

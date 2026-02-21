@@ -1,0 +1,36 @@
+{
+  "slug": "the-university-of-findlay",
+  "name": "The University of Findlay",
+  "ipeds_id": 202763,
+  "state": "OH",
+  "city": "Findlay",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.8633,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 39646,
+    "tuition_out_of_state": 39646,
+    "room_board": 11000,
+    "total_cost_in_state": 52646,
+    "total_cost_out_of_state": 52646,
+    "net_price": {
+      "0_30k": 19184,
+      "30_48k": 21556,
+      "48_75k": 23566,
+      "75_110k": 27573,
+      "110k_plus": 23761
+    },
+    "pell_rate": 0.1386,
+    "federal_loan_rate": 0.3318,
+    "enrollment": 2240
+  },
+  "cds": null,
+  "reference": null
+}

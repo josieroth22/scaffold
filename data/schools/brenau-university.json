@@ -1,0 +1,36 @@
+{
+  "slug": "brenau-university",
+  "name": "Brenau University",
+  "ipeds_id": 139199,
+  "state": "GA",
+  "city": "Gainesville",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.8696,
+    "sat_reading_25": 510,
+    "sat_reading_75": 590,
+    "sat_math_25": 480,
+    "sat_math_75": 580,
+    "act_25": 17,
+    "act_75": 23,
+    "tuition_in_state": 33275,
+    "tuition_out_of_state": 33275,
+    "room_board": 12600,
+    "total_cost_in_state": 47875,
+    "total_cost_out_of_state": 47875,
+    "net_price": {
+      "0_30k": 20696,
+      "30_48k": 19278,
+      "48_75k": 21551,
+      "75_110k": 24922,
+      "110k_plus": 19129
+    },
+    "pell_rate": 0.4671,
+    "federal_loan_rate": 0.7456,
+    "enrollment": 981
+  },
+  "cds": null,
+  "reference": null
+}

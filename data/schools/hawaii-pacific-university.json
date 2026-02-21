@@ -1,0 +1,36 @@
+{
+  "slug": "hawaii-pacific-university",
+  "name": "Hawaii Pacific University",
+  "ipeds_id": 141644,
+  "state": "HI",
+  "city": "Honolulu",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.8448,
+    "sat_reading_25": 548,
+    "sat_reading_75": 650,
+    "sat_math_25": 520,
+    "sat_math_75": 630,
+    "act_25": 21,
+    "act_75": 29,
+    "tuition_in_state": 33020,
+    "tuition_out_of_state": 33020,
+    "room_board": 16042,
+    "total_cost_in_state": 51062,
+    "total_cost_out_of_state": 51062,
+    "net_price": {
+      "0_30k": 26082,
+      "30_48k": 28770,
+      "48_75k": 28932,
+      "75_110k": 32793,
+      "110k_plus": 34920
+    },
+    "pell_rate": 0.2,
+    "federal_loan_rate": 0.2527,
+    "enrollment": 2502
+  },
+  "cds": null,
+  "reference": null
+}

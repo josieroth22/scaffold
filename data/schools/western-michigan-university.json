@@ -1,0 +1,36 @@
+{
+  "slug": "western-michigan-university",
+  "name": "Western Michigan University",
+  "ipeds_id": 172699,
+  "state": "MI",
+  "city": "Kalamazoo",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.8468,
+    "sat_reading_25": 500,
+    "sat_reading_75": 620,
+    "sat_math_25": 490,
+    "sat_math_75": 600,
+    "act_25": 20,
+    "act_75": 27,
+    "tuition_in_state": 15298,
+    "tuition_out_of_state": 19098,
+    "room_board": 11713,
+    "total_cost_in_state": 29011,
+    "total_cost_out_of_state": 32811,
+    "net_price": {
+      "0_30k": 9557,
+      "30_48k": 10010,
+      "48_75k": 18710,
+      "75_110k": 23468,
+      "110k_plus": 25313
+    },
+    "pell_rate": 0.2537,
+    "federal_loan_rate": 0.4791,
+    "enrollment": 12704
+  },
+  "cds": null,
+  "reference": null
+}

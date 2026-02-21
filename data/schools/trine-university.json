@@ -1,0 +1,36 @@
+{
+  "slug": "trine-university",
+  "name": "Trine University",
+  "ipeds_id": 152567,
+  "state": "IN",
+  "city": "Angola",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.8469,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 35600,
+    "tuition_out_of_state": 35600,
+    "room_board": 12250,
+    "total_cost_in_state": 49850,
+    "total_cost_out_of_state": 49850,
+    "net_price": {
+      "0_30k": 18615,
+      "30_48k": 16845,
+      "48_75k": 21043,
+      "75_110k": 25080,
+      "110k_plus": 29763
+    },
+    "pell_rate": 0.1555,
+    "federal_loan_rate": 0.4082,
+    "enrollment": 2344
+  },
+  "cds": null,
+  "reference": null
+}

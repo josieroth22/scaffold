@@ -1,0 +1,36 @@
+{
+  "slug": "hillsdale-college",
+  "name": "Hillsdale College",
+  "ipeds_id": 170286,
+  "state": "MI",
+  "city": "Hillsdale",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.2059,
+    "sat_reading_25": 670,
+    "sat_reading_75": 760,
+    "sat_math_25": 670,
+    "sat_math_75": 750,
+    "act_25": 30,
+    "act_75": 33,
+    "tuition_in_state": 32092,
+    "tuition_out_of_state": 32092,
+    "room_board": 13180,
+    "total_cost_in_state": 47272,
+    "total_cost_out_of_state": 47272,
+    "net_price": {
+      "0_30k": null,
+      "30_48k": null,
+      "48_75k": null,
+      "75_110k": null,
+      "110k_plus": null
+    },
+    "pell_rate": 0,
+    "federal_loan_rate": 0,
+    "enrollment": 1563
+  },
+  "cds": null,
+  "reference": null
+}

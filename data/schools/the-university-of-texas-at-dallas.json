@@ -1,0 +1,36 @@
+{
+  "slug": "the-university-of-texas-at-dallas",
+  "name": "The University of Texas at Dallas",
+  "ipeds_id": 228787,
+  "state": "TX",
+  "city": "Richardson",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.6546,
+    "sat_reading_25": 580,
+    "sat_reading_75": 690,
+    "sat_math_25": 590,
+    "sat_math_75": 720,
+    "act_25": 25,
+    "act_75": 32,
+    "tuition_in_state": 14564,
+    "tuition_out_of_state": 40064,
+    "room_board": 13832,
+    "total_cost_in_state": 30396,
+    "total_cost_out_of_state": 55896,
+    "net_price": {
+      "0_30k": 11089,
+      "30_48k": 11910,
+      "48_75k": 14813,
+      "75_110k": 21886,
+      "110k_plus": 25491
+    },
+    "pell_rate": 0.2973,
+    "federal_loan_rate": 0.3528,
+    "enrollment": 21317
+  },
+  "cds": null,
+  "reference": null
+}

@@ -1,0 +1,36 @@
+{
+  "slug": "university-of-dayton",
+  "name": "University of Dayton",
+  "ipeds_id": 202480,
+  "state": "OH",
+  "city": "Dayton",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.6165,
+    "sat_reading_25": 600,
+    "sat_reading_75": 680,
+    "sat_math_25": 595,
+    "sat_math_75": 690,
+    "act_25": 26,
+    "act_75": 31,
+    "tuition_in_state": 47600,
+    "tuition_out_of_state": 47600,
+    "room_board": 15640,
+    "total_cost_in_state": 65240,
+    "total_cost_out_of_state": 65240,
+    "net_price": {
+      "0_30k": 25086,
+      "30_48k": 25118,
+      "48_75k": 26840,
+      "75_110k": 31080,
+      "110k_plus": 34678
+    },
+    "pell_rate": 0.1552,
+    "federal_loan_rate": 0.4232,
+    "enrollment": 8099
+  },
+  "cds": null,
+  "reference": null
+}

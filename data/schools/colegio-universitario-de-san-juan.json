@@ -1,0 +1,36 @@
+{
+  "slug": "colegio-universitario-de-san-juan",
+  "name": "Colegio Universitario de San Juan",
+  "ipeds_id": 241720,
+  "state": "PR",
+  "city": "San Juan",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.8088,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 2340,
+    "tuition_out_of_state": 2340,
+    "room_board": null,
+    "total_cost_in_state": 6362,
+    "total_cost_out_of_state": null,
+    "net_price": {
+      "0_30k": 29,
+      "30_48k": -32,
+      "48_75k": 5278,
+      "75_110k": 5317,
+      "110k_plus": null
+    },
+    "pell_rate": 0.7768,
+    "federal_loan_rate": 0,
+    "enrollment": 542
+  },
+  "cds": null,
+  "reference": null
+}

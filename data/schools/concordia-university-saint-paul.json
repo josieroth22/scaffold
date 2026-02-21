@@ -1,0 +1,36 @@
+{
+  "slug": "concordia-university-saint-paul",
+  "name": "Concordia University-Saint Paul",
+  "ipeds_id": 173328,
+  "state": "MN",
+  "city": "Saint Paul",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.7487,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 25000,
+    "tuition_out_of_state": 25000,
+    "room_board": 10800,
+    "total_cost_in_state": 37800,
+    "total_cost_out_of_state": 37800,
+    "net_price": {
+      "0_30k": 15356,
+      "30_48k": 15388,
+      "48_75k": 15449,
+      "75_110k": 18112,
+      "110k_plus": 22335
+    },
+    "pell_rate": 0.3403,
+    "federal_loan_rate": 0.5598,
+    "enrollment": 2786
+  },
+  "cds": null,
+  "reference": null
+}

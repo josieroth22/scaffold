@@ -1,0 +1,36 @@
+{
+  "slug": "mississippi-state-university",
+  "name": "Mississippi State University",
+  "ipeds_id": 176080,
+  "state": "MS",
+  "city": "Mississippi State",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.7632,
+    "sat_reading_25": 570,
+    "sat_reading_75": 690,
+    "sat_math_25": 540,
+    "sat_math_75": 720,
+    "act_25": 21,
+    "act_75": 29,
+    "tuition_in_state": 9815,
+    "tuition_out_of_state": 26580,
+    "room_board": 12293,
+    "total_cost_in_state": 24108,
+    "total_cost_out_of_state": 40873,
+    "net_price": {
+      "0_30k": 11968,
+      "30_48k": 12879,
+      "48_75k": 16750,
+      "75_110k": 19608,
+      "110k_plus": 20463
+    },
+    "pell_rate": 0.2864,
+    "federal_loan_rate": 0.392,
+    "enrollment": 18092
+  },
+  "cds": null,
+  "reference": null
+}

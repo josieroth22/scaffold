@@ -1,0 +1,36 @@
+{
+  "slug": "university-of-california-merced",
+  "name": "University of California-Merced",
+  "ipeds_id": 445188,
+  "state": "CA",
+  "city": "Merced",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.3918,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 14167,
+    "tuition_out_of_state": 44944,
+    "room_board": 20293,
+    "total_cost_in_state": 36460,
+    "total_cost_out_of_state": 67237,
+    "net_price": {
+      "0_30k": 8572,
+      "30_48k": 9581,
+      "48_75k": 11594,
+      "75_110k": 17323,
+      "110k_plus": 30561
+    },
+    "pell_rate": 0.5901,
+    "federal_loan_rate": 0.3145,
+    "enrollment": 8372
+  },
+  "cds": null,
+  "reference": null
+}

@@ -1,0 +1,38 @@
+{
+  "slug": "denison-university",
+  "name": "Denison University",
+  "ipeds_id": 202523,
+  "state": "OH",
+  "city": "Granville",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.1693,
+    "sat_reading_25": 650,
+    "sat_reading_75": 710,
+    "sat_math_25": 650,
+    "sat_math_75": 760,
+    "act_25": 29,
+    "act_75": 32,
+    "tuition_in_state": 64000,
+    "tuition_out_of_state": 64000,
+    "room_board": 15400,
+    "total_cost_in_state": 81400,
+    "total_cost_out_of_state": 81400,
+    "net_price": {
+      "0_30k": 15093,
+      "30_48k": 12775,
+      "48_75k": 15451,
+      "75_110k": 29492,
+      "110k_plus": 46510
+    },
+    "pell_rate": 0.128,
+    "federal_loan_rate": 0.5244,
+    "enrollment": 2398
+  },
+  "cds": null,
+  "reference": {
+    "questbridge_partner": true
+  }
+}

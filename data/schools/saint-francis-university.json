@@ -1,0 +1,36 @@
+{
+  "slug": "saint-francis-university",
+  "name": "Saint Francis University",
+  "ipeds_id": 215743,
+  "state": "PA",
+  "city": "Loretto",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.7689,
+    "sat_reading_25": 510,
+    "sat_reading_75": 630,
+    "sat_math_25": 510,
+    "sat_math_75": 620,
+    "act_25": 21,
+    "act_75": 26,
+    "tuition_in_state": 41720,
+    "tuition_out_of_state": 41720,
+    "room_board": 13880,
+    "total_cost_in_state": 57600,
+    "total_cost_out_of_state": 57600,
+    "net_price": {
+      "0_30k": 13256,
+      "30_48k": 10865,
+      "48_75k": 12775,
+      "75_110k": 18657,
+      "110k_plus": 24390
+    },
+    "pell_rate": 0.1784,
+    "federal_loan_rate": 0.4027,
+    "enrollment": 1525
+  },
+  "cds": null,
+  "reference": null
+}

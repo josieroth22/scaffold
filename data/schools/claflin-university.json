@@ -1,0 +1,36 @@
+{
+  "slug": "claflin-university",
+  "name": "Claflin University",
+  "ipeds_id": 217873,
+  "state": "SC",
+  "city": "Orangeburg",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.7255,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 17046,
+    "tuition_out_of_state": 17046,
+    "room_board": 9480,
+    "total_cost_in_state": 28526,
+    "total_cost_out_of_state": 28526,
+    "net_price": {
+      "0_30k": 19663,
+      "30_48k": 21021,
+      "48_75k": 25768,
+      "75_110k": 25952,
+      "110k_plus": 26086
+    },
+    "pell_rate": 0.7261,
+    "federal_loan_rate": 0.7141,
+    "enrollment": 1727
+  },
+  "cds": null,
+  "reference": null
+}

@@ -1,0 +1,36 @@
+{
+  "slug": "university-at-albany",
+  "name": "University at Albany",
+  "ipeds_id": 196060,
+  "state": "NY",
+  "city": "Albany",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.6987,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 10408,
+    "tuition_out_of_state": 28998,
+    "room_board": 16182,
+    "total_cost_in_state": 28590,
+    "total_cost_out_of_state": 47180,
+    "net_price": {
+      "0_30k": 13066,
+      "30_48k": 15895,
+      "48_75k": 19850,
+      "75_110k": 20811,
+      "110k_plus": 25009
+    },
+    "pell_rate": 0.4212,
+    "federal_loan_rate": 0.5236,
+    "enrollment": 12100
+  },
+  "cds": null,
+  "reference": null
+}

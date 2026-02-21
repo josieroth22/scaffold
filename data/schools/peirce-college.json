@@ -1,0 +1,36 @@
+{
+  "slug": "peirce-college",
+  "name": "Peirce College",
+  "ipeds_id": 214883,
+  "state": "PA",
+  "city": "Philadelphia",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": null,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 15060,
+    "tuition_out_of_state": 15060,
+    "room_board": null,
+    "total_cost_in_state": 18260,
+    "total_cost_out_of_state": null,
+    "net_price": {
+      "0_30k": 10378,
+      "30_48k": 15432,
+      "48_75k": null,
+      "75_110k": null,
+      "110k_plus": null
+    },
+    "pell_rate": 0.5236,
+    "federal_loan_rate": 0.6155,
+    "enrollment": 789
+  },
+  "cds": null,
+  "reference": null
+}

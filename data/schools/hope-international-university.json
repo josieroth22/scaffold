@@ -1,0 +1,36 @@
+{
+  "slug": "hope-international-university",
+  "name": "Hope International University",
+  "ipeds_id": 120537,
+  "state": "CA",
+  "city": "Fullerton",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.3539,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 36250,
+    "tuition_out_of_state": 36250,
+    "room_board": 13700,
+    "total_cost_in_state": 51950,
+    "total_cost_out_of_state": 51950,
+    "net_price": {
+      "0_30k": 26641,
+      "30_48k": 34153,
+      "48_75k": 33153,
+      "75_110k": 35778,
+      "110k_plus": 34403
+    },
+    "pell_rate": 0.4288,
+    "federal_loan_rate": 0.6034,
+    "enrollment": 549
+  },
+  "cds": null,
+  "reference": null
+}

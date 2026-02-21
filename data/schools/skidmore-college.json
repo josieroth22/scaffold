@@ -1,0 +1,38 @@
+{
+  "slug": "skidmore-college",
+  "name": "Skidmore College",
+  "ipeds_id": 195526,
+  "state": "NY",
+  "city": "Saratoga Springs",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.2292,
+    "sat_reading_25": 660,
+    "sat_reading_75": 730,
+    "sat_math_25": 640,
+    "sat_math_75": 730,
+    "act_25": 30,
+    "act_75": 33,
+    "tuition_in_state": 65030,
+    "tuition_out_of_state": 65030,
+    "room_board": 17340,
+    "total_cost_in_state": 84370,
+    "total_cost_out_of_state": 84370,
+    "net_price": {
+      "0_30k": 20906,
+      "30_48k": 15994,
+      "48_75k": 17308,
+      "75_110k": 25470,
+      "110k_plus": 46513
+    },
+    "pell_rate": 0.1371,
+    "federal_loan_rate": 0.3437,
+    "enrollment": 2760
+  },
+  "cds": null,
+  "reference": {
+    "questbridge_partner": true
+  }
+}

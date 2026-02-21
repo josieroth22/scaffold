@@ -1,0 +1,36 @@
+{
+  "slug": "daemen-university",
+  "name": "Daemen University",
+  "ipeds_id": 190725,
+  "state": "NY",
+  "city": "Amherst",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.7616,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 33724,
+    "tuition_out_of_state": 33724,
+    "room_board": 13940,
+    "total_cost_in_state": 49664,
+    "total_cost_out_of_state": 49664,
+    "net_price": {
+      "0_30k": 10602,
+      "30_48k": 11562,
+      "48_75k": 16325,
+      "75_110k": 20603,
+      "110k_plus": 25038
+    },
+    "pell_rate": 0.4167,
+    "federal_loan_rate": 0.6125,
+    "enrollment": 1761
+  },
+  "cds": null,
+  "reference": null
+}

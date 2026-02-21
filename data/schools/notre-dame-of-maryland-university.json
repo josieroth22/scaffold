@@ -1,0 +1,36 @@
+{
+  "slug": "notre-dame-of-maryland-university",
+  "name": "Notre Dame of Maryland University",
+  "ipeds_id": 163578,
+  "state": "MD",
+  "city": "Baltimore",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.8649,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 41910,
+    "tuition_out_of_state": 41910,
+    "room_board": 13335,
+    "total_cost_in_state": 57245,
+    "total_cost_out_of_state": 57245,
+    "net_price": {
+      "0_30k": 17820,
+      "30_48k": 20697,
+      "48_75k": 24228,
+      "75_110k": 30606,
+      "110k_plus": 28315
+    },
+    "pell_rate": 0.3227,
+    "federal_loan_rate": 0.7742,
+    "enrollment": 684
+  },
+  "cds": null,
+  "reference": null
+}

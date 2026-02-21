@@ -1,0 +1,36 @@
+{
+  "slug": "salem-state-university",
+  "name": "Salem State University",
+  "ipeds_id": 167729,
+  "state": "MA",
+  "city": "Salem",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.9557,
+    "sat_reading_25": 510,
+    "sat_reading_75": 590,
+    "sat_math_25": 480,
+    "sat_math_75": 570,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 11978,
+    "tuition_out_of_state": 18961,
+    "room_board": 16378,
+    "total_cost_in_state": 30356,
+    "total_cost_out_of_state": 37339,
+    "net_price": {
+      "0_30k": 13384,
+      "30_48k": 14747,
+      "48_75k": 17712,
+      "75_110k": 21398,
+      "110k_plus": 24642
+    },
+    "pell_rate": 0.3531,
+    "federal_loan_rate": 0.5675,
+    "enrollment": 4286
+  },
+  "cds": null,
+  "reference": null
+}

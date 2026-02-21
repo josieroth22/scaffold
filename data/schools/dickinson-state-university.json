@@ -1,0 +1,36 @@
+{
+  "slug": "dickinson-state-university",
+  "name": "Dickinson State University",
+  "ipeds_id": 200059,
+  "state": "ND",
+  "city": "Dickinson",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.6005,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 9118,
+    "tuition_out_of_state": 11218,
+    "room_board": 7740,
+    "total_cost_in_state": 18858,
+    "total_cost_out_of_state": 20958,
+    "net_price": {
+      "0_30k": 11547,
+      "30_48k": 11472,
+      "48_75k": 13949,
+      "75_110k": 17160,
+      "110k_plus": 17040
+    },
+    "pell_rate": 0.2176,
+    "federal_loan_rate": 0.3933,
+    "enrollment": 1108
+  },
+  "cds": null,
+  "reference": null
+}

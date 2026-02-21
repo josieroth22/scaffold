@@ -226,6 +226,49 @@
     line-height: 1.5;
   }
 
+  .field-hint-inline {
+    font-size: 0.78rem;
+    color: var(--muted);
+    font-weight: 400;
+  }
+
+  .checkbox-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+
+  .checkbox-option {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.6rem 0.85rem;
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.88rem;
+    transition: border-color 0.15s, background 0.15s;
+  }
+
+  .checkbox-option:hover {
+    border-color: var(--sage);
+    background: var(--sage-light);
+  }
+
+  .checkbox-option input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    accent-color: var(--sage);
+    cursor: pointer;
+    flex-shrink: 0;
+  }
+
+  .checkbox-option.checked {
+    border-color: var(--sage);
+    background: var(--sage-light);
+  }
+
   input[type="text"],
   input[type="number"],
   input[type="email"],
@@ -307,22 +350,27 @@
   .priority-grid {
     display: flex;
     flex-direction: column;
-    gap: 0.4rem;
+    gap: 0.35rem;
     counter-reset: priority;
   }
 
   .priority-item {
     display: flex;
     align-items: center;
-    gap: 0.75rem;
-    padding: 0.7rem 0.85rem;
+    gap: 0.6rem;
+    padding: 0.55rem 0.75rem;
     background: white;
     border: 1px solid var(--border);
     border-radius: 8px;
     cursor: grab;
     user-select: none;
-    transition: border-color 0.2s, box-shadow 0.2s, transform 0.15s;
+    transition: border-color 0.2s, box-shadow 0.2s, transform 0.15s, background 0.15s;
     counter-increment: priority;
+  }
+
+  .priority-item:hover {
+    border-color: var(--sage);
+    background: var(--sage-light);
   }
 
   .priority-item:active { cursor: grabbing; }
@@ -343,8 +391,8 @@
   }
 
   .priority-rank {
-    width: 26px;
-    height: 26px;
+    width: 24px;
+    height: 24px;
     border-radius: 50%;
     background: var(--sage-light);
     color: var(--sage-dark);
@@ -354,6 +402,11 @@
     font-size: 0.75rem;
     font-weight: 700;
     flex-shrink: 0;
+  }
+
+  .priority-item:hover .priority-rank {
+    background: var(--sage);
+    color: white;
   }
 
   .priority-rank::after {
@@ -371,6 +424,47 @@
     font-size: 0.88rem;
     color: var(--ink);
     flex: 1;
+  }
+
+  .priority-arrows {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    flex-shrink: 0;
+    margin-left: auto;
+  }
+
+  .priority-arrow {
+    width: 28px;
+    height: 20px;
+    border: none;
+    background: transparent;
+    color: var(--muted);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    font-size: 0.7rem;
+    line-height: 1;
+    padding: 0;
+    transition: background 0.15s, color 0.15s;
+  }
+
+  .priority-arrow:hover {
+    background: var(--sage-light);
+    color: var(--sage-dark);
+  }
+
+  .priority-arrow:active {
+    background: var(--sage);
+    color: white;
+  }
+
+  .priority-arrow:disabled {
+    opacity: 0.2;
+    cursor: default;
+    pointer-events: none;
   }
 
   .priority-note {
@@ -932,14 +1026,13 @@
       </div>
 
       <div class="field">
-        <label class="field-label" for="size-pref">Size preference</label>
-        <select id="size-pref" name="size_preference" required>
-          <option value="" disabled selected>Select one</option>
-          <option value="large">Large research university (15,000+)</option>
-          <option value="mid">Mid-size (5,000-15,000)</option>
-          <option value="small">Small liberal arts college (under 5,000)</option>
-          <option value="unsure">Not sure yet</option>
-        </select>
+        <label class="field-label">Size preference <span class="field-hint-inline">(select all that apply)</span></label>
+        <div class="checkbox-group" id="size-pref-group">
+          <label class="checkbox-option"><input type="checkbox" name="size_preference" value="Large (15,000+)"> Large (15,000+)</label>
+          <label class="checkbox-option"><input type="checkbox" name="size_preference" value="Mid-size (5,000-15,000)"> Mid-size (5,000-15,000)</label>
+          <label class="checkbox-option"><input type="checkbox" name="size_preference" value="Small (under 5,000)"> Small (under 5,000)</label>
+          <label class="checkbox-option"><input type="checkbox" name="size_preference" value="Not sure yet"> Not sure yet</label>
+        </div>
       </div>
 
       <div class="field">
@@ -979,43 +1072,71 @@
       </div>
 
       <div class="field">
-        <label class="field-label">Drag to rank these (most important at top)</label>
-        <p class="field-hint">Drag and drop to reorder. #1 is what matters most to your family.</p>
+        <label class="field-label">Rank these (most important at top)</label>
+        <p class="field-hint">Use the arrows or drag to reorder. #1 is what matters most to your family.</p>
         <div class="priority-grid" id="priority-grid">
           <div class="priority-item" draggable="true" data-key="cost">
             <span class="priority-drag-handle">&#8942;&#8942;</span>
             <span class="priority-rank"></span>
             <span class="priority-item-label">Minimize total cost of attendance</span>
+            <span class="priority-arrows">
+              <button type="button" class="priority-arrow arrow-up" aria-label="Move up">&#9650;</button>
+              <button type="button" class="priority-arrow arrow-down" aria-label="Move down">&#9660;</button>
+            </span>
           </div>
           <div class="priority-item" draggable="true" data-key="prestige">
             <span class="priority-drag-handle">&#8942;&#8942;</span>
             <span class="priority-rank"></span>
             <span class="priority-item-label">Prestige / brand name</span>
+            <span class="priority-arrows">
+              <button type="button" class="priority-arrow arrow-up" aria-label="Move up">&#9650;</button>
+              <button type="button" class="priority-arrow arrow-down" aria-label="Move down">&#9660;</button>
+            </span>
           </div>
           <div class="priority-item" draggable="true" data-key="academic_fit">
             <span class="priority-drag-handle">&#8942;&#8942;</span>
             <span class="priority-rank"></span>
             <span class="priority-item-label">Academic fit (programs, research, major strength)</span>
+            <span class="priority-arrows">
+              <button type="button" class="priority-arrow arrow-up" aria-label="Move up">&#9650;</button>
+              <button type="button" class="priority-arrow arrow-down" aria-label="Move down">&#9660;</button>
+            </span>
           </div>
           <div class="priority-item" draggable="true" data-key="location">
             <span class="priority-drag-handle">&#8942;&#8942;</span>
             <span class="priority-rank"></span>
             <span class="priority-item-label">Geographic location</span>
+            <span class="priority-arrows">
+              <button type="button" class="priority-arrow arrow-up" aria-label="Move up">&#9650;</button>
+              <button type="button" class="priority-arrow arrow-down" aria-label="Move down">&#9660;</button>
+            </span>
           </div>
           <div class="priority-item" draggable="true" data-key="culture">
             <span class="priority-drag-handle">&#8942;&#8942;</span>
             <span class="priority-rank"></span>
             <span class="priority-item-label">Campus culture / social fit</span>
+            <span class="priority-arrows">
+              <button type="button" class="priority-arrow arrow-up" aria-label="Move up">&#9650;</button>
+              <button type="button" class="priority-arrow arrow-down" aria-label="Move down">&#9660;</button>
+            </span>
           </div>
           <div class="priority-item" draggable="true" data-key="merit">
             <span class="priority-drag-handle">&#8942;&#8942;</span>
             <span class="priority-rank"></span>
             <span class="priority-item-label">Merit scholarship likelihood</span>
+            <span class="priority-arrows">
+              <button type="button" class="priority-arrow arrow-up" aria-label="Move up">&#9650;</button>
+              <button type="button" class="priority-arrow arrow-down" aria-label="Move down">&#9660;</button>
+            </span>
           </div>
           <div class="priority-item" draggable="true" data-key="outcomes">
             <span class="priority-drag-handle">&#8942;&#8942;</span>
             <span class="priority-rank"></span>
             <span class="priority-item-label">Post-graduation outcomes (career, earnings, grad school)</span>
+            <span class="priority-arrows">
+              <button type="button" class="priority-arrow arrow-up" aria-label="Move up">&#9650;</button>
+              <button type="button" class="priority-arrow arrow-down" aria-label="Move down">&#9660;</button>
+            </span>
           </div>
         </div>
       </div>
@@ -1049,12 +1170,12 @@
   <div class="confirmation" id="generating">
     <div class="confirmation-icon" style="animation: pulse 2s ease infinite;">&#9998;</div>
     <h2>Building your plan...</h2>
-    <p>Scaffold is generating your personalized college strategy. This takes a few minutes. Don't close this tab.</p>
+    <p>Scaffold is generating your personalized college strategy.<br>This takes a few minutes.<br>Don't close this tab.</p>
     <div style="max-width: 500px; margin: 1.5rem auto;">
       <div class="progress-track" style="height: 6px;">
         <div class="progress-fill" id="gen-progress" style="width: 5%; transition: width 1s ease;"></div>
       </div>
-      <p style="font-size: 0.78rem; color: var(--muted); margin-top: 0.5rem;" id="gen-status">Starting generation...</p>
+      <p style="font-size: 0.78rem; color: var(--muted); margin-top: 0.5rem;" id="gen-status">Generating plan...</p>
     </div>
   </div>
 
@@ -1248,6 +1369,44 @@
     touchItem = null;
   });
 
+  // Arrow button support for priority ranking
+  function updateArrowStates() {
+    const items = grid.querySelectorAll('.priority-item');
+    items.forEach((item, i) => {
+      const up = item.querySelector('.arrow-up');
+      const down = item.querySelector('.arrow-down');
+      if (up) up.disabled = (i === 0);
+      if (down) down.disabled = (i === items.length - 1);
+    });
+  }
+  updateArrowStates();
+
+  grid.addEventListener('click', e => {
+    const btn = e.target.closest('.priority-arrow');
+    if (!btn) return;
+    e.preventDefault();
+    const item = btn.closest('.priority-item');
+    if (!item) return;
+
+    if (btn.classList.contains('arrow-up') && item.previousElementSibling) {
+      item.previousElementSibling.before(item);
+    } else if (btn.classList.contains('arrow-down') && item.nextElementSibling) {
+      item.nextElementSibling.after(item);
+    }
+    updateArrowStates();
+  });
+
+  // Also update arrows after drag-and-drop reorder
+  grid.addEventListener('drop', () => setTimeout(updateArrowStates, 0));
+  grid.addEventListener('touchend', () => setTimeout(updateArrowStates, 0));
+
+  // Checkbox group: toggle checked styling
+  document.querySelectorAll('.checkbox-option input[type="checkbox"]').forEach(cb => {
+    cb.addEventListener('change', () => {
+      cb.closest('.checkbox-option').classList.toggle('checked', cb.checked);
+    });
+  });
+
   // Stream an SSE response, calling onText for each chunk. Returns submission ID if present.
   // expectedChars: approximate character count for this tier (Tier 1 ~12000, Tier 2 ~15000)
   async function streamResponse(response, statusEl, progressEl, onText, pctStart, pctEnd, expectedChars) {
@@ -1276,7 +1435,7 @@
             const progress = Math.min(0.95, totalChars / expectedChars);
             const pct = pctStart + progress * (pctEnd - pctStart);
             progressEl.style.width = pct + '%';
-            statusEl.textContent = 'Generating... (' + Math.round(pct) + '%)';
+            statusEl.textContent = 'Generating plan... ' + Math.round(pct) + '%';
           }
           if (parsed.done || parsed.tier1_done) {
             progressEl.style.width = pctEnd + '%';
@@ -1328,7 +1487,15 @@
     const form = document.getElementById('intake-form');
     const formData = new FormData(form);
     const data = {};
-    formData.forEach((value, key) => { data[key] = value; });
+    formData.forEach((value, key) => {
+      if (key === 'size_preference') {
+        // Multi-select: join checked values
+        if (data[key]) data[key] += ', ' + value;
+        else data[key] = value;
+      } else {
+        data[key] = value;
+      }
+    });
 
     // Combine first + last name into student_name for the prompt
     data.student_name = (data.student_first_name || '') + ' ' + (data.student_last_name || '');
@@ -1356,6 +1523,16 @@
 
     // Call the API
     try {
+      const statusEl = document.getElementById('gen-status');
+      const progressEl = document.getElementById('gen-progress');
+      const MAX_FIX_ATTEMPTS = 2;
+      let submissionId = null;
+      let markdown = '';
+      let reviewPassed = false;
+
+      // === GENERATION PIPELINE (runs once) ===
+
+      // Stream Tier 1 (Strategy Brief, ~12,000 chars)
       const response = await fetch('/api/generate', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -1366,19 +1543,12 @@
         throw new Error('Server returned ' + response.status);
       }
 
-      let markdown = '';
-      let submissionId = null;
-
-      const statusEl = document.getElementById('gen-status');
-      const progressEl = document.getElementById('gen-progress');
-
-      // Stream Tier 1 (Strategy Brief, ~12,000 chars)
       submissionId = await streamResponse(response, statusEl, progressEl, (text) => {
         markdown += text;
       }, 0, 45, 13000);
 
       // Run Monte Carlo simulation (non-blocking on failure)
-      statusEl.textContent = 'Running financial simulations...';
+      statusEl.textContent = 'Generating plan...';
       progressEl.style.width = '47%';
       try {
         const simRes = await fetch('/api/simulate', {
@@ -1393,9 +1563,24 @@
       } catch (e) {
         console.warn('Simulation request failed:', e);
       }
-      progressEl.style.width = '55%';
+      progressEl.style.width = '52%';
 
-      statusEl.textContent = 'Building reference sections...';
+      // Reconcile costs: update narrative to match simulation results
+      try {
+        const reconcileRes = await fetch('/api/reconcile-costs', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ id: submissionId }),
+        });
+        if (!reconcileRes.ok) {
+          console.warn('Reconciliation returned ' + reconcileRes.status);
+        }
+      } catch (e) {
+        console.warn('Reconciliation failed (non-blocking):', e);
+      }
+      progressEl.style.width = '58%';
+
+      statusEl.textContent = 'Generating plan...';
 
       // Stream Tier 2 (Reference Sections, ~15,000 chars)
       const tier2Response = await fetch('/api/generate-tier2', {
@@ -1412,8 +1597,10 @@
         markdown += text;
       }, 55, 90, 20000);
 
-      // Quality review (non-blocking on failure)
-      statusEl.textContent = 'Reviewing for accuracy...';
+      // === REVIEW + FIX LOOP ===
+
+      // Initial review
+      statusEl.textContent = 'Finalizing plan...';
       progressEl.style.width = '92%';
       try {
         const reviewRes = await fetch('/api/review', {
@@ -1421,15 +1608,92 @@
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ id: submissionId }),
         });
-        if (!reviewRes.ok) {
-          console.warn('Review returned ' + reviewRes.status);
+        if (reviewRes.ok) {
+          const reviewData = await reviewRes.json();
+          if (reviewData.overall === 'PASS') {
+            reviewPassed = true;
+          } else {
+            console.warn('Review FAIL (initial):', reviewData.summary || reviewData);
+          }
+        } else {
+          console.warn('Review returned ' + reviewRes.status + '. Proceeding.');
+          reviewPassed = true; // Don't block on review errors
         }
       } catch (e) {
         console.warn('Review request failed:', e);
+        reviewPassed = true; // Don't block on review errors
+      }
+
+      // Fix loop: up to MAX_FIX_ATTEMPTS if review failed
+      let fixAttempt = 0;
+      while (!reviewPassed && fixAttempt < MAX_FIX_ATTEMPTS) {
+        fixAttempt++;
+        statusEl.textContent = 'Finalizing plan...';
+        progressEl.style.width = '94%';
+
+        try {
+          const fixRes = await fetch('/api/fix-plan', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ id: submissionId }),
+          });
+          if (!fixRes.ok) {
+            console.warn('Fix-plan returned ' + fixRes.status);
+            break; // Don't retry fixes if the endpoint itself fails
+          }
+        } catch (e) {
+          console.warn('Fix-plan request failed:', e);
+          break;
+        }
+
+        // Re-review after fix
+        statusEl.textContent = 'Finalizing plan...';
+        progressEl.style.width = '96%';
+        try {
+          const reReviewRes = await fetch('/api/review', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ id: submissionId }),
+          });
+          if (reReviewRes.ok) {
+            const reReviewData = await reReviewRes.json();
+            if (reReviewData.overall === 'PASS') {
+              reviewPassed = true;
+            } else {
+              console.warn(`Review FAIL after fix attempt ${fixAttempt}:`, reReviewData.summary || reReviewData);
+              if (fixAttempt >= MAX_FIX_ATTEMPTS) {
+                console.warn('Max fix attempts reached. Proceeding with best attempt.');
+                // Mark as review_failed so it doesn't stay stuck at "reviewing"
+                try {
+                  await fetch('/api/update-status', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ id: submissionId, status: 'review_failed' }),
+                  });
+                } catch (e) { console.warn('Failed to update status:', e); }
+              }
+            }
+          } else {
+            console.warn('Re-review returned ' + reReviewRes.status + '. Proceeding.');
+            reviewPassed = true;
+          }
+        } catch (e) {
+          console.warn('Re-review request failed:', e);
+          reviewPassed = true;
+        }
       }
 
       progressEl.style.width = '100%';
       statusEl.textContent = 'Done! Redirecting to your plan...';
+
+      // Mark as completed in Redis
+      try {
+        await fetch('/api/update-status', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ id: submissionId, status: 'completed' }),
+        });
+      } catch (e) { console.warn('Failed to update status:', e); }
 
       // Store the result as backup
       localStorage.setItem('scaffold_result', markdown);

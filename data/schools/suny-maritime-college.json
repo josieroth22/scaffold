@@ -1,0 +1,36 @@
+{
+  "slug": "suny-maritime-college",
+  "name": "SUNY Maritime College",
+  "ipeds_id": 196291,
+  "state": "NY",
+  "city": "Throggs Neck",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.7851,
+    "sat_reading_25": 545,
+    "sat_reading_75": 640,
+    "sat_math_25": 546,
+    "sat_math_75": 645,
+    "act_25": 22,
+    "act_75": 26,
+    "tuition_in_state": 8540,
+    "tuition_out_of_state": 18450,
+    "room_board": 16146,
+    "total_cost_in_state": 26686,
+    "total_cost_out_of_state": 36596,
+    "net_price": {
+      "0_30k": 14478,
+      "30_48k": 15378,
+      "48_75k": 22225,
+      "75_110k": 21922,
+      "110k_plus": 26193
+    },
+    "pell_rate": 0.2062,
+    "federal_loan_rate": 0.4069,
+    "enrollment": 1242
+  },
+  "cds": null,
+  "reference": null
+}

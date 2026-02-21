@@ -1,0 +1,36 @@
+{
+  "slug": "university-of-pittsburgh-bradford",
+  "name": "University of Pittsburgh-Bradford",
+  "ipeds_id": 215266,
+  "state": "PA",
+  "city": "Bradford",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.9081,
+    "sat_reading_25": 520,
+    "sat_reading_75": 630,
+    "sat_math_25": 510,
+    "sat_math_75": 630,
+    "act_25": 22,
+    "act_75": 31,
+    "tuition_in_state": 14620,
+    "tuition_out_of_state": 26494,
+    "room_board": 10848,
+    "total_cost_in_state": 27468,
+    "total_cost_out_of_state": 39342,
+    "net_price": {
+      "0_30k": 11352,
+      "30_48k": 11294,
+      "48_75k": 14898,
+      "75_110k": 21611,
+      "110k_plus": 23283
+    },
+    "pell_rate": 0.46,
+    "federal_loan_rate": 0.6853,
+    "enrollment": 980
+  },
+  "cds": null,
+  "reference": null
+}

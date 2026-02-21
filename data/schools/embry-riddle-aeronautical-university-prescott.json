@@ -1,0 +1,36 @@
+{
+  "slug": "embry-riddle-aeronautical-university-prescott",
+  "name": "Embry-Riddle Aeronautical University-Prescott",
+  "ipeds_id": 104586,
+  "state": "AZ",
+  "city": "Prescott",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.7519,
+    "sat_reading_25": 580,
+    "sat_reading_75": 680,
+    "sat_math_25": 580,
+    "sat_math_75": 680,
+    "act_25": 24,
+    "act_75": 29,
+    "tuition_in_state": 42204,
+    "tuition_out_of_state": 42204,
+    "room_board": 14102,
+    "total_cost_in_state": 58306,
+    "total_cost_out_of_state": 58306,
+    "net_price": {
+      "0_30k": 37016,
+      "30_48k": 34781,
+      "48_75k": 37944,
+      "75_110k": 40511,
+      "110k_plus": 42052
+    },
+    "pell_rate": 0.174,
+    "federal_loan_rate": 0.3439,
+    "enrollment": 3245
+  },
+  "cds": null,
+  "reference": null
+}

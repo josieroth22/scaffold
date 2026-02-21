@@ -1,0 +1,36 @@
+{
+  "slug": "wentworth-institute-of-technology",
+  "name": "Wentworth Institute of Technology",
+  "ipeds_id": 168227,
+  "state": "MA",
+  "city": "Boston",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.8537,
+    "sat_reading_25": 570,
+    "sat_reading_75": 660,
+    "sat_math_25": 570,
+    "sat_math_75": 660,
+    "act_25": 25,
+    "act_75": 31,
+    "tuition_in_state": 41010,
+    "tuition_out_of_state": 41010,
+    "room_board": 18670,
+    "total_cost_in_state": 61680,
+    "total_cost_out_of_state": 61680,
+    "net_price": {
+      "0_30k": 29805,
+      "30_48k": 29954,
+      "48_75k": 32278,
+      "75_110k": 34868,
+      "110k_plus": 36660
+    },
+    "pell_rate": 0.2257,
+    "federal_loan_rate": 0.5187,
+    "enrollment": 3641
+  },
+  "cds": null,
+  "reference": null
+}

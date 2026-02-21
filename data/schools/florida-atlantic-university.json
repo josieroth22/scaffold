@@ -1,0 +1,45 @@
+{
+  "slug": "florida-atlantic-university",
+  "name": "Florida Atlantic University",
+  "ipeds_id": 133669,
+  "state": "FL",
+  "city": "Boca Raton",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.7344,
+    "sat_reading_25": 530,
+    "sat_reading_75": 620,
+    "sat_math_25": 510,
+    "sat_math_75": 590,
+    "act_25": 20,
+    "act_75": 26,
+    "tuition_in_state": 4879,
+    "tuition_out_of_state": 17324,
+    "room_board": 12536,
+    "total_cost_in_state": 19415,
+    "total_cost_out_of_state": 31860,
+    "net_price": {
+      "0_30k": 3120,
+      "30_48k": 4760,
+      "48_75k": 8772,
+      "75_110k": 14665,
+      "110k_plus": 16235
+    },
+    "pell_rate": 0.3515,
+    "federal_loan_rate": 0.2792,
+    "enrollment": 23458
+  },
+  "cds": null,
+  "reference": {
+    "honors_program": {
+      "name": "Wilkes Honors College",
+      "description": "The Harriet L. Wilkes Honors College is the nation's only university-affiliated, free-standing honors college. Located in Jupiter, FL, this close-knit, residential, highly-selective liberal arts and sciences college offers a distinctive all-honors curriculum surrounded by world-renowned scientific research institutes.",
+      "separate_application": null,
+      "avg_sat": 1295,
+      "acceptance_rate": null,
+      "size": 600
+    }
+  }
+}

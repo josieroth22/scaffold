@@ -1,0 +1,36 @@
+{
+  "slug": "washington-adventist-university",
+  "name": "Washington Adventist University",
+  "ipeds_id": 162210,
+  "state": "MD",
+  "city": "Takoma Park",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.4536,
+    "sat_reading_25": 400,
+    "sat_reading_75": 590,
+    "sat_math_25": 400,
+    "sat_math_75": 510,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 25200,
+    "tuition_out_of_state": 25200,
+    "room_board": 10440,
+    "total_cost_in_state": 37640,
+    "total_cost_out_of_state": 37640,
+    "net_price": {
+      "0_30k": 15209,
+      "30_48k": 12307,
+      "48_75k": 15195,
+      "75_110k": 13232,
+      "110k_plus": 19295
+    },
+    "pell_rate": 0.4605,
+    "federal_loan_rate": 0.5412,
+    "enrollment": 522
+  },
+  "cds": null,
+  "reference": null
+}

@@ -1,0 +1,36 @@
+{
+  "slug": "pontifical-catholic-university-of-puerto-rico-ponce",
+  "name": "Pontifical Catholic University of Puerto Rico-Ponce",
+  "ipeds_id": 241410,
+  "state": "PR",
+  "city": "Ponce",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.9033,
+    "sat_reading_25": 575,
+    "sat_reading_75": 658,
+    "sat_math_25": 548,
+    "sat_math_75": 678,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 6340,
+    "tuition_out_of_state": 6340,
+    "room_board": 6663,
+    "total_cost_in_state": 15003,
+    "total_cost_out_of_state": 15003,
+    "net_price": {
+      "0_30k": 9321,
+      "30_48k": 10319,
+      "48_75k": 13608,
+      "75_110k": 15251,
+      "110k_plus": 17061
+    },
+    "pell_rate": 0.8137,
+    "federal_loan_rate": 0.3163,
+    "enrollment": 3827
+  },
+  "cds": null,
+  "reference": null
+}

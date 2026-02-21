@@ -1,0 +1,36 @@
+{
+  "slug": "hamline-university",
+  "name": "Hamline University",
+  "ipeds_id": 173665,
+  "state": "MN",
+  "city": "Saint Paul",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.8983,
+    "sat_reading_25": 593,
+    "sat_reading_75": 695,
+    "sat_math_25": 553,
+    "sat_math_75": 698,
+    "act_25": 20,
+    "act_75": 28,
+    "tuition_in_state": 48311,
+    "tuition_out_of_state": 48311,
+    "room_board": 12030,
+    "total_cost_in_state": 62341,
+    "total_cost_out_of_state": 62341,
+    "net_price": {
+      "0_30k": 18011,
+      "30_48k": 15893,
+      "48_75k": 19628,
+      "75_110k": 24313,
+      "110k_plus": 27061
+    },
+    "pell_rate": 0.3977,
+    "federal_loan_rate": 0.587,
+    "enrollment": 1685
+  },
+  "cds": null,
+  "reference": null
+}

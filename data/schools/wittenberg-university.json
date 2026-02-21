@@ -1,0 +1,36 @@
+{
+  "slug": "wittenberg-university",
+  "name": "Wittenberg University",
+  "ipeds_id": 206525,
+  "state": "OH",
+  "city": "Springfield",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.9104,
+    "sat_reading_25": 540,
+    "sat_reading_75": 640,
+    "sat_math_25": 530,
+    "sat_math_75": 620,
+    "act_25": 20,
+    "act_75": 27,
+    "tuition_in_state": 44602,
+    "tuition_out_of_state": 44602,
+    "room_board": 11562,
+    "total_cost_in_state": 58164,
+    "total_cost_out_of_state": 58164,
+    "net_price": {
+      "0_30k": 13347,
+      "30_48k": 14344,
+      "48_75k": 17504,
+      "75_110k": 22410,
+      "110k_plus": 24825
+    },
+    "pell_rate": 0.2941,
+    "federal_loan_rate": 0.5914,
+    "enrollment": 1269
+  },
+  "cds": null,
+  "reference": null
+}

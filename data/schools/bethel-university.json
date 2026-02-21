@@ -1,0 +1,36 @@
+{
+  "slug": "bethel-university",
+  "name": "Bethel University",
+  "ipeds_id": 219718,
+  "state": "IN",
+  "city": "McKenzie",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.9717,
+    "sat_reading_25": 300,
+    "sat_reading_75": 525,
+    "sat_math_25": 325,
+    "sat_math_75": 575,
+    "act_25": 16,
+    "act_75": 24,
+    "tuition_in_state": 18168,
+    "tuition_out_of_state": 18168,
+    "room_board": 10537,
+    "total_cost_in_state": 30705,
+    "total_cost_out_of_state": 30705,
+    "net_price": {
+      "0_30k": 22495,
+      "30_48k": 21013,
+      "48_75k": 21838,
+      "75_110k": 21825,
+      "110k_plus": 19450
+    },
+    "pell_rate": 0.3114,
+    "federal_loan_rate": 0.3855,
+    "enrollment": 1671
+  },
+  "cds": null,
+  "reference": null
+}

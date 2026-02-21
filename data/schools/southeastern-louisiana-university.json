@@ -1,0 +1,36 @@
+{
+  "slug": "southeastern-louisiana-university",
+  "name": "Southeastern Louisiana University",
+  "ipeds_id": 160612,
+  "state": "LA",
+  "city": "Hammond",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.9428,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": 19,
+    "act_75": 24,
+    "tuition_in_state": 8373,
+    "tuition_out_of_state": 20851,
+    "room_board": 10240,
+    "total_cost_in_state": 20613,
+    "total_cost_out_of_state": 33091,
+    "net_price": {
+      "0_30k": 8806,
+      "30_48k": 9979,
+      "48_75k": 12638,
+      "75_110k": 16321,
+      "110k_plus": 16196
+    },
+    "pell_rate": 0.33,
+    "federal_loan_rate": 0.3437,
+    "enrollment": 9514
+  },
+  "cds": null,
+  "reference": null
+}

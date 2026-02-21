@@ -1,0 +1,36 @@
+{
+  "slug": "morgan-state-university",
+  "name": "Morgan State University",
+  "ipeds_id": 163453,
+  "state": "MD",
+  "city": "Baltimore",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.8296,
+    "sat_reading_25": 410,
+    "sat_reading_75": 530,
+    "sat_math_25": 450,
+    "sat_math_75": 550,
+    "act_25": 17,
+    "act_75": 21,
+    "tuition_in_state": 8118,
+    "tuition_out_of_state": 18800,
+    "room_board": 12755,
+    "total_cost_in_state": 22873,
+    "total_cost_out_of_state": 33555,
+    "net_price": {
+      "0_30k": 10666,
+      "30_48k": 13284,
+      "48_75k": 16670,
+      "75_110k": 19600,
+      "110k_plus": 16768
+    },
+    "pell_rate": 0.5445,
+    "federal_loan_rate": 0.6533,
+    "enrollment": 8293
+  },
+  "cds": null,
+  "reference": null
+}

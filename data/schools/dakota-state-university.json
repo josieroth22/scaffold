@@ -1,0 +1,36 @@
+{
+  "slug": "dakota-state-university",
+  "name": "Dakota State University",
+  "ipeds_id": 219082,
+  "state": "SD",
+  "city": "Madison",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.9787,
+    "sat_reading_25": 490,
+    "sat_reading_75": 660,
+    "sat_math_25": 530,
+    "sat_math_75": 680,
+    "act_25": 20,
+    "act_75": 26,
+    "tuition_in_state": 9633,
+    "tuition_out_of_state": 12735,
+    "room_board": 8990,
+    "total_cost_in_state": 20623,
+    "total_cost_out_of_state": 23725,
+    "net_price": {
+      "0_30k": 15948,
+      "30_48k": 16778,
+      "48_75k": 20432,
+      "75_110k": 21975,
+      "110k_plus": 21121
+    },
+    "pell_rate": 0.1596,
+    "federal_loan_rate": 0.3631,
+    "enrollment": 1969
+  },
+  "cds": null,
+  "reference": null
+}

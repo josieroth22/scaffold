@@ -1,0 +1,36 @@
+{
+  "slug": "california-state-university-san-marcos",
+  "name": "California State University-San Marcos",
+  "ipeds_id": 366711,
+  "state": "CA",
+  "city": "San Marcos",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.957,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 7739,
+    "tuition_out_of_state": 19619,
+    "room_board": 14152,
+    "total_cost_in_state": 23891,
+    "total_cost_out_of_state": 35771,
+    "net_price": {
+      "0_30k": 6812,
+      "30_48k": 7246,
+      "48_75k": 9980,
+      "75_110k": 13773,
+      "110k_plus": 19772
+    },
+    "pell_rate": 0.436,
+    "federal_loan_rate": 0.296,
+    "enrollment": 14174
+  },
+  "cds": null,
+  "reference": null
+}

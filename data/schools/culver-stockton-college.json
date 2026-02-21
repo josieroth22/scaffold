@@ -1,0 +1,36 @@
+{
+  "slug": "culver-stockton-college",
+  "name": "Culver-Stockton College",
+  "ipeds_id": 177144,
+  "state": "MO",
+  "city": "Canton",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.98,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": 18,
+    "act_75": 21,
+    "tuition_in_state": 29915,
+    "tuition_out_of_state": 29915,
+    "room_board": 9505,
+    "total_cost_in_state": 41420,
+    "total_cost_out_of_state": 41420,
+    "net_price": {
+      "0_30k": 16859,
+      "30_48k": 18483,
+      "48_75k": 22385,
+      "75_110k": 24019,
+      "110k_plus": 24597
+    },
+    "pell_rate": 0.3578,
+    "federal_loan_rate": 0.6789,
+    "enrollment": 884
+  },
+  "cds": null,
+  "reference": null
+}

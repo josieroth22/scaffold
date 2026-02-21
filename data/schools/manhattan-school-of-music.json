@@ -1,0 +1,36 @@
+{
+  "slug": "manhattan-school-of-music",
+  "name": "Manhattan School of Music",
+  "ipeds_id": 192712,
+  "state": "NY",
+  "city": "New York",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.3994,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 54600,
+    "tuition_out_of_state": 54600,
+    "room_board": 17350,
+    "total_cost_in_state": 73950,
+    "total_cost_out_of_state": 73950,
+    "net_price": {
+      "0_30k": 42437,
+      "30_48k": 55777,
+      "48_75k": 57477,
+      "75_110k": null,
+      "110k_plus": 59277
+    },
+    "pell_rate": 0.1319,
+    "federal_loan_rate": 0.3287,
+    "enrollment": 535
+  },
+  "cds": null,
+  "reference": null
+}

@@ -1,0 +1,36 @@
+{
+  "slug": "university-of-nebraska-at-kearney",
+  "name": "University of Nebraska at Kearney",
+  "ipeds_id": 181215,
+  "state": "NE",
+  "city": "Kearney",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.8579,
+    "sat_reading_25": 480,
+    "sat_reading_75": 590,
+    "sat_math_25": 490,
+    "sat_math_75": 560,
+    "act_25": 18,
+    "act_75": 25,
+    "tuition_in_state": 8302,
+    "tuition_out_of_state": 14260,
+    "room_board": 11936,
+    "total_cost_in_state": 22238,
+    "total_cost_out_of_state": 28196,
+    "net_price": {
+      "0_30k": 13187,
+      "30_48k": 13627,
+      "48_75k": 14549,
+      "75_110k": 18575,
+      "110k_plus": 20731
+    },
+    "pell_rate": 0.3354,
+    "federal_loan_rate": 0.3713,
+    "enrollment": 4130
+  },
+  "cds": null,
+  "reference": null
+}

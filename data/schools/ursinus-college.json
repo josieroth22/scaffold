@@ -1,0 +1,36 @@
+{
+  "slug": "ursinus-college",
+  "name": "Ursinus College",
+  "ipeds_id": 216524,
+  "state": "PA",
+  "city": "Collegeville",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.8737,
+    "sat_reading_25": 600,
+    "sat_reading_75": 700,
+    "sat_math_25": 560,
+    "sat_math_75": 660,
+    "act_25": 28,
+    "act_75": 32,
+    "tuition_in_state": 59196,
+    "tuition_out_of_state": 59196,
+    "room_board": 15064,
+    "total_cost_in_state": 76260,
+    "total_cost_out_of_state": 76260,
+    "net_price": {
+      "0_30k": 21992,
+      "30_48k": 22573,
+      "48_75k": 27644,
+      "75_110k": 28852,
+      "110k_plus": 34705
+    },
+    "pell_rate": 0.1984,
+    "federal_loan_rate": 0.7308,
+    "enrollment": 1477
+  },
+  "cds": null,
+  "reference": null
+}

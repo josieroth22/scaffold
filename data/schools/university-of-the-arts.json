@@ -1,0 +1,36 @@
+{
+  "slug": "university-of-the-arts",
+  "name": "University of the Arts",
+  "ipeds_id": 215105,
+  "state": "PA",
+  "city": "Philadelphia",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.782,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 54290,
+    "tuition_out_of_state": 54290,
+    "room_board": 19028,
+    "total_cost_in_state": 75318,
+    "total_cost_out_of_state": 75318,
+    "net_price": {
+      "0_30k": 42104,
+      "30_48k": 41675,
+      "48_75k": 43345,
+      "75_110k": 43590,
+      "110k_plus": 46757
+    },
+    "pell_rate": 0.3342,
+    "federal_loan_rate": 0.8658,
+    "enrollment": 1064
+  },
+  "cds": null,
+  "reference": null
+}

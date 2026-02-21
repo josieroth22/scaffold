@@ -1,0 +1,36 @@
+{
+  "slug": "florida-memorial-university",
+  "name": "Florida Memorial University",
+  "ipeds_id": 133979,
+  "state": "FL",
+  "city": "Miami Gardens",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.7431,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 19110,
+    "tuition_out_of_state": 19110,
+    "room_board": 9656,
+    "total_cost_in_state": 30766,
+    "total_cost_out_of_state": 30766,
+    "net_price": {
+      "0_30k": 17963,
+      "30_48k": 18120,
+      "48_75k": 20200,
+      "75_110k": 21406,
+      "110k_plus": 27605
+    },
+    "pell_rate": 0.6621,
+    "federal_loan_rate": 0.5528,
+    "enrollment": 1299
+  },
+  "cds": null,
+  "reference": null
+}

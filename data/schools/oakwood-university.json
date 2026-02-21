@@ -1,0 +1,36 @@
+{
+  "slug": "oakwood-university",
+  "name": "Oakwood University",
+  "ipeds_id": 101912,
+  "state": "AL",
+  "city": "Huntsville",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.5051,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 21838,
+    "tuition_out_of_state": 21838,
+    "room_board": 9384,
+    "total_cost_in_state": 33222,
+    "total_cost_out_of_state": 33222,
+    "net_price": {
+      "0_30k": 21428,
+      "30_48k": 22305,
+      "48_75k": 22185,
+      "75_110k": 25190,
+      "110k_plus": 28244
+    },
+    "pell_rate": 0.4735,
+    "federal_loan_rate": 0.5754,
+    "enrollment": 1253
+  },
+  "cds": null,
+  "reference": null
+}

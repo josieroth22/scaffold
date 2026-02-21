@@ -1,0 +1,36 @@
+{
+  "slug": "lane-college",
+  "name": "Lane College",
+  "ipeds_id": 220598,
+  "state": "TN",
+  "city": "Jackson",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": null,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 11790,
+    "tuition_out_of_state": 11790,
+    "room_board": 7610,
+    "total_cost_in_state": 21400,
+    "total_cost_out_of_state": 21400,
+    "net_price": {
+      "0_30k": 14494,
+      "30_48k": null,
+      "48_75k": null,
+      "75_110k": null,
+      "110k_plus": null
+    },
+    "pell_rate": 0.7941,
+    "federal_loan_rate": 0.602,
+    "enrollment": 822
+  },
+  "cds": null,
+  "reference": null
+}

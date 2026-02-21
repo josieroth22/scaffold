@@ -1,0 +1,36 @@
+{
+  "slug": "pennsylvania-state-university-penn-state-altoona",
+  "name": "Pennsylvania State University-Penn State Altoona",
+  "ipeds_id": 214689,
+  "state": "PA",
+  "city": "Altoona",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.9731,
+    "sat_reading_25": 530,
+    "sat_reading_75": 630,
+    "sat_math_25": 520,
+    "sat_math_75": 630,
+    "act_25": 22,
+    "act_75": 27,
+    "tuition_in_state": 15944,
+    "tuition_out_of_state": 26668,
+    "room_board": 13820,
+    "total_cost_in_state": 31764,
+    "total_cost_out_of_state": 42488,
+    "net_price": {
+      "0_30k": 17269,
+      "30_48k": 17288,
+      "48_75k": 21857,
+      "75_110k": 26446,
+      "110k_plus": 28543
+    },
+    "pell_rate": 0.2584,
+    "federal_loan_rate": 0.5537,
+    "enrollment": 2412
+  },
+  "cds": null,
+  "reference": null
+}

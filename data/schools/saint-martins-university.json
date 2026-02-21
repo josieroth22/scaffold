@@ -1,0 +1,36 @@
+{
+  "slug": "saint-martins-university",
+  "name": "Saint Martin's University",
+  "ipeds_id": 236452,
+  "state": "WA",
+  "city": "Lacey",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.7593,
+    "sat_reading_25": 500,
+    "sat_reading_75": 590,
+    "sat_math_25": 470,
+    "sat_math_75": 590,
+    "act_25": 14,
+    "act_75": 22,
+    "tuition_in_state": 44210,
+    "tuition_out_of_state": 44210,
+    "room_board": 13980,
+    "total_cost_in_state": 60190,
+    "total_cost_out_of_state": 60190,
+    "net_price": {
+      "0_30k": 15233,
+      "30_48k": 20657,
+      "48_75k": 19090,
+      "75_110k": 25956,
+      "110k_plus": 29720
+    },
+    "pell_rate": 0.3978,
+    "federal_loan_rate": 0.5927,
+    "enrollment": 1254
+  },
+  "cds": null,
+  "reference": null
+}

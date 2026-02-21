@@ -1,0 +1,36 @@
+{
+  "slug": "the-university-of-tennessee-southern",
+  "name": "The University of Tennessee Southern",
+  "ipeds_id": 220701,
+  "state": "TN",
+  "city": "Pulaski",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.8271,
+    "sat_reading_25": 480,
+    "sat_reading_75": 565,
+    "sat_math_25": 515,
+    "sat_math_75": 585,
+    "act_25": 19,
+    "act_75": 23,
+    "tuition_in_state": 10506,
+    "tuition_out_of_state": 10506,
+    "room_board": 8600,
+    "total_cost_in_state": 21106,
+    "total_cost_out_of_state": 21106,
+    "net_price": {
+      "0_30k": 10377,
+      "30_48k": 13291,
+      "48_75k": 15701,
+      "75_110k": 18790,
+      "110k_plus": 18352
+    },
+    "pell_rate": 0.3304,
+    "federal_loan_rate": 0.3337,
+    "enrollment": 827
+  },
+  "cds": null,
+  "reference": null
+}

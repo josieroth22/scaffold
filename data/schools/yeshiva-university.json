@@ -1,0 +1,36 @@
+{
+  "slug": "yeshiva-university",
+  "name": "Yeshiva University",
+  "ipeds_id": 197708,
+  "state": "NY",
+  "city": "New York",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.6375,
+    "sat_reading_25": 660,
+    "sat_reading_75": 740,
+    "sat_math_25": 660,
+    "sat_math_75": 760,
+    "act_25": 28,
+    "act_75": 33,
+    "tuition_in_state": 49900,
+    "tuition_out_of_state": 49900,
+    "room_board": 15000,
+    "total_cost_in_state": 66900,
+    "total_cost_out_of_state": 66900,
+    "net_price": {
+      "0_30k": 27089,
+      "30_48k": 25446,
+      "48_75k": 29934,
+      "75_110k": 46896,
+      "110k_plus": 69117
+    },
+    "pell_rate": 0.1406,
+    "federal_loan_rate": 0.1762,
+    "enrollment": 2942
+  },
+  "cds": null,
+  "reference": null
+}

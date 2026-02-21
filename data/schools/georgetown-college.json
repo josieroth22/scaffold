@@ -1,0 +1,36 @@
+{
+  "slug": "georgetown-college",
+  "name": "Georgetown College",
+  "ipeds_id": 156745,
+  "state": "KY",
+  "city": "Georgetown",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.7388,
+    "sat_reading_25": 520,
+    "sat_reading_75": 610,
+    "sat_math_25": 510,
+    "sat_math_75": 620,
+    "act_25": 21,
+    "act_75": 26,
+    "tuition_in_state": 42010,
+    "tuition_out_of_state": 42010,
+    "room_board": 11385,
+    "total_cost_in_state": 55395,
+    "total_cost_out_of_state": 55395,
+    "net_price": {
+      "0_30k": 8926,
+      "30_48k": 8329,
+      "48_75k": 9698,
+      "75_110k": 16607,
+      "110k_plus": 19770
+    },
+    "pell_rate": 0.3439,
+    "federal_loan_rate": 0.528,
+    "enrollment": 1180
+  },
+  "cds": null,
+  "reference": null
+}

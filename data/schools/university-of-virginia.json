@@ -1,0 +1,87 @@
+{
+  "slug": "university-of-virginia",
+  "name": "University of Virginia",
+  "api_name": "University of Virginia-Main Campus",
+  "ipeds_id": 234076,
+  "state": "VA",
+  "city": "Charlottesville",
+  "type": "public",
+  "tier": "A",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.1686,
+    "sat_reading_25": 700,
+    "sat_reading_75": 750,
+    "sat_math_25": 710,
+    "sat_math_75": 780,
+    "act_25": 32,
+    "act_75": 34,
+    "tuition_in_state": 20986,
+    "tuition_out_of_state": 58014,
+    "room_board": 13940,
+    "total_cost_in_state": 36926,
+    "total_cost_out_of_state": 73954,
+    "net_price": {
+      "0_30k": 10123,
+      "30_48k": 8842,
+      "48_75k": 14658,
+      "75_110k": 24023,
+      "110k_plus": 34777
+    },
+    "pell_rate": 0.1371,
+    "federal_loan_rate": 0.2041,
+    "enrollment": 17315
+  },
+  "cds": {
+    "school_name": "University of Virginia",
+    "source_year": "2024-2025",
+    "total_applicants": 58951,
+    "total_admitted": 9909,
+    "admit_rate_overall": 0.168,
+    "ed_applicants": 4461,
+    "ed_admitted": 1245,
+    "ed_admit_rate": 0.279,
+    "ea_applicants": null,
+    "ea_admitted": null,
+    "ea_admit_rate": null,
+    "sat_reading_25": 700,
+    "sat_reading_75": 760,
+    "sat_math_25": 710,
+    "sat_math_75": 780,
+    "sat_composite_25": 1410,
+    "sat_composite_75": 1520,
+    "act_composite_25": 32,
+    "act_composite_75": 35,
+    "tuition_in_state": 18613,
+    "tuition_out_of_state": 56994,
+    "tuition_private": null,
+    "required_fees": 3793,
+    "room_board": 15300,
+    "pct_need_met": 100,
+    "avg_need_grant": 34534,
+    "avg_financial_aid_package": 37123,
+    "meets_full_need": true,
+    "pct_freshmen_receiving_need_aid": 34.2,
+    "pct_freshmen_receiving_merit_aid": 16.6,
+    "avg_merit_award": null
+  },
+  "reference": {
+    "merit_scholarships": [
+      {
+        "name": "Jefferson Scholars Program",
+        "amount": "Full COA (tuition, fees, room, board, books, personal expenses, plus enrichment)",
+        "deadline": "November 15",
+        "requirements": "Nomination, Regional Interview, Finalist Virtual Interview"
+      }
+    ],
+    "honors_program": {
+      "name": "Echols Scholars Program",
+      "description": "Because of their deep curiosity and intrinsic motivation, Echols Scholars enjoy flexibility in their academic requirements to pursue their individual scholarly interests. Scholars are granted an exemption from the General Education requirements within the College of Arts & Sciences while receiving priority enrollment and honors-only resources.",
+      "separate_application": null,
+      "avg_sat": null,
+      "acceptance_rate": null,
+      "size": 800
+    }
+  }
+}

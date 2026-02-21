@@ -1,0 +1,36 @@
+{
+  "slug": "young-harris-college",
+  "name": "Young Harris College",
+  "ipeds_id": 141361,
+  "state": "GA",
+  "city": "Young Harris",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.6402,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 32305,
+    "tuition_out_of_state": 32305,
+    "room_board": 13000,
+    "total_cost_in_state": 47305,
+    "total_cost_out_of_state": 47305,
+    "net_price": {
+      "0_30k": 11154,
+      "30_48k": 7888,
+      "48_75k": 9309,
+      "75_110k": 13219,
+      "110k_plus": 12588
+    },
+    "pell_rate": 0.2106,
+    "federal_loan_rate": 0.3269,
+    "enrollment": 810
+  },
+  "cds": null,
+  "reference": null
+}

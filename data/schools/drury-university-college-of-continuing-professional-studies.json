@@ -1,0 +1,36 @@
+{
+  "slug": "drury-university-college-of-continuing-professional-studies",
+  "name": "Drury University-College of Continuing Professional Studies",
+  "ipeds_id": 492801,
+  "state": "MO",
+  "city": "Springfield",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": null,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 8044,
+    "tuition_out_of_state": 8044,
+    "room_board": 10232,
+    "total_cost_in_state": 20276,
+    "total_cost_out_of_state": 20276,
+    "net_price": {
+      "0_30k": 11262,
+      "30_48k": 14048,
+      "48_75k": 15253,
+      "75_110k": 18735,
+      "110k_plus": null
+    },
+    "pell_rate": 0.5876,
+    "federal_loan_rate": 0.4488,
+    "enrollment": 694
+  },
+  "cds": null,
+  "reference": null
+}

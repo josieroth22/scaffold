@@ -1,0 +1,77 @@
+{
+  "slug": "stevens-institute-of-technology",
+  "name": "Stevens Institute of Technology",
+  "ipeds_id": 186867,
+  "state": "NJ",
+  "city": "Hoboken",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.4344,
+    "sat_reading_25": 670,
+    "sat_reading_75": 730,
+    "sat_math_25": 700,
+    "sat_math_75": 770,
+    "act_25": 31,
+    "act_75": 34,
+    "tuition_in_state": 60952,
+    "tuition_out_of_state": 60952,
+    "room_board": 18650,
+    "total_cost_in_state": 81602,
+    "total_cost_out_of_state": 81602,
+    "net_price": {
+      "0_30k": 26555,
+      "30_48k": 26938,
+      "48_75k": 34145,
+      "75_110k": 38749,
+      "110k_plus": 47748
+    },
+    "pell_rate": 0.2047,
+    "federal_loan_rate": 0.5496,
+    "enrollment": 4084
+  },
+  "cds": {
+    "school_name": null,
+    "source_year": "2023-2024",
+    "total_applicants": null,
+    "total_admitted": null,
+    "admit_rate_overall": null,
+    "ed_applicants": null,
+    "ed_admitted": null,
+    "ed_admit_rate": null,
+    "ea_applicants": null,
+    "ea_admitted": null,
+    "ea_admit_rate": null,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "sat_composite_25": null,
+    "sat_composite_75": null,
+    "act_composite_25": null,
+    "act_composite_75": null,
+    "tuition_in_state": null,
+    "tuition_out_of_state": null,
+    "tuition_private": null,
+    "required_fees": null,
+    "room_board": null,
+    "pct_need_met": null,
+    "avg_need_grant": null,
+    "avg_financial_aid_package": null,
+    "meets_full_need": null,
+    "pct_freshmen_receiving_need_aid": null,
+    "pct_freshmen_receiving_merit_aid": null,
+    "avg_merit_award": null
+  },
+  "reference": {
+    "merit_scholarships": [
+      {
+        "name": "Ann P. Nepauer Scholarship",
+        "amount": "Full tuition (~$60,000/year)",
+        "deadline": "January 5",
+        "requirements": "None"
+      }
+    ]
+  }
+}

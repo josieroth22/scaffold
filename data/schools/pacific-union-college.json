@@ -1,0 +1,36 @@
+{
+  "slug": "pacific-union-college",
+  "name": "Pacific Union College",
+  "ipeds_id": 120865,
+  "state": "CA",
+  "city": "Angwin",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.4248,
+    "sat_reading_25": 490,
+    "sat_reading_75": 605,
+    "sat_math_25": 440,
+    "sat_math_75": 585,
+    "act_25": 20,
+    "act_75": 24,
+    "tuition_in_state": 35214,
+    "tuition_out_of_state": 35214,
+    "room_board": 9471,
+    "total_cost_in_state": 46685,
+    "total_cost_out_of_state": 46685,
+    "net_price": {
+      "0_30k": 14903,
+      "30_48k": 15897,
+      "48_75k": 18211,
+      "75_110k": 20495,
+      "110k_plus": 25182
+    },
+    "pell_rate": 0.3337,
+    "federal_loan_rate": 0.5932,
+    "enrollment": 910
+  },
+  "cds": null,
+  "reference": null
+}

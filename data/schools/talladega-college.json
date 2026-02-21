@@ -1,0 +1,36 @@
+{
+  "slug": "talladega-college",
+  "name": "Talladega College",
+  "ipeds_id": 102298,
+  "state": "AL",
+  "city": "Talladega",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.9925,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 15650,
+    "tuition_out_of_state": 15650,
+    "room_board": 6704,
+    "total_cost_in_state": 24354,
+    "total_cost_out_of_state": 24354,
+    "net_price": {
+      "0_30k": 13423,
+      "30_48k": 11620,
+      "48_75k": 13910,
+      "75_110k": 20485,
+      "110k_plus": 19595
+    },
+    "pell_rate": 0.7551,
+    "federal_loan_rate": 0.7778,
+    "enrollment": 782
+  },
+  "cds": null,
+  "reference": null
+}

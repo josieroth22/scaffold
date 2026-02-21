@@ -1,0 +1,36 @@
+{
+  "slug": "miami-university-middletown",
+  "name": "Miami University-Middletown",
+  "ipeds_id": 204015,
+  "state": "OH",
+  "city": "Middletown",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": null,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 7278,
+    "tuition_out_of_state": 18847,
+    "room_board": null,
+    "total_cost_in_state": 16559,
+    "total_cost_out_of_state": null,
+    "net_price": {
+      "0_30k": 9949,
+      "30_48k": 11514,
+      "48_75k": 13874,
+      "75_110k": 15364,
+      "110k_plus": 15465
+    },
+    "pell_rate": 0.2325,
+    "federal_loan_rate": 0.2766,
+    "enrollment": 871
+  },
+  "cds": null,
+  "reference": null
+}

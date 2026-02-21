@@ -1,0 +1,36 @@
+{
+  "slug": "berry-college",
+  "name": "Berry College",
+  "ipeds_id": 139144,
+  "state": "GA",
+  "city": "Mount Berry",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.6185,
+    "sat_reading_25": 570,
+    "sat_reading_75": 658,
+    "sat_math_25": 530,
+    "sat_math_75": 620,
+    "act_25": 23,
+    "act_75": 29,
+    "tuition_in_state": 40416,
+    "tuition_out_of_state": 40416,
+    "room_board": 14230,
+    "total_cost_in_state": 56646,
+    "total_cost_out_of_state": 56646,
+    "net_price": {
+      "0_30k": 16036,
+      "30_48k": 15267,
+      "48_75k": 20283,
+      "75_110k": 20748,
+      "110k_plus": 28207
+    },
+    "pell_rate": 0.2434,
+    "federal_loan_rate": 0.3883,
+    "enrollment": 2213
+  },
+  "cds": null,
+  "reference": null
+}

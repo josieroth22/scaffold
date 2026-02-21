@@ -1,0 +1,36 @@
+{
+  "slug": "unity-environmental-university",
+  "name": "Unity Environmental University",
+  "ipeds_id": 161572,
+  "state": "ME",
+  "city": "New Gloucester",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.818,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 12640,
+    "tuition_out_of_state": 12640,
+    "room_board": 12156,
+    "total_cost_in_state": 26796,
+    "total_cost_out_of_state": 26796,
+    "net_price": {
+      "0_30k": 17474,
+      "30_48k": 18360,
+      "48_75k": 19172,
+      "75_110k": 20661,
+      "110k_plus": 20915
+    },
+    "pell_rate": 0.5925,
+    "federal_loan_rate": 0.5157,
+    "enrollment": 5619
+  },
+  "cds": null,
+  "reference": null
+}

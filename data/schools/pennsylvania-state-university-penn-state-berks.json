@@ -1,0 +1,36 @@
+{
+  "slug": "pennsylvania-state-university-penn-state-berks",
+  "name": "Pennsylvania State University-Penn State Berks",
+  "ipeds_id": 214704,
+  "state": "PA",
+  "city": "Reading",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.9713,
+    "sat_reading_25": 540,
+    "sat_reading_75": 650,
+    "sat_math_25": 550,
+    "sat_math_75": 660,
+    "act_25": 26,
+    "act_75": 29,
+    "tuition_in_state": 15944,
+    "tuition_out_of_state": 26668,
+    "room_board": 14232,
+    "total_cost_in_state": 32176,
+    "total_cost_out_of_state": 42900,
+    "net_price": {
+      "0_30k": 16721,
+      "30_48k": 18801,
+      "48_75k": 20924,
+      "75_110k": 25326,
+      "110k_plus": 30196
+    },
+    "pell_rate": 0.2873,
+    "federal_loan_rate": 0.5374,
+    "enrollment": 1887
+  },
+  "cds": null,
+  "reference": null
+}

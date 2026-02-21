@@ -1,0 +1,36 @@
+{
+  "slug": "augustana-university",
+  "name": "Augustana University",
+  "ipeds_id": 219000,
+  "state": "SD",
+  "city": "Sioux Falls",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.5925,
+    "sat_reading_25": 530,
+    "sat_reading_75": 640,
+    "sat_math_25": 545,
+    "sat_math_75": 650,
+    "act_25": 21,
+    "act_75": 27,
+    "tuition_in_state": 39190,
+    "tuition_out_of_state": 39190,
+    "room_board": 9470,
+    "total_cost_in_state": 50660,
+    "total_cost_out_of_state": 50660,
+    "net_price": {
+      "0_30k": 20552,
+      "30_48k": 18948,
+      "48_75k": 22479,
+      "75_110k": 26689,
+      "110k_plus": 26388
+    },
+    "pell_rate": 0.16,
+    "federal_loan_rate": 0.5177,
+    "enrollment": 1818
+  },
+  "cds": null,
+  "reference": null
+}

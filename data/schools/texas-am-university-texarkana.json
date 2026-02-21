@@ -1,0 +1,36 @@
+{
+  "slug": "texas-am-university-texarkana",
+  "name": "Texas A&M University-Texarkana",
+  "ipeds_id": 224545,
+  "state": "TX",
+  "city": "Texarkana",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.8019,
+    "sat_reading_25": 440,
+    "sat_reading_75": 550,
+    "sat_math_25": 430,
+    "sat_math_75": 530,
+    "act_25": 16,
+    "act_75": 22,
+    "tuition_in_state": 7930,
+    "tuition_out_of_state": 20947,
+    "room_board": 12082,
+    "total_cost_in_state": 22012,
+    "total_cost_out_of_state": 35029,
+    "net_price": {
+      "0_30k": 9919,
+      "30_48k": 10334,
+      "48_75k": 11213,
+      "75_110k": 15899,
+      "110k_plus": 19831
+    },
+    "pell_rate": 0.5126,
+    "federal_loan_rate": 0.4966,
+    "enrollment": 1748
+  },
+  "cds": null,
+  "reference": null
+}

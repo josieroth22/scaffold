@@ -1,0 +1,36 @@
+{
+  "slug": "cedarville-university",
+  "name": "Cedarville University",
+  "ipeds_id": 201654,
+  "state": "OH",
+  "city": "Cedarville",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.6282,
+    "sat_reading_25": 570,
+    "sat_reading_75": 690,
+    "sat_math_25": 540,
+    "sat_math_75": 670,
+    "act_25": 23,
+    "act_75": 29,
+    "tuition_in_state": 36078,
+    "tuition_out_of_state": 36078,
+    "room_board": 9094,
+    "total_cost_in_state": 47172,
+    "total_cost_out_of_state": 47172,
+    "net_price": {
+      "0_30k": 20956,
+      "30_48k": 18952,
+      "48_75k": 20141,
+      "75_110k": 25138,
+      "110k_plus": 28319
+    },
+    "pell_rate": 0.154,
+    "federal_loan_rate": 0.3733,
+    "enrollment": 3815
+  },
+  "cds": null,
+  "reference": null
+}

@@ -1,0 +1,36 @@
+{
+  "slug": "belmont-university",
+  "name": "Belmont University",
+  "ipeds_id": 219709,
+  "state": "TN",
+  "city": "Nashville",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.9636,
+    "sat_reading_25": 600,
+    "sat_reading_75": 690,
+    "sat_math_25": 560,
+    "sat_math_75": 660,
+    "act_25": 23,
+    "act_75": 30,
+    "tuition_in_state": 41320,
+    "tuition_out_of_state": 41320,
+    "room_board": 14290,
+    "total_cost_in_state": 57610,
+    "total_cost_out_of_state": 57610,
+    "net_price": {
+      "0_30k": 19516,
+      "30_48k": 23270,
+      "48_75k": 27345,
+      "75_110k": 33191,
+      "110k_plus": 42908
+    },
+    "pell_rate": 0.1852,
+    "federal_loan_rate": 0.348,
+    "enrollment": 7306
+  },
+  "cds": null,
+  "reference": null
+}

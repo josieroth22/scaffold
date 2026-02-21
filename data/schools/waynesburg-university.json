@@ -1,0 +1,36 @@
+{
+  "slug": "waynesburg-university",
+  "name": "Waynesburg University",
+  "ipeds_id": 216694,
+  "state": "PA",
+  "city": "Waynesburg",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.9169,
+    "sat_reading_25": 500,
+    "sat_reading_75": 630,
+    "sat_math_25": 500,
+    "sat_math_75": 590,
+    "act_25": 16,
+    "act_75": 25,
+    "tuition_in_state": 29460,
+    "tuition_out_of_state": 29460,
+    "room_board": 12300,
+    "total_cost_in_state": 43760,
+    "total_cost_out_of_state": 43760,
+    "net_price": {
+      "0_30k": 19790,
+      "30_48k": 23018,
+      "48_75k": 25354,
+      "75_110k": 25404,
+      "110k_plus": 28697
+    },
+    "pell_rate": 0.31,
+    "federal_loan_rate": 0.7249,
+    "enrollment": 1081
+  },
+  "cds": null,
+  "reference": null
+}

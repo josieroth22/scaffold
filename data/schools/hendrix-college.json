@@ -1,0 +1,36 @@
+{
+  "slug": "hendrix-college",
+  "name": "Hendrix College",
+  "ipeds_id": 107080,
+  "state": "AR",
+  "city": "Conway",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.5298,
+    "sat_reading_25": 605,
+    "sat_reading_75": 695,
+    "sat_math_25": 580,
+    "sat_math_75": 690,
+    "act_25": 26,
+    "act_75": 31,
+    "tuition_in_state": 36650,
+    "tuition_out_of_state": 36650,
+    "room_board": 14300,
+    "total_cost_in_state": 52950,
+    "total_cost_out_of_state": 52950,
+    "net_price": {
+      "0_30k": 17343,
+      "30_48k": 21032,
+      "48_75k": 21853,
+      "75_110k": 25645,
+      "110k_plus": 26203
+    },
+    "pell_rate": 0.2341,
+    "federal_loan_rate": 0.4479,
+    "enrollment": 1094
+  },
+  "cds": null,
+  "reference": null
+}

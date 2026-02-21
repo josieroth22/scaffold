@@ -1,0 +1,36 @@
+{
+  "slug": "west-texas-a-m-university",
+  "name": "West Texas A & M University",
+  "ipeds_id": 229814,
+  "state": "TX",
+  "city": "Canyon",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.9735,
+    "sat_reading_25": 490,
+    "sat_reading_75": 590,
+    "sat_math_25": 470,
+    "sat_math_75": 570,
+    "act_25": 18,
+    "act_75": 24,
+    "tuition_in_state": 9101,
+    "tuition_out_of_state": 10996,
+    "room_board": 9449,
+    "total_cost_in_state": 20550,
+    "total_cost_out_of_state": 22445,
+    "net_price": {
+      "0_30k": 17085,
+      "30_48k": 17997,
+      "48_75k": 20915,
+      "75_110k": 23058,
+      "110k_plus": 23378
+    },
+    "pell_rate": 0.3933,
+    "federal_loan_rate": 0.382,
+    "enrollment": 6771
+  },
+  "cds": null,
+  "reference": null
+}

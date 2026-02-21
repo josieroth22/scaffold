@@ -1,0 +1,36 @@
+{
+  "slug": "randolph-college",
+  "name": "Randolph College",
+  "ipeds_id": 233301,
+  "state": "VA",
+  "city": "Lynchburg",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.9494,
+    "sat_reading_25": 520,
+    "sat_reading_75": 580,
+    "sat_math_25": 440,
+    "sat_math_75": 630,
+    "act_25": 20,
+    "act_75": 24,
+    "tuition_in_state": 29010,
+    "tuition_out_of_state": 29010,
+    "room_board": 11890,
+    "total_cost_in_state": 42900,
+    "total_cost_out_of_state": 42900,
+    "net_price": {
+      "0_30k": 16931,
+      "30_48k": 16767,
+      "48_75k": 17824,
+      "75_110k": 22362,
+      "110k_plus": 18740
+    },
+    "pell_rate": 0.4059,
+    "federal_loan_rate": 0.5628,
+    "enrollment": 520
+  },
+  "cds": null,
+  "reference": null
+}

@@ -1,0 +1,36 @@
+{
+  "slug": "university-of-new-orleans",
+  "name": "University of New Orleans",
+  "ipeds_id": 159939,
+  "state": "LA",
+  "city": "New Orleans",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.6677,
+    "sat_reading_25": 470,
+    "sat_reading_75": 650,
+    "sat_math_25": 490,
+    "sat_math_75": 670,
+    "act_25": 17,
+    "act_75": 23,
+    "tuition_in_state": 9172,
+    "tuition_out_of_state": 14008,
+    "room_board": 12174,
+    "total_cost_in_state": 23346,
+    "total_cost_out_of_state": 28182,
+    "net_price": {
+      "0_30k": 9768,
+      "30_48k": 11045,
+      "48_75k": 11955,
+      "75_110k": 15481,
+      "110k_plus": 15674
+    },
+    "pell_rate": 0.4044,
+    "federal_loan_rate": 0.2819,
+    "enrollment": 4479
+  },
+  "cds": null,
+  "reference": null
+}

@@ -1,0 +1,36 @@
+{
+  "slug": "massachusetts-college-of-art-and-design",
+  "name": "Massachusetts College of Art and Design",
+  "ipeds_id": 166674,
+  "state": "MA",
+  "city": "Boston",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.7747,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 14960,
+    "tuition_out_of_state": 42180,
+    "room_board": 18000,
+    "total_cost_in_state": 34960,
+    "total_cost_out_of_state": 62180,
+    "net_price": {
+      "0_30k": 14993,
+      "30_48k": 15162,
+      "48_75k": 21708,
+      "75_110k": 27239,
+      "110k_plus": 31058
+    },
+    "pell_rate": 0.2761,
+    "federal_loan_rate": 0.5057,
+    "enrollment": 1812
+  },
+  "cds": null,
+  "reference": null
+}

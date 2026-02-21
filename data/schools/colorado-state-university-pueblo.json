@@ -1,0 +1,36 @@
+{
+  "slug": "colorado-state-university-pueblo",
+  "name": "Colorado State University Pueblo",
+  "ipeds_id": 128106,
+  "state": "CO",
+  "city": "Pueblo",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.9984,
+    "sat_reading_25": 450,
+    "sat_reading_75": 560,
+    "sat_math_25": 420,
+    "sat_math_75": 540,
+    "act_25": 19,
+    "act_75": 25,
+    "tuition_in_state": 9401,
+    "tuition_out_of_state": 17242,
+    "room_board": 11596,
+    "total_cost_in_state": 22997,
+    "total_cost_out_of_state": 30838,
+    "net_price": {
+      "0_30k": 9687,
+      "30_48k": 11346,
+      "48_75k": 13322,
+      "75_110k": 18690,
+      "110k_plus": 19746
+    },
+    "pell_rate": 0.2785,
+    "federal_loan_rate": 0.25,
+    "enrollment": 3028
+  },
+  "cds": null,
+  "reference": null
+}

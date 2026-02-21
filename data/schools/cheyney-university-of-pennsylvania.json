@@ -1,0 +1,36 @@
+{
+  "slug": "cheyney-university-of-pennsylvania",
+  "name": "Cheyney University of Pennsylvania",
+  "ipeds_id": 211608,
+  "state": "PA",
+  "city": "Cheyney",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": null,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 10904,
+    "tuition_out_of_state": 18870,
+    "room_board": 11016,
+    "total_cost_in_state": 23920,
+    "total_cost_out_of_state": 31886,
+    "net_price": {
+      "0_30k": 10536,
+      "30_48k": 8962,
+      "48_75k": 7885,
+      "75_110k": 18471,
+      "110k_plus": null
+    },
+    "pell_rate": 0.4103,
+    "federal_loan_rate": 0.3343,
+    "enrollment": 721
+  },
+  "cds": null,
+  "reference": null
+}

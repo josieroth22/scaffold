@@ -1,0 +1,36 @@
+{
+  "slug": "university-of-the-cumberlands",
+  "name": "University of the Cumberlands",
+  "ipeds_id": 156541,
+  "state": "KY",
+  "city": "Williamsburg",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.7139,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 9875,
+    "tuition_out_of_state": 9875,
+    "room_board": 9300,
+    "total_cost_in_state": 21175,
+    "total_cost_out_of_state": 21175,
+    "net_price": {
+      "0_30k": 4895,
+      "30_48k": 5965,
+      "48_75k": 11476,
+      "75_110k": 17072,
+      "110k_plus": 18953
+    },
+    "pell_rate": 0.4848,
+    "federal_loan_rate": 0.6916,
+    "enrollment": 5468
+  },
+  "cds": null,
+  "reference": null
+}

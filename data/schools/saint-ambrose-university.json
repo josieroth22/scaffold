@@ -1,0 +1,36 @@
+{
+  "slug": "saint-ambrose-university",
+  "name": "Saint Ambrose University",
+  "ipeds_id": 154235,
+  "state": "IA",
+  "city": "Davenport",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.7332,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 35598,
+    "tuition_out_of_state": 35598,
+    "room_board": 12348,
+    "total_cost_in_state": 49946,
+    "total_cost_out_of_state": 49946,
+    "net_price": {
+      "0_30k": 20300,
+      "30_48k": 17945,
+      "48_75k": 20111,
+      "75_110k": 24236,
+      "110k_plus": 25806
+    },
+    "pell_rate": 0.279,
+    "federal_loan_rate": 0.6667,
+    "enrollment": 2101
+  },
+  "cds": null,
+  "reference": null
+}

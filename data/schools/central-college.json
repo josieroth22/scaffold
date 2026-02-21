@@ -1,0 +1,36 @@
+{
+  "slug": "central-college",
+  "name": "Central College",
+  "ipeds_id": 153108,
+  "state": "IA",
+  "city": "Pella",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.7897,
+    "sat_reading_25": 490,
+    "sat_reading_75": 580,
+    "sat_math_25": 445,
+    "sat_math_75": 625,
+    "act_25": 19,
+    "act_75": 25,
+    "tuition_in_state": 20988,
+    "tuition_out_of_state": 20988,
+    "room_board": 12220,
+    "total_cost_in_state": 35208,
+    "total_cost_out_of_state": 35208,
+    "net_price": {
+      "0_30k": 14745,
+      "30_48k": 16426,
+      "48_75k": 19418,
+      "75_110k": 22308,
+      "110k_plus": 25764
+    },
+    "pell_rate": 0.2139,
+    "federal_loan_rate": 0.6553,
+    "enrollment": 1062
+  },
+  "cds": null,
+  "reference": null
+}

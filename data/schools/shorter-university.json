@@ -1,0 +1,36 @@
+{
+  "slug": "shorter-university",
+  "name": "Shorter University",
+  "ipeds_id": 140988,
+  "state": "GA",
+  "city": "Rome",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.9693,
+    "sat_reading_25": 450,
+    "sat_reading_75": 580,
+    "sat_math_25": 450,
+    "sat_math_75": 550,
+    "act_25": 17,
+    "act_75": 23,
+    "tuition_in_state": 24044,
+    "tuition_out_of_state": 24044,
+    "room_board": 9784,
+    "total_cost_in_state": 35828,
+    "total_cost_out_of_state": 35828,
+    "net_price": {
+      "0_30k": 14057,
+      "30_48k": 15131,
+      "48_75k": 17363,
+      "75_110k": 18498,
+      "110k_plus": 18784
+    },
+    "pell_rate": 0.3744,
+    "federal_loan_rate": 0.4924,
+    "enrollment": 1091
+  },
+  "cds": null,
+  "reference": null
+}

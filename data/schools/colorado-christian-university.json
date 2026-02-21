@@ -1,0 +1,36 @@
+{
+  "slug": "colorado-christian-university",
+  "name": "Colorado Christian University",
+  "ipeds_id": 126669,
+  "state": "CO",
+  "city": "Lakewood",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": null,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 39266,
+    "tuition_out_of_state": 39266,
+    "room_board": 12362,
+    "total_cost_in_state": 53628,
+    "total_cost_out_of_state": 53628,
+    "net_price": {
+      "0_30k": 21073,
+      "30_48k": 19581,
+      "48_75k": 21574,
+      "75_110k": 25679,
+      "110k_plus": 29328
+    },
+    "pell_rate": 0.329,
+    "federal_loan_rate": 0.4192,
+    "enrollment": 5363
+  },
+  "cds": null,
+  "reference": null
+}

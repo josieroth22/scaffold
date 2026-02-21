@@ -1,0 +1,36 @@
+{
+  "slug": "midamerica-nazarene-university",
+  "name": "MidAmerica Nazarene University",
+  "ipeds_id": 155520,
+  "state": "KS",
+  "city": "Olathe",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.7346,
+    "sat_reading_25": 463,
+    "sat_reading_75": 570,
+    "sat_math_25": 465,
+    "sat_math_75": 548,
+    "act_25": 17,
+    "act_75": 23,
+    "tuition_in_state": 36120,
+    "tuition_out_of_state": 36120,
+    "room_board": 10760,
+    "total_cost_in_state": 48880,
+    "total_cost_out_of_state": 48880,
+    "net_price": {
+      "0_30k": 25447,
+      "30_48k": 24595,
+      "48_75k": 27986,
+      "75_110k": 32035,
+      "110k_plus": 34162
+    },
+    "pell_rate": 0.2847,
+    "federal_loan_rate": 0.5306,
+    "enrollment": 977
+  },
+  "cds": null,
+  "reference": null
+}

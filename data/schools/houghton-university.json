@@ -1,0 +1,36 @@
+{
+  "slug": "houghton-university",
+  "name": "Houghton University",
+  "ipeds_id": 191676,
+  "state": "NY",
+  "city": "Houghton",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.927,
+    "sat_reading_25": 600,
+    "sat_reading_75": 700,
+    "sat_math_25": 580,
+    "sat_math_75": 690,
+    "act_25": 23,
+    "act_75": 28,
+    "tuition_in_state": 17290,
+    "tuition_out_of_state": 17290,
+    "room_board": 10810,
+    "total_cost_in_state": 30100,
+    "total_cost_out_of_state": 30100,
+    "net_price": {
+      "0_30k": 17213,
+      "30_48k": 17292,
+      "48_75k": 20133,
+      "75_110k": 22275,
+      "110k_plus": 25436
+    },
+    "pell_rate": 0.3379,
+    "federal_loan_rate": 0.5602,
+    "enrollment": 867
+  },
+  "cds": null,
+  "reference": null
+}

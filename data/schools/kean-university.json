@@ -1,0 +1,36 @@
+{
+  "slug": "kean-university",
+  "name": "Kean University",
+  "ipeds_id": 185262,
+  "state": "NJ",
+  "city": "Union",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.7688,
+    "sat_reading_25": 515,
+    "sat_reading_75": 598,
+    "sat_math_25": 505,
+    "sat_math_75": 600,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 13426,
+    "tuition_out_of_state": 21076,
+    "room_board": 16592,
+    "total_cost_in_state": 32018,
+    "total_cost_out_of_state": 39668,
+    "net_price": {
+      "0_30k": 6593,
+      "30_48k": 7496,
+      "48_75k": 12503,
+      "75_110k": 20592,
+      "110k_plus": 21514
+    },
+    "pell_rate": 0.4631,
+    "federal_loan_rate": 0.456,
+    "enrollment": 10842
+  },
+  "cds": null,
+  "reference": null
+}

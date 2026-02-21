@@ -1,0 +1,36 @@
+{
+  "slug": "austin-peay-state-university",
+  "name": "Austin Peay State University",
+  "ipeds_id": 219602,
+  "state": "TN",
+  "city": "Clarksville",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.9595,
+    "sat_reading_25": 468,
+    "sat_reading_75": 575,
+    "sat_math_25": 475,
+    "sat_math_75": 590,
+    "act_25": 18,
+    "act_75": 23,
+    "tuition_in_state": 8675,
+    "tuition_out_of_state": 14219,
+    "room_board": 13070,
+    "total_cost_in_state": 23745,
+    "total_cost_out_of_state": 29289,
+    "net_price": {
+      "0_30k": 12559,
+      "30_48k": 12983,
+      "48_75k": 16365,
+      "75_110k": 19443,
+      "110k_plus": 19140
+    },
+    "pell_rate": 0.456,
+    "federal_loan_rate": 0.3569,
+    "enrollment": 7365
+  },
+  "cds": null,
+  "reference": null
+}

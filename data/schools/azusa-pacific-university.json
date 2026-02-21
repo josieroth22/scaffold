@@ -1,0 +1,36 @@
+{
+  "slug": "azusa-pacific-university",
+  "name": "Azusa Pacific University",
+  "ipeds_id": 109785,
+  "state": "CA",
+  "city": "Azusa",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.7948,
+    "sat_reading_25": 512,
+    "sat_reading_75": 657,
+    "sat_math_25": 482,
+    "sat_math_75": 657,
+    "act_25": 18,
+    "act_75": 26,
+    "tuition_in_state": 43600,
+    "tuition_out_of_state": 43600,
+    "room_board": 9724,
+    "total_cost_in_state": 55324,
+    "total_cost_out_of_state": 55324,
+    "net_price": {
+      "0_30k": 17839,
+      "30_48k": 19271,
+      "48_75k": 20848,
+      "75_110k": 21641,
+      "110k_plus": 23832
+    },
+    "pell_rate": 0.3465,
+    "federal_loan_rate": 0.4648,
+    "enrollment": 2977
+  },
+  "cds": null,
+  "reference": null
+}

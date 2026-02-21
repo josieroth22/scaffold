@@ -1,0 +1,36 @@
+{
+  "slug": "state-university-of-new-york-at-plattsburgh",
+  "name": "State University of New York at Plattsburgh",
+  "ipeds_id": 196246,
+  "state": "NY",
+  "city": "Plattsburgh",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.7518,
+    "sat_reading_25": 560,
+    "sat_reading_75": 640,
+    "sat_math_25": 540,
+    "sat_math_75": 630,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 8881,
+    "tuition_out_of_state": 18791,
+    "room_board": 16570,
+    "total_cost_in_state": 27451,
+    "total_cost_out_of_state": 37361,
+    "net_price": {
+      "0_30k": 10585,
+      "30_48k": 13591,
+      "48_75k": 16685,
+      "75_110k": 17575,
+      "110k_plus": 23723
+    },
+    "pell_rate": 0.3854,
+    "federal_loan_rate": 0.5719,
+    "enrollment": 3789
+  },
+  "cds": null,
+  "reference": null
+}

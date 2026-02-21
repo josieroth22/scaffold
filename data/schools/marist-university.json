@@ -1,0 +1,36 @@
+{
+  "slug": "marist-university",
+  "name": "Marist University",
+  "ipeds_id": 192819,
+  "state": "NY",
+  "city": "Poughkeepsie",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.6471,
+    "sat_reading_25": 620,
+    "sat_reading_75": 690,
+    "sat_math_25": 600,
+    "sat_math_75": 670,
+    "act_25": 27,
+    "act_75": 30,
+    "tuition_in_state": 46140,
+    "tuition_out_of_state": 46140,
+    "room_board": 17710,
+    "total_cost_in_state": 65850,
+    "total_cost_out_of_state": 65850,
+    "net_price": {
+      "0_30k": 25331,
+      "30_48k": 27034,
+      "48_75k": 34963,
+      "75_110k": 38862,
+      "110k_plus": 43143
+    },
+    "pell_rate": 0.1472,
+    "federal_loan_rate": 0.6301,
+    "enrollment": 5039
+  },
+  "cds": null,
+  "reference": null
+}

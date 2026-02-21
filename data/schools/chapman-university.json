@@ -1,0 +1,36 @@
+{
+  "slug": "chapman-university",
+  "name": "Chapman University",
+  "ipeds_id": 111948,
+  "state": "CA",
+  "city": "Orange",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.5561,
+    "sat_reading_25": 630,
+    "sat_reading_75": 710,
+    "sat_math_25": 620,
+    "sat_math_75": 720,
+    "act_25": 28,
+    "act_75": 32,
+    "tuition_in_state": 62784,
+    "tuition_out_of_state": 62784,
+    "room_board": 17378,
+    "total_cost_in_state": 82162,
+    "total_cost_out_of_state": 82162,
+    "net_price": {
+      "0_30k": 37985,
+      "30_48k": 40713,
+      "48_75k": 39414,
+      "75_110k": 42194,
+      "110k_plus": 54519
+    },
+    "pell_rate": 0.1974,
+    "federal_loan_rate": 0.62,
+    "enrollment": 7629
+  },
+  "cds": null,
+  "reference": null
+}

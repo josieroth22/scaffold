@@ -1,0 +1,36 @@
+{
+  "slug": "valdosta-state-university",
+  "name": "Valdosta State University",
+  "ipeds_id": 141264,
+  "state": "GA",
+  "city": "Valdosta",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.8349,
+    "sat_reading_25": 490,
+    "sat_reading_75": 580,
+    "sat_math_25": 460,
+    "sat_math_75": 550,
+    "act_25": 17,
+    "act_75": 23,
+    "tuition_in_state": 6007,
+    "tuition_out_of_state": 17062,
+    "room_board": 8922,
+    "total_cost_in_state": 16929,
+    "total_cost_out_of_state": 27984,
+    "net_price": {
+      "0_30k": 9443,
+      "30_48k": 10072,
+      "48_75k": 12659,
+      "75_110k": 14892,
+      "110k_plus": 16028
+    },
+    "pell_rate": 0.5086,
+    "federal_loan_rate": 0.4657,
+    "enrollment": 6858
+  },
+  "cds": null,
+  "reference": null
+}

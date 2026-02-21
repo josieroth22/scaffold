@@ -1,0 +1,36 @@
+{
+  "slug": "university-of-nevada-las-vegas",
+  "name": "University of Nevada-Las Vegas",
+  "ipeds_id": 182281,
+  "state": "NV",
+  "city": "Las Vegas",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.9626,
+    "sat_reading_25": 500,
+    "sat_reading_75": 620,
+    "sat_math_25": 480,
+    "sat_math_75": 610,
+    "act_25": 18,
+    "act_75": 24,
+    "tuition_in_state": 9142,
+    "tuition_out_of_state": 26098,
+    "room_board": 12072,
+    "total_cost_in_state": 23214,
+    "total_cost_out_of_state": 40170,
+    "net_price": {
+      "0_30k": 8024,
+      "30_48k": 8679,
+      "48_75k": 10529,
+      "75_110k": 14169,
+      "110k_plus": 15555
+    },
+    "pell_rate": 0.4026,
+    "federal_loan_rate": 0.2707,
+    "enrollment": 24131
+  },
+  "cds": null,
+  "reference": null
+}

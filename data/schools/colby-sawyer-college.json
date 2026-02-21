@@ -1,0 +1,36 @@
+{
+  "slug": "colby-sawyer-college",
+  "name": "Colby-Sawyer College",
+  "ipeds_id": 182634,
+  "state": "NH",
+  "city": "New London",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.8998,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 18400,
+    "tuition_out_of_state": 18400,
+    "room_board": 16858,
+    "total_cost_in_state": 37258,
+    "total_cost_out_of_state": 37258,
+    "net_price": {
+      "0_30k": 14570,
+      "30_48k": 17323,
+      "48_75k": 19084,
+      "75_110k": 27562,
+      "110k_plus": 30198
+    },
+    "pell_rate": 0.2298,
+    "federal_loan_rate": 0.6859,
+    "enrollment": 778
+  },
+  "cds": null,
+  "reference": null
+}

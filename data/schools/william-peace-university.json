@@ -1,0 +1,36 @@
+{
+  "slug": "william-peace-university",
+  "name": "William Peace University",
+  "ipeds_id": 199272,
+  "state": "NC",
+  "city": "Raleigh",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.9736,
+    "sat_reading_25": 590,
+    "sat_reading_75": 640,
+    "sat_math_25": 550,
+    "sat_math_75": 640,
+    "act_25": 22,
+    "act_75": 27,
+    "tuition_in_state": 33150,
+    "tuition_out_of_state": 33150,
+    "room_board": 12198,
+    "total_cost_in_state": 47348,
+    "total_cost_out_of_state": 47348,
+    "net_price": {
+      "0_30k": 15206,
+      "30_48k": 18446,
+      "48_75k": 22005,
+      "75_110k": 26895,
+      "110k_plus": 32987
+    },
+    "pell_rate": 0.345,
+    "federal_loan_rate": 0.6227,
+    "enrollment": 661
+  },
+  "cds": null,
+  "reference": null
+}

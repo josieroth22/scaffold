@@ -1,0 +1,36 @@
+{
+  "slug": "columbus-college-of-art-design",
+  "name": "Columbus College of Art & Design",
+  "ipeds_id": 202170,
+  "state": "OH",
+  "city": "Columbus",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.7174,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 39650,
+    "tuition_out_of_state": 39650,
+    "room_board": 11450,
+    "total_cost_in_state": 53100,
+    "total_cost_out_of_state": 53100,
+    "net_price": {
+      "0_30k": 22182,
+      "30_48k": 30353,
+      "48_75k": 31007,
+      "75_110k": 33394,
+      "110k_plus": 34713
+    },
+    "pell_rate": 0.3975,
+    "federal_loan_rate": 0.6862,
+    "enrollment": 891
+  },
+  "cds": null,
+  "reference": null
+}

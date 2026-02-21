@@ -1,0 +1,36 @@
+{
+  "slug": "louisiana-christian-university",
+  "name": "Louisiana Christian University",
+  "ipeds_id": 159568,
+  "state": "LA",
+  "city": "Pineville",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.8379,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 19740,
+    "tuition_out_of_state": 19740,
+    "room_board": 7956,
+    "total_cost_in_state": 29696,
+    "total_cost_out_of_state": 29696,
+    "net_price": {
+      "0_30k": 16046,
+      "30_48k": 16040,
+      "48_75k": 17685,
+      "75_110k": 16983,
+      "110k_plus": 18102
+    },
+    "pell_rate": 0.4075,
+    "federal_loan_rate": 0.595,
+    "enrollment": 750
+  },
+  "cds": null,
+  "reference": null
+}

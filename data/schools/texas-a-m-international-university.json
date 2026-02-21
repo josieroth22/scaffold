@@ -1,0 +1,36 @@
+{
+  "slug": "texas-a-m-international-university",
+  "name": "Texas A & M International University",
+  "ipeds_id": 226152,
+  "state": "TX",
+  "city": "Laredo",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.4596,
+    "sat_reading_25": 470,
+    "sat_reading_75": 580,
+    "sat_math_25": 450,
+    "sat_math_75": 550,
+    "act_25": 16,
+    "act_75": 20,
+    "tuition_in_state": 7846,
+    "tuition_out_of_state": 19382,
+    "room_board": 9650,
+    "total_cost_in_state": 19496,
+    "total_cost_out_of_state": 31032,
+    "net_price": {
+      "0_30k": 2677,
+      "30_48k": 2734,
+      "48_75k": 2791,
+      "75_110k": 5119,
+      "110k_plus": 8972
+    },
+    "pell_rate": 0.6333,
+    "federal_loan_rate": 0.2798,
+    "enrollment": 6502
+  },
+  "cds": null,
+  "reference": null
+}

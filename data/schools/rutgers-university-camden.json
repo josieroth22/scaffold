@@ -1,0 +1,51 @@
+{
+  "slug": "rutgers-university-camden",
+  "name": "Rutgers University-Camden",
+  "ipeds_id": 186371,
+  "state": "NJ",
+  "city": "Camden",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.7775,
+    "sat_reading_25": 510,
+    "sat_reading_75": 625,
+    "sat_math_25": 500,
+    "sat_math_75": 630,
+    "act_25": 18,
+    "act_75": 26,
+    "tuition_in_state": 17079,
+    "tuition_out_of_state": 35841,
+    "room_board": 13389,
+    "total_cost_in_state": 32468,
+    "total_cost_out_of_state": 51230,
+    "net_price": {
+      "0_30k": 16678,
+      "30_48k": 11800,
+      "48_75k": 14931,
+      "75_110k": 21312,
+      "110k_plus": 27896
+    },
+    "pell_rate": 0.4432,
+    "federal_loan_rate": 0.4863,
+    "enrollment": 3819
+  },
+  "cds": null,
+  "reference": {
+    "national_merit": {
+      "semifinalist_award": "None",
+      "finalist_award": "$1,000",
+      "first_choice_required": true,
+      "guaranteed": false
+    },
+    "honors_program": {
+      "name": "Rutgers University Honors College",
+      "description": "A state-of-the-art Honors College where students have opportunities from the very beginning, including exposure to research, extensive collaboration with fellow students and faculty, and one-on-one discussions with live-in faculty. Students collaborate in high-tech seminar rooms, the Innovation Lab, and many lounges throughout the building.",
+      "separate_application": null,
+      "avg_sat": null,
+      "acceptance_rate": null,
+      "size": 2000
+    }
+  }
+}

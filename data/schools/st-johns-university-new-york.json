@@ -1,0 +1,36 @@
+{
+  "slug": "st-johns-university-new-york",
+  "name": "St. John's University-New York",
+  "ipeds_id": 195809,
+  "state": "NY",
+  "city": "Queens",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.7967,
+    "sat_reading_25": 560,
+    "sat_reading_75": 660,
+    "sat_math_25": 550,
+    "sat_math_75": 660,
+    "act_25": 24,
+    "act_75": 29,
+    "tuition_in_state": 50110,
+    "tuition_out_of_state": 50110,
+    "room_board": 19926,
+    "total_cost_in_state": 72036,
+    "total_cost_out_of_state": 72036,
+    "net_price": {
+      "0_30k": 23468,
+      "30_48k": 24386,
+      "48_75k": 27197,
+      "75_110k": 30164,
+      "110k_plus": 31582
+    },
+    "pell_rate": 0.2367,
+    "federal_loan_rate": 0.266,
+    "enrollment": 9742
+  },
+  "cds": null,
+  "reference": null
+}

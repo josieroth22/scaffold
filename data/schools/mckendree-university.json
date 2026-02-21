@@ -1,0 +1,36 @@
+{
+  "slug": "mckendree-university",
+  "name": "McKendree University",
+  "ipeds_id": 147013,
+  "state": "IL",
+  "city": "Lebanon",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.6388,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 34070,
+    "tuition_out_of_state": 34070,
+    "room_board": 12270,
+    "total_cost_in_state": 48340,
+    "total_cost_out_of_state": 48340,
+    "net_price": {
+      "0_30k": 23363,
+      "30_48k": 21177,
+      "48_75k": 21276,
+      "75_110k": 27472,
+      "110k_plus": 26682
+    },
+    "pell_rate": 0.2909,
+    "federal_loan_rate": 0.4455,
+    "enrollment": 1600
+  },
+  "cds": null,
+  "reference": null
+}

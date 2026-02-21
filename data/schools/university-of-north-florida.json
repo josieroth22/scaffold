@@ -1,0 +1,36 @@
+{
+  "slug": "university-of-north-florida",
+  "name": "University of North Florida",
+  "ipeds_id": 136172,
+  "state": "FL",
+  "city": "Jacksonville",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.6227,
+    "sat_reading_25": 510,
+    "sat_reading_75": 620,
+    "sat_math_25": 480,
+    "sat_math_75": 590,
+    "act_25": 20,
+    "act_75": 26,
+    "tuition_in_state": 6389,
+    "tuition_out_of_state": 20793,
+    "room_board": 10910,
+    "total_cost_in_state": 19299,
+    "total_cost_out_of_state": 33703,
+    "net_price": {
+      "0_30k": 6465,
+      "30_48k": 7759,
+      "48_75k": 11120,
+      "75_110k": 15886,
+      "110k_plus": 17447
+    },
+    "pell_rate": 0.3075,
+    "federal_loan_rate": 0.2437,
+    "enrollment": 13915
+  },
+  "cds": null,
+  "reference": null
+}

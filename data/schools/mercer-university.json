@@ -1,0 +1,36 @@
+{
+  "slug": "mercer-university",
+  "name": "Mercer University",
+  "ipeds_id": 140447,
+  "state": "GA",
+  "city": "Macon",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.6646,
+    "sat_reading_25": 600,
+    "sat_reading_75": 680,
+    "sat_math_25": 580,
+    "sat_math_75": 670,
+    "act_25": 25,
+    "act_75": 31,
+    "tuition_in_state": 40890,
+    "tuition_out_of_state": 40890,
+    "room_board": 14528,
+    "total_cost_in_state": 57418,
+    "total_cost_out_of_state": 57418,
+    "net_price": {
+      "0_30k": 18650,
+      "30_48k": 20919,
+      "48_75k": 22627,
+      "75_110k": 24610,
+      "110k_plus": 26399
+    },
+    "pell_rate": 0.333,
+    "federal_loan_rate": 0.61,
+    "enrollment": 4620
+  },
+  "cds": null,
+  "reference": null
+}

@@ -1,0 +1,36 @@
+{
+  "slug": "concord-university",
+  "name": "Concord University",
+  "ipeds_id": 237330,
+  "state": "WV",
+  "city": "Athens",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.8965,
+    "sat_reading_25": 440,
+    "sat_reading_75": 550,
+    "sat_math_25": 400,
+    "sat_math_75": 530,
+    "act_25": 17,
+    "act_75": 22,
+    "tuition_in_state": 9700,
+    "tuition_out_of_state": 20600,
+    "room_board": 12114,
+    "total_cost_in_state": 23814,
+    "total_cost_out_of_state": 34714,
+    "net_price": {
+      "0_30k": 8292,
+      "30_48k": 9307,
+      "48_75k": 10904,
+      "75_110k": 13948,
+      "110k_plus": 13256
+    },
+    "pell_rate": 0.4682,
+    "federal_loan_rate": 0.456,
+    "enrollment": 1394
+  },
+  "cds": null,
+  "reference": null
+}

@@ -1,0 +1,36 @@
+{
+  "slug": "indiana-university-south-bend",
+  "name": "Indiana University-South Bend",
+  "ipeds_id": 151342,
+  "state": "IN",
+  "city": "South Bend",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.8599,
+    "sat_reading_25": 490,
+    "sat_reading_75": 590,
+    "sat_math_25": 480,
+    "sat_math_75": 580,
+    "act_25": 21,
+    "act_75": 25,
+    "tuition_in_state": 8179,
+    "tuition_out_of_state": 22043,
+    "room_board": 11216,
+    "total_cost_in_state": 21395,
+    "total_cost_out_of_state": 35259,
+    "net_price": {
+      "0_30k": 4347,
+      "30_48k": 5039,
+      "48_75k": 9272,
+      "75_110k": 14551,
+      "110k_plus": 15174
+    },
+    "pell_rate": 0.4117,
+    "federal_loan_rate": 0.365,
+    "enrollment": 3807
+  },
+  "cds": null,
+  "reference": null
+}

@@ -1,0 +1,36 @@
+{
+  "slug": "harding-university",
+  "name": "Harding University",
+  "ipeds_id": 107044,
+  "state": "AR",
+  "city": "Searcy",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 1,
+    "sat_reading_25": 530,
+    "sat_reading_75": 650,
+    "sat_math_25": 520,
+    "sat_math_75": 630,
+    "act_25": 21,
+    "act_75": 28,
+    "tuition_in_state": 24888,
+    "tuition_out_of_state": 24888,
+    "room_board": 9940,
+    "total_cost_in_state": 36828,
+    "total_cost_out_of_state": 36828,
+    "net_price": {
+      "0_30k": 16473,
+      "30_48k": 16466,
+      "48_75k": 18528,
+      "75_110k": 22084,
+      "110k_plus": 23563
+    },
+    "pell_rate": 0.1922,
+    "federal_loan_rate": 0.3951,
+    "enrollment": 3323
+  },
+  "cds": null,
+  "reference": null
+}

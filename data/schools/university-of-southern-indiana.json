@@ -1,0 +1,36 @@
+{
+  "slug": "university-of-southern-indiana",
+  "name": "University of Southern Indiana",
+  "ipeds_id": 151306,
+  "state": "IN",
+  "city": "Evansville",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.9465,
+    "sat_reading_25": 510,
+    "sat_reading_75": 610,
+    "sat_math_25": 510,
+    "sat_math_75": 610,
+    "act_25": 22,
+    "act_75": 28,
+    "tuition_in_state": 10136,
+    "tuition_out_of_state": 22573,
+    "room_board": 10798,
+    "total_cost_in_state": 22934,
+    "total_cost_out_of_state": 35371,
+    "net_price": {
+      "0_30k": 7102,
+      "30_48k": 9159,
+      "48_75k": 13194,
+      "75_110k": 17062,
+      "110k_plus": 17421
+    },
+    "pell_rate": 0.2228,
+    "federal_loan_rate": 0.2877,
+    "enrollment": 5344
+  },
+  "cds": null,
+  "reference": null
+}

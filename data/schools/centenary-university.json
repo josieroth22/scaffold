@@ -1,0 +1,36 @@
+{
+  "slug": "centenary-university",
+  "name": "Centenary University",
+  "ipeds_id": 183974,
+  "state": "NJ",
+  "city": "Hackettstown",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.9668,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 37732,
+    "tuition_out_of_state": 37732,
+    "room_board": 12552,
+    "total_cost_in_state": 52284,
+    "total_cost_out_of_state": 52284,
+    "net_price": {
+      "0_30k": 13735,
+      "30_48k": 13416,
+      "48_75k": 15190,
+      "75_110k": 19819,
+      "110k_plus": 25288
+    },
+    "pell_rate": 0.3772,
+    "federal_loan_rate": 0.8109,
+    "enrollment": 934
+  },
+  "cds": null,
+  "reference": null
+}

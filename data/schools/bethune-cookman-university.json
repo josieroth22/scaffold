@@ -1,0 +1,36 @@
+{
+  "slug": "bethune-cookman-university",
+  "name": "Bethune-Cookman University",
+  "ipeds_id": 132602,
+  "state": "FL",
+  "city": "Daytona Beach",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.9985,
+    "sat_reading_25": 430,
+    "sat_reading_75": 520,
+    "sat_math_25": 400,
+    "sat_math_75": 480,
+    "act_25": 15,
+    "act_75": 18,
+    "tuition_in_state": 14794,
+    "tuition_out_of_state": 14794,
+    "room_board": 10396,
+    "total_cost_in_state": 27190,
+    "total_cost_out_of_state": 27190,
+    "net_price": {
+      "0_30k": 13728,
+      "30_48k": 14194,
+      "48_75k": 16399,
+      "75_110k": 19105,
+      "110k_plus": 20662
+    },
+    "pell_rate": 0.7694,
+    "federal_loan_rate": 0.7919,
+    "enrollment": 2414
+  },
+  "cds": null,
+  "reference": null
+}

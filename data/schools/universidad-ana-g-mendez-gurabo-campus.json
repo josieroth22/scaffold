@@ -1,0 +1,36 @@
+{
+  "slug": "universidad-ana-g-mendez-gurabo-campus",
+  "name": "Universidad Ana G. Mendez-Gurabo Campus",
+  "ipeds_id": 243601,
+  "state": "PR",
+  "city": "Gurabo",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": null,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 6920,
+    "tuition_out_of_state": 6920,
+    "room_board": null,
+    "total_cost_in_state": 14081,
+    "total_cost_out_of_state": null,
+    "net_price": {
+      "0_30k": 6848,
+      "30_48k": 7897,
+      "48_75k": 9578,
+      "75_110k": 13157,
+      "110k_plus": null
+    },
+    "pell_rate": 0.8266,
+    "federal_loan_rate": 0.2693,
+    "enrollment": 7666
+  },
+  "cds": null,
+  "reference": null
+}

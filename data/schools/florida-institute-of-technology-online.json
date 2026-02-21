@@ -1,0 +1,36 @@
+{
+  "slug": "florida-institute-of-technology-online",
+  "name": "Florida Institute of Technology-Online",
+  "ipeds_id": 480569,
+  "state": "FL",
+  "city": "Melbourne",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.4444,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 12240,
+    "tuition_out_of_state": 12240,
+    "room_board": null,
+    "total_cost_in_state": 28715,
+    "total_cost_out_of_state": null,
+    "net_price": {
+      "0_30k": 24825,
+      "30_48k": 25572,
+      "48_75k": 25488,
+      "75_110k": null,
+      "110k_plus": 27916
+    },
+    "pell_rate": 0.4852,
+    "federal_loan_rate": 0.611,
+    "enrollment": 628
+  },
+  "cds": null,
+  "reference": null
+}

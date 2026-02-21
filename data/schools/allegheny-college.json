@@ -1,0 +1,36 @@
+{
+  "slug": "allegheny-college",
+  "name": "Allegheny College",
+  "ipeds_id": 210669,
+  "state": "PA",
+  "city": "Meadville",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.5853,
+    "sat_reading_25": 600,
+    "sat_reading_75": 690,
+    "sat_math_25": 540,
+    "sat_math_75": 660,
+    "act_25": 25,
+    "act_75": 31,
+    "tuition_in_state": 54960,
+    "tuition_out_of_state": 54960,
+    "room_board": 13796,
+    "total_cost_in_state": 70756,
+    "total_cost_out_of_state": 70756,
+    "net_price": {
+      "0_30k": 12227,
+      "30_48k": 14616,
+      "48_75k": 15476,
+      "75_110k": 21833,
+      "110k_plus": 28466
+    },
+    "pell_rate": 0.2515,
+    "federal_loan_rate": 0.7123,
+    "enrollment": 1209
+  },
+  "cds": null,
+  "reference": null
+}

@@ -1,0 +1,36 @@
+{
+  "slug": "west-virginia-university-institute-of-technology",
+  "name": "West Virginia University Institute of Technology",
+  "ipeds_id": 237950,
+  "state": "WV",
+  "city": "Beckley",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.61,
+    "sat_reading_25": 470,
+    "sat_reading_75": 570,
+    "sat_math_25": 430,
+    "sat_math_75": 550,
+    "act_25": 18,
+    "act_75": 24,
+    "tuition_in_state": 8064,
+    "tuition_out_of_state": 20120,
+    "room_board": 13020,
+    "total_cost_in_state": 23084,
+    "total_cost_out_of_state": 35140,
+    "net_price": {
+      "0_30k": 6947,
+      "30_48k": 8865,
+      "48_75k": 9532,
+      "75_110k": 12351,
+      "110k_plus": 14408
+    },
+    "pell_rate": 0.2429,
+    "federal_loan_rate": 0.2554,
+    "enrollment": 1009
+  },
+  "cds": null,
+  "reference": null
+}

@@ -1,0 +1,36 @@
+{
+  "slug": "utah-valley-university",
+  "name": "Utah Valley University",
+  "ipeds_id": 230737,
+  "state": "UT",
+  "city": "Orem",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": null,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 6270,
+    "tuition_out_of_state": 17830,
+    "room_board": null,
+    "total_cost_in_state": 15172,
+    "total_cost_out_of_state": null,
+    "net_price": {
+      "0_30k": 6381,
+      "30_48k": 7303,
+      "48_75k": 8871,
+      "75_110k": 11410,
+      "110k_plus": 14064
+    },
+    "pell_rate": 0.2337,
+    "federal_loan_rate": 0.0895,
+    "enrollment": 27481
+  },
+  "cds": null,
+  "reference": null
+}

@@ -1,0 +1,36 @@
+{
+  "slug": "virginia-union-university",
+  "name": "Virginia Union University",
+  "ipeds_id": 234164,
+  "state": "VA",
+  "city": "Richmond",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.9773,
+    "sat_reading_25": 390,
+    "sat_reading_75": 510,
+    "sat_math_25": 360,
+    "sat_math_75": 500,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 14880,
+    "tuition_out_of_state": 14880,
+    "room_board": 9552,
+    "total_cost_in_state": 26432,
+    "total_cost_out_of_state": 26432,
+    "net_price": {
+      "0_30k": 17272,
+      "30_48k": 20536,
+      "48_75k": 22097,
+      "75_110k": 24665,
+      "110k_plus": 21677
+    },
+    "pell_rate": 0.5064,
+    "federal_loan_rate": 0.456,
+    "enrollment": 1153
+  },
+  "cds": null,
+  "reference": null
+}

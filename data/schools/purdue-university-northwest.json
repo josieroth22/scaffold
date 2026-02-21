@@ -1,0 +1,36 @@
+{
+  "slug": "purdue-university-northwest",
+  "name": "Purdue University Northwest",
+  "ipeds_id": 490805,
+  "state": "IN",
+  "city": "Hammond",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.7063,
+    "sat_reading_25": 470,
+    "sat_reading_75": 570,
+    "sat_math_25": 450,
+    "sat_math_75": 570,
+    "act_25": 16,
+    "act_75": 25,
+    "tuition_in_state": 8419,
+    "tuition_out_of_state": 15620,
+    "room_board": 9097,
+    "total_cost_in_state": 19516,
+    "total_cost_out_of_state": 26717,
+    "net_price": {
+      "0_30k": 4256,
+      "30_48k": 4935,
+      "48_75k": 10143,
+      "75_110k": 13805,
+      "110k_plus": 14972
+    },
+    "pell_rate": 0.277,
+    "federal_loan_rate": 0.2707,
+    "enrollment": 5786
+  },
+  "cds": null,
+  "reference": null
+}

@@ -1,0 +1,45 @@
+{
+  "slug": "cuny-city-college",
+  "name": "CUNY City College",
+  "ipeds_id": 190567,
+  "state": "NY",
+  "city": "New York",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.5807,
+    "sat_reading_25": 610,
+    "sat_reading_75": 710,
+    "sat_math_25": 610,
+    "sat_math_75": 750,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 7340,
+    "tuition_out_of_state": 15290,
+    "room_board": 18104,
+    "total_cost_in_state": 27444,
+    "total_cost_out_of_state": 35394,
+    "net_price": {
+      "0_30k": 1579,
+      "30_48k": 3087,
+      "48_75k": 7188,
+      "75_110k": 9487,
+      "110k_plus": 11887
+    },
+    "pell_rate": 0.5958,
+    "federal_loan_rate": 0.0748,
+    "enrollment": 11934
+  },
+  "cds": null,
+  "reference": {
+    "honors_program": {
+      "name": "Macaulay Honors College",
+      "description": "Highly selective CUNY-wide honors college. Scholars receive a full tuition scholarship, a laptop, an Opportunities Fund for enrichment activities, and personalized advising. ~2,080 students across 8 CUNY campuses.",
+      "separate_application": true,
+      "avg_sat": null,
+      "acceptance_rate": null,
+      "size": 2080
+    }
+  }
+}

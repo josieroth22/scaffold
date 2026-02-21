@@ -1,0 +1,36 @@
+{
+  "slug": "new-college-of-florida",
+  "name": "New College of Florida",
+  "ipeds_id": 262129,
+  "state": "FL",
+  "city": "Sarasota",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.74,
+    "sat_reading_25": 530,
+    "sat_reading_75": 650,
+    "sat_math_25": 500,
+    "sat_math_75": 600,
+    "act_25": 20,
+    "act_75": 27,
+    "tuition_in_state": 6916,
+    "tuition_out_of_state": 29944,
+    "room_board": 13805,
+    "total_cost_in_state": 22721,
+    "total_cost_out_of_state": 45749,
+    "net_price": {
+      "0_30k": 1528,
+      "30_48k": 3287,
+      "48_75k": 2632,
+      "75_110k": 6901,
+      "110k_plus": 12891
+    },
+    "pell_rate": 0.3034,
+    "federal_loan_rate": 0.1734,
+    "enrollment": 707
+  },
+  "cds": null,
+  "reference": null
+}

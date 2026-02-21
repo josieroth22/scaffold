@@ -1,0 +1,43 @@
+{
+  "slug": "loyola-university-maryland",
+  "name": "Loyola University Maryland",
+  "ipeds_id": 163046,
+  "state": "MD",
+  "city": "Baltimore",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.7633,
+    "sat_reading_25": 610,
+    "sat_reading_75": 690,
+    "sat_math_25": 570,
+    "sat_math_75": 660,
+    "act_25": 27,
+    "act_75": 32,
+    "tuition_in_state": 55480,
+    "tuition_out_of_state": 55480,
+    "room_board": 18240,
+    "total_cost_in_state": 75720,
+    "total_cost_out_of_state": 75720,
+    "net_price": {
+      "0_30k": 19154,
+      "30_48k": 24194,
+      "48_75k": 27472,
+      "75_110k": 28097,
+      "110k_plus": 34010
+    },
+    "pell_rate": 0.177,
+    "federal_loan_rate": 0.5271,
+    "enrollment": 3975
+  },
+  "cds": null,
+  "reference": {
+    "national_merit": {
+      "semifinalist_award": "None",
+      "finalist_award": "$750-$1,000",
+      "first_choice_required": true,
+      "guaranteed": false
+    }
+  }
+}

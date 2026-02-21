@@ -1,0 +1,36 @@
+{
+  "slug": "nebraska-methodist-college-of-nursing-allied-health",
+  "name": "Nebraska Methodist College of Nursing & Allied Health",
+  "ipeds_id": 181297,
+  "state": "NE",
+  "city": "Omaha",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.8829,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 18173,
+    "tuition_out_of_state": 18173,
+    "room_board": 11296,
+    "total_cost_in_state": 31469,
+    "total_cost_out_of_state": 31469,
+    "net_price": {
+      "0_30k": 19264,
+      "30_48k": 14688,
+      "48_75k": 17532,
+      "75_110k": 21381,
+      "110k_plus": 22298
+    },
+    "pell_rate": 0.323,
+    "federal_loan_rate": 0.6559,
+    "enrollment": 752
+  },
+  "cds": null,
+  "reference": null
+}

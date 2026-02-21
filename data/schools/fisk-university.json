@@ -1,0 +1,36 @@
+{
+  "slug": "fisk-university",
+  "name": "Fisk University",
+  "ipeds_id": 220181,
+  "state": "TN",
+  "city": "Nashville",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.5791,
+    "sat_reading_25": 590,
+    "sat_reading_75": 700,
+    "sat_math_25": 570,
+    "sat_math_75": 780,
+    "act_25": 20,
+    "act_75": 25,
+    "tuition_in_state": 24298,
+    "tuition_out_of_state": 24298,
+    "room_board": 11698,
+    "total_cost_in_state": 37996,
+    "total_cost_out_of_state": 37996,
+    "net_price": {
+      "0_30k": 21410,
+      "30_48k": 24865,
+      "48_75k": 27075,
+      "75_110k": 35437,
+      "110k_plus": 30281
+    },
+    "pell_rate": 0.4827,
+    "federal_loan_rate": 0.5292,
+    "enrollment": 950
+  },
+  "cds": null,
+  "reference": null
+}

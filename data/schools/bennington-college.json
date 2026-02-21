@@ -1,0 +1,36 @@
+{
+  "slug": "bennington-college",
+  "name": "Bennington College",
+  "ipeds_id": 230816,
+  "state": "VT",
+  "city": "Bennington",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.4804,
+    "sat_reading_25": 690,
+    "sat_reading_75": 740,
+    "sat_math_25": 600,
+    "sat_math_75": 673,
+    "act_25": 30,
+    "act_75": 32,
+    "tuition_in_state": 64644,
+    "tuition_out_of_state": 64644,
+    "room_board": 18640,
+    "total_cost_in_state": 85284,
+    "total_cost_out_of_state": 85284,
+    "net_price": {
+      "0_30k": 18950,
+      "30_48k": 18334,
+      "48_75k": 26325,
+      "75_110k": 30794,
+      "110k_plus": 43365
+    },
+    "pell_rate": 0.2124,
+    "federal_loan_rate": 0.4942,
+    "enrollment": 759
+  },
+  "cds": null,
+  "reference": null
+}

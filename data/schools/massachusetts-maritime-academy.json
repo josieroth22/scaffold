@@ -1,0 +1,36 @@
+{
+  "slug": "massachusetts-maritime-academy",
+  "name": "Massachusetts Maritime Academy",
+  "ipeds_id": 166692,
+  "state": "MA",
+  "city": "Buzzards Bay",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.9455,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 10816,
+    "tuition_out_of_state": 23910,
+    "room_board": 14526,
+    "total_cost_in_state": 27342,
+    "total_cost_out_of_state": 40436,
+    "net_price": {
+      "0_30k": 5269,
+      "30_48k": 9843,
+      "48_75k": 13919,
+      "75_110k": 23991,
+      "110k_plus": 33261
+    },
+    "pell_rate": 0.1697,
+    "federal_loan_rate": 0.7926,
+    "enrollment": 1270
+  },
+  "cds": null,
+  "reference": null
+}

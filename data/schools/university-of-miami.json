@@ -1,0 +1,97 @@
+{
+  "slug": "university-of-miami",
+  "name": "University of Miami",
+  "ipeds_id": 135726,
+  "state": "FL",
+  "city": "Coral Gables",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.1851,
+    "sat_reading_25": 660,
+    "sat_reading_75": 720,
+    "sat_math_25": 670,
+    "sat_math_75": 750,
+    "act_25": 30,
+    "act_75": 33,
+    "tuition_in_state": 59926,
+    "tuition_out_of_state": 59926,
+    "room_board": 21580,
+    "total_cost_in_state": 83506,
+    "total_cost_out_of_state": 83506,
+    "net_price": {
+      "0_30k": 17790,
+      "30_48k": 19645,
+      "48_75k": 20250,
+      "75_110k": 26355,
+      "110k_plus": 48907
+    },
+    "pell_rate": 0.154,
+    "federal_loan_rate": 0.2662,
+    "enrollment": 12570
+  },
+  "cds": {
+    "school_name": "University of Miami",
+    "source_year": "2024-2025",
+    "total_applicants": 53954,
+    "total_admitted": 10195,
+    "admit_rate_overall": 0.189,
+    "ed_applicants": 2260,
+    "ed_admitted": 1075,
+    "ed_admit_rate": 0.476,
+    "ea_applicants": null,
+    "ea_admitted": null,
+    "ea_admit_rate": null,
+    "sat_reading_25": 660,
+    "sat_reading_75": 730,
+    "sat_math_25": 660,
+    "sat_math_75": 750,
+    "sat_composite_25": 1340,
+    "sat_composite_75": 1450,
+    "act_composite_25": 30,
+    "act_composite_75": 33,
+    "tuition_in_state": null,
+    "tuition_out_of_state": null,
+    "tuition_private": null,
+    "required_fees": null,
+    "room_board": null,
+    "pct_need_met": 100,
+    "avg_need_grant": 42864,
+    "avg_financial_aid_package": 50945,
+    "meets_full_need": true,
+    "pct_freshmen_receiving_need_aid": 41,
+    "pct_freshmen_receiving_merit_aid": 64,
+    "avg_merit_award": 24523
+  },
+  "reference": {
+    "merit_scholarships": [
+      {
+        "name": "Ronald A. Hammond Scholarship",
+        "amount": "Full tuition",
+        "deadline": "November 1",
+        "requirements": "Optional Nomination"
+      },
+      {
+        "name": "Isaac Bashevis Singer Scholarship",
+        "amount": "Full tuition",
+        "deadline": "November 1",
+        "requirements": "None"
+      }
+    ],
+    "honors_program": {
+      "name": "Foote Fellows Honors Program",
+      "description": "The University of Miami's premier honors program providing an enhanced intellectual experience through specialized seminars, research opportunities, and a close-knit community of high-achieving students.",
+      "separate_application": false,
+      "avg_sat": null,
+      "acceptance_rate": null,
+      "size": null
+    },
+    "national_merit": {
+      "semifinalist_award": "None",
+      "finalist_award": "$1,000-$2,000",
+      "first_choice_required": true,
+      "guaranteed": false
+    }
+  }
+}

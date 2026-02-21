@@ -1,0 +1,36 @@
+{
+  "slug": "university-of-north-alabama",
+  "name": "University of North Alabama",
+  "ipeds_id": 101879,
+  "state": "AL",
+  "city": "Florence",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.9648,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 11990,
+    "tuition_out_of_state": 22190,
+    "room_board": 7900,
+    "total_cost_in_state": 21890,
+    "total_cost_out_of_state": 32090,
+    "net_price": {
+      "0_30k": 8309,
+      "30_48k": 7613,
+      "48_75k": 11901,
+      "75_110k": 14907,
+      "110k_plus": 14273
+    },
+    "pell_rate": 0.2411,
+    "federal_loan_rate": 0.2957,
+    "enrollment": 5468
+  },
+  "cds": null,
+  "reference": null
+}

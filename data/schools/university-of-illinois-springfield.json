@@ -1,0 +1,36 @@
+{
+  "slug": "university-of-illinois-springfield",
+  "name": "University of Illinois Springfield",
+  "ipeds_id": 148654,
+  "state": "IL",
+  "city": "Springfield",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.8437,
+    "sat_reading_25": 510,
+    "sat_reading_75": 610,
+    "sat_math_25": 500,
+    "sat_math_75": 600,
+    "act_25": 21,
+    "act_75": 28,
+    "tuition_in_state": 12252,
+    "tuition_out_of_state": 22017,
+    "room_board": 12088,
+    "total_cost_in_state": 26340,
+    "total_cost_out_of_state": 36105,
+    "net_price": {
+      "0_30k": 4473,
+      "30_48k": 5333,
+      "48_75k": 7999,
+      "75_110k": 11191,
+      "110k_plus": 15232
+    },
+    "pell_rate": 0.3585,
+    "federal_loan_rate": 0.3832,
+    "enrollment": 2292
+  },
+  "cds": null,
+  "reference": null
+}

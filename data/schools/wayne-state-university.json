@@ -1,0 +1,36 @@
+{
+  "slug": "wayne-state-university",
+  "name": "Wayne State University",
+  "ipeds_id": 172644,
+  "state": "MI",
+  "city": "Detroit",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.8203,
+    "sat_reading_25": 530,
+    "sat_reading_75": 640,
+    "sat_math_25": 510,
+    "sat_math_75": 620,
+    "act_25": 21,
+    "act_75": 28,
+    "tuition_in_state": 14297,
+    "tuition_out_of_state": 30419,
+    "room_board": 11762,
+    "total_cost_in_state": 28059,
+    "total_cost_out_of_state": 44181,
+    "net_price": {
+      "0_30k": 12337,
+      "30_48k": 12560,
+      "48_75k": 14864,
+      "75_110k": 19189,
+      "110k_plus": 21543
+    },
+    "pell_rate": 0.4304,
+    "federal_loan_rate": 0.3972,
+    "enrollment": 15676
+  },
+  "cds": null,
+  "reference": null
+}

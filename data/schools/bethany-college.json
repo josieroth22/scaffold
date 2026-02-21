@@ -1,0 +1,36 @@
+{
+  "slug": "bethany-college",
+  "name": "Bethany College",
+  "ipeds_id": 237181,
+  "state": "KS",
+  "city": "Bethany",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.6049,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 34816,
+    "tuition_out_of_state": 34816,
+    "room_board": 12936,
+    "total_cost_in_state": 49752,
+    "total_cost_out_of_state": 49752,
+    "net_price": {
+      "0_30k": 9618,
+      "30_48k": 10220,
+      "48_75k": 14911,
+      "75_110k": 20457,
+      "110k_plus": 23711
+    },
+    "pell_rate": 0.4097,
+    "federal_loan_rate": 0.6839,
+    "enrollment": 642
+  },
+  "cds": null,
+  "reference": null
+}

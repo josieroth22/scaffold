@@ -1,0 +1,36 @@
+{
+  "slug": "kentucky-wesleyan-college",
+  "name": "Kentucky Wesleyan College",
+  "ipeds_id": 157076,
+  "state": "KY",
+  "city": "Owensboro",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.67,
+    "sat_reading_25": 430,
+    "sat_reading_75": 550,
+    "sat_math_25": 320,
+    "sat_math_75": 580,
+    "act_25": 12,
+    "act_75": 24,
+    "tuition_in_state": 33393,
+    "tuition_out_of_state": 33393,
+    "room_board": 11526,
+    "total_cost_in_state": 46919,
+    "total_cost_out_of_state": 46919,
+    "net_price": {
+      "0_30k": 35694,
+      "30_48k": 35651,
+      "48_75k": 36301,
+      "75_110k": 37446,
+      "110k_plus": 37533
+    },
+    "pell_rate": 0.4157,
+    "federal_loan_rate": 0.5166,
+    "enrollment": 794
+  },
+  "cds": null,
+  "reference": null
+}

@@ -1,0 +1,36 @@
+{
+  "slug": "bay-path-university",
+  "name": "Bay Path University",
+  "ipeds_id": 164632,
+  "state": "MA",
+  "city": "Longmeadow",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.735,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 37227,
+    "tuition_out_of_state": 37227,
+    "room_board": 13316,
+    "total_cost_in_state": 52543,
+    "total_cost_out_of_state": 52543,
+    "net_price": {
+      "0_30k": 10194,
+      "30_48k": 10976,
+      "48_75k": 12851,
+      "75_110k": 25076,
+      "110k_plus": 25198
+    },
+    "pell_rate": 0.6616,
+    "federal_loan_rate": 0.8395,
+    "enrollment": 1186
+  },
+  "cds": null,
+  "reference": null
+}

@@ -1,0 +1,96 @@
+{
+  "slug": "university-of-north-carolina-at-chapel-hill",
+  "name": "University of North Carolina at Chapel Hill",
+  "api_name": "University of North Carolina at Chapel Hill",
+  "ipeds_id": 199120,
+  "state": "NC",
+  "city": "Chapel Hill",
+  "type": "public",
+  "tier": "A",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.1874,
+    "sat_reading_25": 680,
+    "sat_reading_75": 750,
+    "sat_math_25": 690,
+    "sat_math_75": 780,
+    "act_25": 30,
+    "act_75": 34,
+    "tuition_in_state": 8989,
+    "tuition_out_of_state": 39330,
+    "room_board": 13016,
+    "total_cost_in_state": 24005,
+    "total_cost_out_of_state": 54346,
+    "net_price": {
+      "0_30k": 3165,
+      "30_48k": 5143,
+      "48_75k": 11220,
+      "75_110k": 19106,
+      "110k_plus": 24077
+    },
+    "pell_rate": 0.2026,
+    "federal_loan_rate": 0.183,
+    "enrollment": 20556
+  },
+  "cds": {
+    "school_name": "University of North Carolina at Chapel Hill",
+    "source_year": "2024-2025",
+    "total_applicants": 66535,
+    "total_admitted": 10209,
+    "admit_rate_overall": 0.153,
+    "ed_applicants": null,
+    "ed_admitted": null,
+    "ed_admit_rate": null,
+    "ea_applicants": null,
+    "ea_admitted": null,
+    "ea_admit_rate": null,
+    "sat_reading_25": 690,
+    "sat_reading_75": 750,
+    "sat_math_25": 700,
+    "sat_math_75": 780,
+    "sat_composite_25": 1400,
+    "sat_composite_75": 1530,
+    "act_composite_25": 28,
+    "act_composite_75": 34,
+    "tuition_in_state": 7020,
+    "tuition_out_of_state": 43152,
+    "tuition_private": null,
+    "required_fees": 2076,
+    "room_board": 15038,
+    "pct_need_met": 100,
+    "avg_need_grant": 17987,
+    "avg_financial_aid_package": 19064,
+    "meets_full_need": true,
+    "pct_freshmen_receiving_need_aid": 36,
+    "pct_freshmen_receiving_merit_aid": 15,
+    "avg_merit_award": 8400
+  },
+  "reference": {
+    "honors_program": {
+      "name": "Honors Carolina",
+      "description": "Honors Carolina is a rigorous, interdisciplinary academic program designed for students who are eager to explore beyond their immediate academic concentrations and anticipated career trajectories. Benefits include preferred registration, access to honors-only internships and study abroad opportunities, dedicated advisors, and alumni networking.",
+      "separate_application": null,
+      "avg_sat": 1470,
+      "acceptance_rate": null,
+      "size": 2210
+    },
+    "merit_scholarships": [
+      {
+        "name": "Morehead-Cain Scholars Program",
+        "amount": "Full cost of attendance + summer enrichment funding; valued at $100,000+",
+        "description": "Oldest merit scholarship in the US. ~75 students/year selected for leadership, scholarship, character, and physical vitality. Separate application required."
+      },
+      {
+        "name": "Robertson Scholars Leadership Program",
+        "amount": "Full cost of attendance + summer experiences + study abroad; valued at ~$323,000",
+        "description": "Joint scholarship with Duke University. ~25-30 scholars/year can take classes at both UNC and Duke. Separate application required."
+      },
+      {
+        "name": "Chancellor's Science Scholars",
+        "amount": "$10,000/year (in-state); full tuition + room & board (out-of-state)",
+        "description": "For students pursuing advanced STEM degrees, with focus on broadening participation in science. Includes pre-freshman summer program."
+      }
+    ]
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "slug": "inter-american-university-of-puerto-rico-ponce",
+  "name": "Inter American University of Puerto Rico-Ponce",
+  "ipeds_id": 242662,
+  "state": "PR",
+  "city": "Mercedita",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.7029,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 5580,
+    "tuition_out_of_state": 5580,
+    "room_board": null,
+    "total_cost_in_state": 14845,
+    "total_cost_out_of_state": null,
+    "net_price": {
+      "0_30k": 8012,
+      "30_48k": 8421,
+      "48_75k": 10650,
+      "75_110k": 12835,
+      "110k_plus": null
+    },
+    "pell_rate": 0.8194,
+    "federal_loan_rate": 0.1803,
+    "enrollment": 2602
+  },
+  "cds": null,
+  "reference": null
+}

@@ -1,0 +1,38 @@
+{
+  "slug": "university-of-new-hampshire",
+  "name": "University of New Hampshire",
+  "api_name": "University of New Hampshire-Main Campus",
+  "ipeds_id": 183044,
+  "state": "NH",
+  "city": "Durham",
+  "type": "public",
+  "tier": "A",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.8687,
+    "sat_reading_25": 570,
+    "sat_reading_75": 670,
+    "sat_math_25": 550,
+    "sat_math_75": 650,
+    "act_25": 26,
+    "act_75": 31,
+    "tuition_in_state": 19112,
+    "tuition_out_of_state": 38882,
+    "room_board": 13314,
+    "total_cost_in_state": 34426,
+    "total_cost_out_of_state": 54196,
+    "net_price": {
+      "0_30k": 15393,
+      "30_48k": 16981,
+      "48_75k": 19283,
+      "75_110k": 23182,
+      "110k_plus": 27767
+    },
+    "pell_rate": 0.1773,
+    "federal_loan_rate": 0.5766,
+    "enrollment": 11230
+  },
+  "cds": null,
+  "reference": null
+}

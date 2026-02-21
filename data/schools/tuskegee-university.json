@@ -1,0 +1,38 @@
+{
+  "slug": "tuskegee-university",
+  "name": "Tuskegee University",
+  "api_name": "Tuskegee University",
+  "ipeds_id": 102377,
+  "state": "AL",
+  "city": "Tuskegee",
+  "type": "private",
+  "tier": "C",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.3143,
+    "sat_reading_25": 495,
+    "sat_reading_75": 645,
+    "sat_math_25": 500,
+    "sat_math_75": 610,
+    "act_25": 18,
+    "act_75": 26,
+    "tuition_in_state": 23440,
+    "tuition_out_of_state": 23440,
+    "room_board": 9844,
+    "total_cost_in_state": 35284,
+    "total_cost_out_of_state": 35284,
+    "net_price": {
+      "0_30k": 31858,
+      "30_48k": 33168,
+      "48_75k": 34010,
+      "75_110k": 34215,
+      "110k_plus": null
+    },
+    "pell_rate": 0.4767,
+    "federal_loan_rate": 0.6167,
+    "enrollment": 2367
+  },
+  "cds": null,
+  "reference": null
+}

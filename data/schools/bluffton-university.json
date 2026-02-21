@@ -1,0 +1,36 @@
+{
+  "slug": "bluffton-university",
+  "name": "Bluffton University",
+  "ipeds_id": 201371,
+  "state": "OH",
+  "city": "Bluffton",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.6116,
+    "sat_reading_25": 480,
+    "sat_reading_75": 560,
+    "sat_math_25": 440,
+    "sat_math_75": 570,
+    "act_25": 17,
+    "act_75": 23,
+    "tuition_in_state": 36298,
+    "tuition_out_of_state": 36298,
+    "room_board": 11866,
+    "total_cost_in_state": 50164,
+    "total_cost_out_of_state": 50164,
+    "net_price": {
+      "0_30k": 16521,
+      "30_48k": 16667,
+      "48_75k": 18013,
+      "75_110k": 23361,
+      "110k_plus": 13482
+    },
+    "pell_rate": 0.3735,
+    "federal_loan_rate": 0.756,
+    "enrollment": 595
+  },
+  "cds": null,
+  "reference": null
+}

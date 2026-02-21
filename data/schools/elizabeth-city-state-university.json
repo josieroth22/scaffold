@@ -1,0 +1,36 @@
+{
+  "slug": "elizabeth-city-state-university",
+  "name": "Elizabeth City State University",
+  "ipeds_id": 198507,
+  "state": "NC",
+  "city": "Elizabeth City",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.7049,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 3412,
+    "tuition_out_of_state": 7412,
+    "room_board": 9079,
+    "total_cost_in_state": 14491,
+    "total_cost_out_of_state": 18491,
+    "net_price": {
+      "0_30k": 4342,
+      "30_48k": 5202,
+      "48_75k": 8929,
+      "75_110k": 14182,
+      "110k_plus": 15821
+    },
+    "pell_rate": 0.5253,
+    "federal_loan_rate": 0.5332,
+    "enrollment": 1863
+  },
+  "cds": null,
+  "reference": null
+}

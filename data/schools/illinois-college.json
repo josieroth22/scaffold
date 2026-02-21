@@ -1,0 +1,36 @@
+{
+  "slug": "illinois-college",
+  "name": "Illinois College",
+  "ipeds_id": 145691,
+  "state": "IL",
+  "city": "Jacksonville",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.7467,
+    "sat_reading_25": 490,
+    "sat_reading_75": 583,
+    "sat_math_25": 488,
+    "sat_math_75": 600,
+    "act_25": 19,
+    "act_75": 25,
+    "tuition_in_state": 37470,
+    "tuition_out_of_state": 37470,
+    "room_board": 10264,
+    "total_cost_in_state": 49734,
+    "total_cost_out_of_state": 49734,
+    "net_price": {
+      "0_30k": 11197,
+      "30_48k": 11627,
+      "48_75k": 14241,
+      "75_110k": 18505,
+      "110k_plus": 23362
+    },
+    "pell_rate": 0.3512,
+    "federal_loan_rate": 0.8531,
+    "enrollment": 925
+  },
+  "cds": null,
+  "reference": null
+}

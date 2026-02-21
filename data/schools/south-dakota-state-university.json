@@ -1,0 +1,36 @@
+{
+  "slug": "south-dakota-state-university",
+  "name": "South Dakota State University",
+  "ipeds_id": 219356,
+  "state": "SD",
+  "city": "Brookings",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.9871,
+    "sat_reading_25": 520,
+    "sat_reading_75": 640,
+    "sat_math_25": 520,
+    "sat_math_75": 660,
+    "act_25": 19,
+    "act_75": 26,
+    "tuition_in_state": 9299,
+    "tuition_out_of_state": 12809,
+    "room_board": 9562,
+    "total_cost_in_state": 20861,
+    "total_cost_out_of_state": 24371,
+    "net_price": {
+      "0_30k": 12517,
+      "30_48k": 14297,
+      "48_75k": 17811,
+      "75_110k": 19424,
+      "110k_plus": 20048
+    },
+    "pell_rate": 0.161,
+    "federal_loan_rate": 0.4578,
+    "enrollment": 8798
+  },
+  "cds": null,
+  "reference": null
+}

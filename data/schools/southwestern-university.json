@@ -1,0 +1,36 @@
+{
+  "slug": "southwestern-university",
+  "name": "Southwestern University",
+  "ipeds_id": 228343,
+  "state": "TX",
+  "city": "Georgetown",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.3907,
+    "sat_reading_25": 600,
+    "sat_reading_75": 690,
+    "sat_math_25": 570,
+    "sat_math_75": 650,
+    "act_25": 24,
+    "act_75": 30,
+    "tuition_in_state": 51058,
+    "tuition_out_of_state": 51058,
+    "room_board": 13628,
+    "total_cost_in_state": 66686,
+    "total_cost_out_of_state": 66686,
+    "net_price": {
+      "0_30k": 18791,
+      "30_48k": 21567,
+      "48_75k": 24800,
+      "75_110k": 27434,
+      "110k_plus": 33832
+    },
+    "pell_rate": 0.2313,
+    "federal_loan_rate": 0.4302,
+    "enrollment": 1454
+  },
+  "cds": null,
+  "reference": null
+}

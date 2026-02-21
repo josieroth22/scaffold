@@ -1,0 +1,36 @@
+{
+  "slug": "mercy-college-of-ohio",
+  "name": "Mercy College of Ohio",
+  "ipeds_id": 203960,
+  "state": "OH",
+  "city": "Toledo",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.4276,
+    "sat_reading_25": 420,
+    "sat_reading_75": 570,
+    "sat_math_25": 430,
+    "sat_math_75": 500,
+    "act_25": 15,
+    "act_75": 22,
+    "tuition_in_state": 18950,
+    "tuition_out_of_state": 18950,
+    "room_board": null,
+    "total_cost_in_state": 26491,
+    "total_cost_out_of_state": null,
+    "net_price": {
+      "0_30k": 14821,
+      "30_48k": null,
+      "48_75k": 15609,
+      "75_110k": 14767,
+      "110k_plus": 17382
+    },
+    "pell_rate": 0.3643,
+    "federal_loan_rate": 0.6893,
+    "enrollment": 982
+  },
+  "cds": null,
+  "reference": null
+}

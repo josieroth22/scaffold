@@ -1,0 +1,36 @@
+{
+  "slug": "university-of-maine-at-presque-isle",
+  "name": "University of Maine at Presque Isle",
+  "ipeds_id": 161341,
+  "state": "ME",
+  "city": "Presque Isle",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.9709,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 8990,
+    "tuition_out_of_state": 14270,
+    "room_board": 10300,
+    "total_cost_in_state": 21290,
+    "total_cost_out_of_state": 26570,
+    "net_price": {
+      "0_30k": 7458,
+      "30_48k": 7343,
+      "48_75k": 9953,
+      "75_110k": 14420,
+      "110k_plus": 14409
+    },
+    "pell_rate": 0.2559,
+    "federal_loan_rate": 0.2537,
+    "enrollment": 1362
+  },
+  "cds": null,
+  "reference": null
+}

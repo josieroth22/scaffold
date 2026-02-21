@@ -1,0 +1,36 @@
+{
+  "slug": "california-state-university-los-angeles",
+  "name": "California State University-Los Angeles",
+  "ipeds_id": 110592,
+  "state": "CA",
+  "city": "Los Angeles",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.9193,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 6813,
+    "tuition_out_of_state": 18698,
+    "room_board": 18658,
+    "total_cost_in_state": 27471,
+    "total_cost_out_of_state": 39356,
+    "net_price": {
+      "0_30k": 2855,
+      "30_48k": 3231,
+      "48_75k": 5373,
+      "75_110k": 8813,
+      "110k_plus": 14599
+    },
+    "pell_rate": 0.6605,
+    "federal_loan_rate": 0.204,
+    "enrollment": 21478
+  },
+  "cds": null,
+  "reference": null
+}

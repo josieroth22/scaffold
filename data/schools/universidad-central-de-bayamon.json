@@ -1,0 +1,36 @@
+{
+  "slug": "universidad-central-de-bayamon",
+  "name": "Universidad Central de Bayamon",
+  "ipeds_id": 241225,
+  "state": "PR",
+  "city": "Bayamón",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.8636,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 5986,
+    "tuition_out_of_state": 5986,
+    "room_board": 5962,
+    "total_cost_in_state": 13948,
+    "total_cost_out_of_state": 13948,
+    "net_price": {
+      "0_30k": 3492,
+      "30_48k": 4079,
+      "48_75k": 7215,
+      "75_110k": 9174,
+      "110k_plus": 10164
+    },
+    "pell_rate": 0.8331,
+    "federal_loan_rate": 0.1538,
+    "enrollment": 594
+  },
+  "cds": null,
+  "reference": null
+}

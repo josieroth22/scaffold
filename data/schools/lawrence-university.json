@@ -1,0 +1,43 @@
+{
+  "slug": "lawrence-university",
+  "name": "Lawrence University",
+  "ipeds_id": 239017,
+  "state": "WI",
+  "city": "Appleton",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.6303,
+    "sat_reading_25": 600,
+    "sat_reading_75": 720,
+    "sat_math_25": 600,
+    "sat_math_75": 710,
+    "act_25": 27,
+    "act_75": 32,
+    "tuition_in_state": 55461,
+    "tuition_out_of_state": 55461,
+    "room_board": 11838,
+    "total_cost_in_state": 69299,
+    "total_cost_out_of_state": 69299,
+    "net_price": {
+      "0_30k": 12025,
+      "30_48k": 14498,
+      "48_75k": 17215,
+      "75_110k": 22712,
+      "110k_plus": 32492
+    },
+    "pell_rate": 0.2076,
+    "federal_loan_rate": 0.5989,
+    "enrollment": 1394
+  },
+  "cds": null,
+  "reference": {
+    "national_merit": {
+      "semifinalist_award": "None",
+      "finalist_award": "$2,000",
+      "first_choice_required": true,
+      "guaranteed": false
+    }
+  }
+}

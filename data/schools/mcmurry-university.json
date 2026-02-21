@@ -1,0 +1,36 @@
+{
+  "slug": "mcmurry-university",
+  "name": "McMurry University",
+  "ipeds_id": 226587,
+  "state": "TX",
+  "city": "Abilene",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.5765,
+    "sat_reading_25": 500,
+    "sat_reading_75": 580,
+    "sat_math_25": 510,
+    "sat_math_75": 590,
+    "act_25": 18,
+    "act_75": 25,
+    "tuition_in_state": 31372,
+    "tuition_out_of_state": 31372,
+    "room_board": 9788,
+    "total_cost_in_state": 43160,
+    "total_cost_out_of_state": 43160,
+    "net_price": {
+      "0_30k": 14614,
+      "30_48k": 15608,
+      "48_75k": 18512,
+      "75_110k": 23689,
+      "110k_plus": 28964
+    },
+    "pell_rate": 0.4492,
+    "federal_loan_rate": 0.6044,
+    "enrollment": 1108
+  },
+  "cds": null,
+  "reference": null
+}

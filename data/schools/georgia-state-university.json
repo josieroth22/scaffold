@@ -1,0 +1,36 @@
+{
+  "slug": "georgia-state-university",
+  "name": "Georgia State University",
+  "ipeds_id": 139940,
+  "state": "GA",
+  "city": "Atlanta",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.6228,
+    "sat_reading_25": 530,
+    "sat_reading_75": 640,
+    "sat_math_25": 510,
+    "sat_math_75": 640,
+    "act_25": 19,
+    "act_75": 26,
+    "tuition_in_state": 8478,
+    "tuition_out_of_state": 23709,
+    "room_board": 16328,
+    "total_cost_in_state": 26806,
+    "total_cost_out_of_state": 42037,
+    "net_price": {
+      "0_30k": 13552,
+      "30_48k": 14546,
+      "48_75k": 17219,
+      "75_110k": 19421,
+      "110k_plus": 20338
+    },
+    "pell_rate": 0.5011,
+    "federal_loan_rate": 0.4147,
+    "enrollment": 27109
+  },
+  "cds": null,
+  "reference": null
+}

@@ -1,0 +1,36 @@
+{
+  "slug": "dalton-state-college",
+  "name": "Dalton State College",
+  "ipeds_id": 139463,
+  "state": "GA",
+  "city": "Dalton",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": null,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 3283,
+    "tuition_out_of_state": 10189,
+    "room_board": 10128,
+    "total_cost_in_state": 15411,
+    "total_cost_out_of_state": 22317,
+    "net_price": {
+      "0_30k": 3109,
+      "30_48k": 3616,
+      "48_75k": 6260,
+      "75_110k": 8079,
+      "110k_plus": 9924
+    },
+    "pell_rate": 0.4977,
+    "federal_loan_rate": 0.1497,
+    "enrollment": 4419
+  },
+  "cds": null,
+  "reference": null
+}

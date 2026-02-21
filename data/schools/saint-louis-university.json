@@ -1,0 +1,36 @@
+{
+  "slug": "saint-louis-university",
+  "name": "Saint Louis University",
+  "ipeds_id": 179159,
+  "state": "MO",
+  "city": "Saint Louis",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.8147,
+    "sat_reading_25": 610,
+    "sat_reading_75": 710,
+    "sat_math_25": 600,
+    "sat_math_75": 720,
+    "act_25": 26,
+    "act_75": 31,
+    "tuition_in_state": 53244,
+    "tuition_out_of_state": 53244,
+    "room_board": 14570,
+    "total_cost_in_state": 69814,
+    "total_cost_out_of_state": 69814,
+    "net_price": {
+      "0_30k": 20869,
+      "30_48k": 20738,
+      "48_75k": 22950,
+      "75_110k": 26695,
+      "110k_plus": 33177
+    },
+    "pell_rate": 0.1537,
+    "federal_loan_rate": 0.3183,
+    "enrollment": 7324
+  },
+  "cds": null,
+  "reference": null
+}

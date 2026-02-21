@@ -1,0 +1,36 @@
+{
+  "slug": "the-university-of-texas-at-san-antonio",
+  "name": "The University of Texas at San Antonio",
+  "ipeds_id": 229027,
+  "state": "TX",
+  "city": "San Antonio",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.8846,
+    "sat_reading_25": 510,
+    "sat_reading_75": 610,
+    "sat_math_25": 490,
+    "sat_math_75": 590,
+    "act_25": 19,
+    "act_75": 26,
+    "tuition_in_state": 8991,
+    "tuition_out_of_state": 21965,
+    "room_board": 11843,
+    "total_cost_in_state": 22834,
+    "total_cost_out_of_state": 35808,
+    "net_price": {
+      "0_30k": 7802,
+      "30_48k": 7976,
+      "48_75k": 9699,
+      "75_110k": 15948,
+      "110k_plus": 19758
+    },
+    "pell_rate": 0.4225,
+    "federal_loan_rate": 0.4257,
+    "enrollment": 29675
+  },
+  "cds": null,
+  "reference": null
+}

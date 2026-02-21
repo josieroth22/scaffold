@@ -1,0 +1,36 @@
+{
+  "slug": "nelson-university",
+  "name": "Nelson University",
+  "ipeds_id": 228325,
+  "state": "TX",
+  "city": "Waxahachie",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.8423,
+    "sat_reading_25": 463,
+    "sat_reading_75": 560,
+    "sat_math_25": 463,
+    "sat_math_75": 550,
+    "act_25": 17,
+    "act_75": 22,
+    "tuition_in_state": 18610,
+    "tuition_out_of_state": 18610,
+    "room_board": 9050,
+    "total_cost_in_state": 29660,
+    "total_cost_out_of_state": 29660,
+    "net_price": {
+      "0_30k": 16990,
+      "30_48k": 17898,
+      "48_75k": 19915,
+      "75_110k": 21796,
+      "110k_plus": 22351
+    },
+    "pell_rate": 0.495,
+    "federal_loan_rate": 0.6372,
+    "enrollment": 1366
+  },
+  "cds": null,
+  "reference": null
+}

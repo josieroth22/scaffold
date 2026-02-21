@@ -1,0 +1,36 @@
+{
+  "slug": "reinhardt-university",
+  "name": "Reinhardt University",
+  "ipeds_id": 140872,
+  "state": "GA",
+  "city": "Waleska",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.5516,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 28420,
+    "tuition_out_of_state": 28420,
+    "room_board": 12950,
+    "total_cost_in_state": 43370,
+    "total_cost_out_of_state": 43370,
+    "net_price": {
+      "0_30k": 24424,
+      "30_48k": 27030,
+      "48_75k": 27952,
+      "75_110k": 30689,
+      "110k_plus": 30105
+    },
+    "pell_rate": 0.3909,
+    "federal_loan_rate": 0.5826,
+    "enrollment": 1012
+  },
+  "cds": null,
+  "reference": null
+}

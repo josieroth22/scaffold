@@ -1,0 +1,45 @@
+{
+  "slug": "central-michigan-university",
+  "name": "Central Michigan University",
+  "ipeds_id": 169248,
+  "state": "MI",
+  "city": "Mount Pleasant",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.9101,
+    "sat_reading_25": 490,
+    "sat_reading_75": 620,
+    "sat_math_25": 470,
+    "sat_math_75": 590,
+    "act_25": 21,
+    "act_75": 27,
+    "tuition_in_state": 14190,
+    "tuition_out_of_state": 14190,
+    "room_board": 12178,
+    "total_cost_in_state": 28368,
+    "total_cost_out_of_state": 28368,
+    "net_price": {
+      "0_30k": 12672,
+      "30_48k": 11638,
+      "48_75k": 14182,
+      "75_110k": 17215,
+      "110k_plus": 18780
+    },
+    "pell_rate": 0.3064,
+    "federal_loan_rate": 0.6786,
+    "enrollment": 9916
+  },
+  "cds": null,
+  "reference": {
+    "honors_program": {
+      "name": "LSA Honors Program",
+      "description": "Michigan's LSA Honors Program is a four-year program that provides an especially rich and challenging set of academic offerings to talented and highly motivated students in the College of Literature, Science, and the Arts. Through Honors courses, research with faculty, and a vigorous intellectual community, this highly-ranked program enables students to identify and pursue their intellectual interests.",
+      "separate_application": null,
+      "avg_sat": null,
+      "acceptance_rate": null,
+      "size": 1400
+    }
+  }
+}

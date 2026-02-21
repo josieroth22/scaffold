@@ -1,0 +1,36 @@
+{
+  "slug": "hiram-college",
+  "name": "Hiram College",
+  "ipeds_id": 203128,
+  "state": "OH",
+  "city": "Hiram",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.9339,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 26265,
+    "tuition_out_of_state": 26265,
+    "room_board": 11560,
+    "total_cost_in_state": 39825,
+    "total_cost_out_of_state": 39825,
+    "net_price": {
+      "0_30k": 17197,
+      "30_48k": 15280,
+      "48_75k": 19558,
+      "75_110k": 23700,
+      "110k_plus": 25313
+    },
+    "pell_rate": 0.3194,
+    "federal_loan_rate": 0.5459,
+    "enrollment": 731
+  },
+  "cds": null,
+  "reference": null
+}

@@ -1,0 +1,36 @@
+{
+  "slug": "plymouth-state-university",
+  "name": "Plymouth State University",
+  "ipeds_id": 183080,
+  "state": "NH",
+  "city": "Plymouth",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.9103,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 14558,
+    "tuition_out_of_state": 25498,
+    "room_board": 12104,
+    "total_cost_in_state": 28662,
+    "total_cost_out_of_state": 39602,
+    "net_price": {
+      "0_30k": 14051,
+      "30_48k": 15343,
+      "48_75k": 18415,
+      "75_110k": 21660,
+      "110k_plus": 23617
+    },
+    "pell_rate": 0.2563,
+    "federal_loan_rate": 0.7291,
+    "enrollment": 3298
+  },
+  "cds": null,
+  "reference": null
+}

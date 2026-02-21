@@ -1,0 +1,36 @@
+{
+  "slug": "university-of-central-oklahoma",
+  "name": "University of Central Oklahoma",
+  "ipeds_id": 206941,
+  "state": "OK",
+  "city": "Edmond",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.8176,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": 17,
+    "act_75": 24,
+    "tuition_in_state": 8522,
+    "tuition_out_of_state": 19409,
+    "room_board": 8886,
+    "total_cost_in_state": 19408,
+    "total_cost_out_of_state": 30295,
+    "net_price": {
+      "0_30k": 16012,
+      "30_48k": 16695,
+      "48_75k": 20039,
+      "75_110k": 23781,
+      "110k_plus": 24282
+    },
+    "pell_rate": 0.3546,
+    "federal_loan_rate": 0.348,
+    "enrollment": 10132
+  },
+  "cds": null,
+  "reference": null
+}

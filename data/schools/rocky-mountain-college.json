@@ -1,0 +1,36 @@
+{
+  "slug": "rocky-mountain-college",
+  "name": "Rocky Mountain College",
+  "ipeds_id": 180595,
+  "state": "MT",
+  "city": "Billings",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.7288,
+    "sat_reading_25": 520,
+    "sat_reading_75": 620,
+    "sat_math_25": 470,
+    "sat_math_75": 620,
+    "act_25": 19,
+    "act_75": 24,
+    "tuition_in_state": 33252,
+    "tuition_out_of_state": 33252,
+    "room_board": 9576,
+    "total_cost_in_state": 44828,
+    "total_cost_out_of_state": 44828,
+    "net_price": {
+      "0_30k": 15604,
+      "30_48k": 15016,
+      "48_75k": 15553,
+      "75_110k": 16833,
+      "110k_plus": 23838
+    },
+    "pell_rate": 0.3172,
+    "federal_loan_rate": 0.5633,
+    "enrollment": 790
+  },
+  "cds": null,
+  "reference": null
+}

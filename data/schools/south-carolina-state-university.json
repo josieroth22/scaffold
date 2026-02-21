@@ -1,0 +1,36 @@
+{
+  "slug": "south-carolina-state-university",
+  "name": "South Carolina State University",
+  "ipeds_id": 218733,
+  "state": "SC",
+  "city": "Orangeburg",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.8173,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 11060,
+    "tuition_out_of_state": 21750,
+    "room_board": 9000,
+    "total_cost_in_state": 22060,
+    "total_cost_out_of_state": 32750,
+    "net_price": {
+      "0_30k": 17089,
+      "30_48k": 17509,
+      "48_75k": 19611,
+      "75_110k": 24555,
+      "110k_plus": 25130
+    },
+    "pell_rate": 0.6849,
+    "federal_loan_rate": 0.6584,
+    "enrollment": 2757
+  },
+  "cds": null,
+  "reference": null
+}

@@ -1,0 +1,36 @@
+{
+  "slug": "university-of-north-carolina-school-of-the-arts",
+  "name": "University of North Carolina School of the Arts",
+  "ipeds_id": 199184,
+  "state": "NC",
+  "city": "Winston Salem",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.331,
+    "sat_reading_25": 600,
+    "sat_reading_75": 710,
+    "sat_math_25": 550,
+    "sat_math_75": 640,
+    "act_25": 24,
+    "act_75": 27,
+    "tuition_in_state": 9477,
+    "tuition_out_of_state": 27211,
+    "room_board": 13410,
+    "total_cost_in_state": 24887,
+    "total_cost_out_of_state": 42621,
+    "net_price": {
+      "0_30k": 4932,
+      "30_48k": 6698,
+      "48_75k": 10547,
+      "75_110k": 21768,
+      "110k_plus": 24061
+    },
+    "pell_rate": 0.2478,
+    "federal_loan_rate": 0.4663,
+    "enrollment": 902
+  },
+  "cds": null,
+  "reference": null
+}

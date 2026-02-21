@@ -1,0 +1,36 @@
+{
+  "slug": "fairleigh-dickinson-university-florham-campus",
+  "name": "Fairleigh Dickinson University-Florham Campus",
+  "ipeds_id": 184694,
+  "state": "NJ",
+  "city": "Madison",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.9527,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 35822,
+    "tuition_out_of_state": 35822,
+    "room_board": 16102,
+    "total_cost_in_state": 53924,
+    "total_cost_out_of_state": 53924,
+    "net_price": {
+      "0_30k": 13308,
+      "30_48k": 17253,
+      "48_75k": 24146,
+      "75_110k": 29164,
+      "110k_plus": 33996
+    },
+    "pell_rate": 0.3492,
+    "federal_loan_rate": 0.5728,
+    "enrollment": 1958
+  },
+  "cds": null,
+  "reference": null
+}

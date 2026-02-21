@@ -1,0 +1,36 @@
+{
+  "slug": "samuel-merritt-university",
+  "name": "Samuel Merritt University",
+  "ipeds_id": 122296,
+  "state": "CA",
+  "city": "Oakland",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": null,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": null,
+    "tuition_out_of_state": null,
+    "room_board": null,
+    "total_cost_in_state": null,
+    "total_cost_out_of_state": null,
+    "net_price": {
+      "0_30k": null,
+      "30_48k": null,
+      "48_75k": null,
+      "75_110k": null,
+      "110k_plus": null
+    },
+    "pell_rate": 0.1776,
+    "federal_loan_rate": 0.6435,
+    "enrollment": 712
+  },
+  "cds": null,
+  "reference": null
+}

@@ -1,0 +1,36 @@
+{
+  "slug": "inter-american-university-of-puerto-rico-guayama",
+  "name": "Inter American University of Puerto Rico-Guayama",
+  "ipeds_id": 242699,
+  "state": "PR",
+  "city": "Guayama",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.485,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 5580,
+    "tuition_out_of_state": 5580,
+    "room_board": null,
+    "total_cost_in_state": 15791,
+    "total_cost_out_of_state": null,
+    "net_price": {
+      "0_30k": 8612,
+      "30_48k": 9498,
+      "48_75k": 11967,
+      "75_110k": null,
+      "110k_plus": null
+    },
+    "pell_rate": 0.752,
+    "federal_loan_rate": 0.2648,
+    "enrollment": 1661
+  },
+  "cds": null,
+  "reference": null
+}

@@ -1,0 +1,36 @@
+{
+  "slug": "hilbert-college",
+  "name": "Hilbert College",
+  "ipeds_id": 191621,
+  "state": "NY",
+  "city": "Hamburg",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.9802,
+    "sat_reading_25": 410,
+    "sat_reading_75": 550,
+    "sat_math_25": 570,
+    "sat_math_75": 630,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 32150,
+    "tuition_out_of_state": 32150,
+    "room_board": 14200,
+    "total_cost_in_state": 48350,
+    "total_cost_out_of_state": 48350,
+    "net_price": {
+      "0_30k": 18835,
+      "30_48k": 23593,
+      "48_75k": 23756,
+      "75_110k": 23610,
+      "110k_plus": 23655
+    },
+    "pell_rate": 0.4376,
+    "federal_loan_rate": 0.7224,
+    "enrollment": 922
+  },
+  "cds": null,
+  "reference": null
+}

@@ -1,0 +1,36 @@
+{
+  "slug": "suny-old-westbury",
+  "name": "SUNY Old Westbury",
+  "ipeds_id": 196237,
+  "state": "NY",
+  "city": "Old Westbury",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.8458,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 8379,
+    "tuition_out_of_state": 18289,
+    "room_board": 13440,
+    "total_cost_in_state": 23819,
+    "total_cost_out_of_state": 33729,
+    "net_price": {
+      "0_30k": 5890,
+      "30_48k": 8149,
+      "48_75k": 13294,
+      "75_110k": 14835,
+      "110k_plus": 18451
+    },
+    "pell_rate": 0.4738,
+    "federal_loan_rate": 0.2966,
+    "enrollment": 3945
+  },
+  "cds": null,
+  "reference": null
+}

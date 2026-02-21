@@ -1,0 +1,36 @@
+{
+  "slug": "north-park-university",
+  "name": "North Park University",
+  "ipeds_id": 147679,
+  "state": "IL",
+  "city": "Chicago",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.7284,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 35325,
+    "tuition_out_of_state": 35325,
+    "room_board": 10775,
+    "total_cost_in_state": 48100,
+    "total_cost_out_of_state": 48100,
+    "net_price": {
+      "0_30k": 17309,
+      "30_48k": 15518,
+      "48_75k": 17712,
+      "75_110k": 18776,
+      "110k_plus": 23154
+    },
+    "pell_rate": 0.432,
+    "federal_loan_rate": 0.5373,
+    "enrollment": 1844
+  },
+  "cds": null,
+  "reference": null
+}

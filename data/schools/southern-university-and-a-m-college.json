@@ -1,0 +1,36 @@
+{
+  "slug": "southern-university-and-a-m-college",
+  "name": "Southern University and A & M College",
+  "ipeds_id": 160621,
+  "state": "LA",
+  "city": "Baton Rouge",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.4987,
+    "sat_reading_25": 418,
+    "sat_reading_75": 510,
+    "sat_math_25": 380,
+    "sat_math_75": 490,
+    "act_25": 15,
+    "act_75": 19,
+    "tuition_in_state": 9940,
+    "tuition_out_of_state": 17198,
+    "room_board": 9366,
+    "total_cost_in_state": 21306,
+    "total_cost_out_of_state": 28564,
+    "net_price": {
+      "0_30k": 18473,
+      "30_48k": 19314,
+      "48_75k": 21614,
+      "75_110k": 23583,
+      "110k_plus": 23940
+    },
+    "pell_rate": 0.6458,
+    "federal_loan_rate": 0.701,
+    "enrollment": 5323
+  },
+  "cds": null,
+  "reference": null
+}

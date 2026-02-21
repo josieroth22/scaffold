@@ -1,0 +1,36 @@
+{
+  "slug": "new-jersey-city-university",
+  "name": "New Jersey City University",
+  "ipeds_id": 185129,
+  "state": "NJ",
+  "city": "Jersey City",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.8918,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 13971,
+    "tuition_out_of_state": 24888,
+    "room_board": 16274,
+    "total_cost_in_state": 32245,
+    "total_cost_out_of_state": 43162,
+    "net_price": {
+      "0_30k": 10254,
+      "30_48k": 10051,
+      "48_75k": 13160,
+      "75_110k": 15986,
+      "110k_plus": 17431
+    },
+    "pell_rate": 0.5238,
+    "federal_loan_rate": 0.3236,
+    "enrollment": 4076
+  },
+  "cds": null,
+  "reference": null
+}

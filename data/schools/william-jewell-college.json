@@ -1,0 +1,36 @@
+{
+  "slug": "william-jewell-college",
+  "name": "William Jewell College",
+  "ipeds_id": 179955,
+  "state": "MO",
+  "city": "Liberty",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.3429,
+    "sat_reading_25": 490,
+    "sat_reading_75": 570,
+    "sat_math_25": 470,
+    "sat_math_75": 550,
+    "act_25": 19,
+    "act_75": 25,
+    "tuition_in_state": 19890,
+    "tuition_out_of_state": 19890,
+    "room_board": 11381,
+    "total_cost_in_state": 33271,
+    "total_cost_out_of_state": 33271,
+    "net_price": {
+      "0_30k": 9227,
+      "30_48k": 7862,
+      "48_75k": 11954,
+      "75_110k": 17573,
+      "110k_plus": 23742
+    },
+    "pell_rate": 0.2791,
+    "federal_loan_rate": 0.7985,
+    "enrollment": 868
+  },
+  "cds": null,
+  "reference": null
+}

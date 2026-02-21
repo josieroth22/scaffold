@@ -1,0 +1,36 @@
+{
+  "slug": "siena-college",
+  "name": "Siena College",
+  "ipeds_id": 195474,
+  "state": "NY",
+  "city": "Loudonville",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.7057,
+    "sat_reading_25": 540,
+    "sat_reading_75": 680,
+    "sat_math_25": 553,
+    "sat_math_75": 680,
+    "act_25": 26,
+    "act_75": 29,
+    "tuition_in_state": 44405,
+    "tuition_out_of_state": 44405,
+    "room_board": 16700,
+    "total_cost_in_state": 63105,
+    "total_cost_out_of_state": 63105,
+    "net_price": {
+      "0_30k": 25588,
+      "30_48k": 26414,
+      "48_75k": 28940,
+      "75_110k": 32700,
+      "110k_plus": 37049
+    },
+    "pell_rate": 0.2335,
+    "federal_loan_rate": 0.6692,
+    "enrollment": 3447
+  },
+  "cds": null,
+  "reference": null
+}

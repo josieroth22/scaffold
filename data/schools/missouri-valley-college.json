@@ -1,0 +1,36 @@
+{
+  "slug": "missouri-valley-college",
+  "name": "Missouri Valley College",
+  "ipeds_id": 178369,
+  "state": "MO",
+  "city": "Marshall",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.5269,
+    "sat_reading_25": 450,
+    "sat_reading_75": 560,
+    "sat_math_25": 470,
+    "sat_math_75": 580,
+    "act_25": 16,
+    "act_75": 22,
+    "tuition_in_state": 23000,
+    "tuition_out_of_state": 23000,
+    "room_board": 10500,
+    "total_cost_in_state": 35500,
+    "total_cost_out_of_state": 35500,
+    "net_price": {
+      "0_30k": 15550,
+      "30_48k": 17802,
+      "48_75k": 17712,
+      "75_110k": 21033,
+      "110k_plus": 20044
+    },
+    "pell_rate": 0.2991,
+    "federal_loan_rate": 0.4111,
+    "enrollment": 1274
+  },
+  "cds": null,
+  "reference": null
+}

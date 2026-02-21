@@ -1,0 +1,36 @@
+{
+  "slug": "elmhurst-university",
+  "name": "Elmhurst University",
+  "ipeds_id": 144962,
+  "state": "IL",
+  "city": "Elmhurst",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.7574,
+    "sat_reading_25": 480,
+    "sat_reading_75": 610,
+    "sat_math_25": 480,
+    "sat_math_75": 600,
+    "act_25": 23,
+    "act_75": 28,
+    "tuition_in_state": 41628,
+    "tuition_out_of_state": 41628,
+    "room_board": 11858,
+    "total_cost_in_state": 55486,
+    "total_cost_out_of_state": 55486,
+    "net_price": {
+      "0_30k": 14641,
+      "30_48k": 15866,
+      "48_75k": 20115,
+      "75_110k": 24551,
+      "110k_plus": 28795
+    },
+    "pell_rate": 0.368,
+    "federal_loan_rate": 0.5084,
+    "enrollment": 2954
+  },
+  "cds": null,
+  "reference": null
+}

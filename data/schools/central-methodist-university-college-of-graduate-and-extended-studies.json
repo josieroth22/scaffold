@@ -1,0 +1,36 @@
+{
+  "slug": "central-methodist-university-college-of-graduate-and-extended-studies",
+  "name": "Central Methodist University-College of Graduate and Extended Studies",
+  "ipeds_id": 445267,
+  "state": "MO",
+  "city": "Fayette",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.8714,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 6960,
+    "tuition_out_of_state": 6960,
+    "room_board": null,
+    "total_cost_in_state": 20195,
+    "total_cost_out_of_state": null,
+    "net_price": {
+      "0_30k": 15013,
+      "30_48k": 14057,
+      "48_75k": null,
+      "75_110k": null,
+      "110k_plus": null
+    },
+    "pell_rate": 0.2678,
+    "federal_loan_rate": 0.2457,
+    "enrollment": 1807
+  },
+  "cds": null,
+  "reference": null
+}

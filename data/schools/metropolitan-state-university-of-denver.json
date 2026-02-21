@@ -1,0 +1,36 @@
+{
+  "slug": "metropolitan-state-university-of-denver",
+  "name": "Metropolitan State University of Denver",
+  "ipeds_id": 127565,
+  "state": "CO",
+  "city": "Denver",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.9914,
+    "sat_reading_25": 450,
+    "sat_reading_75": 570,
+    "sat_math_25": 430,
+    "sat_math_75": 540,
+    "act_25": 17,
+    "act_75": 23,
+    "tuition_in_state": 10780,
+    "tuition_out_of_state": 29503,
+    "room_board": null,
+    "total_cost_in_state": 22825,
+    "total_cost_out_of_state": null,
+    "net_price": {
+      "0_30k": 12364,
+      "30_48k": 12005,
+      "48_75k": 13276,
+      "75_110k": 19263,
+      "110k_plus": 21812
+    },
+    "pell_rate": 0.3508,
+    "federal_loan_rate": 0.2964,
+    "enrollment": 14932
+  },
+  "cds": null,
+  "reference": null
+}

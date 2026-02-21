@@ -1,0 +1,36 @@
+{
+  "slug": "university-of-charleston",
+  "name": "University of Charleston",
+  "ipeds_id": 237312,
+  "state": "WV",
+  "city": "Charleston",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.6453,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 32842,
+    "tuition_out_of_state": 32842,
+    "room_board": 11162,
+    "total_cost_in_state": 46004,
+    "total_cost_out_of_state": 46004,
+    "net_price": {
+      "0_30k": 20938,
+      "30_48k": 21646,
+      "48_75k": 21133,
+      "75_110k": 22526,
+      "110k_plus": 23451
+    },
+    "pell_rate": 0.2863,
+    "federal_loan_rate": 0.3374,
+    "enrollment": 2083
+  },
+  "cds": null,
+  "reference": null
+}

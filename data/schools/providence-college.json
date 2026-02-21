@@ -1,0 +1,36 @@
+{
+  "slug": "providence-college",
+  "name": "Providence College",
+  "ipeds_id": 217402,
+  "state": "RI",
+  "city": "Providence",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.4872,
+    "sat_reading_25": 630,
+    "sat_reading_75": 700,
+    "sat_math_25": 620,
+    "sat_math_75": 700,
+    "act_25": 28,
+    "act_75": 32,
+    "tuition_in_state": 60848,
+    "tuition_out_of_state": 60848,
+    "room_board": 17150,
+    "total_cost_in_state": 79998,
+    "total_cost_out_of_state": 79998,
+    "net_price": {
+      "0_30k": 26070,
+      "30_48k": 23408,
+      "48_75k": 24086,
+      "75_110k": 33480,
+      "110k_plus": 53195
+    },
+    "pell_rate": 0.1324,
+    "federal_loan_rate": 0.5511,
+    "enrollment": 4170
+  },
+  "cds": null,
+  "reference": null
+}

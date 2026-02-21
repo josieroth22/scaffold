@@ -1,0 +1,36 @@
+{
+  "slug": "liberty-university",
+  "name": "Liberty University",
+  "ipeds_id": 232557,
+  "state": "VA",
+  "city": "Lynchburg",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.9932,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 21222,
+    "tuition_out_of_state": 21222,
+    "room_board": 12919,
+    "total_cost_in_state": 36141,
+    "total_cost_out_of_state": 36141,
+    "net_price": {
+      "0_30k": 30504,
+      "30_48k": 28423,
+      "48_75k": 26312,
+      "75_110k": 28290,
+      "110k_plus": 31028
+    },
+    "pell_rate": 0.3908,
+    "federal_loan_rate": 0.4902,
+    "enrollment": 50059
+  },
+  "cds": null,
+  "reference": null
+}

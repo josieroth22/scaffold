@@ -1,0 +1,36 @@
+{
+  "slug": "marywood-university",
+  "name": "Marywood University",
+  "ipeds_id": 213826,
+  "state": "PA",
+  "city": "Scranton",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.8371,
+    "sat_reading_25": 530,
+    "sat_reading_75": 640,
+    "sat_math_25": 520,
+    "sat_math_75": 600,
+    "act_25": 21,
+    "act_75": 26,
+    "tuition_in_state": 39570,
+    "tuition_out_of_state": 39570,
+    "room_board": 15100,
+    "total_cost_in_state": 56670,
+    "total_cost_out_of_state": 56670,
+    "net_price": {
+      "0_30k": 19389,
+      "30_48k": 20321,
+      "48_75k": 18927,
+      "75_110k": 23640,
+      "110k_plus": 26569
+    },
+    "pell_rate": 0.2919,
+    "federal_loan_rate": 0.7824,
+    "enrollment": 1821
+  },
+  "cds": null,
+  "reference": null
+}

@@ -1,0 +1,36 @@
+{
+  "slug": "mcdaniel-college",
+  "name": "McDaniel College",
+  "ipeds_id": 164270,
+  "state": "MD",
+  "city": "Westminster",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.8358,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 49647,
+    "tuition_out_of_state": 49647,
+    "room_board": 12594,
+    "total_cost_in_state": 64241,
+    "total_cost_out_of_state": 64241,
+    "net_price": {
+      "0_30k": 11334,
+      "30_48k": 14397,
+      "48_75k": 19417,
+      "75_110k": 22293,
+      "110k_plus": 27501
+    },
+    "pell_rate": 0.3381,
+    "federal_loan_rate": 0.6127,
+    "enrollment": 1652
+  },
+  "cds": null,
+  "reference": null
+}

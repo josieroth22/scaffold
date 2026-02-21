@@ -1,0 +1,38 @@
+{
+  "slug": "savannah-college-of-art-and-design",
+  "name": "Savannah College of Art and Design",
+  "api_name": "Savannah College of Art and Design",
+  "ipeds_id": 140951,
+  "state": "GA",
+  "city": "Savannah",
+  "type": "private",
+  "tier": "C",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.8368,
+    "sat_reading_25": 550,
+    "sat_reading_75": 670,
+    "sat_math_25": 500,
+    "sat_math_75": 610,
+    "act_25": 21,
+    "act_75": 28,
+    "tuition_in_state": 40595,
+    "tuition_out_of_state": 40595,
+    "room_board": 17493,
+    "total_cost_in_state": 60088,
+    "total_cost_out_of_state": 60088,
+    "net_price": {
+      "0_30k": 41693,
+      "30_48k": 42451,
+      "48_75k": 45149,
+      "75_110k": 47652,
+      "110k_plus": 47565
+    },
+    "pell_rate": 0.1854,
+    "federal_loan_rate": 0.3456,
+    "enrollment": 14423
+  },
+  "cds": null,
+  "reference": null
+}

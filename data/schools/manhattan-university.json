@@ -1,0 +1,36 @@
+{
+  "slug": "manhattan-university",
+  "name": "Manhattan University",
+  "ipeds_id": 192703,
+  "state": "NY",
+  "city": "Riverdale",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.7849,
+    "sat_reading_25": 570,
+    "sat_reading_75": 670,
+    "sat_math_25": 580,
+    "sat_math_75": 670,
+    "act_25": 22,
+    "act_75": 31,
+    "tuition_in_state": 50850,
+    "tuition_out_of_state": 50850,
+    "room_board": 18440,
+    "total_cost_in_state": 71290,
+    "total_cost_out_of_state": 71290,
+    "net_price": {
+      "0_30k": 24024,
+      "30_48k": 25103,
+      "48_75k": 27042,
+      "75_110k": 28655,
+      "110k_plus": 29209
+    },
+    "pell_rate": 0.3121,
+    "federal_loan_rate": 0.4984,
+    "enrollment": 2928
+  },
+  "cds": null,
+  "reference": null
+}

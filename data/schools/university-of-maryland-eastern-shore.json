@@ -1,0 +1,36 @@
+{
+  "slug": "university-of-maryland-eastern-shore",
+  "name": "University of Maryland Eastern Shore",
+  "ipeds_id": 163338,
+  "state": "MD",
+  "city": "Princess Anne",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.9036,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 8898,
+    "tuition_out_of_state": 19728,
+    "room_board": 10636,
+    "total_cost_in_state": 21534,
+    "total_cost_out_of_state": 32364,
+    "net_price": {
+      "0_30k": 10634,
+      "30_48k": 12164,
+      "48_75k": 14886,
+      "75_110k": 18771,
+      "110k_plus": 22204
+    },
+    "pell_rate": 0.5261,
+    "federal_loan_rate": 0.5184,
+    "enrollment": 2165
+  },
+  "cds": null,
+  "reference": null
+}

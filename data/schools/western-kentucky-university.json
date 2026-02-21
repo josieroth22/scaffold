@@ -1,0 +1,36 @@
+{
+  "slug": "western-kentucky-university",
+  "name": "Western Kentucky University",
+  "ipeds_id": 157951,
+  "state": "KY",
+  "city": "Bowling Green",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.9705,
+    "sat_reading_25": 450,
+    "sat_reading_75": 520,
+    "sat_math_25": 370,
+    "sat_math_75": 490,
+    "act_25": 16,
+    "act_75": 20,
+    "tuition_in_state": 11436,
+    "tuition_out_of_state": 27000,
+    "room_board": 12043,
+    "total_cost_in_state": 25479,
+    "total_cost_out_of_state": 41043,
+    "net_price": {
+      "0_30k": 10075,
+      "30_48k": 16624,
+      "48_75k": 17417,
+      "75_110k": 18219,
+      "110k_plus": 18601
+    },
+    "pell_rate": 0.2871,
+    "federal_loan_rate": 0.3625,
+    "enrollment": 12267
+  },
+  "cds": null,
+  "reference": null
+}

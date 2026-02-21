@@ -1,0 +1,36 @@
+{
+  "slug": "olivet-nazarene-university",
+  "name": "Olivet Nazarene University",
+  "ipeds_id": 147828,
+  "state": "IL",
+  "city": "Bourbonnais",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.669,
+    "sat_reading_25": 480,
+    "sat_reading_75": 600,
+    "sat_math_25": 480,
+    "sat_math_75": 590,
+    "act_25": 18,
+    "act_75": 28,
+    "tuition_in_state": 37940,
+    "tuition_out_of_state": 37940,
+    "room_board": 10590,
+    "total_cost_in_state": 50530,
+    "total_cost_out_of_state": 50530,
+    "net_price": {
+      "0_30k": 17617,
+      "30_48k": 17148,
+      "48_75k": 19653,
+      "75_110k": 23922,
+      "110k_plus": 26174
+    },
+    "pell_rate": 0.3533,
+    "federal_loan_rate": 0.6804,
+    "enrollment": 2485
+  },
+  "cds": null,
+  "reference": null
+}

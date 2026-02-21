@@ -1,0 +1,36 @@
+{
+  "slug": "university-of-puerto-rico-mayaguez",
+  "name": "University of Puerto Rico-Mayaguez",
+  "ipeds_id": 243197,
+  "state": "PR",
+  "city": "Mayaguez",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.5217,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 5274,
+    "tuition_out_of_state": 5274,
+    "room_board": null,
+    "total_cost_in_state": 19190,
+    "total_cost_out_of_state": null,
+    "net_price": {
+      "0_30k": 10257,
+      "30_48k": 14659,
+      "48_75k": 15527,
+      "75_110k": 16110,
+      "110k_plus": 16166
+    },
+    "pell_rate": 0.6456,
+    "federal_loan_rate": 0.0875,
+    "enrollment": 9564
+  },
+  "cds": null,
+  "reference": null
+}

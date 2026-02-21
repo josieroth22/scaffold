@@ -1,0 +1,36 @@
+{
+  "slug": "north-carolina-a-t-state-university",
+  "name": "North Carolina A & T State University",
+  "ipeds_id": 199102,
+  "state": "NC",
+  "city": "Greensboro",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.4617,
+    "sat_reading_25": 490,
+    "sat_reading_75": 610,
+    "sat_math_25": 470,
+    "sat_math_75": 580,
+    "act_25": 16,
+    "act_75": 22,
+    "tuition_in_state": 6748,
+    "tuition_out_of_state": 20408,
+    "room_board": 8832,
+    "total_cost_in_state": 17580,
+    "total_cost_out_of_state": 31240,
+    "net_price": {
+      "0_30k": 7314,
+      "30_48k": 8701,
+      "48_75k": 13024,
+      "75_110k": 17075,
+      "110k_plus": 18685
+    },
+    "pell_rate": 0.5066,
+    "federal_loan_rate": 0.5726,
+    "enrollment": 11925
+  },
+  "cds": null,
+  "reference": null
+}

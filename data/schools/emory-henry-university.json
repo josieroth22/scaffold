@@ -1,0 +1,36 @@
+{
+  "slug": "emory-henry-university",
+  "name": "Emory & Henry University",
+  "ipeds_id": 232025,
+  "state": "VA",
+  "city": "Emory",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.963,
+    "sat_reading_25": 530,
+    "sat_reading_75": 630,
+    "sat_math_25": 500,
+    "sat_math_75": 610,
+    "act_25": 21,
+    "act_75": 30,
+    "tuition_in_state": 35280,
+    "tuition_out_of_state": 35280,
+    "room_board": 14360,
+    "total_cost_in_state": 51640,
+    "total_cost_out_of_state": 51640,
+    "net_price": {
+      "0_30k": 17348,
+      "30_48k": 20308,
+      "48_75k": 19781,
+      "75_110k": 21071,
+      "110k_plus": 23722
+    },
+    "pell_rate": 0.4085,
+    "federal_loan_rate": 0.659,
+    "enrollment": 1107
+  },
+  "cds": null,
+  "reference": null
+}

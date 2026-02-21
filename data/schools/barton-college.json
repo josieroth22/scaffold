@@ -1,0 +1,36 @@
+{
+  "slug": "barton-college",
+  "name": "Barton College",
+  "ipeds_id": 197911,
+  "state": "NC",
+  "city": "Wilson",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.9587,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 35600,
+    "tuition_out_of_state": 35600,
+    "room_board": 13050,
+    "total_cost_in_state": 50650,
+    "total_cost_out_of_state": 50650,
+    "net_price": {
+      "0_30k": 22391,
+      "30_48k": 18835,
+      "48_75k": 20931,
+      "75_110k": 23323,
+      "110k_plus": 30183
+    },
+    "pell_rate": 0.369,
+    "federal_loan_rate": 0.6537,
+    "enrollment": 1020
+  },
+  "cds": null,
+  "reference": null
+}

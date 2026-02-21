@@ -1,0 +1,36 @@
+{
+  "slug": "southern-illinois-university-carbondale",
+  "name": "Southern Illinois University-Carbondale",
+  "ipeds_id": 149222,
+  "state": "IL",
+  "city": "Carbondale",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.9044,
+    "sat_reading_25": 470,
+    "sat_reading_75": 580,
+    "sat_math_25": 440,
+    "sat_math_75": 560,
+    "act_25": 20,
+    "act_75": 27,
+    "tuition_in_state": 13244,
+    "tuition_out_of_state": 13244,
+    "room_board": 12114,
+    "total_cost_in_state": 27358,
+    "total_cost_out_of_state": 27358,
+    "net_price": {
+      "0_30k": 12928,
+      "30_48k": 12082,
+      "48_75k": 13206,
+      "75_110k": 22819,
+      "110k_plus": 23582
+    },
+    "pell_rate": 0.3665,
+    "federal_loan_rate": 0.481,
+    "enrollment": 8116
+  },
+  "cds": null,
+  "reference": null
+}

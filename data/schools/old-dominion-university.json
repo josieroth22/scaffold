@@ -1,0 +1,36 @@
+{
+  "slug": "old-dominion-university",
+  "name": "Old Dominion University",
+  "ipeds_id": 232982,
+  "state": "VA",
+  "city": "Norfolk",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.9052,
+    "sat_reading_25": 570,
+    "sat_reading_75": 660,
+    "sat_math_25": 540,
+    "sat_math_75": 630,
+    "act_25": 22,
+    "act_75": 27,
+    "tuition_in_state": 12262,
+    "tuition_out_of_state": 32662,
+    "room_board": 14592,
+    "total_cost_in_state": 28854,
+    "total_cost_out_of_state": 49254,
+    "net_price": {
+      "0_30k": 9627,
+      "30_48k": 9883,
+      "48_75k": 13142,
+      "75_110k": 18121,
+      "110k_plus": 22658
+    },
+    "pell_rate": 0.3694,
+    "federal_loan_rate": 0.4217,
+    "enrollment": 17521
+  },
+  "cds": null,
+  "reference": null
+}

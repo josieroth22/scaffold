@@ -1,0 +1,36 @@
+{
+  "slug": "citadel-military-college-of-south-carolina",
+  "name": "Citadel Military College of South Carolina",
+  "ipeds_id": 217864,
+  "state": "SC",
+  "city": "Charleston",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.9809,
+    "sat_reading_25": 540,
+    "sat_reading_75": 640,
+    "sat_math_25": 540,
+    "sat_math_75": 610,
+    "act_25": 22,
+    "act_75": 26,
+    "tuition_in_state": 12570,
+    "tuition_out_of_state": 37370,
+    "room_board": 9146,
+    "total_cost_in_state": 23716,
+    "total_cost_out_of_state": 48516,
+    "net_price": {
+      "0_30k": 12055,
+      "30_48k": 15292,
+      "48_75k": 18467,
+      "75_110k": 23921,
+      "110k_plus": 24725
+    },
+    "pell_rate": 0.1918,
+    "federal_loan_rate": 0.3692,
+    "enrollment": 2624
+  },
+  "cds": null,
+  "reference": null
+}

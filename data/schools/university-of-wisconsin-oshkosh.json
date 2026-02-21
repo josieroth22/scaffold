@@ -1,0 +1,36 @@
+{
+  "slug": "university-of-wisconsin-oshkosh",
+  "name": "University of Wisconsin-Oshkosh",
+  "ipeds_id": 240365,
+  "state": "WI",
+  "city": "Oshkosh",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.8668,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": 18,
+    "act_75": 24,
+    "tuition_in_state": 8212,
+    "tuition_out_of_state": 16125,
+    "room_board": 8940,
+    "total_cost_in_state": 19152,
+    "total_cost_out_of_state": 27065,
+    "net_price": {
+      "0_30k": 9232,
+      "30_48k": 10209,
+      "48_75k": 13961,
+      "75_110k": 17218,
+      "110k_plus": 18553
+    },
+    "pell_rate": 0.158,
+    "federal_loan_rate": 0.2719,
+    "enrollment": 7613
+  },
+  "cds": null,
+  "reference": null
+}

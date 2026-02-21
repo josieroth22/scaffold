@@ -1,0 +1,36 @@
+{
+  "slug": "wheaton-college",
+  "name": "Wheaton College",
+  "ipeds_id": 149781,
+  "state": "IL",
+  "city": "Wheaton",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.8998,
+    "sat_reading_25": 650,
+    "sat_reading_75": 720,
+    "sat_math_25": 610,
+    "sat_math_75": 720,
+    "act_25": 27,
+    "act_75": 32,
+    "tuition_in_state": 43930,
+    "tuition_out_of_state": 43930,
+    "room_board": 12390,
+    "total_cost_in_state": 58320,
+    "total_cost_out_of_state": 58320,
+    "net_price": {
+      "0_30k": 17966,
+      "30_48k": 18623,
+      "48_75k": 20430,
+      "75_110k": 24968,
+      "110k_plus": 35320
+    },
+    "pell_rate": 0.202,
+    "federal_loan_rate": 0.4652,
+    "enrollment": 2087
+  },
+  "cds": null,
+  "reference": null
+}

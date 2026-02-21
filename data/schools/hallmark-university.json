@@ -1,0 +1,36 @@
+{
+  "slug": "hallmark-university",
+  "name": "Hallmark University",
+  "ipeds_id": 225201,
+  "state": "TX",
+  "city": "San Antonio",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.9823,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": null,
+    "tuition_out_of_state": null,
+    "room_board": null,
+    "total_cost_in_state": null,
+    "total_cost_out_of_state": null,
+    "net_price": {
+      "0_30k": 9387,
+      "30_48k": 9799,
+      "48_75k": 11096,
+      "75_110k": 15398,
+      "110k_plus": 14922
+    },
+    "pell_rate": 0.4963,
+    "federal_loan_rate": 0.5746,
+    "enrollment": 781
+  },
+  "cds": null,
+  "reference": null
+}

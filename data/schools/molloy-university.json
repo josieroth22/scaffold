@@ -1,0 +1,36 @@
+{
+  "slug": "molloy-university",
+  "name": "Molloy University",
+  "ipeds_id": 193292,
+  "state": "NY",
+  "city": "Rockville Centre",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.7564,
+    "sat_reading_25": 540,
+    "sat_reading_75": 660,
+    "sat_math_25": 540,
+    "sat_math_75": 650,
+    "act_25": 24,
+    "act_75": 29,
+    "tuition_in_state": 37840,
+    "tuition_out_of_state": 37840,
+    "room_board": 17760,
+    "total_cost_in_state": 57600,
+    "total_cost_out_of_state": 57600,
+    "net_price": {
+      "0_30k": 20330,
+      "30_48k": 22678,
+      "48_75k": 26115,
+      "75_110k": 27390,
+      "110k_plus": 32545
+    },
+    "pell_rate": 0.2993,
+    "federal_loan_rate": 0.6142,
+    "enrollment": 3185
+  },
+  "cds": null,
+  "reference": null
+}

@@ -1,0 +1,36 @@
+{
+  "slug": "west-liberty-university",
+  "name": "West Liberty University",
+  "ipeds_id": 237932,
+  "state": "WV",
+  "city": "West Liberty",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.7212,
+    "sat_reading_25": 470,
+    "sat_reading_75": 585,
+    "sat_math_25": 420,
+    "sat_math_75": 540,
+    "act_25": 18,
+    "act_75": 24,
+    "tuition_in_state": 8732,
+    "tuition_out_of_state": 17116,
+    "room_board": 10694,
+    "total_cost_in_state": 21426,
+    "total_cost_out_of_state": 29810,
+    "net_price": {
+      "0_30k": 13368,
+      "30_48k": 14580,
+      "48_75k": 16744,
+      "75_110k": 19852,
+      "110k_plus": 19090
+    },
+    "pell_rate": 0.3194,
+    "federal_loan_rate": 0.4878,
+    "enrollment": 1578
+  },
+  "cds": null,
+  "reference": null
+}

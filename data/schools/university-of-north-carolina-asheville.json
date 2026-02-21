@@ -1,0 +1,36 @@
+{
+  "slug": "university-of-north-carolina-asheville",
+  "name": "University of North Carolina Asheville",
+  "ipeds_id": 199111,
+  "state": "NC",
+  "city": "Asheville",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.9389,
+    "sat_reading_25": 600,
+    "sat_reading_75": 690,
+    "sat_math_25": 570,
+    "sat_math_75": 660,
+    "act_25": 22,
+    "act_75": 29,
+    "tuition_in_state": 7461,
+    "tuition_out_of_state": 24809,
+    "room_board": 11018,
+    "total_cost_in_state": 20479,
+    "total_cost_out_of_state": 37827,
+    "net_price": {
+      "0_30k": 6513,
+      "30_48k": 8674,
+      "48_75k": 13105,
+      "75_110k": 16977,
+      "110k_plus": 17721
+    },
+    "pell_rate": 0.3133,
+    "federal_loan_rate": 0.3902,
+    "enrollment": 2790
+  },
+  "cds": null,
+  "reference": null
+}

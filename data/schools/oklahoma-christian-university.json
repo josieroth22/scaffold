@@ -1,0 +1,36 @@
+{
+  "slug": "oklahoma-christian-university",
+  "name": "Oklahoma Christian University",
+  "ipeds_id": 207324,
+  "state": "OK",
+  "city": "Edmond",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.9707,
+    "sat_reading_25": 500,
+    "sat_reading_75": 610,
+    "sat_math_25": 500,
+    "sat_math_75": 610,
+    "act_25": 19,
+    "act_75": 27,
+    "tuition_in_state": 25900,
+    "tuition_out_of_state": 25900,
+    "room_board": 8680,
+    "total_cost_in_state": 36580,
+    "total_cost_out_of_state": 36580,
+    "net_price": {
+      "0_30k": 19109,
+      "30_48k": 21651,
+      "48_75k": 19389,
+      "75_110k": 23256,
+      "110k_plus": 26413
+    },
+    "pell_rate": 0.3015,
+    "federal_loan_rate": 0.439,
+    "enrollment": 1897
+  },
+  "cds": null,
+  "reference": null
+}

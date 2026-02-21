@@ -1,0 +1,36 @@
+{
+  "slug": "university-of-the-pacific",
+  "name": "University of the Pacific",
+  "ipeds_id": 120883,
+  "state": "CA",
+  "city": "Stockton",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.9486,
+    "sat_reading_25": 580,
+    "sat_reading_75": 690,
+    "sat_math_25": 580,
+    "sat_math_75": 730,
+    "act_25": 23,
+    "act_75": 31,
+    "tuition_in_state": 55340,
+    "tuition_out_of_state": 55340,
+    "room_board": 16688,
+    "total_cost_in_state": 74028,
+    "total_cost_out_of_state": 74028,
+    "net_price": {
+      "0_30k": 17716,
+      "30_48k": 17411,
+      "48_75k": 20169,
+      "75_110k": 26422,
+      "110k_plus": 38104
+    },
+    "pell_rate": 0.343,
+    "federal_loan_rate": 0.4274,
+    "enrollment": 3247
+  },
+  "cds": null,
+  "reference": null
+}

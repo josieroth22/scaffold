@@ -1,0 +1,36 @@
+{
+  "slug": "university-of-massachusetts-global",
+  "name": "University of Massachusetts Global",
+  "ipeds_id": 262086,
+  "state": "CA",
+  "city": "Aliso Viejo",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": null,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 12520,
+    "tuition_out_of_state": 12520,
+    "room_board": null,
+    "total_cost_in_state": 33365,
+    "total_cost_out_of_state": null,
+    "net_price": {
+      "0_30k": 30732,
+      "30_48k": 32490,
+      "48_75k": 31200,
+      "75_110k": 33080,
+      "110k_plus": 33365
+    },
+    "pell_rate": 0.2292,
+    "federal_loan_rate": 0.3163,
+    "enrollment": 4902
+  },
+  "cds": null,
+  "reference": null
+}

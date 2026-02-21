@@ -25,8 +25,10 @@
   table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
   th { text-align: left; padding: 0.6rem 0.75rem; background: var(--cream); border: 1px solid var(--border); font-weight: 600; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.03em; }
   td { padding: 0.6rem 0.75rem; border: 1px solid var(--border); }
+  td.stage-cell { white-space: nowrap; min-width: 100px; }
   .status-generating { color: #b8860b; font-weight: 600; }
   .status-completed { color: var(--sage); font-weight: 600; }
+  .status-failed { color: var(--error, #c94d4d); font-weight: 600; }
   .btn-view { font-size: 0.78rem; color: var(--sage); font-weight: 600; cursor: pointer; text-decoration: underline; background: none; border: none; font-family: 'DM Sans', sans-serif; }
   .badge-free { font-size: 0.72rem; font-weight: 600; background: var(--cream); color: var(--muted); padding: 0.15rem 0.5rem; border-radius: 3px; border: 1px solid var(--border); }
   .badge-paid { font-size: 0.72rem; font-weight: 600; background: #e8f5e9; color: #2e7d32; padding: 0.15rem 0.5rem; border-radius: 3px; }
@@ -78,18 +80,20 @@
 </div>
 
 <div id="dashboard" style="display: none;">
-  <h1>Submissions</h1>
+  <h1>Submissions <button onclick="loadSubmissions()" style="font-size:0.75rem; padding:0.3rem 0.8rem; background:var(--sage); color:white; border:none; border-radius:5px; cursor:pointer; font-family:'DM Sans',sans-serif; font-weight:600; vertical-align:middle; margin-left:0.5rem;">Refresh</button> <span style="font-size:0.82rem; font-weight:400; color:var(--muted); margin-left:0.5rem;" id="last-refreshed"></span></h1>
   <p class="subtitle" id="count"></p>
+  <div class="stage-key" style="font-size:0.75rem; color:var(--muted); margin-bottom:1rem;">
+    <strong>Stage key:</strong> Tier 1 processing → Tier 1 complete → Simulation processing → Simulation complete → Reconciling costs → Tier 2 processing → Tier 2 complete → Review processing → Fixing issues → Done | <span style="color:var(--error, #c94d4d);">Review failed</span>
+  </div>
   <table id="table" style="display: none;">
     <thead>
       <tr>
         <th>ID</th>
         <th>Student</th>
         <th>City</th>
-        <th>Income</th>
         <th>Email</th>
         <th>Type</th>
-        <th>Status</th>
+        <th>Stage</th>
         <th>Submitted</th>
         <th>Plan</th>
         <th>Sim</th>
@@ -150,6 +154,7 @@
 
       const subs = data.submissions || [];
       document.getElementById('count').textContent = subs.length + ' submission' + (subs.length !== 1 ? 's' : '');
+      document.getElementById('last-refreshed').textContent = 'Last refreshed: ' + new Date().toLocaleTimeString();
 
       if (subs.length === 0) {
         document.getElementById('empty').style.display = 'block';
@@ -166,6 +171,21 @@
         const type = s.payment_type || 'free';
         const typeBadge = type === 'paid' ? '<span class="badge-paid">Paid</span>' : '<span class="badge-free">Free</span>';
         const planLink = s.has_output ? `<a class="plan-link" href="plan.html?id=${s.id}" target="_blank">View Plan</a>` : '-';
+        // Stage: shows current pipeline position
+        let stage = s.status || 'unknown';
+        let stageClass = '';
+        if (stage === 'generating') { stage = 'Tier 1 processing'; stageClass = 'status-generating'; }
+        else if (stage === 'tier1_complete') { stage = 'Tier 1 complete'; stageClass = 'status-generating'; }
+        else if (stage === 'simulating') { stage = 'Simulation processing'; stageClass = 'status-generating'; }
+        else if (stage === 'sim_complete') { stage = 'Simulation complete'; stageClass = 'status-generating'; }
+        else if (stage === 'reconciling') { stage = 'Reconciling costs'; stageClass = 'status-generating'; }
+        else if (stage === 'generating_tier2') { stage = 'Tier 2 processing'; stageClass = 'status-generating'; }
+        else if (stage === 'tier2_complete') { stage = 'Tier 2 complete'; stageClass = 'status-generating'; }
+        else if (stage === 'reviewing') { stage = 'Review processing'; stageClass = 'status-generating'; }
+        else if (stage === 'fixing') { stage = 'Fixing issues'; stageClass = 'status-generating'; }
+        else if (stage === 'review_failed') { stage = 'Review failed'; stageClass = 'status-failed'; }
+        else if (stage === 'completed') { stage = 'Done'; stageClass = 'status-completed'; }
+        const stageBadge = `<span class="${stageClass}">${stage}</span>`;
         let simBadge = '<span class="badge-sim-none">-</span>';
         if (s.has_simulation) {
           simBadge = '<span class="badge-sim-ok">OK</span>';
@@ -176,10 +196,9 @@
           <td style="font-size:0.7rem; font-family:monospace; color:var(--muted);">${s.id}</td>
           <td><strong>${s.student_name || '-'}</strong></td>
           <td>${s.city || '-'}</td>
-          <td>${s.income || '-'}</td>
           <td>${s.email || '-'}</td>
           <td>${typeBadge}</td>
-          <td class="status-${s.status}">${s.status || '-'}</td>
+          <td class="stage-cell">${stageBadge}</td>
           <td>${date}</td>
           <td>${planLink}</td>
           <td>${simBadge}</td>

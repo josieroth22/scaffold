@@ -1,0 +1,36 @@
+{
+  "slug": "hartwick-college",
+  "name": "Hartwick College",
+  "ipeds_id": 191533,
+  "state": "NY",
+  "city": "Oneonta",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.687,
+    "sat_reading_25": 550,
+    "sat_reading_75": 640,
+    "sat_math_25": 540,
+    "sat_math_75": 640,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 52849,
+    "tuition_out_of_state": 52849,
+    "room_board": 14647,
+    "total_cost_in_state": 69496,
+    "total_cost_out_of_state": 69496,
+    "net_price": {
+      "0_30k": 26633,
+      "30_48k": 29759,
+      "48_75k": 30440,
+      "75_110k": 31596,
+      "110k_plus": 30012
+    },
+    "pell_rate": 0.3503,
+    "federal_loan_rate": 0.8053,
+    "enrollment": 1099
+  },
+  "cds": null,
+  "reference": null
+}

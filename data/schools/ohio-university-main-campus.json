@@ -1,0 +1,45 @@
+{
+  "slug": "ohio-university-main-campus",
+  "name": "Ohio University-Main Campus",
+  "ipeds_id": 204857,
+  "state": "OH",
+  "city": "Athens",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.8476,
+    "sat_reading_25": 560,
+    "sat_reading_75": 650,
+    "sat_math_25": 540,
+    "sat_math_75": 640,
+    "act_25": 22,
+    "act_75": 28,
+    "tuition_in_state": 13746,
+    "tuition_out_of_state": 24114,
+    "room_board": 13594,
+    "total_cost_in_state": 29340,
+    "total_cost_out_of_state": 39708,
+    "net_price": {
+      "0_30k": 13075,
+      "30_48k": 14933,
+      "48_75k": 18808,
+      "75_110k": 22093,
+      "110k_plus": 23216
+    },
+    "pell_rate": 0.2037,
+    "federal_loan_rate": 0.467,
+    "enrollment": 18456
+  },
+  "cds": null,
+  "reference": {
+    "honors_program": {
+      "name": "Honors Tutorial College",
+      "description": "One-on-one and small-group tutorials with faculty instead of traditional lecture courses. Students have few general education requirements and design their own interdisciplinary course of study. ~340 students.",
+      "separate_application": true,
+      "avg_sat": null,
+      "acceptance_rate": null,
+      "size": 340
+    }
+  }
+}

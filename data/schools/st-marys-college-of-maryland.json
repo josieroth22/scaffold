@@ -1,0 +1,36 @@
+{
+  "slug": "st-marys-college-of-maryland",
+  "name": "St. Mary's College of Maryland",
+  "ipeds_id": 163912,
+  "state": "MD",
+  "city": "St. Mary's City",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.7539,
+    "sat_reading_25": 570,
+    "sat_reading_75": 690,
+    "sat_math_25": 540,
+    "sat_math_75": 640,
+    "act_25": 24,
+    "act_75": 30,
+    "tuition_in_state": 15236,
+    "tuition_out_of_state": 31312,
+    "room_board": 14672,
+    "total_cost_in_state": 31908,
+    "total_cost_out_of_state": 47984,
+    "net_price": {
+      "0_30k": 3618,
+      "30_48k": 9370,
+      "48_75k": 14955,
+      "75_110k": 20010,
+      "110k_plus": 25256
+    },
+    "pell_rate": 0.2017,
+    "federal_loan_rate": 0.4222,
+    "enrollment": 1566
+  },
+  "cds": null,
+  "reference": null
+}

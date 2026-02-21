@@ -1,0 +1,45 @@
+{
+  "slug": "cuny-york-college",
+  "name": "CUNY York College",
+  "ipeds_id": 190691,
+  "state": "NY",
+  "city": "Jamaica",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.5942,
+    "sat_reading_25": 500,
+    "sat_reading_75": 600,
+    "sat_math_25": 490,
+    "sat_math_75": 610,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 7358,
+    "tuition_out_of_state": 15308,
+    "room_board": null,
+    "total_cost_in_state": 13686,
+    "total_cost_out_of_state": null,
+    "net_price": {
+      "0_30k": 3267,
+      "30_48k": 4716,
+      "48_75k": 8080,
+      "75_110k": 9257,
+      "110k_plus": 12206
+    },
+    "pell_rate": 0.4343,
+    "federal_loan_rate": 0.0619,
+    "enrollment": 4439
+  },
+  "cds": null,
+  "reference": {
+    "honors_program": {
+      "name": "Macaulay Honors College",
+      "description": "Highly selective CUNY-wide honors college. Scholars receive a full tuition scholarship, a laptop, an Opportunities Fund for enrichment activities, and personalized advising. ~2,080 students across 8 CUNY campuses.",
+      "separate_application": true,
+      "avg_sat": null,
+      "acceptance_rate": null,
+      "size": 2080
+    }
+  }
+}

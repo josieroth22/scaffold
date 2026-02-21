@@ -1,0 +1,36 @@
+{
+  "slug": "lebanon-valley-college",
+  "name": "Lebanon Valley College",
+  "ipeds_id": 213507,
+  "state": "PA",
+  "city": "Annville",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.7453,
+    "sat_reading_25": 553,
+    "sat_reading_75": 660,
+    "sat_math_25": 540,
+    "sat_math_75": 640,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 50320,
+    "tuition_out_of_state": 50320,
+    "room_board": 15340,
+    "total_cost_in_state": 67660,
+    "total_cost_out_of_state": 67660,
+    "net_price": {
+      "0_30k": 20164,
+      "30_48k": 20997,
+      "48_75k": 24785,
+      "75_110k": 27538,
+      "110k_plus": 31143
+    },
+    "pell_rate": 0.2193,
+    "federal_loan_rate": 0.7023,
+    "enrollment": 1670
+  },
+  "cds": null,
+  "reference": null
+}

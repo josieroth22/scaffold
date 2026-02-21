@@ -1,0 +1,36 @@
+{
+  "slug": "southeastern-oklahoma-state-university",
+  "name": "Southeastern Oklahoma State University",
+  "ipeds_id": 207847,
+  "state": "OK",
+  "city": "Durant",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.8034,
+    "sat_reading_25": 490,
+    "sat_reading_75": 580,
+    "sat_math_25": 470,
+    "sat_math_75": 570,
+    "act_25": 18,
+    "act_75": 23,
+    "tuition_in_state": 7200,
+    "tuition_out_of_state": 16410,
+    "room_board": 7760,
+    "total_cost_in_state": 16960,
+    "total_cost_out_of_state": 26170,
+    "net_price": {
+      "0_30k": 6043,
+      "30_48k": 5189,
+      "48_75k": 7686,
+      "75_110k": 9962,
+      "110k_plus": null
+    },
+    "pell_rate": 0.401,
+    "federal_loan_rate": 0.3443,
+    "enrollment": 3031
+  },
+  "cds": null,
+  "reference": null
+}

@@ -1,0 +1,36 @@
+{
+  "slug": "university-of-detroit-mercy",
+  "name": "University of Detroit Mercy",
+  "ipeds_id": 169716,
+  "state": "MI",
+  "city": "Detroit",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.8014,
+    "sat_reading_25": 510,
+    "sat_reading_75": 630,
+    "sat_math_25": 510,
+    "sat_math_75": 630,
+    "act_25": 22,
+    "act_75": 28,
+    "tuition_in_state": 32300,
+    "tuition_out_of_state": 32300,
+    "room_board": 10738,
+    "total_cost_in_state": 45038,
+    "total_cost_out_of_state": 45038,
+    "net_price": {
+      "0_30k": 12616,
+      "30_48k": 12414,
+      "48_75k": 15090,
+      "75_110k": 17762,
+      "110k_plus": 22663
+    },
+    "pell_rate": 0.2513,
+    "federal_loan_rate": 0.3061,
+    "enrollment": 2289
+  },
+  "cds": null,
+  "reference": null
+}

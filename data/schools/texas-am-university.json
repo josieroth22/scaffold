@@ -1,0 +1,53 @@
+{
+  "slug": "texas-am-university",
+  "name": "Texas A&M University",
+  "api_name": "Texas A&M University-College Station",
+  "ipeds_id": 228723,
+  "state": "TX",
+  "city": "College Station",
+  "type": "public",
+  "tier": "C",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.6325,
+    "sat_reading_25": 570,
+    "sat_reading_75": 680,
+    "sat_math_25": 570,
+    "sat_math_75": 700,
+    "act_25": 25,
+    "act_75": 31,
+    "tuition_in_state": 13099,
+    "tuition_out_of_state": 40328,
+    "room_board": 13154,
+    "total_cost_in_state": 28253,
+    "total_cost_out_of_state": 55482,
+    "net_price": {
+      "0_30k": 12273,
+      "30_48k": 12597,
+      "48_75k": 18685,
+      "75_110k": 26336,
+      "110k_plus": 29548
+    },
+    "pell_rate": 0.1923,
+    "federal_loan_rate": 0.2634,
+    "enrollment": 59099
+  },
+  "cds": null,
+  "reference": {
+    "national_merit": {
+      "semifinalist_award": "$3,000",
+      "finalist_award": "$7,000",
+      "first_choice_required": false,
+      "guaranteed": true
+    },
+    "honors_program": {
+      "name": "University Honors",
+      "description": "The University Honors Program focuses on personal, professional, and intellectual development through layering high-impact experiences. Benefits include close contact with accomplished faculty, small discussion-based seminars, individual research experiences, and engagement with internships and study abroad.",
+      "separate_application": null,
+      "avg_sat": null,
+      "acceptance_rate": null,
+      "size": 2000
+    }
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "slug": "university-of-west-florida",
+  "name": "University of West Florida",
+  "ipeds_id": 138354,
+  "state": "FL",
+  "city": "Pensacola",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.5687,
+    "sat_reading_25": 520,
+    "sat_reading_75": 630,
+    "sat_math_25": 500,
+    "sat_math_75": 600,
+    "act_25": 20,
+    "act_75": 27,
+    "tuition_in_state": 6360,
+    "tuition_out_of_state": 19241,
+    "room_board": 12432,
+    "total_cost_in_state": 20792,
+    "total_cost_out_of_state": 33673,
+    "net_price": {
+      "0_30k": 3367,
+      "30_48k": 5208,
+      "48_75k": 8264,
+      "75_110k": 13090,
+      "110k_plus": 15446
+    },
+    "pell_rate": 0.3255,
+    "federal_loan_rate": 0.255,
+    "enrollment": 9042
+  },
+  "cds": null,
+  "reference": null
+}

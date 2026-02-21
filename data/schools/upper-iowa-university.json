@@ -1,0 +1,36 @@
+{
+  "slug": "upper-iowa-university",
+  "name": "Upper Iowa University",
+  "ipeds_id": 154493,
+  "state": "IA",
+  "city": "Fayette",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.9338,
+    "sat_reading_25": 500,
+    "sat_reading_75": 590,
+    "sat_math_25": 470,
+    "sat_math_75": 570,
+    "act_25": 14,
+    "act_75": 21,
+    "tuition_in_state": 19000,
+    "tuition_out_of_state": 19000,
+    "room_board": 9770,
+    "total_cost_in_state": 30770,
+    "total_cost_out_of_state": 30770,
+    "net_price": {
+      "0_30k": 27503,
+      "30_48k": 19324,
+      "48_75k": 19842,
+      "75_110k": 21127,
+      "110k_plus": 25690
+    },
+    "pell_rate": 0.3252,
+    "federal_loan_rate": 0.4901,
+    "enrollment": 2021
+  },
+  "cds": null,
+  "reference": null
+}

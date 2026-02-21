@@ -1,0 +1,36 @@
+{
+  "slug": "huntingdon-college",
+  "name": "Huntingdon College",
+  "ipeds_id": 101435,
+  "state": "AL",
+  "city": "Montgomery",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.7083,
+    "sat_reading_25": 498,
+    "sat_reading_75": 613,
+    "sat_math_25": 513,
+    "sat_math_75": 598,
+    "act_25": 20,
+    "act_75": 25,
+    "tuition_in_state": 28650,
+    "tuition_out_of_state": 28650,
+    "room_board": 10922,
+    "total_cost_in_state": 41572,
+    "total_cost_out_of_state": 41572,
+    "net_price": {
+      "0_30k": 18007,
+      "30_48k": 18221,
+      "48_75k": 23949,
+      "75_110k": 22851,
+      "110k_plus": 24993
+    },
+    "pell_rate": 0.3879,
+    "federal_loan_rate": 0.7081,
+    "enrollment": 865
+  },
+  "cds": null,
+  "reference": null
+}

@@ -1,0 +1,36 @@
+{
+  "slug": "university-of-wisconsin-green-bay",
+  "name": "University of Wisconsin-Green Bay",
+  "ipeds_id": 240277,
+  "state": "WI",
+  "city": "Green Bay",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.8784,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": 18,
+    "act_75": 25,
+    "tuition_in_state": 8342,
+    "tuition_out_of_state": 16929,
+    "room_board": 8042,
+    "total_cost_in_state": 18384,
+    "total_cost_out_of_state": 26971,
+    "net_price": {
+      "0_30k": 8742,
+      "30_48k": 8220,
+      "48_75k": 11231,
+      "75_110k": 15838,
+      "110k_plus": 17830
+    },
+    "pell_rate": 0.2257,
+    "federal_loan_rate": 0.3102,
+    "enrollment": 6230
+  },
+  "cds": null,
+  "reference": null
+}

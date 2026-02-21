@@ -1,0 +1,36 @@
+{
+  "slug": "eastern-illinois-university",
+  "name": "Eastern Illinois University",
+  "ipeds_id": 144892,
+  "state": "IL",
+  "city": "Charleston",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.6775,
+    "sat_reading_25": 460,
+    "sat_reading_75": 570,
+    "sat_math_25": 430,
+    "sat_math_75": 540,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 13403,
+    "tuition_out_of_state": 15879,
+    "room_board": 11298,
+    "total_cost_in_state": 26701,
+    "total_cost_out_of_state": 29177,
+    "net_price": {
+      "0_30k": 11412,
+      "30_48k": 9774,
+      "48_75k": 12371,
+      "75_110k": 19132,
+      "110k_plus": 21672
+    },
+    "pell_rate": 0.3087,
+    "federal_loan_rate": 0.3495,
+    "enrollment": 4398
+  },
+  "cds": null,
+  "reference": null
+}

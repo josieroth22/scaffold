@@ -1,0 +1,36 @@
+{
+  "slug": "stonehill-college",
+  "name": "Stonehill College",
+  "ipeds_id": 167996,
+  "state": "MA",
+  "city": "Easton",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.7256,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 54500,
+    "tuition_out_of_state": 54500,
+    "room_board": 15300,
+    "total_cost_in_state": 71800,
+    "total_cost_out_of_state": 71800,
+    "net_price": {
+      "0_30k": 17388,
+      "30_48k": 17643,
+      "48_75k": 21229,
+      "75_110k": 29268,
+      "110k_plus": 34474
+    },
+    "pell_rate": 0.1479,
+    "federal_loan_rate": 0.6179,
+    "enrollment": 2477
+  },
+  "cds": null,
+  "reference": null
+}

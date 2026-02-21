@@ -1,0 +1,36 @@
+{
+  "slug": "university-of-northwestern-st-paul",
+  "name": "University of Northwestern-St Paul",
+  "ipeds_id": 174491,
+  "state": "MN",
+  "city": "Saint Paul",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.9188,
+    "sat_reading_25": 488,
+    "sat_reading_75": 630,
+    "sat_math_25": 493,
+    "sat_math_75": 663,
+    "act_25": 22,
+    "act_75": 29,
+    "tuition_in_state": 36830,
+    "tuition_out_of_state": 36830,
+    "room_board": 11148,
+    "total_cost_in_state": 49978,
+    "total_cost_out_of_state": 49978,
+    "net_price": {
+      "0_30k": 21812,
+      "30_48k": 19037,
+      "48_75k": 20077,
+      "75_110k": 24781,
+      "110k_plus": 29865
+    },
+    "pell_rate": 0.1506,
+    "federal_loan_rate": 0.2873,
+    "enrollment": 1495
+  },
+  "cds": null,
+  "reference": null
+}

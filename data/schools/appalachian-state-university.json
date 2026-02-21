@@ -1,0 +1,36 @@
+{
+  "slug": "appalachian-state-university",
+  "name": "Appalachian State University",
+  "ipeds_id": 197869,
+  "state": "NC",
+  "city": "Boone",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.8864,
+    "sat_reading_25": 560,
+    "sat_reading_75": 650,
+    "sat_math_25": 540,
+    "sat_math_75": 630,
+    "act_25": 21,
+    "act_75": 27,
+    "tuition_in_state": 7541,
+    "tuition_out_of_state": 24537,
+    "room_board": 12258,
+    "total_cost_in_state": 21799,
+    "total_cost_out_of_state": 38795,
+    "net_price": {
+      "0_30k": 8370,
+      "30_48k": 11507,
+      "48_75k": 15766,
+      "75_110k": 20796,
+      "110k_plus": 21991
+    },
+    "pell_rate": 0.257,
+    "federal_loan_rate": 0.3756,
+    "enrollment": 19304
+  },
+  "cds": null,
+  "reference": null
+}

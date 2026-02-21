@@ -1,0 +1,36 @@
+{
+  "slug": "st-francis-college",
+  "name": "St. Francis College",
+  "ipeds_id": 195173,
+  "state": "NY",
+  "city": "Brooklyn",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": null,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 27570,
+    "tuition_out_of_state": 27570,
+    "room_board": 18000,
+    "total_cost_in_state": 47570,
+    "total_cost_out_of_state": 47570,
+    "net_price": {
+      "0_30k": 17889,
+      "30_48k": 18575,
+      "48_75k": 23196,
+      "75_110k": 28955,
+      "110k_plus": 41839
+    },
+    "pell_rate": 0.4723,
+    "federal_loan_rate": 0.2786,
+    "enrollment": 1931
+  },
+  "cds": null,
+  "reference": null
+}

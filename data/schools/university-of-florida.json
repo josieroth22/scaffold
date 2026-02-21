@@ -1,0 +1,84 @@
+{
+  "slug": "university-of-florida",
+  "name": "University of Florida",
+  "api_name": "University of Florida",
+  "ipeds_id": 134130,
+  "state": "FL",
+  "city": "Gainesville",
+  "type": "public",
+  "tier": "A",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.2403,
+    "sat_reading_25": 650,
+    "sat_reading_75": 730,
+    "sat_math_25": 650,
+    "sat_math_75": 750,
+    "act_25": 28,
+    "act_75": 33,
+    "tuition_in_state": 6381,
+    "tuition_out_of_state": 28659,
+    "room_board": 11500,
+    "total_cost_in_state": 19881,
+    "total_cost_out_of_state": 42159,
+    "net_price": {
+      "0_30k": 2387,
+      "30_48k": 3437,
+      "48_75k": 8189,
+      "75_110k": 13440,
+      "110k_plus": 15571
+    },
+    "pell_rate": 0.2198,
+    "federal_loan_rate": 0.1192,
+    "enrollment": 34102
+  },
+  "cds": {
+    "school_name": "UF Main Campus",
+    "source_year": "2024-2025",
+    "total_applicants": 73557,
+    "total_admitted": 17804,
+    "admit_rate_overall": 0.242,
+    "ed_applicants": null,
+    "ed_admitted": null,
+    "ed_admit_rate": null,
+    "ea_applicants": null,
+    "ea_admitted": null,
+    "ea_admit_rate": null,
+    "sat_reading_25": 660,
+    "sat_reading_75": 730,
+    "sat_math_25": 660,
+    "sat_math_75": 750,
+    "sat_composite_25": 1330,
+    "sat_composite_75": 1470,
+    "act_composite_25": 29,
+    "act_composite_75": 33,
+    "tuition_in_state": 4477,
+    "tuition_out_of_state": 27815,
+    "tuition_private": null,
+    "required_fees": 1904,
+    "room_board": 12615,
+    "pct_need_met": 98,
+    "avg_need_grant": 11590,
+    "avg_financial_aid_package": 15994,
+    "meets_full_need": false,
+    "pct_freshmen_receiving_need_aid": 73.3,
+    "pct_freshmen_receiving_merit_aid": 55.5,
+    "avg_merit_award": 3210
+  },
+  "reference": {
+    "national_merit": {
+      "semifinalist_award": "None",
+      "finalist_award": "$500",
+      "first_choice_required": true,
+      "guaranteed": true
+    },
+    "merit_scholarships": [
+      {
+        "name": "Benacquisto Scholarship",
+        "amount": "Full cost of attendance (tuition, fees, room, board, books) for FL residents",
+        "description": "Florida state scholarship for National Merit Finalists who are FL residents attending any FL public university. Covers full COA. Automatic, no separate application."
+      }
+    ]
+  }
+}

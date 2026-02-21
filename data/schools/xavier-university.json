@@ -1,0 +1,36 @@
+{
+  "slug": "xavier-university",
+  "name": "Xavier University",
+  "ipeds_id": 206622,
+  "state": "OH",
+  "city": "Cincinnati",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.8773,
+    "sat_reading_25": 530,
+    "sat_reading_75": 658,
+    "sat_math_25": 530,
+    "sat_math_75": 640,
+    "act_25": 22,
+    "act_75": 29,
+    "tuition_in_state": 48125,
+    "tuition_out_of_state": 48125,
+    "room_board": 13820,
+    "total_cost_in_state": 63945,
+    "total_cost_out_of_state": 63945,
+    "net_price": {
+      "0_30k": 28499,
+      "30_48k": 28563,
+      "48_75k": 31527,
+      "75_110k": 32456,
+      "110k_plus": 34548
+    },
+    "pell_rate": 0.1449,
+    "federal_loan_rate": 0.4932,
+    "enrollment": 4723
+  },
+  "cds": null,
+  "reference": null
+}

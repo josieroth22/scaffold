@@ -1,0 +1,36 @@
+{
+  "slug": "emmanuel-college",
+  "name": "Emmanuel College",
+  "ipeds_id": 165671,
+  "state": "MA",
+  "city": "Boston",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.806,
+    "sat_reading_25": 590,
+    "sat_reading_75": 680,
+    "sat_math_25": 580,
+    "sat_math_75": 650,
+    "act_25": 26,
+    "act_75": 31,
+    "tuition_in_state": 46686,
+    "tuition_out_of_state": 46686,
+    "room_board": 17500,
+    "total_cost_in_state": 66186,
+    "total_cost_out_of_state": 66186,
+    "net_price": {
+      "0_30k": 26767,
+      "30_48k": 27336,
+      "48_75k": 29300,
+      "75_110k": 30863,
+      "110k_plus": 34351
+    },
+    "pell_rate": 0.2034,
+    "federal_loan_rate": 0.6174,
+    "enrollment": 1874
+  },
+  "cds": null,
+  "reference": null
+}

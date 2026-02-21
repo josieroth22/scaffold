@@ -1,0 +1,36 @@
+{
+  "slug": "california-state-polytechnic-university-pomona",
+  "name": "California State Polytechnic University-Pomona",
+  "ipeds_id": 110529,
+  "state": "CA",
+  "city": "Pomona",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.737,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 7439,
+    "tuition_out_of_state": 19319,
+    "room_board": 16330,
+    "total_cost_in_state": 25769,
+    "total_cost_out_of_state": 37649,
+    "net_price": {
+      "0_30k": 7599,
+      "30_48k": 8192,
+      "48_75k": 11196,
+      "75_110k": 15145,
+      "110k_plus": 20829
+    },
+    "pell_rate": 0.4603,
+    "federal_loan_rate": 0.2526,
+    "enrollment": 24271
+  },
+  "cds": null,
+  "reference": null
+}

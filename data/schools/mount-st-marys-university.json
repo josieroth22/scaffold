@@ -1,0 +1,36 @@
+{
+  "slug": "mount-st-marys-university",
+  "name": "Mount St. Mary's University",
+  "ipeds_id": 163462,
+  "state": "MD",
+  "city": "Emmitsburg",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.7186,
+    "sat_reading_25": 520,
+    "sat_reading_75": 660,
+    "sat_math_25": 510,
+    "sat_math_75": 620,
+    "act_25": 19,
+    "act_75": 23,
+    "tuition_in_state": 47240,
+    "tuition_out_of_state": 47240,
+    "room_board": 14750,
+    "total_cost_in_state": 63990,
+    "total_cost_out_of_state": 63990,
+    "net_price": {
+      "0_30k": 14674,
+      "30_48k": 18842,
+      "48_75k": 24088,
+      "75_110k": 27028,
+      "110k_plus": 31050
+    },
+    "pell_rate": 0.269,
+    "federal_loan_rate": 0.5965,
+    "enrollment": 1806
+  },
+  "cds": null,
+  "reference": null
+}

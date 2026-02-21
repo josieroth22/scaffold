@@ -1,0 +1,36 @@
+{
+  "slug": "college-of-our-lady-of-the-elms",
+  "name": "College of Our Lady of the Elms",
+  "ipeds_id": 167394,
+  "state": "MA",
+  "city": "Chicopee",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.8766,
+    "sat_reading_25": 590,
+    "sat_reading_75": 670,
+    "sat_math_25": 560,
+    "sat_math_75": 650,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 42061,
+    "tuition_out_of_state": 42061,
+    "room_board": 15150,
+    "total_cost_in_state": 59211,
+    "total_cost_out_of_state": 59211,
+    "net_price": {
+      "0_30k": 18824,
+      "30_48k": 18265,
+      "48_75k": 18376,
+      "75_110k": 26565,
+      "110k_plus": 27882
+    },
+    "pell_rate": 0.4184,
+    "federal_loan_rate": 0.7092,
+    "enrollment": 951
+  },
+  "cds": null,
+  "reference": null
+}

@@ -1,0 +1,36 @@
+{
+  "slug": "aquinas-college",
+  "name": "Aquinas College",
+  "ipeds_id": 168786,
+  "state": "MI",
+  "city": "Grand Rapids",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.7106,
+    "sat_reading_25": 490,
+    "sat_reading_75": 620,
+    "sat_math_25": 500,
+    "sat_math_75": 590,
+    "act_25": 20,
+    "act_75": 25,
+    "tuition_in_state": 38520,
+    "tuition_out_of_state": 38520,
+    "room_board": 10994,
+    "total_cost_in_state": 51514,
+    "total_cost_out_of_state": 51514,
+    "net_price": {
+      "0_30k": 12141,
+      "30_48k": 12131,
+      "48_75k": 15423,
+      "75_110k": 20544,
+      "110k_plus": 23349
+    },
+    "pell_rate": 0.2301,
+    "federal_loan_rate": 0.4277,
+    "enrollment": 1201
+  },
+  "cds": null,
+  "reference": null
+}

@@ -1,0 +1,36 @@
+{
+  "slug": "montana-state-university-northern",
+  "name": "Montana State University-Northern",
+  "ipeds_id": 180522,
+  "state": "MT",
+  "city": "Havre",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": null,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 6269,
+    "tuition_out_of_state": 19385,
+    "room_board": 7026,
+    "total_cost_in_state": 15295,
+    "total_cost_out_of_state": 28411,
+    "net_price": {
+      "0_30k": 11283,
+      "30_48k": 11704,
+      "48_75k": 14599,
+      "75_110k": 17049,
+      "110k_plus": 17363
+    },
+    "pell_rate": 0.297,
+    "federal_loan_rate": 0.2795,
+    "enrollment": 787
+  },
+  "cds": null,
+  "reference": null
+}

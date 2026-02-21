@@ -1,0 +1,36 @@
+{
+  "slug": "university-of-toledo",
+  "name": "University of Toledo",
+  "ipeds_id": 206084,
+  "state": "OH",
+  "city": "Toledo",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.9483,
+    "sat_reading_25": 530,
+    "sat_reading_75": 640,
+    "sat_math_25": 520,
+    "sat_math_75": 660,
+    "act_25": 22,
+    "act_75": 28,
+    "tuition_in_state": 12377,
+    "tuition_out_of_state": 21737,
+    "room_board": 14652,
+    "total_cost_in_state": 29029,
+    "total_cost_out_of_state": 38389,
+    "net_price": {
+      "0_30k": 12763,
+      "30_48k": 13774,
+      "48_75k": 17553,
+      "75_110k": 20182,
+      "110k_plus": 21594
+    },
+    "pell_rate": 0.257,
+    "federal_loan_rate": 0.3766,
+    "enrollment": 10244
+  },
+  "cds": null,
+  "reference": null
+}

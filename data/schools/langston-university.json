@@ -1,0 +1,36 @@
+{
+  "slug": "langston-university",
+  "name": "Langston University",
+  "ipeds_id": 207209,
+  "state": "OK",
+  "city": "Langston",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": null,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 6728,
+    "tuition_out_of_state": 14255,
+    "room_board": 10886,
+    "total_cost_in_state": 19614,
+    "total_cost_out_of_state": 27141,
+    "net_price": {
+      "0_30k": 10626,
+      "30_48k": 11196,
+      "48_75k": 12238,
+      "75_110k": 12443,
+      "110k_plus": 16660
+    },
+    "pell_rate": 0.6843,
+    "federal_loan_rate": 0.6212,
+    "enrollment": 1743
+  },
+  "cds": null,
+  "reference": null
+}

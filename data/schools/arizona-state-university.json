@@ -1,0 +1,53 @@
+{
+  "slug": "arizona-state-university",
+  "name": "Arizona State University",
+  "api_name": "Arizona State University Campus Immersion",
+  "ipeds_id": 104151,
+  "state": "AZ",
+  "city": "Tempe",
+  "type": "public",
+  "tier": "C",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.9019,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 12051,
+    "tuition_out_of_state": 32193,
+    "room_board": 16091,
+    "total_cost_in_state": 30142,
+    "total_cost_out_of_state": 50284,
+    "net_price": {
+      "0_30k": 8909,
+      "30_48k": 10562,
+      "48_75k": 15764,
+      "75_110k": 19651,
+      "110k_plus": 21772
+    },
+    "pell_rate": 0.2966,
+    "federal_loan_rate": 0.284,
+    "enrollment": 64398
+  },
+  "cds": null,
+  "reference": {
+    "national_merit": {
+      "semifinalist_award": "Up to Full Tuition",
+      "finalist_award": "Up to Full Tuition",
+      "first_choice_required": false,
+      "guaranteed": false
+    },
+    "honors_program": {
+      "name": "Barrett, The Honors College",
+      "description": "Barrett, The Honors College is a highly regarded, residential college for academically outstanding undergraduates. As the honors college on all four campuses of the nation's largest public university, it offers a highly-personalized academic experience backed by Research I university resources.",
+      "separate_application": null,
+      "avg_sat": null,
+      "acceptance_rate": null,
+      "size": 7200
+    }
+  }
+}

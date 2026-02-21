@@ -1,0 +1,36 @@
+{
+  "slug": "st-john-fisher-university",
+  "name": "St. John Fisher University",
+  "ipeds_id": 195720,
+  "state": "NY",
+  "city": "Rochester",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.678,
+    "sat_reading_25": 560,
+    "sat_reading_75": 640,
+    "sat_math_25": 560,
+    "sat_math_75": 640,
+    "act_25": 24,
+    "act_75": 29,
+    "tuition_in_state": 39666,
+    "tuition_out_of_state": 39666,
+    "room_board": 14342,
+    "total_cost_in_state": 56008,
+    "total_cost_out_of_state": 56008,
+    "net_price": {
+      "0_30k": 14994,
+      "30_48k": 20355,
+      "48_75k": 27255,
+      "75_110k": 30794,
+      "110k_plus": 32667
+    },
+    "pell_rate": 0.2815,
+    "federal_loan_rate": 0.6786,
+    "enrollment": 2579
+  },
+  "cds": null,
+  "reference": null
+}

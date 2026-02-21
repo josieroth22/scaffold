@@ -1,0 +1,36 @@
+{
+  "slug": "the-college-of-saint-scholastica",
+  "name": "The College of Saint Scholastica",
+  "ipeds_id": 174899,
+  "state": "MN",
+  "city": "Duluth",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.9378,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": 21,
+    "act_75": 27,
+    "tuition_in_state": 40454,
+    "tuition_out_of_state": 40454,
+    "room_board": 11380,
+    "total_cost_in_state": 53834,
+    "total_cost_out_of_state": 53834,
+    "net_price": {
+      "0_30k": 14932,
+      "30_48k": 17452,
+      "48_75k": 18824,
+      "75_110k": 25155,
+      "110k_plus": 29389
+    },
+    "pell_rate": 0.2322,
+    "federal_loan_rate": 0.5124,
+    "enrollment": 1725
+  },
+  "cds": null,
+  "reference": null
+}

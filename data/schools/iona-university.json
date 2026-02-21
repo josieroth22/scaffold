@@ -1,0 +1,36 @@
+{
+  "slug": "iona-university",
+  "name": "Iona University",
+  "ipeds_id": 191931,
+  "state": "NY",
+  "city": "New Rochelle",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.9114,
+    "sat_reading_25": 525,
+    "sat_reading_75": 645,
+    "sat_math_25": 530,
+    "sat_math_75": 620,
+    "act_25": 20,
+    "act_75": 28,
+    "tuition_in_state": 45880,
+    "tuition_out_of_state": 45880,
+    "room_board": 18270,
+    "total_cost_in_state": 66150,
+    "total_cost_out_of_state": 66150,
+    "net_price": {
+      "0_30k": 25063,
+      "30_48k": 27463,
+      "48_75k": 26714,
+      "75_110k": 28595,
+      "110k_plus": 30466
+    },
+    "pell_rate": 0.2615,
+    "federal_loan_rate": 0.4288,
+    "enrollment": 2731
+  },
+  "cds": null,
+  "reference": null
+}

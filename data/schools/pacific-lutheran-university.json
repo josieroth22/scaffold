@@ -1,0 +1,36 @@
+{
+  "slug": "pacific-lutheran-university",
+  "name": "Pacific Lutheran University",
+  "ipeds_id": 236230,
+  "state": "WA",
+  "city": "Tacoma",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.8053,
+    "sat_reading_25": 515,
+    "sat_reading_75": 630,
+    "sat_math_25": 473,
+    "sat_math_75": 628,
+    "act_25": 21,
+    "act_75": 27,
+    "tuition_in_state": 50964,
+    "tuition_out_of_state": 50964,
+    "room_board": 12446,
+    "total_cost_in_state": 65410,
+    "total_cost_out_of_state": 65410,
+    "net_price": {
+      "0_30k": 13847,
+      "30_48k": 13035,
+      "48_75k": 18653,
+      "75_110k": 24898,
+      "110k_plus": 29289
+    },
+    "pell_rate": 0.3277,
+    "federal_loan_rate": 0.4398,
+    "enrollment": 2350
+  },
+  "cds": null,
+  "reference": null
+}

@@ -1,0 +1,36 @@
+{
+  "slug": "monmouth-university",
+  "name": "Monmouth University",
+  "ipeds_id": 185572,
+  "state": "NJ",
+  "city": "West Long Branch",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.8954,
+    "sat_reading_25": 570,
+    "sat_reading_75": 640,
+    "sat_math_25": 555,
+    "sat_math_75": 630,
+    "act_25": 24,
+    "act_75": 28,
+    "tuition_in_state": 44850,
+    "tuition_out_of_state": 44850,
+    "room_board": 17738,
+    "total_cost_in_state": 64588,
+    "total_cost_out_of_state": 64588,
+    "net_price": {
+      "0_30k": 19945,
+      "30_48k": 18532,
+      "48_75k": 29142,
+      "75_110k": 36327,
+      "110k_plus": 38626
+    },
+    "pell_rate": 0.3036,
+    "federal_loan_rate": 0.6106,
+    "enrollment": 3831
+  },
+  "cds": null,
+  "reference": null
+}

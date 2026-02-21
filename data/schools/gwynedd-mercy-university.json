@@ -1,0 +1,36 @@
+{
+  "slug": "gwynedd-mercy-university",
+  "name": "Gwynedd Mercy University",
+  "ipeds_id": 212832,
+  "state": "PA",
+  "city": "Gwynedd Valley",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.9361,
+    "sat_reading_25": 528,
+    "sat_reading_75": 590,
+    "sat_math_25": 520,
+    "sat_math_75": 590,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 38310,
+    "tuition_out_of_state": 38310,
+    "room_board": 14142,
+    "total_cost_in_state": 54452,
+    "total_cost_out_of_state": 54452,
+    "net_price": {
+      "0_30k": 20013,
+      "30_48k": 20879,
+      "48_75k": 25170,
+      "75_110k": 32454,
+      "110k_plus": 30701
+    },
+    "pell_rate": 0.2996,
+    "federal_loan_rate": 0.6317,
+    "enrollment": 1141
+  },
+  "cds": null,
+  "reference": null
+}

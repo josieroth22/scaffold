@@ -1,0 +1,36 @@
+{
+  "slug": "pennsylvania-state-university-penn-state-schuylkill",
+  "name": "Pennsylvania State University-Penn State Schuylkill",
+  "ipeds_id": 214810,
+  "state": "PA",
+  "city": "Schuylkill Haven",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.9105,
+    "sat_reading_25": 510,
+    "sat_reading_75": 590,
+    "sat_math_25": 480,
+    "sat_math_75": 590,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 15180,
+    "tuition_out_of_state": 25118,
+    "room_board": 8710,
+    "total_cost_in_state": 25890,
+    "total_cost_out_of_state": 35828,
+    "net_price": {
+      "0_30k": 13752,
+      "30_48k": 15885,
+      "48_75k": 18182,
+      "75_110k": 25192,
+      "110k_plus": 26569
+    },
+    "pell_rate": 0.3756,
+    "federal_loan_rate": 0.6742,
+    "enrollment": 617
+  },
+  "cds": null,
+  "reference": null
+}

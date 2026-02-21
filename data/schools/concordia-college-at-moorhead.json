@@ -1,0 +1,36 @@
+{
+  "slug": "concordia-college-at-moorhead",
+  "name": "Concordia College at Moorhead",
+  "ipeds_id": 173300,
+  "state": "MN",
+  "city": "Moorhead",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.6306,
+    "sat_reading_25": 560,
+    "sat_reading_75": 730,
+    "sat_math_25": 600,
+    "sat_math_75": 690,
+    "act_25": 21,
+    "act_75": 28,
+    "tuition_in_state": 30020,
+    "tuition_out_of_state": 30020,
+    "room_board": 11880,
+    "total_cost_in_state": 43900,
+    "total_cost_out_of_state": 43900,
+    "net_price": {
+      "0_30k": 20609,
+      "30_48k": 18518,
+      "48_75k": 21948,
+      "75_110k": 26257,
+      "110k_plus": 29795
+    },
+    "pell_rate": 0.1976,
+    "federal_loan_rate": 0.567,
+    "enrollment": 1721
+  },
+  "cds": null,
+  "reference": null
+}

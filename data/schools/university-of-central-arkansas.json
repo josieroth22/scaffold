@@ -1,0 +1,36 @@
+{
+  "slug": "university-of-central-arkansas",
+  "name": "University of Central Arkansas",
+  "ipeds_id": 106704,
+  "state": "AR",
+  "city": "Conway",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.9047,
+    "sat_reading_25": 490,
+    "sat_reading_75": 570,
+    "sat_math_25": 450,
+    "sat_math_75": 550,
+    "act_25": 19,
+    "act_75": 25,
+    "tuition_in_state": 10118,
+    "tuition_out_of_state": 17258,
+    "room_board": 8662,
+    "total_cost_in_state": 20780,
+    "total_cost_out_of_state": 27920,
+    "net_price": {
+      "0_30k": 14387,
+      "30_48k": 14946,
+      "48_75k": 17233,
+      "75_110k": 19775,
+      "110k_plus": 20028
+    },
+    "pell_rate": 0.3734,
+    "federal_loan_rate": 0.4169,
+    "enrollment": 7426
+  },
+  "cds": null,
+  "reference": null
+}

@@ -1,0 +1,36 @@
+{
+  "slug": "school-of-the-art-institute-of-chicago",
+  "name": "School of the Art Institute of Chicago",
+  "ipeds_id": 143048,
+  "state": "IL",
+  "city": "Chicago",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.7642,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 54530,
+    "tuition_out_of_state": 54530,
+    "room_board": 16100,
+    "total_cost_in_state": 72630,
+    "total_cost_out_of_state": 72630,
+    "net_price": {
+      "0_30k": 43080,
+      "30_48k": 45357,
+      "48_75k": 48571,
+      "75_110k": 52086,
+      "110k_plus": 55898
+    },
+    "pell_rate": 0.1911,
+    "federal_loan_rate": 0.3698,
+    "enrollment": 2762
+  },
+  "cds": null,
+  "reference": null
+}

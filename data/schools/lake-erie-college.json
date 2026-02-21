@@ -1,0 +1,36 @@
+{
+  "slug": "lake-erie-college",
+  "name": "Lake Erie College",
+  "ipeds_id": 203580,
+  "state": "OH",
+  "city": "Painesville",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.6412,
+    "sat_reading_25": 485,
+    "sat_reading_75": 560,
+    "sat_math_25": 460,
+    "sat_math_75": 555,
+    "act_25": 18,
+    "act_75": 24,
+    "tuition_in_state": 36032,
+    "tuition_out_of_state": 36032,
+    "room_board": 11592,
+    "total_cost_in_state": 49624,
+    "total_cost_out_of_state": 49624,
+    "net_price": {
+      "0_30k": 17958,
+      "30_48k": 19969,
+      "48_75k": 18863,
+      "75_110k": 24170,
+      "110k_plus": 24353
+    },
+    "pell_rate": 0.29,
+    "federal_loan_rate": 0.5759,
+    "enrollment": 678
+  },
+  "cds": null,
+  "reference": null
+}

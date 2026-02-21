@@ -1,0 +1,36 @@
+{
+  "slug": "chadron-state-college",
+  "name": "Chadron State College",
+  "ipeds_id": 180948,
+  "state": "NE",
+  "city": "Chadron",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": null,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 8078,
+    "tuition_out_of_state": 8078,
+    "room_board": 9248,
+    "total_cost_in_state": 19326,
+    "total_cost_out_of_state": 19326,
+    "net_price": {
+      "0_30k": 10639,
+      "30_48k": 10954,
+      "48_75k": 13550,
+      "75_110k": 15009,
+      "110k_plus": 15418
+    },
+    "pell_rate": 0.3587,
+    "federal_loan_rate": 0.5295,
+    "enrollment": 1634
+  },
+  "cds": null,
+  "reference": null
+}

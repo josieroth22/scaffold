@@ -1,0 +1,36 @@
+{
+  "slug": "university-of-wisconsin-milwaukee",
+  "name": "University of Wisconsin-Milwaukee",
+  "ipeds_id": 240453,
+  "state": "WI",
+  "city": "Milwaukee",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.8844,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": 18,
+    "act_75": 24,
+    "tuition_in_state": 10020,
+    "tuition_out_of_state": 22020,
+    "room_board": 10980,
+    "total_cost_in_state": 23000,
+    "total_cost_out_of_state": 35000,
+    "net_price": {
+      "0_30k": 10860,
+      "30_48k": 12001,
+      "48_75k": 15762,
+      "75_110k": 19773,
+      "110k_plus": 21112
+    },
+    "pell_rate": 0.3019,
+    "federal_loan_rate": 0.4378,
+    "enrollment": 16762
+  },
+  "cds": null,
+  "reference": null
+}

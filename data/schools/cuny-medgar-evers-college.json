@@ -1,0 +1,45 @@
+{
+  "slug": "cuny-medgar-evers-college",
+  "name": "CUNY Medgar Evers College",
+  "ipeds_id": 190646,
+  "state": "NY",
+  "city": "Brooklyn",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.8339,
+    "sat_reading_25": 400,
+    "sat_reading_75": 550,
+    "sat_math_25": 380,
+    "sat_math_75": 450,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 7352,
+    "tuition_out_of_state": 15302,
+    "room_board": null,
+    "total_cost_in_state": 14069,
+    "total_cost_out_of_state": null,
+    "net_price": {
+      "0_30k": 4741,
+      "30_48k": 5532,
+      "48_75k": 9533,
+      "75_110k": 10791,
+      "110k_plus": 13680
+    },
+    "pell_rate": 0.5679,
+    "federal_loan_rate": 0.1217,
+    "enrollment": 3404
+  },
+  "cds": null,
+  "reference": {
+    "honors_program": {
+      "name": "Macaulay Honors College",
+      "description": "Highly selective CUNY-wide honors college. Scholars receive a full tuition scholarship, a laptop, an Opportunities Fund for enrichment activities, and personalized advising. ~2,080 students across 8 CUNY campuses.",
+      "separate_application": true,
+      "avg_sat": null,
+      "acceptance_rate": null,
+      "size": 2080
+    }
+  }
+}

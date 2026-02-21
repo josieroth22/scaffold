@@ -1,0 +1,36 @@
+{
+  "slug": "central-state-university",
+  "name": "Central State University",
+  "ipeds_id": 201690,
+  "state": "OH",
+  "city": "Wilberforce",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.46,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 7824,
+    "tuition_out_of_state": 9824,
+    "room_board": 11390,
+    "total_cost_in_state": 21214,
+    "total_cost_out_of_state": 23214,
+    "net_price": {
+      "0_30k": 15607,
+      "30_48k": 16661,
+      "48_75k": 18187,
+      "75_110k": 21211,
+      "110k_plus": null
+    },
+    "pell_rate": 0.4218,
+    "federal_loan_rate": 0.2878,
+    "enrollment": 3412
+  },
+  "cds": null,
+  "reference": null
+}

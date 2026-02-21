@@ -1,0 +1,36 @@
+{
+  "slug": "university-of-science-and-arts-of-oklahoma",
+  "name": "University of Science and Arts of Oklahoma",
+  "ipeds_id": 207722,
+  "state": "OK",
+  "city": "Chickasha",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.5577,
+    "sat_reading_25": 523,
+    "sat_reading_75": 618,
+    "sat_math_25": 520,
+    "sat_math_75": 570,
+    "act_25": 21,
+    "act_75": 25,
+    "tuition_in_state": 9000,
+    "tuition_out_of_state": 20190,
+    "room_board": 7640,
+    "total_cost_in_state": 18640,
+    "total_cost_out_of_state": 29830,
+    "net_price": {
+      "0_30k": 6445,
+      "30_48k": 4105,
+      "48_75k": 9684,
+      "75_110k": 13794,
+      "110k_plus": 14515
+    },
+    "pell_rate": 0.4703,
+    "federal_loan_rate": 0.3758,
+    "enrollment": 896
+  },
+  "cds": null,
+  "reference": null
+}

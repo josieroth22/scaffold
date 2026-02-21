@@ -1,0 +1,45 @@
+{
+  "slug": "texas-christian-university",
+  "name": "Texas Christian University",
+  "ipeds_id": 228875,
+  "state": "TX",
+  "city": "Fort Worth",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.426,
+    "sat_reading_25": 580,
+    "sat_reading_75": 690,
+    "sat_math_25": 570,
+    "sat_math_75": 685,
+    "act_25": 26,
+    "act_75": 31,
+    "tuition_in_state": 57220,
+    "tuition_out_of_state": 57220,
+    "room_board": 14800,
+    "total_cost_in_state": 74020,
+    "total_cost_out_of_state": 74020,
+    "net_price": {
+      "0_30k": 15531,
+      "30_48k": 12341,
+      "48_75k": 18714,
+      "75_110k": 32933,
+      "110k_plus": 49598
+    },
+    "pell_rate": 0.1347,
+    "federal_loan_rate": 0.2505,
+    "enrollment": 10919
+  },
+  "cds": null,
+  "reference": {
+    "merit_scholarships": [
+      {
+        "name": "Chancellor's Scholars",
+        "amount": "Full tuition (~$63,000/year)",
+        "deadline": "November 1",
+        "requirements": "Honors College Application, Resume, Writing Samples, Letters of Recommendation, Interview"
+      }
+    ]
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "slug": "frostburg-state-university",
+  "name": "Frostburg State University",
+  "ipeds_id": 162584,
+  "state": "MD",
+  "city": "Frostburg",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.8944,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 9998,
+    "tuition_out_of_state": 25180,
+    "room_board": 12502,
+    "total_cost_in_state": 24500,
+    "total_cost_out_of_state": 39682,
+    "net_price": {
+      "0_30k": 8930,
+      "30_48k": 12850,
+      "48_75k": 17130,
+      "75_110k": 20905,
+      "110k_plus": 22754
+    },
+    "pell_rate": 0.3285,
+    "federal_loan_rate": 0.3779,
+    "enrollment": 2849
+  },
+  "cds": null,
+  "reference": null
+}

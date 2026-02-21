@@ -1,0 +1,36 @@
+{
+  "slug": "indiana-university-southeast",
+  "name": "Indiana University-Southeast",
+  "ipeds_id": 151379,
+  "state": "IN",
+  "city": "New Albany",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.8312,
+    "sat_reading_25": 510,
+    "sat_reading_75": 610,
+    "sat_math_25": 500,
+    "sat_math_75": 580,
+    "act_25": 20,
+    "act_75": 26,
+    "tuition_in_state": 8179,
+    "tuition_out_of_state": 22043,
+    "room_board": 11654,
+    "total_cost_in_state": 21833,
+    "total_cost_out_of_state": 35697,
+    "net_price": {
+      "0_30k": 4253,
+      "30_48k": 4592,
+      "48_75k": 8343,
+      "75_110k": 12726,
+      "110k_plus": 12852
+    },
+    "pell_rate": 0.3381,
+    "federal_loan_rate": 0.3189,
+    "enrollment": 3088
+  },
+  "cds": null,
+  "reference": null
+}

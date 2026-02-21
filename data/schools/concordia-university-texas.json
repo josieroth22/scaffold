@@ -1,0 +1,36 @@
+{
+  "slug": "concordia-university-texas",
+  "name": "Concordia University Texas",
+  "ipeds_id": 224004,
+  "state": "TX",
+  "city": "Austin",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.9106,
+    "sat_reading_25": 440,
+    "sat_reading_75": 550,
+    "sat_math_25": 420,
+    "sat_math_75": 550,
+    "act_25": 15,
+    "act_75": 24,
+    "tuition_in_state": 36690,
+    "tuition_out_of_state": 36690,
+    "room_board": 12940,
+    "total_cost_in_state": 51630,
+    "total_cost_out_of_state": 51630,
+    "net_price": {
+      "0_30k": 16380,
+      "30_48k": 18269,
+      "48_75k": 20148,
+      "75_110k": 26629,
+      "110k_plus": 31244
+    },
+    "pell_rate": 0.3978,
+    "federal_loan_rate": 0.6629,
+    "enrollment": 1388
+  },
+  "cds": null,
+  "reference": null
+}

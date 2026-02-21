@@ -1,0 +1,36 @@
+{
+  "slug": "western-connecticut-state-university",
+  "name": "Western Connecticut State University",
+  "ipeds_id": 130776,
+  "state": "CT",
+  "city": "Danbury",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.8136,
+    "sat_reading_25": 440,
+    "sat_reading_75": 600,
+    "sat_math_25": 400,
+    "sat_math_75": 550,
+    "act_25": 20,
+    "act_75": 27,
+    "tuition_in_state": 12763,
+    "tuition_out_of_state": 16095,
+    "room_board": 15131,
+    "total_cost_in_state": 29894,
+    "total_cost_out_of_state": 33226,
+    "net_price": {
+      "0_30k": 17055,
+      "30_48k": 15942,
+      "48_75k": 16697,
+      "75_110k": 19825,
+      "110k_plus": 22946
+    },
+    "pell_rate": 0.3464,
+    "federal_loan_rate": 0.498,
+    "enrollment": 3434
+  },
+  "cds": null,
+  "reference": null
+}

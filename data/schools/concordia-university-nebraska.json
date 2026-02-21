@@ -1,0 +1,36 @@
+{
+  "slug": "concordia-university-nebraska",
+  "name": "Concordia University-Nebraska",
+  "ipeds_id": 180984,
+  "state": "NE",
+  "city": "Seward",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.9004,
+    "sat_reading_25": 530,
+    "sat_reading_75": 625,
+    "sat_math_25": 510,
+    "sat_math_75": 610,
+    "act_25": 19,
+    "act_75": 26,
+    "tuition_in_state": 39330,
+    "tuition_out_of_state": 39330,
+    "room_board": 10350,
+    "total_cost_in_state": 51680,
+    "total_cost_out_of_state": 51680,
+    "net_price": {
+      "0_30k": 19320,
+      "30_48k": 20192,
+      "48_75k": 21880,
+      "75_110k": 24197,
+      "110k_plus": 26363
+    },
+    "pell_rate": 0.1136,
+    "federal_loan_rate": 0.2661,
+    "enrollment": 1270
+  },
+  "cds": null,
+  "reference": null
+}

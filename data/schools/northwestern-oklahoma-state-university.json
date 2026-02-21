@@ -1,0 +1,45 @@
+{
+  "slug": "northwestern-oklahoma-state-university",
+  "name": "Northwestern Oklahoma State University",
+  "ipeds_id": 207306,
+  "state": "OK",
+  "city": "Alva",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.6643,
+    "sat_reading_25": 430,
+    "sat_reading_75": 550,
+    "sat_math_25": 438,
+    "sat_math_75": 540,
+    "act_25": 16,
+    "act_75": 22,
+    "tuition_in_state": 5970,
+    "tuition_out_of_state": 11664,
+    "room_board": 5520,
+    "total_cost_in_state": 13490,
+    "total_cost_out_of_state": 19184,
+    "net_price": {
+      "0_30k": 9050,
+      "30_48k": 8936,
+      "48_75k": 11315,
+      "75_110k": 16731,
+      "110k_plus": 18614
+    },
+    "pell_rate": 0.4068,
+    "federal_loan_rate": 0.3953,
+    "enrollment": 1468
+  },
+  "cds": null,
+  "reference": {
+    "honors_program": {
+      "name": "The Honors College",
+      "description": "Oklahoma State University's Honors College blends the resources of an R1 university with a close-knit, small-class experience. Students get priority enrollment starting sophomore year, access to honors-only sections, seminars, over 200 honors courses per semester, and specialized honors advising.",
+      "separate_application": null,
+      "avg_sat": null,
+      "acceptance_rate": null,
+      "size": null
+    }
+  }
+}

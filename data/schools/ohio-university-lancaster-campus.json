@@ -1,0 +1,36 @@
+{
+  "slug": "ohio-university-lancaster-campus",
+  "name": "Ohio University-Lancaster Campus",
+  "ipeds_id": 204848,
+  "state": "OH",
+  "city": "Lancaster",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": null,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 6178,
+    "tuition_out_of_state": 9170,
+    "room_board": null,
+    "total_cost_in_state": 10267,
+    "total_cost_out_of_state": null,
+    "net_price": {
+      "0_30k": 3301,
+      "30_48k": 3792,
+      "48_75k": 4674,
+      "75_110k": 9009,
+      "110k_plus": 9277
+    },
+    "pell_rate": 0.0948,
+    "federal_loan_rate": 0.1143,
+    "enrollment": 657
+  },
+  "cds": null,
+  "reference": null
+}

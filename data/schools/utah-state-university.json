@@ -1,0 +1,36 @@
+{
+  "slug": "utah-state-university",
+  "name": "Utah State University",
+  "ipeds_id": 230728,
+  "state": "UT",
+  "city": "Logan",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.9362,
+    "sat_reading_25": 530,
+    "sat_reading_75": 660,
+    "sat_math_25": 530,
+    "sat_math_75": 640,
+    "act_25": 20,
+    "act_75": 28,
+    "tuition_in_state": 9228,
+    "tuition_out_of_state": 24802,
+    "room_board": 8644,
+    "total_cost_in_state": 19872,
+    "total_cost_out_of_state": 35446,
+    "net_price": {
+      "0_30k": 9601,
+      "30_48k": 9966,
+      "48_75k": 11599,
+      "75_110k": 14825,
+      "110k_plus": 17671
+    },
+    "pell_rate": 0.2569,
+    "federal_loan_rate": 0.1925,
+    "enrollment": 20342
+  },
+  "cds": null,
+  "reference": null
+}

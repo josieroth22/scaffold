@@ -1,0 +1,43 @@
+{
+  "slug": "furman-university",
+  "name": "Furman University",
+  "ipeds_id": 218070,
+  "state": "SC",
+  "city": "Greenville",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.5257,
+    "sat_reading_25": 650,
+    "sat_reading_75": 720,
+    "sat_math_25": 610,
+    "sat_math_75": 705,
+    "act_25": 28,
+    "act_75": 32,
+    "tuition_in_state": 58312,
+    "tuition_out_of_state": 58312,
+    "room_board": 15868,
+    "total_cost_in_state": 76180,
+    "total_cost_out_of_state": 76180,
+    "net_price": {
+      "0_30k": 16190,
+      "30_48k": 16294,
+      "48_75k": 24978,
+      "75_110k": 29927,
+      "110k_plus": 37271
+    },
+    "pell_rate": 0.1121,
+    "federal_loan_rate": 0.2781,
+    "enrollment": 2322
+  },
+  "cds": null,
+  "reference": {
+    "national_merit": {
+      "semifinalist_award": "None",
+      "finalist_award": "$1,000-$2,000",
+      "first_choice_required": true,
+      "guaranteed": false
+    }
+  }
+}

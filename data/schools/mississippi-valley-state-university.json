@@ -1,0 +1,36 @@
+{
+  "slug": "mississippi-valley-state-university",
+  "name": "Mississippi Valley State University",
+  "ipeds_id": 176044,
+  "state": "MS",
+  "city": "Itta Bena",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.5116,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": 14,
+    "act_75": 18,
+    "tuition_in_state": 7912,
+    "tuition_out_of_state": 7912,
+    "room_board": 8112,
+    "total_cost_in_state": 18024,
+    "total_cost_out_of_state": 18024,
+    "net_price": {
+      "0_30k": 11034,
+      "30_48k": 12613,
+      "48_75k": 14074,
+      "75_110k": 12513,
+      "110k_plus": 10335
+    },
+    "pell_rate": 0.5955,
+    "federal_loan_rate": 0.5393,
+    "enrollment": 1326
+  },
+  "cds": null,
+  "reference": null
+}

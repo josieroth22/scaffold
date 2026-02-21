@@ -1,0 +1,87 @@
+{
+  "slug": "university-of-texas-at-austin",
+  "name": "University of Texas at Austin",
+  "api_name": "The University of Texas at Austin",
+  "ipeds_id": 228778,
+  "state": "TX",
+  "city": "Austin",
+  "type": "public",
+  "tier": "A",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.2912,
+    "sat_reading_25": 620,
+    "sat_reading_75": 730,
+    "sat_math_25": 610,
+    "sat_math_75": 760,
+    "act_25": 27,
+    "act_75": 33,
+    "tuition_in_state": 11678,
+    "tuition_out_of_state": 42778,
+    "room_board": 14136,
+    "total_cost_in_state": 27814,
+    "total_cost_out_of_state": 58914,
+    "net_price": {
+      "0_30k": 12972,
+      "30_48k": 15543,
+      "48_75k": 18618,
+      "75_110k": 25697,
+      "110k_plus": 28972
+    },
+    "pell_rate": 0.2511,
+    "federal_loan_rate": 0.2706,
+    "enrollment": 42100
+  },
+  "cds": {
+    "school_name": "The University of Texas at Austin",
+    "source_year": "2024-2025",
+    "total_applicants": 72885,
+    "total_admitted": 19417,
+    "admit_rate_overall": 0.266,
+    "ed_applicants": null,
+    "ed_admitted": null,
+    "ed_admit_rate": null,
+    "ea_applicants": null,
+    "ea_admitted": null,
+    "ea_admit_rate": null,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "sat_composite_25": null,
+    "sat_composite_75": null,
+    "act_composite_25": null,
+    "act_composite_75": null,
+    "tuition_in_state": 11688,
+    "tuition_out_of_state": 44908,
+    "tuition_private": null,
+    "required_fees": null,
+    "room_board": 14828,
+    "pct_need_met": 75,
+    "avg_need_grant": 14446,
+    "avg_financial_aid_package": 18442,
+    "meets_full_need": false,
+    "pct_freshmen_receiving_need_aid": 43.4,
+    "pct_freshmen_receiving_merit_aid": 1.2,
+    "avg_merit_award": 3876
+  },
+  "reference": {
+    "merit_scholarships": [
+      {
+        "name": "Forty Acres Scholars",
+        "amount": "Full COA (~$200,000 over four years: tuition, living stipend, books, and enrichment)",
+        "deadline": "December 1",
+        "requirements": "Semifinalist Interview, Finalist Weekend"
+      }
+    ],
+    "honors_program": {
+      "name": "Plan II Honors Program",
+      "description": "Plan II is a small honors program where students can explore the issues and questions that shape the human experience. In addition to small classes with the best teachers on campus, the program offers extremely personalized support with two professional academic advisors holding walk-in hours year-round.",
+      "separate_application": null,
+      "avg_sat": null,
+      "acceptance_rate": null,
+      "size": 700
+    }
+  }
+}

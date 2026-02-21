@@ -1,0 +1,36 @@
+{
+  "slug": "keystone-college",
+  "name": "Keystone College",
+  "ipeds_id": 213303,
+  "state": "PA",
+  "city": "La Plume",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.796,
+    "sat_reading_25": 460,
+    "sat_reading_75": 570,
+    "sat_math_25": 450,
+    "sat_math_75": 560,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 17850,
+    "tuition_out_of_state": 17850,
+    "room_board": 12400,
+    "total_cost_in_state": 32250,
+    "total_cost_out_of_state": 32250,
+    "net_price": {
+      "0_30k": 21257,
+      "30_48k": 21196,
+      "48_75k": 22731,
+      "75_110k": 22623,
+      "110k_plus": 30181
+    },
+    "pell_rate": 0.4481,
+    "federal_loan_rate": 0.884,
+    "enrollment": 870
+  },
+  "cds": null,
+  "reference": null
+}

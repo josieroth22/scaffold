@@ -1,0 +1,43 @@
+{
+  "slug": "occidental-college",
+  "name": "Occidental College",
+  "ipeds_id": 120254,
+  "state": "CA",
+  "city": "Los Angeles",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.3989,
+    "sat_reading_25": 690,
+    "sat_reading_75": 750,
+    "sat_math_25": 670,
+    "sat_math_75": 750,
+    "act_25": 31,
+    "act_75": 34,
+    "tuition_in_state": 63446,
+    "tuition_out_of_state": 63446,
+    "room_board": 18284,
+    "total_cost_in_state": 83730,
+    "total_cost_out_of_state": 83730,
+    "net_price": {
+      "0_30k": 18872,
+      "30_48k": 18801,
+      "48_75k": 17577,
+      "75_110k": 28983,
+      "110k_plus": 55885
+    },
+    "pell_rate": 0.1595,
+    "federal_loan_rate": 0.3875,
+    "enrollment": 1844
+  },
+  "cds": null,
+  "reference": {
+    "national_merit": {
+      "semifinalist_award": "None",
+      "finalist_award": "$500-$2,000",
+      "first_choice_required": false,
+      "guaranteed": false
+    }
+  }
+}

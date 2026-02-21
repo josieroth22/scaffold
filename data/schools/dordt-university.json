@@ -1,0 +1,36 @@
+{
+  "slug": "dordt-university",
+  "name": "Dordt University",
+  "ipeds_id": 153250,
+  "state": "IA",
+  "city": "Sioux Center",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.7116,
+    "sat_reading_25": 510,
+    "sat_reading_75": 620,
+    "sat_math_25": 520,
+    "sat_math_75": 610,
+    "act_25": 21,
+    "act_75": 27,
+    "tuition_in_state": 35960,
+    "tuition_out_of_state": 35960,
+    "room_board": 11430,
+    "total_cost_in_state": 49390,
+    "total_cost_out_of_state": 49390,
+    "net_price": {
+      "0_30k": 20966,
+      "30_48k": 20971,
+      "48_75k": 23110,
+      "75_110k": 26192,
+      "110k_plus": 31607
+    },
+    "pell_rate": 0.1827,
+    "federal_loan_rate": 0.4321,
+    "enrollment": 1547
+  },
+  "cds": null,
+  "reference": null
+}

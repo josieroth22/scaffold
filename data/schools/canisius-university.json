@@ -1,0 +1,36 @@
+{
+  "slug": "canisius-university",
+  "name": "Canisius University",
+  "ipeds_id": 189705,
+  "state": "NY",
+  "city": "Buffalo",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.8177,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 32720,
+    "tuition_out_of_state": 32720,
+    "room_board": 13160,
+    "total_cost_in_state": 47880,
+    "total_cost_out_of_state": 47880,
+    "net_price": {
+      "0_30k": 12369,
+      "30_48k": 13719,
+      "48_75k": 16657,
+      "75_110k": 20762,
+      "110k_plus": 23259
+    },
+    "pell_rate": 0.2679,
+    "federal_loan_rate": 0.5341,
+    "enrollment": 1768
+  },
+  "cds": null,
+  "reference": null
+}

@@ -1,0 +1,36 @@
+{
+  "slug": "franklin-college",
+  "name": "Franklin College",
+  "ipeds_id": 150604,
+  "state": "IN",
+  "city": "Franklin",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.7058,
+    "sat_reading_25": 500,
+    "sat_reading_75": 600,
+    "sat_math_25": 520,
+    "sat_math_75": 600,
+    "act_25": 21,
+    "act_75": 27,
+    "tuition_in_state": 37350,
+    "tuition_out_of_state": 37350,
+    "room_board": 11290,
+    "total_cost_in_state": 50640,
+    "total_cost_out_of_state": 50640,
+    "net_price": {
+      "0_30k": 19031,
+      "30_48k": 18645,
+      "48_75k": 18436,
+      "75_110k": 25471,
+      "110k_plus": 28694
+    },
+    "pell_rate": 0.385,
+    "federal_loan_rate": 0.6127,
+    "enrollment": 872
+  },
+  "cds": null,
+  "reference": null
+}

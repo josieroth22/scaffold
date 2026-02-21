@@ -1,0 +1,85 @@
+{
+  "slug": "northeastern-university",
+  "name": "Northeastern University",
+  "api_name": "Northeastern University",
+  "ipeds_id": 167358,
+  "state": "MA",
+  "city": "Boston",
+  "type": "private",
+  "tier": "C",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.0565,
+    "sat_reading_25": 710,
+    "sat_reading_75": 760,
+    "sat_math_25": 750,
+    "sat_math_75": 790,
+    "act_25": 33,
+    "act_75": 35,
+    "tuition_in_state": 63141,
+    "tuition_out_of_state": 63141,
+    "room_board": 18790,
+    "total_cost_in_state": 83931,
+    "total_cost_out_of_state": 83931,
+    "net_price": {
+      "0_30k": 5900,
+      "30_48k": 6383,
+      "48_75k": 10482,
+      "75_110k": 20109,
+      "110k_plus": 51753
+    },
+    "pell_rate": 0.1234,
+    "federal_loan_rate": 0.2834,
+    "enrollment": 15719
+  },
+  "cds": {
+    "school_name": "Northeastern University",
+    "source_year": "2024-2025",
+    "total_applicants": 98397,
+    "total_admitted": 5132,
+    "admit_rate_overall": 0.052,
+    "ed_applicants": 3466,
+    "ed_admitted": 1492,
+    "ed_admit_rate": 0.431,
+    "ea_applicants": null,
+    "ea_admitted": null,
+    "ea_admit_rate": null,
+    "sat_reading_25": 710,
+    "sat_reading_75": 760,
+    "sat_math_25": 730,
+    "sat_math_75": 780,
+    "sat_composite_25": 1450,
+    "sat_composite_75": 1520,
+    "act_composite_25": 33,
+    "act_composite_75": 35,
+    "tuition_in_state": null,
+    "tuition_out_of_state": null,
+    "tuition_private": 64990,
+    "required_fees": 1172,
+    "room_board": 21620,
+    "pct_need_met": 100,
+    "avg_need_grant": 56482,
+    "avg_financial_aid_package": 59167,
+    "meets_full_need": true,
+    "pct_freshmen_receiving_need_aid": 49.3,
+    "pct_freshmen_receiving_merit_aid": 20.3,
+    "avg_merit_award": 15365
+  },
+  "reference": {
+    "merit_scholarships": [
+      {
+        "name": "Stamps Scholarship",
+        "amount": "Full COA (tuition, fees, housing, meals, plus enrichment stipend)",
+        "deadline": "January 1",
+        "requirements": "Video Application"
+      }
+    ],
+    "national_merit": {
+      "semifinalist_award": "None",
+      "finalist_award": "$10,000-$28,000",
+      "first_choice_required": false,
+      "guaranteed": false
+    }
+  }
+}

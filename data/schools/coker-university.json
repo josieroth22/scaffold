@@ -1,0 +1,36 @@
+{
+  "slug": "coker-university",
+  "name": "Coker University",
+  "ipeds_id": 217907,
+  "state": "SC",
+  "city": "Hartsville",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.9723,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 31854,
+    "tuition_out_of_state": 31854,
+    "room_board": 10882,
+    "total_cost_in_state": 44736,
+    "total_cost_out_of_state": 44736,
+    "net_price": {
+      "0_30k": 16478,
+      "30_48k": 16411,
+      "48_75k": 16242,
+      "75_110k": 19634,
+      "110k_plus": 19982
+    },
+    "pell_rate": 0.2949,
+    "federal_loan_rate": 0.4735,
+    "enrollment": 807
+  },
+  "cds": null,
+  "reference": null
+}

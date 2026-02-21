@@ -1,0 +1,36 @@
+{
+  "slug": "farmingdale-state-college",
+  "name": "Farmingdale State College",
+  "ipeds_id": 196042,
+  "state": "NY",
+  "city": "Farmingdale",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.6912,
+    "sat_reading_25": 510,
+    "sat_reading_75": 600,
+    "sat_math_25": 510,
+    "sat_math_75": 600,
+    "act_25": 19,
+    "act_75": 27,
+    "tuition_in_state": 8576,
+    "tuition_out_of_state": 18486,
+    "room_board": 14546,
+    "total_cost_in_state": 25122,
+    "total_cost_out_of_state": 35032,
+    "net_price": {
+      "0_30k": 3865,
+      "30_48k": 6366,
+      "48_75k": 10730,
+      "75_110k": 13143,
+      "110k_plus": 16356
+    },
+    "pell_rate": 0.3575,
+    "federal_loan_rate": 0.2307,
+    "enrollment": 9117
+  },
+  "cds": null,
+  "reference": null
+}

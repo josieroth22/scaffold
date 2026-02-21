@@ -1,0 +1,91 @@
+{
+  "slug": "villanova-university",
+  "name": "Villanova University",
+  "api_name": "Villanova University",
+  "ipeds_id": 216597,
+  "state": "PA",
+  "city": "Villanova",
+  "type": "private",
+  "tier": "C",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.2512,
+    "sat_reading_25": 690,
+    "sat_reading_75": 740,
+    "sat_math_25": 710,
+    "sat_math_75": 770,
+    "act_25": 32,
+    "act_75": 34,
+    "tuition_in_state": 64701,
+    "tuition_out_of_state": 64701,
+    "room_board": 16896,
+    "total_cost_in_state": 83597,
+    "total_cost_out_of_state": 83597,
+    "net_price": {
+      "0_30k": 16914,
+      "30_48k": 31248,
+      "48_75k": 25786,
+      "75_110k": 34285,
+      "110k_plus": 60637
+    },
+    "pell_rate": 0.1155,
+    "federal_loan_rate": 0.3656,
+    "enrollment": 7005
+  },
+  "cds": {
+    "school_name": "Villanova University",
+    "source_year": "2024-2025",
+    "total_applicants": 23256,
+    "total_admitted": 6274,
+    "admit_rate_overall": 0.27,
+    "ed_applicants": 1696,
+    "ed_admitted": 920,
+    "ed_admit_rate": 0.542,
+    "ea_applicants": null,
+    "ea_admitted": null,
+    "ea_admit_rate": null,
+    "sat_reading_25": 685,
+    "sat_reading_75": 740,
+    "sat_math_25": 710,
+    "sat_math_75": 770,
+    "sat_composite_25": 1410,
+    "sat_composite_75": 1490,
+    "act_composite_25": 32,
+    "act_composite_75": 34,
+    "tuition_in_state": null,
+    "tuition_out_of_state": null,
+    "tuition_private": 69846,
+    "required_fees": 1266,
+    "room_board": 18520,
+    "pct_need_met": 82,
+    "avg_need_grant": null,
+    "avg_financial_aid_package": null,
+    "meets_full_need": false,
+    "pct_freshmen_receiving_need_aid": 43.3,
+    "pct_freshmen_receiving_merit_aid": null,
+    "avg_merit_award": 32067
+  },
+  "reference": {
+    "merit_scholarships": [
+      {
+        "name": "Presidential Scholarship",
+        "amount": "Full COA (tuition, room, board, fees, and books)",
+        "deadline": "January 15",
+        "requirements": "Presidential Scholars Application (Short-Answer Essays), Campus Interview"
+      },
+      {
+        "name": "St. Martin de Porres Scholarship",
+        "amount": "Full tuition and fees",
+        "deadline": "January 15",
+        "requirements": "None"
+      }
+    ],
+    "national_merit": {
+      "semifinalist_award": "None",
+      "finalist_award": "$500-$2,000",
+      "first_choice_required": true,
+      "guaranteed": true
+    }
+  }
+}

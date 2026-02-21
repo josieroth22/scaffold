@@ -1,0 +1,36 @@
+{
+  "slug": "cedar-crest-college",
+  "name": "Cedar Crest College",
+  "ipeds_id": 211468,
+  "state": "PA",
+  "city": "Allentown",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.9913,
+    "sat_reading_25": 520,
+    "sat_reading_75": 660,
+    "sat_math_25": 480,
+    "sat_math_75": 570,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 44934,
+    "tuition_out_of_state": 44934,
+    "room_board": 13001,
+    "total_cost_in_state": 59935,
+    "total_cost_out_of_state": 59935,
+    "net_price": {
+      "0_30k": 19765,
+      "30_48k": 21696,
+      "48_75k": 21105,
+      "75_110k": 24635,
+      "110k_plus": 26406
+    },
+    "pell_rate": 0.3861,
+    "federal_loan_rate": 0.7114,
+    "enrollment": 857
+  },
+  "cds": null,
+  "reference": null
+}

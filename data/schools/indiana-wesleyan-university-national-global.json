@@ -1,0 +1,36 @@
+{
+  "slug": "indiana-wesleyan-university-national-global",
+  "name": "Indiana Wesleyan University-National & Global",
+  "ipeds_id": 488679,
+  "state": "IN",
+  "city": "Marion",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": null,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 8216,
+    "tuition_out_of_state": 8216,
+    "room_board": null,
+    "total_cost_in_state": 22117,
+    "total_cost_out_of_state": null,
+    "net_price": {
+      "0_30k": 16113,
+      "30_48k": 16787,
+      "48_75k": 17685,
+      "75_110k": 19318,
+      "110k_plus": 21679
+    },
+    "pell_rate": 0.4758,
+    "federal_loan_rate": 0.5456,
+    "enrollment": 5808
+  },
+  "cds": null,
+  "reference": null
+}

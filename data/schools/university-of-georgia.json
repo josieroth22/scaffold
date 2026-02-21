@@ -1,0 +1,87 @@
+{
+  "slug": "university-of-georgia",
+  "name": "University of Georgia",
+  "api_name": "University of Georgia",
+  "ipeds_id": 139959,
+  "state": "GA",
+  "city": "Athens",
+  "type": "public",
+  "tier": "A",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.372,
+    "sat_reading_25": 590,
+    "sat_reading_75": 690,
+    "sat_math_25": 570,
+    "sat_math_75": 700,
+    "act_25": 25,
+    "act_75": 32,
+    "tuition_in_state": 11180,
+    "tuition_out_of_state": 30220,
+    "room_board": 11246,
+    "total_cost_in_state": 24426,
+    "total_cost_out_of_state": 43466,
+    "net_price": {
+      "0_30k": 7897,
+      "30_48k": 9336,
+      "48_75k": 14400,
+      "75_110k": 17447,
+      "110k_plus": 17846
+    },
+    "pell_rate": 0.1722,
+    "federal_loan_rate": 0.2165,
+    "enrollment": 31310
+  },
+  "cds": {
+    "school_name": "University of Georgia",
+    "source_year": "2024-2025",
+    "total_applicants": 42436,
+    "total_admitted": 16092,
+    "admit_rate_overall": 0.379,
+    "ed_applicants": null,
+    "ed_admitted": null,
+    "ed_admit_rate": null,
+    "ea_applicants": null,
+    "ea_admitted": null,
+    "ea_admit_rate": null,
+    "sat_reading_25": 620,
+    "sat_reading_75": 710,
+    "sat_math_25": 600,
+    "sat_math_75": 710,
+    "sat_composite_25": 1220,
+    "sat_composite_75": 1400,
+    "act_composite_25": 26,
+    "act_composite_75": 32,
+    "tuition_in_state": 10034,
+    "tuition_out_of_state": 30272,
+    "tuition_private": null,
+    "required_fees": 1406,
+    "room_board": 11672,
+    "pct_need_met": 73.2,
+    "avg_need_grant": 12568,
+    "avg_financial_aid_package": 15348,
+    "meets_full_need": false,
+    "pct_freshmen_receiving_need_aid": 28.6,
+    "pct_freshmen_receiving_merit_aid": 24,
+    "avg_merit_award": 2797
+  },
+  "reference": {
+    "merit_scholarships": [
+      {
+        "name": "The Foundation Fellowship",
+        "amount": "Full COA (stipend plus Zell Miller/waiver, travel-study, and research grants)",
+        "deadline": "November 1",
+        "requirements": "Morehead Honors College Application, Foundation Fellowship Application, Interview Weekend"
+      }
+    ],
+    "honors_program": {
+      "name": "Morehead Honors College",
+      "description": "The Jere W. Morehead Honors College began in 1960 and now serves more than 2,800 undergraduates each year. Honors students can choose any degree program at UGA, which has 170-plus majors and academic programs.",
+      "separate_application": null,
+      "avg_sat": 1504,
+      "acceptance_rate": null,
+      "size": 2800
+    }
+  }
+}

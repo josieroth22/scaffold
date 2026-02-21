@@ -1,0 +1,36 @@
+{
+  "slug": "adrian-college",
+  "name": "Adrian College",
+  "ipeds_id": 168528,
+  "state": "MI",
+  "city": "Adrian",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.6837,
+    "sat_reading_25": 455,
+    "sat_reading_75": 570,
+    "sat_math_25": 425,
+    "sat_math_75": 550,
+    "act_25": 18,
+    "act_75": 26,
+    "tuition_in_state": 40556,
+    "tuition_out_of_state": 40556,
+    "room_board": 13424,
+    "total_cost_in_state": 55980,
+    "total_cost_out_of_state": 55980,
+    "net_price": {
+      "0_30k": 15688,
+      "30_48k": 15581,
+      "48_75k": 19528,
+      "75_110k": 24062,
+      "110k_plus": 26926
+    },
+    "pell_rate": 0.3114,
+    "federal_loan_rate": 0.7029,
+    "enrollment": 1635
+  },
+  "cds": null,
+  "reference": null
+}

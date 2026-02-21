@@ -1,0 +1,36 @@
+{
+  "slug": "northwestern-college",
+  "name": "Northwestern College",
+  "ipeds_id": 154101,
+  "state": "IA",
+  "city": "Orange City",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.8701,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 35300,
+    "tuition_out_of_state": 35300,
+    "room_board": 10700,
+    "total_cost_in_state": 48000,
+    "total_cost_out_of_state": 48000,
+    "net_price": {
+      "0_30k": 21342,
+      "30_48k": 22811,
+      "48_75k": 20674,
+      "75_110k": 21234,
+      "110k_plus": 26036
+    },
+    "pell_rate": 0.2274,
+    "federal_loan_rate": 0.5418,
+    "enrollment": 1125
+  },
+  "cds": null,
+  "reference": null
+}

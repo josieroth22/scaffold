@@ -1,0 +1,36 @@
+{
+  "slug": "university-of-mary-hardin-baylor",
+  "name": "University of Mary Hardin-Baylor",
+  "ipeds_id": 226471,
+  "state": "TX",
+  "city": "Belton",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.9512,
+    "sat_reading_25": 490,
+    "sat_reading_75": 620,
+    "sat_math_25": 480,
+    "sat_math_75": 580,
+    "act_25": 19,
+    "act_75": 26,
+    "tuition_in_state": 33150,
+    "tuition_out_of_state": 33150,
+    "room_board": 10720,
+    "total_cost_in_state": 45870,
+    "total_cost_out_of_state": 45870,
+    "net_price": {
+      "0_30k": 25906,
+      "30_48k": 25332,
+      "48_75k": 25729,
+      "75_110k": 28686,
+      "110k_plus": 33693
+    },
+    "pell_rate": 0.3685,
+    "federal_loan_rate": 0.6276,
+    "enrollment": 2959
+  },
+  "cds": null,
+  "reference": null
+}

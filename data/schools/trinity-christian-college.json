@@ -1,0 +1,36 @@
+{
+  "slug": "trinity-christian-college",
+  "name": "Trinity Christian College",
+  "ipeds_id": 149505,
+  "state": "IL",
+  "city": "Palos Heights",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.8865,
+    "sat_reading_25": 520,
+    "sat_reading_75": 590,
+    "sat_math_25": 530,
+    "sat_math_75": 610,
+    "act_25": 23,
+    "act_75": 28,
+    "tuition_in_state": 20325,
+    "tuition_out_of_state": 20325,
+    "room_board": 11200,
+    "total_cost_in_state": 33525,
+    "total_cost_out_of_state": 33525,
+    "net_price": {
+      "0_30k": 12034,
+      "30_48k": 9624,
+      "48_75k": 11213,
+      "75_110k": 18986,
+      "110k_plus": 23771
+    },
+    "pell_rate": 0.3329,
+    "federal_loan_rate": 0.6441,
+    "enrollment": 796
+  },
+  "cds": null,
+  "reference": null
+}

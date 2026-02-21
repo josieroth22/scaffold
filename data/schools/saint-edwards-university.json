@@ -1,0 +1,36 @@
+{
+  "slug": "saint-edwards-university",
+  "name": "Saint Edward's University",
+  "ipeds_id": 227845,
+  "state": "TX",
+  "city": "Austin",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.8369,
+    "sat_reading_25": 530,
+    "sat_reading_75": 640,
+    "sat_math_25": 500,
+    "sat_math_75": 595,
+    "act_25": 20,
+    "act_75": 25,
+    "tuition_in_state": 51384,
+    "tuition_out_of_state": 51384,
+    "room_board": 14010,
+    "total_cost_in_state": 67394,
+    "total_cost_out_of_state": 67394,
+    "net_price": {
+      "0_30k": 18740,
+      "30_48k": 20775,
+      "48_75k": 22064,
+      "75_110k": 26084,
+      "110k_plus": 35487
+    },
+    "pell_rate": 0.3947,
+    "federal_loan_rate": 0.4814,
+    "enrollment": 2729
+  },
+  "cds": null,
+  "reference": null
+}

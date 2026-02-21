@@ -1,0 +1,36 @@
+{
+  "slug": "kennesaw-state-university",
+  "name": "Kennesaw State University",
+  "ipeds_id": 486840,
+  "state": "GA",
+  "city": "Kennesaw",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.6918,
+    "sat_reading_25": 520,
+    "sat_reading_75": 620,
+    "sat_math_25": 500,
+    "sat_math_75": 600,
+    "act_25": 19,
+    "act_75": 25,
+    "tuition_in_state": 5786,
+    "tuition_out_of_state": 17040,
+    "room_board": 13027,
+    "total_cost_in_state": 20813,
+    "total_cost_out_of_state": 32067,
+    "net_price": {
+      "0_30k": 13754,
+      "30_48k": 14822,
+      "48_75k": 17890,
+      "75_110k": 20179,
+      "110k_plus": 20512
+    },
+    "pell_rate": 0.3538,
+    "federal_loan_rate": 0.3507,
+    "enrollment": 39503
+  },
+  "cds": null,
+  "reference": null
+}

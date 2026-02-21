@@ -1,0 +1,43 @@
+{
+  "slug": "loyola-university-chicago",
+  "name": "Loyola University Chicago",
+  "ipeds_id": 146719,
+  "state": "IL",
+  "city": "Chicago",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.8139,
+    "sat_reading_25": 590,
+    "sat_reading_75": 680,
+    "sat_math_25": 570,
+    "sat_math_75": 660,
+    "act_25": 27,
+    "act_75": 31,
+    "tuition_in_state": 51716,
+    "tuition_out_of_state": 51716,
+    "room_board": 16894,
+    "total_cost_in_state": 70610,
+    "total_cost_out_of_state": 70610,
+    "net_price": {
+      "0_30k": 28666,
+      "30_48k": 29489,
+      "48_75k": 32527,
+      "75_110k": 36217,
+      "110k_plus": 40370
+    },
+    "pell_rate": 0.2324,
+    "federal_loan_rate": 0.4794,
+    "enrollment": 11576
+  },
+  "cds": null,
+  "reference": {
+    "national_merit": {
+      "semifinalist_award": "None",
+      "finalist_award": "$2,000",
+      "first_choice_required": true,
+      "guaranteed": true
+    }
+  }
+}

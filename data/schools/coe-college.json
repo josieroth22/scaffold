@@ -1,0 +1,36 @@
+{
+  "slug": "coe-college",
+  "name": "Coe College",
+  "ipeds_id": 153144,
+  "state": "IA",
+  "city": "Cedar Rapids",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.7067,
+    "sat_reading_25": 520,
+    "sat_reading_75": 660,
+    "sat_math_25": 560,
+    "sat_math_75": 620,
+    "act_25": 22,
+    "act_75": 28,
+    "tuition_in_state": 52576,
+    "tuition_out_of_state": 52576,
+    "room_board": 11336,
+    "total_cost_in_state": 65912,
+    "total_cost_out_of_state": 65912,
+    "net_price": {
+      "0_30k": 12657,
+      "30_48k": 13250,
+      "48_75k": 16889,
+      "75_110k": 20555,
+      "110k_plus": 27413
+    },
+    "pell_rate": 0.3568,
+    "federal_loan_rate": 0.7255,
+    "enrollment": 1246
+  },
+  "cds": null,
+  "reference": null
+}

@@ -1,0 +1,36 @@
+{
+  "slug": "morehead-state-university",
+  "name": "Morehead State University",
+  "ipeds_id": 157386,
+  "state": "KY",
+  "city": "Morehead",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.8212,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 9838,
+    "tuition_out_of_state": 14706,
+    "room_board": 8942,
+    "total_cost_in_state": 20780,
+    "total_cost_out_of_state": 25648,
+    "net_price": {
+      "0_30k": 7561,
+      "30_48k": 7152,
+      "48_75k": 9920,
+      "75_110k": 13796,
+      "110k_plus": 14197
+    },
+    "pell_rate": 0.2873,
+    "federal_loan_rate": 0.3428,
+    "enrollment": 4689
+  },
+  "cds": null,
+  "reference": null
+}

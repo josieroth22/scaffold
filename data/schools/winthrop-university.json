@@ -1,0 +1,36 @@
+{
+  "slug": "winthrop-university",
+  "name": "Winthrop University",
+  "ipeds_id": 218964,
+  "state": "SC",
+  "city": "Rock Hill",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.7506,
+    "sat_reading_25": 520,
+    "sat_reading_75": 630,
+    "sat_math_25": 490,
+    "sat_math_75": 590,
+    "act_25": 20,
+    "act_75": 26,
+    "tuition_in_state": 15956,
+    "tuition_out_of_state": 30286,
+    "room_board": 10488,
+    "total_cost_in_state": 28444,
+    "total_cost_out_of_state": 42774,
+    "net_price": {
+      "0_30k": 13361,
+      "30_48k": 13395,
+      "48_75k": 16762,
+      "75_110k": 19267,
+      "110k_plus": 20653
+    },
+    "pell_rate": 0.3863,
+    "federal_loan_rate": 0.5536,
+    "enrollment": 3424
+  },
+  "cds": null,
+  "reference": null
+}

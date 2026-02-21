@@ -1,0 +1,36 @@
+{
+  "slug": "holy-family-university",
+  "name": "Holy Family University",
+  "ipeds_id": 212984,
+  "state": "PA",
+  "city": "Philadelphia",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.7422,
+    "sat_reading_25": 480,
+    "sat_reading_75": 565,
+    "sat_math_25": 470,
+    "sat_math_75": 565,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 33968,
+    "tuition_out_of_state": 33968,
+    "room_board": 14694,
+    "total_cost_in_state": 50662,
+    "total_cost_out_of_state": 50662,
+    "net_price": {
+      "0_30k": 8401,
+      "30_48k": 8473,
+      "48_75k": 11559,
+      "75_110k": 15149,
+      "110k_plus": 17231
+    },
+    "pell_rate": 0.3971,
+    "federal_loan_rate": 0.7376,
+    "enrollment": 2298
+  },
+  "cds": null,
+  "reference": null
+}

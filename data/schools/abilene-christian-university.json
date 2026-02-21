@@ -1,0 +1,36 @@
+{
+  "slug": "abilene-christian-university",
+  "name": "Abilene Christian University",
+  "ipeds_id": 222178,
+  "state": "TX",
+  "city": "Abilene",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.6388,
+    "sat_reading_25": 540,
+    "sat_reading_75": 650,
+    "sat_math_25": 520,
+    "sat_math_75": 640,
+    "act_25": 22,
+    "act_75": 28,
+    "tuition_in_state": 42380,
+    "tuition_out_of_state": 42380,
+    "room_board": 12500,
+    "total_cost_in_state": 56880,
+    "total_cost_out_of_state": 56880,
+    "net_price": {
+      "0_30k": 22928,
+      "30_48k": 24199,
+      "48_75k": 24921,
+      "75_110k": 27540,
+      "110k_plus": 32121
+    },
+    "pell_rate": 0.2202,
+    "federal_loan_rate": 0.4223,
+    "enrollment": 3129
+  },
+  "cds": null,
+  "reference": null
+}

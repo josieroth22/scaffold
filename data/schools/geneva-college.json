@@ -1,0 +1,36 @@
+{
+  "slug": "geneva-college",
+  "name": "Geneva College",
+  "ipeds_id": 212656,
+  "state": "PA",
+  "city": "Beaver Falls",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": null,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 33610,
+    "tuition_out_of_state": 33610,
+    "room_board": 10980,
+    "total_cost_in_state": 46590,
+    "total_cost_out_of_state": 46590,
+    "net_price": {
+      "0_30k": 18950,
+      "30_48k": 15576,
+      "48_75k": 17479,
+      "75_110k": 21045,
+      "110k_plus": 24652
+    },
+    "pell_rate": 0.3179,
+    "federal_loan_rate": 0.8531,
+    "enrollment": 1000
+  },
+  "cds": null,
+  "reference": null
+}

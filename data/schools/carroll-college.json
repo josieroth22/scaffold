@@ -1,0 +1,36 @@
+{
+  "slug": "carroll-college",
+  "name": "Carroll College",
+  "ipeds_id": 180106,
+  "state": "MT",
+  "city": "Helena",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.7264,
+    "sat_reading_25": 540,
+    "sat_reading_75": 660,
+    "sat_math_25": 540,
+    "sat_math_75": 670,
+    "act_25": 24,
+    "act_75": 29,
+    "tuition_in_state": 40352,
+    "tuition_out_of_state": 40352,
+    "room_board": 11624,
+    "total_cost_in_state": 53976,
+    "total_cost_out_of_state": 53976,
+    "net_price": {
+      "0_30k": 18986,
+      "30_48k": 16302,
+      "48_75k": 18494,
+      "75_110k": 24393,
+      "110k_plus": 29023
+    },
+    "pell_rate": 0.1804,
+    "federal_loan_rate": 0.4489,
+    "enrollment": 1052
+  },
+  "cds": null,
+  "reference": null
+}

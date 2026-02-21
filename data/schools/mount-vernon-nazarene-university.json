@@ -1,0 +1,36 @@
+{
+  "slug": "mount-vernon-nazarene-university",
+  "name": "Mount Vernon Nazarene University",
+  "ipeds_id": 204194,
+  "state": "OH",
+  "city": "Mount Vernon",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.843,
+    "sat_reading_25": 485,
+    "sat_reading_75": 610,
+    "sat_math_25": 478,
+    "sat_math_75": 618,
+    "act_25": 18,
+    "act_75": 25,
+    "tuition_in_state": 35524,
+    "tuition_out_of_state": 35524,
+    "room_board": 9996,
+    "total_cost_in_state": 47520,
+    "total_cost_out_of_state": 47520,
+    "net_price": {
+      "0_30k": 17598,
+      "30_48k": 17666,
+      "48_75k": 19173,
+      "75_110k": 22602,
+      "110k_plus": 26244
+    },
+    "pell_rate": 0.2893,
+    "federal_loan_rate": 0.5657,
+    "enrollment": 1346
+  },
+  "cds": null,
+  "reference": null
+}

@@ -1,0 +1,36 @@
+{
+  "slug": "university-of-mount-olive",
+  "name": "University of Mount Olive",
+  "ipeds_id": 199069,
+  "state": "NC",
+  "city": "Mount Olive",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.7775,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": 17,
+    "act_75": 22,
+    "tuition_in_state": 25950,
+    "tuition_out_of_state": 25950,
+    "room_board": 11212,
+    "total_cost_in_state": 39162,
+    "total_cost_out_of_state": 39162,
+    "net_price": {
+      "0_30k": 14775,
+      "30_48k": 12115,
+      "48_75k": 18062,
+      "75_110k": 15969,
+      "110k_plus": 21442
+    },
+    "pell_rate": 0.4695,
+    "federal_loan_rate": 0.667,
+    "enrollment": 1754
+  },
+  "cds": null,
+  "reference": null
+}

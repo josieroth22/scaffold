@@ -1,0 +1,36 @@
+{
+  "slug": "oklahoma-city-university",
+  "name": "Oklahoma City University",
+  "ipeds_id": 207458,
+  "state": "OK",
+  "city": "Oklahoma City",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.7039,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": 20,
+    "act_75": 26,
+    "tuition_in_state": 33586,
+    "tuition_out_of_state": 33586,
+    "room_board": 9602,
+    "total_cost_in_state": 45188,
+    "total_cost_out_of_state": 45188,
+    "net_price": {
+      "0_30k": 13408,
+      "30_48k": 20156,
+      "48_75k": 24574,
+      "75_110k": 27115,
+      "110k_plus": 27694
+    },
+    "pell_rate": 0.2256,
+    "federal_loan_rate": 0.4783,
+    "enrollment": 1433
+  },
+  "cds": null,
+  "reference": null
+}

@@ -1,0 +1,36 @@
+{
+  "slug": "saint-cloud-state-university",
+  "name": "Saint Cloud State University",
+  "ipeds_id": 174783,
+  "state": "MN",
+  "city": "Saint Cloud",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.9495,
+    "sat_reading_25": 470,
+    "sat_reading_75": 620,
+    "sat_math_25": 500,
+    "sat_math_75": 660,
+    "act_25": 18,
+    "act_75": 25,
+    "tuition_in_state": 10117,
+    "tuition_out_of_state": 10117,
+    "room_board": 9630,
+    "total_cost_in_state": 21747,
+    "total_cost_out_of_state": 21747,
+    "net_price": {
+      "0_30k": 9772,
+      "30_48k": 10298,
+      "48_75k": 13125,
+      "75_110k": 17908,
+      "110k_plus": 20104
+    },
+    "pell_rate": 0.203,
+    "federal_loan_rate": 0.254,
+    "enrollment": 5181
+  },
+  "cds": null,
+  "reference": null
+}

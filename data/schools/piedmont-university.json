@@ -1,0 +1,36 @@
+{
+  "slug": "piedmont-university",
+  "name": "Piedmont University",
+  "ipeds_id": 140818,
+  "state": "GA",
+  "city": "Demorest",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.9284,
+    "sat_reading_25": 510,
+    "sat_reading_75": 600,
+    "sat_math_25": 480,
+    "sat_math_75": 570,
+    "act_25": 18,
+    "act_75": 24,
+    "tuition_in_state": 30680,
+    "tuition_out_of_state": 30680,
+    "room_board": 12300,
+    "total_cost_in_state": 44980,
+    "total_cost_out_of_state": 44980,
+    "net_price": {
+      "0_30k": 18494,
+      "30_48k": 17125,
+      "48_75k": 17980,
+      "75_110k": 22397,
+      "110k_plus": 24251
+    },
+    "pell_rate": 0.4145,
+    "federal_loan_rate": 0.6795,
+    "enrollment": 1235
+  },
+  "cds": null,
+  "reference": null
+}

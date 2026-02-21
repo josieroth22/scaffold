@@ -1,0 +1,36 @@
+{
+  "slug": "simpson-university",
+  "name": "Simpson University",
+  "ipeds_id": 123457,
+  "state": "CA",
+  "city": "Redding",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.9903,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 38522,
+    "tuition_out_of_state": 38522,
+    "room_board": 11900,
+    "total_cost_in_state": 52422,
+    "total_cost_out_of_state": 52422,
+    "net_price": {
+      "0_30k": 22880,
+      "30_48k": 29551,
+      "48_75k": 25439,
+      "75_110k": 29660,
+      "110k_plus": 30193
+    },
+    "pell_rate": 0.4221,
+    "federal_loan_rate": 0.5807,
+    "enrollment": 751
+  },
+  "cds": null,
+  "reference": null
+}

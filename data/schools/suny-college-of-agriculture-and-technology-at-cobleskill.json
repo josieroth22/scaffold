@@ -1,0 +1,36 @@
+{
+  "slug": "suny-college-of-agriculture-and-technology-at-cobleskill",
+  "name": "SUNY College of Agriculture and Technology at Cobleskill",
+  "ipeds_id": 196033,
+  "state": "NY",
+  "city": "Cobleskill",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.8325,
+    "sat_reading_25": 500,
+    "sat_reading_75": 590,
+    "sat_math_25": 490,
+    "sat_math_75": 580,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 8676,
+    "tuition_out_of_state": 18586,
+    "room_board": 16250,
+    "total_cost_in_state": 26926,
+    "total_cost_out_of_state": 36836,
+    "net_price": {
+      "0_30k": 13264,
+      "30_48k": 15614,
+      "48_75k": 18907,
+      "75_110k": 20483,
+      "110k_plus": 24391
+    },
+    "pell_rate": 0.4251,
+    "federal_loan_rate": 0.5328,
+    "enrollment": 1776
+  },
+  "cds": null,
+  "reference": null
+}

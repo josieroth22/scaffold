@@ -1,0 +1,36 @@
+{
+  "slug": "chestnut-hill-college",
+  "name": "Chestnut Hill College",
+  "ipeds_id": 211583,
+  "state": "PA",
+  "city": "Philadelphia",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.7913,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 39410,
+    "tuition_out_of_state": 39410,
+    "room_board": 12300,
+    "total_cost_in_state": 53710,
+    "total_cost_out_of_state": 53710,
+    "net_price": {
+      "0_30k": 29262,
+      "30_48k": 27217,
+      "48_75k": 27238,
+      "75_110k": 32638,
+      "110k_plus": 33080
+    },
+    "pell_rate": 0.4732,
+    "federal_loan_rate": 0.7381,
+    "enrollment": 931
+  },
+  "cds": null,
+  "reference": null
+}

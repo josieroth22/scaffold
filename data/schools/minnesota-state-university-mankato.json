@@ -1,0 +1,36 @@
+{
+  "slug": "minnesota-state-university-mankato",
+  "name": "Minnesota State University-Mankato",
+  "ipeds_id": 173920,
+  "state": "MN",
+  "city": "Mankato",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.9133,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": 22,
+    "act_75": 25,
+    "tuition_in_state": 9490,
+    "tuition_out_of_state": 18860,
+    "room_board": 11224,
+    "total_cost_in_state": 22714,
+    "total_cost_out_of_state": 32084,
+    "net_price": {
+      "0_30k": 11920,
+      "30_48k": 12568,
+      "48_75k": 15200,
+      "75_110k": 19870,
+      "110k_plus": 21860
+    },
+    "pell_rate": 0.2048,
+    "federal_loan_rate": 0.4246,
+    "enrollment": 11325
+  },
+  "cds": null,
+  "reference": null
+}

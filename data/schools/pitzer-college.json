@@ -1,0 +1,36 @@
+{
+  "slug": "pitzer-college",
+  "name": "Pitzer College",
+  "ipeds_id": 121257,
+  "state": "CA",
+  "city": "Claremont",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.1666,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 62692,
+    "tuition_out_of_state": 62692,
+    "room_board": 21374,
+    "total_cost_in_state": 86066,
+    "total_cost_out_of_state": 86066,
+    "net_price": {
+      "0_30k": 9284,
+      "30_48k": 16361,
+      "48_75k": 17911,
+      "75_110k": 22791,
+      "110k_plus": 49894
+    },
+    "pell_rate": 0.1015,
+    "federal_loan_rate": 0.217,
+    "enrollment": 1191
+  },
+  "cds": null,
+  "reference": null
+}

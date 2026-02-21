@@ -1,0 +1,36 @@
+{
+  "slug": "norwich-university",
+  "name": "Norwich University",
+  "ipeds_id": 230995,
+  "state": "VT",
+  "city": "Northfield",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.7361,
+    "sat_reading_25": 540,
+    "sat_reading_75": 650,
+    "sat_math_25": 520,
+    "sat_math_75": 670,
+    "act_25": 20,
+    "act_75": 27,
+    "tuition_in_state": 49600,
+    "tuition_out_of_state": 49600,
+    "room_board": 14000,
+    "total_cost_in_state": 65600,
+    "total_cost_out_of_state": 65600,
+    "net_price": {
+      "0_30k": 19842,
+      "30_48k": 20895,
+      "48_75k": 22423,
+      "75_110k": 25197,
+      "110k_plus": 31555
+    },
+    "pell_rate": 0.2445,
+    "federal_loan_rate": 0.459,
+    "enrollment": 2490
+  },
+  "cds": null,
+  "reference": null
+}

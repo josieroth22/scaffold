@@ -1,0 +1,36 @@
+{
+  "slug": "maranatha-baptist-university",
+  "name": "Maranatha Baptist University",
+  "ipeds_id": 239071,
+  "state": "WI",
+  "city": "Watertown",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.7087,
+    "sat_reading_25": 500,
+    "sat_reading_75": 650,
+    "sat_math_25": 480,
+    "sat_math_75": 570,
+    "act_25": 19,
+    "act_75": 27,
+    "tuition_in_state": 20280,
+    "tuition_out_of_state": 20280,
+    "room_board": 8800,
+    "total_cost_in_state": 31080,
+    "total_cost_out_of_state": 31080,
+    "net_price": {
+      "0_30k": 23056,
+      "30_48k": 21143,
+      "48_75k": 22427,
+      "75_110k": 29013,
+      "110k_plus": 30558
+    },
+    "pell_rate": 0.3397,
+    "federal_loan_rate": 0.2758,
+    "enrollment": 566
+  },
+  "cds": null,
+  "reference": null
+}

@@ -1,0 +1,36 @@
+{
+  "slug": "transylvania-university",
+  "name": "Transylvania University",
+  "ipeds_id": 157818,
+  "state": "KY",
+  "city": "Lexington",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.8499,
+    "sat_reading_25": 570,
+    "sat_reading_75": 670,
+    "sat_math_25": 530,
+    "sat_math_75": 620,
+    "act_25": 24,
+    "act_75": 30,
+    "tuition_in_state": 44980,
+    "tuition_out_of_state": 44980,
+    "room_board": 14195,
+    "total_cost_in_state": 61175,
+    "total_cost_out_of_state": 61175,
+    "net_price": {
+      "0_30k": 17035,
+      "30_48k": 17574,
+      "48_75k": 21414,
+      "75_110k": 23700,
+      "110k_plus": 29681
+    },
+    "pell_rate": 0.2405,
+    "federal_loan_rate": 0.4995,
+    "enrollment": 1014
+  },
+  "cds": null,
+  "reference": null
+}

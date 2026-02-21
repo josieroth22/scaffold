@@ -1,0 +1,36 @@
+{
+  "slug": "st-catherine-university",
+  "name": "St Catherine University",
+  "ipeds_id": 175005,
+  "state": "MN",
+  "city": "Saint Paul",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.9407,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": 20,
+    "act_75": 26,
+    "tuition_in_state": 49758,
+    "tuition_out_of_state": 49758,
+    "room_board": 11636,
+    "total_cost_in_state": 63394,
+    "total_cost_out_of_state": 63394,
+    "net_price": {
+      "0_30k": 17519,
+      "30_48k": 19312,
+      "48_75k": 19862,
+      "75_110k": 22036,
+      "110k_plus": 26483
+    },
+    "pell_rate": 0.3582,
+    "federal_loan_rate": 0.5936,
+    "enrollment": 2393
+  },
+  "cds": null,
+  "reference": null
+}

@@ -1,0 +1,36 @@
+{
+  "slug": "pennsylvania-western-university",
+  "name": "Pennsylvania Western University",
+  "ipeds_id": 498571,
+  "state": "PA",
+  "city": "California",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.9365,
+    "sat_reading_25": 480,
+    "sat_reading_75": 590,
+    "sat_math_25": 460,
+    "sat_math_75": 580,
+    "act_25": 20,
+    "act_75": 26,
+    "tuition_in_state": 11388,
+    "tuition_out_of_state": 16006,
+    "room_board": 13200,
+    "total_cost_in_state": 26588,
+    "total_cost_out_of_state": 31206,
+    "net_price": {
+      "0_30k": 14651,
+      "30_48k": 15059,
+      "48_75k": 18863,
+      "75_110k": 23147,
+      "110k_plus": 24265
+    },
+    "pell_rate": 0.3686,
+    "federal_loan_rate": 0.5682,
+    "enrollment": 8134
+  },
+  "cds": null,
+  "reference": null
+}

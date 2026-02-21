@@ -1,0 +1,36 @@
+{
+  "slug": "norfolk-state-university",
+  "name": "Norfolk State University",
+  "ipeds_id": 232937,
+  "state": "VA",
+  "city": "Norfolk",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.8746,
+    "sat_reading_25": 430,
+    "sat_reading_75": 575,
+    "sat_math_25": 410,
+    "sat_math_75": 525,
+    "act_25": 16,
+    "act_75": 21,
+    "tuition_in_state": 9910,
+    "tuition_out_of_state": 21412,
+    "room_board": 11692,
+    "total_cost_in_state": 23602,
+    "total_cost_out_of_state": 35104,
+    "net_price": {
+      "0_30k": 11099,
+      "30_48k": 12836,
+      "48_75k": 13868,
+      "75_110k": 14235,
+      "110k_plus": 18020
+    },
+    "pell_rate": 0.6219,
+    "federal_loan_rate": 0.5827,
+    "enrollment": 5495
+  },
+  "cds": null,
+  "reference": null
+}

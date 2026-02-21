@@ -1,0 +1,36 @@
+{
+  "slug": "nicholls-state-university",
+  "name": "Nicholls State University",
+  "ipeds_id": 159966,
+  "state": "LA",
+  "city": "Thibodaux",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.9602,
+    "sat_reading_25": 490,
+    "sat_reading_75": 600,
+    "sat_math_25": 438,
+    "sat_math_75": 545,
+    "act_25": 18,
+    "act_75": 24,
+    "tuition_in_state": 8173,
+    "tuition_out_of_state": 9266,
+    "room_board": 10938,
+    "total_cost_in_state": 21111,
+    "total_cost_out_of_state": 22204,
+    "net_price": {
+      "0_30k": 8822,
+      "30_48k": 10582,
+      "48_75k": 12659,
+      "75_110k": 15504,
+      "110k_plus": 15799
+    },
+    "pell_rate": 0.3498,
+    "federal_loan_rate": 0.4306,
+    "enrollment": 4772
+  },
+  "cds": null,
+  "reference": null
+}

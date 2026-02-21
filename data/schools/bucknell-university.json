@@ -1,0 +1,36 @@
+{
+  "slug": "bucknell-university",
+  "name": "Bucknell University",
+  "ipeds_id": 211291,
+  "state": "PA",
+  "city": "Lewisburg",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.3201,
+    "sat_reading_25": 640,
+    "sat_reading_75": 710,
+    "sat_math_25": 660,
+    "sat_math_75": 740,
+    "act_25": 31,
+    "act_75": 33,
+    "tuition_in_state": 64772,
+    "tuition_out_of_state": 64772,
+    "room_board": 16118,
+    "total_cost_in_state": 82890,
+    "total_cost_out_of_state": 82890,
+    "net_price": {
+      "0_30k": 21406,
+      "30_48k": 19554,
+      "48_75k": 20932,
+      "75_110k": 36128,
+      "110k_plus": 55354
+    },
+    "pell_rate": 0.111,
+    "federal_loan_rate": 0.3413,
+    "enrollment": 3818
+  },
+  "cds": null,
+  "reference": null
+}

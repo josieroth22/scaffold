@@ -1,0 +1,36 @@
+{
+  "slug": "southern-nazarene-university",
+  "name": "Southern Nazarene University",
+  "ipeds_id": 206862,
+  "state": "OK",
+  "city": "Bethany",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": null,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 29600,
+    "tuition_out_of_state": 29600,
+    "room_board": 9560,
+    "total_cost_in_state": 41160,
+    "total_cost_out_of_state": 41160,
+    "net_price": {
+      "0_30k": 15195,
+      "30_48k": 15470,
+      "48_75k": 19579,
+      "75_110k": 23086,
+      "110k_plus": 24765
+    },
+    "pell_rate": 0.4544,
+    "federal_loan_rate": 0.5975,
+    "enrollment": 1459
+  },
+  "cds": null,
+  "reference": null
+}

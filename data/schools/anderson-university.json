@@ -1,0 +1,36 @@
+{
+  "slug": "anderson-university",
+  "name": "Anderson University",
+  "ipeds_id": 217633,
+  "state": "IN",
+  "city": "Anderson",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.5281,
+    "sat_reading_25": 560,
+    "sat_reading_75": 660,
+    "sat_math_25": 530,
+    "sat_math_75": 630,
+    "act_25": 22,
+    "act_75": 28,
+    "tuition_in_state": 33580,
+    "tuition_out_of_state": 33580,
+    "room_board": 12290,
+    "total_cost_in_state": 47870,
+    "total_cost_out_of_state": 47870,
+    "net_price": {
+      "0_30k": 17528,
+      "30_48k": 17693,
+      "48_75k": 28002,
+      "75_110k": 25171,
+      "110k_plus": 35665
+    },
+    "pell_rate": 0.2166,
+    "federal_loan_rate": 0.4306,
+    "enrollment": 3080
+  },
+  "cds": null,
+  "reference": null
+}

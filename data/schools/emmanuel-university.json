@@ -1,0 +1,36 @@
+{
+  "slug": "emmanuel-university",
+  "name": "Emmanuel University",
+  "ipeds_id": 139630,
+  "state": "GA",
+  "city": "Franklin Springs",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.5336,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 23664,
+    "tuition_out_of_state": 23664,
+    "room_board": 10460,
+    "total_cost_in_state": 36124,
+    "total_cost_out_of_state": 36124,
+    "net_price": {
+      "0_30k": 18134,
+      "30_48k": 15569,
+      "48_75k": 17824,
+      "75_110k": 23245,
+      "110k_plus": 21250
+    },
+    "pell_rate": 0.2976,
+    "federal_loan_rate": 0.4429,
+    "enrollment": 719
+  },
+  "cds": null,
+  "reference": null
+}

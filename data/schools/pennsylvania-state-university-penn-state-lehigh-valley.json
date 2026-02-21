@@ -1,0 +1,36 @@
+{
+  "slug": "pennsylvania-state-university-penn-state-lehigh-valley",
+  "name": "Pennsylvania State University-Penn State Lehigh Valley",
+  "ipeds_id": 214670,
+  "state": "PA",
+  "city": "Center Valley",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.9421,
+    "sat_reading_25": 575,
+    "sat_reading_75": 660,
+    "sat_math_25": 565,
+    "sat_math_75": 655,
+    "act_25": 20,
+    "act_75": 28,
+    "tuition_in_state": 15180,
+    "tuition_out_of_state": 25118,
+    "room_board": null,
+    "total_cost_in_state": 26918,
+    "total_cost_out_of_state": null,
+    "net_price": {
+      "0_30k": 12011,
+      "30_48k": 13259,
+      "48_75k": 19247,
+      "75_110k": 22088,
+      "110k_plus": 25825
+    },
+    "pell_rate": 0.3311,
+    "federal_loan_rate": 0.4718,
+    "enrollment": 902
+  },
+  "cds": null,
+  "reference": null
+}

@@ -1,0 +1,36 @@
+{
+  "slug": "west-virginia-state-university",
+  "name": "West Virginia State University",
+  "ipeds_id": 237899,
+  "state": "WV",
+  "city": "Institute",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.9637,
+    "sat_reading_25": 430,
+    "sat_reading_75": 550,
+    "sat_math_25": 400,
+    "sat_math_75": 523,
+    "act_25": 16,
+    "act_75": 22,
+    "tuition_in_state": 9049,
+    "tuition_out_of_state": 14623,
+    "room_board": 12936,
+    "total_cost_in_state": 23985,
+    "total_cost_out_of_state": 29559,
+    "net_price": {
+      "0_30k": 8962,
+      "30_48k": 11652,
+      "48_75k": 12283,
+      "75_110k": 13633,
+      "110k_plus": null
+    },
+    "pell_rate": 0.1758,
+    "federal_loan_rate": 0.1571,
+    "enrollment": 1328
+  },
+  "cds": null,
+  "reference": null
+}

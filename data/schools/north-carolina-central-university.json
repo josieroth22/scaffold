@@ -1,0 +1,36 @@
+{
+  "slug": "north-carolina-central-university",
+  "name": "North Carolina Central University",
+  "ipeds_id": 199157,
+  "state": "NC",
+  "city": "Durham",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.9049,
+    "sat_reading_25": 500,
+    "sat_reading_75": 570,
+    "sat_math_25": 480,
+    "sat_math_75": 530,
+    "act_25": 17,
+    "act_75": 18,
+    "tuition_in_state": 6542,
+    "tuition_out_of_state": 19578,
+    "room_board": 14760,
+    "total_cost_in_state": 23302,
+    "total_cost_out_of_state": 36338,
+    "net_price": {
+      "0_30k": 12136,
+      "30_48k": 14482,
+      "48_75k": 17688,
+      "75_110k": 21713,
+      "110k_plus": 23621
+    },
+    "pell_rate": 0.5664,
+    "federal_loan_rate": 0.6338,
+    "enrollment": 5400
+  },
+  "cds": null,
+  "reference": null
+}

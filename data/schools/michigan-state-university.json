@@ -1,0 +1,99 @@
+{
+  "slug": "michigan-state-university",
+  "name": "Michigan State University",
+  "api_name": "Michigan State University",
+  "ipeds_id": 171100,
+  "state": "MI",
+  "city": "East Lansing",
+  "type": "public",
+  "tier": "C",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.8392,
+    "sat_reading_25": 580,
+    "sat_reading_75": 670,
+    "sat_math_25": 570,
+    "sat_math_75": 680,
+    "act_25": 26,
+    "act_75": 31,
+    "tuition_in_state": 15988,
+    "tuition_out_of_state": 43372,
+    "room_board": 11754,
+    "total_cost_in_state": 29742,
+    "total_cost_out_of_state": 57126,
+    "net_price": {
+      "0_30k": 8119,
+      "30_48k": 13980,
+      "48_75k": 20378,
+      "75_110k": 25940,
+      "110k_plus": 28327
+    },
+    "pell_rate": 0.2002,
+    "federal_loan_rate": 0.3339,
+    "enrollment": 40243
+  },
+  "cds": {
+    "school_name": "Michigan State University",
+    "source_year": "2024-2025",
+    "total_applicants": 62138,
+    "total_admitted": 52690,
+    "admit_rate_overall": 0.848,
+    "ed_applicants": null,
+    "ed_admitted": null,
+    "ed_admit_rate": null,
+    "ea_applicants": null,
+    "ea_admitted": null,
+    "ea_admit_rate": null,
+    "sat_reading_25": 550,
+    "sat_reading_75": 660,
+    "sat_math_25": 550,
+    "sat_math_75": 660,
+    "sat_composite_25": 1100,
+    "sat_composite_75": 1310,
+    "act_composite_25": 24,
+    "act_composite_75": 30,
+    "tuition_in_state": 16118,
+    "tuition_out_of_state": 43502,
+    "tuition_private": null,
+    "required_fees": 1840,
+    "room_board": 12564,
+    "pct_need_met": 63,
+    "avg_need_grant": 13573,
+    "avg_financial_aid_package": 17699,
+    "meets_full_need": false,
+    "pct_freshmen_receiving_need_aid": 38.08,
+    "pct_freshmen_receiving_merit_aid": 59.22,
+    "avg_merit_award": 10494
+  },
+  "reference": {
+    "merit_scholarships": [
+      {
+        "name": "Alumni Distinguished Scholarship",
+        "amount": "Full COA (tuition, fees, room, board, plus $1,000/year)",
+        "deadline": "November 1",
+        "requirements": "MSU Alumni Distinguished Scholarship Competition"
+      },
+      {
+        "name": "Distinguished First-Year Scholarship",
+        "amount": "Full tuition and fees",
+        "deadline": "November 1",
+        "requirements": "MSU Alumni Distinguished Scholarship Competition"
+      }
+    ],
+    "national_merit": {
+      "semifinalist_award": "None",
+      "finalist_award": "$750-$2,000",
+      "first_choice_required": true,
+      "guaranteed": true
+    },
+    "honors_program": {
+      "name": "Michigan State University Honors College",
+      "description": "The honors college states that its students possess an average SAT of 1450 and typically finish in the top 5% of their high school class. It provides rigorous academic opportunities and specialized resources for exceptional students.",
+      "separate_application": null,
+      "avg_sat": 1450,
+      "acceptance_rate": null,
+      "size": null
+    }
+  }
+}

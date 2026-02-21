@@ -1,0 +1,94 @@
+{
+  "slug": "indiana-university-bloomington",
+  "name": "Indiana University Bloomington",
+  "api_name": "Indiana University-Bloomington",
+  "ipeds_id": 151351,
+  "state": "IN",
+  "city": "Bloomington",
+  "type": "public",
+  "tier": "A",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.8037,
+    "sat_reading_25": 590,
+    "sat_reading_75": 690,
+    "sat_math_25": 580,
+    "sat_math_75": 710,
+    "act_25": 27,
+    "act_75": 32,
+    "tuition_in_state": 11790,
+    "tuition_out_of_state": 40482,
+    "room_board": 13380,
+    "total_cost_in_state": 27170,
+    "total_cost_out_of_state": 55862,
+    "net_price": {
+      "0_30k": 6125,
+      "30_48k": 7383,
+      "48_75k": 12311,
+      "75_110k": 20828,
+      "110k_plus": 24018
+    },
+    "pell_rate": 0.1669,
+    "federal_loan_rate": 0.2748,
+    "enrollment": 36571
+  },
+  "cds": {
+    "school_name": "Indiana University",
+    "source_year": "2024-2025",
+    "total_applicants": 67647,
+    "total_admitted": 52907,
+    "admit_rate_overall": 0.782,
+    "ed_applicants": null,
+    "ed_admitted": null,
+    "ed_admit_rate": null,
+    "ea_applicants": null,
+    "ea_admitted": null,
+    "ea_admit_rate": null,
+    "sat_reading_25": 590,
+    "sat_reading_75": 690,
+    "sat_math_25": 580,
+    "sat_math_75": 710,
+    "sat_composite_25": 1180,
+    "sat_composite_75": 1390,
+    "act_composite_25": 27,
+    "act_composite_75": 33,
+    "tuition_in_state": 10622,
+    "tuition_out_of_state": 40369,
+    "tuition_private": null,
+    "required_fees": 1522,
+    "room_board": 13984,
+    "pct_need_met": 63.9,
+    "avg_need_grant": 13434,
+    "avg_financial_aid_package": 14953,
+    "meets_full_need": false,
+    "pct_freshmen_receiving_need_aid": 40.75,
+    "pct_freshmen_receiving_merit_aid": 9.71,
+    "avg_merit_award": 6253
+  },
+  "reference": {
+    "national_merit": {
+      "semifinalist_award": "None",
+      "finalist_award": "$2,000",
+      "first_choice_required": true,
+      "guaranteed": true
+    },
+    "merit_scholarships": [
+      {
+        "name": "Wells Scholars Program",
+        "amount": "Full cost of attendance (~$30K/yr in-state, ~$60K/yr OOS) + up to $25,000 study abroad funding",
+        "description": "IU's most prestigious merit scholarship. ~18 students/year selected for full tuition, fees, housing stipend, and summer experience funding. Automatic Hutton Honors College admission."
+      },
+      {
+        "name": "Kelley Scholars Program",
+        "amount": "Full tuition + fees + living stipend",
+        "description": "Kelley School of Business top merit award. Small cohort, requires Business Honors Program participation."
+      },
+      {
+        "name": "Hudson & Holland Scholars Program",
+        "amount": "$7,000/year",
+        "description": "IU's largest merit scholarship program focused on students from underrepresented communities including limited-income, first-generation, and rural students."
+      }
+    ]
+  }
+}

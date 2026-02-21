@@ -1,0 +1,36 @@
+{
+  "slug": "fontbonne-university",
+  "name": "Fontbonne University",
+  "ipeds_id": 177418,
+  "state": "MO",
+  "city": "Saint Louis",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.9503,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 28976,
+    "tuition_out_of_state": 28976,
+    "room_board": 11232,
+    "total_cost_in_state": 42208,
+    "total_cost_out_of_state": 42208,
+    "net_price": {
+      "0_30k": 13464,
+      "30_48k": 14682,
+      "48_75k": 20742,
+      "75_110k": 23296,
+      "110k_plus": 25373
+    },
+    "pell_rate": 0.4795,
+    "federal_loan_rate": 0.6462,
+    "enrollment": 632
+  },
+  "cds": null,
+  "reference": null
+}

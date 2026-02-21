@@ -1,0 +1,97 @@
+{
+  "slug": "wake-forest-university",
+  "name": "Wake Forest University",
+  "api_name": "Wake Forest University",
+  "ipeds_id": 199847,
+  "state": "NC",
+  "city": "Winston-Salem",
+  "type": "private",
+  "tier": "C",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.2156,
+    "sat_reading_25": 690,
+    "sat_reading_75": 740,
+    "sat_math_25": 700,
+    "sat_math_75": 770,
+    "act_25": 32,
+    "act_75": 34,
+    "tuition_in_state": 64758,
+    "tuition_out_of_state": 64758,
+    "room_board": 17848,
+    "total_cost_in_state": 84606,
+    "total_cost_out_of_state": 84606,
+    "net_price": {
+      "0_30k": 11554,
+      "30_48k": 6043,
+      "48_75k": 12769,
+      "75_110k": 19759,
+      "110k_plus": 54447
+    },
+    "pell_rate": 0.0949,
+    "federal_loan_rate": 0.1458,
+    "enrollment": 5471
+  },
+  "cds": {
+    "school_name": "Wake Forest University",
+    "source_year": "2024-2025",
+    "total_applicants": 18727,
+    "total_admitted": 4058,
+    "admit_rate_overall": 0.217,
+    "ed_applicants": null,
+    "ed_admitted": null,
+    "ed_admit_rate": null,
+    "ea_applicants": null,
+    "ea_admitted": null,
+    "ea_admit_rate": null,
+    "sat_reading_25": 700,
+    "sat_reading_75": 750,
+    "sat_math_25": 710,
+    "sat_math_75": 770,
+    "sat_composite_25": 1410,
+    "sat_composite_75": 1520,
+    "act_composite_25": 32,
+    "act_composite_75": 34,
+    "tuition_in_state": null,
+    "tuition_out_of_state": null,
+    "tuition_private": 69130,
+    "required_fees": 1202,
+    "room_board": 22104,
+    "pct_need_met": 97.24,
+    "avg_need_grant": 65629,
+    "avg_financial_aid_package": 73930,
+    "meets_full_need": false,
+    "pct_freshmen_receiving_need_aid": 18.85,
+    "pct_freshmen_receiving_merit_aid": 72.49,
+    "avg_merit_award": 22826
+  },
+  "reference": {
+    "merit_scholarships": [
+      {
+        "name": "Guy T. Carswell Scholarship",
+        "amount": "Full COA (tuition, room, board, plus $3,400 personal expenses)",
+        "deadline": "November 15",
+        "requirements": "Finalist Interview"
+      },
+      {
+        "name": "Graylyn Scholarship",
+        "amount": "Full COA (tuition, room, board, plus $3,400 personal expenses)",
+        "deadline": "November 15",
+        "requirements": "Finalist Interview"
+      },
+      {
+        "name": "Nancy Susan Reynolds Scholarship",
+        "amount": "Full COA (tuition, room, board, plus $3,400 personal expenses)",
+        "deadline": "November 15",
+        "requirements": "Finalist Interview"
+      },
+      {
+        "name": "Stamps Scholarship",
+        "amount": "Full COA (tuition, fees, room, board, plus $3,400 personal expenses)",
+        "deadline": "November 15",
+        "requirements": "Finalist Interview"
+      }
+    ]
+  }
+}

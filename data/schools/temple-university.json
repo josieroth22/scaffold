@@ -1,0 +1,36 @@
+{
+  "slug": "temple-university",
+  "name": "Temple University",
+  "ipeds_id": 216339,
+  "state": "PA",
+  "city": "Philadelphia",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.8292,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 22082,
+    "tuition_out_of_state": 37462,
+    "room_board": 16968,
+    "total_cost_in_state": 41050,
+    "total_cost_out_of_state": 56430,
+    "net_price": {
+      "0_30k": 23080,
+      "30_48k": 24278,
+      "48_75k": 28493,
+      "75_110k": 31578,
+      "110k_plus": 34632
+    },
+    "pell_rate": 0.3007,
+    "federal_loan_rate": 0.5527,
+    "enrollment": 21249
+  },
+  "cds": null,
+  "reference": null
+}

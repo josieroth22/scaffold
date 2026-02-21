@@ -1,0 +1,36 @@
+{
+  "slug": "valley-city-state-university",
+  "name": "Valley City State University",
+  "ipeds_id": 200572,
+  "state": "ND",
+  "city": "Valley City",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.6931,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": 18,
+    "act_75": 24,
+    "tuition_in_state": 8514,
+    "tuition_out_of_state": 13478,
+    "room_board": 7280,
+    "total_cost_in_state": 17794,
+    "total_cost_out_of_state": 22758,
+    "net_price": {
+      "0_30k": 9030,
+      "30_48k": 12130,
+      "48_75k": 11758,
+      "75_110k": 15340,
+      "110k_plus": 15411
+    },
+    "pell_rate": 0.1729,
+    "federal_loan_rate": 0.3366,
+    "enrollment": 918
+  },
+  "cds": null,
+  "reference": null
+}

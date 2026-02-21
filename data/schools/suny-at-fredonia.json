@@ -1,0 +1,36 @@
+{
+  "slug": "suny-at-fredonia",
+  "name": "SUNY at Fredonia",
+  "ipeds_id": 196158,
+  "state": "NY",
+  "city": "Fredonia",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.792,
+    "sat_reading_25": 520,
+    "sat_reading_75": 650,
+    "sat_math_25": 540,
+    "sat_math_75": 640,
+    "act_25": 21,
+    "act_75": 28,
+    "tuition_in_state": 8771,
+    "tuition_out_of_state": 19191,
+    "room_board": 14830,
+    "total_cost_in_state": 25601,
+    "total_cost_out_of_state": 36021,
+    "net_price": {
+      "0_30k": 9524,
+      "30_48k": 12573,
+      "48_75k": 15522,
+      "75_110k": 16480,
+      "110k_plus": 20350
+    },
+    "pell_rate": 0.3745,
+    "federal_loan_rate": 0.6606,
+    "enrollment": 2860
+  },
+  "cds": null,
+  "reference": null
+}

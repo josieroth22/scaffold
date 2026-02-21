@@ -1,0 +1,36 @@
+{
+  "slug": "university-of-arkansas-at-little-rock",
+  "name": "University of Arkansas at Little Rock",
+  "ipeds_id": 106245,
+  "state": "AR",
+  "city": "Little Rock",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.5774,
+    "sat_reading_25": 450,
+    "sat_reading_75": 570,
+    "sat_math_25": 440,
+    "sat_math_75": 600,
+    "act_25": 18,
+    "act_75": 23,
+    "tuition_in_state": 8455,
+    "tuition_out_of_state": 19210,
+    "room_board": 9352,
+    "total_cost_in_state": 19807,
+    "total_cost_out_of_state": 30562,
+    "net_price": {
+      "0_30k": 14143,
+      "30_48k": 15520,
+      "48_75k": 18216,
+      "75_110k": 20594,
+      "110k_plus": 21013
+    },
+    "pell_rate": 0.4105,
+    "federal_loan_rate": 0.3765,
+    "enrollment": 4740
+  },
+  "cds": null,
+  "reference": null
+}

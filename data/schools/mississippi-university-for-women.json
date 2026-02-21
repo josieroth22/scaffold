@@ -1,0 +1,36 @@
+{
+  "slug": "mississippi-university-for-women",
+  "name": "Mississippi University for Women",
+  "ipeds_id": 176035,
+  "state": "MS",
+  "city": "Columbus",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 1,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": 18,
+    "act_75": 23,
+    "tuition_in_state": 8092,
+    "tuition_out_of_state": 8092,
+    "room_board": 8387,
+    "total_cost_in_state": 18479,
+    "total_cost_out_of_state": 18479,
+    "net_price": {
+      "0_30k": 11376,
+      "30_48k": 13027,
+      "48_75k": 11964,
+      "75_110k": 18894,
+      "110k_plus": 18012
+    },
+    "pell_rate": 0.4159,
+    "federal_loan_rate": 0.4087,
+    "enrollment": 1593
+  },
+  "cds": null,
+  "reference": null
+}

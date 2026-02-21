@@ -1,0 +1,36 @@
+{
+  "slug": "william-penn-university",
+  "name": "William Penn University",
+  "ipeds_id": 154590,
+  "state": "IA",
+  "city": "Oskaloosa",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.5701,
+    "sat_reading_25": 440,
+    "sat_reading_75": 540,
+    "sat_math_25": 390,
+    "sat_math_75": 560,
+    "act_25": 16,
+    "act_75": 22,
+    "tuition_in_state": 28750,
+    "tuition_out_of_state": 28750,
+    "room_board": 7712,
+    "total_cost_in_state": 38462,
+    "total_cost_out_of_state": 38462,
+    "net_price": {
+      "0_30k": 19613,
+      "30_48k": 19318,
+      "48_75k": 21898,
+      "75_110k": 22454,
+      "110k_plus": 24384
+    },
+    "pell_rate": 0.4558,
+    "federal_loan_rate": 0.8818,
+    "enrollment": 1391
+  },
+  "cds": null,
+  "reference": null
+}

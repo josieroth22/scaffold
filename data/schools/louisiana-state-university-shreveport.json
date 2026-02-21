@@ -1,0 +1,36 @@
+{
+  "slug": "louisiana-state-university-shreveport",
+  "name": "Louisiana State University-Shreveport",
+  "ipeds_id": 159416,
+  "state": "LA",
+  "city": "Shreveport",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.8272,
+    "sat_reading_25": 530,
+    "sat_reading_75": 590,
+    "sat_math_25": 470,
+    "sat_math_75": 560,
+    "act_25": 19,
+    "act_75": 24,
+    "tuition_in_state": 7327,
+    "tuition_out_of_state": 20481,
+    "room_board": 11030,
+    "total_cost_in_state": 20357,
+    "total_cost_out_of_state": 33511,
+    "net_price": {
+      "0_30k": 7302,
+      "30_48k": 6758,
+      "48_75k": 7613,
+      "75_110k": 12616,
+      "110k_plus": 14034
+    },
+    "pell_rate": 0.3781,
+    "federal_loan_rate": 0.3164,
+    "enrollment": 2150
+  },
+  "cds": null,
+  "reference": null
+}

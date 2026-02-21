@@ -1,0 +1,36 @@
+{
+  "slug": "university-of-maine-at-farmington",
+  "name": "University of Maine at Farmington",
+  "ipeds_id": 161226,
+  "state": "ME",
+  "city": "Farmington",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.9763,
+    "sat_reading_25": 510,
+    "sat_reading_75": 615,
+    "sat_math_25": 405,
+    "sat_math_75": 595,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 10989,
+    "tuition_out_of_state": 23079,
+    "room_board": 10970,
+    "total_cost_in_state": 23959,
+    "total_cost_out_of_state": 36049,
+    "net_price": {
+      "0_30k": 12043,
+      "30_48k": 10482,
+      "48_75k": 12501,
+      "75_110k": 19002,
+      "110k_plus": 20505
+    },
+    "pell_rate": 0.3248,
+    "federal_loan_rate": 0.448,
+    "enrollment": 1131
+  },
+  "cds": null,
+  "reference": null
+}

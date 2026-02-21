@@ -1,0 +1,36 @@
+{
+  "slug": "willamette-university",
+  "name": "Willamette University",
+  "ipeds_id": 210401,
+  "state": "OR",
+  "city": "Salem",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.7911,
+    "sat_reading_25": 630,
+    "sat_reading_75": 730,
+    "sat_math_25": 590,
+    "sat_math_75": 700,
+    "act_25": 27,
+    "act_75": 32,
+    "tuition_in_state": 48268,
+    "tuition_out_of_state": 48268,
+    "room_board": 15490,
+    "total_cost_in_state": 65758,
+    "total_cost_out_of_state": 65758,
+    "net_price": {
+      "0_30k": 14603,
+      "30_48k": 14977,
+      "48_75k": 16425,
+      "75_110k": 24618,
+      "110k_plus": 31101
+    },
+    "pell_rate": 0.218,
+    "federal_loan_rate": 0.4111,
+    "enrollment": 1525
+  },
+  "cds": null,
+  "reference": null
+}

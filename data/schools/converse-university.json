@@ -1,0 +1,36 @@
+{
+  "slug": "converse-university",
+  "name": "Converse University",
+  "ipeds_id": 217961,
+  "state": "SC",
+  "city": "Spartanburg",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.64,
+    "sat_reading_25": 520,
+    "sat_reading_75": 640,
+    "sat_math_25": 510,
+    "sat_math_75": 598,
+    "act_25": 21,
+    "act_75": 26,
+    "tuition_in_state": 23096,
+    "tuition_out_of_state": 23096,
+    "room_board": 13424,
+    "total_cost_in_state": 38520,
+    "total_cost_out_of_state": 38520,
+    "net_price": {
+      "0_30k": 16427,
+      "30_48k": 17984,
+      "48_75k": 18624,
+      "75_110k": 20988,
+      "110k_plus": 23303
+    },
+    "pell_rate": 0.4066,
+    "federal_loan_rate": 0.6531,
+    "enrollment": 845
+  },
+  "cds": null,
+  "reference": null
+}

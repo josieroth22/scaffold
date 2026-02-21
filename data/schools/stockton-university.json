@@ -1,0 +1,36 @@
+{
+  "slug": "stockton-university",
+  "name": "Stockton University",
+  "ipeds_id": 186876,
+  "state": "NJ",
+  "city": "Galloway",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.8817,
+    "sat_reading_25": 540,
+    "sat_reading_75": 640,
+    "sat_math_25": 540,
+    "sat_math_75": 620,
+    "act_25": 20,
+    "act_75": 27,
+    "tuition_in_state": 15532,
+    "tuition_out_of_state": 23420,
+    "room_board": 15332,
+    "total_cost_in_state": 32864,
+    "total_cost_out_of_state": 40752,
+    "net_price": {
+      "0_30k": 13774,
+      "30_48k": 13665,
+      "48_75k": 17407,
+      "75_110k": 25434,
+      "110k_plus": 28051
+    },
+    "pell_rate": 0.415,
+    "federal_loan_rate": 0.5117,
+    "enrollment": 7770
+  },
+  "cds": null,
+  "reference": null
+}

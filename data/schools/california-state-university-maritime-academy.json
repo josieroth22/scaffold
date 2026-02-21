@@ -1,0 +1,36 @@
+{
+  "slug": "california-state-university-maritime-academy",
+  "name": "California State University Maritime Academy",
+  "ipeds_id": 111188,
+  "state": "CA",
+  "city": "Vallejo",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.9873,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 7672,
+    "tuition_out_of_state": 19552,
+    "room_board": 13976,
+    "total_cost_in_state": 23648,
+    "total_cost_out_of_state": 35528,
+    "net_price": {
+      "0_30k": 11357,
+      "30_48k": 12148,
+      "48_75k": 16648,
+      "75_110k": 16533,
+      "110k_plus": 24740
+    },
+    "pell_rate": 0.2871,
+    "federal_loan_rate": 0.4332,
+    "enrollment": 761
+  },
+  "cds": null,
+  "reference": null
+}

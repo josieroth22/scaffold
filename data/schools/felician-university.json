@@ -1,0 +1,36 @@
+{
+  "slug": "felician-university",
+  "name": "Felician University",
+  "ipeds_id": 184612,
+  "state": "NJ",
+  "city": "Lodi",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.9401,
+    "sat_reading_25": 450,
+    "sat_reading_75": 570,
+    "sat_math_25": 440,
+    "sat_math_75": 580,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 37830,
+    "tuition_out_of_state": 37830,
+    "room_board": 14190,
+    "total_cost_in_state": 54020,
+    "total_cost_out_of_state": 54020,
+    "net_price": {
+      "0_30k": 41128,
+      "30_48k": 41497,
+      "48_75k": 42782,
+      "75_110k": 43388,
+      "110k_plus": 38690
+    },
+    "pell_rate": 0.5155,
+    "federal_loan_rate": 0.5739,
+    "enrollment": 1754
+  },
+  "cds": null,
+  "reference": null
+}

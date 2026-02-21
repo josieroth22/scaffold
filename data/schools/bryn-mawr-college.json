@@ -1,0 +1,36 @@
+{
+  "slug": "bryn-mawr-college",
+  "name": "Bryn Mawr College",
+  "ipeds_id": 211273,
+  "state": "PA",
+  "city": "Bryn Mawr",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.3106,
+    "sat_reading_25": 670,
+    "sat_reading_75": 740,
+    "sat_math_25": 630,
+    "sat_math_75": 730,
+    "act_25": 30,
+    "act_75": 33,
+    "tuition_in_state": 62560,
+    "tuition_out_of_state": 62560,
+    "room_board": 18690,
+    "total_cost_in_state": 83250,
+    "total_cost_out_of_state": 83250,
+    "net_price": {
+      "0_30k": 3323,
+      "30_48k": 4557,
+      "48_75k": 12873,
+      "75_110k": 25044,
+      "110k_plus": 49566
+    },
+    "pell_rate": 0.1434,
+    "federal_loan_rate": 0.4776,
+    "enrollment": 1346
+  },
+  "cds": null,
+  "reference": null
+}

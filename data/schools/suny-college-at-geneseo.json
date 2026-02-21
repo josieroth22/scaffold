@@ -1,0 +1,36 @@
+{
+  "slug": "suny-college-at-geneseo",
+  "name": "SUNY College at Geneseo",
+  "ipeds_id": 196167,
+  "state": "NY",
+  "city": "Geneseo",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.6353,
+    "sat_reading_25": 610,
+    "sat_reading_75": 690,
+    "sat_math_25": 590,
+    "sat_math_75": 690,
+    "act_25": 26,
+    "act_75": 31,
+    "tuition_in_state": 8966,
+    "tuition_out_of_state": 19206,
+    "room_board": 15380,
+    "total_cost_in_state": 26346,
+    "total_cost_out_of_state": 36586,
+    "net_price": {
+      "0_30k": 9369,
+      "30_48k": 12591,
+      "48_75k": 15180,
+      "75_110k": 17850,
+      "110k_plus": 23488
+    },
+    "pell_rate": 0.2541,
+    "federal_loan_rate": 0.4911,
+    "enrollment": 3855
+  },
+  "cds": null,
+  "reference": null
+}

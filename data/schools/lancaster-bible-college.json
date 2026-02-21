@@ -1,0 +1,36 @@
+{
+  "slug": "lancaster-bible-college",
+  "name": "Lancaster Bible College",
+  "ipeds_id": 213400,
+  "state": "PA",
+  "city": "Lancaster",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.9519,
+    "sat_reading_25": 540,
+    "sat_reading_75": 660,
+    "sat_math_25": 540,
+    "sat_math_75": 610,
+    "act_25": 21,
+    "act_75": 23,
+    "tuition_in_state": 29990,
+    "tuition_out_of_state": 29990,
+    "room_board": 11640,
+    "total_cost_in_state": 43630,
+    "total_cost_out_of_state": 43630,
+    "net_price": {
+      "0_30k": 18652,
+      "30_48k": 16948,
+      "48_75k": 19100,
+      "75_110k": 24474,
+      "110k_plus": 27820
+    },
+    "pell_rate": 0.3047,
+    "federal_loan_rate": 0.5272,
+    "enrollment": 1511
+  },
+  "cds": null,
+  "reference": null
+}

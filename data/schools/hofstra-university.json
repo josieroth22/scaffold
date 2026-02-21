@@ -1,0 +1,36 @@
+{
+  "slug": "hofstra-university",
+  "name": "Hofstra University",
+  "ipeds_id": 191649,
+  "state": "NY",
+  "city": "Hempstead",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.7059,
+    "sat_reading_25": 610,
+    "sat_reading_75": 690,
+    "sat_math_25": 600,
+    "sat_math_75": 690,
+    "act_25": 27,
+    "act_75": 31,
+    "tuition_in_state": 55450,
+    "tuition_out_of_state": 55450,
+    "room_board": 17720,
+    "total_cost_in_state": 75170,
+    "total_cost_out_of_state": 75170,
+    "net_price": {
+      "0_30k": 29667,
+      "30_48k": 31575,
+      "48_75k": 35162,
+      "75_110k": 38553,
+      "110k_plus": 37740
+    },
+    "pell_rate": 0.243,
+    "federal_loan_rate": 0.4694,
+    "enrollment": 6155
+  },
+  "cds": null,
+  "reference": null
+}

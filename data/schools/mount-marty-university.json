@@ -1,0 +1,36 @@
+{
+  "slug": "mount-marty-university",
+  "name": "Mount Marty University",
+  "ipeds_id": 219198,
+  "state": "SD",
+  "city": "Yankton",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.4814,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": 19,
+    "act_75": 24,
+    "tuition_in_state": 33100,
+    "tuition_out_of_state": 33100,
+    "room_board": 9300,
+    "total_cost_in_state": 44400,
+    "total_cost_out_of_state": 44400,
+    "net_price": {
+      "0_30k": 18894,
+      "30_48k": 20254,
+      "48_75k": 25226,
+      "75_110k": 25340,
+      "110k_plus": 25145
+    },
+    "pell_rate": 0.1935,
+    "federal_loan_rate": 0.4009,
+    "enrollment": 702
+  },
+  "cds": null,
+  "reference": null
+}

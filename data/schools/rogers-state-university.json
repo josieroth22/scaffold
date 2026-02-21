@@ -1,0 +1,36 @@
+{
+  "slug": "rogers-state-university",
+  "name": "Rogers State University",
+  "ipeds_id": 207661,
+  "state": "OK",
+  "city": "Claremore",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": null,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 7392,
+    "tuition_out_of_state": 15176,
+    "room_board": 10722,
+    "total_cost_in_state": 20114,
+    "total_cost_out_of_state": 27898,
+    "net_price": {
+      "0_30k": 11564,
+      "30_48k": 12635,
+      "48_75k": 13848,
+      "75_110k": 17915,
+      "110k_plus": 19633
+    },
+    "pell_rate": 0.3782,
+    "federal_loan_rate": 0.3575,
+    "enrollment": 2552
+  },
+  "cds": null,
+  "reference": null
+}

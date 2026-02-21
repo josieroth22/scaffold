@@ -1,0 +1,36 @@
+{
+  "slug": "alverno-college",
+  "name": "Alverno College",
+  "ipeds_id": 238193,
+  "state": "WI",
+  "city": "Milwaukee",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.931,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 32794,
+    "tuition_out_of_state": 32794,
+    "room_board": 10238,
+    "total_cost_in_state": 45032,
+    "total_cost_out_of_state": 45032,
+    "net_price": {
+      "0_30k": 15889,
+      "30_48k": 15885,
+      "48_75k": 19307,
+      "75_110k": 17449,
+      "110k_plus": 17577
+    },
+    "pell_rate": 0.4911,
+    "federal_loan_rate": 0.5914,
+    "enrollment": 724
+  },
+  "cds": null,
+  "reference": null
+}

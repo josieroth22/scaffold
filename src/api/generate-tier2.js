@@ -1,5 +1,6 @@
 const Anthropic = require("@anthropic-ai/sdk");
 const { Redis } = require("@upstash/redis");
+const schoolData = require("./school-data");
 
 const client = new Anthropic.default();
 const redis = new Redis({
@@ -37,6 +38,8 @@ module.exports = async function handler(req, res) {
   } catch (err) {
     return res.status(500).json({ error: "Failed to load submission: " + err.message });
   }
+
+  await redis.hset(`submission:${id}`, { status: "generating_tier2" });
 
   // Parse the original form data (Upstash may auto-deserialize)
   let formData;
@@ -76,6 +79,14 @@ ${tier1Output}
 
 ---
 
+### SCHOOL DATA REFERENCE
+
+The following verified school data includes scholarship names, honors programs, aid statistics, and National Merit awards. Use this data when writing the Essay Strategy (school-specific supplemental strategies), Financial Aid Negotiation Guide (real aid numbers to reference), and External Scholarships sections.
+
+${schoolData.loadSchoolsForPrompt(formData)}
+
+---
+
 **NOW GENERATE TIER 2: The Reference Sections**
 
 Start with this divider:
@@ -112,7 +123,9 @@ Then generate each of these sections. Each should stand alone so a parent can ju
 
 **TONE:** Warm, encouraging, and realistic. Be the smart friend who genuinely cares about this kid's future. Celebrate what makes this student interesting. Be honest about challenges without being discouraging. Acknowledge uncertainty. Use the family's own language and values. Reference specific details they provided naturally throughout. The plan should feel like it was written by someone who actually read everything the family wrote and cares about getting it right. Use humor sparingly but don't be afraid of it. Call out the parents directly when needed. No em dashes. Use commas, periods, or restructure the sentence.
 
-**VOICE:** Always address the parent directly. Use "your family", "your budget", "your son/daughter" throughout. Never use third person like "their family", "the family", "the student's parents". You are talking TO this parent, not writing a report ABOUT them.`;
+**VOICE:** Always address the parent directly. Use "your family", "your budget", "your son/daughter" throughout. Never use third person like "their family", "the family", "the student's parents". You are talking TO this parent, not writing a report ABOUT them.
+
+**Language standards:** This is a professional document. Never use crude or potentially offensive phrasing like "poverty porn." When advising on essay topics to avoid, use professional language like "avoid deficit narratives" or "don't frame your story around hardship for its own sake."`;
 
   try {
     res.setHeader("Content-Type", "text/event-stream");

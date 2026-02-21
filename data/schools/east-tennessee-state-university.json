@@ -1,0 +1,36 @@
+{
+  "slug": "east-tennessee-state-university",
+  "name": "East Tennessee State University",
+  "ipeds_id": 220075,
+  "state": "TN",
+  "city": "Johnson City",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.8706,
+    "sat_reading_25": 490,
+    "sat_reading_75": 600,
+    "sat_math_25": 460,
+    "sat_math_75": 570,
+    "act_25": 19,
+    "act_75": 26,
+    "tuition_in_state": 9950,
+    "tuition_out_of_state": 13790,
+    "room_board": 10270,
+    "total_cost_in_state": 22220,
+    "total_cost_out_of_state": 26060,
+    "net_price": {
+      "0_30k": 13158,
+      "30_48k": 13625,
+      "48_75k": 16944,
+      "75_110k": 19753,
+      "110k_plus": 20907
+    },
+    "pell_rate": 0.3519,
+    "federal_loan_rate": 0.3581,
+    "enrollment": 9807
+  },
+  "cds": null,
+  "reference": null
+}

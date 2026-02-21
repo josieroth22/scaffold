@@ -1,0 +1,36 @@
+{
+  "slug": "york-college-of-pennsylvania",
+  "name": "York College of Pennsylvania",
+  "ipeds_id": 217059,
+  "state": "PA",
+  "city": "York",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.942,
+    "sat_reading_25": 520,
+    "sat_reading_75": 620,
+    "sat_math_25": 510,
+    "sat_math_75": 610,
+    "act_25": 22,
+    "act_75": 28,
+    "tuition_in_state": 24606,
+    "tuition_out_of_state": 24606,
+    "room_board": 12780,
+    "total_cost_in_state": 39386,
+    "total_cost_out_of_state": 39386,
+    "net_price": {
+      "0_30k": 14792,
+      "30_48k": 15129,
+      "48_75k": 18388,
+      "75_110k": 21010,
+      "110k_plus": 24092
+    },
+    "pell_rate": 0.2522,
+    "federal_loan_rate": 0.597,
+    "enrollment": 3187
+  },
+  "cds": null,
+  "reference": null
+}

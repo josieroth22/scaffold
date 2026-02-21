@@ -1,0 +1,36 @@
+{
+  "slug": "suny-college-of-technology-at-delhi",
+  "name": "SUNY College of Technology at Delhi",
+  "ipeds_id": 196024,
+  "state": "NY",
+  "city": "Delhi",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.8841,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 8710,
+    "tuition_out_of_state": 12480,
+    "room_board": 14590,
+    "total_cost_in_state": 25300,
+    "total_cost_out_of_state": 29070,
+    "net_price": {
+      "0_30k": 12432,
+      "30_48k": 15619,
+      "48_75k": 19042,
+      "75_110k": 20545,
+      "110k_plus": 23952
+    },
+    "pell_rate": 0.461,
+    "federal_loan_rate": 0.5439,
+    "enrollment": 2597
+  },
+  "cds": null,
+  "reference": null
+}

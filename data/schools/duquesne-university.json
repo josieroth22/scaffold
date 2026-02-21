@@ -1,0 +1,36 @@
+{
+  "slug": "duquesne-university",
+  "name": "Duquesne University",
+  "ipeds_id": 212106,
+  "state": "PA",
+  "city": "Pittsburgh",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.7885,
+    "sat_reading_25": 590,
+    "sat_reading_75": 680,
+    "sat_math_25": 570,
+    "sat_math_75": 670,
+    "act_25": 26,
+    "act_75": 31,
+    "tuition_in_state": 47146,
+    "tuition_out_of_state": 47146,
+    "room_board": 15620,
+    "total_cost_in_state": 64766,
+    "total_cost_out_of_state": 64766,
+    "net_price": {
+      "0_30k": 25943,
+      "30_48k": 27610,
+      "48_75k": 31920,
+      "75_110k": 35852,
+      "110k_plus": 38975
+    },
+    "pell_rate": 0.1814,
+    "federal_loan_rate": 0.5747,
+    "enrollment": 5216
+  },
+  "cds": null,
+  "reference": null
+}

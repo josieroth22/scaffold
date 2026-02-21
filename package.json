@@ -3,6 +3,7 @@
   "private": true,
   "dependencies": {
     "@anthropic-ai/sdk": "^0.39.0",
-    "@upstash/redis": "^1.36.2"
+    "@upstash/redis": "^1.36.2",
+    "xlsx": "^0.18.5"
   }
 }

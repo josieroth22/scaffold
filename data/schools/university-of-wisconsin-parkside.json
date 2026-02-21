@@ -1,0 +1,36 @@
+{
+  "slug": "university-of-wisconsin-parkside",
+  "name": "University of Wisconsin-Parkside",
+  "ipeds_id": 240374,
+  "state": "WI",
+  "city": "Kenosha",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.7262,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": 18,
+    "act_75": 25,
+    "tuition_in_state": 7855,
+    "tuition_out_of_state": 16497,
+    "room_board": 8286,
+    "total_cost_in_state": 18141,
+    "total_cost_out_of_state": 26783,
+    "net_price": {
+      "0_30k": 5551,
+      "30_48k": 7109,
+      "48_75k": 10670,
+      "75_110k": 14941,
+      "110k_plus": 16329
+    },
+    "pell_rate": 0.3421,
+    "federal_loan_rate": 0.3752,
+    "enrollment": 2951
+  },
+  "cds": null,
+  "reference": null
+}

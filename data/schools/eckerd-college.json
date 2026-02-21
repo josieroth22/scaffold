@@ -1,0 +1,36 @@
+{
+  "slug": "eckerd-college",
+  "name": "Eckerd College",
+  "ipeds_id": 133492,
+  "state": "FL",
+  "city": "Saint Petersburg",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.7869,
+    "sat_reading_25": 600,
+    "sat_reading_75": 678,
+    "sat_math_25": 550,
+    "sat_math_75": 658,
+    "act_25": 24,
+    "act_75": 29,
+    "tuition_in_state": 50374,
+    "tuition_out_of_state": 50374,
+    "room_board": 14268,
+    "total_cost_in_state": 66642,
+    "total_cost_out_of_state": 66642,
+    "net_price": {
+      "0_30k": 26746,
+      "30_48k": 28782,
+      "48_75k": 30034,
+      "75_110k": 32127,
+      "110k_plus": 37419
+    },
+    "pell_rate": 0.1621,
+    "federal_loan_rate": 0.3638,
+    "enrollment": 1984
+  },
+  "cds": null,
+  "reference": null
+}

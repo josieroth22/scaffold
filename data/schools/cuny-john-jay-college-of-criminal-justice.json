@@ -1,0 +1,45 @@
+{
+  "slug": "cuny-john-jay-college-of-criminal-justice",
+  "name": "CUNY John Jay College of Criminal Justice",
+  "ipeds_id": 190600,
+  "state": "NY",
+  "city": "New York",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.5722,
+    "sat_reading_25": 520,
+    "sat_reading_75": 640,
+    "sat_math_25": 480,
+    "sat_math_75": 610,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 7470,
+    "tuition_out_of_state": 15420,
+    "room_board": null,
+    "total_cost_in_state": 13712,
+    "total_cost_out_of_state": null,
+    "net_price": {
+      "0_30k": 1290,
+      "30_48k": 2942,
+      "48_75k": 7654,
+      "75_110k": 9605,
+      "110k_plus": 12827
+    },
+    "pell_rate": 0.5919,
+    "federal_loan_rate": 0.0846,
+    "enrollment": 11340
+  },
+  "cds": null,
+  "reference": {
+    "honors_program": {
+      "name": "Macaulay Honors College",
+      "description": "Highly selective CUNY-wide honors college. Scholars receive a full tuition scholarship, a laptop, an Opportunities Fund for enrichment activities, and personalized advising. ~2,080 students across 8 CUNY campuses.",
+      "separate_application": true,
+      "avg_sat": null,
+      "acceptance_rate": null,
+      "size": 2080
+    }
+  }
+}

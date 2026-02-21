@@ -1,0 +1,36 @@
+{
+  "slug": "thomas-college",
+  "name": "Thomas College",
+  "ipeds_id": 161563,
+  "state": "ME",
+  "city": "Waterville",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.9707,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 30896,
+    "tuition_out_of_state": 30896,
+    "room_board": 13678,
+    "total_cost_in_state": 46574,
+    "total_cost_out_of_state": 46574,
+    "net_price": {
+      "0_30k": 14911,
+      "30_48k": 14423,
+      "48_75k": 16595,
+      "75_110k": 20590,
+      "110k_plus": 24441
+    },
+    "pell_rate": 0.1534,
+    "federal_loan_rate": 0.3395,
+    "enrollment": 688
+  },
+  "cds": null,
+  "reference": null
+}

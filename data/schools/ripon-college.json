@@ -1,0 +1,36 @@
+{
+  "slug": "ripon-college",
+  "name": "Ripon College",
+  "ipeds_id": 239628,
+  "state": "WI",
+  "city": "Ripon",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.8392,
+    "sat_reading_25": 510,
+    "sat_reading_75": 600,
+    "sat_math_25": 490,
+    "sat_math_75": 590,
+    "act_25": 20,
+    "act_75": 27,
+    "tuition_in_state": 50700,
+    "tuition_out_of_state": 50700,
+    "room_board": 10190,
+    "total_cost_in_state": 62890,
+    "total_cost_out_of_state": 62890,
+    "net_price": {
+      "0_30k": 13478,
+      "30_48k": 13038,
+      "48_75k": 17763,
+      "75_110k": 22858,
+      "110k_plus": 29200
+    },
+    "pell_rate": 0.3329,
+    "federal_loan_rate": 0.7389,
+    "enrollment": 720
+  },
+  "cds": null,
+  "reference": null
+}

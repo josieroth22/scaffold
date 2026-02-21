@@ -1,0 +1,36 @@
+{
+  "slug": "framingham-state-university",
+  "name": "Framingham State University",
+  "ipeds_id": 165866,
+  "state": "MA",
+  "city": "Framingham",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.8487,
+    "sat_reading_25": 550,
+    "sat_reading_75": 655,
+    "sat_math_25": 520,
+    "sat_math_75": 600,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 11630,
+    "tuition_out_of_state": 17710,
+    "room_board": 13784,
+    "total_cost_in_state": 27414,
+    "total_cost_out_of_state": 33494,
+    "net_price": {
+      "0_30k": 10802,
+      "30_48k": 11399,
+      "48_75k": 15863,
+      "75_110k": 21658,
+      "110k_plus": 23914
+    },
+    "pell_rate": 0.3448,
+    "federal_loan_rate": 0.5475,
+    "enrollment": 2556
+  },
+  "cds": null,
+  "reference": null
+}

@@ -1,0 +1,36 @@
+{
+  "slug": "saint-elizabeth-university",
+  "name": "Saint Elizabeth University",
+  "ipeds_id": 186618,
+  "state": "NJ",
+  "city": "Morristown",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.7721,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 35942,
+    "tuition_out_of_state": 35942,
+    "room_board": 13126,
+    "total_cost_in_state": 51068,
+    "total_cost_out_of_state": 51068,
+    "net_price": {
+      "0_30k": 13266,
+      "30_48k": 14439,
+      "48_75k": 21594,
+      "75_110k": 23648,
+      "110k_plus": 30149
+    },
+    "pell_rate": 0.5414,
+    "federal_loan_rate": 0.6282,
+    "enrollment": 636
+  },
+  "cds": null,
+  "reference": null
+}

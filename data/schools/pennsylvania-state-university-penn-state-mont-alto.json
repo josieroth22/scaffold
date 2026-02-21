@@ -1,0 +1,36 @@
+{
+  "slug": "pennsylvania-state-university-penn-state-mont-alto",
+  "name": "Pennsylvania State University-Penn State Mont Alto",
+  "ipeds_id": 214795,
+  "state": "PA",
+  "city": "Mont Alto",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.903,
+    "sat_reading_25": 550,
+    "sat_reading_75": 620,
+    "sat_math_25": 530,
+    "sat_math_75": 610,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 14380,
+    "tuition_out_of_state": 23872,
+    "room_board": 12022,
+    "total_cost_in_state": 28402,
+    "total_cost_out_of_state": 37894,
+    "net_price": {
+      "0_30k": 11518,
+      "30_48k": 13653,
+      "48_75k": 17051,
+      "75_110k": 23185,
+      "110k_plus": 26342
+    },
+    "pell_rate": 0.2612,
+    "federal_loan_rate": 0.5239,
+    "enrollment": 547
+  },
+  "cds": null,
+  "reference": null
+}

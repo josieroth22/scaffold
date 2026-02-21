@@ -1,0 +1,36 @@
+{
+  "slug": "mount-holyoke-college",
+  "name": "Mount Holyoke College",
+  "ipeds_id": 166939,
+  "state": "MA",
+  "city": "South Hadley",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.3829,
+    "sat_reading_25": 690,
+    "sat_reading_75": 750,
+    "sat_math_25": 660,
+    "sat_math_75": 750,
+    "act_25": 31,
+    "act_75": 33,
+    "tuition_in_state": 64142,
+    "tuition_out_of_state": 64142,
+    "room_board": 18838,
+    "total_cost_in_state": 84980,
+    "total_cost_out_of_state": 84980,
+    "net_price": {
+      "0_30k": 17365,
+      "30_48k": 17670,
+      "48_75k": 21565,
+      "75_110k": 31425,
+      "110k_plus": 42389
+    },
+    "pell_rate": 0.2029,
+    "federal_loan_rate": 0.4277,
+    "enrollment": 2198
+  },
+  "cds": null,
+  "reference": null
+}

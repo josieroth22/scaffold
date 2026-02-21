@@ -1,0 +1,36 @@
+{
+  "slug": "university-of-south-florida",
+  "name": "University of South Florida",
+  "ipeds_id": 137351,
+  "state": "FL",
+  "city": "Tampa",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.4096,
+    "sat_reading_25": 580,
+    "sat_reading_75": 670,
+    "sat_math_25": 560,
+    "sat_math_75": 660,
+    "act_25": 24,
+    "act_75": 29,
+    "tuition_in_state": 6410,
+    "tuition_out_of_state": 17324,
+    "room_board": 13595,
+    "total_cost_in_state": 22005,
+    "total_cost_out_of_state": 32919,
+    "net_price": {
+      "0_30k": 4785,
+      "30_48k": 6053,
+      "48_75k": 10649,
+      "75_110k": 16385,
+      "110k_plus": 17671
+    },
+    "pell_rate": 0.2988,
+    "federal_loan_rate": 0.2471,
+    "enrollment": 36299
+  },
+  "cds": null,
+  "reference": null
+}

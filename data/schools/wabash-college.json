@@ -1,0 +1,36 @@
+{
+  "slug": "wabash-college",
+  "name": "Wabash College",
+  "ipeds_id": 152673,
+  "state": "IN",
+  "city": "Crawfordsville",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.6278,
+    "sat_reading_25": 540,
+    "sat_reading_75": 630,
+    "sat_math_25": 560,
+    "sat_math_75": 670,
+    "act_25": 24,
+    "act_75": 29,
+    "tuition_in_state": 49125,
+    "tuition_out_of_state": 49125,
+    "room_board": 13300,
+    "total_cost_in_state": 64425,
+    "total_cost_out_of_state": 64425,
+    "net_price": {
+      "0_30k": 15586,
+      "30_48k": 15820,
+      "48_75k": 14117,
+      "75_110k": 19613,
+      "110k_plus": 29968
+    },
+    "pell_rate": 0.2251,
+    "federal_loan_rate": 0.5988,
+    "enrollment": 845
+  },
+  "cds": null,
+  "reference": null
+}

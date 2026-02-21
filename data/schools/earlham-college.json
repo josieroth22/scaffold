@@ -1,0 +1,36 @@
+{
+  "slug": "earlham-college",
+  "name": "Earlham College",
+  "ipeds_id": 150455,
+  "state": "IN",
+  "city": "Richmond",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.7422,
+    "sat_reading_25": 608,
+    "sat_reading_75": 690,
+    "sat_math_25": 570,
+    "sat_math_75": 673,
+    "act_25": 23,
+    "act_75": 30,
+    "tuition_in_state": 51840,
+    "tuition_out_of_state": 51840,
+    "room_board": 13193,
+    "total_cost_in_state": 67033,
+    "total_cost_out_of_state": 67033,
+    "net_price": {
+      "0_30k": 18306,
+      "30_48k": 20515,
+      "48_75k": 22527,
+      "75_110k": 25618,
+      "110k_plus": 29101
+    },
+    "pell_rate": 0.25,
+    "federal_loan_rate": 0.4232,
+    "enrollment": 612
+  },
+  "cds": null,
+  "reference": null
+}

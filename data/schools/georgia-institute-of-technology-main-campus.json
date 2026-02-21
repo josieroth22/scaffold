@@ -1,0 +1,36 @@
+{
+  "slug": "georgia-institute-of-technology-main-campus",
+  "name": "Georgia Institute of Technology-Main Campus",
+  "ipeds_id": 139755,
+  "state": "GA",
+  "city": "Atlanta",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.1646,
+    "sat_reading_25": 650,
+    "sat_reading_75": 740,
+    "sat_math_25": 680,
+    "sat_math_75": 790,
+    "act_25": 28,
+    "act_75": 34,
+    "tuition_in_state": 11764,
+    "tuition_out_of_state": 32876,
+    "room_board": 12760,
+    "total_cost_in_state": 26524,
+    "total_cost_out_of_state": 47636,
+    "net_price": {
+      "0_30k": 7491,
+      "30_48k": 9083,
+      "48_75k": 13349,
+      "75_110k": 16601,
+      "110k_plus": 17250
+    },
+    "pell_rate": 0.1367,
+    "federal_loan_rate": 0.193,
+    "enrollment": 18260
+  },
+  "cds": null,
+  "reference": null
+}

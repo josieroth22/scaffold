@@ -1,0 +1,36 @@
+{
+  "slug": "jacksonville-university",
+  "name": "Jacksonville University",
+  "ipeds_id": 134945,
+  "state": "FL",
+  "city": "Jacksonville",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.5729,
+    "sat_reading_25": 570,
+    "sat_reading_75": 640,
+    "sat_math_25": 540,
+    "sat_math_75": 620,
+    "act_25": 24,
+    "act_75": 28,
+    "tuition_in_state": 46180,
+    "tuition_out_of_state": 46180,
+    "room_board": 16550,
+    "total_cost_in_state": 64730,
+    "total_cost_out_of_state": 64730,
+    "net_price": {
+      "0_30k": 23467,
+      "30_48k": 23680,
+      "48_75k": 22141,
+      "75_110k": 29211,
+      "110k_plus": 30566
+    },
+    "pell_rate": 0.2993,
+    "federal_loan_rate": 0.478,
+    "enrollment": 2649
+  },
+  "cds": null,
+  "reference": null
+}

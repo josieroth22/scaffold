@@ -1,0 +1,36 @@
+{
+  "slug": "linfield-university",
+  "name": "Linfield University",
+  "ipeds_id": 209065,
+  "state": "OR",
+  "city": "McMinnville",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.8793,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 49530,
+    "tuition_out_of_state": 49530,
+    "room_board": 14060,
+    "total_cost_in_state": 65590,
+    "total_cost_out_of_state": 65590,
+    "net_price": {
+      "0_30k": 24625,
+      "30_48k": 23985,
+      "48_75k": 21378,
+      "75_110k": 28268,
+      "110k_plus": 32957
+    },
+    "pell_rate": 0.2831,
+    "federal_loan_rate": 0.807,
+    "enrollment": 1642
+  },
+  "cds": null,
+  "reference": null
+}

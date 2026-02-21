@@ -1,0 +1,36 @@
+{
+  "slug": "cairn-university-langhorne",
+  "name": "Cairn University-Langhorne",
+  "ipeds_id": 215114,
+  "state": "PA",
+  "city": "Langhorne",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.8356,
+    "sat_reading_25": 520,
+    "sat_reading_75": 650,
+    "sat_math_25": 530,
+    "sat_math_75": 610,
+    "act_25": 23,
+    "act_75": 27,
+    "tuition_in_state": 32625,
+    "tuition_out_of_state": 32625,
+    "room_board": 12234,
+    "total_cost_in_state": 46859,
+    "total_cost_out_of_state": 46859,
+    "net_price": {
+      "0_30k": 24409,
+      "30_48k": 26083,
+      "48_75k": 29663,
+      "75_110k": 29409,
+      "110k_plus": 32037
+    },
+    "pell_rate": 0.3024,
+    "federal_loan_rate": 0.7927,
+    "enrollment": 782
+  },
+  "cds": null,
+  "reference": null
+}

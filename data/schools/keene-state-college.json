@@ -1,0 +1,36 @@
+{
+  "slug": "keene-state-college",
+  "name": "Keene State College",
+  "ipeds_id": 183062,
+  "state": "NH",
+  "city": "Keene",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.8909,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 14710,
+    "tuition_out_of_state": 26186,
+    "room_board": 13860,
+    "total_cost_in_state": 30570,
+    "total_cost_out_of_state": 42046,
+    "net_price": {
+      "0_30k": 11111,
+      "30_48k": 14049,
+      "48_75k": 15816,
+      "75_110k": 20423,
+      "110k_plus": 24020
+    },
+    "pell_rate": 0.2371,
+    "federal_loan_rate": 0.6836,
+    "enrollment": 2680
+  },
+  "cds": null,
+  "reference": null
+}

@@ -1,0 +1,36 @@
+{
+  "slug": "rockhurst-university",
+  "name": "Rockhurst University",
+  "ipeds_id": 179043,
+  "state": "MO",
+  "city": "Kansas City",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.6905,
+    "sat_reading_25": 553,
+    "sat_reading_75": 638,
+    "sat_math_25": 563,
+    "sat_math_75": 608,
+    "act_25": 22,
+    "act_75": 27,
+    "tuition_in_state": 43420,
+    "tuition_out_of_state": 43420,
+    "room_board": 11540,
+    "total_cost_in_state": 56960,
+    "total_cost_out_of_state": 56960,
+    "net_price": {
+      "0_30k": 18557,
+      "30_48k": 20467,
+      "48_75k": 20581,
+      "75_110k": 22063,
+      "110k_plus": 27784
+    },
+    "pell_rate": 0.1933,
+    "federal_loan_rate": 0.3352,
+    "enrollment": 1702
+  },
+  "cds": null,
+  "reference": null
+}

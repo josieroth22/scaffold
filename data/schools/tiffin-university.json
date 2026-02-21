@@ -1,0 +1,36 @@
+{
+  "slug": "tiffin-university",
+  "name": "Tiffin University",
+  "ipeds_id": 206048,
+  "state": "OH",
+  "city": "Tiffin",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.7977,
+    "sat_reading_25": 440,
+    "sat_reading_75": 560,
+    "sat_math_25": 430,
+    "sat_math_75": 560,
+    "act_25": 15,
+    "act_75": 22,
+    "tuition_in_state": 32400,
+    "tuition_out_of_state": 32400,
+    "room_board": 12650,
+    "total_cost_in_state": 47050,
+    "total_cost_out_of_state": 47050,
+    "net_price": {
+      "0_30k": 20982,
+      "30_48k": 20666,
+      "48_75k": 23742,
+      "75_110k": 27814,
+      "110k_plus": 27426
+    },
+    "pell_rate": 0.3553,
+    "federal_loan_rate": 0.5472,
+    "enrollment": 1938
+  },
+  "cds": null,
+  "reference": null
+}

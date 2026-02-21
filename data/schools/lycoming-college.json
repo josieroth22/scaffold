@@ -1,0 +1,36 @@
+{
+  "slug": "lycoming-college",
+  "name": "Lycoming College",
+  "ipeds_id": 213668,
+  "state": "PA",
+  "city": "Williamsport",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.6788,
+    "sat_reading_25": 540,
+    "sat_reading_75": 643,
+    "sat_math_25": 530,
+    "sat_math_75": 630,
+    "act_25": 23,
+    "act_75": 30,
+    "tuition_in_state": 47675,
+    "tuition_out_of_state": 47675,
+    "room_board": 14612,
+    "total_cost_in_state": 64287,
+    "total_cost_out_of_state": 64287,
+    "net_price": {
+      "0_30k": 10756,
+      "30_48k": 15044,
+      "48_75k": 16467,
+      "75_110k": 20561,
+      "110k_plus": 26790
+    },
+    "pell_rate": 0.4013,
+    "federal_loan_rate": 0.7274,
+    "enrollment": 1049
+  },
+  "cds": null,
+  "reference": null
+}

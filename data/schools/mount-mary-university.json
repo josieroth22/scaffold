@@ -1,0 +1,36 @@
+{
+  "slug": "mount-mary-university",
+  "name": "Mount Mary University",
+  "ipeds_id": 239390,
+  "state": "WI",
+  "city": "Milwaukee",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.9335,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": 16,
+    "act_75": 24,
+    "tuition_in_state": 34390,
+    "tuition_out_of_state": 34390,
+    "room_board": 10120,
+    "total_cost_in_state": 46510,
+    "total_cost_out_of_state": 46510,
+    "net_price": {
+      "0_30k": 17470,
+      "30_48k": 17079,
+      "48_75k": 18312,
+      "75_110k": 20665,
+      "110k_plus": 20654
+    },
+    "pell_rate": 0.5768,
+    "federal_loan_rate": 0.8156,
+    "enrollment": 703
+  },
+  "cds": null,
+  "reference": null
+}

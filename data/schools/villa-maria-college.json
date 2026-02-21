@@ -1,0 +1,36 @@
+{
+  "slug": "villa-maria-college",
+  "name": "Villa Maria College",
+  "ipeds_id": 197142,
+  "state": "NY",
+  "city": "Buffalo",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.8668,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 28670,
+    "tuition_out_of_state": 28670,
+    "room_board": null,
+    "total_cost_in_state": 33719,
+    "total_cost_out_of_state": null,
+    "net_price": {
+      "0_30k": 12373,
+      "30_48k": 9235,
+      "48_75k": 15325,
+      "75_110k": 13426,
+      "110k_plus": 20940
+    },
+    "pell_rate": 0.6086,
+    "federal_loan_rate": 0.5849,
+    "enrollment": 536
+  },
+  "cds": null,
+  "reference": null
+}

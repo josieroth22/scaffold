@@ -1,0 +1,36 @@
+{
+  "slug": "university-of-the-incarnate-word",
+  "name": "University of the Incarnate Word",
+  "ipeds_id": 225627,
+  "state": "TX",
+  "city": "San Antonio",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.9336,
+    "sat_reading_25": 470,
+    "sat_reading_75": 580,
+    "sat_math_25": 430,
+    "sat_math_75": 560,
+    "act_25": 17,
+    "act_75": 24,
+    "tuition_in_state": 35660,
+    "tuition_out_of_state": 35660,
+    "room_board": 13746,
+    "total_cost_in_state": 51406,
+    "total_cost_out_of_state": 51406,
+    "net_price": {
+      "0_30k": 17434,
+      "30_48k": 18203,
+      "48_75k": 20732,
+      "75_110k": 23772,
+      "110k_plus": 28584
+    },
+    "pell_rate": 0.4293,
+    "federal_loan_rate": 0.7481,
+    "enrollment": 4545
+  },
+  "cds": null,
+  "reference": null
+}

@@ -1,0 +1,36 @@
+{
+  "slug": "university-of-the-virgin-islands",
+  "name": "University of the Virgin Islands",
+  "ipeds_id": 243665,
+  "state": "VI",
+  "city": "Charlotte Amalie",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.9744,
+    "sat_reading_25": 420,
+    "sat_reading_75": 530,
+    "sat_math_25": 380,
+    "sat_math_75": 490,
+    "act_25": 14,
+    "act_75": 20,
+    "tuition_in_state": 5612,
+    "tuition_out_of_state": 15521,
+    "room_board": 10650,
+    "total_cost_in_state": 18262,
+    "total_cost_out_of_state": 28171,
+    "net_price": {
+      "0_30k": 6828,
+      "30_48k": 6211,
+      "48_75k": 8895,
+      "75_110k": 10729,
+      "110k_plus": 10895
+    },
+    "pell_rate": 0.4623,
+    "federal_loan_rate": 0.1691,
+    "enrollment": 1431
+  },
+  "cds": null,
+  "reference": null
+}

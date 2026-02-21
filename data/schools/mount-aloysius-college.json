@@ -1,0 +1,36 @@
+{
+  "slug": "mount-aloysius-college",
+  "name": "Mount Aloysius College",
+  "ipeds_id": 214166,
+  "state": "PA",
+  "city": "Cresson",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.9041,
+    "sat_reading_25": 445,
+    "sat_reading_75": 540,
+    "sat_math_25": 455,
+    "sat_math_75": 565,
+    "act_25": 15,
+    "act_75": 24,
+    "tuition_in_state": 26156,
+    "tuition_out_of_state": 26156,
+    "room_board": 12194,
+    "total_cost_in_state": 40350,
+    "total_cost_out_of_state": 40350,
+    "net_price": {
+      "0_30k": 17100,
+      "30_48k": 16577,
+      "48_75k": 18440,
+      "75_110k": 23150,
+      "110k_plus": 25501
+    },
+    "pell_rate": 0.1599,
+    "federal_loan_rate": 0.3213,
+    "enrollment": 1123
+  },
+  "cds": null,
+  "reference": null
+}

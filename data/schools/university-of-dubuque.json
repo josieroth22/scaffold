@@ -1,0 +1,36 @@
+{
+  "slug": "university-of-dubuque",
+  "name": "University of Dubuque",
+  "ipeds_id": 153278,
+  "state": "IA",
+  "city": "Dubuque",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.8692,
+    "sat_reading_25": 470,
+    "sat_reading_75": 580,
+    "sat_math_25": 480,
+    "sat_math_75": 580,
+    "act_25": 19,
+    "act_75": 25,
+    "tuition_in_state": 40065,
+    "tuition_out_of_state": 40065,
+    "room_board": 11470,
+    "total_cost_in_state": 53535,
+    "total_cost_out_of_state": 53535,
+    "net_price": {
+      "0_30k": 16617,
+      "30_48k": 19871,
+      "48_75k": 20992,
+      "75_110k": 22386,
+      "110k_plus": 26752
+    },
+    "pell_rate": 0.4037,
+    "federal_loan_rate": 0.7022,
+    "enrollment": 1473
+  },
+  "cds": null,
+  "reference": null
+}

@@ -1,0 +1,36 @@
+{
+  "slug": "purdue-university-fort-wayne",
+  "name": "Purdue University Fort Wayne",
+  "ipeds_id": 151102,
+  "state": "IN",
+  "city": "Fort Wayne",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.8566,
+    "sat_reading_25": 480,
+    "sat_reading_75": 600,
+    "sat_math_25": 480,
+    "sat_math_75": 590,
+    "act_25": 19,
+    "act_75": 26,
+    "tuition_in_state": 9254,
+    "tuition_out_of_state": 22220,
+    "room_board": 10332,
+    "total_cost_in_state": 21586,
+    "total_cost_out_of_state": 34552,
+    "net_price": {
+      "0_30k": 6813,
+      "30_48k": 7481,
+      "48_75k": 11933,
+      "75_110k": 16700,
+      "110k_plus": 17670
+    },
+    "pell_rate": 0.2305,
+    "federal_loan_rate": 0.2344,
+    "enrollment": 5450
+  },
+  "cds": null,
+  "reference": null
+}

@@ -1,0 +1,36 @@
+{
+  "slug": "graceland-university-lamoni",
+  "name": "Graceland University-Lamoni",
+  "ipeds_id": 153366,
+  "state": "IA",
+  "city": "Lamoni",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.8322,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 33220,
+    "tuition_out_of_state": 33220,
+    "room_board": 10540,
+    "total_cost_in_state": 45760,
+    "total_cost_out_of_state": 45760,
+    "net_price": {
+      "0_30k": 14414,
+      "30_48k": 15979,
+      "48_75k": 14173,
+      "75_110k": 17970,
+      "110k_plus": 19613
+    },
+    "pell_rate": 0.4516,
+    "federal_loan_rate": 0.7331,
+    "enrollment": 901
+  },
+  "cds": null,
+  "reference": null
+}

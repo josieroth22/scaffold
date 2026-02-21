@@ -1,0 +1,36 @@
+{
+  "slug": "notre-dame-college",
+  "name": "Notre Dame College",
+  "ipeds_id": 204468,
+  "state": "OH",
+  "city": "Cleveland",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.8035,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 32606,
+    "tuition_out_of_state": 32606,
+    "room_board": 11398,
+    "total_cost_in_state": 46004,
+    "total_cost_out_of_state": 46004,
+    "net_price": {
+      "0_30k": 18707,
+      "30_48k": 14948,
+      "48_75k": 18567,
+      "75_110k": 21028,
+      "110k_plus": 25243
+    },
+    "pell_rate": 0.389,
+    "federal_loan_rate": 0.6065,
+    "enrollment": 1049
+  },
+  "cds": null,
+  "reference": null
+}

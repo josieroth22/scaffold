@@ -1,0 +1,36 @@
+{
+  "slug": "cleveland-state-university",
+  "name": "Cleveland State University",
+  "ipeds_id": 202134,
+  "state": "OH",
+  "city": "Cleveland",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.9548,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": 17,
+    "act_75": 25,
+    "tuition_in_state": 12613,
+    "tuition_out_of_state": 17973,
+    "room_board": 14760,
+    "total_cost_in_state": 29373,
+    "total_cost_out_of_state": 34733,
+    "net_price": {
+      "0_30k": 13058,
+      "30_48k": 14122,
+      "48_75k": 16697,
+      "75_110k": 19512,
+      "110k_plus": 22320
+    },
+    "pell_rate": 0.3901,
+    "federal_loan_rate": 0.469,
+    "enrollment": 9077
+  },
+  "cds": null,
+  "reference": null
+}

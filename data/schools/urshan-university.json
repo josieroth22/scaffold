@@ -1,0 +1,36 @@
+{
+  "slug": "urshan-university",
+  "name": "Urshan University",
+  "ipeds_id": 494685,
+  "state": "MO",
+  "city": "Wentzville",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.8387,
+    "sat_reading_25": 490,
+    "sat_reading_75": 570,
+    "sat_math_25": 430,
+    "sat_math_75": 540,
+    "act_25": 18,
+    "act_75": 23,
+    "tuition_in_state": 8506,
+    "tuition_out_of_state": 8506,
+    "room_board": 4398,
+    "total_cost_in_state": 14904,
+    "total_cost_out_of_state": 14904,
+    "net_price": {
+      "0_30k": 11658,
+      "30_48k": 14934,
+      "48_75k": 14834,
+      "75_110k": null,
+      "110k_plus": null
+    },
+    "pell_rate": 0.3996,
+    "federal_loan_rate": 0.3784,
+    "enrollment": 512
+  },
+  "cds": null,
+  "reference": null
+}

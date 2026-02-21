@@ -1,0 +1,93 @@
+{
+  "slug": "clemson-university",
+  "name": "Clemson University",
+  "api_name": "Clemson University",
+  "ipeds_id": 217882,
+  "state": "SC",
+  "city": "Clemson",
+  "type": "public",
+  "tier": "C",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.3805,
+    "sat_reading_25": 620,
+    "sat_reading_75": 690,
+    "sat_math_25": 610,
+    "sat_math_75": 700,
+    "act_25": 28,
+    "act_75": 32,
+    "tuition_in_state": 15554,
+    "tuition_out_of_state": 39498,
+    "room_board": 12872,
+    "total_cost_in_state": 30426,
+    "total_cost_out_of_state": 54370,
+    "net_price": {
+      "0_30k": 14212,
+      "30_48k": 14857,
+      "48_75k": 19988,
+      "75_110k": 24020,
+      "110k_plus": 27348
+    },
+    "pell_rate": 0.1453,
+    "federal_loan_rate": 0.33,
+    "enrollment": 22778
+  },
+  "cds": {
+    "school_name": "Clemson University",
+    "source_year": "2024-2025",
+    "total_applicants": 61517,
+    "total_admitted": 23586,
+    "admit_rate_overall": 0.384,
+    "ed_applicants": null,
+    "ed_admitted": null,
+    "ed_admit_rate": null,
+    "ea_applicants": null,
+    "ea_admitted": null,
+    "ea_admit_rate": null,
+    "sat_reading_25": 620,
+    "sat_reading_75": 700,
+    "sat_math_25": 620,
+    "sat_math_75": 710,
+    "sat_composite_25": 1250,
+    "sat_composite_75": 1400,
+    "act_composite_25": 28,
+    "act_composite_75": 32,
+    "tuition_in_state": 14038,
+    "tuition_out_of_state": 39350,
+    "tuition_private": null,
+    "required_fees": 1516,
+    "room_board": 13284,
+    "pct_need_met": 48,
+    "avg_need_grant": 12111,
+    "avg_financial_aid_package": 13413,
+    "meets_full_need": false,
+    "pct_freshmen_receiving_need_aid": 44.5,
+    "pct_freshmen_receiving_merit_aid": 36.5,
+    "avg_merit_award": 4721
+  },
+  "reference": {
+    "merit_scholarships": [
+      {
+        "name": "National Scholars Program",
+        "amount": "Full COA (tuition, fees, housing, food, and enrichment)",
+        "deadline": "October 15",
+        "requirements": "Honors College Admission Application, Interview Weekend"
+      }
+    ],
+    "national_merit": {
+      "semifinalist_award": "None",
+      "finalist_award": "$1,500",
+      "first_choice_required": false,
+      "guaranteed": true
+    },
+    "honors_program": {
+      "name": "Clemson University Honors College",
+      "description": "The Honors College at Clemson University combines the strengths of a public, land-grant university with those of a highly selective small college. Honors students have the ability to engage in cutting-edge research with some of the leading faculty in the country.",
+      "separate_application": null,
+      "avg_sat": 1430,
+      "acceptance_rate": null,
+      "size": 1873
+    }
+  }
+}

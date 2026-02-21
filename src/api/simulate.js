@@ -199,6 +199,8 @@ module.exports = async function handler(req, res) {
       return res.status(404).json({ error: "Submission not found or no output yet" });
     }
 
+    await redis.hset(`submission:${id}`, { status: "simulating" });
+
     const params = extractSimParams(data.output);
     if (!params || !params.schools || params.schools.length === 0) {
       await storeSimError(id, "No simulation parameters found in output");
@@ -211,6 +213,7 @@ module.exports = async function handler(req, res) {
     await redis.hset(`submission:${id}`, {
       simulation: JSON.stringify(results),
       simulation_error: "",
+      status: "sim_complete",
     });
 
     return res.status(200).json(results);

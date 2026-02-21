@@ -1,0 +1,36 @@
+{
+  "slug": "university-of-southern-maine",
+  "name": "University of Southern Maine",
+  "ipeds_id": 161554,
+  "state": "ME",
+  "city": "Portland",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.7931,
+    "sat_reading_25": 505,
+    "sat_reading_75": 640,
+    "sat_math_25": 490,
+    "sat_math_75": 640,
+    "act_25": 23,
+    "act_75": 26,
+    "tuition_in_state": 10920,
+    "tuition_out_of_state": 27104,
+    "room_board": 11650,
+    "total_cost_in_state": 24570,
+    "total_cost_out_of_state": 40754,
+    "net_price": {
+      "0_30k": 7226,
+      "30_48k": 8330,
+      "48_75k": 10828,
+      "75_110k": 14704,
+      "110k_plus": 17346
+    },
+    "pell_rate": 0.2628,
+    "federal_loan_rate": 0.3406,
+    "enrollment": 4245
+  },
+  "cds": null,
+  "reference": null
+}

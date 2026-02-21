@@ -1,0 +1,36 @@
+{
+  "slug": "thomas-jefferson-university",
+  "name": "Thomas Jefferson University",
+  "ipeds_id": 216366,
+  "state": "PA",
+  "city": "Philadelphia",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.8614,
+    "sat_reading_25": 590,
+    "sat_reading_75": 680,
+    "sat_math_25": 560,
+    "sat_math_75": 670,
+    "act_25": 27,
+    "act_75": 32,
+    "tuition_in_state": 45683,
+    "tuition_out_of_state": 45683,
+    "room_board": 17246,
+    "total_cost_in_state": 64929,
+    "total_cost_out_of_state": 64929,
+    "net_price": {
+      "0_30k": 20809,
+      "30_48k": 20445,
+      "48_75k": 24652,
+      "75_110k": 29949,
+      "110k_plus": 34317
+    },
+    "pell_rate": 0.3386,
+    "federal_loan_rate": 0.8496,
+    "enrollment": 3708
+  },
+  "cds": null,
+  "reference": null
+}

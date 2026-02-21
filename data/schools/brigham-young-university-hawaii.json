@@ -1,0 +1,36 @@
+{
+  "slug": "brigham-young-university-hawaii",
+  "name": "Brigham Young University-Hawaii",
+  "ipeds_id": 230047,
+  "state": "HI",
+  "city": "Laie",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.3787,
+    "sat_reading_25": 500,
+    "sat_reading_75": 608,
+    "sat_math_25": 485,
+    "sat_math_75": 583,
+    "act_25": 21,
+    "act_75": 25,
+    "tuition_in_state": 6438,
+    "tuition_out_of_state": 6438,
+    "room_board": 9916,
+    "total_cost_in_state": 18354,
+    "total_cost_out_of_state": 18354,
+    "net_price": {
+      "0_30k": 13884,
+      "30_48k": null,
+      "48_75k": null,
+      "75_110k": null,
+      "110k_plus": null
+    },
+    "pell_rate": 0.2969,
+    "federal_loan_rate": 0.2095,
+    "enrollment": 2812
+  },
+  "cds": null,
+  "reference": null
+}

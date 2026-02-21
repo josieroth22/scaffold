@@ -1,0 +1,36 @@
+{
+  "slug": "westminster-college",
+  "name": "Westminster College",
+  "ipeds_id": 216807,
+  "state": "MO",
+  "city": "New Wilmington",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.8551,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 39470,
+    "tuition_out_of_state": 39470,
+    "room_board": 12380,
+    "total_cost_in_state": 53850,
+    "total_cost_out_of_state": 53850,
+    "net_price": {
+      "0_30k": 19065,
+      "30_48k": 14941,
+      "48_75k": 19699,
+      "75_110k": 20739,
+      "110k_plus": 23986
+    },
+    "pell_rate": 0.2474,
+    "federal_loan_rate": 0.6602,
+    "enrollment": 1051
+  },
+  "cds": null,
+  "reference": null
+}

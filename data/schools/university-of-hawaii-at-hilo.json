@@ -1,0 +1,36 @@
+{
+  "slug": "university-of-hawaii-at-hilo",
+  "name": "University of Hawaii at Hilo",
+  "ipeds_id": 141565,
+  "state": "HI",
+  "city": "Hilo",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.8977,
+    "sat_reading_25": 478,
+    "sat_reading_75": 570,
+    "sat_math_25": 420,
+    "sat_math_75": 540,
+    "act_25": 15,
+    "act_75": 22,
+    "tuition_in_state": 7838,
+    "tuition_out_of_state": 20798,
+    "room_board": 8248,
+    "total_cost_in_state": 18086,
+    "total_cost_out_of_state": 31046,
+    "net_price": {
+      "0_30k": 9081,
+      "30_48k": 9707,
+      "48_75k": 12607,
+      "75_110k": 14862,
+      "110k_plus": 19851
+    },
+    "pell_rate": 0.3953,
+    "federal_loan_rate": 0.2985,
+    "enrollment": 2260
+  },
+  "cds": null,
+  "reference": null
+}

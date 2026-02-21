@@ -1,0 +1,36 @@
+{
+  "slug": "university-of-connecticut-stamford",
+  "name": "University of Connecticut-Stamford",
+  "ipeds_id": 436836,
+  "state": "CT",
+  "city": "Stamford",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.8019,
+    "sat_reading_25": 480,
+    "sat_reading_75": 620,
+    "sat_math_25": 480,
+    "sat_math_75": 610,
+    "act_25": 16,
+    "act_75": 25,
+    "tuition_in_state": 17472,
+    "tuition_out_of_state": 40140,
+    "room_board": 17498,
+    "total_cost_in_state": 36970,
+    "total_cost_out_of_state": 59638,
+    "net_price": {
+      "0_30k": 9196,
+      "30_48k": 10418,
+      "48_75k": 14767,
+      "75_110k": 21374,
+      "110k_plus": 25757
+    },
+    "pell_rate": 0.5037,
+    "federal_loan_rate": 0.3426,
+    "enrollment": 2177
+  },
+  "cds": null,
+  "reference": null
+}

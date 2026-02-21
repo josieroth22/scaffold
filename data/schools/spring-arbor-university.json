@@ -1,0 +1,36 @@
+{
+  "slug": "spring-arbor-university",
+  "name": "Spring Arbor University",
+  "ipeds_id": 172334,
+  "state": "MI",
+  "city": "Spring Arbor",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.3733,
+    "sat_reading_25": 470,
+    "sat_reading_75": 595,
+    "sat_math_25": 465,
+    "sat_math_75": 570,
+    "act_25": 17,
+    "act_75": 25,
+    "tuition_in_state": 32580,
+    "tuition_out_of_state": 32580,
+    "room_board": 10960,
+    "total_cost_in_state": 45540,
+    "total_cost_out_of_state": 45540,
+    "net_price": {
+      "0_30k": 16569,
+      "30_48k": 18940,
+      "48_75k": 18556,
+      "75_110k": 21635,
+      "110k_plus": 23328
+    },
+    "pell_rate": 0.2591,
+    "federal_loan_rate": 0.5129,
+    "enrollment": 990
+  },
+  "cds": null,
+  "reference": null
+}

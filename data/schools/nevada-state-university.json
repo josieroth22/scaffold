@@ -1,0 +1,36 @@
+{
+  "slug": "nevada-state-university",
+  "name": "Nevada State University",
+  "ipeds_id": 441900,
+  "state": "NV",
+  "city": "Henderson",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.8615,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 6368,
+    "tuition_out_of_state": 20449,
+    "room_board": null,
+    "total_cost_in_state": 23035,
+    "total_cost_out_of_state": null,
+    "net_price": {
+      "0_30k": 11793,
+      "30_48k": 12021,
+      "48_75k": 15176,
+      "75_110k": 17591,
+      "110k_plus": 19917
+    },
+    "pell_rate": 0.2207,
+    "federal_loan_rate": 0.1377,
+    "enrollment": 3791
+  },
+  "cds": null,
+  "reference": null
+}

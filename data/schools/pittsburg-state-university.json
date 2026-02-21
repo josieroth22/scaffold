@@ -1,0 +1,36 @@
+{
+  "slug": "pittsburg-state-university",
+  "name": "Pittsburg State University",
+  "ipeds_id": 155681,
+  "state": "KS",
+  "city": "Pittsburg",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.8817,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": 18,
+    "act_75": 24,
+    "tuition_in_state": 8008,
+    "tuition_out_of_state": 19692,
+    "room_board": 9398,
+    "total_cost_in_state": 19406,
+    "total_cost_out_of_state": 31090,
+    "net_price": {
+      "0_30k": 17392,
+      "30_48k": 17369,
+      "48_75k": 18833,
+      "75_110k": 20287,
+      "110k_plus": 19715
+    },
+    "pell_rate": 0.3226,
+    "federal_loan_rate": 0.4451,
+    "enrollment": 4162
+  },
+  "cds": null,
+  "reference": null
+}

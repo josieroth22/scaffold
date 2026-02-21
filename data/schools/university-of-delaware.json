@@ -1,0 +1,87 @@
+{
+  "slug": "university-of-delaware",
+  "name": "University of Delaware",
+  "api_name": "University of Delaware",
+  "ipeds_id": 130943,
+  "state": "DE",
+  "city": "Newark",
+  "type": "public",
+  "tier": "A",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.6511,
+    "sat_reading_25": 610,
+    "sat_reading_75": 680,
+    "sat_math_25": 590,
+    "sat_math_75": 680,
+    "act_25": 27,
+    "act_75": 31,
+    "tuition_in_state": 16080,
+    "tuition_out_of_state": 39720,
+    "room_board": 14838,
+    "total_cost_in_state": 32918,
+    "total_cost_out_of_state": 56558,
+    "net_price": {
+      "0_30k": 9354,
+      "30_48k": 10573,
+      "48_75k": 12857,
+      "75_110k": 18508,
+      "110k_plus": 25310
+    },
+    "pell_rate": 0.1565,
+    "federal_loan_rate": 0.4812,
+    "enrollment": 18812
+  },
+  "cds": {
+    "school_name": "University of Delaware",
+    "source_year": "2023-2024",
+    "total_applicants": 39742,
+    "total_admitted": 27517,
+    "admit_rate_overall": 0.692,
+    "ed_applicants": null,
+    "ed_admitted": null,
+    "ed_admit_rate": null,
+    "ea_applicants": null,
+    "ea_admitted": null,
+    "ea_admit_rate": null,
+    "sat_reading_25": 610,
+    "sat_reading_75": 700,
+    "sat_math_25": 590,
+    "sat_math_75": 690,
+    "sat_composite_25": 1220,
+    "sat_composite_75": 1370,
+    "act_composite_25": 28,
+    "act_composite_75": 32,
+    "tuition_in_state": 15280,
+    "tuition_out_of_state": 40840,
+    "tuition_private": null,
+    "required_fees": 2380,
+    "room_board": 15974,
+    "pct_need_met": 60.55,
+    "avg_need_grant": 14836,
+    "avg_financial_aid_package": 19117,
+    "meets_full_need": false,
+    "pct_freshmen_receiving_need_aid": 58.62,
+    "pct_freshmen_receiving_merit_aid": 21.63,
+    "avg_merit_award": 10222
+  },
+  "reference": {
+    "merit_scholarships": [
+      {
+        "name": "Eugene du Pont Scholars",
+        "amount": "Full COA (tuition, room, board, fees, book allowance, plus $2,500 enrichment grant)",
+        "deadline": "January 15",
+        "requirements": "Interview"
+      }
+    ],
+    "honors_program": {
+      "name": "University of Delaware Honors College",
+      "description": "The University of Delaware Honors College provides opportunities for academically talented and motivated students to take advantage of the resources of a major research institution while maintaining the feel and attention of a much smaller university. Students have opportunities to lead class discussions, conduct innovative research, and tackle challenging topics.",
+      "separate_application": null,
+      "avg_sat": 1420,
+      "acceptance_rate": null,
+      "size": 2000
+    }
+  }
+}

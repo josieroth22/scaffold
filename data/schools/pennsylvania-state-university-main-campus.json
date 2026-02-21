@@ -1,0 +1,36 @@
+{
+  "slug": "pennsylvania-state-university-main-campus",
+  "name": "Pennsylvania State University-Main Campus",
+  "ipeds_id": 214777,
+  "state": "PA",
+  "city": "University Park",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.5422,
+    "sat_reading_25": 610,
+    "sat_reading_75": 690,
+    "sat_math_25": 610,
+    "sat_math_75": 710,
+    "act_25": 27,
+    "act_75": 32,
+    "tuition_in_state": 20234,
+    "tuition_out_of_state": 40188,
+    "room_board": 13030,
+    "total_cost_in_state": 35264,
+    "total_cost_out_of_state": 55218,
+    "net_price": {
+      "0_30k": 19458,
+      "30_48k": 19743,
+      "48_75k": 26257,
+      "75_110k": 33579,
+      "110k_plus": 37209
+    },
+    "pell_rate": 0.1327,
+    "federal_loan_rate": 0.3986,
+    "enrollment": 41862
+  },
+  "cds": null,
+  "reference": null
+}

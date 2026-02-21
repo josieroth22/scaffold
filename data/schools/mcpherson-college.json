@@ -1,0 +1,36 @@
+{
+  "slug": "mcpherson-college",
+  "name": "McPherson College",
+  "ipeds_id": 155511,
+  "state": "KS",
+  "city": "McPherson",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.8379,
+    "sat_reading_25": 468,
+    "sat_reading_75": 573,
+    "sat_math_25": 468,
+    "sat_math_75": 553,
+    "act_25": 17,
+    "act_75": 24,
+    "tuition_in_state": 35162,
+    "tuition_out_of_state": 35162,
+    "room_board": 10322,
+    "total_cost_in_state": 47484,
+    "total_cost_out_of_state": 47484,
+    "net_price": {
+      "0_30k": 20869,
+      "30_48k": 21172,
+      "48_75k": 25387,
+      "75_110k": 27314,
+      "110k_plus": 28232
+    },
+    "pell_rate": 0.3362,
+    "federal_loan_rate": 0.6356,
+    "enrollment": 786
+  },
+  "cds": null,
+  "reference": null
+}

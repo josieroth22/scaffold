@@ -1,0 +1,36 @@
+{
+  "slug": "saint-peters-university",
+  "name": "Saint Peter's University",
+  "ipeds_id": 186432,
+  "state": "NJ",
+  "city": "Jersey City",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.9053,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 41054,
+    "tuition_out_of_state": 41054,
+    "room_board": 17590,
+    "total_cost_in_state": 60644,
+    "total_cost_out_of_state": 60644,
+    "net_price": {
+      "0_30k": 11486,
+      "30_48k": 10552,
+      "48_75k": 11494,
+      "75_110k": 18211,
+      "110k_plus": 20457
+    },
+    "pell_rate": 0.5418,
+    "federal_loan_rate": 0.3322,
+    "enrollment": 1939
+  },
+  "cds": null,
+  "reference": null
+}

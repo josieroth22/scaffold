@@ -1,0 +1,36 @@
+{
+  "slug": "reach-university",
+  "name": "Reach University",
+  "ipeds_id": 497480,
+  "state": "CA",
+  "city": "Oakland",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.9915,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 12374,
+    "tuition_out_of_state": 12374,
+    "room_board": null,
+    "total_cost_in_state": 24225,
+    "total_cost_out_of_state": null,
+    "net_price": {
+      "0_30k": 12980,
+      "30_48k": 15592,
+      "48_75k": 13519,
+      "75_110k": 12688,
+      "110k_plus": null
+    },
+    "pell_rate": 0.6111,
+    "federal_loan_rate": 0,
+    "enrollment": 1226
+  },
+  "cds": null,
+  "reference": null
+}

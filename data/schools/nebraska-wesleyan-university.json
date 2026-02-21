@@ -1,0 +1,36 @@
+{
+  "slug": "nebraska-wesleyan-university",
+  "name": "Nebraska Wesleyan University",
+  "ipeds_id": 181446,
+  "state": "NE",
+  "city": "Lincoln",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.8375,
+    "sat_reading_25": 500,
+    "sat_reading_75": 610,
+    "sat_math_25": 520,
+    "sat_math_75": 600,
+    "act_25": 22,
+    "act_75": 27,
+    "tuition_in_state": 41658,
+    "tuition_out_of_state": 41658,
+    "room_board": 9982,
+    "total_cost_in_state": 53640,
+    "total_cost_out_of_state": 53640,
+    "net_price": {
+      "0_30k": 20377,
+      "30_48k": 18737,
+      "48_75k": 19482,
+      "75_110k": 24859,
+      "110k_plus": 27670
+    },
+    "pell_rate": 0.296,
+    "federal_loan_rate": 0.5563,
+    "enrollment": 1514
+  },
+  "cds": null,
+  "reference": null
+}

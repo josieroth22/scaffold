@@ -1,0 +1,36 @@
+{
+  "slug": "columbia-international-university",
+  "name": "Columbia International University",
+  "ipeds_id": 217925,
+  "state": "SC",
+  "city": "Columbia",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.9758,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 27900,
+    "tuition_out_of_state": 27900,
+    "room_board": 11950,
+    "total_cost_in_state": 41850,
+    "total_cost_out_of_state": 41850,
+    "net_price": {
+      "0_30k": 17430,
+      "30_48k": 21740,
+      "48_75k": 15633,
+      "75_110k": 24406,
+      "110k_plus": 27598
+    },
+    "pell_rate": 0.2827,
+    "federal_loan_rate": 0.3586,
+    "enrollment": 690
+  },
+  "cds": null,
+  "reference": null
+}

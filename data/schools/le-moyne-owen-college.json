@@ -1,0 +1,36 @@
+{
+  "slug": "le-moyne-owen-college",
+  "name": "Le Moyne-Owen College",
+  "ipeds_id": 220604,
+  "state": "TN",
+  "city": "Memphis",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.9717,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 12076,
+    "tuition_out_of_state": 12076,
+    "room_board": 6100,
+    "total_cost_in_state": 20176,
+    "total_cost_out_of_state": 20176,
+    "net_price": {
+      "0_30k": 8457,
+      "30_48k": 9131,
+      "48_75k": 9198,
+      "75_110k": 9342,
+      "110k_plus": null
+    },
+    "pell_rate": 0.7126,
+    "federal_loan_rate": 0.624,
+    "enrollment": 571
+  },
+  "cds": null,
+  "reference": null
+}

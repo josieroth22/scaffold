@@ -1,0 +1,36 @@
+{
+  "slug": "california-state-university-fresno",
+  "name": "California State University-Fresno",
+  "ipeds_id": 110556,
+  "state": "CA",
+  "city": "Fresno",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.9638,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 6980,
+    "tuition_out_of_state": 18860,
+    "room_board": 11634,
+    "total_cost_in_state": 20614,
+    "total_cost_out_of_state": 32494,
+    "net_price": {
+      "0_30k": 4447,
+      "30_48k": 4858,
+      "48_75k": 7220,
+      "75_110k": 11299,
+      "110k_plus": 16580
+    },
+    "pell_rate": 0.5573,
+    "federal_loan_rate": 0.1978,
+    "enrollment": 21070
+  },
+  "cds": null,
+  "reference": null
+}

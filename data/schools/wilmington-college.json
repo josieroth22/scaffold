@@ -1,0 +1,36 @@
+{
+  "slug": "wilmington-college",
+  "name": "Wilmington College",
+  "ipeds_id": 206507,
+  "state": "OH",
+  "city": "Wilmington",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.846,
+    "sat_reading_25": 430,
+    "sat_reading_75": 540,
+    "sat_math_25": 430,
+    "sat_math_75": 510,
+    "act_25": 17,
+    "act_75": 23,
+    "tuition_in_state": 30962,
+    "tuition_out_of_state": 30962,
+    "room_board": 11495,
+    "total_cost_in_state": 44457,
+    "total_cost_out_of_state": 44457,
+    "net_price": {
+      "0_30k": 13772,
+      "30_48k": 18406,
+      "48_75k": 25292,
+      "75_110k": 26801,
+      "110k_plus": 26658
+    },
+    "pell_rate": 0.3734,
+    "federal_loan_rate": 0.7369,
+    "enrollment": 924
+  },
+  "cds": null,
+  "reference": null
+}

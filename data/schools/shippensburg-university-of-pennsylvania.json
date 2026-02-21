@@ -1,0 +1,36 @@
+{
+  "slug": "shippensburg-university-of-pennsylvania",
+  "name": "Shippensburg University of Pennsylvania",
+  "ipeds_id": 216010,
+  "state": "PA",
+  "city": "Shippensburg",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.8555,
+    "sat_reading_25": 500,
+    "sat_reading_75": 610,
+    "sat_math_25": 490,
+    "sat_math_75": 600,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 13544,
+    "tuition_out_of_state": 15798,
+    "room_board": 12952,
+    "total_cost_in_state": 28496,
+    "total_cost_out_of_state": 30750,
+    "net_price": {
+      "0_30k": 18253,
+      "30_48k": 18505,
+      "48_75k": 21912,
+      "75_110k": 26492,
+      "110k_plus": 27250
+    },
+    "pell_rate": 0.296,
+    "federal_loan_rate": 0.5987,
+    "enrollment": 4179
+  },
+  "cds": null,
+  "reference": null
+}

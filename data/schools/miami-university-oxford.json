@@ -1,0 +1,43 @@
+{
+  "slug": "miami-university-oxford",
+  "name": "Miami University-Oxford",
+  "ipeds_id": 204024,
+  "state": "OH",
+  "city": "Oxford",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.8209,
+    "sat_reading_25": 610,
+    "sat_reading_75": 690,
+    "sat_math_25": 600,
+    "sat_math_75": 690,
+    "act_25": 26,
+    "act_75": 31,
+    "tuition_in_state": 17809,
+    "tuition_out_of_state": 40025,
+    "room_board": 16714,
+    "total_cost_in_state": 36523,
+    "total_cost_out_of_state": 58739,
+    "net_price": {
+      "0_30k": 14775,
+      "30_48k": 17494,
+      "48_75k": 24142,
+      "75_110k": 29332,
+      "110k_plus": 30943
+    },
+    "pell_rate": 0.1129,
+    "federal_loan_rate": 0.3269,
+    "enrollment": 16361
+  },
+  "cds": null,
+  "reference": {
+    "national_merit": {
+      "semifinalist_award": "None",
+      "finalist_award": "$2,000",
+      "first_choice_required": true,
+      "guaranteed": false
+    }
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "slug": "hult-international-business-school",
+  "name": "Hult International Business School",
+  "ipeds_id": 164368,
+  "state": "MA",
+  "city": "Cambridge",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.5335,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 54890,
+    "tuition_out_of_state": 54890,
+    "room_board": 19400,
+    "total_cost_in_state": 76290,
+    "total_cost_out_of_state": 76290,
+    "net_price": {
+      "0_30k": 36605,
+      "30_48k": 41980,
+      "48_75k": 42430,
+      "75_110k": 43993,
+      "110k_plus": 49896
+    },
+    "pell_rate": 0.0836,
+    "federal_loan_rate": 0.085,
+    "enrollment": 694
+  },
+  "cds": null,
+  "reference": null
+}

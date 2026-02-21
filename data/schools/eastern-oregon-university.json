@@ -1,0 +1,36 @@
+{
+  "slug": "eastern-oregon-university",
+  "name": "Eastern Oregon University",
+  "ipeds_id": 208646,
+  "state": "OR",
+  "city": "La Grande",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.9876,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 10671,
+    "tuition_out_of_state": 24621,
+    "room_board": 11658,
+    "total_cost_in_state": 24329,
+    "total_cost_out_of_state": 38279,
+    "net_price": {
+      "0_30k": 12069,
+      "30_48k": 12341,
+      "48_75k": 15217,
+      "75_110k": 20701,
+      "110k_plus": 21428
+    },
+    "pell_rate": 0.3598,
+    "federal_loan_rate": 0.3876,
+    "enrollment": 2201
+  },
+  "cds": null,
+  "reference": null
+}

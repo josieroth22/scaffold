@@ -1,0 +1,36 @@
+{
+  "slug": "dillard-university",
+  "name": "Dillard University",
+  "ipeds_id": 158802,
+  "state": "LA",
+  "city": "New Orleans",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.4051,
+    "sat_reading_25": 503,
+    "sat_reading_75": 590,
+    "sat_math_25": 473,
+    "sat_math_75": 563,
+    "act_25": 19,
+    "act_75": 23,
+    "tuition_in_state": 22194,
+    "tuition_out_of_state": 22194,
+    "room_board": 11786,
+    "total_cost_in_state": 35980,
+    "total_cost_out_of_state": 35980,
+    "net_price": {
+      "0_30k": 18801,
+      "30_48k": 16532,
+      "48_75k": 19888,
+      "75_110k": 21306,
+      "110k_plus": 17604
+    },
+    "pell_rate": 0.6781,
+    "federal_loan_rate": 0.9297,
+    "enrollment": 1111
+  },
+  "cds": null,
+  "reference": null
+}

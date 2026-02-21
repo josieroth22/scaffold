@@ -1,0 +1,36 @@
+{
+  "slug": "clarkson-university",
+  "name": "Clarkson University",
+  "ipeds_id": 190044,
+  "state": "NY",
+  "city": "Potsdam",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.7716,
+    "sat_reading_25": 593,
+    "sat_reading_75": 690,
+    "sat_math_25": 605,
+    "sat_math_75": 700,
+    "act_25": 26,
+    "act_75": 31,
+    "tuition_in_state": 57950,
+    "tuition_out_of_state": 57950,
+    "room_board": 17016,
+    "total_cost_in_state": 76966,
+    "total_cost_out_of_state": 76966,
+    "net_price": {
+      "0_30k": 20521,
+      "30_48k": 19328,
+      "48_75k": 26800,
+      "75_110k": 33329,
+      "110k_plus": 36429
+    },
+    "pell_rate": 0.2046,
+    "federal_loan_rate": 0.6537,
+    "enrollment": 2449
+  },
+  "cds": null,
+  "reference": null
+}

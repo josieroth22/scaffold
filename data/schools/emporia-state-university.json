@@ -1,0 +1,36 @@
+{
+  "slug": "emporia-state-university",
+  "name": "Emporia State University",
+  "ipeds_id": 155025,
+  "state": "KS",
+  "city": "Emporia",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.9774,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": 18,
+    "act_75": 24,
+    "tuition_in_state": 7356,
+    "tuition_out_of_state": 15669,
+    "room_board": 10542,
+    "total_cost_in_state": 19898,
+    "total_cost_out_of_state": 28211,
+    "net_price": {
+      "0_30k": 10658,
+      "30_48k": 10763,
+      "48_75k": 15438,
+      "75_110k": 18019,
+      "110k_plus": 18347
+    },
+    "pell_rate": 0.3401,
+    "federal_loan_rate": 0.6062,
+    "enrollment": 2328
+  },
+  "cds": null,
+  "reference": null
+}

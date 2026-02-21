@@ -1,0 +1,36 @@
+{
+  "slug": "harrisburg-university-of-science-and-technology",
+  "name": "Harrisburg University of Science and Technology",
+  "ipeds_id": 446640,
+  "state": "PA",
+  "city": "Harrisburg",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.8178,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 23900,
+    "tuition_out_of_state": 23900,
+    "room_board": 9900,
+    "total_cost_in_state": 35800,
+    "total_cost_out_of_state": 35800,
+    "net_price": {
+      "0_30k": 10291,
+      "30_48k": 12086,
+      "48_75k": 12510,
+      "75_110k": 18031,
+      "110k_plus": 17783
+    },
+    "pell_rate": 0.4823,
+    "federal_loan_rate": 0.6133,
+    "enrollment": 650
+  },
+  "cds": null,
+  "reference": null
+}

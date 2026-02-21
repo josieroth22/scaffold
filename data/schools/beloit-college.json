@@ -1,0 +1,36 @@
+{
+  "slug": "beloit-college",
+  "name": "Beloit College",
+  "ipeds_id": 238333,
+  "state": "WI",
+  "city": "Beloit",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.5736,
+    "sat_reading_25": 630,
+    "sat_reading_75": 720,
+    "sat_math_25": 580,
+    "sat_math_75": 640,
+    "act_25": 26,
+    "act_75": 31,
+    "tuition_in_state": 58554,
+    "tuition_out_of_state": 58554,
+    "room_board": 10740,
+    "total_cost_in_state": 71294,
+    "total_cost_out_of_state": 71294,
+    "net_price": {
+      "0_30k": 16637,
+      "30_48k": 17610,
+      "48_75k": 18491,
+      "75_110k": 25700,
+      "110k_plus": 28465
+    },
+    "pell_rate": 0.2946,
+    "federal_loan_rate": 0.5384,
+    "enrollment": 898
+  },
+  "cds": null,
+  "reference": null
+}

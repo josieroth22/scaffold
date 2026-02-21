@@ -1,0 +1,36 @@
+{
+  "slug": "mars-hill-university",
+  "name": "Mars Hill University",
+  "ipeds_id": 198899,
+  "state": "NC",
+  "city": "Mars Hill",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.7789,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 37270,
+    "tuition_out_of_state": 37270,
+    "room_board": 10228,
+    "total_cost_in_state": 49498,
+    "total_cost_out_of_state": 49498,
+    "net_price": {
+      "0_30k": 17372,
+      "30_48k": 17337,
+      "48_75k": 20703,
+      "75_110k": 22308,
+      "110k_plus": 24291
+    },
+    "pell_rate": 0.4225,
+    "federal_loan_rate": 0.6318,
+    "enrollment": 995
+  },
+  "cds": null,
+  "reference": null
+}

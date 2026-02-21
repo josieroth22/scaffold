@@ -1,0 +1,36 @@
+{
+  "slug": "millersville-university-of-pennsylvania",
+  "name": "Millersville University of Pennsylvania",
+  "ipeds_id": 214041,
+  "state": "PA",
+  "city": "Millersville",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.8941,
+    "sat_reading_25": 520,
+    "sat_reading_75": 620,
+    "sat_math_25": 510,
+    "sat_math_75": 590,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 12262,
+    "tuition_out_of_state": 16232,
+    "room_board": 12600,
+    "total_cost_in_state": 26862,
+    "total_cost_out_of_state": 30832,
+    "net_price": {
+      "0_30k": 13632,
+      "30_48k": 15117,
+      "48_75k": 18988,
+      "75_110k": 23020,
+      "110k_plus": 24724
+    },
+    "pell_rate": 0.2669,
+    "federal_loan_rate": 0.5249,
+    "enrollment": 5610
+  },
+  "cds": null,
+  "reference": null
+}

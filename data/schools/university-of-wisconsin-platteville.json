@@ -1,0 +1,36 @@
+{
+  "slug": "university-of-wisconsin-platteville",
+  "name": "University of Wisconsin-Platteville",
+  "ipeds_id": 240462,
+  "state": "WI",
+  "city": "Platteville",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.8726,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": 21,
+    "act_75": 27,
+    "tuition_in_state": 8315,
+    "tuition_out_of_state": 17274,
+    "room_board": 8174,
+    "total_cost_in_state": 18489,
+    "total_cost_out_of_state": 27448,
+    "net_price": {
+      "0_30k": 8666,
+      "30_48k": 8552,
+      "48_75k": 12737,
+      "75_110k": 17051,
+      "110k_plus": 18259
+    },
+    "pell_rate": 0.2104,
+    "federal_loan_rate": 0.4385,
+    "enrollment": 5928
+  },
+  "cds": null,
+  "reference": null
+}

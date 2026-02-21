@@ -1,0 +1,36 @@
+{
+  "slug": "northern-state-university",
+  "name": "Northern State University",
+  "ipeds_id": 219259,
+  "state": "SD",
+  "city": "Aberdeen",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.9279,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": 18,
+    "act_75": 24,
+    "tuition_in_state": 8845,
+    "tuition_out_of_state": 11947,
+    "room_board": 10300,
+    "total_cost_in_state": 21145,
+    "total_cost_out_of_state": 24247,
+    "net_price": {
+      "0_30k": 13560,
+      "30_48k": 14226,
+      "48_75k": 16444,
+      "75_110k": 19236,
+      "110k_plus": 18673
+    },
+    "pell_rate": 0.1196,
+    "federal_loan_rate": 0.2329,
+    "enrollment": 1239
+  },
+  "cds": null,
+  "reference": null
+}

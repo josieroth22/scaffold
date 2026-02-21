@@ -1,0 +1,36 @@
+{
+  "slug": "sinte-gleska-university",
+  "name": "Sinte Gleska University",
+  "ipeds_id": 219374,
+  "state": "SD",
+  "city": "Mission",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": null,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 4714,
+    "tuition_out_of_state": 4714,
+    "room_board": null,
+    "total_cost_in_state": 15533,
+    "total_cost_out_of_state": null,
+    "net_price": {
+      "0_30k": 6024,
+      "30_48k": 9188,
+      "48_75k": 11797,
+      "75_110k": null,
+      "110k_plus": null
+    },
+    "pell_rate": 0.5245,
+    "federal_loan_rate": 0,
+    "enrollment": 579
+  },
+  "cds": null,
+  "reference": null
+}

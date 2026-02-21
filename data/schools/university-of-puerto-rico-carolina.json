@@ -1,0 +1,36 @@
+{
+  "slug": "university-of-puerto-rico-carolina",
+  "name": "University of Puerto Rico-Carolina",
+  "ipeds_id": 243142,
+  "state": "PR",
+  "city": "Carolina",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.5273,
+    "sat_reading_25": 395,
+    "sat_reading_75": 519,
+    "sat_math_25": 390,
+    "sat_math_75": 500,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 7986,
+    "tuition_out_of_state": 7986,
+    "room_board": null,
+    "total_cost_in_state": 21072,
+    "total_cost_out_of_state": null,
+    "net_price": {
+      "0_30k": 13801,
+      "30_48k": 14401,
+      "48_75k": 14824,
+      "75_110k": 14999,
+      "110k_plus": null
+    },
+    "pell_rate": 0.7419,
+    "federal_loan_rate": 0.0352,
+    "enrollment": 2367
+  },
+  "cds": null,
+  "reference": null
+}

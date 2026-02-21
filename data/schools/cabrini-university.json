@@ -1,0 +1,36 @@
+{
+  "slug": "cabrini-university",
+  "name": "Cabrini University",
+  "ipeds_id": 211352,
+  "state": "PA",
+  "city": "Radnor",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.6919,
+    "sat_reading_25": 557,
+    "sat_reading_75": 632,
+    "sat_math_25": 512,
+    "sat_math_75": 625,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 35815,
+    "tuition_out_of_state": 35815,
+    "room_board": 14400,
+    "total_cost_in_state": 52215,
+    "total_cost_out_of_state": 52215,
+    "net_price": {
+      "0_30k": 18589,
+      "30_48k": 20909,
+      "48_75k": 22666,
+      "75_110k": 29865,
+      "110k_plus": 28078
+    },
+    "pell_rate": 0.3702,
+    "federal_loan_rate": 0.6796,
+    "enrollment": 645
+  },
+  "cds": null,
+  "reference": null
+}

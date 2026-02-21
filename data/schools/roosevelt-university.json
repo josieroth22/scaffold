@@ -1,0 +1,36 @@
+{
+  "slug": "roosevelt-university",
+  "name": "Roosevelt University",
+  "ipeds_id": 148487,
+  "state": "IL",
+  "city": "Chicago",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.9427,
+    "sat_reading_25": 430,
+    "sat_reading_75": 550,
+    "sat_math_25": 390,
+    "sat_math_75": 540,
+    "act_25": 21,
+    "act_75": 29,
+    "tuition_in_state": 20280,
+    "tuition_out_of_state": 20280,
+    "room_board": 15525,
+    "total_cost_in_state": 37805,
+    "total_cost_out_of_state": 37805,
+    "net_price": {
+      "0_30k": 15863,
+      "30_48k": 16288,
+      "48_75k": 19274,
+      "75_110k": 23967,
+      "110k_plus": 30033
+    },
+    "pell_rate": 0.4642,
+    "federal_loan_rate": 0.5433,
+    "enrollment": 2583
+  },
+  "cds": null,
+  "reference": null
+}

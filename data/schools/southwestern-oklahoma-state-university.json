@@ -1,0 +1,36 @@
+{
+  "slug": "southwestern-oklahoma-state-university",
+  "name": "Southwestern Oklahoma State University",
+  "ipeds_id": 207865,
+  "state": "OK",
+  "city": "Weatherford",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 1,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": 17,
+    "act_75": 23,
+    "tuition_in_state": 8295,
+    "tuition_out_of_state": 8325,
+    "room_board": 7410,
+    "total_cost_in_state": 17705,
+    "total_cost_out_of_state": 17735,
+    "net_price": {
+      "0_30k": 10740,
+      "30_48k": 11695,
+      "48_75k": 13263,
+      "75_110k": 17412,
+      "110k_plus": 18669
+    },
+    "pell_rate": 0.3846,
+    "federal_loan_rate": 0.6535,
+    "enrollment": 3469
+  },
+  "cds": null,
+  "reference": null
+}

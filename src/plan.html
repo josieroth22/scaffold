@@ -452,11 +452,17 @@
   }
 
   /* Tables */
+  .strategy-body .table-wrap {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    margin: 1.25rem 0 1.75rem;
+  }
+
   .strategy-body table {
     width: 100%;
+    min-width: 500px;
     border-collapse: collapse;
     font-size: 0.82rem;
-    margin: 1.25rem 0 1.75rem;
     border: 1px solid var(--border);
     border-radius: 8px;
     overflow: hidden;
@@ -1250,9 +1256,51 @@
     font-weight: 600;
   }
 
+  /* Outline toggle button (visible on screens < 1100px) */
+  .outline-toggle {
+    display: none;
+    position: fixed;
+    bottom: 1.5rem;
+    left: 1.5rem;
+    z-index: 50;
+    background: var(--sage);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 0.6rem 1rem;
+    font-family: var(--body);
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.15);
+    transition: background 0.2s;
+  }
+  .outline-toggle:hover { background: var(--sage-dark); }
+
+  /* Overlay backdrop when sidebar is open on small screens */
+  .sidebar-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.3);
+    z-index: 39;
+  }
+  .sidebar-overlay.active { display: block; }
+
+  /* On small screens: show toggle, sidebar is overlay when open */
+  @media (max-width: 1099px) {
+    .outline-toggle { display: block; }
+    .sidebar-nav.open {
+      display: block;
+      z-index: 45;
+      box-shadow: 4px 0 20px rgba(0,0,0,0.1);
+    }
+  }
+
   /* Show sidebar on wide screens, shift content right */
   @media (min-width: 1100px) {
     .sidebar-nav { display: block; }
+    .outline-toggle { display: none; }
     .hero, .toc, .strategy-body, .sim-section, .plan-footer,
     .submission-toggle, .submission-info { margin-left: 270px; }
     .hero-inner, .strategy-body, .sim-section, .plan-footer { max-width: 780px; }
@@ -1268,6 +1316,7 @@
     .strategy-body table { font-size: 0.75rem; }
     .strategy-body th, .strategy-body td { padding: 0.5rem; }
     .back-to-top { bottom: 1rem; right: 1rem; }
+    .outline-toggle { bottom: 1rem; left: 1rem; }
   }
 </style>
 </head>
@@ -1294,6 +1343,10 @@
 
 <!-- BACK TO TOP -->
 <button class="back-to-top" id="back-to-top" title="Back to top">&uarr;</button>
+
+<!-- OUTLINE TOGGLE (visible on small screens) -->
+<button class="outline-toggle" id="outline-toggle">Outline</button>
+<div class="sidebar-overlay" id="sidebar-overlay"></div>
 
 <!-- SIDEBAR NAV (populated by JS, visible on wide screens) -->
 <nav class="sidebar-nav" id="sidebar-nav">
@@ -1366,6 +1419,33 @@
     }
   });
   backBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+  // Outline toggle for small screens
+  const outlineToggle = document.getElementById('outline-toggle');
+  const sidebarOverlay = document.getElementById('sidebar-overlay');
+  const sidebarNav = document.getElementById('sidebar-nav');
+
+  function closeSidebar() {
+    sidebarNav.classList.remove('open');
+    sidebarOverlay.classList.remove('active');
+  }
+
+  outlineToggle.addEventListener('click', () => {
+    const isOpen = sidebarNav.classList.contains('open');
+    if (isOpen) {
+      closeSidebar();
+    } else {
+      sidebarNav.classList.add('open');
+      sidebarOverlay.classList.add('active');
+    }
+  });
+
+  sidebarOverlay.addEventListener('click', closeSidebar);
+
+  // Close sidebar when clicking a link in it (on mobile)
+  sidebarNav.addEventListener('click', (e) => {
+    if (e.target.tagName === 'A') closeSidebar();
+  });
 
   // Markdown to HTML converter
   function markdownToHtml(md) {
@@ -1444,6 +1524,16 @@
 
   // Post-process: add badges and visual enhancements
   function enhanceContent(container) {
+    // Wrap tables in scrollable container
+    container.querySelectorAll('table').forEach(table => {
+      if (!table.parentElement.classList.contains('table-wrap')) {
+        const wrapper = document.createElement('div');
+        wrapper.className = 'table-wrap';
+        table.parentElement.insertBefore(wrapper, table);
+        wrapper.appendChild(table);
+      }
+    });
+
     // --- Table enhancements ---
     const tables = container.querySelectorAll('table');
     let isFirst = true;
@@ -1692,7 +1782,7 @@
 
     html += '<div class="sim-stat-card">';
     html += '<div class="sim-stat-value">' + formatPct(portfolio.at_least_one_affordable) + '</div>';
-    html += '<div class="sim-stat-label">had at least one affordable admission</div>';
+    html += '<div class="sim-stat-label">had at least one admission within budget</div>';
     html += '</div>';
 
     html += '<div class="sim-stat-card">';
@@ -1713,7 +1803,7 @@
       if (affRate === 0) {
         html += '<p>In none of our 10,000 simulations did any school on this list come in at or below the stated <strong>' + formatDollars(budget) + '/year</strong> budget. ';
       } else {
-        html += '<p>Only <strong>' + formatPct(affRate) + '</strong> of simulations produced an affordable admission at the stated <strong>' + formatDollars(budget) + '/year</strong> budget. ';
+        html += '<p>Only <strong>' + formatPct(affRate) + '</strong> of simulations produced an admission within the stated <strong>' + formatDollars(budget) + '/year</strong> budget. ';
       }
       html += 'The expected cheapest option is <strong>' + formatDollars(cheapest) + '/year</strong> (median). ';
       html += 'This does not mean these schools are out of reach. It means the financial plan needs attention: ';
@@ -1768,7 +1858,7 @@
         if (school.net_cost.median !== null) {
           html += '<div class="sim-summary-stat"><div class="val">' + formatDollars(school.net_cost.median) + '</div><div class="lbl">Med. Cost</div></div>';
           const affClass = school.affordable_rate >= 0.6 ? 'good' : school.affordable_rate >= 0.3 ? 'ok' : 'bad';
-          html += '<div class="sim-summary-stat"><div class="val"><span class="sim-affordable-badge ' + affClass + '">' + formatPct(school.affordable_rate) + '</span></div><div class="lbl">Affordable</div></div>';
+          html += '<div class="sim-summary-stat"><div class="val"><span class="sim-affordable-badge ' + affClass + '">' + formatPct(school.affordable_rate) + '</span></div><div class="lbl">Within Budget</div></div>';
         }
         html += '<span class="sim-expand-arrow">&#9654;</span>';
         html += '</div>';
@@ -1802,7 +1892,7 @@
           const affBarClass = affRate >= 0.6 ? 'green' : 'terra';
 
           html += '<div class="sim-metric">';
-          html += '<div class="sim-metric-label">Affordable When Admitted</div>';
+          html += '<div class="sim-metric-label">Within Budget When Admitted</div>';
           html += '<div class="sim-bar">';
           html += '<div class="sim-bar-fill ' + affBarClass + '" style="width: ' + affWidth + '%;"></div>';
           html += '<span class="sim-bar-label">' + formatPct(affRate) + '</span>';

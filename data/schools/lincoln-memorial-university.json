@@ -1,0 +1,36 @@
+{
+  "slug": "lincoln-memorial-university",
+  "name": "Lincoln Memorial University",
+  "ipeds_id": 220631,
+  "state": "TN",
+  "city": "Harrogate",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.5927,
+    "sat_reading_25": 493,
+    "sat_reading_75": 610,
+    "sat_math_25": 513,
+    "sat_math_75": 610,
+    "act_25": 19,
+    "act_75": 24,
+    "tuition_in_state": 26150,
+    "tuition_out_of_state": 26150,
+    "room_board": 11808,
+    "total_cost_in_state": 39958,
+    "total_cost_out_of_state": 39958,
+    "net_price": {
+      "0_30k": 14423,
+      "30_48k": 12970,
+      "48_75k": 19591,
+      "75_110k": 22243,
+      "110k_plus": 25680
+    },
+    "pell_rate": 0.3635,
+    "federal_loan_rate": 0.5436,
+    "enrollment": 1487
+  },
+  "cds": null,
+  "reference": null
+}

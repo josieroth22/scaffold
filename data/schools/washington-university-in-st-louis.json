@@ -1,0 +1,72 @@
+{
+  "slug": "washington-university-in-st-louis",
+  "name": "Washington University in St. Louis",
+  "api_name": "Washington University in St Louis",
+  "ipeds_id": 179867,
+  "state": "MO",
+  "city": "St. Louis",
+  "type": "private",
+  "tier": "B",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.1196,
+    "sat_reading_25": 730,
+    "sat_reading_75": 770,
+    "sat_math_25": 770,
+    "sat_math_75": 800,
+    "act_25": 33,
+    "act_75": 35,
+    "tuition_in_state": 62982,
+    "tuition_out_of_state": 62982,
+    "room_board": 20778,
+    "total_cost_in_state": 85760,
+    "total_cost_out_of_state": 85760,
+    "net_price": {
+      "0_30k": 4391,
+      "30_48k": 2321,
+      "48_75k": 1863,
+      "75_110k": 19344,
+      "110k_plus": 42712
+    },
+    "pell_rate": 0.1589,
+    "federal_loan_rate": 0.1426,
+    "enrollment": 7897
+  },
+  "cds": null,
+  "reference": {
+    "questbridge_partner": true,
+    "merit_scholarships": [
+      {
+        "name": "Danforth Scholars Program",
+        "amount": "Full tuition + $2,500 stipend, or half tuition",
+        "description": "Flagship merit scholarship recognizing leadership in service, intellectual creativity, and commitment to diversity. Separate application required (Jan 3 deadline)."
+      },
+      {
+        "name": "John B. Ervin Scholars Program",
+        "amount": "Full tuition + $2,500 stipend, or half tuition",
+        "description": "Merit scholarship for students demonstrating academic excellence, leadership, and community service. U.S. citizens/permanent residents/DACA eligible. Separate application required."
+      },
+      {
+        "name": "Annika Rodriguez Scholars Program",
+        "amount": "Full tuition + $2,500 stipend, or half tuition",
+        "description": "Merit scholarship for students passionate about bringing diverse cultures together. Open to international students. Separate application required."
+      },
+      {
+        "name": "Langsdorf Fellowships (Engineering)",
+        "amount": "Full tuition for 4 years",
+        "description": "Up to 10 incoming McKelvey School of Engineering students. No separate application required."
+      },
+      {
+        "name": "Distinguished Scholars (Olin Business)",
+        "amount": "Full tuition for 4 years",
+        "description": "Up to 10 incoming Olin Business School students. No separate application required."
+      },
+      {
+        "name": "Ampersand Scholarships (Arts & Sciences)",
+        "amount": "Full tuition + $1,000 stipend",
+        "description": "Up to 16 incoming Arts & Sciences students spanning multiple academic areas. No separate application required."
+      }
+    ]
+  }
+}

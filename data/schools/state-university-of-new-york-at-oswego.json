@@ -1,0 +1,36 @@
+{
+  "slug": "state-university-of-new-york-at-oswego",
+  "name": "State University of New York at Oswego",
+  "ipeds_id": 196194,
+  "state": "NY",
+  "city": "Oswego",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.8039,
+    "sat_reading_25": 530,
+    "sat_reading_75": 640,
+    "sat_math_25": 530,
+    "sat_math_75": 630,
+    "act_25": 23,
+    "act_75": 27,
+    "tuition_in_state": 8769,
+    "tuition_out_of_state": 18679,
+    "room_board": 15440,
+    "total_cost_in_state": 26209,
+    "total_cost_out_of_state": 36119,
+    "net_price": {
+      "0_30k": 10677,
+      "30_48k": 14114,
+      "48_75k": 18084,
+      "75_110k": 18588,
+      "110k_plus": 23253
+    },
+    "pell_rate": 0.387,
+    "federal_loan_rate": 0.5333,
+    "enrollment": 5618
+  },
+  "cds": null,
+  "reference": null
+}

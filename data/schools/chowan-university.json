@@ -1,0 +1,36 @@
+{
+  "slug": "chowan-university",
+  "name": "Chowan University",
+  "ipeds_id": 198303,
+  "state": "NC",
+  "city": "Murfreesboro",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.7237,
+    "sat_reading_25": 485,
+    "sat_reading_75": 585,
+    "sat_math_25": 395,
+    "sat_math_75": 560,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 27110,
+    "tuition_out_of_state": 27110,
+    "room_board": 9710,
+    "total_cost_in_state": 38820,
+    "total_cost_out_of_state": 38820,
+    "net_price": {
+      "0_30k": 14377,
+      "30_48k": 13289,
+      "48_75k": 18449,
+      "75_110k": 17407,
+      "110k_plus": 22454
+    },
+    "pell_rate": 0.6075,
+    "federal_loan_rate": 0.57,
+    "enrollment": 638
+  },
+  "cds": null,
+  "reference": null
+}

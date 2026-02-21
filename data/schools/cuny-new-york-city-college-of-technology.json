@@ -1,0 +1,36 @@
+{
+  "slug": "cuny-new-york-city-college-of-technology",
+  "name": "CUNY New York City College of Technology",
+  "ipeds_id": 190655,
+  "state": "NY",
+  "city": "Brooklyn",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.8074,
+    "sat_reading_25": 450,
+    "sat_reading_75": 580,
+    "sat_math_25": 430,
+    "sat_math_75": 620,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 7332,
+    "tuition_out_of_state": 15282,
+    "room_board": null,
+    "total_cost_in_state": 13404,
+    "total_cost_out_of_state": null,
+    "net_price": {
+      "0_30k": 3681,
+      "30_48k": 4833,
+      "48_75k": 7775,
+      "75_110k": 10146,
+      "110k_plus": 13164
+    },
+    "pell_rate": 0.5544,
+    "federal_loan_rate": 0.0553,
+    "enrollment": 12950
+  },
+  "cds": null,
+  "reference": null
+}

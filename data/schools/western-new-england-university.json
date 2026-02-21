@@ -1,0 +1,36 @@
+{
+  "slug": "western-new-england-university",
+  "name": "Western New England University",
+  "ipeds_id": 168254,
+  "state": "MA",
+  "city": "Springfield",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.8326,
+    "sat_reading_25": 570,
+    "sat_reading_75": 650,
+    "sat_math_25": 560,
+    "sat_math_75": 660,
+    "act_25": 25,
+    "act_75": 27,
+    "tuition_in_state": 46430,
+    "tuition_out_of_state": 46430,
+    "room_board": 14900,
+    "total_cost_in_state": 63330,
+    "total_cost_out_of_state": 63330,
+    "net_price": {
+      "0_30k": 28987,
+      "30_48k": 26284,
+      "48_75k": 27102,
+      "75_110k": 30277,
+      "110k_plus": 33983
+    },
+    "pell_rate": 0.2502,
+    "federal_loan_rate": 0.8042,
+    "enrollment": 2508
+  },
+  "cds": null,
+  "reference": null
+}

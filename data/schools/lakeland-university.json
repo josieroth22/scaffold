@@ -1,0 +1,36 @@
+{
+  "slug": "lakeland-university",
+  "name": "Lakeland University",
+  "ipeds_id": 238980,
+  "state": "WI",
+  "city": "Plymouth",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.9109,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 32286,
+    "tuition_out_of_state": 32286,
+    "room_board": 11872,
+    "total_cost_in_state": 46158,
+    "total_cost_out_of_state": 46158,
+    "net_price": {
+      "0_30k": 17150,
+      "30_48k": 21083,
+      "48_75k": 14130,
+      "75_110k": 24082,
+      "110k_plus": 27389
+    },
+    "pell_rate": 0.2898,
+    "federal_loan_rate": 0.5501,
+    "enrollment": 1230
+  },
+  "cds": null,
+  "reference": null
+}

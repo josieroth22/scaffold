@@ -1,0 +1,36 @@
+{
+  "slug": "grambling-state-university",
+  "name": "Grambling State University",
+  "ipeds_id": 159009,
+  "state": "LA",
+  "city": "Grambling",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.2368,
+    "sat_reading_25": 450,
+    "sat_reading_75": 590,
+    "sat_math_25": 410,
+    "sat_math_75": 560,
+    "act_25": 15,
+    "act_75": 19,
+    "tuition_in_state": 7683,
+    "tuition_out_of_state": 16706,
+    "room_board": 10990,
+    "total_cost_in_state": 20673,
+    "total_cost_out_of_state": 29696,
+    "net_price": {
+      "0_30k": 16447,
+      "30_48k": 19923,
+      "48_75k": 23591,
+      "75_110k": 24096,
+      "110k_plus": 24356
+    },
+    "pell_rate": 0.7217,
+    "federal_loan_rate": 0.7709,
+    "enrollment": 4144
+  },
+  "cds": null,
+  "reference": null
+}

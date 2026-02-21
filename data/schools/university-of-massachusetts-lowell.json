@@ -1,0 +1,36 @@
+{
+  "slug": "university-of-massachusetts-lowell",
+  "name": "University of Massachusetts-Lowell",
+  "ipeds_id": 166513,
+  "state": "MA",
+  "city": "Lowell",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.8524,
+    "sat_reading_25": 590,
+    "sat_reading_75": 670,
+    "sat_math_25": 590,
+    "sat_math_75": 680,
+    "act_25": 26,
+    "act_75": 30,
+    "tuition_in_state": 16570,
+    "tuition_out_of_state": 35396,
+    "room_board": 15424,
+    "total_cost_in_state": 33994,
+    "total_cost_out_of_state": 52820,
+    "net_price": {
+      "0_30k": 10460,
+      "30_48k": 11220,
+      "48_75k": 15576,
+      "75_110k": 21633,
+      "110k_plus": 26648
+    },
+    "pell_rate": 0.2739,
+    "federal_loan_rate": 0.5352,
+    "enrollment": 11632
+  },
+  "cds": null,
+  "reference": null
+}

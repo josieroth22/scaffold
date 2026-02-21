@@ -1,0 +1,36 @@
+{
+  "slug": "eastern-connecticut-state-university",
+  "name": "Eastern Connecticut State University",
+  "ipeds_id": 129215,
+  "state": "CT",
+  "city": "Willimantic",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.8055,
+    "sat_reading_25": 570,
+    "sat_reading_75": 670,
+    "sat_math_25": 540,
+    "sat_math_75": 650,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 13292,
+    "tuition_out_of_state": 16624,
+    "room_board": 17258,
+    "total_cost_in_state": 32550,
+    "total_cost_out_of_state": 35882,
+    "net_price": {
+      "0_30k": 15167,
+      "30_48k": 15141,
+      "48_75k": 18136,
+      "75_110k": 22882,
+      "110k_plus": 23882
+    },
+    "pell_rate": 0.2817,
+    "federal_loan_rate": 0.5048,
+    "enrollment": 3377
+  },
+  "cds": null,
+  "reference": null
+}

@@ -1,0 +1,85 @@
+{
+  "slug": "university-of-southern-california",
+  "name": "University of Southern California",
+  "api_name": "University of Southern California",
+  "ipeds_id": 123961,
+  "state": "CA",
+  "city": "Los Angeles",
+  "type": "private",
+  "tier": "B",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.1002,
+    "sat_reading_25": 700,
+    "sat_reading_75": 760,
+    "sat_math_25": 740,
+    "sat_math_75": 790,
+    "act_25": 32,
+    "act_75": 35,
+    "tuition_in_state": 68237,
+    "tuition_out_of_state": 68237,
+    "room_board": 19198,
+    "total_cost_in_state": 89435,
+    "total_cost_out_of_state": 89435,
+    "net_price": {
+      "0_30k": 15470,
+      "30_48k": 13692,
+      "48_75k": 18993,
+      "75_110k": 29865,
+      "110k_plus": 56347
+    },
+    "pell_rate": 0.2166,
+    "federal_loan_rate": 0.2485,
+    "enrollment": 20817
+  },
+  "cds": {
+    "school_name": null,
+    "source_year": "2024-2025",
+    "total_applicants": 82027,
+    "total_admitted": 8050,
+    "admit_rate_overall": 0.098,
+    "ed_applicants": null,
+    "ed_admitted": null,
+    "ed_admit_rate": null,
+    "ea_applicants": null,
+    "ea_admitted": null,
+    "ea_admit_rate": null,
+    "sat_reading_25": 710,
+    "sat_reading_75": 760,
+    "sat_math_25": 740,
+    "sat_math_75": 790,
+    "sat_composite_25": 1450,
+    "sat_composite_75": 1550,
+    "act_composite_25": 32,
+    "act_composite_75": 35,
+    "tuition_in_state": null,
+    "tuition_out_of_state": null,
+    "tuition_private": 66640,
+    "required_fees": 2047,
+    "room_board": 19200,
+    "pct_need_met": 100.4,
+    "avg_need_grant": 55261,
+    "avg_financial_aid_package": 71169,
+    "meets_full_need": true,
+    "pct_freshmen_receiving_need_aid": 42.7,
+    "pct_freshmen_receiving_merit_aid": 79.2,
+    "avg_merit_award": 20703
+  },
+  "reference": {
+    "merit_scholarships": [
+      {
+        "name": "Trustee Scholarship",
+        "amount": "Full tuition (~$73,000/year)",
+        "deadline": "November 1",
+        "requirements": "Interview"
+      }
+    ],
+    "national_merit": {
+      "semifinalist_award": "None",
+      "finalist_award": "$28,000+",
+      "first_choice_required": true,
+      "guaranteed": true
+    }
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "slug": "mcphs-university",
+  "name": "MCPHS University",
+  "ipeds_id": 166656,
+  "state": "MA",
+  "city": "Boston",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.8521,
+    "sat_reading_25": 540,
+    "sat_reading_75": 640,
+    "sat_math_25": 540,
+    "sat_math_75": 700,
+    "act_25": 23,
+    "act_75": 33,
+    "tuition_in_state": 38850,
+    "tuition_out_of_state": 38850,
+    "room_board": 23988,
+    "total_cost_in_state": 64838,
+    "total_cost_out_of_state": 64838,
+    "net_price": {
+      "0_30k": 31100,
+      "30_48k": 32292,
+      "48_75k": 36538,
+      "75_110k": 38023,
+      "110k_plus": 38839
+    },
+    "pell_rate": 0.2822,
+    "federal_loan_rate": 0.6584,
+    "enrollment": 3474
+  },
+  "cds": null,
+  "reference": null
+}

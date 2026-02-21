@@ -1,0 +1,36 @@
+{
+  "slug": "le-moyne-college",
+  "name": "Le Moyne College",
+  "ipeds_id": 192323,
+  "state": "NY",
+  "city": "Syracuse",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.7529,
+    "sat_reading_25": 580,
+    "sat_reading_75": 670,
+    "sat_math_25": 580,
+    "sat_math_75": 670,
+    "act_25": 25,
+    "act_75": 31,
+    "tuition_in_state": 38970,
+    "tuition_out_of_state": 38970,
+    "room_board": 15660,
+    "total_cost_in_state": 56630,
+    "total_cost_out_of_state": 56630,
+    "net_price": {
+      "0_30k": 15335,
+      "30_48k": 14671,
+      "48_75k": 21940,
+      "75_110k": 23554,
+      "110k_plus": 26281
+    },
+    "pell_rate": 0.2996,
+    "federal_loan_rate": 0.6212,
+    "enrollment": 2434
+  },
+  "cds": null,
+  "reference": null
+}

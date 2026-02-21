@@ -1,0 +1,45 @@
+{
+  "slug": "east-carolina-university",
+  "name": "East Carolina University",
+  "ipeds_id": 198464,
+  "state": "NC",
+  "city": "Greenville",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.9006,
+    "sat_reading_25": 530,
+    "sat_reading_75": 610,
+    "sat_math_25": 520,
+    "sat_math_75": 590,
+    "act_25": 20,
+    "act_75": 26,
+    "tuition_in_state": 7361,
+    "tuition_out_of_state": 23638,
+    "room_board": 11000,
+    "total_cost_in_state": 20361,
+    "total_cost_out_of_state": 36638,
+    "net_price": {
+      "0_30k": 11128,
+      "30_48k": 12290,
+      "48_75k": 16785,
+      "75_110k": 20979,
+      "110k_plus": 22787
+    },
+    "pell_rate": 0.3134,
+    "federal_loan_rate": 0.4042,
+    "enrollment": 19857
+  },
+  "cds": null,
+  "reference": {
+    "honors_program": {
+      "name": "East Carolina University Honors College",
+      "description": "Each member of the Honors College is awarded one of three scholarships and takes part in diverse high-impact experiences beyond the classroom, including undergraduate research, study abroad, internships, and service opportunities. All first-year honors students live together in the Honors College Living Learning Community.",
+      "separate_application": null,
+      "avg_sat": null,
+      "acceptance_rate": null,
+      "size": 800
+    }
+  }
+}

@@ -1,0 +1,91 @@
+{
+  "slug": "case-western-reserve-university",
+  "name": "Case Western Reserve University",
+  "api_name": "Case Western Reserve University",
+  "ipeds_id": 201645,
+  "state": "OH",
+  "city": "Cleveland",
+  "type": "private",
+  "tier": "C",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.2868,
+    "sat_reading_25": 700,
+    "sat_reading_75": 750,
+    "sat_math_25": 730,
+    "sat_math_75": 790,
+    "act_25": 32,
+    "act_75": 35,
+    "tuition_in_state": 64671,
+    "tuition_out_of_state": 64671,
+    "room_board": 18202,
+    "total_cost_in_state": 84873,
+    "total_cost_out_of_state": 84873,
+    "net_price": {
+      "0_30k": 19510,
+      "30_48k": 18657,
+      "48_75k": 19106,
+      "75_110k": 33489,
+      "110k_plus": 49117
+    },
+    "pell_rate": 0.1708,
+    "federal_loan_rate": 0.4884,
+    "enrollment": 6108
+  },
+  "cds": {
+    "school_name": "Case Western Reserve University",
+    "source_year": "2024-2025",
+    "total_applicants": 37082,
+    "total_admitted": 14010,
+    "admit_rate_overall": 0.378,
+    "ed_applicants": 804,
+    "ed_admitted": 298,
+    "ed_admit_rate": 0.371,
+    "ea_applicants": null,
+    "ea_admitted": null,
+    "ea_admit_rate": null,
+    "sat_reading_25": 700,
+    "sat_reading_75": 760,
+    "sat_math_25": 740,
+    "sat_math_75": 790,
+    "sat_composite_25": 1450,
+    "sat_composite_75": 1530,
+    "act_composite_25": 32,
+    "act_composite_75": 35,
+    "tuition_in_state": null,
+    "tuition_out_of_state": null,
+    "tuition_private": 68660,
+    "required_fees": 1340,
+    "room_board": 19514,
+    "pct_need_met": 100,
+    "avg_need_grant": 45353,
+    "avg_financial_aid_package": 58416,
+    "meets_full_need": true,
+    "pct_freshmen_receiving_need_aid": 60.5,
+    "pct_freshmen_receiving_merit_aid": 30.7,
+    "avg_merit_award": 30499
+  },
+  "reference": {
+    "merit_scholarships": [
+      {
+        "name": "Andrew and Eleanor Squire Scholarship",
+        "amount": "Full tuition (~$69,000/year)",
+        "deadline": "January 15",
+        "requirements": "Andrew and Eleanor Squire Scholarship, Finalist Competition"
+      },
+      {
+        "name": "A.W. Smith Innovation Scholarship",
+        "amount": "Full tuition (~$69,000/year)",
+        "deadline": "January 15",
+        "requirements": "Project Proposal, Project Presentation"
+      }
+    ],
+    "national_merit": {
+      "semifinalist_award": "None",
+      "finalist_award": "$1,000-$2,000",
+      "first_choice_required": true,
+      "guaranteed": false
+    }
+  }
+}

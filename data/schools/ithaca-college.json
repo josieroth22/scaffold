@@ -1,0 +1,36 @@
+{
+  "slug": "ithaca-college",
+  "name": "Ithaca College",
+  "ipeds_id": 191968,
+  "state": "NY",
+  "city": "Ithaca",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.6994,
+    "sat_reading_25": 610,
+    "sat_reading_75": 700,
+    "sat_math_25": 580,
+    "sat_math_75": 670,
+    "act_25": 27,
+    "act_75": 31,
+    "tuition_in_state": 50510,
+    "tuition_out_of_state": 50510,
+    "room_board": 16030,
+    "total_cost_in_state": 68540,
+    "total_cost_out_of_state": 68540,
+    "net_price": {
+      "0_30k": 22208,
+      "30_48k": 23940,
+      "48_75k": 29170,
+      "75_110k": 31953,
+      "110k_plus": 37581
+    },
+    "pell_rate": 0.1901,
+    "federal_loan_rate": 0.6415,
+    "enrollment": 4350
+  },
+  "cds": null,
+  "reference": null
+}

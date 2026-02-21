@@ -1,0 +1,36 @@
+{
+  "slug": "virginia-wesleyan-university",
+  "name": "Virginia Wesleyan University",
+  "ipeds_id": 234173,
+  "state": "VA",
+  "city": "Virginia Beach",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.7129,
+    "sat_reading_25": 560,
+    "sat_reading_75": 670,
+    "sat_math_25": 580,
+    "sat_math_75": 680,
+    "act_25": 28,
+    "act_75": 29,
+    "tuition_in_state": 36960,
+    "tuition_out_of_state": 36960,
+    "room_board": 11513,
+    "total_cost_in_state": 50473,
+    "total_cost_out_of_state": 50473,
+    "net_price": {
+      "0_30k": 18365,
+      "30_48k": 15471,
+      "48_75k": 18364,
+      "75_110k": 23470,
+      "110k_plus": 25187
+    },
+    "pell_rate": 0.2617,
+    "federal_loan_rate": 0.476,
+    "enrollment": 1243
+  },
+  "cds": null,
+  "reference": null
+}

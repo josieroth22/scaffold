@@ -1,0 +1,36 @@
+{
+  "slug": "lindenwood-university",
+  "name": "Lindenwood University",
+  "ipeds_id": 177968,
+  "state": "MO",
+  "city": "Saint Charles",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.6586,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": 19,
+    "act_75": 24,
+    "tuition_in_state": 21100,
+    "tuition_out_of_state": 21100,
+    "room_board": 10800,
+    "total_cost_in_state": 33900,
+    "total_cost_out_of_state": 33900,
+    "net_price": {
+      "0_30k": 14581,
+      "30_48k": 15129,
+      "48_75k": 17960,
+      "75_110k": 18796,
+      "110k_plus": 20715
+    },
+    "pell_rate": 0.2889,
+    "federal_loan_rate": 0.5181,
+    "enrollment": 4748
+  },
+  "cds": null,
+  "reference": null
+}

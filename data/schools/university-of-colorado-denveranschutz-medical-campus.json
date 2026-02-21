@@ -1,0 +1,36 @@
+{
+  "slug": "university-of-colorado-denveranschutz-medical-campus",
+  "name": "University of Colorado Denver/Anschutz Medical Campus",
+  "ipeds_id": 126562,
+  "state": "CO",
+  "city": "Denver",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.7781,
+    "sat_reading_25": 500,
+    "sat_reading_75": 620,
+    "sat_math_25": 480,
+    "sat_math_75": 600,
+    "act_25": 21,
+    "act_75": 27,
+    "tuition_in_state": 10017,
+    "tuition_out_of_state": 28209,
+    "room_board": 14920,
+    "total_cost_in_state": 26937,
+    "total_cost_out_of_state": 45129,
+    "net_price": {
+      "0_30k": 16135,
+      "30_48k": 17083,
+      "48_75k": 19871,
+      "75_110k": 22700,
+      "110k_plus": 23355
+    },
+    "pell_rate": 0.2579,
+    "federal_loan_rate": 0.2515,
+    "enrollment": 10686
+  },
+  "cds": null,
+  "reference": null
+}

@@ -1,0 +1,36 @@
+{
+  "slug": "los-angeles-pacific-university",
+  "name": "Los Angeles Pacific University",
+  "ipeds_id": 474863,
+  "state": "CA",
+  "city": "San Dimas",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": null,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 11976,
+    "tuition_out_of_state": 11976,
+    "room_board": null,
+    "total_cost_in_state": 28144,
+    "total_cost_out_of_state": null,
+    "net_price": {
+      "0_30k": 17980,
+      "30_48k": 24505,
+      "48_75k": 21334,
+      "75_110k": null,
+      "110k_plus": null
+    },
+    "pell_rate": 0.4782,
+    "federal_loan_rate": 0.7534,
+    "enrollment": 1453
+  },
+  "cds": null,
+  "reference": null
+}

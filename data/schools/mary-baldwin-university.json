@@ -1,0 +1,36 @@
+{
+  "slug": "mary-baldwin-university",
+  "name": "Mary Baldwin University",
+  "ipeds_id": 232672,
+  "state": "VA",
+  "city": "Staunton",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": null,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 33157,
+    "tuition_out_of_state": 33157,
+    "room_board": 10630,
+    "total_cost_in_state": 45787,
+    "total_cost_out_of_state": 45787,
+    "net_price": {
+      "0_30k": 15996,
+      "30_48k": 14762,
+      "48_75k": 16899,
+      "75_110k": 21736,
+      "110k_plus": 23106
+    },
+    "pell_rate": 0.4833,
+    "federal_loan_rate": 0.6644,
+    "enrollment": 1188
+  },
+  "cds": null,
+  "reference": null
+}

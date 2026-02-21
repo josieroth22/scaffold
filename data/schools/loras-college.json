@@ -1,0 +1,36 @@
+{
+  "slug": "loras-college",
+  "name": "Loras College",
+  "ipeds_id": 153825,
+  "state": "IA",
+  "city": "Dubuque",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.9183,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 38298,
+    "tuition_out_of_state": 38298,
+    "room_board": 9668,
+    "total_cost_in_state": 49966,
+    "total_cost_out_of_state": 49966,
+    "net_price": {
+      "0_30k": 18571,
+      "30_48k": 14851,
+      "48_75k": 16930,
+      "75_110k": 22489,
+      "110k_plus": 23295
+    },
+    "pell_rate": 0.2527,
+    "federal_loan_rate": 0.5932,
+    "enrollment": 1087
+  },
+  "cds": null,
+  "reference": null
+}

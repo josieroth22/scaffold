@@ -1,0 +1,36 @@
+{
+  "slug": "eastern-michigan-university",
+  "name": "Eastern Michigan University",
+  "ipeds_id": 169798,
+  "state": "MI",
+  "city": "Ypsilanti",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.8135,
+    "sat_reading_25": 470,
+    "sat_reading_75": 600,
+    "sat_math_25": 440,
+    "sat_math_75": 570,
+    "act_25": 18,
+    "act_75": 26,
+    "tuition_in_state": 15510,
+    "tuition_out_of_state": 15510,
+    "room_board": 12440,
+    "total_cost_in_state": 29950,
+    "total_cost_out_of_state": 29950,
+    "net_price": {
+      "0_30k": 14925,
+      "30_48k": 14959,
+      "48_75k": 16268,
+      "75_110k": 20089,
+      "110k_plus": 22274
+    },
+    "pell_rate": 0.3656,
+    "federal_loan_rate": 0.4579,
+    "enrollment": 10751
+  },
+  "cds": null,
+  "reference": null
+}

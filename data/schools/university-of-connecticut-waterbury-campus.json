@@ -1,0 +1,36 @@
+{
+  "slug": "university-of-connecticut-waterbury-campus",
+  "name": "University of Connecticut-Waterbury Campus",
+  "ipeds_id": 436818,
+  "state": "CT",
+  "city": "Waterbury",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.8704,
+    "sat_reading_25": 490,
+    "sat_reading_75": 610,
+    "sat_math_25": 470,
+    "sat_math_75": 580,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 17462,
+    "tuition_out_of_state": 40130,
+    "room_board": null,
+    "total_cost_in_state": 20917,
+    "total_cost_out_of_state": null,
+    "net_price": {
+      "0_30k": 4695,
+      "30_48k": 3649,
+      "48_75k": 8414,
+      "75_110k": 13850,
+      "110k_plus": 18325
+    },
+    "pell_rate": 0.5,
+    "federal_loan_rate": 0.3724,
+    "enrollment": 746
+  },
+  "cds": null,
+  "reference": null
+}

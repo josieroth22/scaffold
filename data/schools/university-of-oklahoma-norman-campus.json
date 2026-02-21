@@ -1,0 +1,36 @@
+{
+  "slug": "university-of-oklahoma-norman-campus",
+  "name": "University of Oklahoma-Norman Campus",
+  "ipeds_id": 207500,
+  "state": "OK",
+  "city": "Norman",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.7654,
+    "sat_reading_25": 580,
+    "sat_reading_75": 670,
+    "sat_math_25": 560,
+    "sat_math_75": 660,
+    "act_25": 23,
+    "act_75": 29,
+    "tuition_in_state": 9595,
+    "tuition_out_of_state": 26665,
+    "room_board": 13310,
+    "total_cost_in_state": 24905,
+    "total_cost_out_of_state": 41975,
+    "net_price": {
+      "0_30k": 12555,
+      "30_48k": 13730,
+      "48_75k": 17551,
+      "75_110k": 21593,
+      "110k_plus": 23842
+    },
+    "pell_rate": 0.2376,
+    "federal_loan_rate": 0.3276,
+    "enrollment": 21496
+  },
+  "cds": null,
+  "reference": null
+}

@@ -1,0 +1,36 @@
+{
+  "slug": "new-mexico-institute-of-mining-and-technology",
+  "name": "New Mexico Institute of Mining and Technology",
+  "ipeds_id": 187967,
+  "state": "NM",
+  "city": "Socorro",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.5396,
+    "sat_reading_25": 500,
+    "sat_reading_75": 650,
+    "sat_math_25": 540,
+    "sat_math_75": 640,
+    "act_25": 20,
+    "act_75": 28,
+    "tuition_in_state": 9058,
+    "tuition_out_of_state": 26312,
+    "room_board": 9614,
+    "total_cost_in_state": 20672,
+    "total_cost_out_of_state": 37926,
+    "net_price": {
+      "0_30k": 3970,
+      "30_48k": 5067,
+      "48_75k": 8676,
+      "75_110k": 11907,
+      "110k_plus": 12207
+    },
+    "pell_rate": 0.3087,
+    "federal_loan_rate": 0.3514,
+    "enrollment": 1122
+  },
+  "cds": null,
+  "reference": null
+}

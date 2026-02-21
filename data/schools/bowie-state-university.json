@@ -1,0 +1,36 @@
+{
+  "slug": "bowie-state-university",
+  "name": "Bowie State University",
+  "ipeds_id": 162007,
+  "state": "MD",
+  "city": "Bowie",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.8354,
+    "sat_reading_25": 423,
+    "sat_reading_75": 540,
+    "sat_math_25": 373,
+    "sat_math_75": 543,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 8999,
+    "tuition_out_of_state": 19889,
+    "room_board": 13272,
+    "total_cost_in_state": 24271,
+    "total_cost_out_of_state": 35161,
+    "net_price": {
+      "0_30k": 16935,
+      "30_48k": 16967,
+      "48_75k": 19731,
+      "75_110k": 23194,
+      "110k_plus": 23943
+    },
+    "pell_rate": 0.439,
+    "federal_loan_rate": 0.4087,
+    "enrollment": 5207
+  },
+  "cds": null,
+  "reference": null
+}

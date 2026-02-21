@@ -1,0 +1,36 @@
+{
+  "slug": "college-of-staten-island-cuny",
+  "name": "College of Staten Island CUNY",
+  "ipeds_id": 190558,
+  "state": "NY",
+  "city": "Staten Island",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": null,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 7490,
+    "tuition_out_of_state": 15440,
+    "room_board": 20535,
+    "total_cost_in_state": 30025,
+    "total_cost_out_of_state": 37975,
+    "net_price": {
+      "0_30k": 3243,
+      "30_48k": 4835,
+      "48_75k": 7696,
+      "75_110k": 9515,
+      "110k_plus": 12557
+    },
+    "pell_rate": 0.4925,
+    "federal_loan_rate": 0.1104,
+    "enrollment": 9387
+  },
+  "cds": null,
+  "reference": null
+}

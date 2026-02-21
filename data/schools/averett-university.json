@@ -1,0 +1,36 @@
+{
+  "slug": "averett-university",
+  "name": "Averett University",
+  "ipeds_id": 231420,
+  "state": "VA",
+  "city": "Danville",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.478,
+    "sat_reading_25": 495,
+    "sat_reading_75": 615,
+    "sat_math_25": 465,
+    "sat_math_75": 576,
+    "act_25": 16,
+    "act_75": 23,
+    "tuition_in_state": 38550,
+    "tuition_out_of_state": 38550,
+    "room_board": 13016,
+    "total_cost_in_state": 53566,
+    "total_cost_out_of_state": 53566,
+    "net_price": {
+      "0_30k": 21743,
+      "30_48k": 22129,
+      "48_75k": 19655,
+      "75_110k": 24859,
+      "110k_plus": 27470
+    },
+    "pell_rate": 0.3904,
+    "federal_loan_rate": 0.6754,
+    "enrollment": 1162
+  },
+  "cds": null,
+  "reference": null
+}

@@ -1,0 +1,36 @@
+{
+  "slug": "grove-city-college",
+  "name": "Grove City College",
+  "ipeds_id": 212805,
+  "state": "PA",
+  "city": "Grove City",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.734,
+    "sat_reading_25": 566,
+    "sat_reading_75": 684,
+    "sat_math_25": 562,
+    "sat_math_75": 690,
+    "act_25": 23,
+    "act_75": 31,
+    "tuition_in_state": 20890,
+    "tuition_out_of_state": 20890,
+    "room_board": 11770,
+    "total_cost_in_state": 34660,
+    "total_cost_out_of_state": 34660,
+    "net_price": {
+      "0_30k": null,
+      "30_48k": null,
+      "48_75k": null,
+      "75_110k": null,
+      "110k_plus": null
+    },
+    "pell_rate": 0,
+    "federal_loan_rate": 0,
+    "enrollment": 2221
+  },
+  "cds": null,
+  "reference": null
+}

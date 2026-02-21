@@ -1,0 +1,36 @@
+{
+  "slug": "university-of-michigan-flint",
+  "name": "University of Michigan-Flint",
+  "ipeds_id": 171146,
+  "state": "MI",
+  "city": "Flint",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.6883,
+    "sat_reading_25": 490,
+    "sat_reading_75": 620,
+    "sat_math_25": 460,
+    "sat_math_75": 590,
+    "act_25": 17,
+    "act_75": 29,
+    "tuition_in_state": 14014,
+    "tuition_out_of_state": 31274,
+    "room_board": 13456,
+    "total_cost_in_state": 29470,
+    "total_cost_out_of_state": 46730,
+    "net_price": {
+      "0_30k": 5994,
+      "30_48k": 8152,
+      "48_75k": 11010,
+      "75_110k": 15096,
+      "110k_plus": 18709
+    },
+    "pell_rate": 0.3467,
+    "federal_loan_rate": 0.42,
+    "enrollment": 4157
+  },
+  "cds": null,
+  "reference": null
+}

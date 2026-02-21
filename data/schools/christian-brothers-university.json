@@ -1,0 +1,36 @@
+{
+  "slug": "christian-brothers-university",
+  "name": "Christian Brothers University",
+  "ipeds_id": 219833,
+  "state": "TN",
+  "city": "Memphis",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.8842,
+    "sat_reading_25": 540,
+    "sat_reading_75": 640,
+    "sat_math_25": 500,
+    "sat_math_75": 660,
+    "act_25": 18,
+    "act_75": 23,
+    "tuition_in_state": 37300,
+    "tuition_out_of_state": 37300,
+    "room_board": 10731,
+    "total_cost_in_state": 50031,
+    "total_cost_out_of_state": 50031,
+    "net_price": {
+      "0_30k": 8886,
+      "30_48k": 13157,
+      "48_75k": 12547,
+      "75_110k": 11622,
+      "110k_plus": 9103
+    },
+    "pell_rate": 0.3057,
+    "federal_loan_rate": 0.3121,
+    "enrollment": 953
+  },
+  "cds": null,
+  "reference": null
+}

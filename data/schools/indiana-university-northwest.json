@@ -1,0 +1,36 @@
+{
+  "slug": "indiana-university-northwest",
+  "name": "Indiana University-Northwest",
+  "ipeds_id": 151360,
+  "state": "IN",
+  "city": "Gary",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.767,
+    "sat_reading_25": 480,
+    "sat_reading_75": 580,
+    "sat_math_25": 460,
+    "sat_math_75": 590,
+    "act_25": 21,
+    "act_75": 27,
+    "tuition_in_state": 8179,
+    "tuition_out_of_state": 22043,
+    "room_board": null,
+    "total_cost_in_state": 13371,
+    "total_cost_out_of_state": null,
+    "net_price": {
+      "0_30k": 2164,
+      "30_48k": 2616,
+      "48_75k": 8589,
+      "75_110k": 12463,
+      "110k_plus": 13021
+    },
+    "pell_rate": 0.4255,
+    "federal_loan_rate": 0.3469,
+    "enrollment": 2582
+  },
+  "cds": null,
+  "reference": null
+}

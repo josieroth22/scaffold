@@ -1,0 +1,45 @@
+{
+  "slug": "cuny-hunter-college",
+  "name": "CUNY Hunter College",
+  "ipeds_id": 190594,
+  "state": "NY",
+  "city": "New York",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.5405,
+    "sat_reading_25": 610,
+    "sat_reading_75": 710,
+    "sat_math_25": 600,
+    "sat_math_75": 760,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 7382,
+    "tuition_out_of_state": 15332,
+    "room_board": 11324,
+    "total_cost_in_state": 20706,
+    "total_cost_out_of_state": 28656,
+    "net_price": {
+      "0_30k": 262,
+      "30_48k": 2264,
+      "48_75k": 6457,
+      "75_110k": 8551,
+      "110k_plus": 12135
+    },
+    "pell_rate": 0.5501,
+    "federal_loan_rate": 0.0715,
+    "enrollment": 16642
+  },
+  "cds": null,
+  "reference": {
+    "honors_program": {
+      "name": "Macaulay Honors College",
+      "description": "Highly selective CUNY-wide honors college. Scholars receive a full tuition scholarship, a laptop, an Opportunities Fund for enrichment activities, and personalized advising. ~2,080 students across 8 CUNY campuses.",
+      "separate_application": true,
+      "avg_sat": null,
+      "acceptance_rate": null,
+      "size": 2080
+    }
+  }
+}

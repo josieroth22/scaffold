@@ -1,0 +1,36 @@
+{
+  "slug": "southern-illinois-university-edwardsville",
+  "name": "Southern Illinois University Edwardsville",
+  "ipeds_id": 149231,
+  "state": "IL",
+  "city": "Edwardsville",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.9721,
+    "sat_reading_25": 460,
+    "sat_reading_75": 590,
+    "sat_math_25": 440,
+    "sat_math_75": 570,
+    "act_25": 20,
+    "act_75": 26,
+    "tuition_in_state": 12922,
+    "tuition_out_of_state": 12922,
+    "room_board": 10562,
+    "total_cost_in_state": 25484,
+    "total_cost_out_of_state": 25484,
+    "net_price": {
+      "0_30k": 7459,
+      "30_48k": 9208,
+      "48_75k": 11954,
+      "75_110k": 18190,
+      "110k_plus": 20503
+    },
+    "pell_rate": 0.3157,
+    "federal_loan_rate": 0.4037,
+    "enrollment": 8836
+  },
+  "cds": null,
+  "reference": null
+}

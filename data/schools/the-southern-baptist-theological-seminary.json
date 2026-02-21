@@ -1,0 +1,36 @@
+{
+  "slug": "the-southern-baptist-theological-seminary",
+  "name": "The Southern Baptist Theological Seminary",
+  "ipeds_id": 157748,
+  "state": "KY",
+  "city": "Louisville",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.9689,
+    "sat_reading_25": 528,
+    "sat_reading_75": 613,
+    "sat_math_25": 500,
+    "sat_math_75": 590,
+    "act_25": 20,
+    "act_75": 25,
+    "tuition_in_state": 13086,
+    "tuition_out_of_state": 13086,
+    "room_board": 8142,
+    "total_cost_in_state": 23228,
+    "total_cost_out_of_state": 23228,
+    "net_price": {
+      "0_30k": null,
+      "30_48k": null,
+      "48_75k": null,
+      "75_110k": null,
+      "110k_plus": null
+    },
+    "pell_rate": 0,
+    "federal_loan_rate": 0,
+    "enrollment": 844
+  },
+  "cds": null,
+  "reference": null
+}

@@ -1,0 +1,36 @@
+{
+  "slug": "suny-at-purchase-college",
+  "name": "SUNY at Purchase College",
+  "ipeds_id": 196219,
+  "state": "NY",
+  "city": "Purchase",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.7283,
+    "sat_reading_25": 600,
+    "sat_reading_75": 700,
+    "sat_math_25": 578,
+    "sat_math_75": 663,
+    "act_25": 27,
+    "act_75": 32,
+    "tuition_in_state": 8953,
+    "tuition_out_of_state": 18863,
+    "room_board": 15400,
+    "total_cost_in_state": 26353,
+    "total_cost_out_of_state": 36263,
+    "net_price": {
+      "0_30k": 12320,
+      "30_48k": 15753,
+      "48_75k": 21148,
+      "75_110k": 22454,
+      "110k_plus": 26346
+    },
+    "pell_rate": 0.3563,
+    "federal_loan_rate": 0.4425,
+    "enrollment": 3110
+  },
+  "cds": null,
+  "reference": null
+}

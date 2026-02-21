@@ -1,0 +1,91 @@
+{
+  "slug": "fordham-university",
+  "name": "Fordham University",
+  "api_name": "Fordham University",
+  "ipeds_id": 191241,
+  "state": "NY",
+  "city": "Bronx",
+  "type": "private",
+  "tier": "C",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.5628,
+    "sat_reading_25": 670,
+    "sat_reading_75": 730,
+    "sat_math_25": 660,
+    "sat_math_75": 760,
+    "act_25": 30,
+    "act_75": 33,
+    "tuition_in_state": 61992,
+    "tuition_out_of_state": 61992,
+    "room_board": 23075,
+    "total_cost_in_state": 87067,
+    "total_cost_out_of_state": 87067,
+    "net_price": {
+      "0_30k": 31239,
+      "30_48k": 33504,
+      "48_75k": 38039,
+      "75_110k": 41753,
+      "110k_plus": 50121
+    },
+    "pell_rate": 0.2086,
+    "federal_loan_rate": 0.4695,
+    "enrollment": 10239
+  },
+  "cds": {
+    "school_name": "Fordham University",
+    "source_year": "2022-2023",
+    "total_applicants": 47203,
+    "total_admitted": 25550,
+    "admit_rate_overall": 0.541,
+    "ed_applicants": 338,
+    "ed_admitted": 228,
+    "ed_admit_rate": 0.675,
+    "ea_applicants": null,
+    "ea_admitted": null,
+    "ea_admit_rate": null,
+    "sat_reading_25": 660,
+    "sat_reading_75": 730,
+    "sat_math_25": 660,
+    "sat_math_75": 750,
+    "sat_composite_25": 1330,
+    "sat_composite_75": 1460,
+    "act_composite_25": 30,
+    "act_composite_75": 33,
+    "tuition_in_state": null,
+    "tuition_out_of_state": null,
+    "tuition_private": 60335,
+    "required_fees": 1657,
+    "room_board": 23075,
+    "pct_need_met": 71.2,
+    "avg_need_grant": 32728,
+    "avg_financial_aid_package": 41525,
+    "meets_full_need": false,
+    "pct_freshmen_receiving_need_aid": 70.9,
+    "pct_freshmen_receiving_merit_aid": 18.2,
+    "avg_merit_award": 20301
+  },
+  "reference": {
+    "merit_scholarships": [
+      {
+        "name": "Presidential Scholarship",
+        "amount": "Full COA (tuition, fees, room, board, plus enrichment funding)",
+        "deadline": "January 3",
+        "requirements": "None"
+      },
+      {
+        "name": "Fordham Scholarship",
+        "amount": "Half to full tuition",
+        "deadline": "January 3",
+        "requirements": "None"
+      }
+    ],
+    "national_merit": {
+      "semifinalist_award": "Full Tuition",
+      "finalist_award": "Full Tuition",
+      "first_choice_required": false,
+      "guaranteed": false
+    }
+  }
+}

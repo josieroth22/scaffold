@@ -1,0 +1,87 @@
+{
+  "slug": "university-of-pittsburgh",
+  "name": "University of Pittsburgh",
+  "api_name": "University of Pittsburgh-Pittsburgh Campus",
+  "ipeds_id": 215293,
+  "state": "PA",
+  "city": "Pittsburgh",
+  "type": "public",
+  "tier": "C",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.497,
+    "sat_reading_25": 640,
+    "sat_reading_75": 720,
+    "sat_math_25": 630,
+    "sat_math_75": 730,
+    "act_25": 29,
+    "act_75": 33,
+    "tuition_in_state": 21524,
+    "tuition_out_of_state": 39890,
+    "room_board": 13420,
+    "total_cost_in_state": 36944,
+    "total_cost_out_of_state": 55310,
+    "net_price": {
+      "0_30k": 17007,
+      "30_48k": 18397,
+      "48_75k": 26179,
+      "75_110k": 31931,
+      "110k_plus": 34824
+    },
+    "pell_rate": 0.1378,
+    "federal_loan_rate": 0.3717,
+    "enrollment": 20189
+  },
+  "cds": {
+    "school_name": "University of Pittsburgh",
+    "source_year": "2024-2025",
+    "total_applicants": 60898,
+    "total_admitted": 35372,
+    "admit_rate_overall": 0.581,
+    "ed_applicants": null,
+    "ed_admitted": null,
+    "ed_admit_rate": null,
+    "ea_applicants": null,
+    "ea_admitted": null,
+    "ea_admit_rate": null,
+    "sat_reading_25": 640,
+    "sat_reading_75": 720,
+    "sat_math_25": 640,
+    "sat_math_75": 740,
+    "sat_composite_25": 1280,
+    "sat_composite_75": 1460,
+    "act_composite_25": 29,
+    "act_composite_75": 33,
+    "tuition_in_state": null,
+    "tuition_out_of_state": null,
+    "tuition_private": null,
+    "required_fees": null,
+    "room_board": null,
+    "pct_need_met": 56,
+    "avg_need_grant": null,
+    "avg_financial_aid_package": null,
+    "meets_full_need": false,
+    "pct_freshmen_receiving_need_aid": 51,
+    "pct_freshmen_receiving_merit_aid": 4,
+    "avg_merit_award": 8027
+  },
+  "reference": {
+    "merit_scholarships": [
+      {
+        "name": "Chancellor's Scholarship",
+        "amount": "Full COA (tuition, fees, room, board, and Honors College housing)",
+        "deadline": "December 1",
+        "requirements": "Frederick Honors College Application, Interview"
+      }
+    ],
+    "honors_program": {
+      "name": "Frederick Honors College",
+      "description": "In 1986, the University of Pittsburgh established an honors college to meet the special academic and co-curricular needs of students who sought to elevate their undergraduate experience. Honors students can enhance their Pitt undergraduate degree in any major by choosing one of three distinctive programs while having access to unique honors courses and research opportunities.",
+      "separate_application": null,
+      "avg_sat": 1501,
+      "acceptance_rate": null,
+      "size": 3605
+    }
+  }
+}

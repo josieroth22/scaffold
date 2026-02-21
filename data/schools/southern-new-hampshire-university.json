@@ -1,0 +1,36 @@
+{
+  "slug": "southern-new-hampshire-university",
+  "name": "Southern New Hampshire University",
+  "ipeds_id": 183026,
+  "state": "NH",
+  "city": "Manchester",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.9612,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 16450,
+    "tuition_out_of_state": 16450,
+    "room_board": 12800,
+    "total_cost_in_state": 31250,
+    "total_cost_out_of_state": 31250,
+    "net_price": {
+      "0_30k": 33202,
+      "30_48k": 32903,
+      "48_75k": 34048,
+      "75_110k": 35992,
+      "110k_plus": 36682
+    },
+    "pell_rate": 0.469,
+    "federal_loan_rate": 0.5907,
+    "enrollment": 156755
+  },
+  "cds": null,
+  "reference": null
+}

@@ -1,0 +1,36 @@
+{
+  "slug": "ouachita-baptist-university",
+  "name": "Ouachita Baptist University",
+  "ipeds_id": 107512,
+  "state": "AR",
+  "city": "Arkadelphia",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.6852,
+    "sat_reading_25": 530,
+    "sat_reading_75": 660,
+    "sat_math_25": 530,
+    "sat_math_75": 630,
+    "act_25": 21,
+    "act_75": 28,
+    "tuition_in_state": 32480,
+    "tuition_out_of_state": 32480,
+    "room_board": 9240,
+    "total_cost_in_state": 43720,
+    "total_cost_out_of_state": 43720,
+    "net_price": {
+      "0_30k": 19709,
+      "30_48k": 19326,
+      "48_75k": 20813,
+      "75_110k": 23238,
+      "110k_plus": 23523
+    },
+    "pell_rate": 0.226,
+    "federal_loan_rate": 0.485,
+    "enrollment": 1612
+  },
+  "cds": null,
+  "reference": null
+}

@@ -1,0 +1,36 @@
+{
+  "slug": "bob-jones-university",
+  "name": "Bob Jones University",
+  "ipeds_id": 217749,
+  "state": "SC",
+  "city": "Greenville",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": null,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 23400,
+    "tuition_out_of_state": 23400,
+    "room_board": 9900,
+    "total_cost_in_state": 35300,
+    "total_cost_out_of_state": 35300,
+    "net_price": {
+      "0_30k": 14037,
+      "30_48k": 15494,
+      "48_75k": 16625,
+      "75_110k": 20194,
+      "110k_plus": 23916
+    },
+    "pell_rate": 0.2923,
+    "federal_loan_rate": 0.239,
+    "enrollment": 2209
+  },
+  "cds": null,
+  "reference": null
+}

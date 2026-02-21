@@ -1,0 +1,36 @@
+{
+  "slug": "la-sierra-university",
+  "name": "La Sierra University",
+  "ipeds_id": 117627,
+  "state": "CA",
+  "city": "Riverside",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.933,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 35910,
+    "tuition_out_of_state": 35910,
+    "room_board": 11670,
+    "total_cost_in_state": 49580,
+    "total_cost_out_of_state": 49580,
+    "net_price": {
+      "0_30k": 21620,
+      "30_48k": 22930,
+      "48_75k": 25297,
+      "75_110k": 29627,
+      "110k_plus": 33048
+    },
+    "pell_rate": 0.4735,
+    "federal_loan_rate": 0.6128,
+    "enrollment": 1155
+  },
+  "cds": null,
+  "reference": null
+}

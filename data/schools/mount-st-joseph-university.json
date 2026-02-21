@@ -1,0 +1,36 @@
+{
+  "slug": "mount-st-joseph-university",
+  "name": "Mount St. Joseph University",
+  "ipeds_id": 204200,
+  "state": "OH",
+  "city": "Cincinnati",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.5652,
+    "sat_reading_25": 440,
+    "sat_reading_75": 548,
+    "sat_math_25": 440,
+    "sat_math_75": 535,
+    "act_25": 17,
+    "act_75": 24,
+    "tuition_in_state": 36650,
+    "tuition_out_of_state": 36650,
+    "room_board": 11200,
+    "total_cost_in_state": 49850,
+    "total_cost_out_of_state": 49850,
+    "net_price": {
+      "0_30k": 11206,
+      "30_48k": 11412,
+      "48_75k": 15526,
+      "75_110k": 16001,
+      "110k_plus": 22642
+    },
+    "pell_rate": 0.2734,
+    "federal_loan_rate": 0.5447,
+    "enrollment": 1100
+  },
+  "cds": null,
+  "reference": null
+}

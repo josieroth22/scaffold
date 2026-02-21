@@ -1,0 +1,36 @@
+{
+  "slug": "fort-valley-state-university",
+  "name": "Fort Valley State University",
+  "ipeds_id": 139719,
+  "state": "GA",
+  "city": "Fort Valley",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.628,
+    "sat_reading_25": 400,
+    "sat_reading_75": 480,
+    "sat_math_25": 395,
+    "sat_math_75": 440,
+    "act_25": 16,
+    "act_75": 19,
+    "tuition_in_state": 5392,
+    "tuition_out_of_state": 16114,
+    "room_board": 8372,
+    "total_cost_in_state": 15764,
+    "total_cost_out_of_state": 26486,
+    "net_price": {
+      "0_30k": 10128,
+      "30_48k": 11168,
+      "48_75k": 12984,
+      "75_110k": 16414,
+      "110k_plus": 16034
+    },
+    "pell_rate": 0.7195,
+    "federal_loan_rate": 0.7005,
+    "enrollment": 2541
+  },
+  "cds": null,
+  "reference": null
+}

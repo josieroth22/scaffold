@@ -1,0 +1,36 @@
+{
+  "slug": "new-mexico-highlands-university",
+  "name": "New Mexico Highlands University",
+  "ipeds_id": 187897,
+  "state": "NM",
+  "city": "Las Vegas",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": null,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 7260,
+    "tuition_out_of_state": 12180,
+    "room_board": 9674,
+    "total_cost_in_state": 18934,
+    "total_cost_out_of_state": 23854,
+    "net_price": {
+      "0_30k": 13501,
+      "30_48k": 13953,
+      "48_75k": 15596,
+      "75_110k": 14350,
+      "110k_plus": 14797
+    },
+    "pell_rate": 0.4636,
+    "federal_loan_rate": 0.1736,
+    "enrollment": 1561
+  },
+  "cds": null,
+  "reference": null
+}

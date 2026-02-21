@@ -1,0 +1,36 @@
+{
+  "slug": "university-of-puerto-rico-humacao",
+  "name": "University of Puerto Rico-Humacao",
+  "ipeds_id": 243179,
+  "state": "PR",
+  "city": "Humacao",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.5849,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 5364,
+    "tuition_out_of_state": 5364,
+    "room_board": null,
+    "total_cost_in_state": 19404,
+    "total_cost_out_of_state": null,
+    "net_price": {
+      "0_30k": 12801,
+      "30_48k": 13940,
+      "48_75k": 15920,
+      "75_110k": 17922,
+      "110k_plus": null
+    },
+    "pell_rate": 0.7935,
+    "federal_loan_rate": 0.0319,
+    "enrollment": 2555
+  },
+  "cds": null,
+  "reference": null
+}

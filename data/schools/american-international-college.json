@@ -1,0 +1,36 @@
+{
+  "slug": "american-international-college",
+  "name": "American International College",
+  "ipeds_id": 164447,
+  "state": "MA",
+  "city": "Springfield",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.969,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 42970,
+    "tuition_out_of_state": 42970,
+    "room_board": 16260,
+    "total_cost_in_state": 61230,
+    "total_cost_out_of_state": 61230,
+    "net_price": {
+      "0_30k": 17645,
+      "30_48k": 19398,
+      "48_75k": 21234,
+      "75_110k": 21847,
+      "110k_plus": 37851
+    },
+    "pell_rate": 0.5004,
+    "federal_loan_rate": 0.8055,
+    "enrollment": 1097
+  },
+  "cds": null,
+  "reference": null
+}

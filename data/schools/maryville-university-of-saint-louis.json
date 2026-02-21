@@ -1,0 +1,36 @@
+{
+  "slug": "maryville-university-of-saint-louis",
+  "name": "Maryville University of Saint Louis",
+  "ipeds_id": 178059,
+  "state": "MO",
+  "city": "Saint Louis",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.9369,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 27166,
+    "tuition_out_of_state": 27166,
+    "room_board": 13300,
+    "total_cost_in_state": 42466,
+    "total_cost_out_of_state": 42466,
+    "net_price": {
+      "0_30k": 21213,
+      "30_48k": 21377,
+      "48_75k": 23346,
+      "75_110k": 28455,
+      "110k_plus": 30216
+    },
+    "pell_rate": 0.3555,
+    "federal_loan_rate": 0.5426,
+    "enrollment": 5988
+  },
+  "cds": null,
+  "reference": null
+}

@@ -1,0 +1,38 @@
+{
+  "slug": "xavier-university-of-louisiana",
+  "name": "Xavier University of Louisiana",
+  "api_name": "Xavier University of Louisiana",
+  "ipeds_id": 160904,
+  "state": "LA",
+  "city": "New Orleans",
+  "type": "private",
+  "tier": "C",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.7448,
+    "sat_reading_25": 500,
+    "sat_reading_75": 568,
+    "sat_math_25": 453,
+    "sat_math_75": 570,
+    "act_25": 19,
+    "act_75": 25,
+    "tuition_in_state": 27868,
+    "tuition_out_of_state": 27868,
+    "room_board": 10086,
+    "total_cost_in_state": 39954,
+    "total_cost_out_of_state": 39954,
+    "net_price": {
+      "0_30k": 15365,
+      "30_48k": 16545,
+      "48_75k": 19008,
+      "75_110k": 22829,
+      "110k_plus": 25054
+    },
+    "pell_rate": 0.5171,
+    "federal_loan_rate": 0.5464,
+    "enrollment": 2534
+  },
+  "cds": null,
+  "reference": null
+}

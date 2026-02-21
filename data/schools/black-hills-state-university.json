@@ -1,0 +1,36 @@
+{
+  "slug": "black-hills-state-university",
+  "name": "Black Hills State University",
+  "ipeds_id": 219046,
+  "state": "SD",
+  "city": "Spearfish",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.9443,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": 18,
+    "act_75": 23,
+    "tuition_in_state": 9000,
+    "tuition_out_of_state": 12100,
+    "room_board": 7400,
+    "total_cost_in_state": 18400,
+    "total_cost_out_of_state": 21500,
+    "net_price": {
+      "0_30k": 12475,
+      "30_48k": 13564,
+      "48_75k": 17864,
+      "75_110k": 19145,
+      "110k_plus": 19987
+    },
+    "pell_rate": 0.1849,
+    "federal_loan_rate": 0.2962,
+    "enrollment": 1935
+  },
+  "cds": null,
+  "reference": null
+}

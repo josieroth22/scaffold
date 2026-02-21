@@ -1,0 +1,36 @@
+{
+  "slug": "university-of-providence",
+  "name": "University of Providence",
+  "ipeds_id": 180258,
+  "state": "MT",
+  "city": "Great Falls",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.642,
+    "sat_reading_25": 445,
+    "sat_reading_75": 580,
+    "sat_math_25": 400,
+    "sat_math_75": 555,
+    "act_25": 16,
+    "act_75": 24,
+    "tuition_in_state": 29018,
+    "tuition_out_of_state": 29018,
+    "room_board": 10500,
+    "total_cost_in_state": 41518,
+    "total_cost_out_of_state": 41518,
+    "net_price": {
+      "0_30k": 16227,
+      "30_48k": 19896,
+      "48_75k": 15173,
+      "75_110k": 25482,
+      "110k_plus": 25724
+    },
+    "pell_rate": 0.3103,
+    "federal_loan_rate": 0.457,
+    "enrollment": 527
+  },
+  "cds": null,
+  "reference": null
+}

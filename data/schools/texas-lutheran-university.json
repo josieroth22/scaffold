@@ -1,0 +1,36 @@
+{
+  "slug": "texas-lutheran-university",
+  "name": "Texas Lutheran University",
+  "ipeds_id": 228981,
+  "state": "TX",
+  "city": "Seguin",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.9479,
+    "sat_reading_25": 520,
+    "sat_reading_75": 620,
+    "sat_math_25": 510,
+    "sat_math_75": 610,
+    "act_25": 22,
+    "act_75": 28,
+    "tuition_in_state": 34920,
+    "tuition_out_of_state": 34920,
+    "room_board": 11880,
+    "total_cost_in_state": 48800,
+    "total_cost_out_of_state": 48800,
+    "net_price": {
+      "0_30k": 20458,
+      "30_48k": 20270,
+      "48_75k": 22551,
+      "75_110k": 22601,
+      "110k_plus": 26533
+    },
+    "pell_rate": 0.3763,
+    "federal_loan_rate": 0.6593,
+    "enrollment": 1260
+  },
+  "cds": null,
+  "reference": null
+}

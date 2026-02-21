@@ -1,0 +1,36 @@
+{
+  "slug": "la-salle-university",
+  "name": "La Salle University",
+  "ipeds_id": 213367,
+  "state": "PA",
+  "city": "Philadelphia",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.8619,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 35570,
+    "tuition_out_of_state": 35570,
+    "room_board": 15590,
+    "total_cost_in_state": 53160,
+    "total_cost_out_of_state": 53160,
+    "net_price": {
+      "0_30k": 18702,
+      "30_48k": 17978,
+      "48_75k": 21016,
+      "75_110k": 26009,
+      "110k_plus": 26278
+    },
+    "pell_rate": 0.3264,
+    "federal_loan_rate": 0.4515,
+    "enrollment": 1966
+  },
+  "cds": null,
+  "reference": null
+}

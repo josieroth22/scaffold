@@ -1,0 +1,36 @@
+{
+  "slug": "southern-virginia-university",
+  "name": "Southern Virginia University",
+  "ipeds_id": 233611,
+  "state": "VA",
+  "city": "Buena Vista",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.9964,
+    "sat_reading_25": 480,
+    "sat_reading_75": 658,
+    "sat_math_25": 463,
+    "sat_math_75": 595,
+    "act_25": 18,
+    "act_75": 25,
+    "tuition_in_state": 20040,
+    "tuition_out_of_state": 20040,
+    "room_board": 9376,
+    "total_cost_in_state": 31416,
+    "total_cost_out_of_state": 31416,
+    "net_price": {
+      "0_30k": 20722,
+      "30_48k": 21345,
+      "48_75k": 23925,
+      "75_110k": 25350,
+      "110k_plus": 26686
+    },
+    "pell_rate": 0.4329,
+    "federal_loan_rate": 0.5563,
+    "enrollment": 967
+  },
+  "cds": null,
+  "reference": null
+}

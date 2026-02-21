@@ -1,0 +1,36 @@
+{
+  "slug": "rochester-university",
+  "name": "Rochester University",
+  "ipeds_id": 170967,
+  "state": "MI",
+  "city": "Rochester Hills",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.6531,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 27938,
+    "tuition_out_of_state": 27938,
+    "room_board": 9800,
+    "total_cost_in_state": 39738,
+    "total_cost_out_of_state": 39738,
+    "net_price": {
+      "0_30k": 15716,
+      "30_48k": 13338,
+      "48_75k": 19451,
+      "75_110k": 22280,
+      "110k_plus": 21860
+    },
+    "pell_rate": 0.3108,
+    "federal_loan_rate": 0.5212,
+    "enrollment": 827
+  },
+  "cds": null,
+  "reference": null
+}

@@ -1,0 +1,36 @@
+{
+  "slug": "bard-college",
+  "name": "Bard College",
+  "ipeds_id": 189088,
+  "state": "NY",
+  "city": "Annandale-On-Hudson",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.5229,
+    "sat_reading_25": 670,
+    "sat_reading_75": 740,
+    "sat_math_25": 620,
+    "sat_math_75": 700,
+    "act_25": 30,
+    "act_75": 32,
+    "tuition_in_state": 63612,
+    "tuition_out_of_state": 63612,
+    "room_board": 18040,
+    "total_cost_in_state": 83652,
+    "total_cost_out_of_state": 83652,
+    "net_price": {
+      "0_30k": 13609,
+      "30_48k": 17710,
+      "48_75k": 19816,
+      "75_110k": 26909,
+      "110k_plus": 43347
+    },
+    "pell_rate": 0.2308,
+    "federal_loan_rate": 0.3441,
+    "enrollment": 2280
+  },
+  "cds": null,
+  "reference": null
+}

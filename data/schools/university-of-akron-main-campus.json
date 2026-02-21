@@ -1,0 +1,36 @@
+{
+  "slug": "university-of-akron-main-campus",
+  "name": "University of Akron Main Campus",
+  "ipeds_id": 200800,
+  "state": "OH",
+  "city": "Akron",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.7091,
+    "sat_reading_25": 480,
+    "sat_reading_75": 590,
+    "sat_math_25": 470,
+    "sat_math_75": 600,
+    "act_25": 18,
+    "act_75": 25,
+    "tuition_in_state": 12799,
+    "tuition_out_of_state": 17239,
+    "room_board": 11070,
+    "total_cost_in_state": 25869,
+    "total_cost_out_of_state": 30309,
+    "net_price": {
+      "0_30k": 12469,
+      "30_48k": 12319,
+      "48_75k": 14771,
+      "75_110k": 17982,
+      "110k_plus": 19698
+    },
+    "pell_rate": 0.2886,
+    "federal_loan_rate": 0.3503,
+    "enrollment": 10011
+  },
+  "cds": null,
+  "reference": null
+}

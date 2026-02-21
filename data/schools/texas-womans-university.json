@@ -1,0 +1,36 @@
+{
+  "slug": "texas-womans-university",
+  "name": "Texas Woman's University",
+  "ipeds_id": 229179,
+  "state": "TX",
+  "city": "Denton",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.9499,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 8648,
+    "tuition_out_of_state": 18720,
+    "room_board": 11358,
+    "total_cost_in_state": 22006,
+    "total_cost_out_of_state": 32078,
+    "net_price": {
+      "0_30k": 8378,
+      "30_48k": 8345,
+      "48_75k": 11121,
+      "75_110k": 15974,
+      "110k_plus": 17856
+    },
+    "pell_rate": 0.4045,
+    "federal_loan_rate": 0.3909,
+    "enrollment": 8804
+  },
+  "cds": null,
+  "reference": null
+}

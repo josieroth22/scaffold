@@ -1,0 +1,83 @@
+{
+  "slug": "southern-methodist-university",
+  "name": "Southern Methodist University",
+  "ipeds_id": 228246,
+  "state": "TX",
+  "city": "Dallas",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.6122,
+    "sat_reading_25": 660,
+    "sat_reading_75": 730,
+    "sat_math_25": 660,
+    "sat_math_75": 750,
+    "act_25": 30,
+    "act_75": 34,
+    "tuition_in_state": 64460,
+    "tuition_out_of_state": 64460,
+    "room_board": 18230,
+    "total_cost_in_state": 84690,
+    "total_cost_out_of_state": 84690,
+    "net_price": {
+      "0_30k": 30165,
+      "30_48k": 16581,
+      "48_75k": 24746,
+      "75_110k": 37145,
+      "110k_plus": 57595
+    },
+    "pell_rate": 0.1186,
+    "federal_loan_rate": 0.2174,
+    "enrollment": 7106
+  },
+  "cds": {
+    "school_name": "Southern Methodist University",
+    "source_year": "2023-2024",
+    "total_applicants": 15245,
+    "total_admitted": 9657,
+    "admit_rate_overall": 0.633,
+    "ed_applicants": 404,
+    "ed_admitted": 353,
+    "ed_admit_rate": 0.874,
+    "ea_applicants": null,
+    "ea_admitted": null,
+    "ea_admit_rate": null,
+    "sat_reading_25": 670,
+    "sat_reading_75": 740,
+    "sat_math_25": 670,
+    "sat_math_75": 750,
+    "sat_composite_25": 1340,
+    "sat_composite_75": 1480,
+    "act_composite_25": 30,
+    "act_composite_75": 34,
+    "tuition_in_state": null,
+    "tuition_out_of_state": null,
+    "tuition_private": 61880,
+    "required_fees": 7842,
+    "room_board": 19794,
+    "pct_need_met": 87.52,
+    "avg_need_grant": 49715,
+    "avg_financial_aid_package": 58545,
+    "meets_full_need": false,
+    "pct_freshmen_receiving_need_aid": 33.47,
+    "pct_freshmen_receiving_merit_aid": 11.42,
+    "avg_merit_award": 27376
+  },
+  "reference": {
+    "merit_scholarships": [
+      {
+        "name": "President's Scholars Program",
+        "amount": "Full tuition and fees, plus housing and study abroad",
+        "deadline": "January 15",
+        "requirements": "Essay, Interview"
+      }
+    ],
+    "national_merit": {
+      "semifinalist_award": "None",
+      "finalist_award": "$5,000",
+      "first_choice_required": true,
+      "guaranteed": true
+    }
+  }
+}

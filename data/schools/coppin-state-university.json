@@ -1,0 +1,36 @@
+{
+  "slug": "coppin-state-university",
+  "name": "Coppin State University",
+  "ipeds_id": 162283,
+  "state": "MD",
+  "city": "Baltimore",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.4956,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 7001,
+    "tuition_out_of_state": 13789,
+    "room_board": 11875,
+    "total_cost_in_state": 20876,
+    "total_cost_out_of_state": 27664,
+    "net_price": {
+      "0_30k": 4635,
+      "30_48k": 5960,
+      "48_75k": 8140,
+      "75_110k": 6586,
+      "110k_plus": 15238
+    },
+    "pell_rate": 0.5304,
+    "federal_loan_rate": 0.4183,
+    "enrollment": 1756
+  },
+  "cds": null,
+  "reference": null
+}

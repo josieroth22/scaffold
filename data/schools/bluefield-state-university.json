@@ -1,0 +1,36 @@
+{
+  "slug": "bluefield-state-university",
+  "name": "Bluefield State University",
+  "ipeds_id": 237215,
+  "state": "WV",
+  "city": "Bluefield",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.8722,
+    "sat_reading_25": 440,
+    "sat_reading_75": 540,
+    "sat_math_25": 430,
+    "sat_math_75": 540,
+    "act_25": 17,
+    "act_75": 22,
+    "tuition_in_state": 10240,
+    "tuition_out_of_state": 17560,
+    "room_board": 11327,
+    "total_cost_in_state": 23567,
+    "total_cost_out_of_state": 30887,
+    "net_price": {
+      "0_30k": 10971,
+      "30_48k": 11213,
+      "48_75k": 11772,
+      "75_110k": 16204,
+      "110k_plus": 15428
+    },
+    "pell_rate": 0.4075,
+    "federal_loan_rate": 0.5347,
+    "enrollment": 1231
+  },
+  "cds": null,
+  "reference": null
+}

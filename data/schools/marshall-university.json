@@ -1,0 +1,36 @@
+{
+  "slug": "marshall-university",
+  "name": "Marshall University",
+  "ipeds_id": 237525,
+  "state": "WV",
+  "city": "Huntington",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.9646,
+    "sat_reading_25": 470,
+    "sat_reading_75": 580,
+    "sat_math_25": 420,
+    "sat_math_75": 550,
+    "act_25": 18,
+    "act_75": 24,
+    "tuition_in_state": 8942,
+    "tuition_out_of_state": 20294,
+    "room_board": 12852,
+    "total_cost_in_state": 23794,
+    "total_cost_out_of_state": 35146,
+    "net_price": {
+      "0_30k": 4820,
+      "30_48k": 5572,
+      "48_75k": 7970,
+      "75_110k": 12243,
+      "110k_plus": 15496
+    },
+    "pell_rate": 0.3784,
+    "federal_loan_rate": 0.4534,
+    "enrollment": 7149
+  },
+  "cds": null,
+  "reference": null
+}

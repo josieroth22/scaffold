@@ -1,0 +1,36 @@
+{
+  "slug": "indiana-university-kokomo",
+  "name": "Indiana University-Kokomo",
+  "ipeds_id": 151333,
+  "state": "IN",
+  "city": "Kokomo",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.8469,
+    "sat_reading_25": 490,
+    "sat_reading_75": 590,
+    "sat_math_25": 480,
+    "sat_math_75": 590,
+    "act_25": 18,
+    "act_75": 26,
+    "tuition_in_state": 8179,
+    "tuition_out_of_state": 22043,
+    "room_board": null,
+    "total_cost_in_state": 13351,
+    "total_cost_out_of_state": null,
+    "net_price": {
+      "0_30k": 1299,
+      "30_48k": 3450,
+      "48_75k": 7224,
+      "75_110k": 10847,
+      "110k_plus": 11854
+    },
+    "pell_rate": 0.3469,
+    "federal_loan_rate": 0.3331,
+    "enrollment": 2308
+  },
+  "cds": null,
+  "reference": null
+}

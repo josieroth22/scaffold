@@ -1,0 +1,36 @@
+{
+  "slug": "brevard-college",
+  "name": "Brevard College",
+  "ipeds_id": 198066,
+  "state": "NC",
+  "city": "Brevard",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.395,
+    "sat_reading_25": 440,
+    "sat_reading_75": 620,
+    "sat_math_25": 430,
+    "sat_math_75": 600,
+    "act_25": 16,
+    "act_75": 26,
+    "tuition_in_state": 31250,
+    "tuition_out_of_state": 31250,
+    "room_board": 13400,
+    "total_cost_in_state": 46650,
+    "total_cost_out_of_state": 46650,
+    "net_price": {
+      "0_30k": 17493,
+      "30_48k": 18803,
+      "48_75k": 21716,
+      "75_110k": 24695,
+      "110k_plus": 23961
+    },
+    "pell_rate": 0.3769,
+    "federal_loan_rate": 0.7048,
+    "enrollment": 760
+  },
+  "cds": null,
+  "reference": null
+}

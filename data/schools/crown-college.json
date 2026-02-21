@@ -1,0 +1,36 @@
+{
+  "slug": "crown-college",
+  "name": "Crown College",
+  "ipeds_id": 174862,
+  "state": "MN",
+  "city": "Saint Bonifacius",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.6281,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 30200,
+    "tuition_out_of_state": 30200,
+    "room_board": 10430,
+    "total_cost_in_state": 42630,
+    "total_cost_out_of_state": 42630,
+    "net_price": {
+      "0_30k": 25998,
+      "30_48k": 23578,
+      "48_75k": 26296,
+      "75_110k": 28168,
+      "110k_plus": 29489
+    },
+    "pell_rate": 0.2446,
+    "federal_loan_rate": 0.3781,
+    "enrollment": 789
+  },
+  "cds": null,
+  "reference": null
+}

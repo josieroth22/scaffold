@@ -1,0 +1,36 @@
+{
+  "slug": "meredith-college",
+  "name": "Meredith College",
+  "ipeds_id": 198950,
+  "state": "NC",
+  "city": "Raleigh",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.7466,
+    "sat_reading_25": 590,
+    "sat_reading_75": 650,
+    "sat_math_25": 520,
+    "sat_math_75": 610,
+    "act_25": 23,
+    "act_75": 30,
+    "tuition_in_state": 43936,
+    "tuition_out_of_state": 43936,
+    "room_board": 12920,
+    "total_cost_in_state": 58856,
+    "total_cost_out_of_state": 58856,
+    "net_price": {
+      "0_30k": 14882,
+      "30_48k": 14337,
+      "48_75k": 17521,
+      "75_110k": 22976,
+      "110k_plus": 28045
+    },
+    "pell_rate": 0.3276,
+    "federal_loan_rate": 0.5485,
+    "enrollment": 1288
+  },
+  "cds": null,
+  "reference": null
+}

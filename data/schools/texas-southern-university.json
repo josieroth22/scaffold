@@ -1,0 +1,36 @@
+{
+  "slug": "texas-southern-university",
+  "name": "Texas Southern University",
+  "ipeds_id": 229063,
+  "state": "TX",
+  "city": "Houston",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.9335,
+    "sat_reading_25": 420,
+    "sat_reading_75": 510,
+    "sat_math_25": 380,
+    "sat_math_75": 490,
+    "act_25": 15,
+    "act_75": 19,
+    "tuition_in_state": 9173,
+    "tuition_out_of_state": 21773,
+    "room_board": 10914,
+    "total_cost_in_state": 22087,
+    "total_cost_out_of_state": 34687,
+    "net_price": {
+      "0_30k": 19738,
+      "30_48k": 19676,
+      "48_75k": 19237,
+      "75_110k": null,
+      "110k_plus": null
+    },
+    "pell_rate": 0.713,
+    "federal_loan_rate": 0.6527,
+    "enrollment": 6619
+  },
+  "cds": null,
+  "reference": null
+}

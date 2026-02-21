@@ -1,0 +1,36 @@
+{
+  "slug": "brewton-parker-college",
+  "name": "Brewton-Parker College",
+  "ipeds_id": 139205,
+  "state": "GA",
+  "city": "Mount Vernon",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.8635,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 21696,
+    "tuition_out_of_state": 21696,
+    "room_board": 10138,
+    "total_cost_in_state": 33834,
+    "total_cost_out_of_state": 33834,
+    "net_price": {
+      "0_30k": 20759,
+      "30_48k": 20890,
+      "48_75k": 23924,
+      "75_110k": 24249,
+      "110k_plus": 23318
+    },
+    "pell_rate": 0.461,
+    "federal_loan_rate": 0.483,
+    "enrollment": 684
+  },
+  "cds": null,
+  "reference": null
+}

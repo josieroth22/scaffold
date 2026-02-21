@@ -1,0 +1,36 @@
+{
+  "slug": "stevenson-university",
+  "name": "Stevenson University",
+  "ipeds_id": 164173,
+  "state": "MD",
+  "city": "Owings Mills",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.832,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 39708,
+    "tuition_out_of_state": 39708,
+    "room_board": 14978,
+    "total_cost_in_state": 56686,
+    "total_cost_out_of_state": 56686,
+    "net_price": {
+      "0_30k": 18681,
+      "30_48k": 23022,
+      "48_75k": 27788,
+      "75_110k": 30786,
+      "110k_plus": 32505
+    },
+    "pell_rate": 0.2894,
+    "federal_loan_rate": 0.47,
+    "enrollment": 3027
+  },
+  "cds": null,
+  "reference": null
+}

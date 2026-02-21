@@ -1,0 +1,36 @@
+{
+  "slug": "mayville-state-university",
+  "name": "Mayville State University",
+  "ipeds_id": 200226,
+  "state": "ND",
+  "city": "Mayville",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": null,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 7935,
+    "tuition_out_of_state": 9564,
+    "room_board": 9088,
+    "total_cost_in_state": 19023,
+    "total_cost_out_of_state": 20652,
+    "net_price": {
+      "0_30k": 10575,
+      "30_48k": 9238,
+      "48_75k": 14676,
+      "75_110k": 16436,
+      "110k_plus": 16448
+    },
+    "pell_rate": 0.2442,
+    "federal_loan_rate": 0.3937,
+    "enrollment": 704
+  },
+  "cds": null,
+  "reference": null
+}

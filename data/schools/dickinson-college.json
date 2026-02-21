@@ -1,0 +1,43 @@
+{
+  "slug": "dickinson-college",
+  "name": "Dickinson College",
+  "ipeds_id": 212009,
+  "state": "PA",
+  "city": "Carlisle",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.4308,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 63475,
+    "tuition_out_of_state": 63475,
+    "room_board": 16500,
+    "total_cost_in_state": 81975,
+    "total_cost_out_of_state": 81975,
+    "net_price": {
+      "0_30k": 17167,
+      "30_48k": 15148,
+      "48_75k": 16348,
+      "75_110k": 21727,
+      "110k_plus": 43766
+    },
+    "pell_rate": 0.1365,
+    "federal_loan_rate": 0.4009,
+    "enrollment": 2157
+  },
+  "cds": null,
+  "reference": {
+    "national_merit": {
+      "semifinalist_award": "None",
+      "finalist_award": "$2,000",
+      "first_choice_required": true,
+      "guaranteed": false
+    }
+  }
+}

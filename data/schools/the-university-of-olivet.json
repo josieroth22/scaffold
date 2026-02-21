@@ -1,0 +1,36 @@
+{
+  "slug": "the-university-of-olivet",
+  "name": "The University of Olivet",
+  "ipeds_id": 171599,
+  "state": "MI",
+  "city": "Olivet",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.9711,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 33076,
+    "tuition_out_of_state": 33076,
+    "room_board": 11886,
+    "total_cost_in_state": 46962,
+    "total_cost_out_of_state": 46962,
+    "net_price": {
+      "0_30k": 20658,
+      "30_48k": 24502,
+      "48_75k": 17447,
+      "75_110k": 21904,
+      "110k_plus": 25220
+    },
+    "pell_rate": 0.4174,
+    "federal_loan_rate": 0.7545,
+    "enrollment": 918
+  },
+  "cds": null,
+  "reference": null
+}

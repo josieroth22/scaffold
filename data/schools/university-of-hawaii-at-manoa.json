@@ -1,0 +1,38 @@
+{
+  "slug": "university-of-hawaii-at-manoa",
+  "name": "University of Hawaii at Manoa",
+  "api_name": "University of Hawaii at Manoa",
+  "ipeds_id": 141574,
+  "state": "HI",
+  "city": "Honolulu",
+  "type": "public",
+  "tier": "A",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.6969,
+    "sat_reading_25": 540,
+    "sat_reading_75": 640,
+    "sat_math_25": 480,
+    "sat_math_75": 600,
+    "act_25": 20,
+    "act_75": 27,
+    "tuition_in_state": 12186,
+    "tuition_out_of_state": 34218,
+    "room_board": 14936,
+    "total_cost_in_state": 29122,
+    "total_cost_out_of_state": 51154,
+    "net_price": {
+      "0_30k": 7397,
+      "30_48k": 9971,
+      "48_75k": 13381,
+      "75_110k": 16795,
+      "110k_plus": 20462
+    },
+    "pell_rate": 0.2451,
+    "federal_loan_rate": 0.2736,
+    "enrollment": 14306
+  },
+  "cds": null,
+  "reference": null
+}

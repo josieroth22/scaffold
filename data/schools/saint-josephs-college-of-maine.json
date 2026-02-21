@@ -1,0 +1,36 @@
+{
+  "slug": "saint-josephs-college-of-maine",
+  "name": "Saint Joseph's College of Maine",
+  "ipeds_id": 161518,
+  "state": "ME",
+  "city": "Standish",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.8172,
+    "sat_reading_25": 470,
+    "sat_reading_75": 580,
+    "sat_math_25": 440,
+    "sat_math_75": 560,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 42834,
+    "tuition_out_of_state": 42834,
+    "room_board": 14936,
+    "total_cost_in_state": 59770,
+    "total_cost_out_of_state": 59770,
+    "net_price": {
+      "0_30k": 22105,
+      "30_48k": 29805,
+      "48_75k": 31494,
+      "75_110k": 33369,
+      "110k_plus": 38452
+    },
+    "pell_rate": 0.201,
+    "federal_loan_rate": 0.597,
+    "enrollment": 930
+  },
+  "cds": null,
+  "reference": null
+}

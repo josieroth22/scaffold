@@ -1,0 +1,83 @@
+{
+  "slug": "university-of-maryland-college-park",
+  "name": "University of Maryland, College Park",
+  "api_name": "University of Maryland-College Park",
+  "ipeds_id": 163286,
+  "state": "MD",
+  "city": "College Park",
+  "type": "public",
+  "tier": "A",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.4484,
+    "sat_reading_25": 670,
+    "sat_reading_75": 740,
+    "sat_math_25": 700,
+    "sat_math_75": 780,
+    "act_25": 32,
+    "act_75": 35,
+    "tuition_in_state": 11505,
+    "tuition_out_of_state": 40306,
+    "room_board": 15416,
+    "total_cost_in_state": 28921,
+    "total_cost_out_of_state": 57722,
+    "net_price": {
+      "0_30k": 3603,
+      "30_48k": 7327,
+      "48_75k": 12237,
+      "75_110k": 20855,
+      "110k_plus": 26239
+    },
+    "pell_rate": 0.1859,
+    "federal_loan_rate": 0.2269,
+    "enrollment": 30246
+  },
+  "cds": {
+    "school_name": "University of Maryland",
+    "source_year": "2024-2025",
+    "total_applicants": 60042,
+    "total_admitted": 26897,
+    "admit_rate_overall": 0.448,
+    "ed_applicants": null,
+    "ed_admitted": null,
+    "ed_admit_rate": null,
+    "ea_applicants": null,
+    "ea_admitted": null,
+    "ea_admit_rate": null,
+    "sat_reading_25": 680,
+    "sat_reading_75": 750,
+    "sat_math_25": 710,
+    "sat_math_75": 780,
+    "sat_composite_25": 1410,
+    "sat_composite_75": 1520,
+    "act_composite_25": 32,
+    "act_composite_75": 35,
+    "tuition_in_state": 10087,
+    "tuition_out_of_state": 39464,
+    "tuition_private": null,
+    "required_fees": 1722,
+    "room_board": 15719,
+    "pct_need_met": 67.1,
+    "avg_need_grant": 15641,
+    "avg_financial_aid_package": 15844,
+    "meets_full_need": false,
+    "pct_freshmen_receiving_need_aid": 37.9,
+    "pct_freshmen_receiving_merit_aid": 3.5,
+    "avg_merit_award": 7827
+  },
+  "reference": {
+    "merit_scholarships": [
+      {
+        "name": "Banneker/Key Scholarship",
+        "amount": "Full cost of attendance (tuition, fees, housing, food, books) for 4 years",
+        "description": "UMD's most prestigious merit scholarship, awarded to ~top 2% of admitted students. Automatic Honors College admission. On-campus interview required."
+      },
+      {
+        "name": "President's Scholarship",
+        "amount": "Up to $20,000/year for 4 years",
+        "description": "Merit award for in-state and out-of-state freshmen. No separate application; must apply by November 1 EA deadline."
+      }
+    ]
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "slug": "university-of-wyoming",
+  "name": "University of Wyoming",
+  "api_name": "University of Wyoming",
+  "ipeds_id": 240727,
+  "state": "WY",
+  "city": "Laramie",
+  "type": "public",
+  "tier": "A",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.9741,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 6938,
+    "tuition_out_of_state": 22718,
+    "room_board": 13340,
+    "total_cost_in_state": 22278,
+    "total_cost_out_of_state": 38058,
+    "net_price": {
+      "0_30k": 7602,
+      "30_48k": 7618,
+      "48_75k": 10168,
+      "75_110k": 15315,
+      "110k_plus": 18136
+    },
+    "pell_rate": 0.2218,
+    "federal_loan_rate": 0.2828,
+    "enrollment": 8047
+  },
+  "cds": null,
+  "reference": null
+}

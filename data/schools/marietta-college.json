@@ -1,0 +1,36 @@
+{
+  "slug": "marietta-college",
+  "name": "Marietta College",
+  "ipeds_id": 203845,
+  "state": "OH",
+  "city": "Marietta",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.7862,
+    "sat_reading_25": 500,
+    "sat_reading_75": 640,
+    "sat_math_25": 490,
+    "sat_math_75": 655,
+    "act_25": 18,
+    "act_75": 24,
+    "tuition_in_state": 38974,
+    "tuition_out_of_state": 38974,
+    "room_board": 12544,
+    "total_cost_in_state": 53518,
+    "total_cost_out_of_state": 53518,
+    "net_price": {
+      "0_30k": 14987,
+      "30_48k": 14731,
+      "48_75k": 16626,
+      "75_110k": 20834,
+      "110k_plus": 25625
+    },
+    "pell_rate": 0.2714,
+    "federal_loan_rate": 0.6114,
+    "enrollment": 1035
+  },
+  "cds": null,
+  "reference": null
+}

@@ -1,0 +1,36 @@
+{
+  "slug": "university-of-alabama-in-huntsville",
+  "name": "University of Alabama in Huntsville",
+  "ipeds_id": 100706,
+  "state": "AL",
+  "city": "Huntsville",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.7425,
+    "sat_reading_25": 595,
+    "sat_reading_75": 700,
+    "sat_math_25": 600,
+    "sat_math_75": 740,
+    "act_25": 25,
+    "act_75": 31,
+    "tuition_in_state": 11770,
+    "tuition_out_of_state": 24662,
+    "room_board": 11122,
+    "total_cost_in_state": 24892,
+    "total_cost_out_of_state": 37784,
+    "net_price": {
+      "0_30k": 16521,
+      "30_48k": 17935,
+      "48_75k": 21187,
+      "75_110k": 21205,
+      "110k_plus": 21937
+    },
+    "pell_rate": 0.225,
+    "federal_loan_rate": 0.3391,
+    "enrollment": 6650
+  },
+  "cds": null,
+  "reference": null
+}

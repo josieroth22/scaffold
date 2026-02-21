@@ -1,0 +1,36 @@
+{
+  "slug": "minnesota-state-university-moorhead",
+  "name": "Minnesota State University Moorhead",
+  "ipeds_id": 174358,
+  "state": "MN",
+  "city": "Moorhead",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.5262,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": 19,
+    "act_75": 24,
+    "tuition_in_state": 10336,
+    "tuition_out_of_state": 10336,
+    "room_board": 10594,
+    "total_cost_in_state": 22930,
+    "total_cost_out_of_state": 22930,
+    "net_price": {
+      "0_30k": 13260,
+      "30_48k": 12969,
+      "48_75k": 14544,
+      "75_110k": 19410,
+      "110k_plus": 21573
+    },
+    "pell_rate": 0.2746,
+    "federal_loan_rate": 0.5192,
+    "enrollment": 3120
+  },
+  "cds": null,
+  "reference": null
+}

@@ -1,0 +1,36 @@
+{
+  "slug": "bethany-lutheran-college",
+  "name": "Bethany Lutheran College",
+  "ipeds_id": 173142,
+  "state": "MN",
+  "city": "Mankato",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.5096,
+    "sat_reading_25": 450,
+    "sat_reading_75": 630,
+    "sat_math_25": 550,
+    "sat_math_75": 630,
+    "act_25": 21,
+    "act_75": 26,
+    "tuition_in_state": 30010,
+    "tuition_out_of_state": 30010,
+    "room_board": 8270,
+    "total_cost_in_state": 40280,
+    "total_cost_out_of_state": 40280,
+    "net_price": {
+      "0_30k": 15667,
+      "30_48k": 10224,
+      "48_75k": 16099,
+      "75_110k": 17008,
+      "110k_plus": 23753
+    },
+    "pell_rate": 0.221,
+    "federal_loan_rate": 0.4154,
+    "enrollment": 682
+  },
+  "cds": null,
+  "reference": null
+}

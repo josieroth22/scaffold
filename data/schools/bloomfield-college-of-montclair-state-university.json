@@ -1,0 +1,36 @@
+{
+  "slug": "bloomfield-college-of-montclair-state-university",
+  "name": "Bloomfield College of Montclair State University",
+  "ipeds_id": 183822,
+  "state": "NJ",
+  "city": "Bloomfield",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.6723,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 30680,
+    "tuition_out_of_state": 30680,
+    "room_board": 12900,
+    "total_cost_in_state": 45580,
+    "total_cost_out_of_state": 45580,
+    "net_price": {
+      "0_30k": 17664,
+      "30_48k": 14801,
+      "48_75k": 19185,
+      "75_110k": 28650,
+      "110k_plus": 24399
+    },
+    "pell_rate": 0.6892,
+    "federal_loan_rate": 0.9002,
+    "enrollment": 901
+  },
+  "cds": null,
+  "reference": null
+}

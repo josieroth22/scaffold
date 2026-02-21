@@ -1,0 +1,36 @@
+{
+  "slug": "northeastern-state-university",
+  "name": "Northeastern State University",
+  "ipeds_id": 207263,
+  "state": "OK",
+  "city": "Tahlequah",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.9921,
+    "sat_reading_25": 455,
+    "sat_reading_75": 585,
+    "sat_math_25": 465,
+    "sat_math_75": 560,
+    "act_25": 18,
+    "act_75": 23,
+    "tuition_in_state": 7513,
+    "tuition_out_of_state": 16633,
+    "room_board": 10494,
+    "total_cost_in_state": 20007,
+    "total_cost_out_of_state": 29127,
+    "net_price": {
+      "0_30k": 9624,
+      "30_48k": 9468,
+      "48_75k": 12083,
+      "75_110k": 16943,
+      "110k_plus": 17134
+    },
+    "pell_rate": 0.4243,
+    "federal_loan_rate": 0.3804,
+    "enrollment": 4636
+  },
+  "cds": null,
+  "reference": null
+}

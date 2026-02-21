@@ -1,0 +1,36 @@
+{
+  "slug": "gardner-webb-university",
+  "name": "Gardner-Webb University",
+  "ipeds_id": 198561,
+  "state": "NC",
+  "city": "Boiling Springs",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.8702,
+    "sat_reading_25": 520,
+    "sat_reading_75": 640,
+    "sat_math_25": 520,
+    "sat_math_75": 620,
+    "act_25": 20,
+    "act_75": 26,
+    "tuition_in_state": 33450,
+    "tuition_out_of_state": 33450,
+    "room_board": 10770,
+    "total_cost_in_state": 46220,
+    "total_cost_out_of_state": 46220,
+    "net_price": {
+      "0_30k": 21744,
+      "30_48k": 19750,
+      "48_75k": 19334,
+      "75_110k": 25534,
+      "110k_plus": 27952
+    },
+    "pell_rate": 0.2682,
+    "federal_loan_rate": 0.5491,
+    "enrollment": 1836
+  },
+  "cds": null,
+  "reference": null
+}

@@ -1,0 +1,36 @@
+{
+  "slug": "creighton-university",
+  "name": "Creighton University",
+  "ipeds_id": 181002,
+  "state": "NE",
+  "city": "Omaha",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.7231,
+    "sat_reading_25": 610,
+    "sat_reading_75": 700,
+    "sat_math_25": 600,
+    "sat_math_75": 700,
+    "act_25": 24,
+    "act_75": 30,
+    "tuition_in_state": 47000,
+    "tuition_out_of_state": 47000,
+    "room_board": 12790,
+    "total_cost_in_state": 61790,
+    "total_cost_out_of_state": 61790,
+    "net_price": {
+      "0_30k": 21202,
+      "30_48k": 22604,
+      "48_75k": 25659,
+      "75_110k": 31439,
+      "110k_plus": 35861
+    },
+    "pell_rate": 0.0524,
+    "federal_loan_rate": 0.4455,
+    "enrollment": 4231
+  },
+  "cds": null,
+  "reference": null
+}

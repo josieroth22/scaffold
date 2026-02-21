@@ -1,0 +1,36 @@
+{
+  "slug": "trevecca-nazarene-university",
+  "name": "Trevecca Nazarene University",
+  "ipeds_id": 221892,
+  "state": "TN",
+  "city": "Nashville",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.7002,
+    "sat_reading_25": 488,
+    "sat_reading_75": 600,
+    "sat_math_25": 485,
+    "sat_math_75": 593,
+    "act_25": 18,
+    "act_75": 24,
+    "tuition_in_state": 29790,
+    "tuition_out_of_state": 29790,
+    "room_board": 10150,
+    "total_cost_in_state": 41940,
+    "total_cost_out_of_state": 41940,
+    "net_price": {
+      "0_30k": 11013,
+      "30_48k": 11298,
+      "48_75k": 12303,
+      "75_110k": 17725,
+      "110k_plus": 19093
+    },
+    "pell_rate": 0.3049,
+    "federal_loan_rate": 0.4094,
+    "enrollment": 1697
+  },
+  "cds": null,
+  "reference": null
+}

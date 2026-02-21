@@ -1,0 +1,36 @@
+{
+  "slug": "university-of-new-hampshire-college-of-professional-studies-online",
+  "name": "University of New Hampshire College of Professional Studies Online",
+  "ipeds_id": 183257,
+  "state": "NH",
+  "city": "Manchester",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": null,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 7812,
+    "tuition_out_of_state": 9372,
+    "room_board": null,
+    "total_cost_in_state": 19236,
+    "total_cost_out_of_state": null,
+    "net_price": {
+      "0_30k": 9654,
+      "30_48k": 13912,
+      "48_75k": 15814,
+      "75_110k": 16562,
+      "110k_plus": 19236
+    },
+    "pell_rate": 0.3188,
+    "federal_loan_rate": 0.4335,
+    "enrollment": 1019
+  },
+  "cds": null,
+  "reference": null
+}

@@ -1,0 +1,36 @@
+{
+  "slug": "commonwealth-university-of-pennsylvania",
+  "name": "Commonwealth University of Pennsylvania",
+  "ipeds_id": 498562,
+  "state": "PA",
+  "city": "Bloomsburg",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.9475,
+    "sat_reading_25": 490,
+    "sat_reading_75": 600,
+    "sat_math_25": 480,
+    "sat_math_75": 580,
+    "act_25": 18,
+    "act_75": 25,
+    "tuition_in_state": 11046,
+    "tuition_out_of_state": 22870,
+    "room_board": 11106,
+    "total_cost_in_state": 24152,
+    "total_cost_out_of_state": 35976,
+    "net_price": {
+      "0_30k": 13799,
+      "30_48k": 14068,
+      "48_75k": 17711,
+      "75_110k": 21110,
+      "110k_plus": 23167
+    },
+    "pell_rate": 0.2934,
+    "federal_loan_rate": 0.5842,
+    "enrollment": 9309
+  },
+  "cds": null,
+  "reference": null
+}

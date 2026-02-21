@@ -1,0 +1,36 @@
+{
+  "slug": "california-state-university-channel-islands",
+  "name": "California State University-Channel Islands",
+  "ipeds_id": 441937,
+  "state": "CA",
+  "city": "Camarillo",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.9306,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 6817,
+    "tuition_out_of_state": 18697,
+    "room_board": 14200,
+    "total_cost_in_state": 23017,
+    "total_cost_out_of_state": 34897,
+    "net_price": {
+      "0_30k": 7077,
+      "30_48k": 7350,
+      "48_75k": 9293,
+      "75_110k": 15043,
+      "110k_plus": 20871
+    },
+    "pell_rate": 0.469,
+    "federal_loan_rate": 0.2595,
+    "enrollment": 5230
+  },
+  "cds": null,
+  "reference": null
+}

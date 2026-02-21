@@ -1,0 +1,51 @@
+{
+  "slug": "florida-state-university",
+  "name": "Florida State University",
+  "ipeds_id": 134097,
+  "state": "FL",
+  "city": "Tallahassee",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.2538,
+    "sat_reading_25": 630,
+    "sat_reading_75": 700,
+    "sat_math_25": 610,
+    "sat_math_75": 690,
+    "act_25": 27,
+    "act_75": 31,
+    "tuition_in_state": 5656,
+    "tuition_out_of_state": 18786,
+    "room_board": 12740,
+    "total_cost_in_state": 20396,
+    "total_cost_out_of_state": 33526,
+    "net_price": {
+      "0_30k": 5777,
+      "30_48k": 7427,
+      "48_75k": 11131,
+      "75_110k": 16057,
+      "110k_plus": 17910
+    },
+    "pell_rate": 0.2375,
+    "federal_loan_rate": 0.2191,
+    "enrollment": 31812
+  },
+  "cds": null,
+  "reference": {
+    "national_merit": {
+      "semifinalist_award": "None",
+      "finalist_award": "Full COA",
+      "first_choice_required": false,
+      "guaranteed": true
+    },
+    "honors_program": {
+      "name": "University Honors Program",
+      "description": "The University Honors Program at Florida State University is the only Florida honors program with a dedicated cohort of honors teaching faculty, full-time instructors assigned specifically to the program who design innovative courses. Honors students enjoy tailored courses, dedicated advisors, two centrally located residence halls, and guaranteed priority registration.",
+      "separate_application": null,
+      "avg_sat": null,
+      "acceptance_rate": null,
+      "size": 2000
+    }
+  }
+}

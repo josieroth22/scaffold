@@ -1,0 +1,36 @@
+{
+  "slug": "oglethorpe-university",
+  "name": "Oglethorpe University",
+  "ipeds_id": 140696,
+  "state": "GA",
+  "city": "Atlanta",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.6006,
+    "sat_reading_25": 573,
+    "sat_reading_75": 670,
+    "sat_math_25": 533,
+    "sat_math_75": 650,
+    "act_25": 23,
+    "act_75": 30,
+    "tuition_in_state": 45806,
+    "tuition_out_of_state": 45806,
+    "room_board": 15300,
+    "total_cost_in_state": 63106,
+    "total_cost_out_of_state": 63106,
+    "net_price": {
+      "0_30k": 17338,
+      "30_48k": 18628,
+      "48_75k": 20321,
+      "75_110k": 24263,
+      "110k_plus": 24561
+    },
+    "pell_rate": 0.3374,
+    "federal_loan_rate": 0.6727,
+    "enrollment": 1429
+  },
+  "cds": null,
+  "reference": null
+}

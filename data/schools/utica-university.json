@@ -1,0 +1,36 @@
+{
+  "slug": "utica-university",
+  "name": "Utica University",
+  "ipeds_id": 197045,
+  "state": "NY",
+  "city": "Utica",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.8719,
+    "sat_reading_25": 510,
+    "sat_reading_75": 600,
+    "sat_math_25": 520,
+    "sat_math_75": 610,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 24308,
+    "tuition_out_of_state": 24308,
+    "room_board": 13080,
+    "total_cost_in_state": 39388,
+    "total_cost_out_of_state": 39388,
+    "net_price": {
+      "0_30k": 16485,
+      "30_48k": 14355,
+      "48_75k": 19670,
+      "75_110k": 22938,
+      "110k_plus": 27736
+    },
+    "pell_rate": 0.2961,
+    "federal_loan_rate": 0.6628,
+    "enrollment": 2477
+  },
+  "cds": null,
+  "reference": null
+}

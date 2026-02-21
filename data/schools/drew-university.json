@@ -1,0 +1,36 @@
+{
+  "slug": "drew-university",
+  "name": "Drew University",
+  "ipeds_id": 184348,
+  "state": "NJ",
+  "city": "Madison",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.6944,
+    "sat_reading_25": 560,
+    "sat_reading_75": 680,
+    "sat_math_25": 550,
+    "sat_math_75": 640,
+    "act_25": 25,
+    "act_75": 31,
+    "tuition_in_state": 45360,
+    "tuition_out_of_state": 45360,
+    "room_board": 17640,
+    "total_cost_in_state": 65000,
+    "total_cost_out_of_state": 65000,
+    "net_price": {
+      "0_30k": 13177,
+      "30_48k": 20060,
+      "48_75k": 19926,
+      "75_110k": 28090,
+      "110k_plus": 34219
+    },
+    "pell_rate": 0.2723,
+    "federal_loan_rate": 0.5753,
+    "enrollment": 1510
+  },
+  "cds": null,
+  "reference": null
+}

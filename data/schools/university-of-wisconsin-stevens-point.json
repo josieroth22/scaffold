@@ -1,0 +1,36 @@
+{
+  "slug": "university-of-wisconsin-stevens-point",
+  "name": "University of Wisconsin-Stevens Point",
+  "ipeds_id": 240480,
+  "state": "WI",
+  "city": "Stevens Point",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.9014,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": 20,
+    "act_75": 25,
+    "tuition_in_state": 8834,
+    "tuition_out_of_state": 17854,
+    "room_board": 8500,
+    "total_cost_in_state": 19334,
+    "total_cost_out_of_state": 28354,
+    "net_price": {
+      "0_30k": 7953,
+      "30_48k": 8490,
+      "48_75k": 12706,
+      "75_110k": 16141,
+      "110k_plus": 17500
+    },
+    "pell_rate": 0.2777,
+    "federal_loan_rate": 0.4983,
+    "enrollment": 7104
+  },
+  "cds": null,
+  "reference": null
+}

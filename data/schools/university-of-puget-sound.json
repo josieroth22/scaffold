@@ -1,0 +1,36 @@
+{
+  "slug": "university-of-puget-sound",
+  "name": "University of Puget Sound",
+  "ipeds_id": 236328,
+  "state": "WA",
+  "city": "Tacoma",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.7628,
+    "sat_reading_25": 615,
+    "sat_reading_75": 710,
+    "sat_math_25": 570,
+    "sat_math_75": 680,
+    "act_25": 27,
+    "act_75": 31,
+    "tuition_in_state": 59900,
+    "tuition_out_of_state": 59900,
+    "room_board": 15040,
+    "total_cost_in_state": 76940,
+    "total_cost_out_of_state": 76940,
+    "net_price": {
+      "0_30k": 28409,
+      "30_48k": 29663,
+      "48_75k": 33336,
+      "75_110k": 37880,
+      "110k_plus": 45996
+    },
+    "pell_rate": 0.1671,
+    "federal_loan_rate": 0.4287,
+    "enrollment": 1631
+  },
+  "cds": null,
+  "reference": null
+}

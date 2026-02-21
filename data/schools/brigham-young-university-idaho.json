@@ -1,0 +1,36 @@
+{
+  "slug": "brigham-young-university-idaho",
+  "name": "Brigham Young University-Idaho",
+  "ipeds_id": 142522,
+  "state": "ID",
+  "city": "Rexburg",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.9695,
+    "sat_reading_25": 500,
+    "sat_reading_75": 610,
+    "sat_math_25": 480,
+    "sat_math_75": 590,
+    "act_25": 20,
+    "act_75": 26,
+    "tuition_in_state": 4656,
+    "tuition_out_of_state": 4656,
+    "room_board": 5068,
+    "total_cost_in_state": 11724,
+    "total_cost_out_of_state": 11724,
+    "net_price": {
+      "0_30k": 3102,
+      "30_48k": 4175,
+      "48_75k": 5457,
+      "75_110k": 8757,
+      "110k_plus": 12309
+    },
+    "pell_rate": 0.2487,
+    "federal_loan_rate": 0.1154,
+    "enrollment": 42090
+  },
+  "cds": null,
+  "reference": null
+}

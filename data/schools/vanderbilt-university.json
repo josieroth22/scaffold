@@ -1,0 +1,97 @@
+{
+  "slug": "vanderbilt-university",
+  "name": "Vanderbilt University",
+  "api_name": "Vanderbilt University",
+  "ipeds_id": 221999,
+  "state": "TN",
+  "city": "Nashville",
+  "type": "private",
+  "tier": "B",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.0628,
+    "sat_reading_25": 740,
+    "sat_reading_75": 770,
+    "sat_math_25": 770,
+    "sat_math_75": 790,
+    "act_25": 34,
+    "act_75": 35,
+    "tuition_in_state": 63946,
+    "tuition_out_of_state": 63946,
+    "room_board": 21054,
+    "total_cost_in_state": 87000,
+    "total_cost_out_of_state": 87000,
+    "net_price": {
+      "0_30k": 5797,
+      "30_48k": 4729,
+      "48_75k": 6211,
+      "75_110k": 14780,
+      "110k_plus": 42754
+    },
+    "pell_rate": 0.1851,
+    "federal_loan_rate": 0.105,
+    "enrollment": 7143
+  },
+  "cds": {
+    "school_name": null,
+    "source_year": "2024-2025",
+    "total_applicants": 45409,
+    "total_admitted": 2662,
+    "admit_rate_overall": 0.059,
+    "ed_applicants": 5363,
+    "ed_admitted": 825,
+    "ed_admit_rate": 0.154,
+    "ea_applicants": null,
+    "ea_admitted": null,
+    "ea_admit_rate": null,
+    "sat_reading_25": 730,
+    "sat_reading_75": 770,
+    "sat_math_25": 770,
+    "sat_math_75": 800,
+    "sat_composite_25": 1510,
+    "sat_composite_75": 1560,
+    "act_composite_25": 34,
+    "act_composite_75": 35,
+    "tuition_in_state": null,
+    "tuition_out_of_state": null,
+    "tuition_private": null,
+    "required_fees": null,
+    "room_board": null,
+    "pct_need_met": 100,
+    "avg_need_grant": 75271,
+    "avg_financial_aid_package": 78832,
+    "meets_full_need": true,
+    "pct_freshmen_receiving_need_aid": 51.6,
+    "pct_freshmen_receiving_merit_aid": 11.2,
+    "avg_merit_award": 29973
+  },
+  "reference": {
+    "merit_scholarships": [
+      {
+        "name": "Chancellor's Scholars",
+        "amount": "Full tuition (~$64,000/year), plus summer stipend",
+        "deadline": "December 1",
+        "requirements": "Chancellor's Scholarship Application"
+      },
+      {
+        "name": "Cornelius Vanderbilt Scholarship",
+        "amount": "Full tuition (~$64,000/year), plus summer stipend",
+        "deadline": "December 1",
+        "requirements": "Cornelius Vanderbilt Scholarship Application"
+      },
+      {
+        "name": "Ingram Scholars Program",
+        "amount": "Full tuition, fees, housing, plus summer service stipend",
+        "deadline": "December 1",
+        "requirements": "Ingram Scholars Program Application"
+      }
+    ],
+    "national_merit": {
+      "semifinalist_award": "None",
+      "finalist_award": "$2,000-$5,000",
+      "first_choice_required": true,
+      "guaranteed": true
+    }
+  }
+}

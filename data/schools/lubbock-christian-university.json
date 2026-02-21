@@ -1,0 +1,36 @@
+{
+  "slug": "lubbock-christian-university",
+  "name": "Lubbock Christian University",
+  "ipeds_id": 226383,
+  "state": "TX",
+  "city": "Lubbock",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.7319,
+    "sat_reading_25": 460,
+    "sat_reading_75": 590,
+    "sat_math_25": 440,
+    "sat_math_75": 570,
+    "act_25": 19,
+    "act_75": 25,
+    "tuition_in_state": 27298,
+    "tuition_out_of_state": 27298,
+    "room_board": 8898,
+    "total_cost_in_state": 38196,
+    "total_cost_out_of_state": 38196,
+    "net_price": {
+      "0_30k": 23241,
+      "30_48k": 22721,
+      "48_75k": 26392,
+      "75_110k": 26478,
+      "110k_plus": 26977
+    },
+    "pell_rate": 0.3306,
+    "federal_loan_rate": 0.7504,
+    "enrollment": 1210
+  },
+  "cds": null,
+  "reference": null
+}

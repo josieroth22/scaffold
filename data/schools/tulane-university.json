@@ -1,0 +1,97 @@
+{
+  "slug": "tulane-university",
+  "name": "Tulane University",
+  "api_name": "Tulane University of Louisiana",
+  "ipeds_id": 160755,
+  "state": "LA",
+  "city": "New Orleans",
+  "type": "private",
+  "tier": "C",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.1459,
+    "sat_reading_25": 690,
+    "sat_reading_75": 750,
+    "sat_math_25": 700,
+    "sat_math_75": 760,
+    "act_25": 31,
+    "act_75": 33,
+    "tuition_in_state": 65538,
+    "tuition_out_of_state": 65538,
+    "room_board": 18088,
+    "total_cost_in_state": 85626,
+    "total_cost_out_of_state": 85626,
+    "net_price": {
+      "0_30k": 20957,
+      "30_48k": 22974,
+      "48_75k": 26839,
+      "75_110k": 36543,
+      "110k_plus": 58219
+    },
+    "pell_rate": 0.0928,
+    "federal_loan_rate": 0.2092,
+    "enrollment": 7759
+  },
+  "cds": {
+    "school_name": "Tulane University",
+    "source_year": "2024-2025",
+    "total_applicants": 32609,
+    "total_admitted": 4559,
+    "admit_rate_overall": 0.1398,
+    "ed_applicants": 1946,
+    "ed_admitted": 1156,
+    "ed_admit_rate": 0.594,
+    "ea_applicants": null,
+    "ea_admitted": null,
+    "ea_admit_rate": null,
+    "sat_reading_25": 700,
+    "sat_reading_75": 750,
+    "sat_math_25": 700,
+    "sat_math_75": 770,
+    "sat_composite_25": 1410,
+    "sat_composite_75": 1500,
+    "act_composite_25": 31,
+    "act_composite_75": 34,
+    "tuition_in_state": null,
+    "tuition_out_of_state": null,
+    "tuition_private": 64372,
+    "required_fees": 4306,
+    "room_board": 18868,
+    "pct_need_met": 94.39,
+    "avg_need_grant": 51913,
+    "avg_financial_aid_package": 63086,
+    "meets_full_need": false,
+    "pct_freshmen_receiving_need_aid": 35.8,
+    "pct_freshmen_receiving_merit_aid": 45.5,
+    "avg_merit_award": 21264
+  },
+  "reference": {
+    "merit_scholarships": [
+      {
+        "name": "Dean's Honor Scholarship",
+        "amount": "Full tuition (~$63,000/year)",
+        "deadline": "January 15",
+        "requirements": "Optional Supplements"
+      },
+      {
+        "name": "Paul Tulane Award",
+        "amount": "Full tuition (~$63,000/year)",
+        "deadline": "January 15",
+        "requirements": "Optional Supplements"
+      },
+      {
+        "name": "Stamps Scholarship",
+        "amount": "Full COA (tuition, fees, housing, and meals)",
+        "deadline": "January 15",
+        "requirements": "Application Supplements, Interview"
+      }
+    ],
+    "national_merit": {
+      "semifinalist_award": "None",
+      "finalist_award": "$2,000",
+      "first_choice_required": true,
+      "guaranteed": true
+    }
+  }
+}

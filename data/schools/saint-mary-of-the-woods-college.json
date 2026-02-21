@@ -1,0 +1,36 @@
+{
+  "slug": "saint-mary-of-the-woods-college",
+  "name": "Saint Mary-of-the-Woods College",
+  "ipeds_id": 152381,
+  "state": "IN",
+  "city": "Saint Mary of the Woods",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.7614,
+    "sat_reading_25": 440,
+    "sat_reading_75": 540,
+    "sat_math_25": 435,
+    "sat_math_75": 530,
+    "act_25": 15,
+    "act_75": 18,
+    "tuition_in_state": 33490,
+    "tuition_out_of_state": 33490,
+    "room_board": 13010,
+    "total_cost_in_state": 48500,
+    "total_cost_out_of_state": 48500,
+    "net_price": {
+      "0_30k": 40812,
+      "30_48k": 41307,
+      "48_75k": 44117,
+      "75_110k": 46408,
+      "110k_plus": 46639
+    },
+    "pell_rate": 0.5055,
+    "federal_loan_rate": 0.6687,
+    "enrollment": 896
+  },
+  "cds": null,
+  "reference": null
+}

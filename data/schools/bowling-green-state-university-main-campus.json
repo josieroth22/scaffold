@@ -1,0 +1,36 @@
+{
+  "slug": "bowling-green-state-university-main-campus",
+  "name": "Bowling Green State University-Main Campus",
+  "ipeds_id": 201441,
+  "state": "OH",
+  "city": "Bowling Green",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.8061,
+    "sat_reading_25": 510,
+    "sat_reading_75": 620,
+    "sat_math_25": 510,
+    "sat_math_75": 610,
+    "act_25": 20,
+    "act_75": 26,
+    "tuition_in_state": 14081,
+    "tuition_out_of_state": 22070,
+    "room_board": 11784,
+    "total_cost_in_state": 27865,
+    "total_cost_out_of_state": 35854,
+    "net_price": {
+      "0_30k": 15611,
+      "30_48k": 16496,
+      "48_75k": 20316,
+      "75_110k": 23010,
+      "110k_plus": 23945
+    },
+    "pell_rate": 0.227,
+    "federal_loan_rate": 0.4875,
+    "enrollment": 12255
+  },
+  "cds": null,
+  "reference": null
+}

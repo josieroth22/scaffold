@@ -1,0 +1,36 @@
+{
+  "slug": "fairfield-university",
+  "name": "Fairfield University",
+  "ipeds_id": 129242,
+  "state": "CT",
+  "city": "Fairfield",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.4498,
+    "sat_reading_25": 620,
+    "sat_reading_75": 690,
+    "sat_math_25": 620,
+    "sat_math_75": 690,
+    "act_25": 29,
+    "act_75": 32,
+    "tuition_in_state": 56360,
+    "tuition_out_of_state": 56360,
+    "room_board": 17400,
+    "total_cost_in_state": 75760,
+    "total_cost_out_of_state": 75760,
+    "net_price": {
+      "0_30k": 32161,
+      "30_48k": 28062,
+      "48_75k": 35003,
+      "75_110k": 39355,
+      "110k_plus": 49644
+    },
+    "pell_rate": 0.0683,
+    "federal_loan_rate": 0.4759,
+    "enrollment": 4938
+  },
+  "cds": null,
+  "reference": null
+}

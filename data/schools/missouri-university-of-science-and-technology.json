@@ -1,0 +1,36 @@
+{
+  "slug": "missouri-university-of-science-and-technology",
+  "name": "Missouri University of Science and Technology",
+  "ipeds_id": 178411,
+  "state": "MO",
+  "city": "Rolla",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.7307,
+    "sat_reading_25": 560,
+    "sat_reading_75": 670,
+    "sat_math_25": 590,
+    "sat_math_75": 708,
+    "act_25": 25,
+    "act_75": 31,
+    "tuition_in_state": 14278,
+    "tuition_out_of_state": 31678,
+    "room_board": 11762,
+    "total_cost_in_state": 28040,
+    "total_cost_out_of_state": 45440,
+    "net_price": {
+      "0_30k": 9530,
+      "30_48k": 10333,
+      "48_75k": 12585,
+      "75_110k": 16140,
+      "110k_plus": 16558
+    },
+    "pell_rate": 0.2075,
+    "federal_loan_rate": 0.4036,
+    "enrollment": 5467
+  },
+  "cds": null,
+  "reference": null
+}

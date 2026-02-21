@@ -1,0 +1,36 @@
+{
+  "slug": "wilson-college",
+  "name": "Wilson College",
+  "ipeds_id": 217013,
+  "state": "PA",
+  "city": "Chambersburg",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.8998,
+    "sat_reading_25": 480,
+    "sat_reading_75": 570,
+    "sat_math_25": 460,
+    "sat_math_75": 540,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 27000,
+    "tuition_out_of_state": 27000,
+    "room_board": 12162,
+    "total_cost_in_state": 41162,
+    "total_cost_out_of_state": 41162,
+    "net_price": {
+      "0_30k": 14381,
+      "30_48k": 10250,
+      "48_75k": 17122,
+      "75_110k": 22602,
+      "110k_plus": 28575
+    },
+    "pell_rate": 0.266,
+    "federal_loan_rate": 0.8509,
+    "enrollment": 745
+  },
+  "cds": null,
+  "reference": null
+}

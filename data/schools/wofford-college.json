@@ -1,0 +1,36 @@
+{
+  "slug": "wofford-college",
+  "name": "Wofford College",
+  "ipeds_id": 218973,
+  "state": "SC",
+  "city": "Spartanburg",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.5859,
+    "sat_reading_25": 610,
+    "sat_reading_75": 680,
+    "sat_math_25": 590,
+    "sat_math_75": 670,
+    "act_25": 27,
+    "act_75": 31,
+    "tuition_in_state": 54100,
+    "tuition_out_of_state": 54100,
+    "room_board": 15015,
+    "total_cost_in_state": 71115,
+    "total_cost_out_of_state": 71115,
+    "net_price": {
+      "0_30k": 14804,
+      "30_48k": 22105,
+      "48_75k": 22432,
+      "75_110k": 28109,
+      "110k_plus": 34845
+    },
+    "pell_rate": 0.1509,
+    "federal_loan_rate": 0.4114,
+    "enrollment": 1873
+  },
+  "cds": null,
+  "reference": null
+}

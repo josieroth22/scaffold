@@ -1,0 +1,36 @@
+{
+  "slug": "greensboro-college",
+  "name": "Greensboro College",
+  "ipeds_id": 198598,
+  "state": "NC",
+  "city": "Greensboro",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.9205,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 20400,
+    "tuition_out_of_state": 20400,
+    "room_board": 11964,
+    "total_cost_in_state": 34364,
+    "total_cost_out_of_state": 34364,
+    "net_price": {
+      "0_30k": 17131,
+      "30_48k": 16279,
+      "48_75k": 17363,
+      "75_110k": 20492,
+      "110k_plus": 26481
+    },
+    "pell_rate": 0.4507,
+    "federal_loan_rate": 0.6685,
+    "enrollment": 656
+  },
+  "cds": null,
+  "reference": null
+}

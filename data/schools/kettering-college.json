@@ -1,0 +1,36 @@
+{
+  "slug": "kettering-college",
+  "name": "Kettering College",
+  "ipeds_id": 203544,
+  "state": "OH",
+  "city": "Kettering",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.8286,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": 18,
+    "act_75": 26,
+    "tuition_in_state": 15672,
+    "tuition_out_of_state": 15672,
+    "room_board": 9270,
+    "total_cost_in_state": 26942,
+    "total_cost_out_of_state": 26942,
+    "net_price": {
+      "0_30k": 13530,
+      "30_48k": 12505,
+      "48_75k": 13946,
+      "75_110k": 14068,
+      "110k_plus": 21604
+    },
+    "pell_rate": 0.2419,
+    "federal_loan_rate": 0.462,
+    "enrollment": 543
+  },
+  "cds": null,
+  "reference": null
+}

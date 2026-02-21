@@ -1,0 +1,36 @@
+{
+  "slug": "regent-university",
+  "name": "Regent University",
+  "ipeds_id": 231651,
+  "state": "VA",
+  "city": "Virginia Beach",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.4118,
+    "sat_reading_25": 540,
+    "sat_reading_75": 640,
+    "sat_math_25": 510,
+    "sat_math_75": 610,
+    "act_25": 21,
+    "act_75": 26,
+    "tuition_in_state": 20686,
+    "tuition_out_of_state": 20686,
+    "room_board": 7658,
+    "total_cost_in_state": 30344,
+    "total_cost_out_of_state": 30344,
+    "net_price": {
+      "0_30k": 18843,
+      "30_48k": 18644,
+      "48_75k": 16647,
+      "75_110k": 20261,
+      "110k_plus": 18990
+    },
+    "pell_rate": 0.48,
+    "federal_loan_rate": 0.574,
+    "enrollment": 4282
+  },
+  "cds": null,
+  "reference": null
+}

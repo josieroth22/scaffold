@@ -1,0 +1,36 @@
+{
+  "slug": "university-of-minnesota-morris",
+  "name": "University of Minnesota-Morris",
+  "ipeds_id": 174251,
+  "state": "MN",
+  "city": "Morris",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.7046,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 14288,
+    "tuition_out_of_state": 16438,
+    "room_board": 10074,
+    "total_cost_in_state": 26362,
+    "total_cost_out_of_state": 28512,
+    "net_price": {
+      "0_30k": -544,
+      "30_48k": 753,
+      "48_75k": 5967,
+      "75_110k": 10818,
+      "110k_plus": 19048
+    },
+    "pell_rate": 0.3081,
+    "federal_loan_rate": 0.3858,
+    "enrollment": 980
+  },
+  "cds": null,
+  "reference": null
+}

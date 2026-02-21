@@ -1,0 +1,36 @@
+{
+  "slug": "university-of-mount-union",
+  "name": "University of Mount Union",
+  "ipeds_id": 204185,
+  "state": "OH",
+  "city": "Alliance",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.801,
+    "sat_reading_25": 560,
+    "sat_reading_75": 620,
+    "sat_math_25": 510,
+    "sat_math_75": 670,
+    "act_25": 24,
+    "act_75": 28,
+    "tuition_in_state": 35400,
+    "tuition_out_of_state": 35400,
+    "room_board": 11500,
+    "total_cost_in_state": 48900,
+    "total_cost_out_of_state": 48900,
+    "net_price": {
+      "0_30k": 18754,
+      "30_48k": 18475,
+      "48_75k": 20206,
+      "75_110k": 22934,
+      "110k_plus": 25238
+    },
+    "pell_rate": 0.2871,
+    "federal_loan_rate": 0.8001,
+    "enrollment": 1785
+  },
+  "cds": null,
+  "reference": null
+}

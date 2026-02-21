@@ -1,0 +1,36 @@
+{
+  "slug": "uta-mesivta-of-kiryas-joel",
+  "name": "Uta Mesivta of Kiryas Joel",
+  "ipeds_id": 446604,
+  "state": "NY",
+  "city": "Monroe",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": null,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 15000,
+    "tuition_out_of_state": 15000,
+    "room_board": 3200,
+    "total_cost_in_state": 20200,
+    "total_cost_out_of_state": 20200,
+    "net_price": {
+      "0_30k": 4542,
+      "30_48k": 5140,
+      "48_75k": 6270,
+      "75_110k": 8352,
+      "110k_plus": 9976
+    },
+    "pell_rate": 0.8625,
+    "federal_loan_rate": 0,
+    "enrollment": 2729
+  },
+  "cds": null,
+  "reference": null
+}

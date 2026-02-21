@@ -1,0 +1,36 @@
+{
+  "slug": "franklin-and-marshall-college",
+  "name": "Franklin and Marshall College",
+  "ipeds_id": 212577,
+  "state": "PA",
+  "city": "Lancaster",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.3183,
+    "sat_reading_25": 658,
+    "sat_reading_75": 730,
+    "sat_math_25": 640,
+    "sat_math_75": 730,
+    "act_25": 29,
+    "act_75": 32,
+    "tuition_in_state": 68380,
+    "tuition_out_of_state": 68380,
+    "room_board": 15568,
+    "total_cost_in_state": 85948,
+    "total_cost_out_of_state": 85948,
+    "net_price": {
+      "0_30k": 13331,
+      "30_48k": 18539,
+      "48_75k": 26954,
+      "75_110k": 28353,
+      "110k_plus": 48713
+    },
+    "pell_rate": 0.1668,
+    "federal_loan_rate": 0.4422,
+    "enrollment": 1904
+  },
+  "cds": null,
+  "reference": null
+}

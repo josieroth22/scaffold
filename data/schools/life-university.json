@@ -1,0 +1,36 @@
+{
+  "slug": "life-university",
+  "name": "Life University",
+  "ipeds_id": 140252,
+  "state": "GA",
+  "city": "Marietta",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.9381,
+    "sat_reading_25": 440,
+    "sat_reading_75": 570,
+    "sat_math_25": 460,
+    "sat_math_75": 550,
+    "act_25": 15,
+    "act_75": 19,
+    "tuition_in_state": 15036,
+    "tuition_out_of_state": 15036,
+    "room_board": 13959,
+    "total_cost_in_state": 30995,
+    "total_cost_out_of_state": 30995,
+    "net_price": {
+      "0_30k": 29119,
+      "30_48k": 29737,
+      "48_75k": 32094,
+      "75_110k": 32068,
+      "110k_plus": 30316
+    },
+    "pell_rate": 0.3923,
+    "federal_loan_rate": 0.4907,
+    "enrollment": 869
+  },
+  "cds": null,
+  "reference": null
+}

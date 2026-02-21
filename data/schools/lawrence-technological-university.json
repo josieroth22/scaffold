@@ -1,0 +1,36 @@
+{
+  "slug": "lawrence-technological-university",
+  "name": "Lawrence Technological University",
+  "ipeds_id": 170675,
+  "state": "MI",
+  "city": "Southfield",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.8025,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 41872,
+    "tuition_out_of_state": 41872,
+    "room_board": 11670,
+    "total_cost_in_state": 55542,
+    "total_cost_out_of_state": 55542,
+    "net_price": {
+      "0_30k": 31328,
+      "30_48k": 29980,
+      "48_75k": 31375,
+      "75_110k": 35409,
+      "110k_plus": 35303
+    },
+    "pell_rate": 0.1654,
+    "federal_loan_rate": 0.4665,
+    "enrollment": 1701
+  },
+  "cds": null,
+  "reference": null
+}

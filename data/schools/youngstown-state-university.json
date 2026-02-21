@@ -1,0 +1,36 @@
+{
+  "slug": "youngstown-state-university",
+  "name": "Youngstown State University",
+  "ipeds_id": 206695,
+  "state": "OH",
+  "city": "Youngstown",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.8032,
+    "sat_reading_25": 480,
+    "sat_reading_75": 600,
+    "sat_math_25": 460,
+    "sat_math_75": 610,
+    "act_25": 17,
+    "act_75": 24,
+    "tuition_in_state": 10791,
+    "tuition_out_of_state": 11151,
+    "room_board": 10384,
+    "total_cost_in_state": 23175,
+    "total_cost_out_of_state": 23535,
+    "net_price": {
+      "0_30k": 8053,
+      "30_48k": 9286,
+      "48_75k": 13171,
+      "75_110k": 15906,
+      "110k_plus": 16329
+    },
+    "pell_rate": 0.3319,
+    "federal_loan_rate": 0.4145,
+    "enrollment": 7340
+  },
+  "cds": null,
+  "reference": null
+}

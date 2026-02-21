@@ -1,0 +1,36 @@
+{
+  "slug": "california-state-university-northridge",
+  "name": "California State University-Northridge",
+  "ipeds_id": 110608,
+  "state": "CA",
+  "city": "Northridge",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.9315,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 7095,
+    "tuition_out_of_state": 18975,
+    "room_board": 12648,
+    "total_cost_in_state": 21743,
+    "total_cost_out_of_state": 33623,
+    "net_price": {
+      "0_30k": 5153,
+      "30_48k": 6277,
+      "48_75k": 8897,
+      "75_110k": 13510,
+      "110k_plus": 18688
+    },
+    "pell_rate": 0.5599,
+    "federal_loan_rate": 0.2263,
+    "enrollment": 32357
+  },
+  "cds": null,
+  "reference": null
+}

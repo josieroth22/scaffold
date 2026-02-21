@@ -1,0 +1,36 @@
+{
+  "slug": "union-college",
+  "name": "Union College",
+  "ipeds_id": 196866,
+  "state": "NY",
+  "city": "Schenectady",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.4379,
+    "sat_reading_25": 650,
+    "sat_reading_75": 720,
+    "sat_math_25": 660,
+    "sat_math_75": 760,
+    "act_25": 30,
+    "act_75": 33,
+    "tuition_in_state": 66456,
+    "tuition_out_of_state": 66456,
+    "room_board": 16389,
+    "total_cost_in_state": 84845,
+    "total_cost_out_of_state": 84845,
+    "net_price": {
+      "0_30k": 15257,
+      "30_48k": 15506,
+      "48_75k": 21768,
+      "75_110k": 28376,
+      "110k_plus": 48517
+    },
+    "pell_rate": 0.1315,
+    "federal_loan_rate": 0.4466,
+    "enrollment": 2070
+  },
+  "cds": null,
+  "reference": null
+}

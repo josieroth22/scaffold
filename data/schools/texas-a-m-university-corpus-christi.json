@@ -1,0 +1,36 @@
+{
+  "slug": "texas-a-m-university-corpus-christi",
+  "name": "Texas A & M University-Corpus Christi",
+  "ipeds_id": 224147,
+  "state": "TX",
+  "city": "Corpus Christi",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.8947,
+    "sat_reading_25": 500,
+    "sat_reading_75": 600,
+    "sat_math_25": 470,
+    "sat_math_75": 580,
+    "act_25": 18,
+    "act_75": 25,
+    "tuition_in_state": 9748,
+    "tuition_out_of_state": 21033,
+    "room_board": 12869,
+    "total_cost_in_state": 24617,
+    "total_cost_out_of_state": 35902,
+    "net_price": {
+      "0_30k": 10936,
+      "30_48k": 11543,
+      "48_75k": 14374,
+      "75_110k": 19660,
+      "110k_plus": 22683
+    },
+    "pell_rate": 0.3965,
+    "federal_loan_rate": 0.434,
+    "enrollment": 7804
+  },
+  "cds": null,
+  "reference": null
+}

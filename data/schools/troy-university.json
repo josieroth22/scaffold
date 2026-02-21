@@ -1,0 +1,36 @@
+{
+  "slug": "troy-university",
+  "name": "Troy University",
+  "ipeds_id": 102368,
+  "state": "AL",
+  "city": "Troy",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.9261,
+    "sat_reading_25": 490,
+    "sat_reading_75": 590,
+    "sat_math_25": 460,
+    "sat_math_75": 570,
+    "act_25": 18,
+    "act_75": 25,
+    "tuition_in_state": 9792,
+    "tuition_out_of_state": 19584,
+    "room_board": 7996,
+    "total_cost_in_state": 19788,
+    "total_cost_out_of_state": 29580,
+    "net_price": {
+      "0_30k": 12718,
+      "30_48k": 12632,
+      "48_75k": 15109,
+      "75_110k": 15553,
+      "110k_plus": 14278
+    },
+    "pell_rate": 0.423,
+    "federal_loan_rate": 0.6617,
+    "enrollment": 10089
+  },
+  "cds": null,
+  "reference": null
+}

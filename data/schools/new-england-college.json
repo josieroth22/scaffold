@@ -1,0 +1,36 @@
+{
+  "slug": "new-england-college",
+  "name": "New England College",
+  "ipeds_id": 182980,
+  "state": "NH",
+  "city": "Henniker",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.9574,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 41578,
+    "tuition_out_of_state": 41578,
+    "room_board": 17014,
+    "total_cost_in_state": 60592,
+    "total_cost_out_of_state": 60592,
+    "net_price": {
+      "0_30k": 25146,
+      "30_48k": 28253,
+      "48_75k": 32928,
+      "75_110k": 30963,
+      "110k_plus": 33142
+    },
+    "pell_rate": 0.419,
+    "federal_loan_rate": 0.7344,
+    "enrollment": 980
+  },
+  "cds": null,
+  "reference": null
+}

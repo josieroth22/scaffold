@@ -1,0 +1,36 @@
+{
+  "slug": "oregon-state-university-cascades-campus",
+  "name": "Oregon State University-Cascades Campus",
+  "ipeds_id": 440828,
+  "state": "OR",
+  "city": "Bend",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.6844,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 12594,
+    "tuition_out_of_state": 34944,
+    "room_board": 15075,
+    "total_cost_in_state": 29669,
+    "total_cost_out_of_state": 52019,
+    "net_price": {
+      "0_30k": 11791,
+      "30_48k": 14120,
+      "48_75k": 15683,
+      "75_110k": 18390,
+      "110k_plus": 24332
+    },
+    "pell_rate": 0.2795,
+    "federal_loan_rate": 0.3295,
+    "enrollment": 1054
+  },
+  "cds": null,
+  "reference": null
+}

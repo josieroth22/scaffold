@@ -1,0 +1,36 @@
+{
+  "slug": "state-university-of-new-york-at-cortland",
+  "name": "State University of New York at Cortland",
+  "ipeds_id": 196149,
+  "state": "NY",
+  "city": "Cortland",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.5071,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 8815,
+    "tuition_out_of_state": 18725,
+    "room_board": 15210,
+    "total_cost_in_state": 26025,
+    "total_cost_out_of_state": 35935,
+    "net_price": {
+      "0_30k": 11272,
+      "30_48k": 13846,
+      "48_75k": 18050,
+      "75_110k": 19602,
+      "110k_plus": 23422
+    },
+    "pell_rate": 0.2685,
+    "federal_loan_rate": 0.602,
+    "enrollment": 5896
+  },
+  "cds": null,
+  "reference": null
+}

@@ -1,0 +1,36 @@
+{
+  "slug": "university-of-puerto-rico-rio-piedras",
+  "name": "University of Puerto Rico-Rio Piedras",
+  "ipeds_id": 243221,
+  "state": "PR",
+  "city": "San Juan",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.532,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 5324,
+    "tuition_out_of_state": 5324,
+    "room_board": null,
+    "total_cost_in_state": 13337,
+    "total_cost_out_of_state": null,
+    "net_price": {
+      "0_30k": 5691,
+      "30_48k": 7089,
+      "48_75k": 8024,
+      "75_110k": 9161,
+      "110k_plus": 12782
+    },
+    "pell_rate": 0.6475,
+    "federal_loan_rate": 0.0555,
+    "enrollment": 8748
+  },
+  "cds": null,
+  "reference": null
+}

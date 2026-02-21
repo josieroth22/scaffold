@@ -1,0 +1,36 @@
+{
+  "slug": "university-of-central-missouri",
+  "name": "University of Central Missouri",
+  "ipeds_id": 176965,
+  "state": "MO",
+  "city": "Warrensburg",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.6861,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": 18,
+    "act_75": 24,
+    "tuition_in_state": 9739,
+    "tuition_out_of_state": 18064,
+    "room_board": 10206,
+    "total_cost_in_state": 21945,
+    "total_cost_out_of_state": 30270,
+    "net_price": {
+      "0_30k": 11862,
+      "30_48k": 12458,
+      "48_75k": 14997,
+      "75_110k": 17915,
+      "110k_plus": 18752
+    },
+    "pell_rate": 0.2565,
+    "federal_loan_rate": 0.3619,
+    "enrollment": 5653
+  },
+  "cds": null,
+  "reference": null
+}

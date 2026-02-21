@@ -1,0 +1,36 @@
+{
+  "slug": "northwest-missouri-state-university",
+  "name": "Northwest Missouri State University",
+  "ipeds_id": 178624,
+  "state": "MO",
+  "city": "Maryville",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.8591,
+    "sat_reading_25": 480,
+    "sat_reading_75": 600,
+    "sat_math_25": 490,
+    "sat_math_75": 600,
+    "act_25": 18,
+    "act_75": 23,
+    "tuition_in_state": 10181,
+    "tuition_out_of_state": 16623,
+    "room_board": 11788,
+    "total_cost_in_state": 23969,
+    "total_cost_out_of_state": 30411,
+    "net_price": {
+      "0_30k": 11120,
+      "30_48k": 11907,
+      "48_75k": 13258,
+      "75_110k": 16939,
+      "110k_plus": 19742
+    },
+    "pell_rate": 0.2732,
+    "federal_loan_rate": 0.4683,
+    "enrollment": 4550
+  },
+  "cds": null,
+  "reference": null
+}

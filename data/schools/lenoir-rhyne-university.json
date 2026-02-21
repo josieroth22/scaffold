@@ -1,0 +1,36 @@
+{
+  "slug": "lenoir-rhyne-university",
+  "name": "Lenoir-Rhyne University",
+  "ipeds_id": 198835,
+  "state": "NC",
+  "city": "Hickory",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.8068,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 30900,
+    "tuition_out_of_state": 30900,
+    "room_board": 12900,
+    "total_cost_in_state": 45800,
+    "total_cost_out_of_state": 45800,
+    "net_price": {
+      "0_30k": 22289,
+      "30_48k": 22427,
+      "48_75k": 20065,
+      "75_110k": 25754,
+      "110k_plus": 29067
+    },
+    "pell_rate": 0.3976,
+    "federal_loan_rate": 0.5572,
+    "enrollment": 1348
+  },
+  "cds": null,
+  "reference": null
+}

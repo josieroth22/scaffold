@@ -1,0 +1,36 @@
+{
+  "slug": "delaware-state-university",
+  "name": "Delaware State University",
+  "ipeds_id": 130934,
+  "state": "DE",
+  "city": "Dover",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.6167,
+    "sat_reading_25": 440,
+    "sat_reading_75": 550,
+    "sat_math_25": 420,
+    "sat_math_75": 520,
+    "act_25": 22,
+    "act_75": 26,
+    "tuition_in_state": 10314,
+    "tuition_out_of_state": 20250,
+    "room_board": 13634,
+    "total_cost_in_state": 25948,
+    "total_cost_out_of_state": 35884,
+    "net_price": {
+      "0_30k": 14776,
+      "30_48k": 14338,
+      "48_75k": 16445,
+      "75_110k": 16336,
+      "110k_plus": 20170
+    },
+    "pell_rate": 0.4335,
+    "federal_loan_rate": 0.485,
+    "enrollment": 4630
+  },
+  "cds": null,
+  "reference": null
+}

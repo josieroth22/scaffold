@@ -1,0 +1,36 @@
+{
+  "slug": "university-of-connecticut-hartford-campus",
+  "name": "University of Connecticut-Hartford Campus",
+  "ipeds_id": 463056,
+  "state": "CT",
+  "city": "Hartford",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.8645,
+    "sat_reading_25": 480,
+    "sat_reading_75": 610,
+    "sat_math_25": 480,
+    "sat_math_75": 600,
+    "act_25": 20,
+    "act_75": 28,
+    "tuition_in_state": 17452,
+    "tuition_out_of_state": 40120,
+    "room_board": null,
+    "total_cost_in_state": 25031,
+    "total_cost_out_of_state": null,
+    "net_price": {
+      "0_30k": 7387,
+      "30_48k": 8299,
+      "48_75k": 11663,
+      "75_110k": 17908,
+      "110k_plus": 23256
+    },
+    "pell_rate": 0.458,
+    "federal_loan_rate": 0.3779,
+    "enrollment": 1473
+  },
+  "cds": null,
+  "reference": null
+}

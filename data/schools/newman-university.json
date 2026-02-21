@@ -1,0 +1,36 @@
+{
+  "slug": "newman-university",
+  "name": "Newman University",
+  "ipeds_id": 155335,
+  "state": "KS",
+  "city": "Wichita",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.4761,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 35500,
+    "tuition_out_of_state": 35500,
+    "room_board": 10279,
+    "total_cost_in_state": 47779,
+    "total_cost_out_of_state": 47779,
+    "net_price": {
+      "0_30k": 18579,
+      "30_48k": 15764,
+      "48_75k": 17055,
+      "75_110k": 19477,
+      "110k_plus": 21726
+    },
+    "pell_rate": 0.124,
+    "federal_loan_rate": 0.18,
+    "enrollment": 857
+  },
+  "cds": null,
+  "reference": null
+}

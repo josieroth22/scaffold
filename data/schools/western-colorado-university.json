@@ -1,0 +1,36 @@
+{
+  "slug": "western-colorado-university",
+  "name": "Western Colorado University",
+  "ipeds_id": 128391,
+  "state": "CO",
+  "city": "Gunnison",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.9747,
+    "sat_reading_25": 500,
+    "sat_reading_75": 630,
+    "sat_math_25": 500,
+    "sat_math_75": 610,
+    "act_25": 21,
+    "act_75": 28,
+    "tuition_in_state": 11083,
+    "tuition_out_of_state": 23683,
+    "room_board": 10442,
+    "total_cost_in_state": 23525,
+    "total_cost_out_of_state": 36125,
+    "net_price": {
+      "0_30k": 10573,
+      "30_48k": 9926,
+      "48_75k": 15090,
+      "75_110k": 18658,
+      "110k_plus": 21621
+    },
+    "pell_rate": 0.1347,
+    "federal_loan_rate": 0.2258,
+    "enrollment": 1653
+  },
+  "cds": null,
+  "reference": null
+}

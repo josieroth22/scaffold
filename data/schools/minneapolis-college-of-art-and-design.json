@@ -1,0 +1,36 @@
+{
+  "slug": "minneapolis-college-of-art-and-design",
+  "name": "Minneapolis College of Art and Design",
+  "ipeds_id": 174127,
+  "state": "MN",
+  "city": "Minneapolis",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.4836,
+    "sat_reading_25": 570,
+    "sat_reading_75": 750,
+    "sat_math_25": 540,
+    "sat_math_75": 680,
+    "act_25": 20,
+    "act_75": 24,
+    "tuition_in_state": 43824,
+    "tuition_out_of_state": 43824,
+    "room_board": 10910,
+    "total_cost_in_state": 56734,
+    "total_cost_out_of_state": 56734,
+    "net_price": {
+      "0_30k": 20912,
+      "30_48k": 20630,
+      "48_75k": 22690,
+      "75_110k": 28900,
+      "110k_plus": 31859
+    },
+    "pell_rate": 0.4017,
+    "federal_loan_rate": 0.735,
+    "enrollment": 701
+  },
+  "cds": null,
+  "reference": null
+}

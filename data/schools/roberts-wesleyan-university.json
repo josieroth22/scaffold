@@ -1,0 +1,36 @@
+{
+  "slug": "roberts-wesleyan-university",
+  "name": "Roberts Wesleyan University",
+  "ipeds_id": 194958,
+  "state": "NY",
+  "city": "Rochester",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.7778,
+    "sat_reading_25": 495,
+    "sat_reading_75": 640,
+    "sat_math_25": 470,
+    "sat_math_75": 610,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 37504,
+    "tuition_out_of_state": 37504,
+    "room_board": 12996,
+    "total_cost_in_state": 52500,
+    "total_cost_out_of_state": 52500,
+    "net_price": {
+      "0_30k": 19371,
+      "30_48k": 20400,
+      "48_75k": 21935,
+      "75_110k": 25180,
+      "110k_plus": 26757
+    },
+    "pell_rate": 0.3969,
+    "federal_loan_rate": 0.6746,
+    "enrollment": 1065
+  },
+  "cds": null,
+  "reference": null
+}

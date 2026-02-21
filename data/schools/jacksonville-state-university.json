@@ -1,0 +1,36 @@
+{
+  "slug": "jacksonville-state-university",
+  "name": "Jacksonville State University",
+  "ipeds_id": 101480,
+  "state": "AL",
+  "city": "Jacksonville",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.7622,
+    "sat_reading_25": 490,
+    "sat_reading_75": 620,
+    "sat_math_25": 480,
+    "sat_math_75": 640,
+    "act_25": 17,
+    "act_75": 24,
+    "tuition_in_state": 12426,
+    "tuition_out_of_state": 22716,
+    "room_board": 8894,
+    "total_cost_in_state": 23320,
+    "total_cost_out_of_state": 33610,
+    "net_price": {
+      "0_30k": 13268,
+      "30_48k": 13842,
+      "48_75k": 16202,
+      "75_110k": 18157,
+      "110k_plus": 18079
+    },
+    "pell_rate": 0.4309,
+    "federal_loan_rate": 0.6941,
+    "enrollment": 7030
+  },
+  "cds": null,
+  "reference": null
+}

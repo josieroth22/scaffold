@@ -1,0 +1,36 @@
+{
+  "slug": "gannon-university",
+  "name": "Gannon University",
+  "ipeds_id": 212601,
+  "state": "PA",
+  "city": "Erie",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.767,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 37951,
+    "tuition_out_of_state": 37951,
+    "room_board": 15610,
+    "total_cost_in_state": 55561,
+    "total_cost_out_of_state": 55561,
+    "net_price": {
+      "0_30k": 16808,
+      "30_48k": 17863,
+      "48_75k": 21199,
+      "75_110k": 25316,
+      "110k_plus": 25859
+    },
+    "pell_rate": 0.22,
+    "federal_loan_rate": 0.5332,
+    "enrollment": 2467
+  },
+  "cds": null,
+  "reference": null
+}

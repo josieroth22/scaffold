@@ -1,0 +1,38 @@
+{
+  "slug": "florida-am-university",
+  "name": "Florida A&M University",
+  "api_name": "Florida Agricultural and Mechanical University",
+  "ipeds_id": 133650,
+  "state": "FL",
+  "city": "Tallahassee",
+  "type": "public",
+  "tier": "C",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.2112,
+    "sat_reading_25": 530,
+    "sat_reading_75": 590,
+    "sat_math_25": 500,
+    "sat_math_75": 560,
+    "act_25": 20,
+    "act_75": 24,
+    "tuition_in_state": 5785,
+    "tuition_out_of_state": 17725,
+    "room_board": 11644,
+    "total_cost_in_state": 19429,
+    "total_cost_out_of_state": 31369,
+    "net_price": {
+      "0_30k": 13203,
+      "30_48k": 13574,
+      "48_75k": 17489,
+      "75_110k": 19721,
+      "110k_plus": 21999
+    },
+    "pell_rate": 0.5557,
+    "federal_loan_rate": 0.5094,
+    "enrollment": 7516
+  },
+  "cds": null,
+  "reference": null
+}

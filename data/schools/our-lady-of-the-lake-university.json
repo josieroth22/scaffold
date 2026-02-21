@@ -1,0 +1,36 @@
+{
+  "slug": "our-lady-of-the-lake-university",
+  "name": "Our Lady of the Lake University",
+  "ipeds_id": 227331,
+  "state": "TX",
+  "city": "San Antonio",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": null,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 31728,
+    "tuition_out_of_state": 31728,
+    "room_board": 10706,
+    "total_cost_in_state": 44434,
+    "total_cost_out_of_state": 44434,
+    "net_price": {
+      "0_30k": 17664,
+      "30_48k": 24620,
+      "48_75k": 16021,
+      "75_110k": 14902,
+      "110k_plus": 19614
+    },
+    "pell_rate": 0.5749,
+    "federal_loan_rate": 0.646,
+    "enrollment": 1110
+  },
+  "cds": null,
+  "reference": null
+}

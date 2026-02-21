@@ -1,0 +1,36 @@
+{
+  "slug": "suny-buffalo-state-university",
+  "name": "SUNY Buffalo State University",
+  "ipeds_id": 196130,
+  "state": "NY",
+  "city": "Buffalo",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.7587,
+    "sat_reading_25": 480,
+    "sat_reading_75": 600,
+    "sat_math_25": 480,
+    "sat_math_75": 590,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 8486,
+    "tuition_out_of_state": 18906,
+    "room_board": 16716,
+    "total_cost_in_state": 27202,
+    "total_cost_out_of_state": 37622,
+    "net_price": {
+      "0_30k": 10684,
+      "30_48k": 12992,
+      "48_75k": 17379,
+      "75_110k": 18478,
+      "110k_plus": 21201
+    },
+    "pell_rate": 0.5333,
+    "federal_loan_rate": 0.5293,
+    "enrollment": 5358
+  },
+  "cds": null,
+  "reference": null
+}

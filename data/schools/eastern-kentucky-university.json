@@ -1,0 +1,36 @@
+{
+  "slug": "eastern-kentucky-university",
+  "name": "Eastern Kentucky University",
+  "ipeds_id": 156620,
+  "state": "KY",
+  "city": "Richmond",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.7809,
+    "sat_reading_25": 480,
+    "sat_reading_75": 600,
+    "sat_math_25": 450,
+    "sat_math_75": 590,
+    "act_25": 17,
+    "act_75": 24,
+    "tuition_in_state": 10130,
+    "tuition_out_of_state": 20820,
+    "room_board": 11735,
+    "total_cost_in_state": 23865,
+    "total_cost_out_of_state": 34555,
+    "net_price": {
+      "0_30k": 7107,
+      "30_48k": 7006,
+      "48_75k": 9326,
+      "75_110k": 14213,
+      "110k_plus": 15362
+    },
+    "pell_rate": 0.3861,
+    "federal_loan_rate": 0.4277,
+    "enrollment": 11674
+  },
+  "cds": null,
+  "reference": null
+}

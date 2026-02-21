@@ -1,0 +1,36 @@
+{
+  "slug": "university-of-minnesota-crookston",
+  "name": "University of Minnesota-Crookston",
+  "ipeds_id": 174075,
+  "state": "MN",
+  "city": "Crookston",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.5838,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 13120,
+    "tuition_out_of_state": 13120,
+    "room_board": 10400,
+    "total_cost_in_state": 25520,
+    "total_cost_out_of_state": 25520,
+    "net_price": {
+      "0_30k": 3746,
+      "30_48k": 3498,
+      "48_75k": 8362,
+      "75_110k": 13515,
+      "110k_plus": 18544
+    },
+    "pell_rate": 0.1919,
+    "federal_loan_rate": 0.2814,
+    "enrollment": 1650
+  },
+  "cds": null,
+  "reference": null
+}

@@ -1,0 +1,38 @@
+{
+  "slug": "hampton-university",
+  "name": "Hampton University",
+  "api_name": "Hampton University",
+  "ipeds_id": 232265,
+  "state": "VA",
+  "city": "Hampton",
+  "type": "private",
+  "tier": "C",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.4827,
+    "sat_reading_25": 400,
+    "sat_reading_75": 626,
+    "sat_math_25": 457,
+    "sat_math_75": 600,
+    "act_25": 12,
+    "act_75": 24,
+    "tuition_in_state": 29162,
+    "tuition_out_of_state": 29162,
+    "room_board": 12986,
+    "total_cost_in_state": 44148,
+    "total_cost_out_of_state": 44148,
+    "net_price": {
+      "0_30k": 29338,
+      "30_48k": 30636,
+      "48_75k": 32980,
+      "75_110k": null,
+      "110k_plus": 44119
+    },
+    "pell_rate": 0.3806,
+    "federal_loan_rate": 0.5636,
+    "enrollment": 3254
+  },
+  "cds": null,
+  "reference": null
+}

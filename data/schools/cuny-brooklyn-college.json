@@ -1,0 +1,45 @@
+{
+  "slug": "cuny-brooklyn-college",
+  "name": "CUNY Brooklyn College",
+  "ipeds_id": 190549,
+  "state": "NY",
+  "city": "Brooklyn",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.5366,
+    "sat_reading_25": 560,
+    "sat_reading_75": 710,
+    "sat_math_25": 580,
+    "sat_math_75": 710,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 7452,
+    "tuition_out_of_state": 15402,
+    "room_board": null,
+    "total_cost_in_state": 13573,
+    "total_cost_out_of_state": null,
+    "net_price": {
+      "0_30k": 1466,
+      "30_48k": 2954,
+      "48_75k": 6726,
+      "75_110k": 8246,
+      "110k_plus": 11670
+    },
+    "pell_rate": 0.5639,
+    "federal_loan_rate": 0.07,
+    "enrollment": 10443
+  },
+  "cds": null,
+  "reference": {
+    "honors_program": {
+      "name": "Macaulay Honors College",
+      "description": "Highly selective CUNY-wide honors college. Scholars receive a full tuition scholarship, a laptop, an Opportunities Fund for enrichment activities, and personalized advising. ~2,080 students across 8 CUNY campuses.",
+      "separate_application": true,
+      "avg_sat": null,
+      "acceptance_rate": null,
+      "size": 2080
+    }
+  }
+}

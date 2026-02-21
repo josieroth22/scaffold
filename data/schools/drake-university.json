@@ -1,0 +1,36 @@
+{
+  "slug": "drake-university",
+  "name": "Drake University",
+  "ipeds_id": 153269,
+  "state": "IA",
+  "city": "Des Moines",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.6413,
+    "sat_reading_25": 610,
+    "sat_reading_75": 690,
+    "sat_math_25": 580,
+    "sat_math_75": 700,
+    "act_25": 24,
+    "act_75": 30,
+    "tuition_in_state": 49944,
+    "tuition_out_of_state": 49944,
+    "room_board": 11858,
+    "total_cost_in_state": 63802,
+    "total_cost_out_of_state": 63802,
+    "net_price": {
+      "0_30k": 27372,
+      "30_48k": 25335,
+      "48_75k": 26358,
+      "75_110k": 32215,
+      "110k_plus": 32993
+    },
+    "pell_rate": 0.2095,
+    "federal_loan_rate": 0.4709,
+    "enrollment": 2669
+  },
+  "cds": null,
+  "reference": null
+}

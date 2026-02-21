@@ -1,0 +1,45 @@
+{
+  "slug": "university-of-north-carolina-wilmington",
+  "name": "University of North Carolina Wilmington",
+  "ipeds_id": 199218,
+  "state": "NC",
+  "city": "Wilmington",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.7401,
+    "sat_reading_25": 620,
+    "sat_reading_75": 690,
+    "sat_math_25": 600,
+    "sat_math_75": 670,
+    "act_25": 24,
+    "act_75": 28,
+    "tuition_in_state": 7317,
+    "tuition_out_of_state": 22985,
+    "room_board": 12605,
+    "total_cost_in_state": 21922,
+    "total_cost_out_of_state": 37590,
+    "net_price": {
+      "0_30k": 11837,
+      "30_48k": 13891,
+      "48_75k": 18377,
+      "75_110k": 23374,
+      "110k_plus": 25018
+    },
+    "pell_rate": 0.2381,
+    "federal_loan_rate": 0.361,
+    "enrollment": 14176
+  },
+  "cds": null,
+  "reference": {
+    "honors_program": {
+      "name": "University of North Carolina Wilmington Honors College",
+      "description": "The Honors College at UNCW attracts an intellectually and socially diverse group of engaged students involved in every major and all areas of university life. The University Honors Program is a four-year curriculum including seminars, honors-enhanced University Studies, extra-curricular experiences, and applied learning experiences.",
+      "separate_application": null,
+      "avg_sat": null,
+      "acceptance_rate": null,
+      "size": null
+    }
+  }
+}

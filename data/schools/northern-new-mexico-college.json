@@ -1,0 +1,36 @@
+{
+  "slug": "northern-new-mexico-college",
+  "name": "Northern New Mexico College",
+  "ipeds_id": 188058,
+  "state": "NM",
+  "city": "Espanola",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": null,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 6400,
+    "tuition_out_of_state": 14328,
+    "room_board": null,
+    "total_cost_in_state": 17529,
+    "total_cost_out_of_state": null,
+    "net_price": {
+      "0_30k": 4957,
+      "30_48k": 4669,
+      "48_75k": 6836,
+      "75_110k": null,
+      "110k_plus": null
+    },
+    "pell_rate": 0.3553,
+    "federal_loan_rate": 0.0329,
+    "enrollment": 859
+  },
+  "cds": null,
+  "reference": null
+}

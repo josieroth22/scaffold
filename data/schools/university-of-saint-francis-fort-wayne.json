@@ -1,0 +1,36 @@
+{
+  "slug": "university-of-saint-francis-fort-wayne",
+  "name": "University of Saint Francis-Fort Wayne",
+  "ipeds_id": 152336,
+  "state": "IN",
+  "city": "Fort Wayne",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.9756,
+    "sat_reading_25": 470,
+    "sat_reading_75": 570,
+    "sat_math_25": 450,
+    "sat_math_75": 560,
+    "act_25": 17,
+    "act_75": 25,
+    "tuition_in_state": 35420,
+    "tuition_out_of_state": 35420,
+    "room_board": 11540,
+    "total_cost_in_state": 48960,
+    "total_cost_out_of_state": 48960,
+    "net_price": {
+      "0_30k": 19135,
+      "30_48k": 16075,
+      "48_75k": 18814,
+      "75_110k": 22032,
+      "110k_plus": 24003
+    },
+    "pell_rate": 0.427,
+    "federal_loan_rate": 0.6263,
+    "enrollment": 1599
+  },
+  "cds": null,
+  "reference": null
+}

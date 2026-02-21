@@ -1,0 +1,36 @@
+{
+  "slug": "university-of-puerto-rico-at-ponce",
+  "name": "University of Puerto Rico at Ponce",
+  "ipeds_id": 243212,
+  "state": "PR",
+  "city": "Ponce",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.5614,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 5354,
+    "tuition_out_of_state": 5354,
+    "room_board": null,
+    "total_cost_in_state": 14399,
+    "total_cost_out_of_state": null,
+    "net_price": {
+      "0_30k": 7047,
+      "30_48k": 7848,
+      "48_75k": 8335,
+      "75_110k": 8538,
+      "110k_plus": 9585
+    },
+    "pell_rate": 0.8113,
+    "federal_loan_rate": 0.0675,
+    "enrollment": 2276
+  },
+  "cds": null,
+  "reference": null
+}

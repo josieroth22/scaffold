@@ -1,0 +1,36 @@
+{
+  "slug": "university-of-south-carolina-upstate",
+  "name": "University of South Carolina-Upstate",
+  "ipeds_id": 218742,
+  "state": "SC",
+  "city": "Spartanburg",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.6961,
+    "sat_reading_25": 510,
+    "sat_reading_75": 610,
+    "sat_math_25": 490,
+    "sat_math_75": 560,
+    "act_25": 19,
+    "act_75": 25,
+    "tuition_in_state": 11583,
+    "tuition_out_of_state": 22545,
+    "room_board": 10040,
+    "total_cost_in_state": 23623,
+    "total_cost_out_of_state": 34585,
+    "net_price": {
+      "0_30k": 11021,
+      "30_48k": 12164,
+      "48_75k": 13876,
+      "75_110k": 17711,
+      "110k_plus": 20030
+    },
+    "pell_rate": 0.4546,
+    "federal_loan_rate": 0.5311,
+    "enrollment": 4008
+  },
+  "cds": null,
+  "reference": null
+}

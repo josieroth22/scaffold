@@ -1,0 +1,36 @@
+{
+  "slug": "henderson-state-university",
+  "name": "Henderson State University",
+  "ipeds_id": 107071,
+  "state": "AR",
+  "city": "Arkadelphia",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.8192,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 7885,
+    "tuition_out_of_state": 9882,
+    "room_board": 10680,
+    "total_cost_in_state": 20565,
+    "total_cost_out_of_state": 22562,
+    "net_price": {
+      "0_30k": 15236,
+      "30_48k": 15087,
+      "48_75k": 19426,
+      "75_110k": 17869,
+      "110k_plus": 19082
+    },
+    "pell_rate": 0.477,
+    "federal_loan_rate": 0.4466,
+    "enrollment": 1491
+  },
+  "cds": null,
+  "reference": null
+}

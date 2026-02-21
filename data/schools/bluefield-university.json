@@ -1,0 +1,36 @@
+{
+  "slug": "bluefield-university",
+  "name": "Bluefield University",
+  "ipeds_id": 231554,
+  "state": "VA",
+  "city": "Bluefield",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.6272,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 29696,
+    "tuition_out_of_state": 29696,
+    "room_board": 9814,
+    "total_cost_in_state": 41510,
+    "total_cost_out_of_state": 41510,
+    "net_price": {
+      "0_30k": 22017,
+      "30_48k": 22146,
+      "48_75k": 20952,
+      "75_110k": 21214,
+      "110k_plus": 23958
+    },
+    "pell_rate": 0.4567,
+    "federal_loan_rate": 0.6199,
+    "enrollment": 683
+  },
+  "cds": null,
+  "reference": null
+}

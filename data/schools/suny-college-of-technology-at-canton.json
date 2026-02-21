@@ -1,0 +1,36 @@
+{
+  "slug": "suny-college-of-technology-at-canton",
+  "name": "SUNY College of Technology at Canton",
+  "ipeds_id": 196015,
+  "state": "NY",
+  "city": "Canton",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.9634,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 8689,
+    "tuition_out_of_state": 13519,
+    "room_board": 16700,
+    "total_cost_in_state": 27389,
+    "total_cost_out_of_state": 32219,
+    "net_price": {
+      "0_30k": 10087,
+      "30_48k": 12362,
+      "48_75k": 16075,
+      "75_110k": 17917,
+      "110k_plus": 20794
+    },
+    "pell_rate": 0.4723,
+    "federal_loan_rate": 0.6095,
+    "enrollment": 2778
+  },
+  "cds": null,
+  "reference": null
+}

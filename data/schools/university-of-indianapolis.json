@@ -1,0 +1,36 @@
+{
+  "slug": "university-of-indianapolis",
+  "name": "University of Indianapolis",
+  "ipeds_id": 151263,
+  "state": "IN",
+  "city": "Indianapolis",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.7276,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 36136,
+    "tuition_out_of_state": 36136,
+    "room_board": 15878,
+    "total_cost_in_state": 54014,
+    "total_cost_out_of_state": 54014,
+    "net_price": {
+      "0_30k": 14352,
+      "30_48k": 13702,
+      "48_75k": 17093,
+      "75_110k": 23380,
+      "110k_plus": 26125
+    },
+    "pell_rate": 0.3596,
+    "federal_loan_rate": 0.4735,
+    "enrollment": 3147
+  },
+  "cds": null,
+  "reference": null
+}

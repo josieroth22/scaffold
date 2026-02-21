@@ -1,0 +1,36 @@
+{
+  "slug": "martin-luther-college",
+  "name": "Martin Luther College",
+  "ipeds_id": 173452,
+  "state": "MN",
+  "city": "New Ulm",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.8257,
+    "sat_reading_25": 538,
+    "sat_reading_75": 653,
+    "sat_math_25": 540,
+    "sat_math_75": 603,
+    "act_25": 22,
+    "act_75": 27,
+    "tuition_in_state": 17770,
+    "tuition_out_of_state": 17770,
+    "room_board": 7280,
+    "total_cost_in_state": 27050,
+    "total_cost_out_of_state": 27050,
+    "net_price": {
+      "0_30k": 12474,
+      "30_48k": 14427,
+      "48_75k": 17415,
+      "75_110k": 21090,
+      "110k_plus": 24323
+    },
+    "pell_rate": 0.2265,
+    "federal_loan_rate": 0.698,
+    "enrollment": 718
+  },
+  "cds": null,
+  "reference": null
+}

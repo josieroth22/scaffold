@@ -1,0 +1,79 @@
+{
+  "slug": "lehigh-university",
+  "name": "Lehigh University",
+  "api_name": "Lehigh University",
+  "ipeds_id": 213543,
+  "state": "PA",
+  "city": "Bethlehem",
+  "type": "private",
+  "tier": "C",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.2926,
+    "sat_reading_25": 670,
+    "sat_reading_75": 730,
+    "sat_math_25": 680,
+    "sat_math_75": 760,
+    "act_25": 31,
+    "act_75": 33,
+    "tuition_in_state": 62180,
+    "tuition_out_of_state": 62180,
+    "room_board": 16470,
+    "total_cost_in_state": 80650,
+    "total_cost_out_of_state": 80650,
+    "net_price": {
+      "0_30k": 15440,
+      "30_48k": 19398,
+      "48_75k": 19495,
+      "75_110k": 30179,
+      "110k_plus": 50046
+    },
+    "pell_rate": 0.178,
+    "federal_loan_rate": 0.3752,
+    "enrollment": 5803
+  },
+  "cds": {
+    "school_name": "Lehigh University",
+    "source_year": "2024-2025",
+    "total_applicants": 20396,
+    "total_admitted": 5289,
+    "admit_rate_overall": 0.259,
+    "ed_applicants": 2217,
+    "ed_admitted": 996,
+    "ed_admit_rate": 0.449,
+    "ea_applicants": null,
+    "ea_admitted": null,
+    "ea_admit_rate": null,
+    "sat_reading_25": 680,
+    "sat_reading_75": 730,
+    "sat_math_25": 690,
+    "sat_math_75": 770,
+    "sat_composite_25": 1370,
+    "sat_composite_75": 1500,
+    "act_composite_25": 31,
+    "act_composite_75": 34,
+    "tuition_in_state": null,
+    "tuition_out_of_state": null,
+    "tuition_private": 66810,
+    "required_fees": 1980,
+    "room_board": 18180,
+    "pct_need_met": 97,
+    "avg_need_grant": 56575,
+    "avg_financial_aid_package": 62070,
+    "meets_full_need": false,
+    "pct_freshmen_receiving_need_aid": 46,
+    "pct_freshmen_receiving_merit_aid": 17.1,
+    "avg_merit_award": 22231
+  },
+  "reference": {
+    "merit_scholarships": [
+      {
+        "name": "Founder's Scholarship",
+        "amount": "Full or half tuition",
+        "deadline": "January 1",
+        "requirements": "None"
+      }
+    ]
+  }
+}

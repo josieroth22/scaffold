@@ -1,0 +1,36 @@
+{
+  "slug": "wichita-state-university",
+  "name": "Wichita State University",
+  "ipeds_id": 156125,
+  "state": "KS",
+  "city": "Wichita",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.9494,
+    "sat_reading_25": 490,
+    "sat_reading_75": 630,
+    "sat_math_25": 480,
+    "sat_math_75": 620,
+    "act_25": 18,
+    "act_75": 26,
+    "tuition_in_state": 9322,
+    "tuition_out_of_state": 19240,
+    "room_board": 13790,
+    "total_cost_in_state": 25112,
+    "total_cost_out_of_state": 35030,
+    "net_price": {
+      "0_30k": 10914,
+      "30_48k": 11084,
+      "48_75k": 14240,
+      "75_110k": 17670,
+      "110k_plus": 18751
+    },
+    "pell_rate": 0.2973,
+    "federal_loan_rate": 0.3488,
+    "enrollment": 10493
+  },
+  "cds": null,
+  "reference": null
+}

@@ -1,0 +1,36 @@
+{
+  "slug": "mount-carmel-college-of-nursing",
+  "name": "Mount Carmel College of Nursing",
+  "ipeds_id": 204176,
+  "state": "OH",
+  "city": "Columbus",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.5739,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": 17,
+    "act_75": 21,
+    "tuition_in_state": 13890,
+    "tuition_out_of_state": 13890,
+    "room_board": null,
+    "total_cost_in_state": 19807,
+    "total_cost_out_of_state": null,
+    "net_price": {
+      "0_30k": 9258,
+      "30_48k": 8493,
+      "48_75k": 13884,
+      "75_110k": 12677,
+      "110k_plus": 18319
+    },
+    "pell_rate": 0.3041,
+    "federal_loan_rate": 0.6258,
+    "enrollment": 573
+  },
+  "cds": null,
+  "reference": null
+}

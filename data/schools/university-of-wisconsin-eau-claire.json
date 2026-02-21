@@ -1,0 +1,36 @@
+{
+  "slug": "university-of-wisconsin-eau-claire",
+  "name": "University of Wisconsin-Eau Claire",
+  "ipeds_id": 240268,
+  "state": "WI",
+  "city": "Eau Claire",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.7608,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": 21,
+    "act_75": 27,
+    "tuition_in_state": 9277,
+    "tuition_out_of_state": 18516,
+    "room_board": 9200,
+    "total_cost_in_state": 20477,
+    "total_cost_out_of_state": 29716,
+    "net_price": {
+      "0_30k": 9565,
+      "30_48k": 10534,
+      "48_75k": 13803,
+      "75_110k": 18951,
+      "110k_plus": 20469
+    },
+    "pell_rate": 0.1867,
+    "federal_loan_rate": 0.4321,
+    "enrollment": 8995
+  },
+  "cds": null,
+  "reference": null
+}

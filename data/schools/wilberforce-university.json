@@ -1,0 +1,36 @@
+{
+  "slug": "wilberforce-university",
+  "name": "Wilberforce University",
+  "ipeds_id": 206491,
+  "state": "OH",
+  "city": "Wilberforce",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.5273,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": 15,
+    "act_75": 21,
+    "tuition_in_state": 14776,
+    "tuition_out_of_state": 14776,
+    "room_board": 7700,
+    "total_cost_in_state": 24476,
+    "total_cost_out_of_state": 24476,
+    "net_price": {
+      "0_30k": 5606,
+      "30_48k": 9908,
+      "48_75k": 10244,
+      "75_110k": 10794,
+      "110k_plus": 13684
+    },
+    "pell_rate": 0.7436,
+    "federal_loan_rate": 0.625,
+    "enrollment": 602
+  },
+  "cds": null,
+  "reference": null
+}

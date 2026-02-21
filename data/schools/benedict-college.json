@@ -1,0 +1,36 @@
+{
+  "slug": "benedict-college",
+  "name": "Benedict College",
+  "ipeds_id": 217721,
+  "state": "SC",
+  "city": "Columbia",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.673,
+    "sat_reading_25": 420,
+    "sat_reading_75": 510,
+    "sat_math_25": 400,
+    "sat_math_75": 500,
+    "act_25": 14,
+    "act_75": 19,
+    "tuition_in_state": 18000,
+    "tuition_out_of_state": 18000,
+    "room_board": 7000,
+    "total_cost_in_state": 27000,
+    "total_cost_out_of_state": 27000,
+    "net_price": {
+      "0_30k": 16807,
+      "30_48k": 17415,
+      "48_75k": 19763,
+      "75_110k": 19885,
+      "110k_plus": 24076
+    },
+    "pell_rate": 0.6348,
+    "federal_loan_rate": 0.6709,
+    "enrollment": 1573
+  },
+  "cds": null,
+  "reference": null
+}

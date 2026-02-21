@@ -1,0 +1,36 @@
+{
+  "slug": "faulkner-university",
+  "name": "Faulkner University",
+  "ipeds_id": 101189,
+  "state": "AL",
+  "city": "Montgomery",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.6613,
+    "sat_reading_25": 463,
+    "sat_reading_75": 585,
+    "sat_math_25": 423,
+    "sat_math_75": 550,
+    "act_25": 17,
+    "act_75": 23,
+    "tuition_in_state": 23920,
+    "tuition_out_of_state": 23920,
+    "room_board": 8020,
+    "total_cost_in_state": 33940,
+    "total_cost_out_of_state": 33940,
+    "net_price": {
+      "0_30k": 21012,
+      "30_48k": 16987,
+      "48_75k": 27967,
+      "75_110k": 31335,
+      "110k_plus": 31706
+    },
+    "pell_rate": 0.4381,
+    "federal_loan_rate": 0.5787,
+    "enrollment": 1555
+  },
+  "cds": null,
+  "reference": null
+}

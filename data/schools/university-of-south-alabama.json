@@ -1,0 +1,36 @@
+{
+  "slug": "university-of-south-alabama",
+  "name": "University of South Alabama",
+  "ipeds_id": 102094,
+  "state": "AL",
+  "city": "Mobile",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.6549,
+    "sat_reading_25": 520,
+    "sat_reading_75": 610,
+    "sat_math_25": 495,
+    "sat_math_75": 590,
+    "act_25": 19,
+    "act_75": 26,
+    "tuition_in_state": 9676,
+    "tuition_out_of_state": 18652,
+    "room_board": 8830,
+    "total_cost_in_state": 20506,
+    "total_cost_out_of_state": 29482,
+    "net_price": {
+      "0_30k": 10148,
+      "30_48k": 11633,
+      "48_75k": 15456,
+      "75_110k": 21143,
+      "110k_plus": 21878
+    },
+    "pell_rate": 0.3713,
+    "federal_loan_rate": 0.4872,
+    "enrollment": 8540
+  },
+  "cds": null,
+  "reference": null
+}

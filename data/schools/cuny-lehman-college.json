@@ -1,0 +1,45 @@
+{
+  "slug": "cuny-lehman-college",
+  "name": "CUNY Lehman College",
+  "ipeds_id": 190637,
+  "state": "NY",
+  "city": "Bronx",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.5543,
+    "sat_reading_25": 460,
+    "sat_reading_75": 590,
+    "sat_math_25": 400,
+    "sat_math_75": 630,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 7410,
+    "tuition_out_of_state": 15360,
+    "room_board": null,
+    "total_cost_in_state": 13456,
+    "total_cost_out_of_state": null,
+    "net_price": {
+      "0_30k": 2047,
+      "30_48k": 3756,
+      "48_75k": 7516,
+      "75_110k": 9173,
+      "110k_plus": 10803
+    },
+    "pell_rate": 0.6053,
+    "federal_loan_rate": 0.1288,
+    "enrollment": 10438
+  },
+  "cds": null,
+  "reference": {
+    "honors_program": {
+      "name": "Macaulay Honors College",
+      "description": "Highly selective CUNY-wide honors college. Scholars receive a full tuition scholarship, a laptop, an Opportunities Fund for enrichment activities, and personalized advising. ~2,080 students across 8 CUNY campuses.",
+      "separate_application": true,
+      "avg_sat": null,
+      "acceptance_rate": null,
+      "size": 2080
+    }
+  }
+}

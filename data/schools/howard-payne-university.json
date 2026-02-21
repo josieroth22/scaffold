@@ -1,0 +1,36 @@
+{
+  "slug": "howard-payne-university",
+  "name": "Howard Payne University",
+  "ipeds_id": 225548,
+  "state": "TX",
+  "city": "Brownwood",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.6769,
+    "sat_reading_25": 450,
+    "sat_reading_75": 570,
+    "sat_math_25": 430,
+    "sat_math_75": 530,
+    "act_25": 18,
+    "act_75": 25,
+    "tuition_in_state": 33322,
+    "tuition_out_of_state": 33322,
+    "room_board": 10074,
+    "total_cost_in_state": 45396,
+    "total_cost_out_of_state": 45396,
+    "net_price": {
+      "0_30k": 20589,
+      "30_48k": 22305,
+      "48_75k": 26844,
+      "75_110k": 29620,
+      "110k_plus": 29652
+    },
+    "pell_rate": 0.4217,
+    "federal_loan_rate": 0.6611,
+    "enrollment": 716
+  },
+  "cds": null,
+  "reference": null
+}

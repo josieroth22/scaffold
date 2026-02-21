@@ -1,0 +1,36 @@
+{
+  "slug": "the-new-school",
+  "name": "The New School",
+  "ipeds_id": 193654,
+  "state": "NY",
+  "city": "New York",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.6252,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 56386,
+    "tuition_out_of_state": 56386,
+    "room_board": 29874,
+    "total_cost_in_state": 88260,
+    "total_cost_out_of_state": 88260,
+    "net_price": {
+      "0_30k": 48206,
+      "30_48k": 51201,
+      "48_75k": 52728,
+      "75_110k": 56942,
+      "110k_plus": 61849
+    },
+    "pell_rate": 0.1532,
+    "federal_loan_rate": 0.2586,
+    "enrollment": 6819
+  },
+  "cds": null,
+  "reference": null
+}

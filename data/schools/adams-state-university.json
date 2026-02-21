@@ -1,0 +1,43 @@
+{
+  "slug": "adams-state-university",
+  "name": "Adams State University",
+  "ipeds_id": 126182,
+  "state": "CO",
+  "city": "Alamosa",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": null,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 9776,
+    "tuition_out_of_state": 21848,
+    "room_board": 9553,
+    "total_cost_in_state": 21329,
+    "total_cost_out_of_state": 33401,
+    "net_price": {
+      "0_30k": 10130,
+      "30_48k": 10511,
+      "48_75k": 13658,
+      "75_110k": 19496,
+      "110k_plus": 21092
+    },
+    "pell_rate": 0.3499,
+    "federal_loan_rate": 0.3341,
+    "enrollment": 1239
+  },
+  "cds": null,
+  "reference": {
+    "national_merit": {
+      "semifinalist_award": "Maximum $2,000",
+      "finalist_award": "Maximum $2,000",
+      "first_choice_required": true,
+      "guaranteed": false
+    }
+  }
+}

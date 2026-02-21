@@ -1,0 +1,36 @@
+{
+  "slug": "elizabethtown-college",
+  "name": "Elizabethtown College",
+  "ipeds_id": 212197,
+  "state": "PA",
+  "city": "Elizabethtown",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.7677,
+    "sat_reading_25": 560,
+    "sat_reading_75": 650,
+    "sat_math_25": 530,
+    "sat_math_75": 630,
+    "act_25": 19,
+    "act_75": 29,
+    "tuition_in_state": 36842,
+    "tuition_out_of_state": 36842,
+    "room_board": 12954,
+    "total_cost_in_state": 51796,
+    "total_cost_out_of_state": 51796,
+    "net_price": {
+      "0_30k": 17946,
+      "30_48k": 19414,
+      "48_75k": 21711,
+      "75_110k": 25608,
+      "110k_plus": 29855
+    },
+    "pell_rate": 0.1917,
+    "federal_loan_rate": 0.6661,
+    "enrollment": 1815
+  },
+  "cds": null,
+  "reference": null
+}

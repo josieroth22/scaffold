@@ -1,0 +1,36 @@
+{
+  "slug": "augusta-university",
+  "name": "Augusta University",
+  "ipeds_id": 482149,
+  "state": "GA",
+  "city": "Augusta",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.8931,
+    "sat_reading_25": 520,
+    "sat_reading_75": 630,
+    "sat_math_25": 500,
+    "sat_math_75": 600,
+    "act_25": 19,
+    "act_75": 26,
+    "tuition_in_state": 8122,
+    "tuition_out_of_state": 23500,
+    "room_board": 11935,
+    "total_cost_in_state": 22057,
+    "total_cost_out_of_state": 37435,
+    "net_price": {
+      "0_30k": 10597,
+      "30_48k": 11947,
+      "48_75k": 13829,
+      "75_110k": 16848,
+      "110k_plus": 16901
+    },
+    "pell_rate": 0.3838,
+    "federal_loan_rate": 0.3847,
+    "enrollment": 5282
+  },
+  "cds": null,
+  "reference": null
+}

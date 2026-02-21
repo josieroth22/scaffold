@@ -1,0 +1,36 @@
+{
+  "slug": "nichols-college",
+  "name": "Nichols College",
+  "ipeds_id": 167260,
+  "state": "MA",
+  "city": "Dudley",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.8814,
+    "sat_reading_25": 490,
+    "sat_reading_75": 610,
+    "sat_math_25": 510,
+    "sat_math_75": 580,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 40375,
+    "tuition_out_of_state": 40375,
+    "room_board": 14950,
+    "total_cost_in_state": 57325,
+    "total_cost_out_of_state": 57325,
+    "net_price": {
+      "0_30k": 27176,
+      "30_48k": 27084,
+      "48_75k": 28420,
+      "75_110k": 31323,
+      "110k_plus": 34586
+    },
+    "pell_rate": 0.3041,
+    "federal_loan_rate": 0.7405,
+    "enrollment": 1152
+  },
+  "cds": null,
+  "reference": null
+}

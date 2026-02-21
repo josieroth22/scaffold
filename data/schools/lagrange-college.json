@@ -1,0 +1,36 @@
+{
+  "slug": "lagrange-college",
+  "name": "LaGrange College",
+  "ipeds_id": 140234,
+  "state": "GA",
+  "city": "Lagrange",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.6321,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 34540,
+    "tuition_out_of_state": 34540,
+    "room_board": 12844,
+    "total_cost_in_state": 49384,
+    "total_cost_out_of_state": 49384,
+    "net_price": {
+      "0_30k": 10585,
+      "30_48k": 11752,
+      "48_75k": 29989,
+      "75_110k": 22805,
+      "110k_plus": 21286
+    },
+    "pell_rate": 0.4366,
+    "federal_loan_rate": 0.71,
+    "enrollment": 566
+  },
+  "cds": null,
+  "reference": null
+}

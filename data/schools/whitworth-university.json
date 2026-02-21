@@ -1,0 +1,36 @@
+{
+  "slug": "whitworth-university",
+  "name": "Whitworth University",
+  "ipeds_id": 237066,
+  "state": "WA",
+  "city": "Spokane",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.8677,
+    "sat_reading_25": 560,
+    "sat_reading_75": 670,
+    "sat_math_25": 540,
+    "sat_math_75": 650,
+    "act_25": 21,
+    "act_75": 29,
+    "tuition_in_state": 50920,
+    "tuition_out_of_state": 50920,
+    "room_board": 13700,
+    "total_cost_in_state": 66620,
+    "total_cost_out_of_state": 66620,
+    "net_price": {
+      "0_30k": 16492,
+      "30_48k": 17727,
+      "48_75k": 20336,
+      "75_110k": 29657,
+      "110k_plus": 33339
+    },
+    "pell_rate": 0.2799,
+    "federal_loan_rate": 0.5364,
+    "enrollment": 1927
+  },
+  "cds": null,
+  "reference": null
+}

@@ -1,0 +1,36 @@
+{
+  "slug": "emerson-college",
+  "name": "Emerson College",
+  "ipeds_id": 165662,
+  "state": "MA",
+  "city": "Boston",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.4748,
+    "sat_reading_25": 650,
+    "sat_reading_75": 720,
+    "sat_math_25": 600,
+    "sat_math_75": 690,
+    "act_25": 30,
+    "act_75": 33,
+    "tuition_in_state": 55392,
+    "tuition_out_of_state": 55392,
+    "room_board": 20310,
+    "total_cost_in_state": 77702,
+    "total_cost_out_of_state": 77702,
+    "net_price": {
+      "0_30k": 31412,
+      "30_48k": 34742,
+      "48_75k": 39297,
+      "75_110k": 43628,
+      "110k_plus": 55833
+    },
+    "pell_rate": 0.1499,
+    "federal_loan_rate": 0.4662,
+    "enrollment": 4145
+  },
+  "cds": null,
+  "reference": null
+}

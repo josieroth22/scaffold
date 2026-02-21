@@ -1,0 +1,36 @@
+{
+  "slug": "northwestern-state-university-of-louisiana",
+  "name": "Northwestern State University of Louisiana",
+  "ipeds_id": 160038,
+  "state": "LA",
+  "city": "Natchitoches",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.9374,
+    "sat_reading_25": 495,
+    "sat_reading_75": 620,
+    "sat_math_25": 430,
+    "sat_math_75": 623,
+    "act_25": 18,
+    "act_75": 24,
+    "tuition_in_state": 8864,
+    "tuition_out_of_state": 19652,
+    "room_board": 10617,
+    "total_cost_in_state": 21481,
+    "total_cost_out_of_state": 32269,
+    "net_price": {
+      "0_30k": 12129,
+      "30_48k": 12307,
+      "48_75k": 14216,
+      "75_110k": 17311,
+      "110k_plus": 18107
+    },
+    "pell_rate": 0.3488,
+    "federal_loan_rate": 0.3668,
+    "enrollment": 5840
+  },
+  "cds": null,
+  "reference": null
+}

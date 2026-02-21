@@ -1,0 +1,36 @@
+{
+  "slug": "winona-state-university",
+  "name": "Winona State University",
+  "ipeds_id": 175272,
+  "state": "MN",
+  "city": "Winona",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.6852,
+    "sat_reading_25": 510,
+    "sat_reading_75": 610,
+    "sat_math_25": 470,
+    "sat_math_75": 640,
+    "act_25": 19,
+    "act_75": 25,
+    "tuition_in_state": 10498,
+    "tuition_out_of_state": 17230,
+    "room_board": 9924,
+    "total_cost_in_state": 22422,
+    "total_cost_out_of_state": 29154,
+    "net_price": {
+      "0_30k": 11400,
+      "30_48k": 12486,
+      "48_75k": 15495,
+      "75_110k": 19388,
+      "110k_plus": 21306
+    },
+    "pell_rate": 0.2349,
+    "federal_loan_rate": 0.517,
+    "enrollment": 5088
+  },
+  "cds": null,
+  "reference": null
+}

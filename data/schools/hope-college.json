@@ -1,0 +1,36 @@
+{
+  "slug": "hope-college",
+  "name": "Hope College",
+  "ipeds_id": 170301,
+  "state": "MI",
+  "city": "Holland",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.7585,
+    "sat_reading_25": 550,
+    "sat_reading_75": 660,
+    "sat_math_25": 540,
+    "sat_math_75": 650,
+    "act_25": 26,
+    "act_75": 31,
+    "tuition_in_state": 40420,
+    "tuition_out_of_state": 40420,
+    "room_board": 12180,
+    "total_cost_in_state": 54600,
+    "total_cost_out_of_state": 54600,
+    "net_price": {
+      "0_30k": 14365,
+      "30_48k": 16069,
+      "48_75k": 20837,
+      "75_110k": 26104,
+      "110k_plus": 31356
+    },
+    "pell_rate": 0.1643,
+    "federal_loan_rate": 0.4632,
+    "enrollment": 3274
+  },
+  "cds": null,
+  "reference": null
+}

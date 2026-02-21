@@ -1,0 +1,36 @@
+{
+  "slug": "university-of-maryland-global-campus",
+  "name": "University of Maryland Global Campus",
+  "ipeds_id": 163204,
+  "state": "MD",
+  "city": "Adelphi",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": null,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 7992,
+    "tuition_out_of_state": 12336,
+    "room_board": null,
+    "total_cost_in_state": 19790,
+    "total_cost_out_of_state": null,
+    "net_price": {
+      "0_30k": 14514,
+      "30_48k": null,
+      "48_75k": null,
+      "75_110k": null,
+      "110k_plus": null
+    },
+    "pell_rate": 0.2844,
+    "federal_loan_rate": 0.1757,
+    "enrollment": 48238
+  },
+  "cds": null,
+  "reference": null
+}

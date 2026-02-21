@@ -1,0 +1,36 @@
+{
+  "slug": "ave-maria-university",
+  "name": "Ave Maria University",
+  "ipeds_id": 446048,
+  "state": "FL",
+  "city": "Ave Maria",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.4481,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 28222,
+    "tuition_out_of_state": 28222,
+    "room_board": 14125,
+    "total_cost_in_state": 44347,
+    "total_cost_out_of_state": 44347,
+    "net_price": {
+      "0_30k": 19716,
+      "30_48k": 18784,
+      "48_75k": 22156,
+      "75_110k": 24553,
+      "110k_plus": 25967
+    },
+    "pell_rate": 0.2318,
+    "federal_loan_rate": 0.4996,
+    "enrollment": 1229
+  },
+  "cds": null,
+  "reference": null
+}

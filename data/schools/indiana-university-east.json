@@ -1,0 +1,36 @@
+{
+  "slug": "indiana-university-east",
+  "name": "Indiana University-East",
+  "ipeds_id": 151388,
+  "state": "IN",
+  "city": "Richmond",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.7124,
+    "sat_reading_25": 500,
+    "sat_reading_75": 610,
+    "sat_math_25": 510,
+    "sat_math_75": 610,
+    "act_25": 20,
+    "act_75": 25,
+    "tuition_in_state": 8179,
+    "tuition_out_of_state": 22043,
+    "room_board": null,
+    "total_cost_in_state": 16756,
+    "total_cost_out_of_state": null,
+    "net_price": {
+      "0_30k": 5216,
+      "30_48k": 6260,
+      "48_75k": 11061,
+      "75_110k": 13497,
+      "110k_plus": 14863
+    },
+    "pell_rate": 0.3378,
+    "federal_loan_rate": 0.3496,
+    "enrollment": 2446
+  },
+  "cds": null,
+  "reference": null
+}

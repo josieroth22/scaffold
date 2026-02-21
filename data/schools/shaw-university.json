@@ -1,0 +1,36 @@
+{
+  "slug": "shaw-university",
+  "name": "Shaw University",
+  "ipeds_id": 199643,
+  "state": "NC",
+  "city": "Raleigh",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.3048,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 17176,
+    "tuition_out_of_state": 17176,
+    "room_board": 8940,
+    "total_cost_in_state": 28116,
+    "total_cost_out_of_state": 28116,
+    "net_price": {
+      "0_30k": 12125,
+      "30_48k": 14508,
+      "48_75k": 16310,
+      "75_110k": 15059,
+      "110k_plus": 24706
+    },
+    "pell_rate": 0.6515,
+    "federal_loan_rate": 0.5844,
+    "enrollment": 839
+  },
+  "cds": null,
+  "reference": null
+}

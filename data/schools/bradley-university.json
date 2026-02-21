@@ -1,0 +1,36 @@
+{
+  "slug": "bradley-university",
+  "name": "Bradley University",
+  "ipeds_id": 143358,
+  "state": "IL",
+  "city": "Peoria",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.7666,
+    "sat_reading_25": 550,
+    "sat_reading_75": 650,
+    "sat_math_25": 540,
+    "sat_math_75": 650,
+    "act_25": 25,
+    "act_75": 31,
+    "tuition_in_state": 39680,
+    "tuition_out_of_state": 39680,
+    "room_board": 12850,
+    "total_cost_in_state": 54530,
+    "total_cost_out_of_state": 54530,
+    "net_price": {
+      "0_30k": 17762,
+      "30_48k": 16472,
+      "48_75k": 19392,
+      "75_110k": 25476,
+      "110k_plus": 29736
+    },
+    "pell_rate": 0.2942,
+    "federal_loan_rate": 0.6358,
+    "enrollment": 3865
+  },
+  "cds": null,
+  "reference": null
+}

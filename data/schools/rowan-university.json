@@ -1,0 +1,36 @@
+{
+  "slug": "rowan-university",
+  "name": "Rowan University",
+  "ipeds_id": 184782,
+  "state": "NJ",
+  "city": "Glassboro",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.7782,
+    "sat_reading_25": 560,
+    "sat_reading_75": 660,
+    "sat_math_25": 540,
+    "sat_math_75": 650,
+    "act_25": 26,
+    "act_75": 30,
+    "tuition_in_state": 15700,
+    "tuition_out_of_state": 25564,
+    "room_board": 16553,
+    "total_cost_in_state": 34253,
+    "total_cost_out_of_state": 44117,
+    "net_price": {
+      "0_30k": 15180,
+      "30_48k": 15598,
+      "48_75k": 19644,
+      "75_110k": 27596,
+      "110k_plus": 28933
+    },
+    "pell_rate": 0.3129,
+    "federal_loan_rate": 0.4431,
+    "enrollment": 14647
+  },
+  "cds": null,
+  "reference": null
+}

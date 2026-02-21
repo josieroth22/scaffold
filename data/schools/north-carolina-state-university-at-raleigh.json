@@ -1,0 +1,36 @@
+{
+  "slug": "north-carolina-state-university-at-raleigh",
+  "name": "North Carolina State University at Raleigh",
+  "ipeds_id": 199193,
+  "state": "NC",
+  "city": "Raleigh",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.3985,
+    "sat_reading_25": 640,
+    "sat_reading_75": 720,
+    "sat_math_25": 660,
+    "sat_math_75": 740,
+    "act_25": 28,
+    "act_75": 32,
+    "tuition_in_state": 8895,
+    "tuition_out_of_state": 31767,
+    "room_board": 13719,
+    "total_cost_in_state": 24614,
+    "total_cost_out_of_state": 47486,
+    "net_price": {
+      "0_30k": 6200,
+      "30_48k": 8670,
+      "48_75k": 13992,
+      "75_110k": 20386,
+      "110k_plus": 24211
+    },
+    "pell_rate": 0.191,
+    "federal_loan_rate": 0.3399,
+    "enrollment": 26389
+  },
+  "cds": null,
+  "reference": null
+}

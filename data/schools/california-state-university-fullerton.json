@@ -1,0 +1,36 @@
+{
+  "slug": "california-state-university-fullerton",
+  "name": "California State University-Fullerton",
+  "ipeds_id": 110565,
+  "state": "CA",
+  "city": "Fullerton",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.8674,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 7073,
+    "tuition_out_of_state": 18953,
+    "room_board": 18348,
+    "total_cost_in_state": 27421,
+    "total_cost_out_of_state": 39301,
+    "net_price": {
+      "0_30k": 2675,
+      "30_48k": 3466,
+      "48_75k": 5438,
+      "75_110k": 9101,
+      "110k_plus": 14831
+    },
+    "pell_rate": 0.4714,
+    "federal_loan_rate": 0.2206,
+    "enrollment": 36956
+  },
+  "cds": null,
+  "reference": null
+}

@@ -1,0 +1,36 @@
+{
+  "slug": "pennsylvania-state-university-world-campus",
+  "name": "Pennsylvania State University-World Campus",
+  "ipeds_id": 479956,
+  "state": "PA",
+  "city": "University Park",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.8027,
+    "sat_reading_25": 550,
+    "sat_reading_75": 690,
+    "sat_math_25": 550,
+    "sat_math_75": 650,
+    "act_25": 18,
+    "act_75": 30,
+    "tuition_in_state": 15204,
+    "tuition_out_of_state": 15204,
+    "room_board": null,
+    "total_cost_in_state": 27938,
+    "total_cost_out_of_state": null,
+    "net_price": {
+      "0_30k": 18032,
+      "30_48k": 20397,
+      "48_75k": 20910,
+      "75_110k": 25494,
+      "110k_plus": 25449
+    },
+    "pell_rate": 0.2967,
+    "federal_loan_rate": 0.4118,
+    "enrollment": 7554
+  },
+  "cds": null,
+  "reference": null
+}

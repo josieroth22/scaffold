@@ -1,0 +1,36 @@
+{
+  "slug": "florida-international-university",
+  "name": "Florida International University",
+  "ipeds_id": 133951,
+  "state": "FL",
+  "city": "Miami",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.5884,
+    "sat_reading_25": 550,
+    "sat_reading_75": 640,
+    "sat_math_25": 510,
+    "sat_math_75": 610,
+    "act_25": 20,
+    "act_75": 26,
+    "tuition_in_state": 6565,
+    "tuition_out_of_state": 18963,
+    "room_board": 12156,
+    "total_cost_in_state": 20721,
+    "total_cost_out_of_state": 33119,
+    "net_price": {
+      "0_30k": 7112,
+      "30_48k": 8379,
+      "48_75k": 11393,
+      "75_110k": 14920,
+      "110k_plus": 17313
+    },
+    "pell_rate": 0.4042,
+    "federal_loan_rate": 0.1778,
+    "enrollment": 38761
+  },
+  "cds": null,
+  "reference": null
+}

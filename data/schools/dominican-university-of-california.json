@@ -1,0 +1,36 @@
+{
+  "slug": "dominican-university-of-california",
+  "name": "Dominican University of California",
+  "ipeds_id": 113698,
+  "state": "CA",
+  "city": "San Rafael",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.9562,
+    "sat_reading_25": 525,
+    "sat_reading_75": 673,
+    "sat_math_25": 545,
+    "sat_math_75": 618,
+    "act_25": 22,
+    "act_75": 30,
+    "tuition_in_state": 50666,
+    "tuition_out_of_state": 50666,
+    "room_board": 15986,
+    "total_cost_in_state": 68652,
+    "total_cost_out_of_state": 68652,
+    "net_price": {
+      "0_30k": 45630,
+      "30_48k": 46430,
+      "48_75k": 46242,
+      "75_110k": 49460,
+      "110k_plus": 54480
+    },
+    "pell_rate": 0.2958,
+    "federal_loan_rate": 0.5477,
+    "enrollment": 1178
+  },
+  "cds": null,
+  "reference": null
+}

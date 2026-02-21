@@ -1,0 +1,36 @@
+{
+  "slug": "university-of-north-texas-at-dallas",
+  "name": "University of North Texas at Dallas",
+  "ipeds_id": 484905,
+  "state": "TX",
+  "city": "Dallas",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.9386,
+    "sat_reading_25": 415,
+    "sat_reading_75": 510,
+    "sat_math_25": 405,
+    "sat_math_75": 480,
+    "act_25": 14,
+    "act_75": 21,
+    "tuition_in_state": 9590,
+    "tuition_out_of_state": 22189,
+    "room_board": 9954,
+    "total_cost_in_state": 21544,
+    "total_cost_out_of_state": 34143,
+    "net_price": {
+      "0_30k": 7316,
+      "30_48k": 8563,
+      "48_75k": 7686,
+      "75_110k": 14157,
+      "110k_plus": 15780
+    },
+    "pell_rate": 0.5148,
+    "federal_loan_rate": 0.2966,
+    "enrollment": 2914
+  },
+  "cds": null,
+  "reference": null
+}

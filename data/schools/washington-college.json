@@ -1,0 +1,36 @@
+{
+  "slug": "washington-college",
+  "name": "Washington College",
+  "ipeds_id": 164216,
+  "state": "MD",
+  "city": "Chestertown",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.6554,
+    "sat_reading_25": 605,
+    "sat_reading_75": 690,
+    "sat_math_25": 580,
+    "sat_math_75": 655,
+    "act_25": 25,
+    "act_75": 30,
+    "tuition_in_state": 54356,
+    "tuition_out_of_state": 54356,
+    "room_board": 15814,
+    "total_cost_in_state": 72170,
+    "total_cost_out_of_state": 72170,
+    "net_price": {
+      "0_30k": 13498,
+      "30_48k": 18675,
+      "48_75k": 25670,
+      "75_110k": 31138,
+      "110k_plus": 35886
+    },
+    "pell_rate": 0.2052,
+    "federal_loan_rate": 0.5016,
+    "enrollment": 890
+  },
+  "cds": null,
+  "reference": null
+}

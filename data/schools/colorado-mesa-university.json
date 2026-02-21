@@ -1,0 +1,36 @@
+{
+  "slug": "colorado-mesa-university",
+  "name": "Colorado Mesa University",
+  "ipeds_id": 127556,
+  "state": "CO",
+  "city": "Grand Junction",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.8139,
+    "sat_reading_25": 470,
+    "sat_reading_75": 600,
+    "sat_math_25": 460,
+    "sat_math_75": 580,
+    "act_25": 19,
+    "act_75": 26,
+    "tuition_in_state": 9712,
+    "tuition_out_of_state": 24312,
+    "room_board": 11760,
+    "total_cost_in_state": 23472,
+    "total_cost_out_of_state": 38072,
+    "net_price": {
+      "0_30k": 11547,
+      "30_48k": 11755,
+      "48_75k": 15061,
+      "75_110k": 18182,
+      "110k_plus": 20288
+    },
+    "pell_rate": 0.274,
+    "federal_loan_rate": 0.3322,
+    "enrollment": 7604
+  },
+  "cds": null,
+  "reference": null
+}

@@ -1,0 +1,36 @@
+{
+  "slug": "connecticut-college",
+  "name": "Connecticut College",
+  "ipeds_id": 128902,
+  "state": "CT",
+  "city": "New London",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.3828,
+    "sat_reading_25": 680,
+    "sat_reading_75": 740,
+    "sat_math_25": 660,
+    "sat_math_75": 730,
+    "act_25": 31,
+    "act_75": 33,
+    "tuition_in_state": 64812,
+    "tuition_out_of_state": 64812,
+    "room_board": 17885,
+    "total_cost_in_state": 84697,
+    "total_cost_out_of_state": 84697,
+    "net_price": {
+      "0_30k": 13666,
+      "30_48k": 20097,
+      "48_75k": 26760,
+      "75_110k": 30787,
+      "110k_plus": 44604
+    },
+    "pell_rate": 0.1432,
+    "federal_loan_rate": 0.3604,
+    "enrollment": 1960
+  },
+  "cds": null,
+  "reference": null
+}

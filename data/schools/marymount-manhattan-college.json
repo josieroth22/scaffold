@@ -1,0 +1,36 @@
+{
+  "slug": "marymount-manhattan-college",
+  "name": "Marymount Manhattan College",
+  "ipeds_id": 192864,
+  "state": "NY",
+  "city": "New York",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.7888,
+    "sat_reading_25": 580,
+    "sat_reading_75": 670,
+    "sat_math_25": 520,
+    "sat_math_75": 630,
+    "act_25": 25,
+    "act_75": 29,
+    "tuition_in_state": 40260,
+    "tuition_out_of_state": 40260,
+    "room_board": 20191,
+    "total_cost_in_state": 62451,
+    "total_cost_out_of_state": 62451,
+    "net_price": {
+      "0_30k": 29751,
+      "30_48k": 28492,
+      "48_75k": 32754,
+      "75_110k": 36332,
+      "110k_plus": 43959
+    },
+    "pell_rate": 0.2842,
+    "federal_loan_rate": 0.6922,
+    "enrollment": 1627
+  },
+  "cds": null,
+  "reference": null
+}

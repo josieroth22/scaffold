@@ -1,0 +1,36 @@
+{
+  "slug": "university-of-florida-online",
+  "name": "University of Florida-Online",
+  "ipeds_id": 484473,
+  "state": "FL",
+  "city": "Gainesville",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.6438,
+    "sat_reading_25": 640,
+    "sat_reading_75": 700,
+    "sat_math_25": 615,
+    "sat_math_75": 690,
+    "act_25": 27,
+    "act_75": 31,
+    "tuition_in_state": 3876,
+    "tuition_out_of_state": 16579,
+    "room_board": null,
+    "total_cost_in_state": 17036,
+    "total_cost_out_of_state": null,
+    "net_price": {
+      "0_30k": 1035,
+      "30_48k": 3690,
+      "48_75k": 5162,
+      "75_110k": 10187,
+      "110k_plus": 12178
+    },
+    "pell_rate": 0.2039,
+    "federal_loan_rate": 0.1281,
+    "enrollment": 4577
+  },
+  "cds": null,
+  "reference": null
+}

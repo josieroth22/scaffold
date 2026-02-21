@@ -1,0 +1,36 @@
+{
+  "slug": "university-of-north-georgia",
+  "name": "University of North Georgia",
+  "ipeds_id": 482680,
+  "state": "GA",
+  "city": "Dahlonega",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.7216,
+    "sat_reading_25": 520,
+    "sat_reading_75": 620,
+    "sat_math_25": 500,
+    "sat_math_75": 595,
+    "act_25": 19,
+    "act_75": 25,
+    "tuition_in_state": 5009,
+    "tuition_out_of_state": 15441,
+    "room_board": 12310,
+    "total_cost_in_state": 19319,
+    "total_cost_out_of_state": 29751,
+    "net_price": {
+      "0_30k": 7958,
+      "30_48k": 9023,
+      "48_75k": 11167,
+      "75_110k": 13074,
+      "110k_plus": 13702
+    },
+    "pell_rate": 0.2769,
+    "federal_loan_rate": 0.2088,
+    "enrollment": 15542
+  },
+  "cds": null,
+  "reference": null
+}

@@ -1,0 +1,36 @@
+{
+  "slug": "arizona-christian-university",
+  "name": "Arizona Christian University",
+  "ipeds_id": 105899,
+  "state": "AZ",
+  "city": "Glendale",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.7442,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 34697,
+    "tuition_out_of_state": 34697,
+    "room_board": 13500,
+    "total_cost_in_state": 50197,
+    "total_cost_out_of_state": 50197,
+    "net_price": {
+      "0_30k": 30451,
+      "30_48k": 32794,
+      "48_75k": 32719,
+      "75_110k": 32025,
+      "110k_plus": 33002
+    },
+    "pell_rate": 0.3318,
+    "federal_loan_rate": 0.6959,
+    "enrollment": 1127
+  },
+  "cds": null,
+  "reference": null
+}

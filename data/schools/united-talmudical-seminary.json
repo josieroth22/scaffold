@@ -1,0 +1,36 @@
+{
+  "slug": "united-talmudical-seminary",
+  "name": "United Talmudical Seminary",
+  "ipeds_id": 197018,
+  "state": "NY",
+  "city": "Brooklyn",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": null,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 14133,
+    "tuition_out_of_state": 14133,
+    "room_board": 4000,
+    "total_cost_in_state": 20133,
+    "total_cost_out_of_state": 20133,
+    "net_price": {
+      "0_30k": 6126,
+      "30_48k": 6535,
+      "48_75k": 8566,
+      "75_110k": 11856,
+      "110k_plus": null
+    },
+    "pell_rate": 0.856,
+    "federal_loan_rate": 0,
+    "enrollment": 2006
+  },
+  "cds": null,
+  "reference": null
+}

@@ -1,0 +1,36 @@
+{
+  "slug": "midway-university",
+  "name": "Midway University",
+  "ipeds_id": 157377,
+  "state": "KY",
+  "city": "Midway",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.9518,
+    "sat_reading_25": 530,
+    "sat_reading_75": 590,
+    "sat_math_25": 500,
+    "sat_math_75": 530,
+    "act_25": 20,
+    "act_75": 25,
+    "tuition_in_state": 26080,
+    "tuition_out_of_state": 26080,
+    "room_board": 9500,
+    "total_cost_in_state": 37580,
+    "total_cost_out_of_state": 37580,
+    "net_price": {
+      "0_30k": 22513,
+      "30_48k": 19767,
+      "48_75k": 21880,
+      "75_110k": 27318,
+      "110k_plus": 26810
+    },
+    "pell_rate": 0.4613,
+    "federal_loan_rate": 0.6234,
+    "enrollment": 1250
+  },
+  "cds": null,
+  "reference": null
+}

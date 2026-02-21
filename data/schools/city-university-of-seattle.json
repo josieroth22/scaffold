@@ -1,0 +1,36 @@
+{
+  "slug": "city-university-of-seattle",
+  "name": "City University of Seattle",
+  "ipeds_id": 234915,
+  "state": "WA",
+  "city": "Seattle",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": null,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 14589,
+    "tuition_out_of_state": 14589,
+    "room_board": 11613,
+    "total_cost_in_state": 28202,
+    "total_cost_out_of_state": 28202,
+    "net_price": {
+      "0_30k": null,
+      "30_48k": 35049,
+      "48_75k": null,
+      "75_110k": null,
+      "110k_plus": null
+    },
+    "pell_rate": 0.1284,
+    "federal_loan_rate": 0.1437,
+    "enrollment": 1091
+  },
+  "cds": null,
+  "reference": null
+}

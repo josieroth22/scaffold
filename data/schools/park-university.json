@@ -1,0 +1,36 @@
+{
+  "slug": "park-university",
+  "name": "Park University",
+  "ipeds_id": 178721,
+  "state": "MO",
+  "city": "Parkville",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": null,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 16400,
+    "tuition_out_of_state": 16400,
+    "room_board": 8978,
+    "total_cost_in_state": 27378,
+    "total_cost_out_of_state": 27378,
+    "net_price": {
+      "0_30k": 13719,
+      "30_48k": 13687,
+      "48_75k": 15902,
+      "75_110k": 18737,
+      "110k_plus": 18018
+    },
+    "pell_rate": 0.3863,
+    "federal_loan_rate": 0.3131,
+    "enrollment": 5250
+  },
+  "cds": null,
+  "reference": null
+}

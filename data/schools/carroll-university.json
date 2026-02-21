@@ -1,0 +1,36 @@
+{
+  "slug": "carroll-university",
+  "name": "Carroll University",
+  "ipeds_id": 238458,
+  "state": "WI",
+  "city": "Waukesha",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.5841,
+    "sat_reading_25": 530,
+    "sat_reading_75": 610,
+    "sat_math_25": 520,
+    "sat_math_75": 650,
+    "act_25": 22,
+    "act_75": 28,
+    "tuition_in_state": 37230,
+    "tuition_out_of_state": 37230,
+    "room_board": 13340,
+    "total_cost_in_state": 52570,
+    "total_cost_out_of_state": 52570,
+    "net_price": {
+      "0_30k": 18992,
+      "30_48k": 18701,
+      "48_75k": 22720,
+      "75_110k": 25198,
+      "110k_plus": 27395
+    },
+    "pell_rate": 0.2165,
+    "federal_loan_rate": 0.6135,
+    "enrollment": 2525
+  },
+  "cds": null,
+  "reference": null
+}

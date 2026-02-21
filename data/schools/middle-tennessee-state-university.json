@@ -1,0 +1,36 @@
+{
+  "slug": "middle-tennessee-state-university",
+  "name": "Middle Tennessee State University",
+  "ipeds_id": 220978,
+  "state": "TN",
+  "city": "Murfreesboro",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.68,
+    "sat_reading_25": 510,
+    "sat_reading_75": 630,
+    "sat_math_25": 490,
+    "sat_math_75": 600,
+    "act_25": 19,
+    "act_75": 26,
+    "tuition_in_state": 9506,
+    "tuition_out_of_state": 29042,
+    "room_board": 11704,
+    "total_cost_in_state": 23210,
+    "total_cost_out_of_state": 42746,
+    "net_price": {
+      "0_30k": 8371,
+      "30_48k": 9462,
+      "48_75k": 12840,
+      "75_110k": 17052,
+      "110k_plus": 17620
+    },
+    "pell_rate": 0.3137,
+    "federal_loan_rate": 0.3107,
+    "enrollment": 16115
+  },
+  "cds": null,
+  "reference": null
+}

@@ -1,0 +1,36 @@
+{
+  "slug": "suny-college-of-environmental-science-and-forestry",
+  "name": "SUNY College of Environmental Science and Forestry",
+  "ipeds_id": 196103,
+  "state": "NY",
+  "city": "Syracuse",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.8294,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 9206,
+    "tuition_out_of_state": 21036,
+    "room_board": 17780,
+    "total_cost_in_state": 28986,
+    "total_cost_out_of_state": 40816,
+    "net_price": {
+      "0_30k": 8211,
+      "30_48k": 10770,
+      "48_75k": 18458,
+      "75_110k": 20248,
+      "110k_plus": 23955
+    },
+    "pell_rate": 0.2566,
+    "federal_loan_rate": 0.4238,
+    "enrollment": 1725
+  },
+  "cds": null,
+  "reference": null
+}

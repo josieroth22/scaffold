@@ -1,0 +1,36 @@
+{
+  "slug": "western-new-mexico-university",
+  "name": "Western New Mexico University",
+  "ipeds_id": 188304,
+  "state": "NM",
+  "city": "Silver City",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": null,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 7868,
+    "tuition_out_of_state": 14354,
+    "room_board": 10940,
+    "total_cost_in_state": 20808,
+    "total_cost_out_of_state": 27294,
+    "net_price": {
+      "0_30k": 7881,
+      "30_48k": 6940,
+      "48_75k": 12883,
+      "75_110k": null,
+      "110k_plus": null
+    },
+    "pell_rate": 0.4186,
+    "federal_loan_rate": 0.22,
+    "enrollment": 1935
+  },
+  "cds": null,
+  "reference": null
+}

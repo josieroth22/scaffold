@@ -1,0 +1,36 @@
+{
+  "slug": "university-of-louisville",
+  "name": "University of Louisville",
+  "ipeds_id": 157289,
+  "state": "KY",
+  "city": "Louisville",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.8054,
+    "sat_reading_25": 510,
+    "sat_reading_75": 630,
+    "sat_math_25": 510,
+    "sat_math_75": 620,
+    "act_25": 19,
+    "act_75": 27,
+    "tuition_in_state": 12828,
+    "tuition_out_of_state": 29174,
+    "room_board": 11690,
+    "total_cost_in_state": 26518,
+    "total_cost_out_of_state": 42864,
+    "net_price": {
+      "0_30k": 13768,
+      "30_48k": 14494,
+      "48_75k": 16510,
+      "75_110k": 22938,
+      "110k_plus": 25116
+    },
+    "pell_rate": 0.288,
+    "federal_loan_rate": 0.2852,
+    "enrollment": 14187
+  },
+  "cds": null,
+  "reference": null
+}

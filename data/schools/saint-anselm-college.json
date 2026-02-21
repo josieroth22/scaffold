@@ -1,0 +1,36 @@
+{
+  "slug": "saint-anselm-college",
+  "name": "Saint Anselm College",
+  "ipeds_id": 183239,
+  "state": "NH",
+  "city": "Manchester",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.7832,
+    "sat_reading_25": 560,
+    "sat_reading_75": 650,
+    "sat_math_25": 530,
+    "sat_math_75": 620,
+    "act_25": 25,
+    "act_75": 27,
+    "tuition_in_state": 46810,
+    "tuition_out_of_state": 46810,
+    "room_board": 16520,
+    "total_cost_in_state": 65330,
+    "total_cost_out_of_state": 65330,
+    "net_price": {
+      "0_30k": 23658,
+      "30_48k": 26360,
+      "48_75k": 27460,
+      "75_110k": 33874,
+      "110k_plus": 36648
+    },
+    "pell_rate": 0.1052,
+    "federal_loan_rate": 0.683,
+    "enrollment": 2032
+  },
+  "cds": null,
+  "reference": null
+}

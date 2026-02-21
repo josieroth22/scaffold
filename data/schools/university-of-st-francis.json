@@ -1,0 +1,36 @@
+{
+  "slug": "university-of-st-francis",
+  "name": "University of St Francis",
+  "ipeds_id": 148584,
+  "state": "IL",
+  "city": "Joliet",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.6393,
+    "sat_reading_25": 460,
+    "sat_reading_75": 590,
+    "sat_math_25": 440,
+    "sat_math_75": 580,
+    "act_25": 20,
+    "act_75": 25,
+    "tuition_in_state": 37000,
+    "tuition_out_of_state": 37000,
+    "room_board": 11980,
+    "total_cost_in_state": 50980,
+    "total_cost_out_of_state": 50980,
+    "net_price": {
+      "0_30k": 9707,
+      "30_48k": 13378,
+      "48_75k": 15264,
+      "75_110k": 19548,
+      "110k_plus": 20057
+    },
+    "pell_rate": 0.3706,
+    "federal_loan_rate": 0.7977,
+    "enrollment": 1292
+  },
+  "cds": null,
+  "reference": null
+}

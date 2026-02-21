@@ -1,0 +1,36 @@
+{
+  "slug": "neumann-university",
+  "name": "Neumann University",
+  "ipeds_id": 214272,
+  "state": "PA",
+  "city": "Aston",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.764,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 37300,
+    "tuition_out_of_state": 37300,
+    "room_board": 15680,
+    "total_cost_in_state": 54980,
+    "total_cost_out_of_state": 54980,
+    "net_price": {
+      "0_30k": 25012,
+      "30_48k": 25557,
+      "48_75k": 27393,
+      "75_110k": 31756,
+      "110k_plus": 34049
+    },
+    "pell_rate": 0.4233,
+    "federal_loan_rate": 0.7039,
+    "enrollment": 1574
+  },
+  "cds": null,
+  "reference": null
+}

@@ -1,0 +1,36 @@
+{
+  "slug": "university-of-central-florida",
+  "name": "University of Central Florida",
+  "ipeds_id": 132903,
+  "state": "FL",
+  "city": "Orlando",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.3952,
+    "sat_reading_25": 610,
+    "sat_reading_75": 680,
+    "sat_math_25": 580,
+    "sat_math_75": 670,
+    "act_25": 25,
+    "act_75": 29,
+    "tuition_in_state": 6368,
+    "tuition_out_of_state": 22467,
+    "room_board": 12070,
+    "total_cost_in_state": 20438,
+    "total_cost_out_of_state": 36537,
+    "net_price": {
+      "0_30k": 6170,
+      "30_48k": 7610,
+      "48_75k": 10684,
+      "75_110k": 15473,
+      "110k_plus": 17821
+    },
+    "pell_rate": 0.3342,
+    "federal_loan_rate": 0.2421,
+    "enrollment": 59095
+  },
+  "cds": null,
+  "reference": null
+}

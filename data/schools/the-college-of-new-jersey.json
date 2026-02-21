@@ -1,0 +1,36 @@
+{
+  "slug": "the-college-of-new-jersey",
+  "name": "The College of New Jersey",
+  "ipeds_id": 187134,
+  "state": "NJ",
+  "city": "Ewing",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.6214,
+    "sat_reading_25": 570,
+    "sat_reading_75": 670,
+    "sat_math_25": 570,
+    "sat_math_75": 670,
+    "act_25": 25,
+    "act_75": 31,
+    "tuition_in_state": 18685,
+    "tuition_out_of_state": 24568,
+    "room_board": 15569,
+    "total_cost_in_state": 36254,
+    "total_cost_out_of_state": 42137,
+    "net_price": {
+      "0_30k": 12814,
+      "30_48k": 14506,
+      "48_75k": 20638,
+      "75_110k": 28825,
+      "110k_plus": 33080
+    },
+    "pell_rate": 0.2013,
+    "federal_loan_rate": 0.4735,
+    "enrollment": 6831
+  },
+  "cds": null,
+  "reference": null
+}

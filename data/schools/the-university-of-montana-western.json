@@ -1,0 +1,36 @@
+{
+  "slug": "the-university-of-montana-western",
+  "name": "The University of Montana-Western",
+  "ipeds_id": 180692,
+  "state": "MT",
+  "city": "Dillon",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.995,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 6430,
+    "tuition_out_of_state": 19038,
+    "room_board": 9104,
+    "total_cost_in_state": 17534,
+    "total_cost_out_of_state": 30142,
+    "net_price": {
+      "0_30k": 15093,
+      "30_48k": 15286,
+      "48_75k": 16516,
+      "75_110k": 18511,
+      "110k_plus": 18898
+    },
+    "pell_rate": 0.3539,
+    "federal_loan_rate": 0.3216,
+    "enrollment": 1271
+  },
+  "cds": null,
+  "reference": null
+}

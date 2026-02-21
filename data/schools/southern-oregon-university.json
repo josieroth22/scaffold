@@ -1,0 +1,36 @@
+{
+  "slug": "southern-oregon-university",
+  "name": "Southern Oregon University",
+  "ipeds_id": 210146,
+  "state": "OR",
+  "city": "Ashland",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.8266,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 12093,
+    "tuition_out_of_state": 30723,
+    "room_board": 16248,
+    "total_cost_in_state": 30341,
+    "total_cost_out_of_state": 48971,
+    "net_price": {
+      "0_30k": 13402,
+      "30_48k": 13511,
+      "48_75k": 15838,
+      "75_110k": 20735,
+      "110k_plus": 22467
+    },
+    "pell_rate": 0.2434,
+    "federal_loan_rate": 0.2707,
+    "enrollment": 2911
+  },
+  "cds": null,
+  "reference": null
+}

@@ -1,0 +1,36 @@
+{
+  "slug": "east-stroudsburg-university-of-pennsylvania",
+  "name": "East Stroudsburg University of Pennsylvania",
+  "ipeds_id": 212115,
+  "state": "PA",
+  "city": "East Stroudsburg",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.9288,
+    "sat_reading_25": 480,
+    "sat_reading_75": 590,
+    "sat_math_25": 490,
+    "sat_math_75": 580,
+    "act_25": 20,
+    "act_75": 25,
+    "tuition_in_state": 11036,
+    "tuition_out_of_state": 19002,
+    "room_board": 11154,
+    "total_cost_in_state": 24190,
+    "total_cost_out_of_state": 32156,
+    "net_price": {
+      "0_30k": 12003,
+      "30_48k": 12766,
+      "48_75k": 15326,
+      "75_110k": 18725,
+      "110k_plus": 19841
+    },
+    "pell_rate": 0.3987,
+    "federal_loan_rate": 0.577,
+    "enrollment": 4611
+  },
+  "cds": null,
+  "reference": null
+}

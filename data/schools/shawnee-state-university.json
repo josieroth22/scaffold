@@ -1,0 +1,36 @@
+{
+  "slug": "shawnee-state-university",
+  "name": "Shawnee State University",
+  "ipeds_id": 205443,
+  "state": "OH",
+  "city": "Portsmouth",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": null,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 9622,
+    "tuition_out_of_state": 16157,
+    "room_board": 12570,
+    "total_cost_in_state": 24192,
+    "total_cost_out_of_state": 30727,
+    "net_price": {
+      "0_30k": 13734,
+      "30_48k": 13488,
+      "48_75k": 15623,
+      "75_110k": 18557,
+      "110k_plus": 19014
+    },
+    "pell_rate": 0.351,
+    "federal_loan_rate": 0.3918,
+    "enrollment": 2300
+  },
+  "cds": null,
+  "reference": null
+}

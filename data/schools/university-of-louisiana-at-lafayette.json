@@ -1,0 +1,36 @@
+{
+  "slug": "university-of-louisiana-at-lafayette",
+  "name": "University of Louisiana at Lafayette",
+  "ipeds_id": 160658,
+  "state": "LA",
+  "city": "Lafayette",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.8883,
+    "sat_reading_25": 560,
+    "sat_reading_75": 645,
+    "sat_math_25": 560,
+    "sat_math_75": 610,
+    "act_25": 23,
+    "act_75": 27,
+    "tuition_in_state": 10418,
+    "tuition_out_of_state": 24146,
+    "room_board": 11988,
+    "total_cost_in_state": 24406,
+    "total_cost_out_of_state": 38134,
+    "net_price": {
+      "0_30k": 11226,
+      "30_48k": 12427,
+      "48_75k": 15448,
+      "75_110k": 18180,
+      "110k_plus": 18398
+    },
+    "pell_rate": 0.3877,
+    "federal_loan_rate": 0.4359,
+    "enrollment": 12269
+  },
+  "cds": null,
+  "reference": null
+}

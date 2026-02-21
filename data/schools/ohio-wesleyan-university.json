@@ -1,0 +1,36 @@
+{
+  "slug": "ohio-wesleyan-university",
+  "name": "Ohio Wesleyan University",
+  "ipeds_id": 204909,
+  "state": "OH",
+  "city": "Delaware",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.5067,
+    "sat_reading_25": 550,
+    "sat_reading_75": 685,
+    "sat_math_25": 555,
+    "sat_math_75": 665,
+    "act_25": 25,
+    "act_75": 31,
+    "tuition_in_state": 52357,
+    "tuition_out_of_state": 52357,
+    "room_board": 14226,
+    "total_cost_in_state": 68583,
+    "total_cost_out_of_state": 68583,
+    "net_price": {
+      "0_30k": 14920,
+      "30_48k": 13089,
+      "48_75k": 15819,
+      "75_110k": 17444,
+      "110k_plus": 30353
+    },
+    "pell_rate": 0.2461,
+    "federal_loan_rate": 0.6191,
+    "enrollment": 1450
+  },
+  "cds": null,
+  "reference": null
+}

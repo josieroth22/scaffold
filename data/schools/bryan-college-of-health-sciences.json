@@ -1,0 +1,36 @@
+{
+  "slug": "bryan-college-of-health-sciences",
+  "name": "Bryan College of Health Sciences",
+  "ipeds_id": 180878,
+  "state": "NE",
+  "city": "Lincoln",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.6291,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 20070,
+    "tuition_out_of_state": 20070,
+    "room_board": null,
+    "total_cost_in_state": 28837,
+    "total_cost_out_of_state": null,
+    "net_price": {
+      "0_30k": 26673,
+      "30_48k": 22110,
+      "48_75k": 25252,
+      "75_110k": 26356,
+      "110k_plus": 26339
+    },
+    "pell_rate": 0.2124,
+    "federal_loan_rate": 0.5819,
+    "enrollment": 534
+  },
+  "cds": null,
+  "reference": null
+}

@@ -1,0 +1,36 @@
+{
+  "slug": "thomas-more-university",
+  "name": "Thomas More University",
+  "ipeds_id": 157809,
+  "state": "KY",
+  "city": "Crestview Hills",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.9703,
+    "sat_reading_25": 510,
+    "sat_reading_75": 590,
+    "sat_math_25": 490,
+    "sat_math_75": 560,
+    "act_25": 20,
+    "act_75": 27,
+    "tuition_in_state": 38400,
+    "tuition_out_of_state": 38400,
+    "room_board": 9530,
+    "total_cost_in_state": 49930,
+    "total_cost_out_of_state": 49930,
+    "net_price": {
+      "0_30k": 14407,
+      "30_48k": 15773,
+      "48_75k": 19388,
+      "75_110k": 21643,
+      "110k_plus": 23299
+    },
+    "pell_rate": 0.2247,
+    "federal_loan_rate": 0.597,
+    "enrollment": 1305
+  },
+  "cds": null,
+  "reference": null
+}

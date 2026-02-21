@@ -1,0 +1,36 @@
+{
+  "slug": "biola-university",
+  "name": "Biola University",
+  "ipeds_id": 110097,
+  "state": "CA",
+  "city": "La Mirada",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.6008,
+    "sat_reading_25": 580,
+    "sat_reading_75": 690,
+    "sat_math_25": 550,
+    "sat_math_75": 670,
+    "act_25": 24,
+    "act_75": 30,
+    "tuition_in_state": 46704,
+    "tuition_out_of_state": 46704,
+    "room_board": 11234,
+    "total_cost_in_state": 59938,
+    "total_cost_out_of_state": 59938,
+    "net_price": {
+      "0_30k": 23001,
+      "30_48k": 21504,
+      "48_75k": 25038,
+      "75_110k": 28830,
+      "110k_plus": 35263
+    },
+    "pell_rate": 0.2601,
+    "federal_loan_rate": 0.4467,
+    "enrollment": 3390
+  },
+  "cds": null,
+  "reference": null
+}

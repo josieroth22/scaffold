@@ -1,0 +1,36 @@
+{
+  "slug": "rhode-island-college",
+  "name": "Rhode Island College",
+  "ipeds_id": 217420,
+  "state": "RI",
+  "city": "Providence",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.8109,
+    "sat_reading_25": 440,
+    "sat_reading_75": 600,
+    "sat_math_25": 420,
+    "sat_math_75": 560,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 10986,
+    "tuition_out_of_state": 26519,
+    "room_board": 13719,
+    "total_cost_in_state": 26705,
+    "total_cost_out_of_state": 42238,
+    "net_price": {
+      "0_30k": 7674,
+      "30_48k": 8507,
+      "48_75k": 11290,
+      "75_110k": 15107,
+      "110k_plus": 16800
+    },
+    "pell_rate": 0.4147,
+    "federal_loan_rate": 0.4825,
+    "enrollment": 4630
+  },
+  "cds": null,
+  "reference": null
+}

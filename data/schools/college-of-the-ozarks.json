@@ -1,0 +1,36 @@
+{
+  "slug": "college-of-the-ozarks",
+  "name": "College of the Ozarks",
+  "ipeds_id": 178697,
+  "state": "MO",
+  "city": "Point Lookout",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.1487,
+    "sat_reading_25": 545,
+    "sat_reading_75": 660,
+    "sat_math_25": 518,
+    "sat_math_75": 645,
+    "act_25": 20,
+    "act_75": 25,
+    "tuition_in_state": 21290,
+    "tuition_out_of_state": 21290,
+    "room_board": 8500,
+    "total_cost_in_state": 31790,
+    "total_cost_out_of_state": 31790,
+    "net_price": {
+      "0_30k": 6214,
+      "30_48k": 6639,
+      "48_75k": 7275,
+      "75_110k": 10273,
+      "110k_plus": 11397
+    },
+    "pell_rate": 0.4364,
+    "federal_loan_rate": 0,
+    "enrollment": 1415
+  },
+  "cds": null,
+  "reference": null
+}

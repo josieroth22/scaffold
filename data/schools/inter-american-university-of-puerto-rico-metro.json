@@ -1,0 +1,36 @@
+{
+  "slug": "inter-american-university-of-puerto-rico-metro",
+  "name": "Inter American University of Puerto Rico-Metro",
+  "ipeds_id": 242653,
+  "state": "PR",
+  "city": "San Juan",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.6644,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 5580,
+    "tuition_out_of_state": 5580,
+    "room_board": 12539,
+    "total_cost_in_state": 20119,
+    "total_cost_out_of_state": 20119,
+    "net_price": {
+      "0_30k": 8424,
+      "30_48k": 9388,
+      "48_75k": 10800,
+      "75_110k": 13173,
+      "110k_plus": null
+    },
+    "pell_rate": 0.6592,
+    "federal_loan_rate": 0.1815,
+    "enrollment": 2692
+  },
+  "cds": null,
+  "reference": null
+}

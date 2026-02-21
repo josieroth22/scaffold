@@ -1,0 +1,36 @@
+{
+  "slug": "george-mason-university",
+  "name": "George Mason University",
+  "ipeds_id": 232186,
+  "state": "VA",
+  "city": "Fairfax",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.8883,
+    "sat_reading_25": 580,
+    "sat_reading_75": 670,
+    "sat_math_25": 560,
+    "sat_math_75": 670,
+    "act_25": 25,
+    "act_75": 30,
+    "tuition_in_state": 13815,
+    "tuition_out_of_state": 39397,
+    "room_board": 15151,
+    "total_cost_in_state": 30966,
+    "total_cost_out_of_state": 56548,
+    "net_price": {
+      "0_30k": 12197,
+      "30_48k": 13383,
+      "48_75k": 16296,
+      "75_110k": 20394,
+      "110k_plus": 25247
+    },
+    "pell_rate": 0.2951,
+    "federal_loan_rate": 0.3425,
+    "enrollment": 27083
+  },
+  "cds": null,
+  "reference": null
+}

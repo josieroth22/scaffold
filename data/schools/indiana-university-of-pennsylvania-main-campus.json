@@ -1,0 +1,36 @@
+{
+  "slug": "indiana-university-of-pennsylvania-main-campus",
+  "name": "Indiana University of Pennsylvania-Main Campus",
+  "ipeds_id": 213020,
+  "state": "PA",
+  "city": "Indiana",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.912,
+    "sat_reading_25": 480,
+    "sat_reading_75": 600,
+    "sat_math_25": 460,
+    "sat_math_75": 570,
+    "act_25": 17,
+    "act_75": 24,
+    "tuition_in_state": 11380,
+    "tuition_out_of_state": 16297,
+    "room_board": 12802,
+    "total_cost_in_state": 26182,
+    "total_cost_out_of_state": 31099,
+    "net_price": {
+      "0_30k": 12696,
+      "30_48k": 13245,
+      "48_75k": 16425,
+      "75_110k": 20800,
+      "110k_plus": 21502
+    },
+    "pell_rate": 0.3576,
+    "federal_loan_rate": 0.6549,
+    "enrollment": 6893
+  },
+  "cds": null,
+  "reference": null
+}

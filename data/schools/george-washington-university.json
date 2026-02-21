@@ -1,0 +1,79 @@
+{
+  "slug": "george-washington-university",
+  "name": "George Washington University",
+  "api_name": "George Washington University",
+  "ipeds_id": 131469,
+  "state": "DC",
+  "city": "Washington",
+  "type": "private",
+  "tier": "C",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.4354,
+    "sat_reading_25": 680,
+    "sat_reading_75": 750,
+    "sat_math_25": 670,
+    "sat_math_75": 750,
+    "act_25": 31,
+    "act_75": 34,
+    "tuition_in_state": 64990,
+    "tuition_out_of_state": 64990,
+    "room_board": 16300,
+    "total_cost_in_state": 83290,
+    "total_cost_out_of_state": 83290,
+    "net_price": {
+      "0_30k": 21396,
+      "30_48k": 18171,
+      "48_75k": 21863,
+      "75_110k": 33540,
+      "110k_plus": 53974
+    },
+    "pell_rate": 0.1483,
+    "federal_loan_rate": 0.3238,
+    "enrollment": 10848
+  },
+  "cds": {
+    "school_name": "George Washington University",
+    "source_year": "2024-2025",
+    "total_applicants": 27006,
+    "total_admitted": 12718,
+    "admit_rate_overall": 0.471,
+    "ed_applicants": 1139,
+    "ed_admitted": 755,
+    "ed_admit_rate": 0.663,
+    "ea_applicants": null,
+    "ea_admitted": null,
+    "ea_admit_rate": null,
+    "sat_reading_25": 680,
+    "sat_reading_75": 750,
+    "sat_math_25": 670,
+    "sat_math_75": 750,
+    "sat_composite_25": 1360,
+    "sat_composite_75": 1470,
+    "act_composite_25": 30,
+    "act_composite_75": 33,
+    "tuition_in_state": null,
+    "tuition_out_of_state": null,
+    "tuition_private": 69780,
+    "required_fees": 390,
+    "room_board": 17600,
+    "pct_need_met": 91,
+    "avg_need_grant": 43676,
+    "avg_financial_aid_package": 64025,
+    "meets_full_need": false,
+    "pct_freshmen_receiving_need_aid": 50.3,
+    "pct_freshmen_receiving_merit_aid": 61.8,
+    "avg_merit_award": 25357
+  },
+  "reference": {
+    "merit_scholarships": [
+      {
+        "name": "Presidential Academic Scholarship",
+        "amount": "Up to full tuition (~$63,000/year)",
+        "deadline": "January 5",
+        "requirements": "None"
+      }
+    ]
+  }
+}

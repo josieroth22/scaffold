@@ -1,0 +1,36 @@
+{
+  "slug": "missouri-western-state-university",
+  "name": "Missouri Western State University",
+  "ipeds_id": 178387,
+  "state": "MO",
+  "city": "Saint Joseph",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": null,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 9800,
+    "tuition_out_of_state": 17500,
+    "room_board": 10975,
+    "total_cost_in_state": 22775,
+    "total_cost_out_of_state": 30475,
+    "net_price": {
+      "0_30k": 10342,
+      "30_48k": 11014,
+      "48_75k": 12834,
+      "75_110k": 16231,
+      "110k_plus": 17619
+    },
+    "pell_rate": 0.2817,
+    "federal_loan_rate": 0.3033,
+    "enrollment": 2372
+  },
+  "cds": null,
+  "reference": null
+}

@@ -1,0 +1,36 @@
+{
+  "slug": "central-yeshiva-tomchei-tmimim-lubavitz",
+  "name": "Central Yeshiva Tomchei Tmimim Lubavitz",
+  "ipeds_id": 189857,
+  "state": "NY",
+  "city": "Brooklyn",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.8846,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 8400,
+    "tuition_out_of_state": 8400,
+    "room_board": 3600,
+    "total_cost_in_state": 14000,
+    "total_cost_out_of_state": 14000,
+    "net_price": {
+      "0_30k": 18440,
+      "30_48k": 19048,
+      "48_75k": 19976,
+      "75_110k": 21984,
+      "110k_plus": 22805
+    },
+    "pell_rate": 0.6445,
+    "federal_loan_rate": 0,
+    "enrollment": 810
+  },
+  "cds": null,
+  "reference": null
+}

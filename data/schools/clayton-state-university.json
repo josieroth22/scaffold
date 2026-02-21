@@ -1,0 +1,36 @@
+{
+  "slug": "clayton-state-university",
+  "name": "Clayton  State University",
+  "ipeds_id": 139311,
+  "state": "GA",
+  "city": "Morrow",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.7059,
+    "sat_reading_25": 450,
+    "sat_reading_75": 550,
+    "sat_math_25": 418,
+    "sat_math_75": 520,
+    "act_25": 16,
+    "act_75": 20,
+    "tuition_in_state": 5068,
+    "tuition_out_of_state": 15790,
+    "room_board": 11104,
+    "total_cost_in_state": 18172,
+    "total_cost_out_of_state": 28894,
+    "net_price": {
+      "0_30k": 8685,
+      "30_48k": 9021,
+      "48_75k": 11506,
+      "75_110k": 13966,
+      "110k_plus": 15948
+    },
+    "pell_rate": 0.5191,
+    "federal_loan_rate": 0.4011,
+    "enrollment": 4390
+  },
+  "cds": null,
+  "reference": null
+}

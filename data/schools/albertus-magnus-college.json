@@ -1,0 +1,36 @@
+{
+  "slug": "albertus-magnus-college",
+  "name": "Albertus Magnus College",
+  "ipeds_id": 128498,
+  "state": "CT",
+  "city": "New Haven",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.6437,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 39924,
+    "tuition_out_of_state": 39924,
+    "room_board": 15338,
+    "total_cost_in_state": 57262,
+    "total_cost_out_of_state": 57262,
+    "net_price": {
+      "0_30k": 32923,
+      "30_48k": 32830,
+      "48_75k": 30898,
+      "75_110k": 33567,
+      "110k_plus": 32651
+    },
+    "pell_rate": 0.4711,
+    "federal_loan_rate": 0.7558,
+    "enrollment": 882
+  },
+  "cds": null,
+  "reference": null
+}

@@ -1,0 +1,36 @@
+{
+  "slug": "lafayette-college",
+  "name": "Lafayette College",
+  "ipeds_id": 213385,
+  "state": "PA",
+  "city": "Easton",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.3147,
+    "sat_reading_25": 670,
+    "sat_reading_75": 730,
+    "sat_math_25": 670,
+    "sat_math_75": 760,
+    "act_25": 30,
+    "act_75": 33,
+    "tuition_in_state": 62574,
+    "tuition_out_of_state": 62574,
+    "room_board": 18640,
+    "total_cost_in_state": 83214,
+    "total_cost_out_of_state": 83214,
+    "net_price": {
+      "0_30k": 11903,
+      "30_48k": 5125,
+      "48_75k": 11291,
+      "75_110k": 23829,
+      "110k_plus": 49830
+    },
+    "pell_rate": 0.103,
+    "federal_loan_rate": 0.2114,
+    "enrollment": 2746
+  },
+  "cds": null,
+  "reference": null
+}

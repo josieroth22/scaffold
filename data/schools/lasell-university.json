@@ -1,0 +1,36 @@
+{
+  "slug": "lasell-university",
+  "name": "Lasell University",
+  "ipeds_id": 166391,
+  "state": "MA",
+  "city": "Newton",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.8225,
+    "sat_reading_25": 550,
+    "sat_reading_75": 650,
+    "sat_math_25": 535,
+    "sat_math_75": 610,
+    "act_25": 18,
+    "act_75": 26,
+    "tuition_in_state": 26000,
+    "tuition_out_of_state": 26000,
+    "room_board": 13500,
+    "total_cost_in_state": 41500,
+    "total_cost_out_of_state": 41500,
+    "net_price": {
+      "0_30k": 15374,
+      "30_48k": 19185,
+      "48_75k": 22986,
+      "75_110k": 27843,
+      "110k_plus": 33233
+    },
+    "pell_rate": 0.3224,
+    "federal_loan_rate": 0.733,
+    "enrollment": 1152
+  },
+  "cds": null,
+  "reference": null
+}

@@ -1,0 +1,36 @@
+{
+  "slug": "university-of-louisiana-at-monroe",
+  "name": "University of Louisiana at Monroe",
+  "ipeds_id": 159993,
+  "state": "LA",
+  "city": "Monroe",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.7456,
+    "sat_reading_25": 520,
+    "sat_reading_75": 620,
+    "sat_math_25": 530,
+    "sat_math_75": 730,
+    "act_25": 19,
+    "act_75": 24,
+    "tuition_in_state": 9190,
+    "tuition_out_of_state": 21290,
+    "room_board": 10182,
+    "total_cost_in_state": 21372,
+    "total_cost_out_of_state": 33472,
+    "net_price": {
+      "0_30k": 9709,
+      "30_48k": 9617,
+      "48_75k": 12001,
+      "75_110k": 14910,
+      "110k_plus": 15747
+    },
+    "pell_rate": 0.3341,
+    "federal_loan_rate": 0.3474,
+    "enrollment": 4891
+  },
+  "cds": null,
+  "reference": null
+}

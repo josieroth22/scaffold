@@ -1,0 +1,36 @@
+{
+  "slug": "southwestern-college",
+  "name": "Southwestern College",
+  "ipeds_id": 155900,
+  "state": "KS",
+  "city": "Winfield",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.6497,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 38480,
+    "tuition_out_of_state": 38480,
+    "room_board": 11356,
+    "total_cost_in_state": 51836,
+    "total_cost_out_of_state": 51836,
+    "net_price": {
+      "0_30k": 24537,
+      "30_48k": 26844,
+      "48_75k": 24641,
+      "75_110k": 27101,
+      "110k_plus": 31218
+    },
+    "pell_rate": 0.3946,
+    "federal_loan_rate": 0.4892,
+    "enrollment": 1026
+  },
+  "cds": null,
+  "reference": null
+}

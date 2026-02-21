@@ -1,0 +1,36 @@
+{
+  "slug": "king-university",
+  "name": "King University",
+  "ipeds_id": 220516,
+  "state": "TN",
+  "city": "Bristol",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.5439,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 34800,
+    "tuition_out_of_state": 34800,
+    "room_board": 10262,
+    "total_cost_in_state": 47062,
+    "total_cost_out_of_state": 47062,
+    "net_price": {
+      "0_30k": 22300,
+      "30_48k": 19281,
+      "48_75k": 21500,
+      "75_110k": 28318,
+      "110k_plus": 26331
+    },
+    "pell_rate": 0.4188,
+    "federal_loan_rate": 0.6446,
+    "enrollment": 975
+  },
+  "cds": null,
+  "reference": null
+}

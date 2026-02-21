@@ -1,0 +1,36 @@
+{
+  "slug": "west-chester-university-of-pennsylvania",
+  "name": "West Chester University of Pennsylvania",
+  "ipeds_id": 216764,
+  "state": "PA",
+  "city": "West Chester",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.792,
+    "sat_reading_25": 560,
+    "sat_reading_75": 640,
+    "sat_math_25": 540,
+    "sat_math_75": 630,
+    "act_25": 24,
+    "act_75": 28,
+    "tuition_in_state": 10687,
+    "tuition_out_of_state": 22511,
+    "room_board": 12474,
+    "total_cost_in_state": 25161,
+    "total_cost_out_of_state": 36985,
+    "net_price": {
+      "0_30k": 16800,
+      "30_48k": 17340,
+      "48_75k": 20275,
+      "75_110k": 24846,
+      "110k_plus": 26575
+    },
+    "pell_rate": 0.245,
+    "federal_loan_rate": 0.5368,
+    "enrollment": 14067
+  },
+  "cds": null,
+  "reference": null
+}

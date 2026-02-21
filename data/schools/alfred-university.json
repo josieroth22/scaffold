@@ -1,0 +1,36 @@
+{
+  "slug": "alfred-university",
+  "name": "Alfred University",
+  "ipeds_id": 188641,
+  "state": "NY",
+  "city": "Alfred",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.4833,
+    "sat_reading_25": 540,
+    "sat_reading_75": 640,
+    "sat_math_25": 560,
+    "sat_math_75": 640,
+    "act_25": 24,
+    "act_75": 31,
+    "tuition_in_state": 39530,
+    "tuition_out_of_state": 39530,
+    "room_board": 14240,
+    "total_cost_in_state": 55770,
+    "total_cost_out_of_state": 55770,
+    "net_price": {
+      "0_30k": 15458,
+      "30_48k": 18570,
+      "48_75k": 23315,
+      "75_110k": 27943,
+      "110k_plus": 27120
+    },
+    "pell_rate": 0.3898,
+    "federal_loan_rate": 0.6719,
+    "enrollment": 1401
+  },
+  "cds": null,
+  "reference": null
+}

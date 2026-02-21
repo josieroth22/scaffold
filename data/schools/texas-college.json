@@ -1,0 +1,36 @@
+{
+  "slug": "texas-college",
+  "name": "Texas College",
+  "ipeds_id": 228884,
+  "state": "TX",
+  "city": "Tyler",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": null,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 10008,
+    "tuition_out_of_state": 10008,
+    "room_board": 8000,
+    "total_cost_in_state": 20008,
+    "total_cost_out_of_state": 20008,
+    "net_price": {
+      "0_30k": 10966,
+      "30_48k": 11282,
+      "48_75k": 8403,
+      "75_110k": null,
+      "110k_plus": null
+    },
+    "pell_rate": 0.8536,
+    "federal_loan_rate": 0.6293,
+    "enrollment": 644
+  },
+  "cds": null,
+  "reference": null
+}

@@ -1,0 +1,36 @@
+{
+  "slug": "san-diego-state-university",
+  "name": "San Diego State University",
+  "ipeds_id": 122409,
+  "state": "CA",
+  "city": "San Diego",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.3444,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 8290,
+    "tuition_out_of_state": 20170,
+    "room_board": 21630,
+    "total_cost_in_state": 31920,
+    "total_cost_out_of_state": 43800,
+    "net_price": {
+      "0_30k": 9655,
+      "30_48k": 10241,
+      "48_75k": 14205,
+      "75_110k": 18176,
+      "110k_plus": 24913
+    },
+    "pell_rate": 0.3142,
+    "federal_loan_rate": 0.2314,
+    "enrollment": 33654
+  },
+  "cds": null,
+  "reference": null
+}

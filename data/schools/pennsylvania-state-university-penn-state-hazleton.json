@@ -1,0 +1,36 @@
+{
+  "slug": "pennsylvania-state-university-penn-state-hazleton",
+  "name": "Pennsylvania State University-Penn State Hazleton",
+  "ipeds_id": 214768,
+  "state": "PA",
+  "city": "Hazleton",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.9104,
+    "sat_reading_25": 540,
+    "sat_reading_75": 650,
+    "sat_math_25": 520,
+    "sat_math_75": 670,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 15180,
+    "tuition_out_of_state": 25118,
+    "room_board": 12022,
+    "total_cost_in_state": 29202,
+    "total_cost_out_of_state": 39140,
+    "net_price": {
+      "0_30k": 15278,
+      "30_48k": 16247,
+      "48_75k": 18473,
+      "75_110k": 23273,
+      "110k_plus": 26468
+    },
+    "pell_rate": 0.4778,
+    "federal_loan_rate": 0.6469,
+    "enrollment": 508
+  },
+  "cds": null,
+  "reference": null
+}

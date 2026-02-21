@@ -1,0 +1,36 @@
+{
+  "slug": "barry-university",
+  "name": "Barry University",
+  "ipeds_id": 132471,
+  "state": "FL",
+  "city": "Miami",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.5907,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 33450,
+    "tuition_out_of_state": 33450,
+    "room_board": 13500,
+    "total_cost_in_state": 48950,
+    "total_cost_out_of_state": 48950,
+    "net_price": {
+      "0_30k": 20514,
+      "30_48k": 21156,
+      "48_75k": 23386,
+      "75_110k": 28891,
+      "110k_plus": 29647
+    },
+    "pell_rate": 0.4571,
+    "federal_loan_rate": 0.5157,
+    "enrollment": 2245
+  },
+  "cds": null,
+  "reference": null
+}

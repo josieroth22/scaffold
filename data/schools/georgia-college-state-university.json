@@ -1,0 +1,36 @@
+{
+  "slug": "georgia-college-state-university",
+  "name": "Georgia College & State University",
+  "ipeds_id": 139861,
+  "state": "GA",
+  "city": "Milledgeville",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.8777,
+    "sat_reading_25": 540,
+    "sat_reading_75": 640,
+    "sat_math_25": 520,
+    "sat_math_75": 600,
+    "act_25": 21,
+    "act_75": 26,
+    "tuition_in_state": 8998,
+    "tuition_out_of_state": 28178,
+    "room_board": 11774,
+    "total_cost_in_state": 22772,
+    "total_cost_out_of_state": 41952,
+    "net_price": {
+      "0_30k": 13152,
+      "30_48k": 14675,
+      "48_75k": 18262,
+      "75_110k": 20684,
+      "110k_plus": 21140
+    },
+    "pell_rate": 0.1637,
+    "federal_loan_rate": 0.3438,
+    "enrollment": 5599
+  },
+  "cds": null,
+  "reference": null
+}

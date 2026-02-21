@@ -1,0 +1,36 @@
+{
+  "slug": "university-of-memphis",
+  "name": "University of Memphis",
+  "ipeds_id": 220862,
+  "state": "TN",
+  "city": "Memphis",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.9338,
+    "sat_reading_25": 465,
+    "sat_reading_75": 615,
+    "sat_math_25": 440,
+    "sat_math_75": 590,
+    "act_25": 17,
+    "act_75": 24,
+    "tuition_in_state": 10344,
+    "tuition_out_of_state": 14784,
+    "room_board": 10344,
+    "total_cost_in_state": 22688,
+    "total_cost_out_of_state": 27128,
+    "net_price": {
+      "0_30k": 10985,
+      "30_48k": 12003,
+      "48_75k": 15357,
+      "75_110k": 18600,
+      "110k_plus": 19252
+    },
+    "pell_rate": 0.3996,
+    "federal_loan_rate": 0.3877,
+    "enrollment": 13645
+  },
+  "cds": null,
+  "reference": null
+}

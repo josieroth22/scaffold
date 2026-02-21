@@ -1,0 +1,36 @@
+{
+  "slug": "edward-waters-university",
+  "name": "Edward Waters University",
+  "ipeds_id": 133526,
+  "state": "FL",
+  "city": "Jacksonville",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.8481,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 14878,
+    "tuition_out_of_state": 14878,
+    "room_board": 8010,
+    "total_cost_in_state": 24888,
+    "total_cost_out_of_state": 24888,
+    "net_price": {
+      "0_30k": 12861,
+      "30_48k": 12887,
+      "48_75k": 15958,
+      "75_110k": 14237,
+      "110k_plus": 20001
+    },
+    "pell_rate": 0.7557,
+    "federal_loan_rate": 0.7242,
+    "enrollment": 1113
+  },
+  "cds": null,
+  "reference": null
+}

@@ -1,0 +1,36 @@
+{
+  "slug": "university-of-jamestown",
+  "name": "University of Jamestown",
+  "ipeds_id": 200156,
+  "state": "ND",
+  "city": "Jamestown",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.9351,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 24820,
+    "tuition_out_of_state": 24820,
+    "room_board": 8920,
+    "total_cost_in_state": 35740,
+    "total_cost_out_of_state": 35740,
+    "net_price": {
+      "0_30k": 15596,
+      "30_48k": 18178,
+      "48_75k": 20174,
+      "75_110k": 22157,
+      "110k_plus": 21810
+    },
+    "pell_rate": 0.2607,
+    "federal_loan_rate": 0.635,
+    "enrollment": 947
+  },
+  "cds": null,
+  "reference": null
+}

@@ -1,0 +1,36 @@
+{
+  "slug": "william-carey-university",
+  "name": "William Carey University",
+  "ipeds_id": 176479,
+  "state": "MS",
+  "city": "Hattiesburg",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.5797,
+    "sat_reading_25": 460,
+    "sat_reading_75": 620,
+    "sat_math_25": 420,
+    "sat_math_75": 580,
+    "act_25": 20,
+    "act_75": 27,
+    "tuition_in_state": 14685,
+    "tuition_out_of_state": 14685,
+    "room_board": 7599,
+    "total_cost_in_state": 24284,
+    "total_cost_out_of_state": 24284,
+    "net_price": {
+      "0_30k": 15423,
+      "30_48k": 16219,
+      "48_75k": 15717,
+      "75_110k": 18865,
+      "110k_plus": 19800
+    },
+    "pell_rate": 0.2458,
+    "federal_loan_rate": 0.2549,
+    "enrollment": 1818
+  },
+  "cds": null,
+  "reference": null
+}

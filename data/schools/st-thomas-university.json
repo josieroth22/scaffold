@@ -1,0 +1,36 @@
+{
+  "slug": "st-thomas-university",
+  "name": "St. Thomas University",
+  "ipeds_id": 137476,
+  "state": "FL",
+  "city": "Miami Gardens",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.994,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 34770,
+    "tuition_out_of_state": 34770,
+    "room_board": 12478,
+    "total_cost_in_state": 49248,
+    "total_cost_out_of_state": 49248,
+    "net_price": {
+      "0_30k": 23083,
+      "30_48k": 23471,
+      "48_75k": 23944,
+      "75_110k": 28095,
+      "110k_plus": 28725
+    },
+    "pell_rate": 0.2498,
+    "federal_loan_rate": 0.2806,
+    "enrollment": 1963
+  },
+  "cds": null,
+  "reference": null
+}

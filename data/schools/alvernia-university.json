@@ -1,0 +1,36 @@
+{
+  "slug": "alvernia-university",
+  "name": "Alvernia University",
+  "ipeds_id": 210775,
+  "state": "PA",
+  "city": "Reading",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.6232,
+    "sat_reading_25": 528,
+    "sat_reading_75": 620,
+    "sat_math_25": 538,
+    "sat_math_75": 633,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 42810,
+    "tuition_out_of_state": 42810,
+    "room_board": 15090,
+    "total_cost_in_state": 59900,
+    "total_cost_out_of_state": 59900,
+    "net_price": {
+      "0_30k": 27979,
+      "30_48k": 27001,
+      "48_75k": 26381,
+      "75_110k": 27019,
+      "110k_plus": 30036
+    },
+    "pell_rate": 0.337,
+    "federal_loan_rate": 0.8186,
+    "enrollment": 2042
+  },
+  "cds": null,
+  "reference": null
+}

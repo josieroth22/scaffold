@@ -1,0 +1,36 @@
+{
+  "slug": "bridgewater-college",
+  "name": "Bridgewater College",
+  "ipeds_id": 231581,
+  "state": "VA",
+  "city": "Bridgewater",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.9081,
+    "sat_reading_25": 530,
+    "sat_reading_75": 660,
+    "sat_math_25": 540,
+    "sat_math_75": 715,
+    "act_25": 28,
+    "act_75": 29,
+    "tuition_in_state": 41350,
+    "tuition_out_of_state": 41350,
+    "room_board": 14370,
+    "total_cost_in_state": 57720,
+    "total_cost_out_of_state": 57720,
+    "net_price": {
+      "0_30k": 14410,
+      "30_48k": 19132,
+      "48_75k": 21102,
+      "75_110k": 21317,
+      "110k_plus": 21465
+    },
+    "pell_rate": 0.2939,
+    "federal_loan_rate": 0.6477,
+    "enrollment": 1388
+  },
+  "cds": null,
+  "reference": null
+}

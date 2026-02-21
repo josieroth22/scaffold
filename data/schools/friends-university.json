@@ -1,0 +1,36 @@
+{
+  "slug": "friends-university",
+  "name": "Friends University",
+  "ipeds_id": 155089,
+  "state": "KS",
+  "city": "Wichita",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.5564,
+    "sat_reading_25": 465,
+    "sat_reading_75": 550,
+    "sat_math_25": 450,
+    "sat_math_75": 540,
+    "act_25": 17,
+    "act_75": 22,
+    "tuition_in_state": 32748,
+    "tuition_out_of_state": 32748,
+    "room_board": 10828,
+    "total_cost_in_state": 45576,
+    "total_cost_out_of_state": 45576,
+    "net_price": {
+      "0_30k": 17538,
+      "30_48k": 18122,
+      "48_75k": 23404,
+      "75_110k": 27432,
+      "110k_plus": 33926
+    },
+    "pell_rate": 0.3365,
+    "federal_loan_rate": 0.5,
+    "enrollment": 1015
+  },
+  "cds": null,
+  "reference": null
+}

@@ -1,0 +1,51 @@
+{
+  "slug": "texas-tech-university",
+  "name": "Texas Tech University",
+  "ipeds_id": 229115,
+  "state": "TX",
+  "city": "Lubbock",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.7089,
+    "sat_reading_25": 550,
+    "sat_reading_75": 640,
+    "sat_math_25": 540,
+    "sat_math_75": 630,
+    "act_25": 22,
+    "act_75": 28,
+    "tuition_in_state": 11852,
+    "tuition_out_of_state": 24451,
+    "room_board": 10460,
+    "total_cost_in_state": 24312,
+    "total_cost_out_of_state": 36911,
+    "net_price": {
+      "0_30k": 13922,
+      "30_48k": 15173,
+      "48_75k": 18376,
+      "75_110k": 23239,
+      "110k_plus": 24903
+    },
+    "pell_rate": 0.2575,
+    "federal_loan_rate": 0.4348,
+    "enrollment": 32446
+  },
+  "cds": null,
+  "reference": {
+    "national_merit": {
+      "semifinalist_award": "None",
+      "finalist_award": "Full COA",
+      "first_choice_required": true,
+      "guaranteed": false
+    },
+    "honors_program": {
+      "name": "Texas Tech Honors College",
+      "description": "Texas Tech Honors College offers small, discussion-based classes taught by dedicated faculty. Students benefit from priority registration, personalized advising, and seminars that foster critical thinking and leadership, emphasizing research, global learning, and interdisciplinary exploration.",
+      "separate_application": null,
+      "avg_sat": 1360,
+      "acceptance_rate": null,
+      "size": 2000
+    }
+  }
+}

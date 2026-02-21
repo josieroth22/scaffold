@@ -1,0 +1,43 @@
+{
+  "slug": "rochester-institute-of-technology",
+  "name": "Rochester Institute of Technology",
+  "ipeds_id": 195003,
+  "state": "NY",
+  "city": "Rochester",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.714,
+    "sat_reading_25": 640,
+    "sat_reading_75": 720,
+    "sat_math_25": 640,
+    "sat_math_75": 740,
+    "act_25": 29,
+    "act_75": 33,
+    "tuition_in_state": 57016,
+    "tuition_out_of_state": 57016,
+    "room_board": 15516,
+    "total_cost_in_state": 74532,
+    "total_cost_out_of_state": 74532,
+    "net_price": {
+      "0_30k": 24475,
+      "30_48k": 25200,
+      "48_75k": 25561,
+      "75_110k": 30655,
+      "110k_plus": 34772
+    },
+    "pell_rate": 0.2612,
+    "federal_loan_rate": 0.552,
+    "enrollment": 13225
+  },
+  "cds": null,
+  "reference": {
+    "national_merit": {
+      "semifinalist_award": "None",
+      "finalist_award": "$2,000 plus highest Pres. Schol.",
+      "first_choice_required": true,
+      "guaranteed": true
+    }
+  }
+}

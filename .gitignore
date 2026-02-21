@@ -1,6 +1,8 @@
 node_modules/
 .env
 .env.local
+.env.production
+.env*.local
 *.pyc
 __pycache__/
 .DS_Store
@@ -8,4 +10,8 @@ dist/
 build/
 *.log
 .vercel
-.env*.local
+.claude/
+CDS Data/
+Other Context- Scholarships and Honors/
+data/scorecard-raw/
+data/cds-pdfs/

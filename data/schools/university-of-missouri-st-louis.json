@@ -1,0 +1,36 @@
+{
+  "slug": "university-of-missouri-st-louis",
+  "name": "University of Missouri-St Louis",
+  "ipeds_id": 178420,
+  "state": "MO",
+  "city": "Saint Louis",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.5716,
+    "sat_reading_25": 500,
+    "sat_reading_75": 620,
+    "sat_math_25": 530,
+    "sat_math_75": 600,
+    "act_25": 20,
+    "act_75": 27,
+    "tuition_in_state": 13440,
+    "tuition_out_of_state": 33432,
+    "room_board": 13104,
+    "total_cost_in_state": 28544,
+    "total_cost_out_of_state": 48536,
+    "net_price": {
+      "0_30k": 10019,
+      "30_48k": 9080,
+      "48_75k": 12980,
+      "75_110k": 19284,
+      "110k_plus": 18260
+    },
+    "pell_rate": 0.1785,
+    "federal_loan_rate": 0.1988,
+    "enrollment": 5108
+  },
+  "cds": null,
+  "reference": null
+}

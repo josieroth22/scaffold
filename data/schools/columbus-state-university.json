@@ -1,0 +1,36 @@
+{
+  "slug": "columbus-state-university",
+  "name": "Columbus State University",
+  "ipeds_id": 139366,
+  "state": "GA",
+  "city": "Columbus",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.9924,
+    "sat_reading_25": 460,
+    "sat_reading_75": 570,
+    "sat_math_25": 400,
+    "sat_math_75": 530,
+    "act_25": 17,
+    "act_75": 24,
+    "tuition_in_state": 5751,
+    "tuition_out_of_state": 16805,
+    "room_board": 11262,
+    "total_cost_in_state": 19013,
+    "total_cost_out_of_state": 30067,
+    "net_price": {
+      "0_30k": 10370,
+      "30_48k": 10797,
+      "48_75k": 13287,
+      "75_110k": 15598,
+      "110k_plus": 15428
+    },
+    "pell_rate": 0.444,
+    "federal_loan_rate": 0.4171,
+    "enrollment": 5537
+  },
+  "cds": null,
+  "reference": null
+}

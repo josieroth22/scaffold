@@ -1,0 +1,36 @@
+{
+  "slug": "wright-state-university-lake-campus",
+  "name": "Wright State University-Lake Campus",
+  "ipeds_id": 206613,
+  "state": "OH",
+  "city": "Celina",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": null,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 7504,
+    "tuition_out_of_state": 16922,
+    "room_board": 11100,
+    "total_cost_in_state": 20604,
+    "total_cost_out_of_state": 30022,
+    "net_price": {
+      "0_30k": 9751,
+      "30_48k": 9700,
+      "48_75k": 12021,
+      "75_110k": 15049,
+      "110k_plus": 15676
+    },
+    "pell_rate": 0.1584,
+    "federal_loan_rate": 0.2202,
+    "enrollment": 984
+  },
+  "cds": null,
+  "reference": null
+}

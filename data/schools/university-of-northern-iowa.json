@@ -1,0 +1,36 @@
+{
+  "slug": "university-of-northern-iowa",
+  "name": "University of Northern Iowa",
+  "ipeds_id": 154095,
+  "state": "IA",
+  "city": "Cedar Falls",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.944,
+    "sat_reading_25": 460,
+    "sat_reading_75": 580,
+    "sat_math_25": 400,
+    "sat_math_75": 630,
+    "act_25": 20,
+    "act_75": 26,
+    "tuition_in_state": 9728,
+    "tuition_out_of_state": 21272,
+    "room_board": 9648,
+    "total_cost_in_state": 21376,
+    "total_cost_out_of_state": 32920,
+    "net_price": {
+      "0_30k": 10170,
+      "30_48k": 11136,
+      "48_75k": 13872,
+      "75_110k": 16058,
+      "110k_plus": 16396
+    },
+    "pell_rate": 0.238,
+    "federal_loan_rate": 0.4381,
+    "enrollment": 7599
+  },
+  "cds": null,
+  "reference": null
+}

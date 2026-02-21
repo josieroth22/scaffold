@@ -1,0 +1,36 @@
+{
+  "slug": "millikin-university",
+  "name": "Millikin University",
+  "ipeds_id": 147244,
+  "state": "IL",
+  "city": "Decatur",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.5405,
+    "sat_reading_25": 450,
+    "sat_reading_75": 600,
+    "sat_math_25": 410,
+    "sat_math_75": 570,
+    "act_25": 14,
+    "act_75": 24,
+    "tuition_in_state": 26892,
+    "tuition_out_of_state": 43670,
+    "room_board": 13330,
+    "total_cost_in_state": 42222,
+    "total_cost_out_of_state": 59000,
+    "net_price": {
+      "0_30k": 2842,
+      "30_48k": 5247,
+      "48_75k": 7953,
+      "75_110k": 11190,
+      "110k_plus": 14631
+    },
+    "pell_rate": 0.3472,
+    "federal_loan_rate": 0.6089,
+    "enrollment": 1458
+  },
+  "cds": null,
+  "reference": null
+}

@@ -1,0 +1,36 @@
+{
+  "slug": "university-of-virginia-main-campus",
+  "name": "University of Virginia-Main Campus",
+  "ipeds_id": 234076,
+  "state": "VA",
+  "city": "Charlottesville",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.1686,
+    "sat_reading_25": 700,
+    "sat_reading_75": 750,
+    "sat_math_25": 710,
+    "sat_math_75": 780,
+    "act_25": 32,
+    "act_75": 34,
+    "tuition_in_state": 20986,
+    "tuition_out_of_state": 58014,
+    "room_board": 13940,
+    "total_cost_in_state": 36926,
+    "total_cost_out_of_state": 73954,
+    "net_price": {
+      "0_30k": 10123,
+      "30_48k": 8842,
+      "48_75k": 14658,
+      "75_110k": 24023,
+      "110k_plus": 34777
+    },
+    "pell_rate": 0.1371,
+    "federal_loan_rate": 0.2041,
+    "enrollment": 17315
+  },
+  "cds": null,
+  "reference": null
+}

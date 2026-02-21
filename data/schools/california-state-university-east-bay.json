@@ -1,0 +1,36 @@
+{
+  "slug": "california-state-university-east-bay",
+  "name": "California State University-East Bay",
+  "ipeds_id": 110574,
+  "state": "CA",
+  "city": "Hayward",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.9681,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 7055,
+    "tuition_out_of_state": 18935,
+    "room_board": 16480,
+    "total_cost_in_state": 25535,
+    "total_cost_out_of_state": 37415,
+    "net_price": {
+      "0_30k": 8059,
+      "30_48k": 8500,
+      "48_75k": 11087,
+      "75_110k": 15190,
+      "110k_plus": 20930
+    },
+    "pell_rate": 0.4357,
+    "federal_loan_rate": 0.2857,
+    "enrollment": 10422
+  },
+  "cds": null,
+  "reference": null
+}

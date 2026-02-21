@@ -1,0 +1,85 @@
+{
+  "slug": "harvey-mudd-college",
+  "name": "Harvey Mudd College",
+  "api_name": "Harvey Mudd College",
+  "ipeds_id": 115409,
+  "state": "CA",
+  "city": "Claremont",
+  "type": "private",
+  "tier": "B",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.1306,
+    "sat_reading_25": 720,
+    "sat_reading_75": 770,
+    "sat_math_25": 760,
+    "sat_math_75": 790,
+    "act_25": 34,
+    "act_75": 36,
+    "tuition_in_state": 66255,
+    "tuition_out_of_state": 66255,
+    "room_board": 21710,
+    "total_cost_in_state": 89965,
+    "total_cost_out_of_state": 89965,
+    "net_price": {
+      "0_30k": 17340,
+      "30_48k": 6818,
+      "48_75k": 18937,
+      "75_110k": 18551,
+      "110k_plus": 52642
+    },
+    "pell_rate": 0.141,
+    "federal_loan_rate": 0.3482,
+    "enrollment": 915
+  },
+  "cds": {
+    "school_name": "Harvey Mudd College",
+    "source_year": "2024-2025",
+    "total_applicants": 5094,
+    "total_admitted": 645,
+    "admit_rate_overall": 0.127,
+    "ed_applicants": 656,
+    "ed_admitted": 106,
+    "ed_admit_rate": 0.162,
+    "ea_applicants": null,
+    "ea_admitted": null,
+    "ea_admit_rate": null,
+    "sat_reading_25": 730,
+    "sat_reading_75": 770,
+    "sat_math_25": 770,
+    "sat_math_75": 800,
+    "sat_composite_25": 1510,
+    "sat_composite_75": 1560,
+    "act_composite_25": 34,
+    "act_composite_75": 36,
+    "tuition_in_state": null,
+    "tuition_out_of_state": null,
+    "tuition_private": 68262,
+    "required_fees": null,
+    "room_board": 22318,
+    "pct_need_met": 100,
+    "avg_need_grant": 57374,
+    "avg_financial_aid_package": 57374,
+    "meets_full_need": true,
+    "pct_freshmen_receiving_need_aid": 46.9,
+    "pct_freshmen_receiving_merit_aid": 12.7,
+    "avg_merit_award": 13798
+  },
+  "reference": {
+    "merit_scholarships": [
+      {
+        "name": "President's Scholars Program",
+        "amount": "Full tuition (~$65,000/year)",
+        "deadline": "February 1",
+        "requirements": "President's Scholars Program Application, Finalist Virtual Interview"
+      }
+    ],
+    "national_merit": {
+      "semifinalist_award": "None",
+      "finalist_award": "$1,500",
+      "first_choice_required": true,
+      "guaranteed": true
+    }
+  }
+}

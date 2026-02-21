@@ -1,0 +1,36 @@
+{
+  "slug": "baker-university",
+  "name": "Baker University",
+  "ipeds_id": 154688,
+  "state": "KS",
+  "city": "Baldwin City",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.921,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": 13,
+    "act_75": 21,
+    "tuition_in_state": 33900,
+    "tuition_out_of_state": 33900,
+    "room_board": 10720,
+    "total_cost_in_state": 46620,
+    "total_cost_out_of_state": 46620,
+    "net_price": {
+      "0_30k": 18256,
+      "30_48k": 15729,
+      "48_75k": 20669,
+      "75_110k": 24365,
+      "110k_plus": 27999
+    },
+    "pell_rate": 0.2386,
+    "federal_loan_rate": 0.4407,
+    "enrollment": 1080
+  },
+  "cds": null,
+  "reference": null
+}

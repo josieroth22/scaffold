@@ -1,0 +1,36 @@
+{
+  "slug": "eastern-mennonite-university",
+  "name": "Eastern Mennonite University",
+  "ipeds_id": 232043,
+  "state": "VA",
+  "city": "Harrisonburg",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.9975,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 41860,
+    "tuition_out_of_state": 41860,
+    "room_board": 12620,
+    "total_cost_in_state": 56480,
+    "total_cost_out_of_state": 56480,
+    "net_price": {
+      "0_30k": 16418,
+      "30_48k": 14081,
+      "48_75k": 21592,
+      "75_110k": 26047,
+      "110k_plus": 31526
+    },
+    "pell_rate": 0.2691,
+    "federal_loan_rate": 0.5538,
+    "enrollment": 800
+  },
+  "cds": null,
+  "reference": null
+}

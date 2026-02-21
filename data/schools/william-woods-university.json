@@ -1,0 +1,36 @@
+{
+  "slug": "william-woods-university",
+  "name": "William Woods University",
+  "ipeds_id": 179964,
+  "state": "MO",
+  "city": "Fulton",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.7449,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 28860,
+    "tuition_out_of_state": 28860,
+    "room_board": 12402,
+    "total_cost_in_state": 43262,
+    "total_cost_out_of_state": 43262,
+    "net_price": {
+      "0_30k": 19042,
+      "30_48k": 19587,
+      "48_75k": 21217,
+      "75_110k": 25359,
+      "110k_plus": 25809
+    },
+    "pell_rate": 0.3034,
+    "federal_loan_rate": 0.5019,
+    "enrollment": 1061
+  },
+  "cds": null,
+  "reference": null
+}

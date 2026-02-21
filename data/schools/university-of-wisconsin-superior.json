@@ -1,0 +1,36 @@
+{
+  "slug": "university-of-wisconsin-superior",
+  "name": "University of Wisconsin-Superior",
+  "ipeds_id": 240426,
+  "state": "WI",
+  "city": "Superior",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.9364,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": 18,
+    "act_75": 24,
+    "tuition_in_state": 8487,
+    "tuition_out_of_state": 16400,
+    "room_board": 7227,
+    "total_cost_in_state": 17714,
+    "total_cost_out_of_state": 25627,
+    "net_price": {
+      "0_30k": 8194,
+      "30_48k": 7797,
+      "48_75k": 12195,
+      "75_110k": 16774,
+      "110k_plus": 17218
+    },
+    "pell_rate": 0.296,
+    "federal_loan_rate": 0.4596,
+    "enrollment": 1899
+  },
+  "cds": null,
+  "reference": null
+}

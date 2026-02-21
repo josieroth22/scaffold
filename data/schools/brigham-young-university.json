@@ -1,0 +1,43 @@
+{
+  "slug": "brigham-young-university",
+  "name": "Brigham Young University",
+  "ipeds_id": 230038,
+  "state": "UT",
+  "city": "Provo",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.6919,
+    "sat_reading_25": 650,
+    "sat_reading_75": 720,
+    "sat_math_25": 640,
+    "sat_math_75": 730,
+    "act_25": 28,
+    "act_75": 32,
+    "tuition_in_state": 6496,
+    "tuition_out_of_state": 6496,
+    "room_board": 9720,
+    "total_cost_in_state": 18216,
+    "total_cost_out_of_state": 18216,
+    "net_price": {
+      "0_30k": 9531,
+      "30_48k": 10224,
+      "48_75k": 12374,
+      "75_110k": 16389,
+      "110k_plus": 20042
+    },
+    "pell_rate": 0.3229,
+    "federal_loan_rate": 0.1163,
+    "enrollment": 32221
+  },
+  "cds": null,
+  "reference": {
+    "national_merit": {
+      "semifinalist_award": "None",
+      "finalist_award": "Full Tuition",
+      "first_choice_required": true,
+      "guaranteed": false
+    }
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "slug": "the-university-of-tennessee-chattanooga",
+  "name": "The University of Tennessee-Chattanooga",
+  "ipeds_id": 221740,
+  "state": "TN",
+  "city": "Chattanooga",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.7702,
+    "sat_reading_25": 510,
+    "sat_reading_75": 605,
+    "sat_math_25": 495,
+    "sat_math_75": 580,
+    "act_25": 20,
+    "act_75": 25,
+    "tuition_in_state": 10144,
+    "tuition_out_of_state": 18208,
+    "room_board": 10052,
+    "total_cost_in_state": 22196,
+    "total_cost_out_of_state": 30260,
+    "net_price": {
+      "0_30k": 8492,
+      "30_48k": 9682,
+      "48_75k": 12478,
+      "75_110k": 17332,
+      "110k_plus": 16862
+    },
+    "pell_rate": 0.3247,
+    "federal_loan_rate": 0.384,
+    "enrollment": 9878
+  },
+  "cds": null,
+  "reference": null
+}

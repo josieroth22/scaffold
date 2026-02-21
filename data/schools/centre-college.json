@@ -1,0 +1,36 @@
+{
+  "slug": "centre-college",
+  "name": "Centre College",
+  "ipeds_id": 156408,
+  "state": "KY",
+  "city": "Danville",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.5434,
+    "sat_reading_25": 610,
+    "sat_reading_75": 683,
+    "sat_math_25": 620,
+    "sat_math_75": 740,
+    "act_25": 26,
+    "act_75": 32,
+    "tuition_in_state": 50550,
+    "tuition_out_of_state": 50550,
+    "room_board": 13770,
+    "total_cost_in_state": 66320,
+    "total_cost_out_of_state": 66320,
+    "net_price": {
+      "0_30k": 10779,
+      "30_48k": 13431,
+      "48_75k": 17317,
+      "75_110k": 22346,
+      "110k_plus": 28164
+    },
+    "pell_rate": 0.2122,
+    "federal_loan_rate": 0.4473,
+    "enrollment": 1346
+  },
+  "cds": null,
+  "reference": null
+}

@@ -1,0 +1,36 @@
+{
+  "slug": "la-roche-university",
+  "name": "La Roche University",
+  "ipeds_id": 213358,
+  "state": "PA",
+  "city": "Pittsburgh",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.7761,
+    "sat_reading_25": 550,
+    "sat_reading_75": 640,
+    "sat_math_25": 505,
+    "sat_math_75": 595,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 33120,
+    "tuition_out_of_state": 33120,
+    "room_board": 13268,
+    "total_cost_in_state": 48388,
+    "total_cost_out_of_state": 48388,
+    "net_price": {
+      "0_30k": 15477,
+      "30_48k": 15334,
+      "48_75k": 19339,
+      "75_110k": 22819,
+      "110k_plus": 28932
+    },
+    "pell_rate": 0.1386,
+    "federal_loan_rate": 0.2547,
+    "enrollment": 786
+  },
+  "cds": null,
+  "reference": null
+}

@@ -1,0 +1,36 @@
+{
+  "slug": "the-masters-university-and-seminary",
+  "name": "The Master's University and Seminary",
+  "ipeds_id": 117751,
+  "state": "CA",
+  "city": "Santa Clarita",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.7589,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 36930,
+    "tuition_out_of_state": 36930,
+    "room_board": 13700,
+    "total_cost_in_state": 52630,
+    "total_cost_out_of_state": 52630,
+    "net_price": {
+      "0_30k": 31026,
+      "30_48k": 27113,
+      "48_75k": 27969,
+      "75_110k": 33288,
+      "110k_plus": 33808
+    },
+    "pell_rate": 0.1938,
+    "federal_loan_rate": 0.3841,
+    "enrollment": 1606
+  },
+  "cds": null,
+  "reference": null
+}

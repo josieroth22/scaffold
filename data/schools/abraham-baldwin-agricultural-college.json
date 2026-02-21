@@ -1,0 +1,36 @@
+{
+  "slug": "abraham-baldwin-agricultural-college",
+  "name": "Abraham Baldwin Agricultural College",
+  "ipeds_id": 138558,
+  "state": "GA",
+  "city": "Tifton",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.7716,
+    "sat_reading_25": 470,
+    "sat_reading_75": 570,
+    "sat_math_25": 430,
+    "sat_math_75": 540,
+    "act_25": 16,
+    "act_75": 21,
+    "tuition_in_state": 3195,
+    "tuition_out_of_state": 10101,
+    "room_board": 9270,
+    "total_cost_in_state": 14465,
+    "total_cost_out_of_state": 21371,
+    "net_price": {
+      "0_30k": 4191,
+      "30_48k": 4468,
+      "48_75k": 7007,
+      "75_110k": 9865,
+      "110k_plus": 9972
+    },
+    "pell_rate": 0.3412,
+    "federal_loan_rate": 0.2677,
+    "enrollment": 3218
+  },
+  "cds": null,
+  "reference": null
+}

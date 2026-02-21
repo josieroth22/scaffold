@@ -1,0 +1,36 @@
+{
+  "slug": "dominican-university-new-york",
+  "name": "Dominican University New York",
+  "ipeds_id": 190761,
+  "state": "NY",
+  "city": "Orangeburg",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.7883,
+    "sat_reading_25": 560,
+    "sat_reading_75": 605,
+    "sat_math_25": 535,
+    "sat_math_75": 630,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 33060,
+    "tuition_out_of_state": 33060,
+    "room_board": 16220,
+    "total_cost_in_state": 51280,
+    "total_cost_out_of_state": 51280,
+    "net_price": {
+      "0_30k": 21435,
+      "30_48k": 21420,
+      "48_75k": 27482,
+      "75_110k": 28370,
+      "110k_plus": 30166
+    },
+    "pell_rate": 0.4111,
+    "federal_loan_rate": 0.691,
+    "enrollment": 1083
+  },
+  "cds": null,
+  "reference": null
+}

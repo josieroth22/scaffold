@@ -1,0 +1,36 @@
+{
+  "slug": "saint-josephs-university-philadelphia",
+  "name": "Saint Joseph's University - Philadelphia",
+  "ipeds_id": 215770,
+  "state": "PA",
+  "city": "Philadelphia",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.8639,
+    "sat_reading_25": 580,
+    "sat_reading_75": 670,
+    "sat_math_25": 570,
+    "sat_math_75": 660,
+    "act_25": 27,
+    "act_75": 31,
+    "tuition_in_state": 51340,
+    "tuition_out_of_state": 51340,
+    "room_board": 15740,
+    "total_cost_in_state": 69080,
+    "total_cost_out_of_state": 69080,
+    "net_price": {
+      "0_30k": 30742,
+      "30_48k": 33882,
+      "48_75k": 33514,
+      "75_110k": 37264,
+      "110k_plus": 36689
+    },
+    "pell_rate": 0.1815,
+    "federal_loan_rate": 0.5405,
+    "enrollment": 4742
+  },
+  "cds": null,
+  "reference": null
+}

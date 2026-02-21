@@ -1,0 +1,45 @@
+{
+  "slug": "tennessee-state-university",
+  "name": "Tennessee State University",
+  "ipeds_id": 221838,
+  "state": "TN",
+  "city": "Nashville",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.9263,
+    "sat_reading_25": 433,
+    "sat_reading_75": 538,
+    "sat_math_25": 423,
+    "sat_math_75": 530,
+    "act_25": 16,
+    "act_75": 21,
+    "tuition_in_state": 8568,
+    "tuition_out_of_state": 22284,
+    "room_board": 10120,
+    "total_cost_in_state": 20688,
+    "total_cost_out_of_state": 34404,
+    "net_price": {
+      "0_30k": 9239,
+      "30_48k": 9436,
+      "48_75k": 11079,
+      "75_110k": 16738,
+      "110k_plus": 16378
+    },
+    "pell_rate": 0.518,
+    "federal_loan_rate": 0.3924,
+    "enrollment": 6498
+  },
+  "cds": null,
+  "reference": {
+    "honors_program": {
+      "name": "University Honors",
+      "description": "Being an honors student at UTK offers more than specialized classes and curriculum, including honors-only advising, research funding, and access to an honors living-learning community. University Honors students graduate at rates nearly 20% higher than other students and report going to graduate school almost twice as frequently.",
+      "separate_application": null,
+      "avg_sat": 1465,
+      "acceptance_rate": null,
+      "size": 2000
+    }
+  }
+}

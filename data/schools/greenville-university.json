@@ -1,0 +1,36 @@
+{
+  "slug": "greenville-university",
+  "name": "Greenville University",
+  "ipeds_id": 145372,
+  "state": "IL",
+  "city": "Greenville",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.9537,
+    "sat_reading_25": 430,
+    "sat_reading_75": 608,
+    "sat_math_25": 381,
+    "sat_math_75": 611,
+    "act_25": 14,
+    "act_75": 24,
+    "tuition_in_state": 30598,
+    "tuition_out_of_state": 30598,
+    "room_board": 10658,
+    "total_cost_in_state": 43256,
+    "total_cost_out_of_state": 43256,
+    "net_price": {
+      "0_30k": 18493,
+      "30_48k": 14536,
+      "48_75k": 19800,
+      "75_110k": 24786,
+      "110k_plus": 24745
+    },
+    "pell_rate": 0.3766,
+    "federal_loan_rate": 0.5738,
+    "enrollment": 873
+  },
+  "cds": null,
+  "reference": null
+}

@@ -1,0 +1,36 @@
+{
+  "slug": "vermont-state-university",
+  "name": "Vermont State University",
+  "ipeds_id": 231165,
+  "state": "VT",
+  "city": "Randolph",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.8323,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": null,
+    "act_75": null,
+    "tuition_in_state": 11400,
+    "tuition_out_of_state": 21408,
+    "room_board": 12898,
+    "total_cost_in_state": 26298,
+    "total_cost_out_of_state": 36306,
+    "net_price": {
+      "0_30k": 16958,
+      "30_48k": 16623,
+      "48_75k": 19809,
+      "75_110k": 24115,
+      "110k_plus": 26240
+    },
+    "pell_rate": 0.3148,
+    "federal_loan_rate": 0.5528,
+    "enrollment": 3567
+  },
+  "cds": null,
+  "reference": null
+}

@@ -1,0 +1,36 @@
+{
+  "slug": "sul-ross-state-university",
+  "name": "Sul Ross State University",
+  "ipeds_id": 228501,
+  "state": "TX",
+  "city": "Alpine",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.9562,
+    "sat_reading_25": 473,
+    "sat_reading_75": 568,
+    "sat_math_25": 460,
+    "sat_math_75": 530,
+    "act_25": 13,
+    "act_75": 21,
+    "tuition_in_state": 7592,
+    "tuition_out_of_state": 17384,
+    "room_board": 10330,
+    "total_cost_in_state": 19922,
+    "total_cost_out_of_state": 29714,
+    "net_price": {
+      "0_30k": 6209,
+      "30_48k": 9462,
+      "48_75k": 10614,
+      "75_110k": 18084,
+      "110k_plus": 20654
+    },
+    "pell_rate": 0.5161,
+    "federal_loan_rate": 0.38,
+    "enrollment": 1378
+  },
+  "cds": null,
+  "reference": null
+}

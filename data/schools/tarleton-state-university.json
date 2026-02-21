@@ -1,0 +1,36 @@
+{
+  "slug": "tarleton-state-university",
+  "name": "Tarleton State University",
+  "ipeds_id": 228529,
+  "state": "TX",
+  "city": "Stephenville",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.942,
+    "sat_reading_25": 490,
+    "sat_reading_75": 580,
+    "sat_math_25": 470,
+    "sat_math_75": 570,
+    "act_25": 19,
+    "act_75": 24,
+    "tuition_in_state": 7878,
+    "tuition_out_of_state": 17958,
+    "room_board": 10846,
+    "total_cost_in_state": 20724,
+    "total_cost_out_of_state": 30804,
+    "net_price": {
+      "0_30k": 15477,
+      "30_48k": 16966,
+      "48_75k": 20599,
+      "75_110k": 22714,
+      "110k_plus": 22981
+    },
+    "pell_rate": 0.3711,
+    "federal_loan_rate": 0.4548,
+    "enrollment": 12263
+  },
+  "cds": null,
+  "reference": null
+}

@@ -1,0 +1,36 @@
+{
+  "slug": "south-dakota-school-of-mines-and-technology",
+  "name": "South Dakota School of Mines and Technology",
+  "ipeds_id": 219347,
+  "state": "SD",
+  "city": "Rapid City",
+  "type": "public",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.8525,
+    "sat_reading_25": 560,
+    "sat_reading_75": 650,
+    "sat_math_25": 570,
+    "sat_math_75": 670,
+    "act_25": 23,
+    "act_75": 29,
+    "tuition_in_state": 10400,
+    "tuition_out_of_state": 14800,
+    "room_board": 8800,
+    "total_cost_in_state": 21200,
+    "total_cost_out_of_state": 25600,
+    "net_price": {
+      "0_30k": 15481,
+      "30_48k": 17330,
+      "48_75k": 20041,
+      "75_110k": 21496,
+      "110k_plus": 22179
+    },
+    "pell_rate": 0.1595,
+    "federal_loan_rate": 0.4327,
+    "enrollment": 2042
+  },
+  "cds": null,
+  "reference": null
+}

@@ -1,0 +1,36 @@
+{
+  "slug": "buena-vista-university",
+  "name": "Buena Vista University",
+  "ipeds_id": 153001,
+  "state": "IA",
+  "city": "Storm Lake",
+  "type": "private",
+  "scorecard": {
+    "source": "College Scorecard",
+    "retrieved": "2026-02-21",
+    "admit_rate": 0.7176,
+    "sat_reading_25": null,
+    "sat_reading_75": null,
+    "sat_math_25": null,
+    "sat_math_75": null,
+    "act_25": 18,
+    "act_75": 25,
+    "tuition_in_state": 40190,
+    "tuition_out_of_state": 40190,
+    "room_board": 10896,
+    "total_cost_in_state": 53086,
+    "total_cost_out_of_state": 53086,
+    "net_price": {
+      "0_30k": 14583,
+      "30_48k": 15328,
+      "48_75k": 16286,
+      "75_110k": 19059,
+      "110k_plus": 22791
+    },
+    "pell_rate": 0.4254,
+    "federal_loan_rate": 0.6879,
+    "enrollment": 1378
+  },
+  "cds": null,
+  "reference": null
+}
