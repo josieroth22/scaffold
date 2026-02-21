@@ -1641,7 +1641,7 @@
       let reviewPassed = false;
 
       // ============================================================
-      // PHASE 1: Generate Tier 1 + Simulate + Reconcile
+      // PHASE 1: Generate Tier 1
       // ============================================================
 
       // Stream Tier 1 (Strategy Brief + school list + JSON sim params)
@@ -1659,32 +1659,12 @@
         markdown += text;
       }, 0, 40, 13000);
 
-      // Monte Carlo simulation
-      statusEl.textContent = 'Generating your plan...';
+      // ============================================================
+      // PHASE 2: Review Tier 1 (BEFORE simulation so we catch school
+      //          list problems before wasting a sim + reconcile call)
+      // ============================================================
+
       progressEl.style.width = '42%';
-      try {
-        await apiCall('/api/simulate', { id: submissionId });
-      } catch (e) {
-        if (e.message === 'Generation cancelled') throw e;
-        console.warn('Simulation failed:', e);
-      }
-      progressEl.style.width = '46%';
-
-      // Reconcile costs + tier labels
-      statusEl.textContent = 'Generating your plan...';
-      try {
-        await apiCall('/api/reconcile-costs', { id: submissionId });
-      } catch (e) {
-        if (e.message === 'Generation cancelled') throw e;
-        console.warn('Reconciliation failed:', e);
-      }
-      progressEl.style.width = '50%';
-
-      // ============================================================
-      // PHASE 2: Review Tier 1 (before generating Tier 2)
-      // ============================================================
-
-      progressEl.style.width = '52%';
       try {
         const reviewData = await apiCall('/api/review', { id: submissionId });
         if (reviewData.overall === 'PASS') {
@@ -1705,8 +1685,7 @@
       let fixAttempt = 0;
       while (!reviewPassed && fixAttempt < MAX_FIX_ATTEMPTS) {
         fixAttempt++;
-        // Fix attempt
-        progressEl.style.width = (52 + fixAttempt * 3) + '%';
+        progressEl.style.width = (44 + fixAttempt * 3) + '%';
 
         try {
           const fixRes = await fetch('/api/fix-plan', {
@@ -1755,7 +1734,7 @@
       if (!reviewPassed && regenAttempt < MAX_REGEN_ATTEMPTS) {
         regenAttempt++;
         console.warn('Fix attempts exhausted. Full regeneration...');
-        progressEl.style.width = '60%';
+        progressEl.style.width = '52%';
 
         try {
           const regenRes = await fetch('/api/regenerate', {
@@ -1768,29 +1747,10 @@
             markdown = '';
             await streamResponse(regenRes, statusEl, progressEl, (text) => {
               markdown += text;
-            }, 60, 72, 13000);
-
-            // Re-simulate
-            progressEl.style.width = '73%';
-            try {
-              await fetch('/api/simulate', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ id: submissionId }),
-              });
-            } catch (e) { console.warn('Regen sim failed:', e); }
-
-            // Re-reconcile
-            try {
-              await fetch('/api/reconcile-costs', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ id: submissionId }),
-              });
-            } catch (e) { console.warn('Regen reconcile failed:', e); }
-            progressEl.style.width = '76%';
+            }, 52, 62, 13000);
 
             // Review the regenerated Tier 1
+            progressEl.style.width = '63%';
             try {
               const regenReviewRes = await fetch('/api/review', {
                 method: 'POST',
@@ -1829,11 +1789,35 @@
       }
 
       // ============================================================
-      // PHASE 5: Generate Tier 2 (built on reviewed/verified Tier 1)
+      // PHASE 5: Monte Carlo simulation + cost reconciliation
+      //          (runs ONCE on the final reviewed school list)
       // ============================================================
 
       statusEl.textContent = 'Generating your plan...';
-      progressEl.style.width = '80%';
+      progressEl.style.width = '66%';
+      try {
+        await apiCall('/api/simulate', { id: submissionId });
+      } catch (e) {
+        if (e.message === 'Generation cancelled') throw e;
+        console.warn('Simulation failed:', e);
+      }
+      progressEl.style.width = '70%';
+
+      // Reconcile costs + tier labels with simulation results
+      try {
+        await apiCall('/api/reconcile-costs', { id: submissionId });
+      } catch (e) {
+        if (e.message === 'Generation cancelled') throw e;
+        console.warn('Reconciliation failed:', e);
+      }
+      progressEl.style.width = '74%';
+
+      // ============================================================
+      // PHASE 6: Generate Tier 2 (built on reviewed/verified Tier 1)
+      // ============================================================
+
+      statusEl.textContent = 'Generating your plan...';
+      progressEl.style.width = '76%';
 
       const tier2Response = await fetch('/api/generate-tier2', {
         method: 'POST',
@@ -1844,17 +1828,16 @@
       if (tier2Response.ok) {
         await streamResponse(tier2Response, statusEl, progressEl, (text) => {
           markdown += text;
-        }, 80, 92, 20000);
+        }, 76, 90, 20000);
       } else {
         console.warn('Tier 2 failed: ' + tier2Response.status);
       }
 
       // ============================================================
-      // PHASE 6: Final review + fix of the complete document
+      // PHASE 7: Final review + fix of the complete document
       // ============================================================
 
-      // Final quality check
-      progressEl.style.width = '93%';
+      progressEl.style.width = '92%';
       let finalPassed = false;
       try {
         const finalReviewRes = await fetch('/api/review', {
@@ -1879,7 +1862,6 @@
 
       // One fix attempt on the full doc if final review failed
       if (!finalPassed) {
-        // Final polish
         progressEl.style.width = '96%';
         try {
           const finalFixRes = await fetch('/api/fix-plan', {
@@ -1888,7 +1870,6 @@
             body: JSON.stringify({ id: submissionId }),
           });
           if (finalFixRes.ok) {
-            // One more review
             try {
               const lastReviewRes = await fetch('/api/review', {
                 method: 'POST',
