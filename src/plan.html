@@ -525,6 +525,7 @@
   .risk-low { background: #e8f5e9; color: #2e7d32; }
   .risk-moderate { background: #fff8e1; color: #f57f17; }
   .risk-high { background: #fce4ec; color: #c62828; }
+  .risk-very-high { background: #f8d7da; color: #8b0000; }
 
   /* First table (exec summary) gets extra prominence */
   .strategy-body table.exec-summary {
@@ -1582,15 +1583,17 @@
           td.innerHTML = '<span class="tier-badge tier-safety">Safety</span>';
         }
 
-        // Financial risk badges
-        if (text === 'very low') {
-          td.innerHTML = '<span class="risk-badge risk-very-low">Very Low</span>';
-        } else if (text === 'low') {
-          td.innerHTML = '<span class="risk-badge risk-low">Low</span>';
-        } else if (text === 'moderate') {
-          td.innerHTML = '<span class="risk-badge risk-moderate">Moderate</span>';
-        } else if (text === 'high') {
-          td.innerHTML = '<span class="risk-badge risk-high">High</span>';
+        // Financial risk badges — match any risk-like value dynamically
+        const riskMap = { 'very low': 'risk-very-low', 'low': 'risk-low', 'moderate': 'risk-moderate', 'high': 'risk-high', 'very high': 'risk-very-high' };
+        const riskClass = riskMap[text];
+        if (riskClass) {
+          const label = text.split(' ').map(w => w[0].toUpperCase() + w.slice(1)).join(' ');
+          td.innerHTML = '<span class="risk-badge ' + riskClass + '">' + label + '</span>';
+        } else if (text.includes('risk') || text.includes('low') || text.includes('high') || text.includes('moderate')) {
+          // Catch-all for any other risk-like value Claude might create
+          const fallbackClass = text.includes('high') ? 'risk-high' : text.includes('low') ? 'risk-low' : 'risk-moderate';
+          const label = text.split(' ').map(w => w[0].toUpperCase() + w.slice(1)).join(' ');
+          td.innerHTML = '<span class="risk-badge ' + fallbackClass + '">' + label + '</span>';
         }
 
         // Application round badges in table cells
