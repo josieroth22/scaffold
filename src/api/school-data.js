@@ -231,6 +231,16 @@ function formatSchoolCompact(school, bracket, isHomeState) {
     if (nmLine) lines.push(nmLine);
   }
 
+  // Reference data: Honors program
+  if (ref.honors_program) {
+    const hp = ref.honors_program;
+    let hLine = `Honors: ${hp.name}`;
+    if (hp.admit_rate) hLine += ` (${pct(hp.admit_rate)} admit)`;
+    else if (hp.avg_sat) hLine += ` (avg SAT: ${hp.avg_sat})`;
+    if (hp.separate_application != null) hLine += ` | Separate app: ${hp.separate_application ? "Yes" : "No"}`;
+    lines.push(hLine);
+  }
+
   return lines.join("\n");
 }
 
@@ -244,11 +254,12 @@ function formatSchoolRadar(school, bracket) {
 
   const ref = school.reference || {};
 
-  // Honors program
+  // Honors program (expanded detail for radar schools)
   if (ref.honors_program) {
     const hp = ref.honors_program;
     let hLine = `Honors: ${hp.name}`;
-    if (hp.avg_sat) hLine += ` (avg SAT: ${hp.avg_sat})`;
+    if (hp.admit_rate) hLine += ` (${pct(hp.admit_rate)} admit)`;
+    else if (hp.avg_sat) hLine += ` (avg SAT: ${hp.avg_sat})`;
     if (hp.separate_application != null) hLine += ` | Separate app: ${hp.separate_application ? "Yes" : "No"}`;
     if (hp.description) hLine += `\n  ${hp.description}`;
     lines.push(hLine);
