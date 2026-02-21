@@ -41,6 +41,7 @@ module.exports = async function handler(req, res) {
             student_name: data.student_name,
             email: data.email,
             city: data.city,
+            state: data.state,
             payment_type: data.payment_type || "free",
             status: data.status,
             submitted_at: data.submitted_at,
