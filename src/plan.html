@@ -577,6 +577,23 @@
     margin-right: 0.25rem;
   }
 
+  /* "Currently:" / "Goal:" activity description labels */
+  .act-label {
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+  .act-current { color: var(--sage-dark); }
+  .act-goal { color: var(--terra); }
+
+  /* Parenthetical notes on application round badges (e.g. "EA (merit deadline)") */
+  .round-note {
+    font-size: 0.7rem;
+    color: var(--muted);
+    font-style: italic;
+  }
+
   /* Likely vs Aspirational flags */
   .flag-likely {
     display: inline-block;
@@ -1568,18 +1585,39 @@
         }
 
         // Application round badges in table cells
-        if (text === 'ea' || text === 'early action') {
-          td.innerHTML = '<span class="tier-badge tier-target">EA</span>';
-        } else if (text === 'ed' || text === 'early decision' || text === 'ed1') {
-          td.innerHTML = '<span class="tier-badge tier-reach">ED</span>';
-        } else if (text === 'ed2' || text === 'early decision ii') {
-          td.innerHTML = '<span class="tier-badge tier-reach">ED2</span>';
-        } else if (text === 'rd' || text === 'regular decision') {
-          td.innerHTML = '<span class="tier-badge tier-safety">RD</span>';
-        } else if (text === 'rea' || text === 'restrictive early action') {
-          td.innerHTML = '<span class="tier-badge tier-reach">REA</span>';
+        // Strip parenthetical notes for matching, preserve them for display
+        const roundBase = text.replace(/\s*\(.*\)$/, '').trim();
+        const noteMatch = text.match(/(\(.*\))$/);
+        const roundNote = noteMatch ? ' <span class="round-note">' + noteMatch[1] + '</span>' : '';
+        if (roundBase === 'ea' || roundBase === 'early action') {
+          td.innerHTML = '<span class="tier-badge tier-target">EA</span>' + roundNote;
+        } else if (roundBase === 'ed' || roundBase === 'early decision' || roundBase === 'ed1') {
+          td.innerHTML = '<span class="tier-badge tier-reach">ED</span>' + roundNote;
+        } else if (roundBase === 'ed2' || roundBase === 'early decision ii') {
+          td.innerHTML = '<span class="tier-badge tier-reach">ED2</span>' + roundNote;
+        } else if (roundBase === 'rd' || roundBase === 'regular decision') {
+          td.innerHTML = '<span class="tier-badge tier-safety">RD</span>' + roundNote;
+        } else if (roundBase === 'rea' || roundBase === 'restrictive early action') {
+          td.innerHTML = '<span class="tier-badge tier-reach">REA</span>' + roundNote;
         }
       });
+    });
+
+    // --- Structure "Currently:" and "Goal:" activity descriptions ---
+    container.querySelectorAll('p, li, td').forEach(el => {
+      const html = el.innerHTML;
+      const labels = (html.match(/(?:Currently|Goal):/g) || []);
+      if (labels.length >= 2) {
+        // Multiple labels crammed into one element — split with line breaks
+        el.innerHTML = html
+          .replace(/(Currently:)/g, '<br><strong class="act-label act-current">$1</strong>')
+          .replace(/(Goal:)/g, '<br><strong class="act-label act-goal">$1</strong>')
+          .replace(/^(\s*<br>\s*)+/, '');
+      } else if (labels.length === 1) {
+        el.innerHTML = html
+          .replace(/(Currently:)/g, '<strong class="act-label act-current">$1</strong>')
+          .replace(/(Goal:)/g, '<strong class="act-label act-goal">$1</strong>');
+      }
     });
 
     // --- Inline badges: [CURRENT], [TARGET], [Already earned], [Likely], [Aspirational] ---
