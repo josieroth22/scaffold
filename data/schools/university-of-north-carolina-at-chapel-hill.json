@@ -70,8 +70,9 @@
     "honors_program": {
       "name": "Honors Carolina",
       "separate_application": false,
+      "admit_rate": 0.10,
       "avg_sat": null,
-      "description": "Invitation-based through regular application, top ~10% of class. Small seminars, experiential learning, senior thesis required."
+      "description": "Invitation-based through regular application, ~450 students (~10% of class). Small seminars, experiential learning, senior thesis required."
     },
     "merit_scholarships": [
       {

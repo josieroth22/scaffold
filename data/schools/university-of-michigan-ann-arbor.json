@@ -70,8 +70,9 @@
     "honors_program": {
       "name": "LSA Honors Program",
       "separate_application": true,
+      "admit_rate": 0.22,
       "avg_sat": null,
-      "description": "Supplemental honors essay after LSA admission. Smaller seminars, research funding, tight-knit intellectual community."
+      "description": "Supplemental honors essay after LSA admission. ~375 admitted from ~1,700 applicants (~22%). Smaller seminars, research funding, tight-knit intellectual community."
     }
   }
 }

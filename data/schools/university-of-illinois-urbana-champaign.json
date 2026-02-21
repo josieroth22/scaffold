@@ -70,8 +70,9 @@
     "honors_program": {
       "name": "Campus Honors Program",
       "separate_application": false,
-      "avg_sat": null,
-      "description": "~125 freshmen selected as Chancellor's Scholars through regular application. Small seminars, research funding."
+      "admit_rate": 0.018,
+      "avg_sat": 1500,
+      "description": "~125 freshmen selected as Chancellor's Scholars through regular application (~1.8% of class). Typical profile: 4.0 GPA, 34+ ACT / 1500+ SAT. Small seminars, research funding, $1,000/year stipend."
     }
   }
 }

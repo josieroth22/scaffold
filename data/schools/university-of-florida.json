@@ -83,8 +83,9 @@
     "honors_program": {
       "name": "Honors Program",
       "separate_application": true,
-      "avg_sat": null,
-      "description": "Requires honors essay in Common App. Typically 1400+ SAT, 13.7% acceptance rate. Eligible for Lombardi and Stamps Scholarships."
+      "admit_rate": 0.13,
+      "avg_sat": 1400,
+      "description": "Requires honors essay in Common App. Typically 1400+ SAT. Admits ~2,000 of ~16,000 applicants (~12-14%). Eligible for Lombardi and Stamps Scholarships."
     }
   }
 }
