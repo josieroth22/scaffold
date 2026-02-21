@@ -173,15 +173,15 @@ ${verifiedSchoolData}
 
 4. **No-merit school check:** Are merit scholarships incorrectly assigned to schools that only offer need-based aid (Ivies, MIT, Stanford, Caltech, Amherst, Williams, Bowdoin, etc.)? Also check: if the narrative says "no merit aid" for a school, does the JSON have merit_pct=0?
 
-5. **Fabricated content:** Check for ANY content that could not have been derived from the family's input above. Compare scholarship names, program names, and cost figures against the VERIFIED SCHOOL DATA. If the plan attributes a scholarship to a school and the verified data shows different scholarships for that school, FAIL. Specifically flag:
+5. **Fabricated content:** Check for ANY content that could not have been derived from the family's input above OR from the VERIFIED SCHOOL DATA. IMPORTANT: Read the FAMILY DETAILS section carefully first. If the family mentioned something in their input (e.g., awards, programs, competitions, activities), the plan is allowed to reference it. Do NOT flag content that matches the family's own words. Compare scholarship names, program names, and cost figures against the VERIFIED SCHOOL DATA. If the plan attributes a scholarship to a school and the verified data shows different scholarships for that school, FAIL. Specifically flag:
    - Invented teacher names, counselor names, professor names, or faculty references
    - Specific named scholarships — verify they actually belong to the school mentioned by checking the VERIFIED SCHOOL DATA section. Scholarships associated with one university (e.g., "Annenberg" = USC/UPenn, "Karsh" = UVA/Duke, "Jefferson" = UVA) must not be attributed to a different school. FAIL if a real scholarship name is paired with the wrong school, or if a fabricated scholarship name is used when verified data lists the real scholarships.
-   - Specific named programs, institutes, honors programs, or research centers — check the VERIFIED SCHOOL DATA for honors programs listed. Do not accept a plausible-sounding name at face value.
+   - Specific named programs, institutes, honors programs, or research centers — check the VERIFIED SCHOOL DATA for honors programs listed. Do not accept a plausible-sounding name at face value. EXCEPTION: Well-known national programs (e.g., MITES/MOSTEC, SAMS, STEP, Science Olympiad, FIRST Robotics, Silver Knight Awards) are real and should NOT be flagged as fabricated.
    - Specific application deadlines or dates for future cycles that have not yet been announced
-   - Accomplishments, awards, or activities attributed to the student that weren't mentioned in the family's input
+   - Accomplishments, awards, or activities attributed to the student that weren't mentioned in the family's input. BUT if the family mentioned the activity or award (even briefly), the plan may elaborate on it.
    - Statistics or rankings presented as facts that could be outdated or wrong
    - Marketing slogans or campaign names attributed to schools that you cannot verify
-   Be aggressive on this check. If you are not confident a named scholarship, program, or honors track exists at the specific school mentioned, FAIL. It is better to flag a real program than to let a fabricated one through to a paying customer.
+   Be aggressive on this check. If you are not confident a named scholarship, program, or honors track exists at the specific school mentioned, FAIL. It is better to flag a real program than to let a fabricated one through to a paying customer. But do NOT flag things the family themselves mentioned or well-known national programs/awards.
 
 6. **Activities list accuracy:** In the Tier 2 activities list, are [CURRENT] items based on what the family actually said? Are [TARGET] items clearly framed as goals, not accomplished facts?
 
