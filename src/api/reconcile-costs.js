@@ -38,6 +38,11 @@ module.exports = async function handler(req, res) {
     simResults = data.simulation;
   }
 
+  // Check if cancelled before starting
+  if (data.status === 'cancelled') {
+    return res.status(200).json({ cancelled: true });
+  }
+
   // Build cost correction table from simulation
   const schools = simResults.schools || [];
   if (schools.length === 0) {

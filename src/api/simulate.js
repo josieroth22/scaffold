@@ -199,6 +199,11 @@ module.exports = async function handler(req, res) {
       return res.status(404).json({ error: "Submission not found or no output yet" });
     }
 
+    // Check if cancelled before starting
+    if (data.status === 'cancelled') {
+      return res.status(200).json({ cancelled: true });
+    }
+
     await redis.hset(`submission:${id}`, { status: "simulating" });
 
     const params = extractSimParams(data.output);

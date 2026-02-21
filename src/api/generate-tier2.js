@@ -39,6 +39,11 @@ module.exports = async function handler(req, res) {
     return res.status(500).json({ error: "Failed to load submission: " + err.message });
   }
 
+  // Check if cancelled before starting
+  if (data.status === 'cancelled') {
+    return res.status(200).json({ cancelled: true });
+  }
+
   await redis.hset(`submission:${id}`, { status: "generating_tier2" });
 
   // Parse the original form data (Upstash may auto-deserialize)
@@ -149,9 +154,17 @@ Then generate each of these sections. Each should stand alone so a parent can ju
         tier2Output += event.delta.text;
         res.write(`data: ${JSON.stringify({ text: event.delta.text })}\n\n`);
 
-        // Save partial output every 30 seconds
+        // Check for cancellation and save partial output every 30 seconds
         if (Date.now() - lastSave > 30000) {
           lastSave = Date.now();
+          // Check if cancelled
+          const currentStatus = await redis.hget(`submission:${id}`, 'status');
+          if (currentStatus === 'cancelled') {
+            redis.hset(`submission:${id}`, { output: tier1Output + "\n\n" + tier2Output }).catch(err => console.error("Tier 2 partial save on cancel failed for", id, err));
+            res.write(`data: ${JSON.stringify({ error: "Generation cancelled" })}\n\n`);
+            res.end();
+            return;
+          }
           redis
             .hset(`submission:${id}`, {
               output: tier1Output + "\n\n" + tier2Output,

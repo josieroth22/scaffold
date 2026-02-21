@@ -100,7 +100,7 @@
   <h1>Submissions <button onclick="loadSubmissions()" style="font-size:0.75rem; padding:0.3rem 0.8rem; background:var(--sage); color:white; border:none; border-radius:5px; cursor:pointer; font-family:'DM Sans',sans-serif; font-weight:600; vertical-align:middle; margin-left:0.5rem;">Refresh</button> <span style="font-size:0.82rem; font-weight:400; color:var(--muted); margin-left:0.5rem;" id="last-refreshed"></span></h1>
   <p class="subtitle" id="count"></p>
   <div class="stage-key" style="font-size:0.75rem; color:var(--muted); margin-bottom:1rem;">
-    <strong>Stage key:</strong> Tier 1 processing → Tier 1 complete → Simulation processing → Simulation complete → Reconciling costs → Tier 2 processing → Tier 2 complete → Review processing → Fixing issues → Done | <span style="color:var(--error, #c94d4d);">Review failed</span> | <span style="color:var(--error, #c94d4d);">Generation failed</span>
+    <strong>Stage key:</strong> Tier 1 processing → Tier 1 complete → Simulation processing → Simulation complete → Reconciling costs → Tier 2 processing → Tier 2 complete → Review processing → Fixing issues → Done | <span style="color:var(--error, #c94d4d);">Review failed</span> | <span style="color:var(--error, #c94d4d);">Generation failed</span> | <span style="color:var(--error, #c94d4d);">Cancelled</span>
   </div>
   <table id="table" style="display: none;">
     <thead>
@@ -206,8 +206,12 @@
         else if (stage === 'fixing') { stage = 'Fixing issues'; stageClass = 'status-generating'; }
         else if (stage === 'review_failed') { stage = 'Review failed'; stageClass = 'status-failed'; }
         else if (stage === 'generation_failed') { stage = 'Generation failed'; stageClass = 'status-failed'; }
+        else if (stage === 'cancelled') { stage = 'Cancelled'; stageClass = 'status-failed'; }
         else if (stage === 'completed') { stage = 'Done'; stageClass = 'status-completed'; }
-        const stageBadge = `<span class="${stageClass}">${stage}</span>`;
+        // Show Cancel button for active pipeline stages
+        const cancellableStatuses = ['generating', 'tier1_complete', 'simulating', 'sim_complete', 'reconciling', 'generating_tier2', 'tier2_complete', 'reviewing', 'fixing'];
+        const cancelBtn = cancellableStatuses.includes(s.status) ? ` <button class="btn-retry" onclick="cancelSubmission('${s.id}', this)">Cancel</button>` : '';
+        const stageBadge = `<span class="${stageClass}">${stage}</span>${cancelBtn}`;
         let simBadge = '<span class="badge-sim-none">-</span>';
         if (s.has_simulation) {
           simBadge = '<span class="badge-sim-ok">OK</span>';
@@ -337,6 +341,31 @@
       btn.textContent = 'Retry';
       btn.disabled = false;
       alert('Simulation request failed: ' + e.message);
+    }
+  }
+
+  async function cancelSubmission(id, btn) {
+    if (!confirm('Cancel generation for this submission? This will stop burning API credits.')) return;
+    btn.textContent = '...';
+    btn.disabled = true;
+    try {
+      const res = await fetch('/api/update-status', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ id, status: 'cancelled' }),
+      });
+      if (res.ok) {
+        btn.parentElement.innerHTML = '<span class="status-failed">Cancelled</span>';
+      } else {
+        const err = await res.json().catch(() => ({}));
+        btn.textContent = 'Cancel';
+        btn.disabled = false;
+        alert('Failed to cancel: ' + (err.error || res.status));
+      }
+    } catch (e) {
+      btn.textContent = 'Cancel';
+      btn.disabled = false;
+      alert('Cancel request failed: ' + e.message);
     }
   }
 

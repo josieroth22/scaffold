@@ -29,6 +29,11 @@ module.exports = async function handler(req, res) {
     return res.status(500).json({ error: "Failed to load submission: " + err.message });
   }
 
+  // Check if cancelled before starting
+  if (data.status === 'cancelled') {
+    return res.status(200).json({ cancelled: true });
+  }
+
   await redis.hset(`submission:${id}`, { status: "reviewing" });
 
   let formData;

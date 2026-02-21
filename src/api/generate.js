@@ -387,9 +387,17 @@ module.exports = async function handler(req, res) {
         fullOutput += event.delta.text;
         res.write(`data: ${JSON.stringify({ text: event.delta.text })}\n\n`);
 
-        // Save partial output every 30 seconds so we don't lose progress on timeout
+        // Check for cancellation and save partial output every 30 seconds
         if (Date.now() - lastSave > 30000) {
           lastSave = Date.now();
+          // Check if cancelled
+          const currentStatus = await redis.hget(`submission:${id}`, 'status');
+          if (currentStatus === 'cancelled') {
+            redis.hset(`submission:${id}`, { output: fullOutput }).catch(err => console.error("Partial save on cancel failed for", id, err));
+            res.write(`data: ${JSON.stringify({ error: "Generation cancelled" })}\n\n`);
+            res.end();
+            return;
+          }
           redis.hset(`submission:${id}`, { output: fullOutput }).catch(err => console.error("Partial save failed for", id, err));
         }
       }
