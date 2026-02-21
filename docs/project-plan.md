@@ -98,6 +98,9 @@ The mission: close the information gap in college planning. A $310K family in Na
 - [ ] PDF export of the full plan
 - [ ] Testimonials section on homepage
 - [ ] Delete old static sample files (washington-sample.html, medina-sample.html, kaplan-sample.html)
+- [ ] Admin dashboard: show review history in status column (e.g., "Fail → Fix → Pass" or "Fail x2 → Pass") instead of just final status. Store review attempt count and per-attempt results in Redis so admin can see the full pipeline journey.
+- [ ] Admin dashboard: make review JSON viewable per submission (currently stored in Redis but not returned by the submission API endpoint)
+- [ ] Admin dashboard: verify all pipeline status stages display correctly (generating, tier1_complete, simulating, reconciling, generating_tier2, completed, reviewing, review_failed, etc.)
 
 ---
 
@@ -121,27 +124,27 @@ The mission: close the information gap in college planning. A $310K family in Na
 | Tier 1 Generate (streaming) | ~27K | ~12K | ~$1.31 |
 | Monte Carlo Simulation | 0 (JS, no API call) | 0 | $0 |
 | Cost Reconciliation | ~15K | ~14K | ~$1.27 |
-| Tier 2 Generate (streaming) | ~38K | ~12K | ~$1.47 |
-| Review (12 checks) | ~55K | ~2K | ~$0.98 |
-| **Base total** | **~135K** | **~40K** | **~$5.03** |
+| Tier 2 Generate (streaming) | ~31K | ~12K | ~$1.37 |
+| Review (12 checks) | ~46K | ~2K | ~$0.84 |
+| **Base total** | **~119K** | **~40K** | **~$4.79** |
 
 If review fails, each fix+re-review cycle adds:
 
 | Fix Step | Input Tokens | Output Tokens | Cost |
 |----------|-------------|---------------|------|
 | Fix pass (find/replace JSON) | ~25K | ~1K | ~$0.45 |
-| Re-review | ~30K | ~2K | ~$0.60 |
-| **Per fix cycle** | **~55K** | **~3K** | **~$1.05** |
+| Re-review | ~46K | ~2K | ~$0.84 |
+| **Per fix cycle** | **~71K** | **~3K** | **~$1.29** |
 
 | Scenario | API Cost | Total w/ Stripe |
 |----------|----------|-----------------|
-| Review passes first try | ~$5.03 | ~$6.78 |
+| Review passes first try | ~$4.79 | ~$6.54 |
 | 1 fix cycle needed | ~$6.08 | ~$7.83 |
-| 2 fix cycles (max) | ~$7.13 | ~$8.88 |
+| 2 fix cycles (max) | ~$7.37 | ~$9.12 |
 
 ### Summary
 - **Revenue per plan:** $50
-- **API cost per plan:** ~$5-7 (depending on review outcome; up from ~$4-6 after data injection adds ~23K input tokens)
+- **API cost per plan:** ~$5-7 (depending on review outcome; up from ~$4-6 after data injection adds ~16K input tokens to each API call)
 - **Stripe fee (2.9% + $0.30):** ~$1.75
 - **Total COGS per plan:** ~$7-9
 - **Margin per plan:** ~$41-43 (82-86%)
