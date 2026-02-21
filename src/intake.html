@@ -756,21 +756,25 @@
         <div class="field">
           <label class="field-label" for="student-first-name">Student's first name</label>
           <input type="text" id="student-first-name" name="student_first_name" placeholder="e.g., Alex" required>
+          <p class="field-error-msg">Please enter your student's first name.</p>
         </div>
         <div class="field">
           <label class="field-label" for="student-last-name">Last name</label>
           <input type="text" id="student-last-name" name="student_last_name" placeholder="e.g., Smith" required>
+          <p class="field-error-msg">Please enter your student's last name.</p>
         </div>
       </div>
       <div class="field">
         <label class="field-label" for="student-age-grade">Age and current grade</label>
         <input type="text" id="student-age-grade" name="student_age_grade" placeholder="e.g., 15 / sophomore (10th)" required>
+        <p class="field-error-msg">Please enter your student's age and current grade.</p>
       </div>
 
       <div class="field-row">
         <div class="field">
           <label class="field-label" for="school-name">School name</label>
           <input type="text" id="school-name" name="school_name" placeholder="e.g., Lincoln High School" required>
+          <p class="field-error-msg">Please enter the school name.</p>
         </div>
         <div class="field">
           <label class="field-label" for="school-type">School type</label>
@@ -782,6 +786,7 @@
             <option value="magnet">Magnet</option>
             <option value="homeschool">Homeschool</option>
           </select>
+          <p class="field-error-msg">Please select a school type.</p>
         </div>
       </div>
 
@@ -794,24 +799,28 @@
         <label class="field-label" for="academic-profile">Academic profile</label>
         <p class="field-hint">Weighted and/or unweighted GPA, any test scores (SAT, PSAT, AP exams), honors or AP courses, gifted identification, anything relevant.</p>
         <textarea id="academic-profile" name="academic_profile" placeholder="e.g., 4.2 weighted GPA (3.7 unweighted). Taking two honors classes and one AP. No SAT yet but scored well on practice PSAT. Identified for gifted program in elementary school." required></textarea>
+        <p class="field-error-msg">Please describe your student's academic profile.</p>
       </div>
 
       <div class="field">
         <label class="field-label" for="academic-strengths">Academic strengths</label>
         <p class="field-hint">What subjects come naturally? Where does your kid shine?</p>
         <textarea id="academic-strengths" name="academic_strengths" placeholder="e.g., Strong writer. Always gets good feedback on essays. History is his best subject by far." required></textarea>
+        <p class="field-error-msg">Please describe your student's academic strengths.</p>
       </div>
 
       <div class="field">
         <label class="field-label" for="academic-weaknesses">Academic weaknesses or gaps</label>
         <p class="field-hint">Struggles, disinterest, or gaps. It's OK to say "nothing obvious" if that's true.</p>
         <textarea id="academic-weaknesses" name="academic_weaknesses" placeholder="e.g., Math is a slog. He does fine but it takes twice the effort. Science is average." required></textarea>
+        <p class="field-error-msg">Please describe any academic weaknesses or gaps.</p>
       </div>
 
       <div class="field">
         <label class="field-label" for="extracurriculars">Extracurricular activities</label>
         <p class="field-hint">Sports, clubs, volunteering, jobs, anything outside the classroom. Include how long they've been doing it and any leadership roles.</p>
         <textarea id="extracurriculars" name="extracurriculars" class="large" placeholder="e.g., Varsity soccer (3 years, team captain this year). Works 10 hrs/week at a coffee shop. Volunteers at the food bank once a month. Plays piano but not competitively." required></textarea>
+        <p class="field-error-msg">Please describe your student's extracurricular activities.</p>
       </div>
 
       <div class="step-nav">
@@ -832,12 +841,14 @@
         <label class="field-label" for="interests">Interests, hobbies, obsessions</label>
         <p class="field-hint">What does your kid do when nobody's grading them? Include things they might not think of as "college-worthy."</p>
         <textarea id="interests" name="interests" class="large" placeholder="e.g., Plays guitar in his room for hours. Watches YouTube videos about how things are built. Reads constantly but only sci-fi. Plays pickup basketball every weekend." required></textarea>
+        <p class="field-error-msg">Please describe your student's interests and hobbies.</p>
       </div>
 
       <div class="field">
         <label class="field-label" for="personality">Personality and temperament</label>
         <p class="field-hint">How would you describe your kid to a close friend? Not the resume version, the real one.</p>
         <textarea id="personality" name="personality" class="large" placeholder="e.g., Quiet in class but hilarious at home. Hates asking for help. Gets anxious before tests but once he starts he's fine. Very loyal to his friends." required></textarea>
+        <p class="field-error-msg">Please describe your student's personality.</p>
       </div>
 
       <div class="field">
@@ -865,16 +876,19 @@
       <div class="field">
         <label class="field-label" for="parent1-name">Name</label>
         <input type="text" id="parent1-name" name="parent1_name" placeholder="e.g., Lisa R." required>
+        <p class="field-error-msg">Please enter parent 1's name.</p>
       </div>
 
       <div class="field-row">
         <div class="field">
           <label class="field-label" for="parent1-education">Education</label>
           <input type="text" id="parent1-education" name="parent1_education" placeholder="e.g., BA from Penn State" required>
+          <p class="field-error-msg">Please enter parent 1's education.</p>
         </div>
         <div class="field">
           <label class="field-label" for="parent1-profession">Profession</label>
           <input type="text" id="parent1-profession" name="parent1_profession" placeholder="e.g., Project manager at a consulting firm" required>
+          <p class="field-error-msg">Please enter parent 1's profession.</p>
         </div>
       </div>
 
@@ -907,6 +921,7 @@
           <option value="single">Single parent</option>
           <option value="other">Other</option>
         </select>
+        <p class="field-error-msg">Please select a family structure.</p>
       </div>
 
       <div class="conditional" id="divorce-details">
@@ -949,6 +964,7 @@
         <div class="field" style="flex: 2;">
           <label class="field-label" for="city">City</label>
           <input type="text" id="city" name="city" placeholder="e.g., Boca Raton" required>
+          <p class="field-error-msg">Please enter your city.</p>
         </div>
         <div class="field" style="flex: 1;">
           <label class="field-label" for="state">State</label>
@@ -1011,6 +1027,7 @@
             <option value="PR">Puerto Rico</option>
             <option value="VI">U.S. Virgin Islands</option>
           </select>
+          <p class="field-error-msg">Please select your state.</p>
         </div>
         <div class="field" style="flex: 1;">
           <label class="field-label" for="area-type">Area type</label>
@@ -1020,6 +1037,7 @@
             <option value="suburban">Suburban</option>
             <option value="rural">Rural</option>
           </select>
+          <p class="field-error-msg">Please select area type.</p>
         </div>
       </div>
 
@@ -1032,6 +1050,7 @@
       <div class="field">
         <label class="field-label" for="relocation">How far is your kid willing to go for college?</label>
         <textarea id="relocation" name="relocation" placeholder="e.g., East Coast preferred. Would consider Midwest for the right school. Probably not the deep South." required></textarea>
+        <p class="field-error-msg">Please describe how far your student is willing to go.</p>
       </div>
 
       <div class="step-nav">
@@ -1053,6 +1072,7 @@
           <label class="field-label" for="income">Approximate household income</label>
           <p class="field-hint">Combined annual income, pre-tax.</p>
           <input type="text" id="income" name="income" placeholder="e.g., $72,000" required>
+          <p class="field-error-msg">Please enter your household income.</p>
         </div>
         <div class="field">
           <label class="field-label" for="college-budget">What can you afford per year for college? <span class="optional">(optional)</span></label>
@@ -1065,6 +1085,7 @@
         <label class="field-label" for="assets">Significant assets</label>
         <p class="field-hint">Home equity, 529 plans, retirement accounts, other savings. Schools use this in financial aid formulas. Home equity especially matters for CSS Profile schools.</p>
         <textarea id="assets" name="assets" placeholder="e.g., Home worth about $950K, owe $410K. 529 plan with $62,000. Retirement accounts totaling $380K." required></textarea>
+        <p class="field-error-msg">Please describe your significant assets.</p>
       </div>
 
       <div class="field">
@@ -1100,6 +1121,7 @@
       <div class="field">
         <label class="field-label" for="geo-pref">Geographic preference</label>
         <textarea id="geo-pref" name="geographic_preference" placeholder="e.g., East Coast preferred. Cities and suburbs feel natural. Boston, New York, Philadelphia, DC area all work." required></textarea>
+        <p class="field-error-msg">Please describe your geographic preference.</p>
       </div>
 
       <div class="field">
@@ -1218,6 +1240,7 @@
         <label class="field-label" for="email">Email address</label>
         <p class="field-hint">We'll send your completed plan to this address.</p>
         <input type="email" id="email" name="email" placeholder="you@email.com" required>
+        <p class="field-error-msg">Please enter your email address.</p>
       </div>
 
       <div class="step-nav">
@@ -1302,22 +1325,43 @@
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
-  function nextStep() {
-    // Validate current step
-    const step = document.querySelector(`[data-step="${currentStep}"]`);
+  function validateStep(stepNum) {
+    const step = document.querySelector(`[data-step="${stepNum}"]`);
     const required = step.querySelectorAll('[required]');
     let valid = true;
+    let firstError = null;
     required.forEach(el => {
-      const field = el.closest('.field') || el.closest('.priority-item');
+      const field = el.closest('.field');
       if (!el.value.trim()) {
         valid = false;
-        if (field) field.classList.add('field-error');
+        if (field) {
+          field.classList.add('field-error');
+          if (!firstError) firstError = field;
+        }
       } else {
         if (field) field.classList.remove('field-error');
       }
     });
+    if (firstError) {
+      firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+    return valid;
+  }
 
-    if (!valid) return;
+  // Clear error state on input
+  document.querySelectorAll('#intake-form input, #intake-form select, #intake-form textarea').forEach(el => {
+    el.addEventListener('input', () => {
+      const field = el.closest('.field');
+      if (field && el.value.trim()) field.classList.remove('field-error');
+    });
+    el.addEventListener('change', () => {
+      const field = el.closest('.field');
+      if (field && el.value.trim()) field.classList.remove('field-error');
+    });
+  });
+
+  function nextStep() {
+    if (!validateStep(currentStep)) return;
 
     if (currentStep < totalSteps) {
       currentStep++;
@@ -1526,20 +1570,7 @@
     submitBtn.textContent = 'Submitting...';
 
     // Validate step 7
-    const step = document.querySelector(`[data-step="7"]`);
-    const required = step.querySelectorAll('[required]');
-    let valid = true;
-    required.forEach(el => {
-      const field = el.closest('.field') || el.closest('.priority-item');
-      if (!el.value.trim()) {
-        valid = false;
-        if (field) field.classList.add('field-error');
-      } else {
-        if (field) field.classList.remove('field-error');
-      }
-    });
-
-    if (!valid) {
+    if (!validateStep(7)) {
       submitBtn.disabled = false;
       submitBtn.textContent = 'Submit and Build My Plan';
       return;

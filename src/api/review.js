@@ -1,8 +1,21 @@
 const Anthropic = require("@anthropic-ai/sdk");
 const { Redis } = require("@upstash/redis");
+const fs = require("fs");
+const path = require("path");
 const schoolData = require("./school-data");
 
+const { MODEL, REVIEW_TEMPERATURE } = require("./config");
+
 const client = new Anthropic.default();
+
+// Load financial aid facts once at module level (for no-merit list, etc.)
+const financialAidFacts = fs.readFileSync(
+  path.join(__dirname, "..", "..", "prompts", "financial-aid-facts.md"),
+  "utf8"
+);
+
+// Extract just the no-merit school list for the reviewer
+const noMeritSection = financialAidFacts.split("## 2.")[0].split("## 1.")[1] || "";
 const redis = new Redis({
   url: process.env.KV_REST_API_URL,
   token: process.env.KV_REST_API_TOKEN,
@@ -118,6 +131,12 @@ The plan has three places where school costs and probabilities appear:
   // Load verified school data for ground truth comparison
   const verifiedSchoolData = schoolData.loadSchoolsForPrompt(formData);
 
+  // Load state aid for verification
+  const stateAid = schoolData.loadStateAid(formData.state || schoolData.parseState(formData.city));
+
+  // Detect whether Tier 2 is present (for conditional checks)
+  const hasTier2 = (data.output || '').includes('REFERENCE SECTIONS');
+
   const prompt = `You are a quality reviewer for a college planning product called Scaffold. A family paid $50 for a personalized college strategy document. Your job is to review the generated plan for errors, inconsistencies, and hallucinations.
 
 **FAMILY DETAILS (everything the family submitted):**
@@ -153,6 +172,20 @@ ${verifiedSchoolData}
 
 ---
 
+**SCHOOLS THAT DO NOT OFFER MERIT AID (need-based only):**
+
+${noMeritSection}
+
+Use this list to verify check #4. If the plan assigns merit aid to any school on this list, FAIL.
+
+---
+
+**STATE AID PROGRAMS (for this family's state):**
+
+${stateAid}
+
+---
+
 **Review this plan for the following issues. For each category, respond with PASS or FAIL and a brief explanation. If FAIL, quote the specific problematic text.**
 
 1. **Residency accuracy:** Are in-state/out-of-state tuition classifications correct for the student's home state? DC students should NOT be listed as in-state for Maryland or Virginia. Students are only in-state for schools in their own state.
@@ -171,7 +204,7 @@ ${verifiedSchoolData}
    - Are the estimates realistic? A strong applicant should not exceed the school's overall admit rate by more than ~5 percentage points.
    If the prose says one number (e.g., "9% acceptance rate") but the table or JSON says a different number (e.g., 12%), FAIL this check. Check EVERY school for prose vs. table consistency.
 
-4. **No-merit school check:** Are merit scholarships incorrectly assigned to schools that only offer need-based aid (Ivies, MIT, Stanford, Caltech, Amherst, Williams, Bowdoin, etc.)? Also check: if the narrative says "no merit aid" for a school, does the JSON have merit_pct=0?
+4. **No-merit school check:** Are merit scholarships incorrectly assigned to schools that only offer need-based aid? Check EVERY school on the list against the NO-MERIT LIST provided above. If a school appears on that list and the plan shows merit_pct > 0 in the JSON, or describes merit scholarship opportunities in the narrative, FAIL. Also check: if the narrative says "no merit aid" for a school, does the JSON have merit_pct=0?
 
 5. **Fabricated content:** Check for ANY content that could not have been derived from the family's input above OR from the VERIFIED SCHOOL DATA. IMPORTANT: Read the FAMILY DETAILS section carefully first. If the family mentioned something in their input (e.g., awards, programs, competitions, activities), the plan is allowed to reference it. Do NOT flag content that matches the family's own words. Compare scholarship names, program names, and cost figures against the VERIFIED SCHOOL DATA. If the plan attributes a scholarship to a school and the verified data shows different scholarships for that school, FAIL. Specifically flag:
    - Invented teacher names, counselor names, professor names, or faculty references
@@ -183,7 +216,7 @@ ${verifiedSchoolData}
    - Marketing slogans or campaign names attributed to schools that you cannot verify
    Be aggressive on this check. If you are not confident a named scholarship, program, or honors track exists at the specific school mentioned, FAIL. It is better to flag a real program than to let a fabricated one through to a paying customer. But do NOT flag things the family themselves mentioned or well-known national programs/awards.
 
-6. **Activities list accuracy:** In the Tier 2 activities list, are [CURRENT] items based on what the family actually said? Are [TARGET] items clearly framed as goals, not accomplished facts?
+6. **Activities list accuracy:** ${hasTier2 ? 'In the Tier 2 activities list, are [CURRENT] items based on what the family actually said? Are [TARGET] items clearly framed as goals, not accomplished facts?' : 'SKIP this check (Tier 2 reference sections are not present in this document). Mark as PASS with detail "Tier 2 not yet generated."'}
 
 7. **Date accuracy:** Are there references to dates that have already passed (e.g., "summer 2025" when it's 2026)?
 
@@ -202,6 +235,10 @@ ${verifiedSchoolData}
 11. **Simulation parameter sanity:** Check the JSON simulation parameters for obvious errors (see sub-checks below).
 
 12. **Verified data usage:** For each school on the list that has verified data in the VERIFIED SCHOOL DATA section, compare the plan's admit rate, sticker cost, and net price against the verified numbers. If any differ by more than 2 percentage points (admit rate) or $3,000 (costs), FAIL and list every discrepancy. The verified data is ground truth from CDS 2024-25 reports and the College Scorecard.
+
+13. **REA/SCEA constraint:** If the plan recommends Restrictive Early Action or Single-Choice Early Action at any school (Harvard SCEA, Yale SCEA, Princeton SCEA, Stanford REA, Notre Dame REA, Georgetown REA), verify that NO other private school on the list is marked EA or ED. Only public/state universities may be EA alongside an REA/SCEA school. Other private schools must be RD or ED2. If the plan has Stanford REA and also MIT EA, that is a FAIL. Check every school's recommended round.
+
+14. **State aid programs:** If the STATE AID PROGRAMS section above lists programs for this family's state, does the plan mention them? For example, if the family is in Florida and the state aid section mentions Bright Futures, does the plan discuss Bright Futures and whether this student is on track? If significant state programs exist and are completely absent from the plan, FAIL.
 
 **Details for check 11 (simulation parameter sanity):**
     - sticker_cost should be reasonable ($15K-$85K range)
@@ -228,7 +265,9 @@ ${verifiedSchoolData}
     "school_count": { "status": "PASS" or "FAIL", "detail": "..." },
     "budget_alignment": { "status": "PASS" or "FAIL", "detail": "..." },
     "simulation_params": { "status": "PASS" or "FAIL", "detail": "..." },
-    "verified_data_usage": { "status": "PASS" or "FAIL", "detail": "..." }
+    "verified_data_usage": { "status": "PASS" or "FAIL", "detail": "..." },
+    "rea_scea_constraint": { "status": "PASS" or "FAIL", "detail": "..." },
+    "state_aid_programs": { "status": "PASS" or "FAIL", "detail": "..." }
   },
   "summary": "One paragraph summary of overall quality and any critical issues."
 }
@@ -238,8 +277,9 @@ Only output the JSON block. No other text.`;
 
   try {
     const response = await client.messages.create({
-      model: "claude-opus-4-20250514",
-      max_tokens: 4000,
+      model: MODEL,
+      max_tokens: 5000,
+      temperature: REVIEW_TEMPERATURE,
       messages: [{ role: "user", content: prompt }],
     });
 

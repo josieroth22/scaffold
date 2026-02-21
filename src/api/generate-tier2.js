@@ -1,6 +1,7 @@
 const Anthropic = require("@anthropic-ai/sdk");
 const { Redis } = require("@upstash/redis");
 const schoolData = require("./school-data");
+const { MODEL, GENERATION_TEMPERATURE } = require("./config");
 
 const client = new Anthropic.default();
 const redis = new Redis({
@@ -72,9 +73,23 @@ You wrote the Strategy Brief below for this family. Now write the Reference Sect
 - City: ${formData.city}${formData.state ? ', ' + formData.state : ''}
 - Income: ${formData.income}
 - College budget: ${formData.college_budget || "Not specified (use budget estimated in Tier 1)"}
-- Interests: ${formData.interests}
-- Extracurricular activities: ${formData.extracurriculars || "Not specified"}
+- Assets: ${formData.assets || "Not specified"}
 - Academic profile: ${formData.academic_profile}
+- Academic strengths: ${formData.academic_strengths || "Not specified"}
+- Academic weaknesses: ${formData.academic_weaknesses || "Not specified"}
+- Extracurricular activities: ${formData.extracurriculars || "Not specified"}
+- Interests: ${formData.interests}
+- Personality: ${formData.personality || "Not specified"}
+- Teacher quote: ${formData.teacher_quote || "None provided"}
+- Parent 1: ${formData.parent1_name || "Not specified"}, ${formData.parent1_education || ""}, ${formData.parent1_profession || ""}
+- Parent 2: ${formData.parent2_name || "Not specified"}, ${formData.parent2_education || ""}, ${formData.parent2_profession || ""}
+- Family structure: ${formData.family_structure || "Not specified"}
+- Siblings: ${formData.siblings || "None"}
+- Geographic preference: ${formData.geographic_preference || "Not specified"}
+- Schools on radar: ${formData.schools_on_radar || "None"}
+- Must-haves: ${formData.must_haves || "Not specified"}
+- Deal-breakers: ${formData.deal_breakers || "Not specified"}
+- Special financial circumstances: ${formData.financial_special || "None"}
 
 ---
 
@@ -141,8 +156,9 @@ Then generate each of these sections. Each should stand alone so a parent can ju
     let lastSave = Date.now();
 
     const stream = await client.messages.stream({
-      model: "claude-opus-4-20250514",
+      model: MODEL,
       max_tokens: 16000,
+      temperature: GENERATION_TEMPERATURE,
       messages: [{ role: "user", content: prompt }],
     });
 

@@ -107,7 +107,7 @@
       <tr>
         <th>ID</th>
         <th>Student</th>
-        <th>City</th>
+        <th>City/State</th>
         <th>Email</th>
         <th>Type</th>
         <th>Stage</th>
@@ -223,7 +223,7 @@
         tr.innerHTML = `
           <td style="font-size:0.7rem; font-family:monospace; color:var(--muted);">${s.id}</td>
           <td><strong>${s.student_name || '-'}</strong></td>
-          <td>${s.city || '-'}</td>
+          <td>${s.city || '-'}${s.state ? ', ' + s.state : ''}</td>
           <td>${s.email || '-'}</td>
           <td>${typeBadge}</td>
           <td class="stage-cell">${stageBadge}</td>
@@ -292,7 +292,7 @@
       const res = await fetch('/api/submission?code=' + encodeURIComponent(adminCode) + '&id=' + id);
       const data = await res.json();
 
-      document.getElementById('detail-title').textContent = (data.student_name || 'Unknown') + ' - ' + (data.city || '');
+      document.getElementById('detail-title').textContent = (data.student_name || 'Unknown') + ' - ' + (data.city || '') + (data.state ? ', ' + data.state : '');
       document.getElementById('detail-form').textContent = JSON.stringify(data.form_data || {}, null, 2);
       document.getElementById('detail-output').textContent = data.output || '(No output yet)';
 

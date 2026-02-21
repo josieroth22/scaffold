@@ -1,5 +1,7 @@
 const Anthropic = require("@anthropic-ai/sdk");
 const { Redis } = require("@upstash/redis");
+const schoolData = require("./school-data");
+const { MODEL, FIX_TEMPERATURE } = require("./config");
 
 const client = new Anthropic.default();
 const redis = new Redis({
@@ -94,6 +96,9 @@ module.exports = async function handler(req, res) {
     }
   }
 
+  // Load verified school data so fix-plan can correct to the right numbers
+  const verifiedData = schoolData.loadSchoolsForPrompt(formData);
+
   // Strip the JSON simulation params block from output for the prompt
   const cleanOutput = data.output.replace(/```json-simulation-params[\s\S]*?```/g, '');
 
@@ -112,6 +117,9 @@ FAMILY DETAILS (for reference, to avoid removing real content):
 - Interests: ${formData.interests || 'Not specified'}
 - Additional context: ${formData.additional_context || 'None'}
 ${simSection}
+VERIFIED SCHOOL DATA (use these numbers when correcting admit rates, costs, or school-specific facts):
+${verifiedData.substring(0, 15000)}
+
 RULES:
 - Fix ONLY the issues listed above
 - Do NOT change school names, tiers, recommendations, or tone
@@ -139,8 +147,9 @@ ${cleanOutput}`;
 
   try {
     const response = await client.messages.create({
-      model: "claude-opus-4-20250514",
+      model: MODEL,
       max_tokens: 4000,
+      temperature: FIX_TEMPERATURE,
       messages: [{ role: "user", content: prompt }],
     });
 

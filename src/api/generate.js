@@ -3,6 +3,7 @@ const { Redis } = require("@upstash/redis");
 const fs = require("fs");
 const path = require("path");
 const schoolData = require("./school-data");
+const { MODEL, GENERATION_TEMPERATURE } = require("./config");
 
 const client = new Anthropic.default();
 const redis = new Redis({
@@ -250,6 +251,10 @@ Stop after the Monte Carlo Parameter Table. The Reference Sections come next in 
 
 ---
 
+${schoolData.buildCheatSheet(data)}
+
+---
+
 **BEFORE YOU OUTPUT YOUR FINAL RESPONSE**, do a silent self-check. Do NOT print this checklist. Just verify internally and fix any issues before generating:
 
 1. **Residency check:** Is the student in-state for the state schools you listed? Use in-state tuition and in-state admit rates for their home state schools. Out-of-state for everything else. IMPORTANT: DC residents are NOT in-state for Maryland or Virginia schools. Students from US territories are out-of-state everywhere. If the student is from DC, mention the DC TAG program ($10K/year toward out-of-state public tuition) but do NOT use in-state tuition rates for UMD, UVA, or any other state school.
@@ -262,7 +267,9 @@ Stop after the Monte Carlo Parameter Table. The Reference Sections come next in 
 8. **JSON block consistency:** Will the JSON simulation params you output match the numbers in your narrative and table? Same admit_pct (to 3 decimal places), same cost ranges, same merit assumptions. For EACH school, verify: (a) admit_pct matches the percentage in your narrative (3.6% = 0.036, not 0.03), and (b) sticker_cost minus midpoint of need aid range minus (merit_pct * midpoint of merit range) is within $3K of your narrative net cost estimate. If not, fix it.
 9. **Date check:** Did you reference "${today.getFullYear() - 1}" as a future date anywhere? Search your output for "${today.getFullYear() - 1}" and make sure it only appears in past-tense contexts (e.g., "based on ${today.getFullYear() - 1} data"), never as "this summer" or "upcoming." The current year is ${today.getFullYear()}.
 10. **Fabrication check:** Did you name any university-specific program, scholarship, or initiative that you aren't 100% certain exists? If it's in the VERIFIED SCHOOL DATA, you're good. If not, replace the specific name with a generic description (e.g., "merit scholarship opportunities" instead of "Chancellor's Leadership Award").
-11. **Verified data check:** For every school on your list that appears in the VERIFIED SCHOOL DATA section, did you use the verified admit rate, sticker cost, and net price? If you used a different number, you have an error. Go back and fix it.
+11. **Verified data check:** For every school on your list that appears in the VERIFIED SCHOOL DATA section, did you use the verified admit rate, sticker cost, and net price? If you used a different number, you have an error. Go back and fix it. Cross-reference against the QUICK REFERENCE table above.
+12. **REA/SCEA constraint:** If you recommended REA or SCEA for any school, scan every other school on the list. No other private school should be marked EA or ED. Only public schools can be EA alongside REA/SCEA. If you see a conflict, change the private school to RD.
+13. **State aid programs:** Did you mention the family's state-specific programs from the STATE AID PROGRAMS section? If not, add them.
 
 Fix any inconsistencies you find, then output your final response.
 
@@ -378,8 +385,9 @@ module.exports = async function handler(req, res) {
     let lastSave = Date.now();
 
     const stream = await client.messages.stream({
-      model: "claude-opus-4-20250514",
+      model: MODEL,
       max_tokens: 20000,
+      temperature: GENERATION_TEMPERATURE,
       messages: [{ role: "user", content: prompt }],
     });
 

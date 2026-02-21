@@ -3,6 +3,7 @@ const { Redis } = require("@upstash/redis");
 const fs = require("fs");
 const path = require("path");
 const schoolData = require("./school-data");
+const { MODEL, GENERATION_TEMPERATURE } = require("./config");
 
 const client = new Anthropic.default();
 const redis = new Redis({
@@ -211,8 +212,9 @@ Generate a COMPLETE new Strategy Brief. This is a full rewrite, not a patch. Fol
     let lastSave = Date.now();
 
     const stream = await client.messages.stream({
-      model: "claude-opus-4-20250514",
+      model: MODEL,
       max_tokens: 20000,
+      temperature: GENERATION_TEMPERATURE,
       messages: [{ role: "user", content: prompt }],
     });
 

@@ -682,9 +682,134 @@ function extractSection(content, headerPrefix) {
   return result.join("\n").trim();
 }
 
+// Build a compact cheat sheet with just the numbers that matter most
+// This goes at the END of the prompt for maximum recency effect
+function buildCheatSheet(formData) {
+  const bracket = getIncomeBracket(formData.income);
+  const state = formData.state || parseState(formData.city);
+  const schoolList = getSchoolList();
+
+  // Collect: radar schools + in-state + CDS schools
+  const radarNames = (formData.schools_on_radar || "")
+    .split(/[,;\n]+/)
+    .map((s) => s.trim().toLowerCase())
+    .filter(Boolean);
+
+  // Common abbreviations
+  const abbrevMap = {
+    "uf": "university of florida", "uga": "university of georgia", "fsu": "florida state",
+    "ucf": "university of central florida", "mit": "massachusetts institute",
+    "gt": "georgia tech", "gatech": "georgia tech", "usc": "university of southern california",
+    "ucla": "university of california, los angeles", "ucb": "university of california, berkeley",
+    "unc": "university of north carolina", "uva": "university of virginia",
+    "osu": "ohio state", "psu": "penn state", "umd": "university of maryland",
+    "bu": "boston university", "bc": "boston college", "nyu": "new york university",
+    "gw": "george washington", "gwu": "george washington", "washu": "washington university in st. louis",
+    "cmu": "carnegie mellon", "jhu": "johns hopkins", "wm": "william & mary",
+    "vt": "virginia tech", "umich": "university of michigan", "wisc": "university of wisconsin",
+    "uiuc": "university of illinois", "utk": "university of tennessee",
+    "lsu": "louisiana state", "tamu": "texas a&m", "ut": "university of texas",
+    "cwru": "case western", "rice": "rice university", "duke": "duke university",
+    "wake": "wake forest", "tulane": "tulane university", "howard": "howard university",
+  };
+
+  // Expand abbreviations
+  const expandedRadar = radarNames.map((r) => abbrevMap[r] || r);
+
+  // Build school data rows, categorized by priority
+  const radarRows = [];
+  const inStateRows = [];
+  const cdsRows = [];
+  const seen = new Set();
+
+  function buildRow(school, marker) {
+    const hasCDS = school.cds && school.cds.admit_rate_overall != null;
+    const admitRate = hasCDS ? school.cds.admit_rate_overall : school.scorecard?.admit_rate;
+    const schoolState = school.state || "";
+    const isInState = schoolState === state;
+    const isPublic = (school.type || "").toLowerCase() === "public";
+
+    let sticker = null;
+    if (hasCDS) {
+      let tuition;
+      if (isPublic && isInState) {
+        tuition = school.cds.tuition_in_state || 0;
+      } else {
+        tuition = school.cds.tuition_private || school.cds.tuition_out_of_state || school.cds.tuition_in_state || 0;
+      }
+      sticker = tuition + (school.cds.required_fees || 0) + (school.cds.room_board || 0);
+    } else {
+      sticker = (isPublic && isInState)
+        ? (school.scorecard?.total_cost_in_state || school.scorecard?.total_cost_out_of_state)
+        : (school.scorecard?.total_cost_out_of_state || school.scorecard?.total_cost_in_state);
+    }
+
+    let netPrice = null;
+    const np = school.scorecard?.net_price;
+    if (np && typeof np === "object") netPrice = np[bracket];
+    else if (typeof np === "number") netPrice = np;
+
+    if (admitRate == null && sticker == null) return null;
+
+    const admitStr = admitRate != null ? (admitRate * 100).toFixed(1) + "%" : "N/A";
+    const stickerStr = sticker != null && sticker > 0 ? "$" + sticker.toLocaleString() : "N/A";
+    const netStr = netPrice != null ? "$" + netPrice.toLocaleString() : "N/A";
+    const residency = isPublic && isInState ? "in-state" : isPublic ? "OOS" : "private";
+
+    return `${marker}${school.name} | ${admitStr} | ${stickerStr} | ${netStr} | ${residency}`;
+  }
+
+  for (const entry of schoolList) {
+    const school = loadSchool(entry.slug);
+    if (!school) continue;
+
+    const hasCDS = school.cds && school.cds.admit_rate_overall != null;
+    const hasScorecard = school.scorecard && school.scorecard.admit_rate != null;
+    if (!hasCDS && !hasScorecard) continue;
+
+    const nameLC = (school.name || "").toLowerCase();
+    const isRadar = expandedRadar.some((r) => nameLC.includes(r))
+      || radarNames.some((r) => r.length >= 4 && nameLC.includes(r));
+    const schoolState = school.state || "";
+    const isInState = schoolState === state;
+
+    // Skip online-only campuses
+    if (nameLC.includes("-online") || nameLC.includes("online campus")) continue;
+
+    if (isRadar && !seen.has(entry.slug)) {
+      const row = buildRow(school, "* ");
+      if (row) { radarRows.push(row); seen.add(entry.slug); }
+    } else if (isInState && !seen.has(entry.slug)) {
+      const row = buildRow(school, "  ");
+      if (row) { inStateRows.push(row); seen.add(entry.slug); }
+    } else if (hasCDS && !seen.has(entry.slug)) {
+      const row = buildRow(school, "  ");
+      if (row) { cdsRows.push(row); seen.add(entry.slug); }
+    }
+  }
+
+  // Combine: all radar + in-state (up to 10) + CDS (fill to 30)
+  const cheatRows = [
+    ...radarRows,
+    ...inStateRows.slice(0, 10),
+    ...cdsRows.slice(0, Math.max(0, 30 - radarRows.length - Math.min(inStateRows.length, 10))),
+  ];
+
+  if (cheatRows.length === 0) return "";
+
+  return `**QUICK REFERENCE: KEY NUMBERS FOR YOUR JSON PARAMS**
+(* = school the family named. Use these EXACT numbers.)
+
+School | Admit Rate | Sticker Cost | Net Price (${bracket}) | Type
+${cheatRows.join("\n")}
+
+For EVERY school on your list that appears above, your JSON admit_pct and sticker_cost MUST match these numbers.`;
+}
+
 module.exports = {
   loadSchoolsForPrompt,
   loadStateAid,
   getIncomeBracket,
   parseState,
+  buildCheatSheet,
 };
