@@ -101,6 +101,7 @@ The mission: close the information gap in college planning. A $310K family in Na
 - [ ] **Plan regeneration**: allow families to update their info (new grades, changed interests, different school list) and regenerate for ~$20. Reuse same submission ID so the plan URL stays the same.
 
 ### Phase 9: Polish
+- [ ] Write founder bio and add to website (landing page "About" section or footer)
 - [ ] PDF export of the full plan
 - [ ] Testimonials section on homepage
 - [ ] Delete old static sample files (washington-sample.html, medina-sample.html, kaplan-sample.html)
