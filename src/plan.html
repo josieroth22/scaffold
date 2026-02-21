@@ -1593,8 +1593,8 @@
         }
 
         // Application round badges in table cells
-        // Strip parenthetical notes for matching, preserve them for display
-        const roundBase = text.replace(/\s*\(.*\)$/, '').trim();
+        // Strip parenthetical notes and footnote markers for matching
+        const roundBase = text.replace(/\s*\(.*\)$/, '').replace(/[¹²³⁴⁵⁶⁷⁸⁹⁰\*†‡§]+$/, '').trim();
         const roundColors = {
           'ea': 'tier-target', 'early action': 'tier-target',
           'ed': 'tier-reach', 'early decision': 'tier-reach', 'ed1': 'tier-reach',
@@ -1607,13 +1607,15 @@
         if (roundColors[roundBase]) {
           const noteMatch = text.match(/(\(.*\))$/);
           const roundNote = noteMatch ? ' <span class="round-note">' + noteMatch[1] + '</span>' : '';
+          const footnoteMatch = td.textContent.trim().match(/([¹²³⁴⁵⁶⁷⁸⁹⁰\*†‡§]+)$/);
+          const footnote = footnoteMatch ? '<sup>' + footnoteMatch[1] + '</sup>' : '';
           const roundLabels = {
             'early action': 'EA', 'early decision': 'ED', 'early decision ii': 'ED2',
             'regular decision': 'RD', 'restrictive early action': 'REA',
             'single-choice early action': 'SCEA', 'rolling admission': 'Rolling',
           };
           const label = roundLabels[roundBase] || roundBase.toUpperCase();
-          td.innerHTML = '<span class="tier-badge ' + roundColors[roundBase] + '">' + label + '</span>' + roundNote;
+          td.innerHTML = '<span class="tier-badge ' + roundColors[roundBase] + '">' + label + '</span>' + footnote + roundNote;
         }
       });
 
