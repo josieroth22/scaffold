@@ -151,15 +151,12 @@
 
   .hero-badge {
     display: inline-block;
-    font-size: 0.68rem;
+    font-size: 0.65rem;
     font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 0.12em;
-    color: var(--sage-dark);
-    background: var(--sage-light);
-    padding: 0.3rem 0.75rem;
-    border-radius: 4px;
-    margin-bottom: 1.25rem;
+    letter-spacing: 0.14em;
+    color: var(--sage);
+    margin-bottom: 1rem;
   }
 
   .hero h1 {
@@ -168,13 +165,12 @@
     font-weight: 400;
     line-height: 1.1;
     letter-spacing: -0.03em;
-    margin-bottom: 0.6rem;
+    margin-bottom: 0.75rem;
   }
 
   .hero-meta {
     font-size: 0.88rem;
     color: var(--muted);
-    margin-bottom: 0.75rem;
   }
 
   /* ---- TABLE OF CONTENTS ---- */
@@ -1601,17 +1597,25 @@
         const roundBase = text.replace(/\s*\(.*\)$/, '').trim();
         const noteMatch = text.match(/(\(.*\))$/);
         const roundNote = noteMatch ? ' <span class="round-note">' + noteMatch[1] + '</span>' : '';
-        if (roundBase === 'ea' || roundBase === 'early action') {
-          td.innerHTML = '<span class="tier-badge tier-target">EA</span>' + roundNote;
-        } else if (roundBase === 'ed' || roundBase === 'early decision' || roundBase === 'ed1') {
-          td.innerHTML = '<span class="tier-badge tier-reach">ED</span>' + roundNote;
-        } else if (roundBase === 'ed2' || roundBase === 'early decision ii') {
-          td.innerHTML = '<span class="tier-badge tier-reach">ED2</span>' + roundNote;
-        } else if (roundBase === 'rd' || roundBase === 'regular decision') {
-          td.innerHTML = '<span class="tier-badge tier-safety">RD</span>' + roundNote;
-        } else if (roundBase === 'rea' || roundBase === 'restrictive early action') {
-          td.innerHTML = '<span class="tier-badge tier-reach">REA</span>' + roundNote;
-        }
+        // Map known rounds to colors; anything else gets a default badge
+        const roundColors = {
+          'ea': 'tier-target', 'early action': 'tier-target',
+          'ed': 'tier-reach', 'early decision': 'tier-reach', 'ed1': 'tier-reach',
+          'ed2': 'tier-reach', 'early decision ii': 'tier-reach',
+          'rd': 'tier-safety', 'regular decision': 'tier-safety',
+          'rea': 'tier-reach', 'restrictive early action': 'tier-reach',
+          'scea': 'tier-reach', 'single-choice early action': 'tier-reach',
+          'rolling': 'tier-safety', 'rolling admission': 'tier-safety',
+        };
+        // Short display labels for long names
+        const roundLabels = {
+          'early action': 'EA', 'early decision': 'ED', 'early decision ii': 'ED2',
+          'regular decision': 'RD', 'restrictive early action': 'REA',
+          'single-choice early action': 'SCEA', 'rolling admission': 'Rolling',
+        };
+        const badgeClass = roundColors[roundBase] || 'tier-target';
+        const label = roundLabels[roundBase] || td.textContent.replace(/\s*\(.*\)$/, '').trim();
+        td.innerHTML = '<span class="tier-badge ' + badgeClass + '">' + label + '</span>' + roundNote;
       });
 
       // --- Fix decimal admit rates in table columns ---
@@ -2124,13 +2128,21 @@
 
       // Set title and meta
       const fullName = data.student_name || '';
-      const title = fullName ? `${fullName}'s Plan` : 'Your Scaffold Plan';
+      const firstName = data.student_first_name || fullName.split(' ')[0] || '';
+      const title = fullName ? `${firstName}'s College Strategy` : 'Your College Strategy';
       document.getElementById('plan-title').textContent = title;
       document.title = title + ' — Scaffold';
 
       let metaParts = [];
-      if (data.city) metaParts.push(data.city);
-      if (data.completed_at) metaParts.push('Generated ' + new Date(data.completed_at).toLocaleDateString());
+      const location = [data.city, data.state].filter(Boolean).join(', ');
+      if (location) metaParts.push(location);
+      const formInfo = data.form_data || {};
+      if (formInfo.student_age_grade) metaParts.push(formInfo.student_age_grade);
+      if (data.completed_at) {
+        const d = new Date(data.completed_at);
+        const months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+        metaParts.push(months[d.getMonth()] + ' ' + d.getFullYear());
+      }
       document.getElementById('plan-meta').textContent = metaParts.join(' · ');
 
       // Strip simulation params JSON block before rendering
@@ -2139,6 +2151,21 @@
       // Render content
       const body = document.getElementById('strategy-body');
       body.innerHTML = markdownToHtml(cleanOutput);
+
+      // Hide the first h1 + its subtitle (hero already shows the title)
+      const firstH1 = body.querySelector('h1');
+      if (firstH1) {
+        firstH1.style.display = 'none';
+        // Also hide the subtitle line right after (usually an italic/em paragraph)
+        let next = firstH1.nextElementSibling;
+        if (next && next.tagName === 'DIV' && next.classList.contains('section-rule')) {
+          next.style.display = 'none';
+          next = next.nextElementSibling;
+        }
+        if (next && next.tagName === 'P' && (next.querySelector('em') || next.textContent.includes('|'))) {
+          next.style.display = 'none';
+        }
+      }
 
       // Enhance tables, badges, and inline tags
       enhanceContent(body);
