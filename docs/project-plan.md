@@ -124,18 +124,21 @@ The mission: close the information gap in college planning. A $310K family in Na
 
 ### Per-Plan API Costs (Claude Opus at $15/M input, $75/M output)
 
-*Updated February 2026 to reflect verified school data injection (~23K tokens of CDS/Scorecard/state aid data injected into Tier 1, Tier 2, and Review prompts).*
+*Updated February 2026. Reflects verified school data injection (~23K tokens per call), new pipeline order (review before simulation), and two reviews in the base path (T1 review + final review).*
+
+**Base path** (both reviews pass first try):
 
 | Pipeline Step | Input Tokens | Output Tokens | Cost |
 |---------------|-------------|---------------|------|
-| Tier 1 Generate (streaming) | ~27K | ~12K | ~$1.31 |
+| Tier 1 Generate (streaming) | ~30K | ~12K | ~$1.35 |
+| T1 Review (15 checks) | ~46K | ~2K | ~$0.84 |
 | Monte Carlo Simulation | 0 (JS, no API call) | 0 | $0 |
-| Cost Reconciliation | ~15K | ~14K | ~$1.27 |
+| Cost/Tier Reconciliation | ~15K | ~14K | ~$1.28 |
 | Tier 2 Generate (streaming) | ~31K | ~12K | ~$1.37 |
-| Review (12 checks) | ~46K | ~2K | ~$0.84 |
-| **Base total** | **~119K** | **~40K** | **~$4.79** |
+| Final Review (15 checks) | ~46K | ~2K | ~$0.84 |
+| **Base total** | **~168K** | **~42K** | **~$5.68** |
 
-If review fails, each fix+re-review cycle adds:
+**If T1 review fails**, each fix+re-review cycle adds:
 
 | Fix Step | Input Tokens | Output Tokens | Cost |
 |----------|-------------|---------------|------|
@@ -143,22 +146,32 @@ If review fails, each fix+re-review cycle adds:
 | Re-review | ~46K | ~2K | ~$0.84 |
 | **Per fix cycle** | **~71K** | **~3K** | **~$1.29** |
 
-| Scenario | API Cost | Total w/ Stripe |
-|----------|----------|-----------------|
-| Review passes first try | ~$4.79 | ~$6.54 |
-| 1 fix cycle needed | ~$6.08 | ~$7.83 |
-| 2 fix cycles (max) | ~$7.37 | ~$9.12 |
+**If fixes fail**, full regeneration adds:
+
+| Regen Step | Input Tokens | Output Tokens | Cost |
+|------------|-------------|---------------|------|
+| Regenerate (full buildPrompt + feedback) | ~30K | ~12K | ~$1.35 |
+| Post-regen review | ~46K | ~2K | ~$0.84 |
+| **Per regen** | **~76K** | **~14K** | **~$2.19** |
+
+| Scenario | API Cost | + Stripe | Total COGS |
+|----------|----------|----------|------------|
+| Both reviews pass | ~$5.68 | ~$1.75 | ~$7.43 |
+| 1 T1 fix cycle | ~$6.97 | ~$1.75 | ~$8.72 |
+| 2 T1 fix cycles | ~$8.26 | ~$1.75 | ~$10.01 |
+| 2 fixes + regen | ~$10.45 | ~$1.75 | ~$12.20 |
+| Worst case (regen + final fix) | ~$11.74 | ~$1.75 | ~$13.49 |
 
 ### Summary
 - **Revenue per plan:** $50
-- **API cost per plan:** ~$5-7 (depending on review outcome; up from ~$4-6 after data injection adds ~16K input tokens to each API call)
+- **API cost per plan:** ~$6-8 typical, ~$12 worst case
 - **Stripe fee (2.9% + $0.30):** ~$1.75
-- **Total COGS per plan:** ~$7-9
-- **Margin per plan:** ~$41-43 (82-86%)
+- **Total COGS per plan:** ~$7-10 typical, ~$13.50 worst case
+- **Margin per plan:** ~$37-43 (74-86%)
 - **Break-even:** ~4 plans/month
 - **Upfront investment:** ~$200-400 (LLC filing, first month of subscriptions, $100 buffer)
 
-API costs scale with volume. At 50 plans/month, API spend would be ~$200-300/month. Prepaid API credits get a small discount. The reconciliation step (~$1.27) is the most expensive non-generation call and could be optimized later if needed.
+API costs scale with volume. At 50 plans/month, API spend would be ~$300-400/month. Prepaid API credits get a small discount. As prompt quality improves, the fix/regen rate should drop, keeping most plans on the base path (~$5.68).
 
 ---
 
