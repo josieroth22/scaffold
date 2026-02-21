@@ -254,9 +254,28 @@ Only output the JSON block. No other text.`;
       review = { raw: text };
     }
 
+    // Track review count and history
+    const prevCount = parseInt(data.review_count) || 0;
+    const newCount = prevCount + 1;
+    let history = [];
+    if (data.review_history) {
+      try {
+        history = typeof data.review_history === 'string' ? JSON.parse(data.review_history) : data.review_history;
+        if (!Array.isArray(history)) history = [];
+      } catch (e) { history = []; }
+    }
+    history.push({
+      attempt: newCount,
+      overall: review.overall || 'unknown',
+      reviewed_at: new Date().toISOString(),
+      checks: review.checks || [],
+    });
+
     // Store review in Redis
     await redis.hset(`submission:${id}`, {
       review: JSON.stringify(review),
+      review_count: newCount,
+      review_history: JSON.stringify(history),
       reviewed_at: new Date().toISOString(),
     });
 

@@ -68,6 +68,23 @@
   .badge-sim-fail { font-size: 0.72rem; font-weight: 600; background: #fce4ec; color: #c62828; padding: 0.15rem 0.5rem; border-radius: 3px; cursor: help; }
   .badge-sim-none { font-size: 0.72rem; font-weight: 600; background: var(--cream); color: var(--muted); padding: 0.15rem 0.5rem; border-radius: 3px; }
   .btn-retry { font-size: 0.72rem; color: var(--sage); font-weight: 600; cursor: pointer; text-decoration: underline; background: none; border: none; font-family: 'DM Sans', sans-serif; margin-left: 0.3rem; }
+  .review-history { display: flex; align-items: center; gap: 0.25rem; flex-wrap: wrap; }
+  .review-step { font-size: 0.68rem; font-weight: 600; padding: 0.1rem 0.4rem; border-radius: 3px; }
+  .review-step-fail { background: #fce4ec; color: #c62828; }
+  .review-step-pass { background: #e8f5e9; color: #2e7d32; }
+  .review-arrow { font-size: 0.65rem; color: var(--muted); }
+  .review-check { display: flex; align-items: flex-start; gap: 0.5rem; padding: 0.5rem 0; border-bottom: 1px solid var(--border); }
+  .review-check:last-child { border-bottom: none; }
+  .review-check-icon { font-size: 0.85rem; flex-shrink: 0; margin-top: 0.1rem; }
+  .review-check-pass .review-check-icon { color: #2e7d32; }
+  .review-check-fail .review-check-icon { color: #c62828; }
+  .review-check-name { font-weight: 600; font-size: 0.8rem; }
+  .review-check-detail { font-size: 0.78rem; color: var(--muted); margin-top: 0.15rem; }
+  .review-summary { padding: 0.75rem 1rem; border-radius: 6px; margin-bottom: 1rem; font-size: 0.85rem; font-weight: 600; }
+  .review-summary-pass { background: #e8f5e9; color: #2e7d32; }
+  .review-summary-fail { background: #fce4ec; color: #c62828; }
+  .review-history-section { margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid var(--border); }
+  .review-history-section h4 { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); margin-bottom: 0.5rem; }
 </style>
 </head>
 <body>
@@ -83,7 +100,7 @@
   <h1>Submissions <button onclick="loadSubmissions()" style="font-size:0.75rem; padding:0.3rem 0.8rem; background:var(--sage); color:white; border:none; border-radius:5px; cursor:pointer; font-family:'DM Sans',sans-serif; font-weight:600; vertical-align:middle; margin-left:0.5rem;">Refresh</button> <span style="font-size:0.82rem; font-weight:400; color:var(--muted); margin-left:0.5rem;" id="last-refreshed"></span></h1>
   <p class="subtitle" id="count"></p>
   <div class="stage-key" style="font-size:0.75rem; color:var(--muted); margin-bottom:1rem;">
-    <strong>Stage key:</strong> Tier 1 processing → Tier 1 complete → Simulation processing → Simulation complete → Reconciling costs → Tier 2 processing → Tier 2 complete → Review processing → Fixing issues → Done | <span style="color:var(--error, #c94d4d);">Review failed</span>
+    <strong>Stage key:</strong> Tier 1 processing → Tier 1 complete → Simulation processing → Simulation complete → Reconciling costs → Tier 2 processing → Tier 2 complete → Review processing → Fixing issues → Done | <span style="color:var(--error, #c94d4d);">Review failed</span> | <span style="color:var(--error, #c94d4d);">Generation failed</span>
   </div>
   <table id="table" style="display: none;">
     <thead>
@@ -111,6 +128,7 @@
       <button class="detail-tab active" onclick="switchTab('form')">Form Data</button>
       <button class="detail-tab" onclick="switchTab('output')">Raw Output</button>
       <button class="detail-tab" onclick="switchTab('rendered')">Rendered Plan</button>
+      <button class="detail-tab" onclick="switchTab('review')">Review</button>
     </div>
     <div class="tab-content active" id="tab-form">
       <div class="detail-section">
@@ -125,6 +143,9 @@
     <div class="tab-content" id="tab-rendered">
       <div class="rendered-plan" id="detail-rendered"></div>
       <a class="plan-link-btn" id="detail-plan-link" href="#" target="_blank">Open Full Plan Page</a>
+    </div>
+    <div class="tab-content" id="tab-review">
+      <div id="detail-review"></div>
     </div>
   </div>
 </div>
@@ -184,6 +205,7 @@
         else if (stage === 'reviewing') { stage = 'Review processing'; stageClass = 'status-generating'; }
         else if (stage === 'fixing') { stage = 'Fixing issues'; stageClass = 'status-generating'; }
         else if (stage === 'review_failed') { stage = 'Review failed'; stageClass = 'status-failed'; }
+        else if (stage === 'generation_failed') { stage = 'Generation failed'; stageClass = 'status-failed'; }
         else if (stage === 'completed') { stage = 'Done'; stageClass = 'status-completed'; }
         const stageBadge = `<span class="${stageClass}">${stage}</span>`;
         let simBadge = '<span class="badge-sim-none">-</span>';
@@ -202,7 +224,7 @@
           <td>${date}</td>
           <td>${planLink}</td>
           <td>${simBadge}</td>
-          <td>${s.has_review ? (s.review_status === 'PASS' ? '<span class="badge-sim-ok">PASS</span>' : '<span class="badge-sim-fail">' + (s.review_status || 'FAIL') + '</span>') : '-'}</td>
+          <td>${formatReviewColumn(s)}</td>
           <td><button class="btn-view" onclick="viewSubmission('${s.id}')">View</button></td>
         `;
         tbody.appendChild(tr);
@@ -277,6 +299,9 @@
         rendered.innerHTML = '<p style="color:var(--muted)">No output yet.</p>';
       }
 
+      // Render review tab
+      renderReviewTab(data);
+
       // Set plan link
       document.getElementById('detail-plan-link').href = 'plan.html?id=' + id;
 
@@ -313,6 +338,108 @@
       btn.disabled = false;
       alert('Simulation request failed: ' + e.message);
     }
+  }
+
+  function formatReviewColumn(s) {
+    if (!s.has_review) return '-';
+    const count = s.review_count || 1;
+    const status = s.review_status || 'unknown';
+
+    if (count <= 1) {
+      // Single review
+      return status === 'PASS'
+        ? '<span class="badge-sim-ok">Pass</span>'
+        : '<span class="badge-sim-fail">Fail</span>';
+    }
+
+    // Multiple reviews — show history trail
+    let html = '<span class="review-history">';
+    for (let i = 1; i <= count; i++) {
+      if (i > 1) html += '<span class="review-arrow">&#8594;</span>';
+      if (i < count) {
+        // Previous attempts were failures (otherwise there wouldn't be a retry)
+        html += '<span class="review-step review-step-fail">Fail&nbsp;' + i + '</span>';
+      } else {
+        // Final attempt
+        html += status === 'PASS'
+          ? '<span class="review-step review-step-pass">Pass</span>'
+          : '<span class="review-step review-step-fail">Fail&nbsp;' + i + '</span>';
+      }
+    }
+    html += '</span>';
+    return html;
+  }
+
+  function renderReviewTab(data) {
+    const container = document.getElementById('detail-review');
+
+    if (!data.review) {
+      container.innerHTML = '<p style="color:var(--muted);">No review data available.</p>';
+      return;
+    }
+
+    const review = data.review;
+    let html = '';
+
+    // Overall status banner
+    const isPass = review.overall === 'PASS';
+    html += '<div class="review-summary ' + (isPass ? 'review-summary-pass' : 'review-summary-fail') + '">';
+    html += (isPass ? 'PASS' : 'FAIL') + ' — ' + (review.summary || 'No summary');
+    if (data.review_count > 1) html += ' (attempt ' + data.review_count + ')';
+    html += '</div>';
+
+    // Checks
+    if (review.checks && review.checks.length > 0) {
+      html += '<div class="detail-section"><h3>Checks (' + review.checks.filter(c => c.status === 'PASS').length + '/' + review.checks.length + ' passed)</h3>';
+      for (const check of review.checks) {
+        const pass = check.status === 'PASS';
+        html += '<div class="review-check ' + (pass ? 'review-check-pass' : 'review-check-fail') + '">';
+        html += '<span class="review-check-icon">' + (pass ? '&#10003;' : '&#10007;') + '</span>';
+        html += '<div>';
+        html += '<div class="review-check-name">' + (check.name || check.check || 'Check') + '</div>';
+        if (check.detail || check.details) {
+          html += '<div class="review-check-detail">' + escapeHtml(check.detail || check.details) + '</div>';
+        }
+        html += '</div></div>';
+      }
+      html += '</div>';
+    }
+
+    // Verified data usage
+    if (review.verified_data_usage) {
+      html += '<div class="detail-section"><h3>Verified Data Usage</h3>';
+      html += '<pre>' + escapeHtml(typeof review.verified_data_usage === 'string' ? review.verified_data_usage : JSON.stringify(review.verified_data_usage, null, 2)) + '</pre>';
+      html += '</div>';
+    }
+
+    // Review history
+    if (data.review_history && data.review_history.length > 1) {
+      html += '<div class="review-history-section"><h4>Review History</h4>';
+      for (const entry of data.review_history) {
+        const entryPass = entry.overall === 'PASS';
+        const failCount = entry.checks ? entry.checks.filter(c => c.status !== 'PASS').length : 0;
+        html += '<div style="margin-bottom:0.4rem;">';
+        html += '<span class="review-step ' + (entryPass ? 'review-step-pass' : 'review-step-fail') + '">';
+        html += 'Attempt ' + entry.attempt + ': ' + entry.overall;
+        html += '</span>';
+        if (!entryPass && failCount > 0) html += ' <span style="font-size:0.75rem;color:var(--muted);">(' + failCount + ' failed checks)</span>';
+        html += ' <span style="font-size:0.72rem;color:var(--muted);">' + new Date(entry.reviewed_at).toLocaleString() + '</span>';
+        html += '</div>';
+      }
+      html += '</div>';
+    }
+
+    // Raw JSON toggle
+    html += '<div class="detail-section" style="margin-top:1rem;"><h3>Raw Review JSON</h3>';
+    html += '<pre style="max-height:300px;">' + escapeHtml(JSON.stringify(review, null, 2)) + '</pre>';
+    html += '</div>';
+
+    container.innerHTML = html;
+  }
+
+  function escapeHtml(str) {
+    if (!str) return '';
+    return String(str).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
   }
 
   function closeDetail() {

@@ -28,6 +28,14 @@ module.exports = async function handler(req, res) {
       for (const id of ids) {
         const data = await redis.hgetall(`submission:${id}`);
         if (data) {
+          let reviewStatus = null;
+          if (data.review) {
+            try {
+              const parsed = typeof data.review === 'string' ? JSON.parse(data.review) : data.review;
+              reviewStatus = parsed.overall || 'unknown';
+            } catch (e) { reviewStatus = 'unknown'; }
+          }
+
           submissions.push({
             id: data.id,
             student_name: data.student_name,
@@ -41,7 +49,9 @@ module.exports = async function handler(req, res) {
             has_simulation: !!data.simulation,
             simulation_error: data.simulation_error || "",
             has_review: !!data.review,
-            review_status: data.review ? (JSON.parse(typeof data.review === 'string' ? data.review : JSON.stringify(data.review)).overall || 'unknown') : null,
+            review_status: reviewStatus,
+            review_count: parseInt(data.review_count) || 0,
+            reviewed_at: data.reviewed_at || null,
           });
         }
       }

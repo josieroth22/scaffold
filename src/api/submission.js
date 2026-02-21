@@ -33,6 +33,26 @@ module.exports = async function handler(req, res) {
         formData = data.form_data;
       }
 
+      // Parse review data
+      let review = null;
+      if (data.review) {
+        if (typeof data.review === 'string') {
+          try { review = JSON.parse(data.review); } catch (e) { review = { raw: data.review }; }
+        } else if (typeof data.review === 'object') {
+          review = data.review;
+        }
+      }
+
+      // Parse review history
+      let reviewHistory = [];
+      if (data.review_history) {
+        if (typeof data.review_history === 'string') {
+          try { reviewHistory = JSON.parse(data.review_history); } catch (e) { reviewHistory = []; }
+        } else if (Array.isArray(data.review_history)) {
+          reviewHistory = data.review_history;
+        }
+      }
+
       return res.status(200).json({
         id: data.id,
         student_name: data.student_name,
@@ -44,6 +64,10 @@ module.exports = async function handler(req, res) {
         completed_at: data.completed_at,
         form_data: formData,
         output: data.output || null,
+        review: review,
+        review_history: reviewHistory,
+        reviewed_at: data.reviewed_at || null,
+        review_count: parseInt(data.review_count) || 0,
       });
     } catch (err) {
       console.error("Error fetching submission:", err);
