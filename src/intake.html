@@ -1949,7 +1949,7 @@
 
     } catch (err) {
       console.error('Generation failed:', err);
-      document.getElementById('gen-status').textContent = 'Error: ' + err.message + '. Your form data is saved. Please try again.';
+      document.getElementById('gen-status').innerHTML = 'Something went wrong. Your answers are saved.<br><button onclick="restoreAndRetry()" style="margin-top: 1rem; padding: 0.7rem 1.5rem; background: var(--sage); color: white; border: none; border-radius: 8px; font-family: inherit; font-size: 0.9rem; font-weight: 600; cursor: pointer;">Try Again</button>';
       document.getElementById('gen-progress').style.background = 'var(--error)';
     }
   }
@@ -2016,6 +2016,53 @@
     html = html.replace(/(<\/h[1-4]>|<\/table>|<\/ul>|<\/ol>|<\/blockquote>)\s*<\/p>/g, '$1');
 
     return html;
+  }
+
+  // Restore saved form data into the form fields
+  function restoreFormData() {
+    const saved = localStorage.getItem('scaffold_intake');
+    if (!saved) return false;
+    try {
+      const data = JSON.parse(saved);
+      const form = document.getElementById('intake-form');
+      for (const [key, value] of Object.entries(data)) {
+        if (!value || key.startsWith('priority_') || key === 'student_name' || key === 'payment_type') continue;
+        const el = form.querySelector(`[name="${key}"]`);
+        if (el) {
+          if (el.type === 'checkbox') {
+            // Handle multi-select checkboxes
+            const values = value.split(', ');
+            form.querySelectorAll(`[name="${key}"]`).forEach(cb => {
+              if (values.includes(cb.value)) {
+                cb.checked = true;
+                cb.closest('.checkbox-option')?.classList.add('checked');
+              }
+            });
+          } else {
+            el.value = value;
+            // Trigger change for conditional fields (e.g., divorce details)
+            el.dispatchEvent(new Event('change'));
+          }
+        }
+      }
+      return true;
+    } catch (e) {
+      return false;
+    }
+  }
+
+  // Try Again: hide generating screen, restore form, show step 7
+  function restoreAndRetry() {
+    document.getElementById('generating').classList.remove('active');
+    document.getElementById('intake-form').style.display = 'block';
+    document.querySelector('.progress-wrap').style.display = 'block';
+    restoreFormData();
+    currentStep = 7;
+    showStep(7);
+    // Re-enable submit button
+    const submitBtn = document.querySelector('.btn-submit');
+    submitBtn.disabled = false;
+    submitBtn.textContent = 'Submit and Build My Plan';
   }
 
   // Initialize
