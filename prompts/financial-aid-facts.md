@@ -254,7 +254,43 @@ Approximately 70-75 colleges in the U.S. commit to meeting 100% of every admitte
 
 ---
 
-## 10. Test-Optional Policies (2025-2026 Landscape)
+## 10. Early Application Rules (EA, ED, REA/SCEA)
+
+**Merit scholarships are never binding.** A student can be awarded a merit scholarship and decline it. Only Early Decision admission commitments are binding.
+
+**Early Action (EA):**
+- Non-binding. Student applies early (usually Nov 1 or Nov 15), gets a decision early (usually mid-December to February), but is NOT committed to attend.
+- Students can apply EA to multiple schools (unless one of them uses REA/SCEA).
+- **Default recommendation for most schools that offer it.** EA gets decisions back sooner and gives families leverage when comparing offers.
+
+**Early Decision (ED):**
+- **Binding.** If admitted, the student MUST attend and withdraw all other applications.
+- Only recommend ED when the family is certain about their top choice AND comfortable with the financial implications. ED eliminates the ability to compare financial aid packages.
+- ED is released from the binding commitment only if the financial aid package is insufficient. But "insufficient" is subjective and schools can be aggressive.
+- Some schools offer ED2 (January deadline, binding) as a second chance at a binding commitment.
+
+**Restrictive Early Action (REA) / Single-Choice Early Action (SCEA):**
+- Non-binding (like EA), but with restrictions on where else the student can apply early.
+- **REA/SCEA means the student CANNOT apply Early Action or Early Decision to any other PRIVATE school.** They CAN still apply EA to public/state universities.
+- This is critical for application planning: if a student applies REA to Stanford, they cannot apply EA to MIT, Rice, or any other private school. MIT, Rice, etc. would have to be Regular Decision.
+
+**Schools that use REA/SCEA (as of 2025-26):**
+- Harvard (SCEA)
+- Yale (SCEA)
+- Princeton (SCEA)
+- Stanford (REA)
+- Notre Dame (REA)
+- Georgetown (REA, unique format)
+- Boston College (EA with restrictions similar to REA)
+
+**Key implications for families:**
+- If recommending REA/SCEA at one school, every other private school on the list MUST be RD (or ED2 in January). Only public universities can be EA alongside an REA/SCEA application.
+- This makes the REA/SCEA choice high-stakes strategically. A student applying Stanford REA cannot also apply MIT EA. Plan the entire application calendar around this constraint.
+- ED gives the strongest admissions boost at schools that offer it (typically 1.5-2x the RD admit rate), but at the cost of financial flexibility. REA/SCEA gives a smaller boost (varies by school) with no binding commitment.
+
+---
+
+## 11. Test-Optional Policies (2025-2026 Landscape)
 
 **The trend is reversing.** After the COVID-era expansion of test-optional policies, a significant number of selective schools have reinstated standardized testing requirements beginning with the 2025-2026 and 2026-2027 admissions cycles.
 
