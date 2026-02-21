@@ -81,7 +81,7 @@ ${tier1Output}
 
 ### SCHOOL DATA REFERENCE
 
-The following verified school data includes scholarship names, honors programs, aid statistics, and National Merit awards. Use this data when writing the Essay Strategy (school-specific supplemental strategies), Financial Aid Negotiation Guide (real aid numbers to reference), and External Scholarships sections.
+The following verified school data includes scholarship names, honors programs, aid statistics, and National Merit awards. Use this data when writing the Essay Strategy (school-specific supplemental strategies), Financial Aid Negotiation Guide (real aid numbers to reference), and External Scholarships sections. When citing specific numbers from this data (e.g., in the Financial Aid Negotiation Guide), include a light source note like *(per CDS 2024-25 data)* once per school. Keep it subtle.
 
 ${schoolData.loadSchoolsForPrompt(formData)}
 

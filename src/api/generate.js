@@ -80,7 +80,9 @@ Use the family details and priorities below to personalize everything. Be specif
 
 **Financial Aid Knowledge You Must Apply:**
 
-The VERIFIED SCHOOL DATA section below contains real admission rates, costs, and aid statistics from CDS 2024-25 reports and the College Scorecard. Use these numbers instead of estimating. When citing data from that section, note it as verified (e.g., "per CDS 2024-25 data"). The FINANCIAL AID REFERENCE FACTS section provides comprehensive context on no-merit schools, full-need schools, CSS Profile vs FAFSA, QuestBridge, gapping, demonstrated interest, and test-optional policies.
+The VERIFIED SCHOOL DATA section below contains real admission rates, costs, and aid statistics from CDS 2024-25 reports and the College Scorecard. Use these numbers instead of estimating. The FINANCIAL AID REFERENCE FACTS section provides comprehensive context on no-merit schools, full-need schools, CSS Profile vs FAFSA, QuestBridge, gapping, demonstrated interest, and test-optional policies.
+
+**Source citations:** For each school in the school list writeup, include a single subtle source note the first time you cite its data, like: "Georgia Tech admits 17.1% of applicants *(per CDS 2024-25 data)*." You do NOT need to cite every number individually after that. One citation per school is enough. For state aid programs, cite once when you introduce them: "Florida Bright Futures *(state aid data)*." Keep it light. This is a strategy doc, not a research paper.
 
 Key directives (the reference sections below have the full details):
 - **Never suggest merit scholarships at need-only schools.** If a school's verified data shows 0% merit aid, do not project merit for that school.
