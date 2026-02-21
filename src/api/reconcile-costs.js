@@ -1,5 +1,6 @@
 const Anthropic = require("@anthropic-ai/sdk");
 const { Redis } = require("@upstash/redis");
+const { MODEL, FIX_TEMPERATURE } = require("../lib/config");
 
 const client = new Anthropic.default();
 const redis = new Redis({
@@ -49,35 +50,51 @@ module.exports = async function handler(req, res) {
     return res.status(200).json({ skipped: true, reason: "No simulation schools" });
   }
 
-  let costTable = "Here are the ACTUAL simulated net costs per school (from 10,000 Monte Carlo iterations). These are the correct numbers:\n\n";
+  // Build cost + tier correction table from simulation
+  let costTable = "Here are the ACTUAL simulated results per school (from 10,000 Monte Carlo iterations):\n\n";
   for (const s of schools) {
     const median = s.net_cost?.median;
     const p25 = s.net_cost?.p25;
     const p75 = s.net_cost?.p75;
+    const simAdmit = s.simulated_admit_rate;
+    // Assign tier based on simulated admit rate
+    let tier = 'Target';
+    if (simAdmit != null) {
+      if (simAdmit < 0.20) tier = 'Reach';
+      else if (simAdmit >= 0.50) tier = 'Safety';
+    }
+    let line = `- ${s.name}: TIER=${tier}`;
+    if (simAdmit != null) line += `, simulated admit=${(simAdmit * 100).toFixed(1)}%`;
     if (median != null) {
       const low = Math.round(p25 / 1000) * 1000;
       const high = Math.round(p75 / 1000) * 1000;
-      costTable += `- ${s.name}: $${low.toLocaleString()}-$${high.toLocaleString()}/year (median $${median.toLocaleString()})\n`;
+      line += `, net cost=$${low.toLocaleString()}-$${high.toLocaleString()}/year (median $${median.toLocaleString()})`;
     }
+    costTable += line + '\n';
   }
 
   // Strip the JSON simulation params block from the narrative for the edit
   const cleanOutput = data.output.replace(/```json-simulation-params[\s\S]*?```/g, '');
 
-  const prompt = `You are editing a college strategy document to fix cost estimates. The document was written with estimated costs, but we've now run a Monte Carlo simulation with 10,000 iterations and have the actual numbers.
+  const prompt = `You are editing a college strategy document to incorporate Monte Carlo simulation results. The document was written with estimated costs and initial tier labels, but we've now run a simulation with 10,000 iterations and have better numbers.
 
-Your job: Update ONLY the dollar amounts for estimated net annual cost throughout the document so they match the simulation results below. Do not change anything else: not the tone, not the school list, not the analysis, not the admission probabilities, not the recommendations. ONLY change cost/price numbers.
+Your job: Update TWO things throughout the document:
+1. **Net cost estimates** — replace with the simulation's p25-p75 range
+2. **Tier labels** (Reach/Target/Safety) — replace with the simulation-derived tier shown below
+
+Do not change anything else: not the tone, not the school list, not the analysis, not the recommendations.
 
 ${costTable}
 
 **Rules:**
 - For each school, find every place its estimated net cost appears (executive summary table, per-school writeup, probability table, any other mention) and update the number to match the simulation range (p25-p75).
-- Round to the nearest $1,000 for clean numbers (e.g., $24,219 becomes "$24,000" or "$24K").
+- For each school, find every place its tier label appears (executive summary table, per-school section header, probability table) and update it to match the TIER shown above. If the simulation says TIER=Safety but the document says "Reach," change it to "Safety" everywhere for that school.
+- Round costs to the nearest $1,000 for clean numbers (e.g., $24,219 becomes "$24,000" or "$24K").
 - Use ranges based on the p25-p75 values (e.g., if p25=$18,000 and p75=$28,000, write "$18-28K/year").
-- Keep the same formatting style the document already uses (if it says "$18-22K" keep that format, if it says "$18,000-$22,000" keep that format).
+- Keep the same formatting style the document already uses.
 - Update the financial floor amount if it changed.
-- Do NOT add or remove any text. Do NOT change school names, tiers, application rounds, or any non-cost content.
-- Do NOT change admission probabilities.
+- Do NOT add or remove text beyond cost numbers and tier labels. Do NOT change school names, application rounds, or narrative tone.
+- Do NOT change the stated admission probability percentages in the narrative or tables. The tiers are changing, but the probability numbers stay as written.
 - Output the COMPLETE updated document. Every word must be included.
 
 **IMPORTANT:** Also re-append the original JSON simulation parameters block at the very end, exactly as it was. Here it is:
@@ -92,8 +109,9 @@ ${cleanOutput}`;
 
   try {
     const response = await client.messages.create({
-      model: "claude-opus-4-20250514",
+      model: MODEL,
       max_tokens: 16000,
+      temperature: FIX_TEMPERATURE,
       messages: [{ role: "user", content: prompt }],
     });
 

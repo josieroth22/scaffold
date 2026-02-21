@@ -1595,9 +1595,6 @@
         // Application round badges in table cells
         // Strip parenthetical notes for matching, preserve them for display
         const roundBase = text.replace(/\s*\(.*\)$/, '').trim();
-        const noteMatch = text.match(/(\(.*\))$/);
-        const roundNote = noteMatch ? ' <span class="round-note">' + noteMatch[1] + '</span>' : '';
-        // Map known rounds to colors; anything else gets a default badge
         const roundColors = {
           'ea': 'tier-target', 'early action': 'tier-target',
           'ed': 'tier-reach', 'early decision': 'tier-reach', 'ed1': 'tier-reach',
@@ -1607,15 +1604,17 @@
           'scea': 'tier-reach', 'single-choice early action': 'tier-reach',
           'rolling': 'tier-safety', 'rolling admission': 'tier-safety',
         };
-        // Short display labels for long names
-        const roundLabels = {
-          'early action': 'EA', 'early decision': 'ED', 'early decision ii': 'ED2',
-          'regular decision': 'RD', 'restrictive early action': 'REA',
-          'single-choice early action': 'SCEA', 'rolling admission': 'Rolling',
-        };
-        const badgeClass = roundColors[roundBase] || 'tier-target';
-        const label = roundLabels[roundBase] || td.textContent.replace(/\s*\(.*\)$/, '').trim();
-        td.innerHTML = '<span class="tier-badge ' + badgeClass + '">' + label + '</span>' + roundNote;
+        if (roundColors[roundBase]) {
+          const noteMatch = text.match(/(\(.*\))$/);
+          const roundNote = noteMatch ? ' <span class="round-note">' + noteMatch[1] + '</span>' : '';
+          const roundLabels = {
+            'early action': 'EA', 'early decision': 'ED', 'early decision ii': 'ED2',
+            'regular decision': 'RD', 'restrictive early action': 'REA',
+            'single-choice early action': 'SCEA', 'rolling admission': 'Rolling',
+          };
+          const label = roundLabels[roundBase] || roundBase.toUpperCase();
+          td.innerHTML = '<span class="tier-badge ' + roundColors[roundBase] + '">' + label + '</span>' + roundNote;
+        }
       });
 
       // --- Fix decimal admit rates in table columns ---
