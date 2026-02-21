@@ -417,10 +417,17 @@
     if (data.review_count > 1) html += ' (attempt ' + data.review_count + ')';
     html += '</div>';
 
-    // Checks
-    if (review.checks && review.checks.length > 0) {
-      html += '<div class="detail-section"><h3>Checks (' + review.checks.filter(c => c.status === 'PASS').length + '/' + review.checks.length + ' passed)</h3>';
-      for (const check of review.checks) {
+    // Checks — review.checks can be an object (keyed by name) or an array
+    if (review.checks) {
+      let checksArr;
+      if (Array.isArray(review.checks)) {
+        checksArr = review.checks;
+      } else {
+        checksArr = Object.entries(review.checks).map(([name, val]) => ({ name, ...val }));
+      }
+      const passCount = checksArr.filter(c => c.status === 'PASS').length;
+      html += '<div class="detail-section"><h3>Checks (' + passCount + '/' + checksArr.length + ' passed)</h3>';
+      for (const check of checksArr) {
         const pass = check.status === 'PASS';
         html += '<div class="review-check ' + (pass ? 'review-check-pass' : 'review-check-fail') + '">';
         html += '<span class="review-check-icon">' + (pass ? '&#10003;' : '&#10007;') + '</span>';
@@ -446,7 +453,9 @@
       html += '<div class="review-history-section"><h4>Review History</h4>';
       for (const entry of data.review_history) {
         const entryPass = entry.overall === 'PASS';
-        const failCount = entry.checks ? entry.checks.filter(c => c.status !== 'PASS').length : 0;
+        let entryChecks = entry.checks || [];
+        if (!Array.isArray(entryChecks)) entryChecks = Object.values(entryChecks);
+        const failCount = entryChecks.filter(c => c.status !== 'PASS').length;
         html += '<div style="margin-bottom:0.4rem;">';
         html += '<span class="review-step ' + (entryPass ? 'review-step-pass' : 'review-step-fail') + '">';
         html += 'Attempt ' + entry.attempt + ': ' + entry.overall;
