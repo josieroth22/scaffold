@@ -143,7 +143,7 @@ ${schoolData.loadSchoolsForPrompt(data)}
 
 ---
 
-${schoolData.loadStateAid(schoolData.parseState(data.city))}
+${schoolData.loadStateAid(data.state || schoolData.parseState(data.city))}
 
 ---
 
@@ -172,7 +172,7 @@ ${divorceSection}
 ${data.siblings || "None / not specified"}
 
 **Geography:**
-- City and state: ${data.city}
+- City and state: ${data.city}${data.state ? ', ' + data.state : ''}
 - Urban / suburban / rural: ${data.area_type}
 ${data.area_context ? "- Area context: " + data.area_context : ""}
 - Willing to relocate for a school? ${data.relocation}
@@ -348,6 +348,7 @@ module.exports = async function handler(req, res) {
       student_last_name: data.student_last_name || "",
       email: data.email || "",
       city: data.city || "",
+      state: data.state || "",
       income: data.income || "",
       payment_type: data.payment_type || "free",
       submitted_at: new Date().toISOString(),

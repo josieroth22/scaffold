@@ -105,7 +105,7 @@ ${failedChecks.join('\n')}
 FAMILY DETAILS (for reference, to avoid removing real content):
 - Student: ${formData.student_name || formData.student_first_name || 'Unknown'}, ${formData.student_age_grade || ''}
 - School: ${formData.school_name || ''}, ${formData.school_type || ''}
-- City: ${formData.city || ''}
+- City: ${formData.city || ''}${formData.state ? ', ' + formData.state : ''}
 - Income: ${formData.income || ''}
 - College budget: ${formData.college_budget || 'Not specified'}
 - Extracurriculars: ${formData.extracurriculars || 'Not specified'}

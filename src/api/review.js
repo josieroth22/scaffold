@@ -123,7 +123,7 @@ The plan has three places where school costs and probabilities appear:
 **FAMILY DETAILS (everything the family submitted):**
 - Student: ${formData.student_name}, ${formData.student_age_grade}
 - School: ${formData.school_name}, ${formData.school_type}
-- City: ${formData.city}
+- City: ${formData.city}${formData.state ? ', ' + formData.state : ''}
 - Income: ${formData.income}
 - College budget: ${formData.college_budget || "Not specified"}
 - Academic profile: ${formData.academic_profile || "Not specified"}

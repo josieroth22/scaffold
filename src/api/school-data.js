@@ -277,7 +277,7 @@ function formatSchoolRadar(school, bracket) {
 
 // Main function: load and format all relevant school data for the prompt
 function loadSchoolsForPrompt(formData) {
-  const state = parseState(formData.city);
+  const state = formData.state || parseState(formData.city);
   const bracket = getIncomeBracket(formData.income);
   const schoolList = getSchoolList();
 
