@@ -1,27 +1,13 @@
 const Anthropic = require("@anthropic-ai/sdk");
 const { Redis } = require("@upstash/redis");
-const fs = require("fs");
-const path = require("path");
-const schoolData = require("../lib/school-data");
 const { MODEL, GENERATION_TEMPERATURE } = require("../lib/config");
+const { buildPrompt } = require("./generate");
 
 const client = new Anthropic.default();
 const redis = new Redis({
   url: process.env.KV_REST_API_URL,
   token: process.env.KV_REST_API_TOKEN,
 });
-
-// Load financial aid facts once at module level
-const financialAidFacts = fs.readFileSync(
-  path.join(__dirname, "..", "..", "prompts", "financial-aid-facts.md"),
-  "utf8"
-);
-
-// Import buildPrompt from generate.js
-// We need the same prompt builder, so we extract it
-// Instead, we'll require generate.js's buildPrompt indirectly
-// by duplicating the reference to it. But better: refactor to share.
-// For now, we'll load the form data and call generate.js's prompt builder.
 
 module.exports = async function handler(req, res) {
   res.setHeader("Access-Control-Allow-Origin", "*");
@@ -83,132 +69,20 @@ module.exports = async function handler(req, res) {
   }
 
   if (failedChecks.length === 0) {
-    return res.status(200).json({ skipped: true, reason: "No failed checks — no regeneration needed" });
+    return res.status(200).json({ skipped: true, reason: "No failed checks -- no regeneration needed" });
   }
 
   const reviewFeedback = failedChecks.join("\n\n");
 
-  // Inject review_feedback into formData so buildPrompt picks it up
+  // Inject review_feedback into formData so buildPrompt appends it
   formData.review_feedback = reviewFeedback;
 
   // Mark as regenerating
   await redis.hset(`submission:${id}`, { status: "regenerating" });
 
-  // Build the prompt using the same logic as generate.js
-  // We need to replicate buildPrompt here since it's not exported
-  // Instead, let's call the generate endpoint's prompt builder
-  // by requiring and calling it. But generate.js exports the handler, not buildPrompt.
-  // So we'll use a lightweight approach: call generate.js with the form data + review_feedback
-  // but reuse the same submission ID instead of creating a new one.
-
-  // Actually, the cleanest approach: build the prompt inline using the same template.
-  // We'll require generate.js's buildPrompt by extracting it.
-  // For now, let's use a simpler approach: the prompt is in buildPrompt which we can
-  // access by requiring the module and calling it. But it's not exported.
-
-  // Simplest approach: make an internal call structure.
-  // Let's just build a minimal regeneration prompt that includes the original output,
-  // the review feedback, and asks for a full rewrite.
-
-  const today = new Date();
-  const monthNames = ["January","February","March","April","May","June","July","August","September","October","November","December"];
-  const currentDate = `${monthNames[today.getMonth()]} ${today.getFullYear()}`;
-
-  const verifiedData = schoolData.loadSchoolsForPrompt(formData);
-  const stateAid = schoolData.loadStateAid(formData.state || schoolData.parseState(formData.city));
-
-  // Strip JSON simulation params from previous output
-  const prevOutput = (data.output || "").replace(/```json-simulation-params[\s\S]*?```/g, "").trim();
-
-  const prompt = `**TODAY'S DATE IS ${currentDate}.**
-
-You are regenerating a college strategy document that FAILED quality review. The previous version had critical issues that find-and-replace could not fix. You must produce a complete new Strategy Brief that fixes ALL of the issues listed below while maintaining everything that was correct.
-
-**REVIEW FAILURES TO FIX:**
-
-${reviewFeedback}
-
-**FAMILY DETAILS:**
-- Student: ${formData.student_name}, ${formData.student_age_grade}
-- School: ${formData.school_name}, ${formData.school_type}
-- City: ${formData.city}${formData.state ? ", " + formData.state : ""}
-- Income: ${formData.income}
-- College budget: ${formData.college_budget || "Not specified"}
-- Academic profile: ${formData.academic_profile || "Not specified"}
-- Academic strengths: ${formData.academic_strengths || "Not specified"}
-- Academic weaknesses: ${formData.academic_weaknesses || "Not specified"}
-- Extracurriculars: ${formData.extracurriculars || "Not specified"}
-- Interests: ${formData.interests || "Not specified"}
-- Personality: ${formData.personality || "Not specified"}
-- Parent 1: ${formData.parent1_name || "Not specified"}, ${formData.parent1_education || ""}, ${formData.parent1_profession || ""}
-- Parent 2: ${formData.parent2_name || "Not specified"}, ${formData.parent2_education || ""}, ${formData.parent2_profession || ""}
-- Family structure: ${formData.family_structure || "Not specified"}
-- Siblings: ${formData.siblings || "None"}
-- Schools on radar: ${formData.schools_on_radar || "None"}
-- Teacher quote: ${formData.teacher_quote || "None provided"}
-- Geographic preference: ${formData.geographic_preference || "Not specified"}
-- Must-haves: ${formData.must_haves || "Not specified"}
-- Deal breakers: ${formData.deal_breakers || "Not specified"}
-- Additional context: ${formData.additional_context || "None"}
-
----
-
-${verifiedData}
-
----
-
-${stateAid}
-
----
-
-${financialAidFacts}
-
----
-
-**THE PREVIOUS OUTPUT (for reference — keep what was good, fix what was flagged):**
-
-${prevOutput.substring(0, 30000)}
-
----
-
-**INSTRUCTIONS:**
-
-Generate a COMPLETE new Strategy Brief. This is a full rewrite, not a patch. Follow the same structure as the previous output:
-
-1. Title with city/state
-2. Executive Summary with school list table
-3. The Four Threads
-4. School List with full analysis per school
-5. Financial Aid Strategy (including CSS Profile / home equity impact if they own a home)
-6. Summer Plan
-7. Probability and Cost Estimates Table
-8. What If the Profile Lands Lower
-9. What to Do Now
-10. Data Sources section
-
-**End with the JSON simulation params block** in the same format as before.
-
-**CRITICAL RULES:**
-- Fix EVERY issue from the review failures above. This is why we're regenerating.
-- **RADAR SCHOOLS ARE MANDATORY.** The family listed these schools on their radar: "${formData.schools_on_radar || "None"}". Every single one MUST appear on your school list with full analysis. Never silently drop a radar school.
-- If the review flagged a school as financially unreachable, REPLACE it with a better-fit school (unless the family named it).
-- If the review flagged admit rate errors, use the VERIFIED SCHOOL DATA numbers exactly.
-- **NEVER fabricate scholarship names, program names, honors college details, or specific dollar amounts.** If a school appears in the VERIFIED SCHOOL DATA section, use ONLY the scholarship names, honors programs, and National Merit details listed there. If the verified data doesn't list scholarships for a school, say "merit scholarship opportunities" instead of inventing a name. This is the #1 reason plans fail review.
-- Use verified data for all schools that appear in the VERIFIED SCHOOL DATA section.
-- Reference BOTH parents' education backgrounds when relevant.
-- Default to Early Action for all schools that offer it.
-- If recommending REA/SCEA at one school, all other private schools must be RD or ED2. List affected schools by name in a footnote.
-- Merit scholarships are never binding.
-- Keep the same warm, direct tone. Address the parent directly.
-- No em dashes.
-- Mark radar schools with an asterisk (*) in the executive summary table.
-
-**SELF-CHECK before outputting:**
-1. Verify every number against the verified data.
-2. Verify JSON admit_pct matches narrative percentages to 3 decimal places.
-3. Verify budget alignment.
-4. **Fabrication check:** For EVERY scholarship name, honors program, or specific program you mention, verify it appears in the VERIFIED SCHOOL DATA. If it doesn't, remove the specific name and use a generic description instead.
-5. **Radar check:** Is every school from "${formData.schools_on_radar || "None"}" on your final list? If any are missing, add them now.`;
+  // Build the FULL prompt using the same logic as generate.js
+  // This ensures regen gets all the same rules, verified data, self-checks, etc.
+  const prompt = buildPrompt(formData);
 
   try {
     res.setHeader("Content-Type", "text/event-stream");
@@ -252,7 +126,7 @@ Generate a COMPLETE new Strategy Brief. This is a full rewrite, not a patch. Fol
       }
     }
 
-    // Save regenerated output (replaces old Tier 1, Tier 2 will be re-run by client)
+    // Save regenerated output
     try {
       await redis.hset(`submission:${id}`, {
         output: fullOutput,

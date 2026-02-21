@@ -60,7 +60,7 @@ function buildPrompt(data) {
   const monthNames = ['January','February','March','April','May','June','July','August','September','October','November','December'];
   const currentDate = `${monthNames[today.getMonth()]} ${today.getFullYear()}`;
 
-  return `**TODAY'S DATE IS ${currentDate}. THE CURRENT SCHOOL YEAR IS ${today.getFullYear() - 1}-${today.getFullYear().toString().slice(2)}.** This is not negotiable. Every date, timeline, and deadline in this document must be consistent with this. "This summer" = summer ${today.getFullYear()}. "Next school year" = ${today.getFullYear()}-${(today.getFullYear() + 1).toString().slice(2)}. FAFSA references = the ${today.getFullYear()}-${(today.getFullYear() + 1).toString().slice(2)} cycle. Tax year references = ${today.getFullYear() - 1} taxes. Do NOT reference any date before ${currentDate} as upcoming or current. If you write "summer ${today.getFullYear() - 1}" as a future event, you have made an error.
+  let prompt = `**TODAY'S DATE IS ${currentDate}. THE CURRENT SCHOOL YEAR IS ${today.getFullYear() - 1}-${today.getFullYear().toString().slice(2)}.** This is not negotiable. Every date, timeline, and deadline in this document must be consistent with this. "This summer" = summer ${today.getFullYear()}. "Next school year" = ${today.getFullYear()}-${(today.getFullYear() + 1).toString().slice(2)}. FAFSA references = the ${today.getFullYear()}-${(today.getFullYear() + 1).toString().slice(2)} cycle. Tax year references = ${today.getFullYear() - 1} taxes. Do NOT reference any date before ${currentDate} as upcoming or current. If you write "summer ${today.getFullYear() - 1}" as a future event, you have made an error.
 
 I'd like you to build a comprehensive college application and scholarship strategy document for my family. This is the Strategy Brief (Tier 1). A detailed Developmental Roadmap with grade-by-grade course tables, activities plans, and milestones will be generated separately as Tier 2. Focus this document on two parts:
 
@@ -222,7 +222,7 @@ Generate the Strategy Brief (~5,000 words). This is the core document the parent
 
 **## Executive Summary (one page max):** This is the first thing the parent reads and the page they come back to. Include:
    - A brief projected applicant profile (3-4 sentences: GPA range, test score range, key strengths, key gaps)
-   - The school list as a simple table: school name, tier (reach/target/safety), recommended application round (EA/ED/REA/RD), estimated net annual cost, and financial risk rating (very low / low / moderate / high / very high). Mark radar schools with an asterisk (*) and include a note: "*Schools marked with asterisk were on your radar." If you recommended REA/SCEA for one school, include a footnote below the table explaining which specific schools (by name, not by number) must switch to RD due to the REA restriction.
+   - The school list as a simple table: school name, tier (reach/target/safety), recommended application round (EA/ED/REA/RD), estimated net annual cost, and financial risk rating (very low / low / moderate / high / very high). **ASTERISKS ON RADAR SCHOOLS:** Append an asterisk (*) directly after each radar school's name in this table. For example, if Stanford is on their radar, write "10. Stanford*" not "10. Stanford". Do this for EVERY school the family listed in "Schools on your radar": "${data.schools_on_radar || 'None'}". Then include the note below the table: "*Schools marked with asterisk were on your radar." If you recommended REA/SCEA for one school, include a footnote below the table explaining which specific schools (by name, not by number) must switch to RD due to the REA restriction.
    - The top 3 things to do in the next 6 months (specific, actionable, no jargon)
    - The financial floor: the cheapest guaranteed-admission option with its estimated annual cost. Name the school, name the cost, and say clearly that this is the worst-case scenario and it's a good one.
 
@@ -272,7 +272,7 @@ ${schoolData.buildCheatSheet(data)}
 11. **Verified data check:** For every school on your list that appears in the VERIFIED SCHOOL DATA section, did you use the verified admit rate, sticker cost, and net price? If you used a different number, you have an error. Go back and fix it. Cross-reference against the QUICK REFERENCE table above.
 12. **REA/SCEA constraint:** If you recommended REA or SCEA for any school, scan every other school on the list. No other private school should be marked EA or ED. Only public schools can be EA alongside REA/SCEA. If you see a conflict, change the private school to RD.
 13. **State aid programs:** Did you mention the family's state-specific programs from the STATE AID PROGRAMS section? If not, add them.
-14. **Radar schools included:** Go back to "Schools already on your radar." Is every school the family named on your final list? If any are missing, add them now with full analysis. The family specifically asked about these schools. Never drop them.
+14. **Radar schools included:** Go back to "Schools already on your radar." Is every school the family named on your final list? If any are missing, add them now with full analysis. The family specifically asked about these schools. Never drop them. Also verify: does every radar school have an asterisk (*) after its name in the executive summary table? If any are missing the asterisk, add it now.
 
 Fix any inconsistencies you find, then output your final response.
 
@@ -321,6 +321,13 @@ Rules for the JSON block:
 **PARENT DETAILS:** If both parents are listed with education backgrounds, reference BOTH when relevant (legacy considerations, first-gen status, etc.). Do not mention one parent's alma mater and ignore the other's.
 
 **VOICE:** Always address the parent directly. Use "your family", "your budget", "your son/daughter" throughout. Never use third person like "their family", "the family", "the student's parents". You are talking TO this parent, not writing a report ABOUT them.`;
+
+  // If this is a retry after a failed review, append the feedback
+  if (data.review_feedback) {
+    prompt += `\n\n---\n\n**CRITICAL: PREVIOUS ATTEMPT FAILED QUALITY REVIEW. You MUST fix these specific issues in this attempt:**\n\n${data.review_feedback}\n\nDo NOT repeat these mistakes. Address each issue listed above. Double-check your work against these specific failure points before outputting your response.`;
+  }
+
+  return prompt;
 }
 
 module.exports = async function handler(req, res) {
@@ -343,12 +350,7 @@ module.exports = async function handler(req, res) {
     return res.status(400).json({ error: "Missing form data" });
   }
 
-  let prompt = buildPrompt(data);
-
-  // If this is a retry after a failed review, append the feedback so Claude avoids the same mistakes
-  if (data.review_feedback) {
-    prompt += `\n\n---\n\n**CRITICAL: PREVIOUS ATTEMPT FAILED QUALITY REVIEW. You MUST fix these specific issues in this attempt:**\n\n${data.review_feedback}\n\nDo NOT repeat these mistakes. Address each issue listed above. Double-check your work against these specific failure points before outputting your response.`;
-  }
+  const prompt = buildPrompt(data);
 
   // Generate a unique ID for this submission
   const id = Date.now().toString(36) + Math.random().toString(36).slice(2, 8);
@@ -442,3 +444,6 @@ module.exports = async function handler(req, res) {
     }
   }
 };
+
+// Export buildPrompt so regenerate.js can reuse the same prompt
+module.exports.buildPrompt = buildPrompt;
