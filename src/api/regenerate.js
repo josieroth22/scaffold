@@ -190,18 +190,25 @@ Generate a COMPLETE new Strategy Brief. This is a full rewrite, not a patch. Fol
 
 **CRITICAL RULES:**
 - Fix EVERY issue from the review failures above. This is why we're regenerating.
+- **RADAR SCHOOLS ARE MANDATORY.** The family listed these schools on their radar: "${formData.schools_on_radar || "None"}". Every single one MUST appear on your school list with full analysis. Never silently drop a radar school.
 - If the review flagged a school as financially unreachable, REPLACE it with a better-fit school (unless the family named it).
 - If the review flagged admit rate errors, use the VERIFIED SCHOOL DATA numbers exactly.
-- If the review flagged fabricated content, remove it entirely.
+- **NEVER fabricate scholarship names, program names, honors college details, or specific dollar amounts.** If a school appears in the VERIFIED SCHOOL DATA section, use ONLY the scholarship names, honors programs, and National Merit details listed there. If the verified data doesn't list scholarships for a school, say "merit scholarship opportunities" instead of inventing a name. This is the #1 reason plans fail review.
 - Use verified data for all schools that appear in the VERIFIED SCHOOL DATA section.
 - Reference BOTH parents' education backgrounds when relevant.
 - Default to Early Action for all schools that offer it.
-- If recommending REA/SCEA at one school, all other private schools must be RD or ED2.
+- If recommending REA/SCEA at one school, all other private schools must be RD or ED2. List affected schools by name in a footnote.
 - Merit scholarships are never binding.
 - Keep the same warm, direct tone. Address the parent directly.
 - No em dashes.
+- Mark radar schools with an asterisk (*) in the executive summary table.
 
-**SELF-CHECK before outputting:** Verify every number against the verified data. Verify JSON admit_pct matches narrative percentages to 3 decimal places. Verify budget alignment. Verify no fabricated names.`;
+**SELF-CHECK before outputting:**
+1. Verify every number against the verified data.
+2. Verify JSON admit_pct matches narrative percentages to 3 decimal places.
+3. Verify budget alignment.
+4. **Fabrication check:** For EVERY scholarship name, honors program, or specific program you mention, verify it appears in the VERIFIED SCHOOL DATA. If it doesn't, remove the specific name and use a generic description instead.
+5. **Radar check:** Is every school from "${formData.schools_on_radar || "None"}" on your final list? If any are missing, add them now.`;
 
   try {
     res.setHeader("Content-Type", "text/event-stream");
