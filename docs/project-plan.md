@@ -39,16 +39,17 @@ The mission: close the information gap in college planning. A $310K family in Na
 *Before taking money, the numbers need to be verifiable.*
 - [x] Build a JSON database of Common Data Set data for 100-150 schools — **136 schools parsed from CDS PDFs/XLSX**
 - [x] Build a master school reference document with qualitative info — **108 schools with scholarships/honors/National Merit, 55 QuestBridge tags, 1,492 schools with Scorecard data**
+- [x] Full quality verification of all 98 honors programs against official sources — **36 corrections applied (program names, separate_application values, avg_sat removals), 2 new programs added (William & Mary Monroe Scholars, NYU Presidential Honors Scholars)**
 - [x] Build comprehensive state aid reference — **data/state-aid-programs.md covering all 50 states + DC, 17 prompt rules**
 - [x] Inject school data (CDS + Scorecard + reference + state aid + financial-aid-facts) into the prompt at generation time via `src/api/school-data.js` — **~23K tokens of verified data injected per generation**
 - [x] Inject verified data into Tier 2 and review pipelines — **review.js now uses verified data as ground truth (check #12)**
-- [ ] Deploy the data injection update to Vercel
+- [ ] Deploy the data injection update to Vercel (verify auto-deploy from main is working)
+- [ ] Run Brett Roth test submission (Boca Raton, FL, $200K, engineering, merit-focused) — first full test with verified school data, honors programs, and state aid injected
 - [ ] Run manual test generation with Washington family (Atlanta, GA, $72K) and verify: Georgia HOPE/Zell Miller appears with correct thresholds, UGA uses in-state tuition, no fabricated scholarship names, costs match verified data
 - [ ] Run automated 20-profile batch test with CDS data live. Profiles cover: DC/PR residency edge cases, no-merit schools, tight budgets ($0-$15K), rural first-gen, athletes, arts/conservatory, DACA, divorced families (FAFSA vs CSS split), homeschool, learning disabilities, military/ROTC, CC transfers, international, legacy, LGBTQ+ culture fit. Evaluate every plan for accuracy, run full review+fix pipeline, and iterate prompts based on failure patterns.
 - [ ] Regenerate homepage sample plans (Alejandra, Priya, Jake) with CDS-backed data so samples reflect the same data quality as paid plans
-- [ ] Add school data count to homepage (e.g., "Built on verified data from 1,492 schools")
+- [x] Add school data count to homepage — **done, updated Step 2, FAQ, pricing, and "What You Get" sections**
 - [ ] Add source citations to the output ("Based on Emory CDS 2024-2025 data")
-- [ ] Plan the annual update process: refresh CDS data, Scorecard API data, and reference data every year when new CDS releases come out (typically fall/winter). Set a calendar reminder. Document which schools publish CDS as PDF vs Excel vs online-only.
 
 ### Phase 3b: Data Cleanup (low priority)
 *Nice-to-haves that improve coverage but aren't blockers.*
@@ -71,6 +72,11 @@ The mission: close the information gap in college planning. A $310K family in Na
 - [ ] Email delivery of completed plan link to the family
 - [ ] Open Graph meta tags (so link previews look good on iMessage, social, etc.)
 - [ ] Analytics (Google Analytics or Plausible) to track traffic, form completion rate, drop-off
+
+### Phase 5b: Data Maintenance
+*Set up before scaling so data doesn't go stale while you're selling.*
+- [ ] Plan the annual update process: refresh CDS data, Scorecard API data, and reference data every year when new CDS releases come out (typically fall/winter). Set a calendar reminder. Document which schools publish CDS as PDF vs Excel vs online-only.
+- [ ] Document the current data pipeline (fetch scripts, parse scripts, validation) so future refreshes are repeatable
 
 ### Phase 6: Reliability & Safety
 - [ ] Rate limiting on form submission (prevent spam that runs up API costs)
