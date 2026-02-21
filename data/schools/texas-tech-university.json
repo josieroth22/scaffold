@@ -42,7 +42,7 @@
     "honors_program": {
       "name": "Texas Tech Honors College",
       "description": "Texas Tech Honors College offers small, discussion-based classes taught by dedicated faculty. Students benefit from priority registration, personalized advising, and seminars that foster critical thinking and leadership, emphasizing research, global learning, and interdisciplinary exploration.",
-      "separate_application": null,
+      "separate_application": true,
       "avg_sat": 1360,
       "acceptance_rate": null,
       "size": 2000

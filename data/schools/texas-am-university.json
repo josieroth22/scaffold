@@ -42,9 +42,9 @@
       "guaranteed": true
     },
     "honors_program": {
-      "name": "University Honors",
+      "name": "Honors Academy",
       "description": "The University Honors Program focuses on personal, professional, and intellectual development through layering high-impact experiences. Benefits include close contact with accomplished faculty, small discussion-based seminars, individual research experiences, and engagement with internships and study abroad.",
-      "separate_application": null,
+      "separate_application": true,
       "avg_sat": null,
       "acceptance_rate": null,
       "size": 2000

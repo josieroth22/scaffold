@@ -78,8 +78,8 @@
     "honors_program": {
       "name": "Frederick Honors College",
       "description": "In 1986, the University of Pittsburgh established an honors college to meet the special academic and co-curricular needs of students who sought to elevate their undergraduate experience. Honors students can enhance their Pitt undergraduate degree in any major by choosing one of three distinctive programs while having access to unique honors courses and research opportunities.",
-      "separate_application": null,
-      "avg_sat": 1501,
+      "separate_application": true,
+      "avg_sat": 1475,
       "acceptance_rate": null,
       "size": 3605
     }

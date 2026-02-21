@@ -44,7 +44,7 @@
     "honors_program": {
       "name": "Barrett, The Honors College",
       "description": "Barrett, The Honors College is a highly regarded, residential college for academically outstanding undergraduates. As the honors college on all four campuses of the nation's largest public university, it offers a highly-personalized academic experience backed by Research I university resources.",
-      "separate_application": null,
+      "separate_application": true,
       "avg_sat": null,
       "acceptance_rate": null,
       "size": 7200

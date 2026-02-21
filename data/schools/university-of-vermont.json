@@ -70,7 +70,7 @@
     "honors_program": {
       "name": "Leahy Honors College",
       "description": "Leahy Honors College makes available special programs, courses, and student activities, offering academic mentoring and opportunities for leadership, community participation, and academic achievement. The Honors College also oversees the office of Fellowships, Opportunities, and Undergraduate Research.",
-      "separate_application": null,
+      "separate_application": false,
       "avg_sat": null,
       "acceptance_rate": null,
       "size": 1000

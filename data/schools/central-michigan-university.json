@@ -34,9 +34,9 @@
   "cds": null,
   "reference": {
     "honors_program": {
-      "name": "LSA Honors Program",
+      "name": "Honors Program",
       "description": "Michigan's LSA Honors Program is a four-year program that provides an especially rich and challenging set of academic offerings to talented and highly motivated students in the College of Literature, Science, and the Arts. Through Honors courses, research with faculty, and a vigorous intellectual community, this highly-ranked program enables students to identify and pursue their intellectual interests.",
-      "separate_application": null,
+      "separate_application": true,
       "avg_sat": null,
       "acceptance_rate": null,
       "size": 1400

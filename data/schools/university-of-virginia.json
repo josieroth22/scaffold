@@ -78,7 +78,7 @@
     "honors_program": {
       "name": "Echols Scholars Program",
       "description": "Because of their deep curiosity and intrinsic motivation, Echols Scholars enjoy flexibility in their academic requirements to pursue their individual scholarly interests. Scholars are granted an exemption from the General Education requirements within the College of Arts & Sciences while receiving priority enrollment and honors-only resources.",
-      "separate_application": null,
+      "separate_application": false,
       "avg_sat": null,
       "acceptance_rate": null,
       "size": 800

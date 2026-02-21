@@ -78,7 +78,7 @@
     "honors_program": {
       "name": "University of Delaware Honors College",
       "description": "The University of Delaware Honors College provides opportunities for academically talented and motivated students to take advantage of the resources of a major research institution while maintaining the feel and attention of a much smaller university. Students have opportunities to lead class discussions, conduct innovative research, and tackle challenging topics.",
-      "separate_application": null,
+      "separate_application": false,
       "avg_sat": 1420,
       "acceptance_rate": null,
       "size": 2000

@@ -34,9 +34,9 @@
   "cds": null,
   "reference": {
     "honors_program": {
-      "name": "University of North Carolina Wilmington Honors College",
+      "name": "Honors College",
       "description": "The Honors College at UNCW attracts an intellectually and socially diverse group of engaged students involved in every major and all areas of university life. The University Honors Program is a four-year curriculum including seminars, honors-enhanced University Studies, extra-curricular experiences, and applied learning experiences.",
-      "separate_application": null,
+      "separate_application": true,
       "avg_sat": null,
       "acceptance_rate": null,
       "size": null

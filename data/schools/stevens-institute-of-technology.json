@@ -75,7 +75,7 @@
     ],
     "honors_program": {
       "name": "Pinnacle Scholars Program",
-      "separate_application": true,
+      "separate_application": false,
       "avg_sat": null,
       "description": "Invitations at admission, additional essay. Original research, annual stipend, accelerated master's option. 3.2 GPA required."
     }

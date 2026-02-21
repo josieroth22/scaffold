@@ -70,8 +70,7 @@
     "honors_program": {
       "name": "Clark Honors College",
       "description": "The Robert D. Clark Honors College (CHC) offers a small liberal arts college experience with the added benefit of a major research university and its cutting-edge research faculty and facilities. The small, discussion-based class sizes – capped at 19 – allow students to develop one-on-one relationships with faculty members.",
-      "separate_application": null,
-      "avg_sat": 1340,
+      "separate_application": true,
       "acceptance_rate": null,
       "size": 1360
     }

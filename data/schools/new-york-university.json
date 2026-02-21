@@ -66,5 +66,13 @@
     "pct_freshmen_receiving_merit_aid": null,
     "avg_merit_award": null
   },
-  "reference": null
+  "reference": {
+    "honors_program": {
+      "name": "Presidential Honors Scholars Program",
+      "separate_application": false,
+      "admit_rate": 0.1,
+      "avg_sat": null,
+      "description": "Top 10% of entering CAS first-year class invited at admission. No separate application. Scholars Seminar in years 1-3, research grants, priority advising. Must maintain 3.65 GPA. CAS-specific; other NYU schools have their own honors tracks."
+    }
+  }
 }

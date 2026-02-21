@@ -70,7 +70,7 @@
     "honors_program": {
       "name": "Commonwealth Honors College",
       "description": "Commonwealth Honors College is a community of scholars on a campus full of opportunities. Students build community through collegewide events, take small classes with renowned faculty and intellectually curious peers, have access to dedicated advising staff, and receive support for their thesis through Honors Research Grants.",
-      "separate_application": null,
+      "separate_application": false,
       "avg_sat": null,
       "acceptance_rate": null,
       "size": 3000

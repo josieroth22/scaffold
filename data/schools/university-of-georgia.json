@@ -78,8 +78,8 @@
     "honors_program": {
       "name": "Morehead Honors College",
       "description": "The Jere W. Morehead Honors College began in 1960 and now serves more than 2,800 undergraduates each year. Honors students can choose any degree program at UGA, which has 170-plus majors and academic programs.",
-      "separate_application": null,
-      "avg_sat": 1504,
+      "separate_application": false,
+      "avg_sat": 1508,
       "acceptance_rate": null,
       "size": 2800
     }

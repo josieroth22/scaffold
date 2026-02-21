@@ -76,7 +76,7 @@
     "honors_program": {
       "name": "South Carolina Honors College",
       "description": "South Carolina Honors College combines the resources of a top-tier research university and the feel of a small liberal arts college. Honors students have access to nearly 600 honors courses offered each year, special campus housing, unique research projects, study abroad, and internships.",
-      "separate_application": null,
+      "separate_application": true,
       "avg_sat": 1480,
       "acceptance_rate": null,
       "size": 2300

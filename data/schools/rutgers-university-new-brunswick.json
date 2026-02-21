@@ -69,7 +69,7 @@
   "reference": {
     "honors_program": {
       "name": "Honors College",
-      "separate_application": true,
+      "separate_application": false,
       "avg_sat": 1530,
       "description": "Median SAT 1530. All entering students receive merit scholarship. Small interdisciplinary seminars, dedicated residential community."
     }

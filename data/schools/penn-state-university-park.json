@@ -70,7 +70,7 @@
     "honors_program": {
       "name": "Schreyer Honors College",
       "description": "The Schreyer Honors College is widely and consistently recognized as one of the top undergraduate programs in the United States. It combines the resources of one of the country's largest research institutions with all the benefits of a small liberal arts college.",
-      "separate_application": null,
+      "separate_application": true,
       "avg_sat": null,
       "acceptance_rate": "single-digit, Ivy-comparable acceptance rate",
       "size": 2000

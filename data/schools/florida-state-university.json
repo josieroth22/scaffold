@@ -42,7 +42,7 @@
     "honors_program": {
       "name": "University Honors Program",
       "description": "The University Honors Program at Florida State University is the only Florida honors program with a dedicated cohort of honors teaching faculty, full-time instructors assigned specifically to the program who design innovative courses. Honors students enjoy tailored courses, dedicated advisors, two centrally located residence halls, and guaranteed priority registration.",
-      "separate_application": null,
+      "separate_application": true,
       "avg_sat": null,
       "acceptance_rate": null,
       "size": 2000

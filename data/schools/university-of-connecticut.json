@@ -70,7 +70,7 @@
     "honors_program": {
       "name": "University of Connecticut Honors Program",
       "description": "The University of Connecticut Honors Program was instituted nearly sixty years ago and has awarded honors designations to almost 9000 UConn graduates. The program provides unique access to undergraduate research, honors-specific courses, dedicated faculty advisors, and education abroad opportunities.",
-      "separate_application": null,
+      "separate_application": false,
       "avg_sat": null,
       "acceptance_rate": null,
       "size": 2300

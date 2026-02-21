@@ -70,7 +70,7 @@
     "honors_program": {
       "name": "University of Arkansas Honors College",
       "description": "Students receive an automatic invite if they have a composite ACT of 28 or higher (on one exam) and a GPA of 3.85+. The honors college provides enhanced academic opportunities for qualified students.",
-      "separate_application": false,
+      "separate_application": true,
       "avg_sat": null,
       "acceptance_rate": null,
       "size": null

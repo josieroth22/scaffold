@@ -77,7 +77,7 @@
     ],
     "honors_program": {
       "name": "Eckardt Scholars Program",
-      "separate_application": true,
+      "separate_application": false,
       "avg_sat": null,
       "description": "Selective honors track emphasizing intellectual curiosity and independent work. Senior independent project required."
     }

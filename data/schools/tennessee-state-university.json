@@ -34,10 +34,9 @@
   "cds": null,
   "reference": {
     "honors_program": {
-      "name": "University Honors",
+      "name": "University Honors College",
       "description": "Being an honors student at UTK offers more than specialized classes and curriculum, including honors-only advising, research funding, and access to an honors living-learning community. University Honors students graduate at rates nearly 20% higher than other students and report going to graduate school almost twice as frequently.",
-      "separate_application": null,
-      "avg_sat": 1465,
+      "separate_application": true,
       "acceptance_rate": null,
       "size": 2000
     }

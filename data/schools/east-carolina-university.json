@@ -36,7 +36,7 @@
     "honors_program": {
       "name": "East Carolina University Honors College",
       "description": "Each member of the Honors College is awarded one of three scholarships and takes part in diverse high-impact experiences beyond the classroom, including undergraduate research, study abroad, internships, and service opportunities. All first-year honors students live together in the Honors College Living Learning Community.",
-      "separate_application": null,
+      "separate_application": true,
       "avg_sat": null,
       "acceptance_rate": null,
       "size": 800

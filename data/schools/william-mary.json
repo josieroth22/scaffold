@@ -72,6 +72,13 @@
         "deadline": "January 1",
         "requirements": "Essay, Video, Virtual Presentation/Interview, Finalist Weekend"
       }
-    ]
+    ],
+    "honors_program": {
+      "name": "James Monroe Scholars Program",
+      "separate_application": false,
+      "admit_rate": 0.1,
+      "avg_sat": null,
+      "description": "Top ~10% of admitted class automatically designated as Monroe Scholars. No separate application. Benefits include $1,500 first-year and $4,000 sophomore/junior summer research grants, priority registration, and honors housing."
+    }
   }
 }

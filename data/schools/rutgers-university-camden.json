@@ -40,9 +40,9 @@
       "guaranteed": false
     },
     "honors_program": {
-      "name": "Rutgers University Honors College",
+      "name": "Honors College",
       "description": "A state-of-the-art Honors College where students have opportunities from the very beginning, including exposure to research, extensive collaboration with fellow students and faculty, and one-on-one discussions with live-in faculty. Students collaborate in high-tech seminar rooms, the Innovation Lab, and many lounges throughout the building.",
-      "separate_application": null,
+      "separate_application": false,
       "avg_sat": null,
       "acceptance_rate": null,
       "size": 2000

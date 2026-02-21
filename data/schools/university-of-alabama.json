@@ -76,7 +76,7 @@
     "honors_program": {
       "name": "University of Alabama Honors College",
       "description": "Students are automatically accepted if they have at least a 30 on the ACT (or 1360 on the SAT) and a GPA of 3.5. The honors college provides enhanced academic opportunities and experiences for high-achieving students.",
-      "separate_application": false,
+      "separate_application": true,
       "avg_sat": 1360,
       "acceptance_rate": null,
       "size": null

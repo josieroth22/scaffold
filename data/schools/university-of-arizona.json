@@ -76,7 +76,7 @@
     "honors_program": {
       "name": "Franke Honors College",
       "description": "Grounded in the resources of a globally-ranked research university, the W.A. Franke Honors College provides the opportunity to take small classes with top educators, engage in research and creative expression with top researchers, and create lifelong friends through shared experiences. Students can experience the world through study abroad and benefit from priority registration.",
-      "separate_application": null,
+      "separate_application": false,
       "avg_sat": null,
       "acceptance_rate": null,
       "size": 4047

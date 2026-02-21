@@ -70,7 +70,6 @@
     "honors_program": {
       "name": "Howard Thurman Honors Program",
       "separate_application": true,
-      "avg_sat": 1200,
       "description": "Minimum 1200 SAT/27 ACT, 3.4+ GPA. Four-year program for outstanding intellectual ability across all disciplines."
     }
   }

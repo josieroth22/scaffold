@@ -46,7 +46,7 @@
     "honors_program": {
       "name": "University Honors Program",
       "description": "The University Honors Program promotes the intellectual and personal development of undergraduate students through an enriched academic experience and integration of curricular and co-curricular programming. Honors students can take advantage of honors status in 200+ majors across campus.",
-      "separate_application": null,
+      "separate_application": true,
       "avg_sat": null,
       "acceptance_rate": null,
       "size": 4157

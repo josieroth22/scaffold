@@ -76,7 +76,7 @@
     "honors_program": {
       "name": "John Martinson Honors College",
       "description": "The John Martinson Honors College offers a dynamic and rigorous curriculum designed to challenge and inspire enrolled students. With small class sizes, personalized mentorship, and industry connections, Martinson cultivates critical thinking, creativity, and problem-solving skills.",
-      "separate_application": null,
+      "separate_application": true,
       "avg_sat": 1409,
       "acceptance_rate": null,
       "size": 2700

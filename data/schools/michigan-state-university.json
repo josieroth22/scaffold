@@ -90,7 +90,7 @@
     "honors_program": {
       "name": "Michigan State University Honors College",
       "description": "The honors college states that its students possess an average SAT of 1450 and typically finish in the top 5% of their high school class. It provides rigorous academic opportunities and specialized resources for exceptional students.",
-      "separate_application": null,
+      "separate_application": false,
       "avg_sat": 1450,
       "acceptance_rate": null,
       "size": null

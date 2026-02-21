@@ -68,9 +68,9 @@
   },
   "reference": {
     "honors_program": {
-      "name": "Barksdale Honors College",
+      "name": "Sally McDonnell Barksdale Honors College",
       "description": "Established in 1997 through a gift from the Jim Barksdale family, the Honors College merges intellectual rigor with community action. It offers an education similar to that at prestigious private liberal arts schools, but at a far lower cost.",
-      "separate_application": null,
+      "separate_application": true,
       "avg_sat": null,
       "acceptance_rate": null,
       "size": 1800

@@ -34,9 +34,9 @@
   "cds": null,
   "reference": {
     "honors_program": {
-      "name": "The Honors College",
+      "name": "Honors Program",
       "description": "Oklahoma State University's Honors College blends the resources of an R1 university with a close-knit, small-class experience. Students get priority enrollment starting sophomore year, access to honors-only sections, seminars, over 200 honors courses per semester, and specialized honors advising.",
-      "separate_application": null,
+      "separate_application": true,
       "avg_sat": null,
       "acceptance_rate": null,
       "size": null

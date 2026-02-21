@@ -78,7 +78,7 @@
     "honors_program": {
       "name": "Plan II Honors Program",
       "description": "Plan II is a small honors program where students can explore the issues and questions that shape the human experience. In addition to small classes with the best teachers on campus, the program offers extremely personalized support with two professional academic advisors holding walk-in hours year-round.",
-      "separate_application": null,
+      "separate_application": true,
       "avg_sat": null,
       "acceptance_rate": null,
       "size": 700

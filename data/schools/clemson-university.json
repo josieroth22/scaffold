@@ -84,8 +84,8 @@
     "honors_program": {
       "name": "Clemson University Honors College",
       "description": "The Honors College at Clemson University combines the strengths of a public, land-grant university with those of a highly selective small college. Honors students have the ability to engage in cutting-edge research with some of the leading faculty in the country.",
-      "separate_application": null,
-      "avg_sat": 1430,
+      "separate_application": true,
+      "avg_sat": 1495,
       "acceptance_rate": null,
       "size": 1873
     }
