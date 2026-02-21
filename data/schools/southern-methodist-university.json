@@ -78,6 +78,12 @@
       "finalist_award": "$5,000",
       "first_choice_required": true,
       "guaranteed": true
+    },
+    "honors_program": {
+      "name": "University Honors Program",
+      "separate_application": false,
+      "avg_sat": null,
+      "description": "Automatically reviewed, ~250 first-years invited (top 10%). Oxford seminar-style, travel, independent research."
     }
   }
 }

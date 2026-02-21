@@ -72,6 +72,12 @@
       "finalist_award": "$5,000",
       "first_choice_required": true,
       "guaranteed": true
+    },
+    "honors_program": {
+      "name": "University Honors Program",
+      "separate_application": true,
+      "avg_sat": null,
+      "description": "Separate application with essays. Honors courses, learning community, research and creative projects across all majors."
     }
   }
 }

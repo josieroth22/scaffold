@@ -70,6 +70,12 @@
       "finalist_award": "Up to $22,000",
       "first_choice_required": true,
       "guaranteed": false
+    },
+    "honors_program": {
+      "name": "Honors College",
+      "separate_application": true,
+      "avg_sat": 1430,
+      "description": "Admits students averaging 1430 SAT/32 ACT in top 10% of class. Small discussion-based courses and mentored research."
     }
   }
 }

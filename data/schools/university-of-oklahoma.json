@@ -66,5 +66,12 @@
     "pct_freshmen_receiving_merit_aid": 36.6,
     "avg_merit_award": 3811
   },
-  "reference": null
+  "reference": {
+    "honors_program": {
+      "name": "Honors College",
+      "separate_application": true,
+      "avg_sat": 1360,
+      "description": "Minimum 1360 SAT/30 ACT, 3.75+ GPA or top 10%. Small classes, priority enrollment, specialized housing."
+    }
+  }
 }

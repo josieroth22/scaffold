@@ -64,5 +64,12 @@
     "pct_freshmen_receiving_merit_aid": 33.1,
     "avg_merit_award": 23136
   },
-  "reference": null
+  "reference": {
+    "honors_program": {
+      "name": "Honors Program",
+      "separate_application": true,
+      "avg_sat": null,
+      "description": "Alcala Merit awardees invited, others request application. Small seminars, close faculty collaboration."
+    }
+  }
 }

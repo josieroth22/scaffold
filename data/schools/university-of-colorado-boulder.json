@@ -66,5 +66,12 @@
     "pct_freshmen_receiving_merit_aid": 2.5,
     "avg_merit_award": 10363
   },
-  "reference": null
+  "reference": {
+    "honors_program": {
+      "name": "Arts and Sciences Honors Program",
+      "separate_application": false,
+      "avg_sat": null,
+      "description": "Top 10% automatically invited. Small seminar-style courses capped at 17 students."
+    }
+  }
 }

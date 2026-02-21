@@ -66,5 +66,12 @@
     "pct_freshmen_receiving_merit_aid": 14.1,
     "avg_merit_award": 23607
   },
-  "reference": null
+  "reference": {
+    "honors_program": {
+      "name": "Pennoni Honors College",
+      "separate_application": true,
+      "avg_sat": null,
+      "description": "Evaluates academic record, extracurriculars, leadership. 16 honors credit hours required, 3.2 GPA minimum."
+    }
+  }
 }

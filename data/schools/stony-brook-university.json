@@ -64,5 +64,12 @@
     "pct_freshmen_receiving_merit_aid": 6.6,
     "avg_merit_award": 3756
   },
-  "reference": null
+  "reference": {
+    "honors_program": {
+      "name": "University Honors College",
+      "separate_application": true,
+      "avg_sat": null,
+      "description": "Admits 10-15% of applicants, typical 1500-1560 SAT. Small honors courses, mentored research from first year."
+    }
+  }
 }

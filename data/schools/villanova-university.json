@@ -86,6 +86,12 @@
       "finalist_award": "$500-$2,000",
       "first_choice_required": true,
       "guaranteed": true
+    },
+    "honors_program": {
+      "name": "University Honors Program",
+      "separate_application": false,
+      "avg_sat": null,
+      "description": "Automatically considered, ~10% of incoming class invited. Cohort seminars, independent research, capstone senior experience."
     }
   }
 }

@@ -32,5 +32,12 @@
     "enrollment": 31588
   },
   "cds": null,
-  "reference": null
+  "reference": {
+    "honors_program": {
+      "name": "Interdisciplinary Honors Program",
+      "separate_application": true,
+      "avg_sat": null,
+      "description": "Additional honors essay and recommendation required. Interdisciplinary core seminars, research, study abroad."
+    }
+  }
 }

@@ -70,6 +70,12 @@
       "finalist_award": "Up to $10,500 per year plus stipend",
       "first_choice_required": true,
       "guaranteed": false
+    },
+    "honors_program": {
+      "name": "Honors College",
+      "separate_application": true,
+      "avg_sat": null,
+      "description": "Requires 3.85+ GPA and 29+ ACT. Enriched coursework, priority registration, dedicated advising."
     }
   }
 }

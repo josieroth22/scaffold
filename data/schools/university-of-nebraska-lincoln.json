@@ -66,5 +66,12 @@
     "pct_freshmen_receiving_merit_aid": 16.5,
     "avg_merit_award": 8837
   },
-  "reference": null
+  "reference": {
+    "honors_program": {
+      "name": "University Honors Program",
+      "separate_application": true,
+      "avg_sat": 1430,
+      "description": "Average 31.5 ACT (~1430 SAT). Many National Merit Finalists. Small courses, research, priority registration."
+    }
+  }
 }

@@ -69,11 +69,9 @@
   "reference": {
     "honors_program": {
       "name": "Honors Carolina",
-      "description": "Honors Carolina is a rigorous, interdisciplinary academic program designed for students who are eager to explore beyond their immediate academic concentrations and anticipated career trajectories. Benefits include preferred registration, access to honors-only internships and study abroad opportunities, dedicated advisors, and alumni networking.",
-      "separate_application": null,
-      "avg_sat": 1470,
-      "acceptance_rate": null,
-      "size": 2210
+      "separate_application": false,
+      "avg_sat": null,
+      "description": "Invitation-based through regular application, top ~10% of class. Small seminars, experiential learning, senior thesis required."
     },
     "merit_scholarships": [
       {

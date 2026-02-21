@@ -66,5 +66,12 @@
     "pct_freshmen_receiving_merit_aid": 11.3,
     "avg_merit_award": 9432
   },
-  "reference": null
+  "reference": {
+    "honors_program": {
+      "name": "The Honors College",
+      "separate_application": false,
+      "avg_sat": null,
+      "description": "Automatically considered if applied by EA deadline. One of the nation's oldest honors programs. Small interdisciplinary classes."
+    }
+  }
 }

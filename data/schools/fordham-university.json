@@ -86,6 +86,12 @@
       "finalist_award": "Full Tuition",
       "first_choice_required": false,
       "guaranteed": false
+    },
+    "honors_program": {
+      "name": "Fordham Honors Program",
+      "separate_application": false,
+      "avg_sat": null,
+      "description": "Selected during regular admissions review, no separate application. Small interdisciplinary seminars, 3.5 GPA to graduate with honors."
     }
   }
 }

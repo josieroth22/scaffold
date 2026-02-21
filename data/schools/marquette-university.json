@@ -64,5 +64,12 @@
     "pct_freshmen_receiving_merit_aid": 25.4,
     "avg_merit_award": 30813
   },
-  "reference": null
+  "reference": {
+    "honors_program": {
+      "name": "Core Honors Program",
+      "separate_application": true,
+      "avg_sat": null,
+      "description": "Early Application students eligible. Interview or written application. 24 credits of honors courses required."
+    }
+  }
 }

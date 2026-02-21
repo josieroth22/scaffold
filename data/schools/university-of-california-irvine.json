@@ -64,5 +64,12 @@
     "pct_freshmen_receiving_merit_aid": 5.96,
     "avg_merit_award": 10188
   },
-  "reference": null
+  "reference": {
+    "honors_program": {
+      "name": "Campuswide Honors Collegium",
+      "separate_application": false,
+      "avg_sat": null,
+      "description": "Invited at admission, no separate application. Small interdisciplinary seminars, research mentorship, priority enrollment."
+    }
+  }
 }

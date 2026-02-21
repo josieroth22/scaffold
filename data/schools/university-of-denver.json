@@ -64,5 +64,12 @@
     "pct_freshmen_receiving_merit_aid": null,
     "avg_merit_award": null
   },
-  "reference": null
+  "reference": {
+    "honors_program": {
+      "name": "University Honors Program",
+      "separate_application": true,
+      "avg_sat": null,
+      "description": "Five essay prompts and faculty recommendation. ~100 students per year. 3.5 GPA required to graduate with honors."
+    }
+  }
 }

@@ -72,6 +72,12 @@
         "deadline": "January 1",
         "requirements": "Coronat Scholarship Application, Virtual Interview"
       }
-    ]
+    ],
+    "honors_program": {
+      "name": "Renee Crown University Honors Program",
+      "separate_application": true,
+      "avg_sat": null,
+      "description": "Application opens Jan 15, due Apr 1. Minimum 3.4 GPA. Small seminars, research funding."
+    }
   }
 }

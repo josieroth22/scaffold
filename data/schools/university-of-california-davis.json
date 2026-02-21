@@ -64,5 +64,12 @@
     "pct_freshmen_receiving_merit_aid": 2.19,
     "avg_merit_award": 8659
   },
-  "reference": null
+  "reference": {
+    "honors_program": {
+      "name": "University Honors Program",
+      "separate_application": false,
+      "avg_sat": null,
+      "description": "Invitation-only at admission, ~2.5% of class (~200 freshmen). Regents Scholars auto-invited. Small seminars, dedicated housing."
+    }
+  }
 }

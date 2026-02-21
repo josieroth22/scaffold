@@ -32,5 +32,12 @@
     "enrollment": 27109
   },
   "cds": null,
-  "reference": null
+  "reference": {
+    "honors_program": {
+      "name": "Honors College",
+      "separate_application": false,
+      "avg_sat": 1420,
+      "description": "Automatically reviews all admitted students, admits top 5-7%. Small classes, priority registration, research opportunities."
+    }
+  }
 }

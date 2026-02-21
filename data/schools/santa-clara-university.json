@@ -72,6 +72,12 @@
       "finalist_award": "$2,000",
       "first_choice_required": true,
       "guaranteed": true
+    },
+    "honors_program": {
+      "name": "University Honors Program",
+      "separate_application": true,
+      "avg_sat": null,
+      "description": "~5% of incoming class. Short essay and video response. Seminars of 15-17 students, senior thesis."
     }
   }
 }

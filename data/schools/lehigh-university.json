@@ -74,6 +74,12 @@
         "deadline": "January 1",
         "requirements": "None"
       }
-    ]
+    ],
+    "honors_program": {
+      "name": "Eckardt Scholars Program",
+      "separate_application": true,
+      "avg_sat": null,
+      "description": "Selective honors track emphasizing intellectual curiosity and independent work. Senior independent project required."
+    }
   }
 }

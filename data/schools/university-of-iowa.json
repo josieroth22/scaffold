@@ -66,5 +66,12 @@
     "pct_freshmen_receiving_merit_aid": 5.6,
     "avg_merit_award": 6139
   },
-  "reference": null
+  "reference": {
+    "honors_program": {
+      "name": "University Honors Program",
+      "separate_application": true,
+      "avg_sat": null,
+      "description": "Separate application, test-blind. 12 honors credits in coursework plus 12 in experiential learning."
+    }
+  }
 }

@@ -64,5 +64,12 @@
     "pct_freshmen_receiving_merit_aid": null,
     "avg_merit_award": null
   },
-  "reference": null
+  "reference": {
+    "honors_program": {
+      "name": "College Honors / College Scholars Program",
+      "separate_application": true,
+      "avg_sat": null,
+      "description": "Apply after admission to L&S or Luskin. Must maintain 3.5 GPA. Continuing students may apply after first year."
+    }
+  }
 }

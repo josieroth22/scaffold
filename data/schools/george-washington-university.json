@@ -74,6 +74,12 @@
         "deadline": "January 5",
         "requirements": "None"
       }
-    ]
+    ],
+    "honors_program": {
+      "name": "University Honors Program",
+      "separate_application": true,
+      "avg_sat": null,
+      "description": "Apply after admission with writing sample and recommendation. Interdisciplinary seminars, senior thesis."
+    }
   }
 }

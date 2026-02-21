@@ -80,6 +80,12 @@
       "finalist_award": "$25,000",
       "first_choice_required": true,
       "guaranteed": true
+    },
+    "honors_program": {
+      "name": "Kilachand Honors College",
+      "separate_application": true,
+      "avg_sat": null,
+      "description": "Highly selective, ~70-90 students per year. Interdisciplinary coursework, additional essay required."
     }
   }
 }

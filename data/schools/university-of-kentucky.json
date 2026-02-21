@@ -72,6 +72,12 @@
       "finalist_award": "Full Tuition plus housing stipend",
       "first_choice_required": true,
       "guaranteed": true
+    },
+    "honors_program": {
+      "name": "Lewis Honors College",
+      "separate_application": true,
+      "avg_sat": null,
+      "description": "5,000+ applications for ~600 spots. Typically 1310+ SAT/28+ ACT. Dedicated honors residence, research opportunities."
     }
   }
 }

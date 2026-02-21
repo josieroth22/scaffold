@@ -92,6 +92,12 @@
       "finalist_award": "$2,000",
       "first_choice_required": true,
       "guaranteed": true
+    },
+    "honors_program": {
+      "name": "Honors Program",
+      "separate_application": false,
+      "avg_sat": null,
+      "description": "Determined at admission, no separate application. Scholar Society cohorts with themed courses. Upper-level thesis requires 3.4+ GPA."
     }
   }
 }

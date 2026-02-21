@@ -80,6 +80,12 @@
       "finalist_award": "$28,000+",
       "first_choice_required": true,
       "guaranteed": true
+    },
+    "honors_program": {
+      "name": "Thematic Option Honors Program",
+      "separate_application": true,
+      "avg_sat": null,
+      "description": "~200 freshmen per year. Interdisciplinary alternative to general education. Classes average 17 students. Open to all majors."
     }
   }
 }

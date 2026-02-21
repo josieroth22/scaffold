@@ -66,5 +66,12 @@
     "pct_freshmen_receiving_merit_aid": 4.8,
     "avg_merit_award": 6483
   },
-  "reference": null
+  "reference": {
+    "honors_program": {
+      "name": "Honors Program",
+      "separate_application": false,
+      "avg_sat": null,
+      "description": "Automatically considered with Dec 1 application. Enriched coursework, smaller classes across all majors."
+    }
+  }
 }

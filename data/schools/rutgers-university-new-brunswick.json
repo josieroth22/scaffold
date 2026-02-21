@@ -66,5 +66,12 @@
     "pct_freshmen_receiving_merit_aid": 25.2,
     "avg_merit_award": 8686
   },
-  "reference": null
+  "reference": {
+    "honors_program": {
+      "name": "Honors College",
+      "separate_application": true,
+      "avg_sat": 1530,
+      "description": "Median SAT 1530. All entering students receive merit scholarship. Small interdisciplinary seminars, dedicated residential community."
+    }
+  }
 }

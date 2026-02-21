@@ -89,6 +89,12 @@
         "amount": "$7,000/year",
         "description": "IU's largest merit scholarship program focused on students from underrepresented communities including limited-income, first-generation, and rural students."
       }
-    ]
+    ],
+    "honors_program": {
+      "name": "Hutton Honors College",
+      "separate_application": true,
+      "avg_sat": null,
+      "description": "Separate application required. Honors-only courses, priority enrollment, research funding, residential community."
+    }
   }
 }

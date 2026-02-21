@@ -72,6 +72,12 @@
       "finalist_award": "$2,000",
       "first_choice_required": true,
       "guaranteed": false
+    },
+    "honors_program": {
+      "name": "AU Honors Program",
+      "separate_application": true,
+      "avg_sat": null,
+      "description": "Four-year interdisciplinary program. Team-taught courses, faculty-led research with international travel, capstone project."
     }
   }
 }

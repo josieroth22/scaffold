@@ -64,5 +64,12 @@
     "pct_freshmen_receiving_merit_aid": null,
     "avg_merit_award": null
   },
-  "reference": null
+  "reference": {
+    "honors_program": {
+      "name": "College of Letters & Science Honors Program",
+      "separate_application": true,
+      "avg_sat": null,
+      "description": "Apply after SIR starting August 1. Selection via lottery then essay review due to limited capacity."
+    }
+  }
 }

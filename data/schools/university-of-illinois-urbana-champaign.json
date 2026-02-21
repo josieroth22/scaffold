@@ -66,5 +66,12 @@
     "pct_freshmen_receiving_merit_aid": 12,
     "avg_merit_award": null
   },
-  "reference": null
+  "reference": {
+    "honors_program": {
+      "name": "Campus Honors Program",
+      "separate_application": false,
+      "avg_sat": null,
+      "description": "~125 freshmen selected as Chancellor's Scholars through regular application. Small seminars, research funding."
+    }
+  }
 }

@@ -72,6 +72,12 @@
       "finalist_award": "$11,000",
       "first_choice_required": true,
       "guaranteed": false
+    },
+    "honors_program": {
+      "name": "University Honors Program",
+      "separate_application": false,
+      "avg_sat": null,
+      "description": "Automatically considered through regular application. Interdisciplinary learning, research opportunities."
     }
   }
 }

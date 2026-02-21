@@ -66,5 +66,12 @@
     "pct_freshmen_receiving_merit_aid": null,
     "avg_merit_award": null
   },
-  "reference": null
+  "reference": {
+    "honors_program": {
+      "name": "Honors College",
+      "separate_application": true,
+      "avg_sat": null,
+      "description": "Supplemental honors essay, test-optional. Small interdisciplinary courses, honors thesis required, dedicated housing."
+    }
+  }
 }

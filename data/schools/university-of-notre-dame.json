@@ -67,6 +67,12 @@
     "avg_merit_award": 22952
   },
   "reference": {
-    "questbridge_partner": true
+    "questbridge_partner": true,
+    "honors_program": {
+      "name": "Glynn Family Honors Program",
+      "separate_application": true,
+      "avg_sat": null,
+      "description": "By invitation after admission, ~100 per year. Exclusive seminars, mentored research, senior thesis."
+    }
   }
 }

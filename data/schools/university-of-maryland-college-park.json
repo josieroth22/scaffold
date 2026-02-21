@@ -78,6 +78,12 @@
         "amount": "Up to $20,000/year for 4 years",
         "description": "Merit award for in-state and out-of-state freshmen. No separate application; must apply by November 1 EA deadline."
       }
-    ]
+    ],
+    "honors_program": {
+      "name": "Honors College",
+      "separate_application": false,
+      "avg_sat": 1500,
+      "description": "Automatically considered with Nov 1 EA application. ~1,000 per year. Competitive admits typically 1500+ SAT."
+    }
   }
 }

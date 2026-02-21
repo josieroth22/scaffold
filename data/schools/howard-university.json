@@ -66,5 +66,12 @@
     "pct_freshmen_receiving_merit_aid": 77.4,
     "avg_merit_award": 15022
   },
-  "reference": null
+  "reference": {
+    "honors_program": {
+      "name": "COAS Honors Program",
+      "separate_application": true,
+      "avg_sat": null,
+      "description": "By invitation for freshmen with 3.8+ unweighted GPA. Intensive curriculum culminating in senior thesis."
+    }
+  }
 }

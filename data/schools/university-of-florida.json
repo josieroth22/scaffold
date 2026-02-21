@@ -79,6 +79,12 @@
         "amount": "Full cost of attendance (tuition, fees, room, board, books) for FL residents",
         "description": "Florida state scholarship for National Merit Finalists who are FL residents attending any FL public university. Covers full COA. Automatic, no separate application."
       }
-    ]
+    ],
+    "honors_program": {
+      "name": "Honors Program",
+      "separate_application": true,
+      "avg_sat": null,
+      "description": "Requires honors essay in Common App. Typically 1400+ SAT, 13.7% acceptance rate. Eligible for Lombardi and Stamps Scholarships."
+    }
   }
 }

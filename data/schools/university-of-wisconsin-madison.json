@@ -72,6 +72,12 @@
       "finalist_award": "$3,000",
       "first_choice_required": true,
       "guaranteed": false
+    },
+    "honors_program": {
+      "name": "L&S Honors Program",
+      "separate_application": true,
+      "avg_sat": null,
+      "description": "Three essays required, does not consider GPA or test scores. Two tracks: Honors in Liberal Arts and Comprehensive Honors."
     }
   }
 }

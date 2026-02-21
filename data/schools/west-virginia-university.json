@@ -66,5 +66,12 @@
     "pct_freshmen_receiving_merit_aid": 8.7,
     "avg_merit_award": 9040.73
   },
-  "reference": null
+  "reference": {
+    "honors_program": {
+      "name": "Honors College",
+      "separate_application": true,
+      "avg_sat": null,
+      "description": "Invitations sent to students with 3.7+ GPA and 1230+ SAT. Small seminars, mentored research."
+    }
+  }
 }

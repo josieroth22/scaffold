@@ -66,5 +66,12 @@
     "pct_freshmen_receiving_merit_aid": 3.9,
     "avg_merit_award": 25840
   },
-  "reference": null
+  "reference": {
+    "honors_program": {
+      "name": "Ethel Waddell Githii Honors Program",
+      "separate_application": true,
+      "avg_sat": null,
+      "description": "Students with 4.0+ GPA who applied ED/EA receive invitation. Required honors core courses, senior thesis, 3.5 GPA standard."
+    }
+  }
 }

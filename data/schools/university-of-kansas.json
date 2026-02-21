@@ -72,6 +72,12 @@
       "finalist_award": "$10,000",
       "first_choice_required": true,
       "guaranteed": true
+    },
+    "honors_program": {
+      "name": "University Honors Program",
+      "separate_application": true,
+      "avg_sat": null,
+      "description": "Holistic review, no minimum GPA/test score. Requires six honors courses and 3.25 GPA to graduate with honors."
     }
   }
 }

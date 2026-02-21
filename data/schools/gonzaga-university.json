@@ -64,5 +64,12 @@
     "pct_freshmen_receiving_merit_aid": 57.8,
     "avg_merit_award": 22532
   },
-  "reference": null
+  "reference": {
+    "honors_program": {
+      "name": "Gonzaga Honors Program",
+      "separate_application": true,
+      "avg_sat": null,
+      "description": "Separate application with portfolio. Typically 3.61-4.0 unweighted GPA. Maintain 3.3 GPA through graduation."
+    }
+  }
 }

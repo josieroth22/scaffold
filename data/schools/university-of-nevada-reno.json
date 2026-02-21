@@ -66,5 +66,12 @@
     "pct_freshmen_receiving_merit_aid": 52.5,
     "avg_merit_award": 3700
   },
-  "reference": null
+  "reference": {
+    "honors_program": {
+      "name": "Honors College",
+      "separate_application": true,
+      "avg_sat": null,
+      "description": "Separate application with 500-word essay. First 50 National Merit/Presidential scholars auto-admitted."
+    }
+  }
 }

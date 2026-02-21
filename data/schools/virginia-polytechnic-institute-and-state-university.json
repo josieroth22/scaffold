@@ -66,5 +66,12 @@
     "pct_freshmen_receiving_merit_aid": 11.2,
     "avg_merit_award": 3288.33
   },
-  "reference": null
+  "reference": {
+    "honors_program": {
+      "name": "Honors College",
+      "separate_application": true,
+      "avg_sat": null,
+      "description": "Separate application after VT admission, no minimum test scores. Enriched coursework, research, residential community."
+    }
+  }
 }

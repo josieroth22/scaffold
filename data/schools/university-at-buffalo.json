@@ -66,5 +66,12 @@
     "pct_freshmen_receiving_merit_aid": 23.4,
     "avg_merit_award": 4561
   },
-  "reference": null
+  "reference": {
+    "honors_program": {
+      "name": "University Honors College",
+      "separate_application": true,
+      "avg_sat": null,
+      "description": "Separate application essay required. Personalized advising, early registration, honors courses, research opportunities."
+    }
+  }
 }

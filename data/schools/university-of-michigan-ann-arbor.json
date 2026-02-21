@@ -66,5 +66,12 @@
     "pct_freshmen_receiving_merit_aid": null,
     "avg_merit_award": null
   },
-  "reference": null
+  "reference": {
+    "honors_program": {
+      "name": "LSA Honors Program",
+      "separate_application": true,
+      "avg_sat": null,
+      "description": "Supplemental honors essay after LSA admission. Smaller seminars, research funding, tight-knit intellectual community."
+    }
+  }
 }
