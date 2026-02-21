@@ -2,9 +2,9 @@ const Anthropic = require("@anthropic-ai/sdk");
 const { Redis } = require("@upstash/redis");
 const fs = require("fs");
 const path = require("path");
-const schoolData = require("./school-data");
+const schoolData = require("../lib/school-data");
 
-const { MODEL, REVIEW_TEMPERATURE } = require("./config");
+const { MODEL, REVIEW_TEMPERATURE } = require("../lib/config");
 
 const client = new Anthropic.default();
 
