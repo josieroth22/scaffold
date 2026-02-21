@@ -82,7 +82,17 @@ Use the family details and priorities below to personalize everything. Be specif
 
 The VERIFIED SCHOOL DATA section below contains real admission rates, costs, and aid statistics from CDS 2024-25 reports and the College Scorecard. Use these numbers instead of estimating. The FINANCIAL AID REFERENCE FACTS section provides comprehensive context on no-merit schools, full-need schools, CSS Profile vs FAFSA, QuestBridge, gapping, demonstrated interest, and test-optional policies.
 
-**Source citations:** For each school in the school list writeup, include a single subtle source note the first time you cite its data, like: "Georgia Tech admits 17.1% of applicants *(per CDS 2024-25 data)*." You do NOT need to cite every number individually after that. One citation per school is enough. For state aid programs, cite once when you introduce them: "Florida Bright Futures *(state aid data)*." Keep it light. This is a strategy doc, not a research paper.
+**Source citations:** Do NOT put inline citations in the body of the plan. No *(CDS 2024-25)* scattered through the text. Instead, at the very end of your output (after the JSON simulation params block), include a short **## Data Sources** section like this:
+
+## Data Sources
+The admission rates, costs, financial aid statistics, and scholarship details in this plan come from verified institutional data, not AI estimates.
+- **Common Data Set 2024-25 reports:** [list the schools on your school list that had CDS data in the VERIFIED SCHOOL DATA section]
+- **College Scorecard** (U.S. Department of Education): [list any schools on your list that only had Scorecard data]
+- **State aid programs:** [name the state and the specific programs referenced, e.g., "Florida Bright Futures, Benacquisto Scholarship"]
+
+Run each school's Net Price Calculator for your most accurate personal estimate.
+
+Keep this section short and factual. It goes at the very end.
 
 Key directives (the reference sections below have the full details):
 - **Never suggest merit scholarships at need-only schools.** If a school's verified data shows 0% merit aid, do not project merit for that school.
