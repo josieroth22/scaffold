@@ -2261,6 +2261,33 @@
       html += '</div></div>';
     });
 
+    // Priority rankings (stored as priority_cost: 1, priority_prestige: 2, etc.)
+    const priorityLabels = {
+      cost: 'Minimize total cost of attendance',
+      prestige: 'Prestige / brand name',
+      academic_fit: 'Academic fit (programs, research, major strength)',
+      location: 'Geographic location',
+      culture: 'Campus culture / social fit',
+      merit: 'Merit scholarship likelihood',
+      outcomes: 'Post-graduation outcomes (career, earnings, grad school)'
+    };
+    const priorities = Object.entries(priorityLabels)
+      .filter(([key]) => fd['priority_' + key])
+      .map(([key, label]) => ({ rank: parseInt(fd['priority_' + key]), label }))
+      .sort((a, b) => a.rank - b.rank);
+    if (priorities.length > 0) {
+      html += '<div style="margin-bottom: 1.5rem;">';
+      html += '<span class="submission-section-label">Priority Ranking</span>';
+      html += '<div class="submission-grid"><div class="submission-field full-width">';
+      html += '<div class="value" style="margin:0;">';
+      priorities.forEach(p => {
+        html += '<div style="display:flex;align-items:center;gap:0.5rem;padding:0.25rem 0;">';
+        html += '<span style="display:inline-flex;align-items:center;justify-content:center;width:1.4rem;height:1.4rem;border-radius:50%;background:var(--sage-light);color:var(--sage-dark);font-size:0.75rem;font-weight:600;flex-shrink:0;">' + p.rank + '</span>';
+        html += '<span>' + p.label + '</span></div>';
+      });
+      html += '</div></div></div></div>';
+    }
+
     card.innerHTML = html;
   }
 
