@@ -1,5 +1,11 @@
 # Scaffold: Project Plan
 
+## Founder
+
+Josie Roth. Background in tech and working with kids. Built Scaffold to combine those two worlds after seeing the equity gap in college planning firsthand. Her own college search experience showed her how stressful the information asymmetry is: families who can afford a private counselor get a roadmap, and everyone else gets Google. The $10K counselor isn't 200x better than what a smart system could produce for $50. Scaffold exists to prove that.
+
+---
+
 ## What Scaffold Is
 
 Scaffold is a $50 consumer product that generates personalized 20+ page college strategy documents for families. A parent fills out a form, we run their details through Claude Opus with a proprietary prompt template, and they get a full strategy doc at a unique URL: school list, developmental roadmap, financial modeling, Monte Carlo simulation, essay strategy, and more.
@@ -12,7 +18,7 @@ The mission: close the information gap in college planning. A $310K family in Na
 
 - **Landing page** (index.html) with 3 sample plans (Alejandra, Priya, Jake)
 - **Intake form** (intake.html) with 7-step guided flow, bypass code for free access
-- **Generation pipeline**: Tier 1 (Strategy Brief) -> Monte Carlo simulation (10,000 iterations) -> Cost reconciliation -> Tier 2 (Reference Sections) -> Quality review (12 checks) -> Targeted fix pass (find/replace, up to 2 attempts) -> Re-review
+- **Generation pipeline**: Tier 1 (Strategy Brief) -> Quality review (15 checks) -> Targeted fix pass (up to 2 attempts) -> Full regeneration if fixes fail -> Monte Carlo simulation (10,000 iterations) -> Cost/tier reconciliation -> Tier 2 (Reference Sections) -> Final review + fix
 - **Plan page** (plan.html) with sidebar navigation, collapsible sections, simulation charts, submission info
 - **Admin dashboard** (admin.html) with submission management, plan viewing, simulation retry
 - **Infrastructure**: Vercel serverless functions, Upstash Redis, Anthropic API (Claude Opus)
@@ -277,34 +283,49 @@ Landing page (index.html)
 Intake form (intake.html) -- bypass code: Millie2026
     |
     v
-=== GENERATION PIPELINE (runs once) ===
+=== GENERATION PIPELINE ===
 
-POST /api/generate        -- Tier 1 Strategy Brief via SSE (~$0.96)
+POST /api/generate        -- Tier 1 Strategy Brief via SSE
     |
     v
+=== REVIEW + FIX LOOP (review BEFORE simulation) ===
+
+POST /api/review          -- 15-check quality review
+    |
+    PASS? --> continue to simulation
+    FAIL? |
+          v
+    POST /api/fix-plan    -- Targeted find/replace fixes (up to 2 attempts)
+          |
+          v
+    POST /api/review      -- Re-review
+          |
+          PASS? --> continue to simulation
+          FAIL? |
+                v
+          POST /api/regenerate  -- Full regen using same buildPrompt + review feedback
+                |
+                v
+          POST /api/review      -- Review regenerated output
+    |
+    v
+=== SIMULATION (runs ONCE on final verified school list) ===
+
 POST /api/simulate        -- 10K Monte Carlo simulation (JS, no API cost)
     |
     v
-POST /api/reconcile-costs -- Update narrative costs to match sim (~$1.27)
+POST /api/reconcile-costs -- Update costs + tier labels to match sim
     |
     v
-POST /api/generate-tier2  -- Tier 2 Reference Sections via SSE (~$1.13)
+POST /api/generate-tier2  -- Tier 2 Reference Sections via SSE
     |
     v
-=== REVIEW + FIX LOOP (up to 2 fix attempts) ===
+=== FINAL REVIEW + FIX ===
 
-POST /api/review          -- 11-check quality review (~$0.60)
+POST /api/review          -- Final quality check on complete doc
     |
     PASS? --> done
-    FAIL? |
-          v
-    POST /api/fix-plan    -- Targeted find/replace fixes (~$0.45)
-          |
-          v
-    POST /api/review      -- Re-review (~$0.60)
-          |
-          PASS? --> done
-          FAIL? --> retry fix (max 2), then proceed with best attempt
+    FAIL? --> one fix attempt, then proceed with best version
     |
     v
 POST /api/update-status   -- Mark completed or review_failed
