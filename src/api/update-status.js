@@ -16,7 +16,7 @@ module.exports = async function handler(req, res) {
   const { id, status } = req.body;
   if (!id || !status) return res.status(400).json({ error: "Missing id or status" });
 
-  const allowed = ["review_failed", "generation_failed", "completed"];
+  const allowed = ["review_failed", "generation_failed", "completed", "cancelled"];
   if (!allowed.includes(status)) {
     return res.status(400).json({ error: "Status not allowed" });
   }
