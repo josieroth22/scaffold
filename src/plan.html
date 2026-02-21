@@ -2179,13 +2179,16 @@
     const fields = [
       { section: 'Student', items: [
         { label: 'Name', key: 'student_name' },
+        { label: 'First Name', key: 'student_first_name' },
+        { label: 'Last Name', key: 'student_last_name' },
         { label: 'Age / Grade', key: 'student_age_grade' },
         { label: 'School', key: 'school_name' },
         { label: 'School Type', key: 'school_type' },
         { label: 'District', key: 'school_district' },
         { label: 'Academic Profile', key: 'academic_profile', full: true },
-        { label: 'Strengths', key: 'strengths', full: true },
-        { label: 'Weaknesses', key: 'weaknesses', full: true },
+        { label: 'Academic Strengths', key: 'academic_strengths', full: true },
+        { label: 'Academic Weaknesses', key: 'academic_weaknesses', full: true },
+        { label: 'Extracurriculars', key: 'extracurriculars', full: true },
       ]},
       { section: 'Interests & Personality', items: [
         { label: 'Interests', key: 'interests', full: true },
@@ -2204,29 +2207,35 @@
       ]},
       { section: 'Family', items: [
         { label: 'Family Structure', key: 'family_structure' },
+        { label: 'Custody', key: 'custody', full: true },
+        { label: 'FAFSA Parent', key: 'fafsa_parent' },
+        { label: 'Co-Parent Relationship', key: 'coparent_relationship', full: true },
         { label: 'Siblings', key: 'siblings', full: true },
       ]},
       { section: 'Location', items: [
         { label: 'City', key: 'city' },
-        { label: 'Setting', key: 'urban_suburban_rural' },
+        { label: 'State', key: 'state' },
+        { label: 'Setting', key: 'area_type' },
+        { label: 'Area Context', key: 'area_context', full: true },
         { label: 'Relocation', key: 'relocation', full: true },
       ]},
       { section: 'Finances', items: [
         { label: 'Household Income', key: 'income' },
         { label: 'College Budget', key: 'college_budget' },
         { label: 'Assets', key: 'assets', full: true },
-        { label: 'Special Circumstances', key: 'special_circumstances', full: true },
+        { label: 'Special Circumstances', key: 'financial_special', full: true },
       ]},
       { section: 'School Preferences', items: [
-        { label: 'Size Preference', key: 'school_size' },
-        { label: 'Geography', key: 'school_geography', full: true },
+        { label: 'Size Preference', key: 'size_preference' },
+        { label: 'Geography', key: 'geographic_preference', full: true },
         { label: 'Must-Haves', key: 'must_haves', full: true },
         { label: 'Deal Breakers', key: 'deal_breakers', full: true },
         { label: 'Schools on Radar', key: 'schools_on_radar', full: true },
       ]},
       { section: 'Additional Context', items: [
-        { label: 'Additional Priorities', key: 'additional_priorities', full: true },
+        { label: 'Priorities', key: 'priority_other', full: true },
         { label: 'Additional Context', key: 'additional_context', full: true },
+        { label: 'Email', key: 'email' },
       ]},
     ];
 
