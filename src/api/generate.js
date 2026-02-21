@@ -222,7 +222,7 @@ Generate the Strategy Brief (~5,000 words). This is the core document the parent
 
 **## Executive Summary (one page max):** This is the first thing the parent reads and the page they come back to. Include:
    - A brief projected applicant profile (3-4 sentences: GPA range, test score range, key strengths, key gaps)
-   - The school list as a simple table: school name, tier (reach/target/safety), recommended application round (EA/ED/REA/RD), estimated net annual cost, and financial risk rating (very low / low / moderate / high / very high). If you recommended REA/SCEA for one school, include a footnote below the table explaining that all other private schools must be RD due to the REA restriction.
+   - The school list as a simple table: school name, tier (reach/target/safety), recommended application round (EA/ED/REA/RD), estimated net annual cost, and financial risk rating (very low / low / moderate / high / very high). Mark radar schools with an asterisk (*) and include a note: "*Schools marked with asterisk were on your radar." If you recommended REA/SCEA for one school, include a footnote below the table explaining which specific schools (by name, not by number) must switch to RD due to the REA restriction.
    - The top 3 things to do in the next 6 months (specific, actionable, no jargon)
    - The financial floor: the cheapest guaranteed-admission option with its estimated annual cost. Name the school, name the cost, and say clearly that this is the worst-case scenario and it's a good one.
 
