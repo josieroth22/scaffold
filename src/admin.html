@@ -100,7 +100,7 @@
   <h1>Submissions <button onclick="loadSubmissions()" style="font-size:0.75rem; padding:0.3rem 0.8rem; background:var(--sage); color:white; border:none; border-radius:5px; cursor:pointer; font-family:'DM Sans',sans-serif; font-weight:600; vertical-align:middle; margin-left:0.5rem;">Refresh</button> <span style="font-size:0.82rem; font-weight:400; color:var(--muted); margin-left:0.5rem;" id="last-refreshed"></span></h1>
   <p class="subtitle" id="count"></p>
   <div class="stage-key" style="font-size:0.75rem; color:var(--muted); margin-bottom:1rem;">
-    <strong>Pipeline:</strong> Tier 1 → Sim → Reconcile → Review T1 → Fix/Regen (if needed) → Tier 2 → Final Review → Fix (if needed) → Done | <span style="color:var(--error, #c94d4d);">Review failed</span> | <span style="color:var(--error, #c94d4d);">Cancelled</span>
+    <strong>Pipeline:</strong> Tier 1 → Review T1 → Fix/Regen (if needed) → Sim → Reconcile → Tier 2 → Final Review → Fix (if needed) → Done | <span style="color:var(--error, #c94d4d);">Review failed</span> | <span style="color:var(--error, #c94d4d);">Cancelled</span>
   </div>
   <table id="table" style="display: none;">
     <thead>
