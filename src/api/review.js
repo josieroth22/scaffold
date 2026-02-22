@@ -231,9 +231,11 @@ ${stateAid}
     - Does the family_budget in the JSON params match what the family stated?
     - Is the budget figure referenced prominently (not buried in one sentence)?
     - For EVERY school, compare the plan's estimated net cost to the budget. List which schools are over budget and by how much.
-    - Are over-budget schools clearly flagged in the executive summary (e.g., "Over Budget" in financial risk column)?
-    - **At least 60% of schools must be at or under budget.** Up to 3-4 over-budget reaches are acceptable IF the family explicitly asked for them (e.g., "interested in Ivies") AND they are clearly flagged. If MORE than 40% of schools exceed budget, FAIL.
-    - Is there at least one true financial safety (a school confidently under budget even in the worst case)?
+    - Are over-budget schools clearly flagged in the executive summary with "High" or "Very High" financial risk ratings?
+    - Is there at least one true financial safety (a school confidently under budget even in the worst case)? This is the most important sub-check.
+    - **If the list includes a strong financial safety** (well under budget, high admit probability), the plan has MORE flexibility on over-budget reaches. Over half the list being over-budget is acceptable in this case, especially if the family asked for competitive schools. Do NOT fail just because many schools exceed budget if the financial floor is solid.
+    - **If there is NO strong financial safety**, at least 60% of schools must be at or under budget. FAIL if this is not met.
+    - If the family explicitly asked for expensive reach schools (Ivies, top engineering programs, etc.), lean toward PASS as long as the financial safety exists and over-budget schools are clearly flagged.
 
 11. **Simulation parameter sanity:** Check the JSON simulation parameters for obvious errors (see sub-checks below).
 
