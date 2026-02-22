@@ -153,9 +153,19 @@
 <script>
   let adminCode = '';
 
+  let pollInterval = null;
+
   function login() {
     adminCode = document.getElementById('code-input').value;
     loadSubmissions();
+    // Auto-poll every 5 seconds while any submission is in progress
+    if (pollInterval) clearInterval(pollInterval);
+    pollInterval = setInterval(() => {
+      const activeStatuses = document.querySelectorAll('.status-generating');
+      if (activeStatuses.length > 0) {
+        loadSubmissions();
+      }
+    }, 5000);
   }
 
   document.getElementById('code-input').addEventListener('keypress', e => {
