@@ -174,6 +174,8 @@ The mission: close the information gap in college planning. A $310K family in Na
 
 API costs scale with volume. At 50 plans/month, API spend would be ~$300-400/month. Prepaid API credits get a small discount. As prompt quality improves, the fix/regen rate should drop, keeping most plans on the base path (~$5.68).
 
+**Volume pricing:** If using the API at a larger scale, Anthropic has an enterprise/Scale tier where you work directly with their sales team, and that's likely where volume pricing or negotiated rates would come into play. Worth contacting them once volume justifies it.
+
 ---
 
 ## Common Data Set (CDS) Integration
