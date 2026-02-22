@@ -1585,9 +1585,9 @@
         if (riskClass) {
           const label = text.split(' ').map(w => w[0].toUpperCase() + w.slice(1)).join(' ');
           td.innerHTML = '<span class="risk-badge ' + riskClass + '">' + label + '</span>';
-        } else if (text.includes('risk') || text.includes('low') || text.includes('high') || text.includes('moderate')) {
-          // Catch-all for any other risk-like value Claude might create
-          const fallbackClass = text.includes('high') ? 'risk-high' : text.includes('low') ? 'risk-low' : 'risk-moderate';
+        } else if (text.length < 25 && (text === 'over budget' || /^(low|medium|high|very high|very low|moderate)[\s\-]*(risk)?$/i.test(text))) {
+          // Catch-all for short risk-like labels only (not full sentences)
+          const fallbackClass = text.includes('high') || text.includes('over budget') ? 'risk-high' : text.includes('low') ? 'risk-low' : 'risk-moderate';
           const label = text.split(' ').map(w => w[0].toUpperCase() + w.slice(1)).join(' ');
           td.innerHTML = '<span class="risk-badge ' + fallbackClass + '">' + label + '</span>';
         }
