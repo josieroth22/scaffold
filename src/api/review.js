@@ -202,10 +202,10 @@ ${stateAid}
 
 3. **Admission rate consistency:** Are admission probability estimates consistent across ALL places they appear? Check:
    - Does the narrative prose for each school state the same admission probability as the probability table?
-   - Does the probability table match the admit_pct in the JSON params?
+   - Does the probability table match the admit_pct in the JSON params? **The JSON admit_pct must use 3 decimal places matching the narrative.** If narrative says "7.7%" the JSON must be 0.077, NOT 0.08. If narrative says "4.6%" the JSON must be 0.046, NOT 0.05. Rounding to 2 decimal places is a FAIL.
    - Does the simulation's simulated_admit_rate roughly match the input admit_pct (within a few percentage points, since simulation is stochastic)?
    - Are the estimates realistic? A strong applicant should not exceed the school's overall admit rate by more than ~5 percentage points.
-   If the prose says one number (e.g., "9% acceptance rate") but the table or JSON says a different number (e.g., 12%), FAIL this check. Check EVERY school for prose vs. table consistency.
+   If the prose says one number but the JSON rounds it (e.g., prose "7.7%" but JSON 0.08), FAIL this check. Check EVERY school.
 
 4. **No-merit school check:** Are merit scholarships incorrectly assigned to schools that only offer need-based aid? Check EVERY school on the list against the NO-MERIT LIST provided above. If a school appears on that list and the plan shows merit_pct > 0 in the JSON, or describes merit scholarship opportunities in the narrative, FAIL. Also check: if the narrative says "no merit aid" for a school, does the JSON have merit_pct=0?
 
@@ -231,8 +231,8 @@ ${stateAid}
     - Does the family_budget in the JSON params match what the family stated?
     - Is the budget figure referenced prominently (not buried in one sentence)?
     - For EVERY school, compare the plan's estimated net cost to the budget. List which schools are over budget and by how much.
-    - Are over-budget schools clearly flagged in the executive summary or financial risk column?
-    - If more than half the schools exceed the budget, FAIL — the list needs more affordable options or clearer warnings.
+    - Are over-budget schools clearly flagged in the executive summary (e.g., "Over Budget" in financial risk column)?
+    - **At least 60% of schools must be at or under budget.** Up to 3-4 over-budget reaches are acceptable IF the family explicitly asked for them (e.g., "interested in Ivies") AND they are clearly flagged. If MORE than 40% of schools exceed budget, FAIL.
     - Is there at least one true financial safety (a school confidently under budget even in the worst case)?
 
 11. **Simulation parameter sanity:** Check the JSON simulation parameters for obvious errors (see sub-checks below).
@@ -246,7 +246,7 @@ ${stateAid}
 
 14. **State aid programs:** If the STATE AID PROGRAMS section above lists programs for this family's state, does the plan mention them? For example, if the family is in Florida and the state aid section mentions Bright Futures, does the plan discuss Bright Futures and whether this student is on track? If significant state programs exist and are completely absent from the plan, FAIL.
 
-15. **Radar schools included:** The family listed these schools on their radar: "${radarSchools}". Every one of these schools MUST appear on the final school list with full analysis. If any radar school is missing from the plan entirely, FAIL and name the missing school(s). The family specifically asked about these schools.
+15. **Radar schools included:** The family listed these schools on their radar: "${radarSchools}". If the family named SPECIFIC schools (e.g., "MIT, Stanford, UGA"), every one MUST appear on the final school list. If any named school is missing, FAIL. However, if the family gave VAGUE descriptions instead of specific names (e.g., "major public schools," "Ivies," "schools in the South"), PASS as long as the plan includes schools that match the description. Do not fail because the plan didn't include every possible school matching a vague category.
 
 **Details for check 11 (simulation parameter sanity):**
     - sticker_cost should be reasonable ($15K-$85K range)
