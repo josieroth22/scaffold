@@ -214,6 +214,12 @@ module.exports = async function handler(req, res) {
 
     const results = runSimulation(params);
 
+    // Re-check cancellation before writing results
+    const currentStatus = await redis.hget(`submission:${id}`, "status");
+    if (currentStatus === "cancelled") {
+      return res.status(200).json({ cancelled: true });
+    }
+
     // Store results and clear any previous error
     await redis.hset(`submission:${id}`, {
       simulation: JSON.stringify(results),

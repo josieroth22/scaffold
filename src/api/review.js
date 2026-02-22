@@ -325,6 +325,12 @@ Only output the JSON block. No other text.`;
       checks: review.checks || [],
     });
 
+    // Re-check cancellation before writing results
+    const currentStatus = await redis.hget(`submission:${id}`, "status");
+    if (currentStatus === "cancelled") {
+      return res.status(200).json({ cancelled: true });
+    }
+
     // Store review in Redis
     await redis.hset(`submission:${id}`, {
       review: JSON.stringify(review),

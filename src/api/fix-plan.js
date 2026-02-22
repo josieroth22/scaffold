@@ -210,6 +210,12 @@ ${cleanOutput}`;
       }
     }
 
+    // Re-check cancellation before writing results
+    const currentStatus = await redis.hget(`submission:${id}`, "status");
+    if (currentStatus === "cancelled") {
+      return res.status(200).json({ cancelled: true });
+    }
+
     // Save the fixed output back to Redis
     await redis.hset(`submission:${id}`, {
       output: fixedOutput,
