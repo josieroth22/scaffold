@@ -165,8 +165,9 @@ function formatSchoolCompact(school, bracket, isHomeState) {
     lines.push(testLine);
   }
 
-  // Cost
-  if (hasCDS) {
+  // Cost — prefer CDS breakdown, fall back to Scorecard totals if CDS costs are missing
+  const hasCDSCosts = hasCDS && (cds.tuition_in_state || cds.tuition_out_of_state || cds.tuition_private);
+  if (hasCDSCosts) {
     if (school.type === "private") {
       const total = (cds.tuition_private || 0) + (cds.required_fees || 0) + (cds.room_board || 0);
       lines.push(
@@ -180,7 +181,7 @@ function formatSchoolCompact(school, bracket, isHomeState) {
       );
     }
   } else {
-    // Scorecard costs
+    // Scorecard costs (or CDS school with missing cost fields)
     if (school.type === "public") {
       lines.push(
         `Cost: ${fmt(sc.total_cost_in_state)} in-state / ${fmt(sc.total_cost_out_of_state)} OOS`
@@ -730,7 +731,8 @@ function buildCheatSheet(formData) {
     const isPublic = (school.type || "").toLowerCase() === "public";
 
     let sticker = null;
-    if (hasCDS) {
+    const hasCDSCosts = hasCDS && (school.cds.tuition_in_state || school.cds.tuition_out_of_state || school.cds.tuition_private);
+    if (hasCDSCosts) {
       let tuition;
       if (isPublic && isInState) {
         tuition = school.cds.tuition_in_state || 0;
@@ -739,6 +741,7 @@ function buildCheatSheet(formData) {
       }
       sticker = tuition + (school.cds.required_fees || 0) + (school.cds.room_board || 0);
     } else {
+      // Fall back to Scorecard costs (handles CDS schools with null cost fields)
       sticker = (isPublic && isInState)
         ? (school.scorecard?.total_cost_in_state || school.scorecard?.total_cost_out_of_state)
         : (school.scorecard?.total_cost_out_of_state || school.scorecard?.total_cost_in_state);
