@@ -200,12 +200,11 @@ ${stateAid}
    - Do the simulation results (median net cost) roughly align with the narrative estimates (within ~$3K)?
    If any school's numbers differ by more than $3,000 between ANY two sections, FAIL and list every mismatch with the specific numbers from each section.
 
-3. **Admission rate consistency:** Are admission probability estimates consistent across ALL places they appear? Check:
-   - Does the narrative prose for each school state the same admission probability as the probability table?
-   - Does the probability table match the admit_pct in the JSON params? **The JSON admit_pct must use 3 decimal places matching the narrative.** If narrative says "7.7%" the JSON must be 0.077, NOT 0.08. If narrative says "4.6%" the JSON must be 0.046, NOT 0.05. Rounding to 2 decimal places is a FAIL.
-   - Does the simulation's simulated_admit_rate roughly match the input admit_pct (within a few percentage points, since simulation is stochastic)?
-   - Are the estimates realistic? A strong applicant should not exceed the school's overall admit rate by more than ~5 percentage points.
-   If the prose says one number but the JSON rounds it (e.g., prose "7.7%" but JSON 0.08), FAIL this check. Check EVERY school.
+3. **Admission rate consistency:** The critical check is whether the JSON admit_pct values have 3 decimal places and match the narrative. For EACH school, check:
+   - Does the JSON admit_pct use exactly 3 decimal places? (0.451 not 0.45, 0.110 not 0.11, 0.860 not 0.86). If ANY school has only 2 decimal places, FAIL.
+   - Does the JSON admit_pct match the narrative percentage? (narrative "45.1%" should yield JSON 0.451). Small rounding differences of 0.001 are acceptable.
+   - Are the estimates realistic? A student-adjusted estimate should not exceed the school's overall admit rate by more than ~5 percentage points.
+   **IMPORTANT:** The narrative, probability table, and school writeups may express the same rate slightly differently (e.g., "about 45%" vs "45.1%" vs "43.9%"). Minor prose variations are NOT a failure. Only fail if the JSON value is clearly wrong (wrong number of decimals, or off by more than 2 percentage points from the narrative).
 
 4. **No-merit school check:** Are merit scholarships incorrectly assigned to schools that only offer need-based aid? Check EVERY school on the list against the NO-MERIT LIST provided above. If a school appears on that list and the plan shows merit_pct > 0 in the JSON, or describes merit scholarship opportunities in the narrative, FAIL. Also check: if the narrative says "no merit aid" for a school, does the JSON have merit_pct=0?
 
@@ -241,7 +240,7 @@ ${stateAid}
 12. **Verified data usage:** For each school on the list that has verified data in the VERIFIED SCHOOL DATA section:
    - **Admit rates:** The plan should state the school's OVERALL verified admit rate as a baseline, then give a student-adjusted estimate. The overall rate cited must match verified data within 1 percentage point. The student-adjusted estimate can be higher (for strong applicants) but should not exceed the overall rate by more than 5 percentage points for an unhooked applicant. If the plan cites a wrong overall rate (e.g., says MIT is 8% when verified data shows 3.9%), FAIL.
    - **Costs:** Compare sticker cost and net price against verified numbers. If any differ by more than $3,000, FAIL and list every discrepancy.
-   The verified data is ground truth from CDS 2024-25 reports and the College Scorecard.
+   The verified data is ground truth from CDS 2024-25 reports and the College Scorecard. **This check is ONLY about admit rates and costs.** Do NOT fail this check because the plan mentions academic programs, colleges, or institutes not in the verified data — that is handled by the fabricated_content check, which has relaxed rules for well-known academic programs.
 
 13. **REA/SCEA constraint:** If the plan recommends Restrictive Early Action or Single-Choice Early Action at any school (Harvard SCEA, Yale SCEA, Princeton SCEA, Stanford REA, Notre Dame REA, Georgetown REA), verify that NO other private school on the list is marked EA or ED. Only public/state universities may be EA alongside an REA/SCEA school. Other private schools must be RD or ED2. If the plan has Stanford REA and also MIT EA, that is a FAIL. Check every school's recommended round.
 
