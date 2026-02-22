@@ -100,6 +100,7 @@ The mission: close the information gap in college planning. A $310K family in Na
 
 - [ ] **Plan walkthrough upsell**: 30-minute paid meeting ($TBD) where someone walks the family through their plan, answers questions, helps prioritize. Founder-led initially, then hire college counseling students or recent grads. Scheduling via Calendly or similar.
 - [ ] **Plan regeneration**: allow families to update their info (new grades, changed interests, different school list) and regenerate for ~$20. Reuse same submission ID so the plan URL stays the same.
+- [ ] **Contact Anthropic sales about enterprise/volume pricing.** Once plan volume justifies it, reach out to negotiate rates. They have a Scale tier with direct sales team for higher-volume API usage.
 
 ### Phase 9: Polish
 - [ ] Write founder bio and add to website (landing page "About" section or footer)
