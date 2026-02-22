@@ -69,6 +69,7 @@ The mission: close the information gap in college planning. A $310K family in Na
 - [ ] Connect Stripe to business bank account
 - [ ] Custom domain (scaffoldcollegestrategy.com) for plan URLs
 - [ ] DNS: point domain nameservers to Vercel (ns1.vercel-dns.com, ns2.vercel-dns.com)
+- [ ] Email notification to josieroth22@gmail.com on every new form submission (student name, location, income, payment type, link to admin). Plan: use Resend free tier (100/day), fire-and-forget fetch in generate.js after Redis store. See `.claude/plans/abundant-bubbling-turtle.md` for full implementation details.
 - [ ] Email delivery of completed plan link to the family
 - [ ] Open Graph meta tags (so link previews look good on iMessage, social, etc.)
 - [ ] Analytics (Google Analytics or Plausible) to track traffic, form completion rate, drop-off
