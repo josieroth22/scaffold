@@ -50,7 +50,9 @@ The mission: close the information gap in college planning. A $310K family in Na
 - [ ] Regenerate homepage sample plans (Alejandra, Priya, Jake) with CDS-backed data so samples reflect the same data quality as paid plans
 - [x] Add school data count to homepage — **done, updated Step 2, FAQ, pricing, and "What You Get" sections**
 - [ ] Add source citations to the output ("Based on Emory CDS 2024-2025 data")
-- [ ] **Re-parse CDS for schools with source files but missing JSON data:** Columbia, UCLA, UVA, UT Austin, Rochester (admit_rate null)
+- [x] **Re-parse CDS for schools with source files:** Rochester fixed (sheet name bug), UVA and UT Austin already had good data
+- [ ] **Find correct CDS for UCLA:** Current PDF is a fillable form that pdftotext can't extract. Need a non-fillable PDF or flattened export.
+- [ ] **Find correct CDS for Columbia:** Current PDF is for Columbia General Studies (516 applicants), not the main Columbia College. Need the real CDS (~60K applicants, ~3-4% admit rate).
 - [ ] **Download and parse CDS for missing high-priority schools:** Georgia Tech, WashU St. Louis, Florida State, Cal Poly SLO, Juilliard. Check school CDS websites or IPEDS for availability.
 
 ### Phase 3b: Data Cleanup (low priority)
