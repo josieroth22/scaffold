@@ -50,6 +50,8 @@ The mission: close the information gap in college planning. A $310K family in Na
 - [ ] Regenerate homepage sample plans (Alejandra, Priya, Jake) with CDS-backed data so samples reflect the same data quality as paid plans
 - [x] Add school data count to homepage — **done, updated Step 2, FAQ, pricing, and "What You Get" sections**
 - [ ] Add source citations to the output ("Based on Emory CDS 2024-2025 data")
+- [ ] **Re-parse CDS for schools with source files but missing JSON data:** Columbia, UCLA, UVA, UT Austin, Rochester (admit_rate null)
+- [ ] **Download and parse CDS for missing high-priority schools:** Georgia Tech, WashU St. Louis, Florida State, Cal Poly SLO, Juilliard. Check school CDS websites or IPEDS for availability.
 
 ### Phase 3b: Data Cleanup (low priority)
 *Nice-to-haves that improve coverage but aren't blockers.*
