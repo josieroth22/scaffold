@@ -182,8 +182,8 @@ function isTargetSheet(sheetName) {
   const name = sheetName.toLowerCase().trim();
   // Exact matches
   if (name === "c" || name === "g" || name === "h") return true;
-  // CDS-prefixed
-  if (name === "cds-c" || name === "cds-g" || name === "cds-h") return true;
+  // CDS-prefixed (handles "CDS-C", "CDS-C Combined", "CDS-C AS&E", etc.)
+  if (/^cds-[cgh]/.test(name)) return true;
   // Starts with the letter followed by a space, dot, or digit
   if (/^c[\s.\d]/.test(name)) return true;
   if (/^g[\s.\d]/.test(name)) return true;

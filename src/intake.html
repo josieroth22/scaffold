@@ -1615,6 +1615,7 @@
     window.scrollTo({ top: 0, behavior: 'smooth' });
 
     generationCancelled = false;
+    abortController = new AbortController();
 
     // Call the API
     try {
@@ -1631,6 +1632,7 @@
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(body),
+          signal: abortController.signal,
         });
         if (generationCancelled) throw new Error('Generation cancelled');
         if (res.ok) {
@@ -1653,6 +1655,7 @@
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data),
+        signal: abortController.signal,
       });
 
       if (!response.ok) {
@@ -1696,12 +1699,14 @@
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ id: submissionId }),
+            signal: abortController.signal,
           });
           if (!fixRes.ok) {
             console.warn('Fix-plan returned ' + fixRes.status);
             break;
           }
         } catch (e) {
+          if (generationCancelled || e.name === 'AbortError') throw new Error('Generation cancelled');
           console.warn('Fix-plan request failed:', e);
           break;
         }
@@ -1712,6 +1717,7 @@
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ id: submissionId }),
+            signal: abortController.signal,
           });
           if (reReviewRes.ok) {
             const reReviewData = await reReviewRes.json();
@@ -1745,6 +1751,7 @@
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ id: submissionId }),
+            signal: abortController.signal,
           });
 
           if (regenRes.ok) {
@@ -1760,6 +1767,7 @@
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ id: submissionId }),
+                signal: abortController.signal,
               });
               if (regenReviewRes.ok) {
                 const regenReview = await regenReviewRes.json();
@@ -1827,6 +1835,7 @@
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ id: submissionId }),
+        signal: abortController.signal,
       });
 
       if (tier2Response.ok) {
@@ -1848,6 +1857,7 @@
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ id: submissionId }),
+          signal: abortController.signal,
         });
         if (finalReviewRes.ok) {
           const finalReview = await finalReviewRes.json();
@@ -1872,6 +1882,7 @@
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ id: submissionId }),
+            signal: abortController.signal,
           });
           if (finalFixRes.ok) {
             try {
@@ -1879,6 +1890,7 @@
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ id: submissionId }),
+                signal: abortController.signal,
               });
               if (lastReviewRes.ok) {
                 const lastReview = await lastReviewRes.json();
@@ -1928,6 +1940,11 @@
       }, 1500);
 
     } catch (err) {
+      if (generationCancelled || err.name === 'AbortError' || (err.message && err.message.includes('cancelled'))) {
+        // Cancellation — cancelGeneration() already updated the UI
+        console.log('Generation cancelled by user.');
+        return;
+      }
       console.error('Generation failed:', err);
       document.getElementById('gen-status').innerHTML = 'Something went wrong. Your answers are saved.<br><button onclick="restoreAndRetry()" style="margin-top: 1rem; padding: 0.7rem 1.5rem; background: var(--sage); color: white; border: none; border-radius: 8px; font-family: inherit; font-size: 0.9rem; font-weight: 600; cursor: pointer;">Try Again</button>';
       document.getElementById('gen-progress').style.background = 'var(--error)';
@@ -1937,6 +1954,7 @@
   // Cancel generation from the generating screen
   async function cancelGeneration() {
     generationCancelled = true;
+    if (abortController) abortController.abort();
     const btn = document.getElementById('cancel-gen-btn');
     btn.textContent = 'Cancelling...';
     btn.disabled = true;
@@ -1960,6 +1978,7 @@
   // Shared state for cancel mechanism
   let submissionId = null;
   let generationCancelled = false;
+  let abortController = null;
 
   // Basic markdown to HTML
   function markdownToHtml(md) {
@@ -2060,6 +2079,9 @@
 
   // Try Again: hide generating screen, restore form, show step 7
   function restoreAndRetry() {
+    // Reset cancellation state
+    generationCancelled = false;
+    abortController = null;
     document.getElementById('generating').classList.remove('active');
     document.getElementById('intake-form').style.display = 'block';
     document.querySelector('.progress-wrap').style.display = 'block';
@@ -2070,6 +2092,13 @@
     const submitBtn = document.querySelector('.btn-submit');
     submitBtn.disabled = false;
     submitBtn.textContent = 'Submit and Build My Plan';
+    // Re-show cancel button for next attempt
+    const cancelBtn = document.getElementById('cancel-gen-btn');
+    if (cancelBtn) {
+      cancelBtn.style.display = '';
+      cancelBtn.disabled = false;
+      cancelBtn.textContent = 'Cancel';
+    }
   }
 
   // Initialize

@@ -57,13 +57,13 @@
     "tuition_out_of_state": null,
     "tuition_private": 68280,
     "required_fees": 555,
-    "room_board": 21897,
+    "room_board": null,
     "pct_need_met": 65,
     "avg_need_grant": 44305,
     "avg_financial_aid_package": 49813,
     "meets_full_need": false,
-    "pct_freshmen_receiving_need_aid": null,
-    "pct_freshmen_receiving_merit_aid": null,
+    "pct_freshmen_receiving_need_aid": 22.22,
+    "pct_freshmen_receiving_merit_aid": 2.78,
     "avg_merit_award": 8195
   },
   "reference": {

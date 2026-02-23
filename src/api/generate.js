@@ -388,6 +388,31 @@ module.exports = async function handler(req, res) {
     });
     // Add to the submissions list
     await redis.lpush("submissions", id);
+
+    // Send notification email (fire and forget)
+    if (process.env.RESEND_API_KEY) {
+      fetch('https://api.resend.com/emails', {
+        method: 'POST',
+        headers: {
+          'Authorization': `Bearer ${process.env.RESEND_API_KEY}`,
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          from: 'Scaffold <notifications@scaffoldcollegestrategy.com>',
+          to: 'josieroth22@gmail.com',
+          subject: `New Scaffold submission: ${data.student_name} ${data.student_last_name || ''}`,
+          html: `<p>New submission received!</p>
+            <ul>
+              <li><strong>Student:</strong> ${data.student_name} ${data.student_last_name || ''}</li>
+              <li><strong>Location:</strong> ${data.city || ''}${data.state ? ', ' + data.state : ''}</li>
+              <li><strong>Income:</strong> ${data.income || 'Not specified'}</li>
+              <li><strong>Email:</strong> ${data.email || 'Not provided'}</li>
+              <li><strong>Payment:</strong> ${data.payment_type || 'free'}</li>
+            </ul>
+            <p><a href="https://scaffold-project.vercel.app/admin.html">View in Admin</a></p>`,
+        }),
+      }).catch(err => console.error('Notification email failed:', err));
+    }
   } catch (storeErr) {
     console.error("Failed to store submission:", storeErr);
     // Don't block generation if storage fails
