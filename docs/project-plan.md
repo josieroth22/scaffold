@@ -55,7 +55,18 @@ The mission: close the information gap in college planning. A $310K family in Na
 - [ ] **Find correct CDS for Columbia:** Current PDF is for Columbia General Studies (516 applicants), not the main Columbia College. Need the real CDS (~60K applicants, ~3-4% admit rate).
 - [ ] **Download and parse CDS for missing high-priority schools:** Georgia Tech, WashU St. Louis, Florida State, Cal Poly SLO, Juilliard. Check school CDS websites or IPEDS for availability.
 
-### Phase 3b: Data Cleanup (low priority)
+### Phase 3b: Programmatic Plan Validation
+*Code-based checks that run before the Claude review to catch mechanical errors the LLM misses.*
+- [ ] **Build `validate-plan.js` module** that parses the generated output and runs these checks in code:
+  - **REA/SCEA constraint:** Parse each school's `round` from the JSON sim params, cross-reference `type: "private"` from school JSONs. If any private school is EA/ED while another is REA/SCEA, auto-fix to RD.
+  - **Tier consistency:** Extract tier labels from JSON params AND from markdown sections (exec summary table, school writeups, probability table). Flag any school with mismatched tiers across sections.
+  - **Admit rate decimals:** Check every `admit_pct` in JSON has exactly 3 decimal places. Auto-fix by padding with zero if needed.
+  - **Cost consistency:** Compare JSON `sticker_cost` against verified school data. Compare narrative cost ranges against JSON-derived net costs.
+  - **No-merit school enforcement:** Verify `merit_pct=0` for schools on the no-merit list (Ivies, MIT, Stanford, Caltech, etc.).
+- [ ] **Integrate into pipeline** as a step between generation and Claude review. Auto-fix what's possible, flag what needs regeneration.
+- [ ] **Structured extraction for review:** Instead of asking Claude to review the whole plan in one shot, first extract specific values (school names, tiers, rounds, costs, admit rates) into structured JSON, then validate programmatically. Leave Claude review only for subjective quality (tone, strategy logic, completeness).
+
+### Phase 3c: Data Cleanup (low priority)
 *Nice-to-haves that improve coverage but aren't blockers.*
 - [ ] Parse CDS for 11 missing schools (all US News 80+): Binghamton, Colorado School of Mines, Chapman, Creighton, Elon, Saint Louis, Temple, U of Missouri, BYU, U of Tennessee, Yeshiva
 - [ ] Add DACA/undocumented aid, foster care tuition waivers, military/veteran education benefits, and Native American tuition waivers to state aid doc
