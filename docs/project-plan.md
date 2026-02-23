@@ -117,9 +117,12 @@ The mission: close the information gap in college planning. A $310K family in Na
 - [ ] **Plan regeneration**: allow families to update their info (new grades, changed interests, different school list) and regenerate for ~$20. Reuse same submission ID so the plan URL stays the same.
 - [ ] **Contact Anthropic sales about enterprise/volume pricing.** Once plan volume justifies it, reach out to negotiate rates. They have a Scale tier with direct sales team for higher-volume API usage.
 
-### Phase 9: Polish
-- [ ] Write founder bio and add to website (landing page "About" section or footer)
+### Phase 9: Output Enhancements
+- [ ] **4-year cost projection table:** For each school, show a year-by-year cost estimate that accounts for tuition inflation (~3-5%/year), potential in-state residency establishment for OOS public schools (year 2 or 3 switch to in-state rates where allowed), and sibling overlap (multiple kids in college simultaneously reduces EFC/SAI, increasing need-based aid). This gives families the full picture, not just year-1 sticker shock.
 - [ ] PDF export of the full plan
+
+### Phase 10: Polish
+- [ ] Write founder bio and add to website (landing page "About" section or footer)
 - [ ] Testimonials section on homepage
 - [ ] Delete old static sample files (washington-sample.html, medina-sample.html, kaplan-sample.html)
 - [ ] Admin dashboard: show review history in status column (e.g., "Fail → Fix → Pass" or "Fail x2 → Pass") instead of just final status. Store review attempt count and per-attempt results in Redis so admin can see the full pipeline journey.
