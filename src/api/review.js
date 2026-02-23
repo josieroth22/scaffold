@@ -194,7 +194,7 @@ ${stateAid}
 1. **Residency accuracy:** Are in-state/out-of-state tuition classifications correct for the student's home state? DC students should NOT be listed as in-state for Maryland or Virginia. Students are only in-state for schools in their own state.
    **CRITICAL: Also verify the sticker_cost in the JSON params matches the correct residency rate.** If a student is out-of-state at a public university, the sticker cost must reflect out-of-state tuition (typically $45K-$60K), NOT in-state tuition (typically $15K-$35K). For example, a DC student at UMD should have a sticker cost around $55K, not $30K. If the sticker cost uses the wrong residency rate, FAIL this check and flag the dollar amount mismatch.
 
-2. **Cost consistency across sections:** Do the cost estimates match across ALL sections of the plan? Check three things:
+2. **Tier and cost consistency across sections:** First check TIER LABELS: For each school, does it have the SAME tier label (Reach, Target, or Safety) in every section where it appears (Executive Summary table, school writeups, probability table, "What If" section)? If any school is called "Safety" in one section and "Target" in another, FAIL and list every mismatch. Then check COSTS:
    - Do the executive summary table costs match the per-school writeups and the probability table?
    - Do the narrative cost estimates match the JSON simulation parameters (sticker_cost minus aid ranges should roughly equal the narrative's estimated net cost)?
    - Do the simulation results (median net cost) roughly align with the narrative estimates (within ~$3K)?
@@ -244,7 +244,10 @@ ${stateAid}
    - **Costs:** Compare sticker cost and net price against verified numbers. If any differ by more than $3,000, FAIL and list every discrepancy.
    The verified data is ground truth from CDS 2024-25 reports and the College Scorecard. **This check is ONLY about admit rates and costs.** Do NOT fail this check because the plan mentions academic programs, colleges, or institutes not in the verified data — that is handled by the fabricated_content check, which has relaxed rules for well-known academic programs.
 
-13. **REA/SCEA constraint:** If the plan recommends Restrictive Early Action or Single-Choice Early Action at any school (Harvard SCEA, Yale SCEA, Princeton SCEA, Stanford REA, Notre Dame REA, Georgetown REA), verify that NO other private school on the list is marked EA or ED. Only public/state universities may be EA alongside an REA/SCEA school. Other private schools must be RD or ED2. If the plan has Stanford REA and also MIT EA, that is a FAIL. Check every school's recommended round.
+13. **REA/SCEA constraint:** If the plan recommends Restrictive Early Action or Single-Choice Early Action at any school (Harvard SCEA, Yale SCEA, Princeton SCEA, Stanford REA, Notre Dame REA, Georgetown REA), verify that NO other private school on the list is marked EA or ED. Only public/state universities may be EA alongside an REA/SCEA school. Other private schools must be RD or ED2.
+   - **This is a hard rule with NO exceptions.** Do NOT rationalize (e.g., "it's acceptable if REA is not pursued"). The plan as written must be internally consistent. If Stanford is REA and Case Western is EA, that is a FAIL. Period.
+   - Check every school on the list. For each one, determine: (a) is it public or private? (b) what application round is recommended? If any private school is EA/ED while another school is REA/SCEA, FAIL immediately.
+   - Common private schools that CANNOT be EA alongside an REA/SCEA: MIT, Case Western, USC, NYU, Boston University, Northeastern, Tulane, Rice, Duke, Emory, WashU, Northwestern, etc.
 
 14. **State aid programs:** If the STATE AID PROGRAMS section above lists programs for this family's state, does the plan mention them? For example, if the family is in Florida and the state aid section mentions Bright Futures, does the plan discuss Bright Futures and whether this student is on track? If significant state programs exist and are completely absent from the plan, FAIL.
 
