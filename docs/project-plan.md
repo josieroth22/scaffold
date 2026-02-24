@@ -23,6 +23,11 @@ The mission: close the information gap in college planning. A $310K family in Na
 
 ## Product Roadmap
 
+### Phase 0: Learn Claude Code Best Practices
+- [ ] Read Claude Code docs and learn effective workflows (CLAUDE.md, hooks, slash commands, MCP servers, etc.)
+- [ ] Optimize CLAUDE.md with project-specific context so Claude Code is maximally effective on this codebase
+- [ ] Learn prompt engineering patterns for getting the best results from Claude Code sessions
+
 ### Phase 1: Friends & Family Testing (NOW)
 - [ ] Share site with friends and collect feedback on plan quality and form UX
 - [ ] Mobile test the full flow (form, generating screen, plan page) on a phone
