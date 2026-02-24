@@ -205,102 +205,27 @@ API costs scale with volume. At 50 plans/month, API spend would be ~$300-400/mon
 
 ---
 
-## Common Data Set (CDS) Integration
+## School Data (Built)
 
-### Why This Matters
-The prompt currently relies on Claude's training data for admission rates, financial aid, and costs. Two problems:
-1. **Staleness.** Training data has a cutoff. A family paying $50 deserves current numbers.
-2. **Verifiability.** "Based on Emory's 2024-2025 CDS, Section C" is more trustworthy than "based on what we know about Emory."
+### What's Done
+- **136 schools** parsed from CDS 2024-25 PDFs/XLSX via `scripts/parse-cds.js` (Claude API extraction)
+- **1,492 schools** with College Scorecard data (costs, grad rates, earnings)
+- **108 schools** with curated reference data (scholarships, honors programs, National Merit)
+- **55 schools** tagged as QuestBridge partners
+- **98 honors programs** verified against official sources
+- **All 50 states + DC** with state aid programs in `data/state-aid-programs.md`
+- **Financial aid reference** in `data/financial-aid-facts.md` (no-merit schools, full-need, CSS vs FAFSA, QuestBridge, gapping)
+- All data injected into generation prompt via `src/lib/school-data.js` (~23K tokens per call)
 
-### What Is the CDS?
-A standardized survey most U.S. colleges publish annually. Key sections for Scaffold:
-- **Section C:** Admission stats (admit rate, yield, test score ranges, GPA distribution)
-- **Section G:** Annual expenses (tuition, room/board, fees by residency)
-- **Section H:** Financial aid (% receiving aid, average award, % of need met, net price by income bracket)
+### CDS Data Per School
+Sections C (admissions), G (costs), H (financial aid) from Common Data Set. Fields include: admit rate overall/ED/EA, middle 50% SAT/ACT/GPA, tuition (in-state/out-of-state/private), room and board, % need met, average need-based grant, net price by income bracket.
 
-### Approach
-**Option A (decided):** Pre-loaded JSON database of CDS data for 100-150 schools. Inject relevant school data into the prompt at generation time. Update annually when new CDS releases come out (typically fall/winter).
-
-Option B (live retrieval via scraping/RAG) is a future consideration if we outgrow the pre-loaded approach.
-
-### Data Points Per School
-
-| Field | Source | Example (Emory) |
-|-------|--------|-----------------|
-| Admit rate (overall) | CDS C1 | 11.2% |
-| Admit rate (ED/EA) | CDS C1 | 18.5% ED |
-| Middle 50% SAT | CDS C9 | 1450-1540 |
-| Middle 50% ACT | CDS C9 | 33-35 |
-| Middle 50% GPA | CDS C12 | 3.8-4.0 |
-| Tuition and fees (in-state if public) | CDS G1 | $59,000 |
-| Room and board | CDS G1 | $17,500 |
-| % of need met (average) | CDS H2 | 100% |
-| Average need-based grant | CDS H2 | $54,000 |
-| Net price ($0-48K income) | CDS H2/NPC | $3,200 |
-| Net price ($48-75K income) | CDS H2/NPC | $5,100 |
-| Net price ($75-110K income) | CDS H2/NPC | $12,400 |
-| Meets full demonstrated need? | CDS H2 | Yes |
-| No-loan policy? | Website | Yes (<$75K) |
-| QuestBridge partner? | Website | Yes |
-| Honors program? | Website | No |
-| Notable programs | Website | Creative Writing MFA, forensics |
-
-### Additional Website Data
-Beyond the CDS, each school's website provides: net price calculator results, specific program pages, financial aid policies, application deadlines, diversity statistics, and scholarship eligibility criteria.
-
-### Priority Schools for Initial Database
-Start with schools appearing most frequently across generated plans, then expand:
-- All state flagships (50)
-- All QuestBridge partner schools (~50)
-- HBCUs with >2,000 enrollment (~30)
-- Top 50 liberal arts colleges
-
-Gets to ~150 schools with some overlap.
-
-### CDS Implementation Steps
-1. Build the JSON schema for school data
-2. Pull CDS data for the first 50 schools (start with schools from test plans)
-3. Add a pipeline step that injects relevant school data into the prompt
-4. Add citation format to the output so families can verify numbers
-5. Expand to 150 schools
-6. Document the annual update process
-
----
-
-## Master School Reference Document
-
-### Why This Matters
-The CDS provides standardized quantitative data (admit rates, costs, aid stats). But there's a whole category of qualitative information that matters for strategy and that Claude currently pulls from training data, which may be outdated or wrong:
-- Whether a school has a strong honors college (and what it's worth)
-- Specific residency quirks (DC students, reciprocity agreements, WUE eligibility)
-- Known scholarship programs and their typical award ranges
-- Application quirks (supplements, interviews, demonstrated interest weight)
-- Program-specific strengths that aren't obvious from rankings
-- Financial aid policies beyond what's in the CDS (no-loan thresholds, gap policies)
-
-### What It Contains
-A curated JSON or markdown file per school with fields the CDS doesn't cover:
-
-| Field | Example (UMD) |
-|-------|---------------|
-| Residency notes | DC residents are OUT-OF-STATE. DC TAG provides $10K/yr toward OOS public tuition. |
-| Honors program | Honors College: separate application, ~1,500 students, priority registration, dedicated housing. Worth applying. |
-| Notable merit scholarships | Banneker/Key: full ride, ~30 students/yr. Presidential: $12K/yr. |
-| Demonstrated interest? | Yes, moderately weighted. Campus visit recommended. |
-| Application quirks | Accepts Coalition or Common App. Short supplement. |
-| Known strong programs | Engineering (Clark School), computer science, business (Smith School) |
-| Financial aid notes | Does NOT meet full need. Average gap: ~$5K/yr. |
-| WUE/reciprocity | N/A (not a western state) |
-
-### Approach
-- Start with schools that appear most frequently in generated plans
-- Build alongside the CDS database (same schools, complementary data)
-- Founder curates this manually from school websites, counselor knowledge, and Reddit/College Confidential
-- Injected into the prompt alongside CDS data at generation time
-- Updated annually or when significant policy changes occur
-
-### Priority
-This is part of Phase 3 (Data Quality). Build it alongside the CDS database so both quantitative and qualitative data are available at launch.
+### Remaining Data Gaps
+- UCLA: CDS PDF is fillable form, pdftotext can't extract values
+- Columbia: PDF is for General Studies, not main college
+- Missing CDS: Georgia Tech, WashU, FSU, Cal Poly SLO, Juilliard
+- 11 lower-priority schools still missing (Binghamton, Colorado School of Mines, etc.)
+- Founder-curated fields mostly empty: demonstrated_interest, no_loan_policy, application_notes, strong_programs
 
 ---
 
