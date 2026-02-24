@@ -11,10 +11,12 @@ The mission: close the information gap in college planning. A $310K family in Na
 ## What's Built
 
 - **Landing page** (index.html) with 3 sample plans (Alejandra, Priya, Jake)
-- **Intake form** (intake.html) with 7-step guided flow, bypass code for free access
+- **Intake form** (intake.html) with 7-step guided flow, bypass code for free access, cancel button, form state auto-save
 - **Generation pipeline**: Tier 1 (Strategy Brief) -> Quality review (15 checks) -> Targeted fix pass (up to 2 attempts) -> Full regeneration if fixes fail -> Monte Carlo simulation (10,000 iterations) -> Cost/tier reconciliation -> Tier 2 (Reference Sections) -> Final review + fix
+- **Cancellation**: Server-side re-checks after every Claude API call (review, fix, reconcile, simulate), client-side AbortController kills in-flight fetch requests, cancel from admin or intake page
 - **Plan page** (plan.html) with sidebar navigation, collapsible sections, simulation charts, submission info
-- **Admin dashboard** (admin.html) with submission management, plan viewing, simulation retry
+- **Admin dashboard** (admin.html) with submission management, plan viewing, simulation retry, auto-polling (5s while active)
+- **Email notification**: Code in generate.js ready to send via Resend on every new submission (needs RESEND_API_KEY env var in Vercel)
 - **Infrastructure**: Vercel serverless functions, Upstash Redis, Anthropic API (Claude Opus)
 
 ---
@@ -43,8 +45,9 @@ The mission: close the information gap in college planning. A $310K family in Na
 - [x] Build comprehensive state aid reference — **data/state-aid-programs.md covering all 50 states + DC, 17 prompt rules**
 - [x] Inject school data (CDS + Scorecard + reference + state aid + financial-aid-facts) into the prompt at generation time via `src/api/school-data.js` — **~23K tokens of verified data injected per generation**
 - [x] Inject verified data into Tier 2 and review pipelines — **review.js now uses verified data as ground truth (check #12)**
-- [ ] Deploy the data injection update to Vercel (verify auto-deploy from main is working)
-- [ ] Run Brett Roth test submission (Boca Raton, FL, $200K, engineering, merit-focused) — first full test with verified school data, honors programs, and state aid injected
+- [x] Deploy the data injection update to Vercel — **auto-deploy from main is working**
+- [x] Run Brett Roth test submission (Boca Raton, FL, $200K, engineering, merit-focused) — **15/15 checks passed (attempt 5: 2 fixes + regen). Found two issues the reviewer missed: CWRU listed as EA despite Stanford REA (should be RD), NC State labeled Safety in one section and Target in another. Led to stricter REA/SCEA and tier consistency checks.**
+- [x] Run Martinez test submission (Milwaukee, WI, $62K, first-gen, environmental science) — **stress-tested 11 improvements in one run. Multiple iterations: first run 10/15, second 12/15, third passed. Led to fixes for admit rate 3-decimal enforcement, split fabrication rule, state aid must-mention, review false positive fixes.**
 - [ ] Run manual test generation with Washington family (Atlanta, GA, $72K) and verify: Georgia HOPE/Zell Miller appears with correct thresholds, UGA uses in-state tuition, no fabricated scholarship names, costs match verified data
 - [ ] Run automated 20-profile batch test with CDS data live. Profiles cover: DC/PR residency edge cases, no-merit schools, tight budgets ($0-$15K), rural first-gen, athletes, arts/conservatory, DACA, divorced families (FAFSA vs CSS split), homeschool, learning disabilities, military/ROTC, CC transfers, international, legacy, LGBTQ+ culture fit. Evaluate every plan for accuracy, run full review+fix pipeline, and iterate prompts based on failure patterns.
 - [ ] Regenerate homepage sample plans (Alejandra, Priya, Jake) with CDS-backed data so samples reflect the same data quality as paid plans
@@ -84,7 +87,7 @@ The mission: close the information gap in college planning. A $310K family in Na
 - [ ] Connect Stripe to business bank account
 - [ ] Custom domain (scaffoldcollegestrategy.com) for plan URLs
 - [ ] DNS: point domain nameservers to Vercel (ns1.vercel-dns.com, ns2.vercel-dns.com)
-- [ ] Email notification to josieroth22@gmail.com on every new form submission (student name, location, income, payment type, link to admin). Plan: use Resend free tier (100/day), fire-and-forget fetch in generate.js after Redis store. See `.claude/plans/abundant-bubbling-turtle.md` for full implementation details.
+- [x] Email notification code written in generate.js — fire-and-forget via Resend API, guarded by RESEND_API_KEY env var. **Still needs: Resend account signup, API key, domain verification, add RESEND_API_KEY to Vercel env vars.**
 - [ ] Email delivery of completed plan link to the family
 - [ ] Open Graph meta tags (so link previews look good on iMessage, social, etc.)
 - [ ] Analytics (Google Analytics or Plausible) to track traffic, form completion rate, drop-off
@@ -96,7 +99,7 @@ The mission: close the information gap in college planning. A $310K family in Na
 
 ### Phase 6: Reliability & Safety
 - [ ] Rate limiting on form submission (prevent spam that runs up API costs)
-- [ ] Error recovery: save form state so families can retry without re-filling everything
+- [x] Error recovery: form state auto-saved to localStorage, restoreAndRetry function restores all fields on failure/cancel
 - [ ] Character limits on form fields (prevent excessively long inputs that blow up token counts and cost; guide users toward concise answers)
 - [ ] Graceful error handling when Claude API is down or times out: show a friendly error message with a support email to contact, and save their form data so they don't lose it
 - [ ] Data retention policy (how long do plans live in Redis? backup strategy?)
@@ -293,6 +296,25 @@ A curated JSON or markdown file per school with fields the CDS doesn't cover:
 
 ### Priority
 This is part of Phase 3 (Data Quality). Build it alongside the CDS database so both quantitative and qualitative data are available at launch.
+
+---
+
+## Prompt Improvements Log
+
+*Iterative fixes based on test submissions. All changes are in generate.js (generation prompt self-checks) and review.js (15-check reviewer).*
+
+- **Admit rate 3-decimal enforcement:** Explicit padding examples (45.1% = 0.451, 11.0% = 0.110). #1 reason plans failed review.
+- **Split fabrication rule:** Strict for scholarship names/amounts (must match verified data verbatim). Relaxed for academic programs/colleges/institutes (Claude can reference well-known programs from its knowledge).
+- **State aid must-mention:** If verified data includes state aid programs for this family's state, the plan MUST mention them by name.
+- **Standard risk ratings only:** Only "Very Low / Low / Moderate / High / Very High" allowed. No custom labels like "Over Budget."
+- **Dagger footnote:** Changed REA footnote from superscript numbers (barely visible) to dagger symbol with terra color CSS.
+- **Budget flexibility with strong safety:** If a strong financial safety exists (well under budget, high admit probability), over-budget reaches are acceptable. Don't force 60% under budget when UF at $16K is the floor.
+- **REA/SCEA explicit private school list:** Self-check and review now list common private schools by name (MIT, Case Western, USC, NYU, etc.) that must be RD when REA/SCEA is used. No rationalizations like "acceptable if REA is not pursued."
+- **Tier consistency self-check:** Every school must have the same tier label (Reach/Target/Safety) across all sections. Review now checks this before cost consistency.
+- **Vague radar school handling:** If family says "Ivies" or "UCs," asterisk every school on the list that belongs to that group.
+- **Review false positive fixes:** Admit rate check no longer self-contradicts on minor prose variations. Verified data check scoped to admit rates and costs only (programs don't trigger failure). Budget alignment flexible with strong safety.
+- **Badge rendering fix:** Catch-all CSS class matching "high"/"low" substrings in full sentences replaced with strict regex for short risk-label text only.
+- **CDS null cost fallback:** Schools with CDS admission data but null cost fields fall back to Scorecard costs instead of showing null.
 
 ---
 
