@@ -28,21 +28,32 @@ The mission: close the information gap in college planning. A $310K family in Na
 - [ ] Optimize CLAUDE.md with project-specific context so Claude Code is maximally effective on this codebase
 - [ ] Learn prompt engineering patterns for getting the best results from Claude Code sessions
 
-### Phase 1: Friends & Family Testing (NOW)
+### Phase 1: Programmatic Plan Validation
+*Build this BEFORE more testing. No point testing if the validation system is getting revamped.*
+- [ ] **Build `validate-plan.js` module** that parses the generated output and runs these checks in code:
+  - **REA/SCEA constraint:** Parse each school's `round` from the JSON sim params, cross-reference `type: "private"` from school JSONs. If any private school is EA/ED while another is REA/SCEA, auto-fix to RD.
+  - **Tier consistency:** Extract tier labels from JSON params AND from markdown sections (exec summary table, school writeups, probability table). Flag any school with mismatched tiers across sections.
+  - **Admit rate decimals:** Check every `admit_pct` in JSON has exactly 3 decimal places. Auto-fix by padding with zero if needed.
+  - **Cost consistency:** Compare JSON `sticker_cost` against verified school data. Compare narrative cost ranges against JSON-derived net costs.
+  - **No-merit school enforcement:** Verify `merit_pct=0` for schools on the no-merit list (Ivies, MIT, Stanford, Caltech, etc.).
+- [ ] **Integrate into pipeline** as a step between generation and Claude review. Auto-fix what's possible, flag what needs regeneration.
+- [ ] **Structured extraction for review:** Instead of asking Claude to review the whole plan in one shot, first extract specific values (school names, tiers, rounds, costs, admit rates) into structured JSON, then validate programmatically. Leave Claude review only for subjective quality (tone, strategy logic, completeness).
+
+### Phase 2: Friends & Family Testing
 - [ ] Share site with friends and collect feedback on plan quality and form UX
 - [ ] Mobile test the full flow (form, generating screen, plan page) on a phone
 - [ ] Collect testimonial quotes from testers for homepage
 - [ ] Review generated plans for accuracy, tone, and hallucinated data
 - [ ] Run 20+ test submissions covering diverse profiles (different income levels, regions, family structures, academic strengths, edge cases like DC residency, international students, divorced parents, first-gen, rural, etc.). Evaluate each plan and update prompts as needed to handle all bases.
 
-### Phase 2: Business Setup
+### Phase 3: Business Setup
 *Do this before taking real payments.*
 - [ ] Form an LLC (state filing, ~$50-200 depending on state)
 - [ ] Get an EIN from IRS (free, irs.gov, takes 5 minutes)
 - [ ] Open a business bank account (keeps Stripe payouts separate from personal)
 - [ ] Set up business email at scaffoldcollegestrategy.com
 
-### Phase 3: Data Quality
+### Phase 4: Data Quality
 *Before taking money, the numbers need to be verifiable.*
 - [x] Build a JSON database of Common Data Set data for 100-150 schools — **136 schools parsed from CDS PDFs/XLSX**
 - [x] Build a master school reference document with qualitative info — **108 schools with scholarships/honors/National Merit, 55 QuestBridge tags, 1,492 schools with Scorecard data**
@@ -63,30 +74,19 @@ The mission: close the information gap in college planning. A $310K family in Na
 - [ ] **Find correct CDS for Columbia:** Current PDF is for Columbia General Studies (516 applicants), not the main Columbia College. Need the real CDS (~60K applicants, ~3-4% admit rate).
 - [ ] **Download and parse CDS for missing high-priority schools:** Georgia Tech, WashU St. Louis, Florida State, Cal Poly SLO, Juilliard. Check school CDS websites or IPEDS for availability.
 
-### Phase 3b: Programmatic Plan Validation
-*Code-based checks that run before the Claude review to catch mechanical errors the LLM misses.*
-- [ ] **Build `validate-plan.js` module** that parses the generated output and runs these checks in code:
-  - **REA/SCEA constraint:** Parse each school's `round` from the JSON sim params, cross-reference `type: "private"` from school JSONs. If any private school is EA/ED while another is REA/SCEA, auto-fix to RD.
-  - **Tier consistency:** Extract tier labels from JSON params AND from markdown sections (exec summary table, school writeups, probability table). Flag any school with mismatched tiers across sections.
-  - **Admit rate decimals:** Check every `admit_pct` in JSON has exactly 3 decimal places. Auto-fix by padding with zero if needed.
-  - **Cost consistency:** Compare JSON `sticker_cost` against verified school data. Compare narrative cost ranges against JSON-derived net costs.
-  - **No-merit school enforcement:** Verify `merit_pct=0` for schools on the no-merit list (Ivies, MIT, Stanford, Caltech, etc.).
-- [ ] **Integrate into pipeline** as a step between generation and Claude review. Auto-fix what's possible, flag what needs regeneration.
-- [ ] **Structured extraction for review:** Instead of asking Claude to review the whole plan in one shot, first extract specific values (school names, tiers, rounds, costs, admit rates) into structured JSON, then validate programmatically. Leave Claude review only for subjective quality (tone, strategy logic, completeness).
-
-### Phase 3c: Data Cleanup (low priority)
+### Phase 4b: Data Cleanup (low priority)
 *Nice-to-haves that improve coverage but aren't blockers.*
 - [ ] Parse CDS for 11 missing schools (all US News 80+): Binghamton, Colorado School of Mines, Chapman, Creighton, Elon, Saint Louis, Temple, U of Missouri, BYU, U of Tennessee, Yeshiva
 - [ ] Add DACA/undocumented aid, foster care tuition waivers, military/veteran education benefits, and Native American tuition waivers to state aid doc
 - [ ] Fill in founder-curated reference fields still empty for most schools: demonstrated_interest, no_loan_policy, application_notes, strong_programs
 
-### Phase 4: Legal
+### Phase 5: Legal
 *Required before charging strangers.*
 - [ ] Terms of Service (you're collecting sensitive financial data and info about minors)
 - [ ] Privacy Policy (legally required, especially with financial/education data; COPPA may apply)
 - [ ] Formal disclaimer page ("not professional counseling, no guaranteed admission or scholarship outcomes")
 
-### Phase 5: Launch Infrastructure
+### Phase 6: Launch Infrastructure
 *Everything needed to go from free testing to paid product.*
 - [ ] Stripe integration ($50 one-time payment before form access)
 - [ ] Connect Stripe to business bank account
@@ -97,12 +97,12 @@ The mission: close the information gap in college planning. A $310K family in Na
 - [ ] Open Graph meta tags (so link previews look good on iMessage, social, etc.)
 - [ ] Analytics (Google Analytics or Plausible) to track traffic, form completion rate, drop-off
 
-### Phase 5b: Data Maintenance
+### Phase 6b: Data Maintenance
 *Set up before scaling so data doesn't go stale while you're selling.*
 - [ ] Plan the annual update process: refresh CDS data, Scorecard API data, and reference data every year when new CDS releases come out (typically fall/winter). Set a calendar reminder. Document which schools publish CDS as PDF vs Excel vs online-only.
 - [ ] Document the current data pipeline (fetch scripts, parse scripts, validation) so future refreshes are repeatable
 
-### Phase 6: Reliability & Safety
+### Phase 7: Reliability & Safety
 - [ ] Rate limiting on form submission (prevent spam that runs up API costs)
 - [x] Error recovery: form state auto-saved to localStorage, restoreAndRetry function restores all fields on failure/cancel
 - [ ] Character limits on form fields (prevent excessively long inputs that blow up token counts and cost; guide users toward concise answers)
@@ -110,7 +110,7 @@ The mission: close the information gap in college planning. A $310K family in Na
 - [ ] Data retention policy (how long do plans live in Redis? backup strategy?)
 - [ ] SEO basics (meta descriptions, Google Search Console)
 
-### Phase 7: User Accounts (Supabase + Google OAuth)
+### Phase 8: User Accounts (Supabase + Google OAuth)
 - [ ] Set up Supabase project (free tier)
 - [ ] Configure Google OAuth provider in Supabase (Gmail sign-in, one click)
 - [ ] Add "Sign in with Google" to the site
@@ -119,17 +119,17 @@ The mission: close the information gap in college planning. A $310K family in Na
 - [ ] Enables: viewing past plans, regenerating, managing payment history
 - [ ] Required for plan regeneration (tie new submission to existing account)
 
-### Phase 8: Revenue Growth
+### Phase 9: Revenue Growth
 
 - [ ] **Plan walkthrough upsell**: 30-minute paid meeting ($TBD) where someone walks the family through their plan, answers questions, helps prioritize. Founder-led initially, then hire college counseling students or recent grads. Scheduling via Calendly or similar.
 - [ ] **Plan regeneration**: allow families to update their info (new grades, changed interests, different school list) and regenerate for ~$20. Reuse same submission ID so the plan URL stays the same.
 - [ ] **Contact Anthropic sales about enterprise/volume pricing.** Once plan volume justifies it, reach out to negotiate rates. They have a Scale tier with direct sales team for higher-volume API usage.
 
-### Phase 9: Output Enhancements
+### Phase 10: Output Enhancements
 - [ ] **4-year cost projection table:** For each school, show a year-by-year cost estimate that accounts for tuition inflation (~3-5%/year), potential in-state residency establishment for OOS public schools (year 2 or 3 switch to in-state rates where allowed), and sibling overlap (multiple kids in college simultaneously reduces EFC/SAI, increasing need-based aid). This gives families the full picture, not just year-1 sticker shock.
 - [ ] PDF export of the full plan
 
-### Phase 10: Polish
+### Phase 11: Polish
 - [ ] Write founder bio and add to website (landing page "About" section or footer)
 - [ ] Testimonials section on homepage
 - [ ] Delete old static sample files (washington-sample.html, medina-sample.html, kaplan-sample.html)
