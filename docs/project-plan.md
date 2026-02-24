@@ -28,6 +28,13 @@ The mission: close the information gap in college planning. A $310K family in Na
 - [ ] Optimize CLAUDE.md with project-specific context so Claude Code is maximally effective on this codebase
 - [ ] Learn prompt engineering patterns for getting the best results from Claude Code sessions
 
+### Phase 0b: Prompt Consolidation
+*Do after Claude Code training. The generation and review prompts (generate.js, review.js) have 12+ patches layered from iterative testing. Worth a cleanup pass to:*
+- [ ] Consolidate redundant instructions in generate.js prompt (self-checks, formatting rules, JSON rules)
+- [ ] Consolidate review.js checks - remove overlap, tighten language, check for contradictions
+- [ ] Reduce token count where possible (saves money per API call)
+- [ ] Review all other code and docs for staleness
+
 ### Phase 1: Programmatic Plan Validation
 *Build this BEFORE more testing. No point testing if the validation system is getting revamped.*
 - [ ] **Build `validate-plan.js` module** that parses the generated output and runs these checks in code:
