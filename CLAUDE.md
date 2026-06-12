@@ -2,17 +2,26 @@
 
 ## Model Preference
 
-Always use Claude Opus (claude-opus-4-20250514) for all API calls unless specifically asked to use a different model.
+Always use Claude Fable 5 (`claude-fable-5`) for all API calls unless specifically asked to use a different model. The model is set once in `src/lib/config.js`.
+
+Fable 5 API notes (these cause 400 errors if violated):
+- No `temperature`, `top_p`, or `top_k`. Steer behavior through prompting.
+- Thinking is adaptive only: `thinking: { type: "adaptive" }`. Never send `budget_tokens` or an explicit `{ type: "disabled" }` (omit the param to disable).
+- No assistant-turn prefills. Use prompt instructions or structured outputs instead.
+- Thinking tokens count toward `max_tokens`, so calls with thinking enabled need headroom above the expected output size.
+- With thinking enabled, `response.content[0]` may be a thinking block. Always find the text block instead of indexing.
+
+Previous model was claude-opus-4-20250514 (deprecated, retires June 15, 2026). Migrated June 2026.
 
 ## What This Is
 
-Scaffold is a $50 consumer product that generates personalized 20+ page college strategy documents for families. A parent fills out a form, we run their details through Claude Opus with verified school data injected, and they get a full strategy doc at a unique URL.
+Scaffold is a $50 consumer product that generates personalized 20+ page college strategy documents for families. A parent fills out a form, we run their details through Claude with verified school data injected, and they get a full strategy doc at a unique URL.
 
 The mission: close the information gap in college planning. A $310K family in Naperville gets a $10K private counselor. A $48K single mom in San Antonio is Googling "how to pay for college" at midnight. Scaffold gives Family B the same data-driven planning for $50.
 
 ## Stack
 
-Vanilla HTML/CSS/JS (no framework). Vercel serverless functions (Node.js). Upstash Redis. Anthropic API (Claude Opus).
+Vanilla HTML/CSS/JS (no framework). Vercel serverless functions (Node.js). Upstash Redis. Anthropic API (Claude Fable 5).
 
 ## Architecture
 
@@ -23,8 +32,10 @@ Intake form (intake.html) -- bypass code: Millie2026
 POST /api/generate        -- Tier 1 Strategy Brief via SSE
     |
     v
-POST /api/review          -- 15-check quality review
-    |
+POST /api/review          -- programmatic validator + 15-check quality review
+    |                        (validate-plan.js runs first: auto-fixes JSON
+    |                         issues, force-fails checks on code-verified
+    |                         violations)
     PASS? --> simulation
     FAIL? --> fix-plan (up to 2x) --> re-review --> regenerate if still failing
     |
@@ -70,16 +81,17 @@ src/
     submissions.js         # Admin API
   lib/
     school-data.js         # Loads and formats school data for prompt injection (~23K tokens)
-    config.js              # Model name, temperatures
+    validate-plan.js       # Programmatic validator (runs in review.js before Claude review)
+    config.js              # Model name (single source of truth)
 data/
   schools/                 # 1,492 school JSON files (CDS + Scorecard + reference data)
   state-aid-programs.md    # State aid for all 50 states + DC
   financial-aid-facts.md   # No-merit schools, full-need schools, CSS vs FAFSA, QuestBridge, etc.
 scripts/
   parse-cds.js             # Parse CDS PDFs/XLSX via Claude API into school JSONs
+  test-validate-plan.js    # Validator test fixture (run: node scripts/test-validate-plan.js)
 docs/
   project-plan.md          # Full roadmap, unit economics, architecture
-  business-plan.md         # Product strategy
 ```
 
 ## School Data
@@ -125,8 +137,15 @@ Client-side: AbortController on all pipeline fetch calls. Cancel button on intak
 
 ## Current Priority
 
-Phase 0: Learn Claude Code best practices.
-Phase 1: Build programmatic plan validator (validate-plan.js) - code-based checks for REA/SCEA, tier consistency, admit rate decimals, cost consistency, no-merit enforcement. Runs before Claude review.
+Goal: shippable content quality. A high-stakes external test (CRO's daughter) is coming, so plan quality comes first. Stripe and legal are deferred until quality is proven.
+
+Done (June 2026): Fable 5 migration, programmatic validator (validate-plan.js, integrated as a review.js pre-pass), prompt consolidation + Fable re-tune for generate.js and review.js.
+
+1. Re-baseline on Fable 5: rerun Brett Roth and Martinez profiles end to end, verify the review checks and the new validator calibrate correctly on the new model, check token usage and cost.
+2. Diverse profile testing (20+ profiles), including a dry-run profile matching the upcoming external tester (CRO's daughter).
+
+Deferred: legal docs, Stripe integration, LLC setup.
+
 See `docs/project-plan.md` for full roadmap.
 
 ## Test Results

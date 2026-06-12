@@ -2,7 +2,7 @@
 
 ## What Scaffold Is
 
-Scaffold is a $50 consumer product that generates personalized 20+ page college strategy documents for families. A parent fills out a form, we run their details through Claude Opus with a proprietary prompt template, and they get a full strategy doc at a unique URL: school list, developmental roadmap, financial modeling, Monte Carlo simulation, essay strategy, and more.
+Scaffold is a $50 consumer product that generates personalized 20+ page college strategy documents for families. A parent fills out a form, we run their details through Claude (Fable 5) with verified school data injected, and they get a full strategy doc at a unique URL: school list, developmental roadmap, financial modeling, Monte Carlo simulation, essay strategy, and more.
 
 The mission: close the information gap in college planning. A $310K family in Naperville gets a $10K private counselor. A $48K single mom in San Antonio is Googling "how to pay for college" at midnight. Scaffold gives Family B the same data-driven planning for $50.
 
@@ -10,139 +10,216 @@ The mission: close the information gap in college planning. A $310K family in Na
 
 ## What's Built
 
-- **Landing page** (index.html) with 3 sample plans (Alejandra, Priya, Jake)
-- **Intake form** (intake.html) with 7-step guided flow, bypass code for free access, cancel button, form state auto-save
-- **Generation pipeline**: Tier 1 (Strategy Brief) -> Quality review (15 checks) -> Targeted fix pass (up to 2 attempts) -> Full regeneration if fixes fail -> Monte Carlo simulation (10,000 iterations) -> Cost/tier reconciliation -> Tier 2 (Reference Sections) -> Final review + fix
-- **Cancellation**: Server-side re-checks after every Claude API call (review, fix, reconcile, simulate), client-side AbortController kills in-flight fetch requests, cancel from admin or intake page
-- **Plan page** (plan.html) with sidebar navigation, collapsible sections, simulation charts, submission info
-- **Admin dashboard** (admin.html) with submission management, plan viewing, simulation retry, auto-polling (5s while active)
-- **Email notification**: Code in generate.js ready to send via Resend on every new submission (needs RESEND_API_KEY env var in Vercel)
-- **Infrastructure**: Vercel serverless functions, Upstash Redis, Anthropic API (Claude Opus)
+**Product**
+- Landing page (index.html) with 3 sample plans (Alejandra, Priya, Jake)
+- Intake form (intake.html): 7-step guided flow, bypass code for free access, cancel button, form state auto-saved to localStorage with `restoreAndRetry` on failure/cancel
+- Plan renderer (plan.html): sidebar navigation, collapsible sections, simulation charts, submission info
+- Admin dashboard (admin.html): submission management, plan viewing, simulation retry, auto-polling (5s while active)
+
+**Pipeline**
+- Tier 1 generation (SSE streaming)
+- 15-check quality review
+- Targeted fix pass (up to 2 attempts)
+- Full regeneration fallback if fixes don't pass
+- Monte Carlo simulation (10K iterations, JS, no API cost)
+- Cost/tier reconciliation against sim results
+- Tier 2 generation (SSE streaming)
+- Final review + one fix attempt
+- All steps re-check Redis status for cancellation after Claude API call returns
+
+**Cancellation**
+- Server-side: every endpoint re-checks Redis status after Claude API call completes; returns early if "cancelled"
+- Client-side: AbortController on all pipeline fetch calls; cancel button on intake page; cancel from admin
+
+**Data**
+- 136 schools with CDS 2024-25 data (admit rates, costs, aid stats, test scores) parsed via `scripts/parse-cds.js`
+- 1,492 schools with College Scorecard data (costs, grad rates, earnings)
+- 108 schools with curated reference data (scholarships, honors programs, National Merit)
+- 55 QuestBridge partners
+- 98 honors programs verified against official sources (36 corrections applied; W&M Monroe Scholars and NYU Presidential Honors Scholars added)
+- All 50 states + DC state aid in `data/state-aid-programs.md` (17 prompt rules)
+- Financial aid reference in `data/financial-aid-facts.md` (no-merit schools, full-need, CSS vs FAFSA, QuestBridge, gapping)
+- All injected into generation prompt via `src/lib/school-data.js` (~23K tokens per call)
+- Review.js uses verified data as ground truth (check #12)
+
+**Infrastructure**
+- Vercel serverless (Node.js), Upstash Redis, Anthropic API (Claude Fable 5), vanilla HTML/CSS/JS
+- Auto-deploy from main working
+- Email notification code written in generate.js: fire-and-forget via Resend, guarded by RESEND_API_KEY. Still needs: Resend account, API key, domain verification, env var in Vercel.
 
 ---
 
-## Product Roadmap
+## Roadmap
 
-### Phase 0: Learn Claude Code Best Practices
-- [ ] Read Claude Code docs and learn effective workflows (CLAUDE.md, hooks, slash commands, MCP servers, etc.)
-- [ ] Optimize CLAUDE.md with project-specific context so Claude Code is maximally effective on this codebase
-- [ ] Learn prompt engineering patterns for getting the best results from Claude Code sessions
+**Current focus (June 2026): content quality over monetization.** A high-stakes external test is coming (CRO's daughter will run a real plan), so the priority is proving plan quality end to end. Legal, business setup, and Stripe (items 4-6) are deferred until quality is proven.
 
-### Phase 0b: Prompt Consolidation
-*Do after Claude Code training. The generation and review prompts (generate.js, review.js) have 12+ patches layered from iterative testing. Worth a cleanup pass to:*
-- [ ] Consolidate redundant instructions in generate.js prompt (self-checks, formatting rules, JSON rules)
-- [ ] Consolidate review.js checks - remove overlap, tighten language, check for contradictions
-- [ ] Reduce token count where possible (saves money per API call)
+### Phase 0: Fable 5 Migration — DONE (June 2026)
+
+*claude-opus-4-20250514 was deprecated with a June 15, 2026 retirement date. Migrated all API calls to Claude Fable 5 (`claude-fable-5`, $10/M input, $50/M output, down from $15/$75).*
+
+- [x] Swap model in `src/lib/config.js` and both parse scripts
+- [x] Remove `temperature` from all 6 endpoints (Fable 5 returns 400 if sent)
+- [x] Enable adaptive thinking on generation, regeneration, and review calls; raise `max_tokens` for thinking headroom (thinking tokens count toward the cap)
+- [x] Fix review.js text extraction (with thinking enabled, `content[0]` may be a thinking block)
+- [ ] **Re-baseline:** rerun Brett Roth and Martinez profiles end to end. Verify the 15 review checks calibrate correctly on Fable 5, confirm SSE streaming and the fix/regen loop behave, and measure actual token usage (Fable counts tokens differently, and thinking adds billed output tokens)
+- [x] Re-tune prompts for Fable 5 instruction-following — done as part of item 2 below (June 2026)
+
+### Pre-launch (do before taking payments)
+
+#### 1. Programmatic Plan Validation
+*Highest ROI. Catches bugs the Claude reviewer misses and reduces fix/regen API cost. Build this before more testing — no point testing if the validation system is getting revamped.*
+
+- [x] Build `validate-plan.js` module (`src/lib/validate-plan.js`) — **done June 2026.** Checks in code:
+  - **REA/SCEA constraint:** Parses `round` from JSON sim params, cross-references `type: "private"` from school JSONs (fallback: static private-school list). Violations are flagged for the fix loop (narrative + JSON corrected together).
+  - **Tier consistency:** Compares JSON tier against tier labels in markdown table rows. Mismatches flagged with evidence lines.
+  - **Admit rate decimals:** Auto-fixes `admit_pct` to exactly 3 decimals via string surgery on the JSON block.
+  - **Cost consistency:** Compares JSON `sticker_cost` against verified CDS/Scorecard data with residency awareness (catches wrong in-state/out-of-state rate, e.g. the DC-at-UMD case). Compares JSON-derived net cost against the exec summary table within $3K.
+  - **No-merit school enforcement:** Auto-zeroes merit fields in JSON for need-only schools.
+  - Test fixture: `scripts/test-validate-plan.js` (covers all checks + edge cases, including the two Brett Roth bugs the reviewer originally missed).
+- [x] Integrate into pipeline — **done June 2026.** Runs as a pre-pass inside review.js (covers all four review call sites with no client changes). Auto-fixes are persisted to Redis; flags are injected into the review prompt as ground truth, and code force-fails the matching checks even if the model reviewer disagrees, so fix-plan always receives the specifics.
+- [ ] Structured extraction for review: extract school names, tiers, rounds, costs into structured JSON first, validate programmatically, and leave Claude review only subjective quality. (Partially covered now: validator findings are structured; full extraction still open.)
+
+#### 2. Prompt Consolidation + Fable 5 Re-tune
+*The generation and review prompts have 12+ patches layered from iterative testing, all written against the old Opus model. Fable 5 follows instructions more literally, so this cleanup doubles as the model re-tune.*
+- [x] Consolidate redundant instructions in generate.js prompt — **done June 2026.** Each rule now stated once: the 14-item self-check became a 12-item compact reference list, decimal examples cut from 11 to 3, REA/SCEA private-school list stated once, budget rules merged into one directive. ~1K tokens saved per generation.
+- [x] Soften aggressive instruction language — **done June 2026.** Removed "This is not negotiable", "CRITICAL:", "right now", "Period." framing; rules stay firm but stated once.
+- [x] Consolidate review.js checks — **done June 2026.** Checks 1-3 and 13 rewritten to lean on programmatic validator findings (code owns JSON-level verification; reviewer owns prose and judgment). All 15 check keys unchanged (fix-plan and client depend on them).
+- [x] Reduce token count where possible (~1K tokens per generation call; review prompt also slimmer)
 - [ ] Review all other code and docs for staleness
 
-### Phase 1: Programmatic Plan Validation
-*Build this BEFORE more testing. No point testing if the validation system is getting revamped.*
-- [ ] **Build `validate-plan.js` module** that parses the generated output and runs these checks in code:
-  - **REA/SCEA constraint:** Parse each school's `round` from the JSON sim params, cross-reference `type: "private"` from school JSONs. If any private school is EA/ED while another is REA/SCEA, auto-fix to RD.
-  - **Tier consistency:** Extract tier labels from JSON params AND from markdown sections (exec summary table, school writeups, probability table). Flag any school with mismatched tiers across sections.
-  - **Admit rate decimals:** Check every `admit_pct` in JSON has exactly 3 decimal places. Auto-fix by padding with zero if needed.
-  - **Cost consistency:** Compare JSON `sticker_cost` against verified school data. Compare narrative cost ranges against JSON-derived net costs.
-  - **No-merit school enforcement:** Verify `merit_pct=0` for schools on the no-merit list (Ivies, MIT, Stanford, Caltech, etc.).
-- [ ] **Integrate into pipeline** as a step between generation and Claude review. Auto-fix what's possible, flag what needs regeneration.
-- [ ] **Structured extraction for review:** Instead of asking Claude to review the whole plan in one shot, first extract specific values (school names, tiers, rounds, costs, admit rates) into structured JSON, then validate programmatically. Leave Claude review only for subjective quality (tone, strategy logic, completeness).
-
-### Phase 2: Friends & Family Testing
+#### 3. Testing
+- [ ] **CRO's daughter test prep:** before sharing the link, run a dry-run profile that matches her situation as closely as possible (grade level, region, income band, academic interests) and review that plan line by line. This is a reference customer and a referral source, treat it like a launch.
 - [ ] Share site with friends and collect feedback on plan quality and form UX
 - [ ] Mobile test the full flow (form, generating screen, plan page) on a phone
 - [ ] Collect testimonial quotes from testers for homepage
 - [ ] Review generated plans for accuracy, tone, and hallucinated data
-- [ ] Run 20+ test submissions covering diverse profiles (different income levels, regions, family structures, academic strengths, edge cases like DC residency, international students, divorced parents, first-gen, rural, etc.). Evaluate each plan and update prompts as needed to handle all bases.
+- [ ] Run Washington family test (Atlanta GA, $72K): verify Georgia HOPE/Zell Miller with correct thresholds, UGA in-state tuition, no fabricated scholarship names, costs match verified data
+- [ ] Run 20+ test submissions covering diverse profiles (see Phase 7 for full edge case list)
 
-### Phase 3: Business Setup
-*Do this before taking real payments.*
-- [ ] Form an LLC (state filing, ~$50-200 depending on state)
-- [ ] Get an EIN from IRS (free, irs.gov, takes 5 minutes)
-- [ ] Open a business bank account (keeps Stripe payouts separate from personal)
-- [ ] Set up business email at scaffoldcollegestrategy.com
+#### 4. Legal
+*Required before charging strangers. Deferred while the focus is content quality.*
+- [ ] Terms of Service (collecting sensitive financial data and info about minors)
+- [ ] Privacy Policy (legally required, especially with financial/education data; COPPA may apply). Must commit to a data deletion process for GDPR/CCPA requests.
+- [ ] Formal disclaimer page. Termly's templates won't cover product-specific risks — add language for:
+  - No guarantee of admission outcomes
+  - No guarantee of scholarship/aid amounts (lawsuit risk: families act on cost projections)
+  - Not a substitute for professional financial planning or legal advice (especially for divorced families)
+  - Data accuracy disclaimer (CDS data is as-reported by schools)
+- [ ] **Refund policy** (critical for a $50 product — protects against Stripe disputes and builds trust)
+  - Decisions to make: money-back guarantee window (7 or 14 days?), conditions (full vs partial, satisfaction vs technical failure?)
+  - Recommended: full refund if plan didn't generate; full refund within 7 days if unsatisfied
+  - Lives on: FAQ, checkout page, ToS, post-purchase email
+- [ ] **Data deletion workflow:** documented process for fulfilling deletion requests. Even a simple admin button to delete a submission's Redis keys works for v1.
 
-### Phase 4: Data Quality
-*Before taking money, the numbers need to be verifiable.*
-- [x] Build a JSON database of Common Data Set data for 100-150 schools — **136 schools parsed from CDS PDFs/XLSX**
-- [x] Build a master school reference document with qualitative info — **108 schools with scholarships/honors/National Merit, 55 QuestBridge tags, 1,492 schools with Scorecard data**
-- [x] Full quality verification of all 98 honors programs against official sources — **36 corrections applied (program names, separate_application values, avg_sat removals), 2 new programs added (William & Mary Monroe Scholars, NYU Presidential Honors Scholars)**
-- [x] Build comprehensive state aid reference — **data/state-aid-programs.md covering all 50 states + DC, 17 prompt rules**
-- [x] Inject school data (CDS + Scorecard + reference + state aid + financial-aid-facts) into the prompt at generation time via `src/api/school-data.js` — **~23K tokens of verified data injected per generation**
-- [x] Inject verified data into Tier 2 and review pipelines — **review.js now uses verified data as ground truth (check #12)**
-- [x] Deploy the data injection update to Vercel — **auto-deploy from main is working**
-- [x] Run Brett Roth test submission (Boca Raton, FL, $200K, engineering, merit-focused) — **15/15 checks passed (attempt 5: 2 fixes + regen). Found two issues the reviewer missed: CWRU listed as EA despite Stanford REA (should be RD), NC State labeled Safety in one section and Target in another. Led to stricter REA/SCEA and tier consistency checks.**
-- [x] Run Martinez test submission (Milwaukee, WI, $62K, first-gen, environmental science) — **stress-tested 11 improvements in one run. Multiple iterations: first run 10/15, second 12/15, third passed. Led to fixes for admit rate 3-decimal enforcement, split fabrication rule, state aid must-mention, review false positive fixes.**
-- [ ] Run manual test generation with Washington family (Atlanta, GA, $72K) and verify: Georgia HOPE/Zell Miller appears with correct thresholds, UGA uses in-state tuition, no fabricated scholarship names, costs match verified data
-- [ ] Run automated 20-profile batch test with CDS data live. Profiles cover: DC/PR residency edge cases, no-merit schools, tight budgets ($0-$15K), rural first-gen, athletes, arts/conservatory, DACA, divorced families (FAFSA vs CSS split), homeschool, learning disabilities, military/ROTC, CC transfers, international, legacy, LGBTQ+ culture fit. Evaluate every plan for accuracy, run full review+fix pipeline, and iterate prompts based on failure patterns.
-- [ ] Regenerate homepage sample plans (Alejandra, Priya, Jake) with CDS-backed data so samples reflect the same data quality as paid plans
-- [x] Add school data count to homepage — **done, updated Step 2, FAQ, pricing, and "What You Get" sections**
-- [ ] Add source citations to the output ("Based on Emory CDS 2024-2025 data")
-- [x] **Re-parse CDS for schools with source files:** Rochester fixed (sheet name bug), UVA and UT Austin already had good data
-- [ ] **Find correct CDS for UCLA:** Current PDF is a fillable form that pdftotext can't extract. Need a non-fillable PDF or flattened export.
-- [ ] **Find correct CDS for Columbia:** Current PDF is for Columbia General Studies (516 applicants), not the main Columbia College. Need the real CDS (~60K applicants, ~3-4% admit rate).
-- [ ] **Download and parse CDS for missing high-priority schools:** Georgia Tech, WashU St. Louis, Florida State, Cal Poly SLO, Juilliard. Check school CDS websites or IPEDS for availability.
+#### 5. Business Setup
+- [ ] Form an LLC (state filing, ~$50-200 depending on state). Delaware/Wyoming are fast (1-2 days); California is slow (1-2 weeks).
+- [ ] Get an EIN from IRS (free, irs.gov, 5 minutes)
+- [ ] Open business bank account (keeps Stripe payouts separate from personal)
+- [ ] Set up business email at scaffoldcollegestrategy.com (Google Workspace)
+- [ ] **Sales tax handling:** Enable Stripe Tax (~0.5% fee) to handle registration, calculation, and remittance. Digital products are taxed in ~20 states (WA, TX, PA, etc.). Without this, you're personally liable for uncollected sales tax in states that require it.
 
-### Phase 4b: Data Cleanup (low priority)
-*Nice-to-haves that improve coverage but aren't blockers.*
-- [ ] Parse CDS for 11 missing schools (all US News 80+): Binghamton, Colorado School of Mines, Chapman, Creighton, Elon, Saint Louis, Temple, U of Missouri, BYU, U of Tennessee, Yeshiva
-- [ ] Add DACA/undocumented aid, foster care tuition waivers, military/veteran education benefits, and Native American tuition waivers to state aid doc
-- [ ] Fill in founder-curated reference fields still empty for most schools: demonstrated_interest, no_loan_policy, application_notes, strong_programs
-
-### Phase 5: Legal
-*Required before charging strangers.*
-- [ ] Terms of Service (you're collecting sensitive financial data and info about minors)
-- [ ] Privacy Policy (legally required, especially with financial/education data; COPPA may apply)
-- [ ] Formal disclaimer page ("not professional counseling, no guaranteed admission or scholarship outcomes")
-
-### Phase 6: Launch Infrastructure
-*Everything needed to go from free testing to paid product.*
+#### 6. Launch Infrastructure
+*Everything needed to go from free testing to paid product. Deferred while the focus is content quality.*
 - [ ] Stripe integration ($50 one-time payment before form access)
 - [ ] Connect Stripe to business bank account
 - [ ] Custom domain (scaffoldcollegestrategy.com) for plan URLs
 - [ ] DNS: point domain nameservers to Vercel (ns1.vercel-dns.com, ns2.vercel-dns.com)
-- [x] Email notification code written in generate.js — fire-and-forget via Resend API, guarded by RESEND_API_KEY env var. **Still needs: Resend account signup, API key, domain verification, add RESEND_API_KEY to Vercel env vars.**
+- [ ] Resend setup: account signup, API key, domain verification, add RESEND_API_KEY to Vercel env vars
+- [ ] **Post-purchase confirmation email** sent immediately after Stripe payment (before plan completion):
+  - Receipt (Stripe handles automatically)
+  - Order confirmation with realistic time expectation ("Your plan will be ready in ~5 minutes")
+  - Support email contact if they don't receive the plan
+  - *Currently the email only fires when generation completes — the gap between payment and delivery is anxiety territory*
 - [ ] Email delivery of completed plan link to the family
+- [ ] **Customer support email:** set up support@scaffoldcollegestrategy.com (forwarder to inbox initially). Add visibly to footer, FAQ, post-purchase email. Decide response SLA (recommended: same-day during week, 24h weekend).
+- [ ] **First-week support playbook:** what to do when generation fails after payment (manual retry? auto-refund? apology email?). Document the process now, not when the first complaint comes in.
+- [ ] **Plan URL security audit:** verify submission IDs are cryptographically random UUIDs, not sequential or guessable. Every plan contains income, family details, kids' names — enumerable URLs would be a privacy disaster.
+- [ ] **"Generated on [date]" in plan template:** prominent date on every plan + note that data ages ("Reflects data current as of [date]. Regenerate for updated info."). Sets up the $20 regeneration upsell narrative.
+- [ ] **Monitoring + failure alerts:**
+  - Email yourself when a generation fails after payment (worst customer scenario — they paid and got nothing)
+  - UptimeRobot free tier pings homepage every 5 min
+  - Enable Vercel's built-in alerts for function errors
 - [ ] Open Graph meta tags (so link previews look good on iMessage, social, etc.)
-- [ ] Analytics (Google Analytics or Plausible) to track traffic, form completion rate, drop-off
+- [ ] Analytics (Plausible recommended — simpler, privacy-respecting, ~$9/mo): traffic, form completion rate, drop-off
 
-### Phase 6b: Data Maintenance
-*Set up before scaling so data doesn't go stale while you're selling.*
-- [ ] Plan the annual update process: refresh CDS data, Scorecard API data, and reference data every year when new CDS releases come out (typically fall/winter). Set a calendar reminder. Document which schools publish CDS as PDF vs Excel vs online-only.
-- [ ] Document the current data pipeline (fetch scripts, parse scripts, validation) so future refreshes are repeatable
+### Post-launch
 
-### Phase 7: Reliability & Safety
+#### 7. Data Quality & Diverse Testing
+- [ ] Run automated 20-profile batch test with CDS data live. Profiles must cover: DC/PR residency edge cases, no-merit schools, tight budgets ($0-$15K), rural first-gen, athletes, arts/conservatory, DACA, divorced families (FAFSA vs CSS split), homeschool, learning disabilities, military/ROTC, CC transfers, international, legacy, LGBTQ+ culture fit. Evaluate every plan, run full review+fix pipeline, iterate prompts based on failure patterns.
+- [ ] Regenerate homepage sample plans (Alejandra, Priya, Jake) with CDS-backed data so samples reflect paid plan quality
+- [ ] Add source citations to output ("Based on Emory CDS 2024-2025 data")
+- [ ] Find correct CDS for UCLA (current PDF is fillable form, pdftotext can't extract; need non-fillable PDF or flattened export)
+- [ ] Find correct CDS for Columbia (current PDF is Columbia General Studies, 516 applicants; need real Columbia College CDS, ~60K applicants, ~3-4% admit rate)
+- [ ] Download and parse CDS for missing high-priority schools: Georgia Tech, WashU St. Louis, Florida State, Cal Poly SLO, Juilliard. Check school CDS websites or IPEDS for availability.
+- [ ] YouTube college prep channel research: find channels with college prep advice (admissions strategy, financial aid, essay tips, school selection). Summarize key recommendations. Identify common themes or gaps Scaffold's plans should address.
+
+#### 8. Reliability & Safety
 - [ ] Rate limiting on form submission (prevent spam that runs up API costs)
-- [x] Error recovery: form state auto-saved to localStorage, restoreAndRetry function restores all fields on failure/cancel
-- [ ] Character limits on form fields (prevent excessively long inputs that blow up token counts and cost; guide users toward concise answers)
-- [ ] Graceful error handling when Claude API is down or times out: show a friendly error message with a support email to contact, and save their form data so they don't lose it
-- [ ] Data retention policy (how long do plans live in Redis? backup strategy?)
+- [ ] Character limits on form fields (prevent excessively long inputs that blow up token counts; guide users toward concise answers)
+- [ ] Graceful error handling when Claude API is down or times out: friendly error message with support email, save form data so it isn't lost
+- [ ] **Durable plan backup beyond Redis.** Upstash is not archival storage. A family who paid $50 in March and returns in November expects their plan to still exist. Options: nightly backup of completed plans to S3/Vercel Blob, or write a copy to secondary store on completion. Becomes more urgent as volume grows.
+- [ ] Data retention policy (how long do plans live in Redis? what's the public commitment in Privacy Policy?)
+- [ ] **Bypass code lifecycle:** decide what to do with `Millie2026`. Keep for friends/family? Rotate periodically? Monitor admin for suspicious volume in case it leaks on Reddit. Consider per-person codes for higher-volume sharing.
 - [ ] SEO basics (meta descriptions, Google Search Console)
 
-### Phase 8: User Accounts (Supabase + Google OAuth)
+#### 9. User Accounts (Supabase + Google OAuth)
 - [ ] Set up Supabase project (free tier)
-- [ ] Configure Google OAuth provider in Supabase (Gmail sign-in, one click)
+- [ ] Configure Google OAuth provider (Gmail sign-in, one click)
 - [ ] Add "Sign in with Google" to the site
 - [ ] Link submissions to Supabase user IDs so families can view their plan(s) when they sign back in
 - [ ] Row-level security so families only see their own plans
-- [ ] Enables: viewing past plans, regenerating, managing payment history
+- [ ] Enables viewing past plans, regenerating, managing payment history
 - [ ] Required for plan regeneration (tie new submission to existing account)
 
-### Phase 9: Revenue Growth
+#### 10. Distribution & Revenue Growth
+*A working product with no traffic is an expensive hobby. Distribution is the Day 11 priority.*
 
-- [ ] **Plan walkthrough upsell**: 30-minute paid meeting ($TBD) where someone walks the family through their plan, answers questions, helps prioritize. Founder-led initially, then hire college counseling students or recent grads. Scheduling via Calendly or similar.
-- [ ] **Plan regeneration**: allow families to update their info (new grades, changed interests, different school list) and regenerate for ~$20. Reuse same submission ID so the plan URL stays the same.
-- [ ] **Contact Anthropic sales about enterprise/volume pricing.** Once plan volume justifies it, reach out to negotiate rates. They have a Scale tier with direct sales team for higher-volume API usage.
+**Distribution (how do customers find Scaffold?)**
+- [ ] Reddit presence: r/ApplyingToCollege, r/financialaid, r/Parenting. Be careful — these communities are hostile to self-promo. Lead with helpful answers, link only when directly relevant.
+- [ ] Facebook groups for parents of high schoolers (state-specific college planning groups exist)
+- [ ] Independent college counselor outreach: they might refer families they can't afford to take on
+- [ ] High school PTA newsletters (especially in lower-income districts that match the mission)
+- [ ] SEO content: blog posts on "how to read a CDS," "what is QuestBridge," "state aid in X" — long-tail organic search
 
-### Phase 10: Output Enhancements
-- [ ] **4-year cost projection table:** For each school, show a year-by-year cost estimate that accounts for tuition inflation (~3-5%/year), potential in-state residency establishment for OOS public schools (year 2 or 3 switch to in-state rates where allowed), and sibling overlap (multiple kids in college simultaneously reduces EFC/SAI, increasing need-based aid). This gives families the full picture, not just year-1 sticker shock.
+**Pricing**
+- [ ] **Validate $50 pricing.** Could be too low (parents who pay $200/hr for tutoring would happily pay $99) or too high (single moms in San Antonio — the stated target — might balk at $50). A/B test post-launch with a price experiment.
+
+**Upsells**
+- [ ] **Plan walkthrough upsell:** 30-minute paid meeting ($TBD) where someone walks the family through their plan, answers questions, helps prioritize. Founder-led initially, then hire college counseling students or recent grads. Scheduling via Calendly or similar.
+- [ ] **Plan regeneration:** allow families to update their info (new grades, changed interests, different school list) and regenerate for ~$20. Reuse same submission ID so the plan URL stays the same. The "Generated on [date]" note creates natural demand.
+
+**Cost optimization**
+- [ ] **Contact Anthropic sales about enterprise/volume pricing** once volume justifies it. They have a Scale tier with direct sales team for higher-volume API usage.
+
+#### 11. Output Enhancements
+- [ ] **4-year cost projection table:** For each school, show year-by-year cost estimate accounting for tuition inflation (~3-5%/year), potential in-state residency establishment for OOS public schools (year 2 or 3 switch to in-state rates where allowed), and sibling overlap (multiple kids in college simultaneously reduces EFC/SAI, increasing need-based aid). Full picture, not just year-1 sticker shock.
 - [ ] PDF export of the full plan
 
-### Phase 11: Polish
+#### 12. Polish
 - [ ] Write founder bio and add to website (landing page "About" section or footer)
 - [ ] Testimonials section on homepage
 - [ ] Delete old static sample files (washington-sample.html, medina-sample.html, kaplan-sample.html)
 - [ ] Admin dashboard: show review history in status column (e.g., "Fail → Fix → Pass" or "Fail x2 → Pass") instead of just final status. Store review attempt count and per-attempt results in Redis so admin can see the full pipeline journey.
 - [ ] Admin dashboard: make review JSON viewable per submission (currently stored in Redis but not returned by the submission API endpoint)
 - [ ] Admin dashboard: verify all pipeline status stages display correctly (generating, tier1_complete, simulating, reconciling, generating_tier2, completed, reviewing, review_failed, etc.)
+
+### Low Priority
+
+#### Data Cleanup
+*Nice-to-haves that improve coverage but aren't blockers.*
+- [ ] Parse CDS for 11 missing schools (all US News 80+): Binghamton, Colorado School of Mines, Chapman, Creighton, Elon, Saint Louis, Temple, U of Missouri, BYU, U of Tennessee, Yeshiva
+- [ ] Add DACA/undocumented aid, foster care tuition waivers, military/veteran education benefits, and Native American tuition waivers to state aid doc
+- [ ] Fill in founder-curated reference fields still empty for most schools: demonstrated_interest, no_loan_policy, application_notes, strong_programs
+
+#### Data Maintenance
+*Set up before scaling so data doesn't go stale.*
+- [ ] **CDS refresh cadence:** Each school publishes its own CDS, mostly **October-December** of the year following the admissions cycle (so 2024-25 CDS lands Oct-Dec 2025). Top-ranked schools publish earlier (US News needs them for September rankings); stragglers push into Q1. Section H (financial aid) often lags Section C (admissions).
+  - **Primary refresh sprint: mid-January** — catches most schools while data is fresh
+  - **Secondary sweep: April-May** — picks up late publishers
+  - Set calendar reminders for both
+- [ ] Refresh Scorecard API data annually (typically updates in fall with prior-year data)
+- [ ] Document which schools publish CDS as PDF vs Excel vs online-only (affects parse-cds.js workflow)
+- [ ] Document the current data pipeline (fetch scripts, parse scripts, validation) so future refreshes are repeatable
 
 ---
 
@@ -157,88 +234,80 @@ The mission: close the information gap in college planning. A $310K family in Na
 | Hosting (Vercel + Upstash) | Free tier until significant volume |
 | **Total fixed** | **~$140/month** |
 
-### Per-Plan API Costs (Claude Opus at $15/M input, $75/M output)
+### Per-Plan API Costs (Claude Fable 5 at $10/M input, $50/M output)
 
-*Updated February 2026. Reflects verified school data injection (~23K tokens per call), new pipeline order (review before simulation), and two reviews in the base path (T1 review + final review).*
+*Updated June 2026 for the Fable 5 migration. Both rates dropped to 2/3 of old Opus pricing ($15/$75), so all costs below scale by 2/3. Token estimates carry over from the February 2026 baseline and need re-measuring: Fable counts tokens differently, and adaptive thinking adds billed output tokens on generation and review calls. Treat these as floors until the re-baseline test runs.*
 
 **Base path** (both reviews pass first try):
 
 | Pipeline Step | Input Tokens | Output Tokens | Cost |
 |---------------|-------------|---------------|------|
-| Tier 1 Generate (streaming) | ~30K | ~12K | ~$1.35 |
-| T1 Review (15 checks) | ~46K | ~2K | ~$0.84 |
+| Tier 1 Generate (streaming) | ~30K | ~12K | ~$0.90 |
+| T1 Review (15 checks) | ~46K | ~2K | ~$0.56 |
 | Monte Carlo Simulation | 0 (JS, no API call) | 0 | $0 |
-| Cost/Tier Reconciliation | ~15K | ~14K | ~$1.28 |
-| Tier 2 Generate (streaming) | ~31K | ~12K | ~$1.37 |
-| Final Review (15 checks) | ~46K | ~2K | ~$0.84 |
-| **Base total** | **~168K** | **~42K** | **~$5.68** |
+| Cost/Tier Reconciliation | ~15K | ~14K | ~$0.85 |
+| Tier 2 Generate (streaming) | ~31K | ~12K | ~$0.91 |
+| Final Review (15 checks) | ~46K | ~2K | ~$0.56 |
+| **Base total** | **~168K** | **~42K** | **~$3.78** |
 
 **If T1 review fails**, each fix+re-review cycle adds:
 
 | Fix Step | Input Tokens | Output Tokens | Cost |
 |----------|-------------|---------------|------|
-| Fix pass (find/replace JSON) | ~25K | ~1K | ~$0.45 |
-| Re-review | ~46K | ~2K | ~$0.84 |
-| **Per fix cycle** | **~71K** | **~3K** | **~$1.29** |
+| Fix pass (find/replace JSON) | ~25K | ~1K | ~$0.30 |
+| Re-review | ~46K | ~2K | ~$0.56 |
+| **Per fix cycle** | **~71K** | **~3K** | **~$0.86** |
 
 **If fixes fail**, full regeneration adds:
 
 | Regen Step | Input Tokens | Output Tokens | Cost |
 |------------|-------------|---------------|------|
-| Regenerate (full buildPrompt + feedback) | ~30K | ~12K | ~$1.35 |
-| Post-regen review | ~46K | ~2K | ~$0.84 |
-| **Per regen** | **~76K** | **~14K** | **~$2.19** |
+| Regenerate (full buildPrompt + feedback) | ~30K | ~12K | ~$0.90 |
+| Post-regen review | ~46K | ~2K | ~$0.56 |
+| **Per regen** | **~76K** | **~14K** | **~$1.46** |
 
-| Scenario | API Cost | + Stripe | Total COGS |
-|----------|----------|----------|------------|
-| Both reviews pass | ~$5.68 | ~$1.75 | ~$7.43 |
-| 1 T1 fix cycle | ~$6.97 | ~$1.75 | ~$8.72 |
-| 2 T1 fix cycles | ~$8.26 | ~$1.75 | ~$10.01 |
-| 2 fixes + regen | ~$10.45 | ~$1.75 | ~$12.20 |
-| Worst case (regen + final fix) | ~$11.74 | ~$1.75 | ~$13.49 |
+### Per-Plan Totals
+
+| Scenario | API Cost | + Stripe ($1.75) | Total COGS |
+|----------|----------|-------------------|------------|
+| Both reviews pass | ~$3.78 | ~$1.75 | ~$5.53 |
+| 1 T1 fix cycle | ~$4.64 | ~$1.75 | ~$6.39 |
+| 2 T1 fix cycles | ~$5.50 | ~$1.75 | ~$7.25 |
+| 2 fixes + regen | ~$6.96 | ~$1.75 | ~$8.71 |
+| Worst case (regen + final fix) | ~$7.82 | ~$1.75 | ~$9.57 |
 
 ### Summary
 - **Revenue per plan:** $50
-- **API cost per plan:** ~$6-8 typical, ~$12 worst case
+- **API cost per plan:** ~$4-5.50 typical, ~$8 worst case (plus thinking-token overhead, to be measured)
 - **Stripe fee (2.9% + $0.30):** ~$1.75
-- **Total COGS per plan:** ~$7-10 typical, ~$13.50 worst case
-- **Margin per plan:** ~$37-43 (74-86%)
-- **Break-even:** ~4 plans/month
+- **Total COGS per plan:** ~$5.50-7.25 typical, ~$9.50 worst case
+- **Margin per plan:** ~$40-44 (81-89%)
+- **Break-even:** ~3-4 plans/month
 - **Upfront investment:** ~$200-400 (LLC filing, first month of subscriptions, $100 buffer)
 
-API costs scale with volume. At 50 plans/month, API spend would be ~$300-400/month. Prepaid API credits get a small discount. As prompt quality improves, the fix/regen rate should drop, keeping most plans on the base path (~$5.68).
+API costs scale with volume. At 50 plans/month, API spend would be ~$200-275/month. Prepaid API credits get a small discount. As prompt quality improves, the fix/regen rate should drop, keeping most plans on the base path (~$3.78). If Fable 5 quality reduces the fix/regen rate (better instruction following should mean fewer review failures), the typical case moves toward the base path.
 
-**Volume pricing:** If using the API at a larger scale, Anthropic has an enterprise/Scale tier where you work directly with their sales team, and that's likely where volume pricing or negotiated rates would come into play. Worth contacting them once volume justifies it.
+**Volume pricing:** If using the API at larger scale, Anthropic has an enterprise/Scale tier where you work directly with their sales team — likely where volume pricing or negotiated rates come in. Worth contacting once volume justifies it.
 
 ---
 
-## School Data (Built)
-
-### What's Done
-- **136 schools** parsed from CDS 2024-25 PDFs/XLSX via `scripts/parse-cds.js` (Claude API extraction)
-- **1,492 schools** with College Scorecard data (costs, grad rates, earnings)
-- **108 schools** with curated reference data (scholarships, honors programs, National Merit)
-- **55 schools** tagged as QuestBridge partners
-- **98 honors programs** verified against official sources
-- **All 50 states + DC** with state aid programs in `data/state-aid-programs.md`
-- **Financial aid reference** in `data/financial-aid-facts.md` (no-merit schools, full-need, CSS vs FAFSA, QuestBridge, gapping)
-- All data injected into generation prompt via `src/lib/school-data.js` (~23K tokens per call)
+## School Data Reference
 
 ### CDS Data Per School
-Sections C (admissions), G (costs), H (financial aid) from Common Data Set. Fields include: admit rate overall/ED/EA, middle 50% SAT/ACT/GPA, tuition (in-state/out-of-state/private), room and board, % need met, average need-based grant, net price by income bracket.
+Sections C (admissions), G (costs), H (financial aid) from the Common Data Set. Fields include: admit rate overall/ED/EA, middle 50% SAT/ACT/GPA, tuition (in-state/out-of-state/private), room and board, % need met, average need-based grant, net price by income bracket.
 
 ### Remaining Data Gaps
-- UCLA: CDS PDF is fillable form, pdftotext can't extract values
-- Columbia: PDF is for General Studies, not main college
-- Missing CDS: Georgia Tech, WashU, FSU, Cal Poly SLO, Juilliard
-- 11 lower-priority schools still missing (Binghamton, Colorado School of Mines, etc.)
-- Founder-curated fields mostly empty: demonstrated_interest, no_loan_policy, application_notes, strong_programs
+- **UCLA:** CDS PDF is fillable form, pdftotext can't extract values
+- **Columbia:** PDF is for General Studies, not main college
+- **Missing CDS:** Georgia Tech, WashU, FSU, Cal Poly SLO, Juilliard
+- **11 lower-priority schools** still missing (Binghamton, Colorado School of Mines, etc.)
+- **Founder-curated fields mostly empty** for most schools: demonstrated_interest, no_loan_policy, application_notes, strong_programs
 
 ---
 
-## Prompt Improvements Log
+## Prompt Engineering Log
 
-*Iterative fixes based on test submissions. All changes are in generate.js (generation prompt self-checks) and review.js (15-check reviewer).*
+*Iterative fixes from test submissions. All changes are in generate.js (self-checks) and review.js (15-check reviewer).*
 
 - **Admit rate 3-decimal enforcement:** Explicit padding examples (45.1% = 0.451, 11.0% = 0.110). #1 reason plans failed review.
 - **Split fabrication rule:** Strict for scholarship names/amounts (must match verified data verbatim). Relaxed for academic programs/colleges/institutes (Claude can reference well-known programs from its knowledge).
@@ -255,10 +324,24 @@ Sections C (admissions), G (costs), H (financial aid) from Common Data Set. Fiel
 
 ---
 
+## Test Results
+
+**Brett Roth** — Boca Raton FL, $200K, engineering, merit-focused
+- Result: 15/15 passed on attempt 5 (2 fixes + regen)
+- Found two issues the reviewer missed: CWRU listed as EA despite Stanford REA (should be RD); NC State labeled Safety in one section and Target in another
+- Led to: stricter REA/SCEA constraints, tier consistency checks
+
+**Martinez** — Milwaukee WI, $62K, first-gen, environmental science
+- Result: passed after 3 iterations (first run 10/15, second 12/15, third passed)
+- Stress-tested 11 improvements in one run
+- Led to: admit rate 3-decimal enforcement, split fabrication rule, state aid must-mention, review false positive fixes
+
+---
+
 ## Decisions Made
 
-- **CDS citations:** Show them in the final document. Transparency builds trust, especially for first-gen families who don't know what to Google.
-- **Database coverage at launch:** 100-150 schools.
+- **CDS citations in output:** Yes. Transparency builds trust, especially for first-gen families who don't know what to Google.
+- **Database coverage at launch:** 100-150 schools (currently 136).
 - **Data injection approach:** Inject all relevant school data upfront into the prompt. No mid-generation tool use. The context window is large enough.
 
 ---
@@ -332,4 +415,4 @@ plan.html renders: sidebar nav, outline toggle, collapsible sections,
 Admin: admin.html -> GET /api/submissions (code: SCAFFOLD1216)
 ```
 
-**Stack:** Vercel serverless functions (Node.js), Upstash Redis, Anthropic API (Claude Opus), vanilla HTML/CSS/JS (no framework).
+**Stack:** Vercel serverless functions (Node.js), Upstash Redis, Anthropic API (Claude Fable 5), vanilla HTML/CSS/JS (no framework).
