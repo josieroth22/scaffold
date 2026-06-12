@@ -3,7 +3,7 @@ const { Redis } = require("@upstash/redis");
 const fs = require("fs");
 const path = require("path");
 const schoolData = require("../lib/school-data");
-const { MODEL, GENERATION_TEMPERATURE } = require("../lib/config");
+const { MODEL } = require("../lib/config");
 
 const client = new Anthropic.default();
 const redis = new Redis({
@@ -60,7 +60,7 @@ function buildPrompt(data) {
   const monthNames = ['January','February','March','April','May','June','July','August','September','October','November','December'];
   const currentDate = `${monthNames[today.getMonth()]} ${today.getFullYear()}`;
 
-  let prompt = `**TODAY'S DATE IS ${currentDate}. THE CURRENT SCHOOL YEAR IS ${today.getFullYear() - 1}-${today.getFullYear().toString().slice(2)}.** This is not negotiable. Every date, timeline, and deadline in this document must be consistent with this. "This summer" = summer ${today.getFullYear()}. "Next school year" = ${today.getFullYear()}-${(today.getFullYear() + 1).toString().slice(2)}. FAFSA references = the ${today.getFullYear()}-${(today.getFullYear() + 1).toString().slice(2)} cycle. Tax year references = ${today.getFullYear() - 1} taxes. Do NOT reference any date before ${currentDate} as upcoming or current. If you write "summer ${today.getFullYear() - 1}" as a future event, you have made an error.
+  let prompt = `**TODAY'S DATE IS ${currentDate}. THE CURRENT SCHOOL YEAR IS ${today.getFullYear() - 1}-${today.getFullYear().toString().slice(2)}.** Every date, timeline, and deadline in this document must be consistent with this. "This summer" = summer ${today.getFullYear()}. "Next school year" = ${today.getFullYear()}-${(today.getFullYear() + 1).toString().slice(2)}. FAFSA references = the ${today.getFullYear()}-${(today.getFullYear() + 1).toString().slice(2)} cycle. Tax year references = ${today.getFullYear() - 1} taxes. Never reference a date before ${currentDate} as upcoming or current.
 
 I'd like you to build a comprehensive college application and scholarship strategy document for my family. This is the Strategy Brief (Tier 1). A detailed Developmental Roadmap with grade-by-grade course tables, activities plans, and milestones will be generated separately as Tier 2. Focus this document on two parts:
 
@@ -74,7 +74,7 @@ Use the family details and priorities below to personalize everything. Be specif
 
 **Application Strategy Principles:**
 - **Application round strategy:** For EACH school on the list, recommend a specific application round (EA, ED, ED2, REA, RD) and explain why. **Default to Early Action whenever it's available.** EA is non-binding, gets decisions back sooner, and often has a slight admissions advantage. Especially for safeties and targets, EA puts acceptances in hand early, which reduces stress and gives the family leverage when comparing offers. Only recommend Regular Decision if there's a specific reason (e.g., the student needs more time to improve their profile, or the school doesn't offer EA). Only recommend Early Decision if it is genuinely the best strategic move for this family's financial situation. ED is binding and eliminates the ability to compare financial aid packages. For families where cost is a top priority or where the budget is tight, ED is usually the wrong call unless the school meets full demonstrated need and the family's EFC is clear. If ED doesn't make strategic sense, say so directly and explain why.
-- **REA/SCEA constraint:** If you recommend Restrictive Early Action or Single-Choice Early Action at any school (Harvard, Yale, Princeton, Stanford, Notre Dame, Georgetown), the student CANNOT also apply EA or ED to any other PRIVATE school. They can only apply early to PUBLIC universities alongside the REA/SCEA school. Every other private school on the list MUST be RD (or ED2 in January). Build the entire application calendar around this constraint and explain it clearly to the family. This is a common mistake. Double-check: if you wrote REA or SCEA for one school, scan the rest of the list and make sure no other private school is marked EA or ED.
+- **REA/SCEA constraint:** If you recommend Restrictive Early Action or Single-Choice Early Action at any school (Harvard, Yale, Princeton, Stanford, Notre Dame, Georgetown), the student cannot also apply EA or ED to any other PRIVATE school. They can only apply early to PUBLIC universities alongside the REA/SCEA school. Every other private school on the list must be RD (or ED2 in January). Common private schools this forces to RD: MIT, Case Western, USC, NYU, Boston University, Northeastern, Tulane, Rice, Duke, Emory, WashU, Northwestern, Carnegie Mellon, Johns Hopkins, Vanderbilt, Wake Forest, Lehigh, Villanova. Build the application calendar around this constraint and explain it clearly to the family.
 - **Build a coherent application narrative ("spike"):** Modern admissions favors applicants with a clear, distinctive theme over generic well-roundedness. Identify the student's "spike" from their interests and activities, and build the entire strategy around deepening it. Every activity, essay, and recommender should reinforce the same story. Don't recommend starting random new activities just to fill boxes.
 - **Depth over breadth:** 3-4 activities pursued deeply with leadership and impact will always beat 10 activities at surface level. If the student already has a strong core, say "don't add anything new" rather than suggesting they join more clubs.
 - **Course rigor in context:** Admissions officers evaluate course load relative to what's available at the student's school. If the school offers 20 APs but the student takes 4, that's different from a school that offers 4 total. Recommend a course load that's rigorous FOR THIS SCHOOL, and note how it will look to admissions readers.
@@ -99,11 +99,11 @@ Keep this section short and factual. It goes at the very end.
 Key directives (the reference sections below have the full details):
 - **Never suggest merit scholarships at need-only schools.** If a school's verified data shows 0% merit aid, do not project merit for that school.
 - **Always recommend NPCs.** Families must run Net Price Calculators at every school on the list.
-- **Financial safeties:** Every school list MUST include at least 2-3 financial safeties: schools where admission is near-certain AND the net cost is at or below the family's stated budget without relying on merit aid. These are usually in-state publics or schools with automatic merit for the student's stats. Name them explicitly and give the estimated cost. If the family's budget is under $40K/year, the majority of the school list should be under budget, not over. A list where 80%+ of schools exceed the family's budget is useless regardless of how good the reach schools are.
+- **Financial safeties and budget alignment:** Every school list must include at least 2-3 financial safeties: schools where admission is near-certain AND the net cost is at or below the family's stated budget without relying on merit aid. These are usually in-state publics or schools with automatic merit for the student's stats. Name them explicitly and give the estimated cost. Compare every school's estimated net cost to the budget, and rate over-budget schools "High" or "Very High" financial risk in the executive summary table. If a strong financial safety exists (well under budget, near-certain admission), over-budget reaches are acceptable, even for over half the list, as long as the financial floor is clearly identified. Without a strong financial safety, at least 60% of schools must be at or under budget. If the family explicitly asked for expensive reach schools (Ivies, Stanford, etc.), lean toward giving them what they asked for rather than padding the list with affordable schools they did not request.
 - **Use verified sticker costs and net prices from the school data section as your baseline.** Do not estimate sticker costs when verified data is available.
 - **Anchor net cost estimates to verified net prices.** The Scorecard net price for this family's income bracket is the best available estimate of what they will actually pay. If a school's verified net price for this bracket is $49,000, do not estimate $16,000 just because you think merit aid is likely. Your net cost estimate should start from the verified net price and only adjust downward if the verified data shows high merit rates AND the student's stats are well above the school's median. When the verified data shows a school meets a low percentage of need (e.g., 21%), expect the net cost to be high.
 - **Name verified scholarships and programs.** When the VERIFIED SCHOOL DATA lists specific scholarship names, honors programs, or National Merit awards for a school, cite them by name in the per-school writeup. Do not say "strong merit scholarships" when the data tells you the exact name.
-- **Cite verified admit rates as the baseline.** When writing admission probability, always state the verified overall admit rate first (e.g., "Emory's overall admit rate is 10.3%"), then give your adjusted estimate for this student. Do not skip the baseline number. Do not include inline source citations like "per CDS 2024-25" in the body text. Sources go in the Data Sources appendix at the end. CRITICAL: In the rendered plan (narrative text and tables), always express admit rates as PERCENTAGES (e.g., "10.3%", "43.9%"), never as decimals. In the JSON simulation params block, use decimals (e.g., 0.103, 0.439).
+- **Cite verified admit rates as the baseline.** When writing admission probability, always state the verified overall admit rate first (e.g., "Emory's overall admit rate is 10.3%"), then give your adjusted estimate for this student. Do not skip the baseline number. Do not include inline source citations like "per CDS 2024-25" in the body text. Sources go in the Data Sources appendix at the end. In the rendered plan (narrative text and tables), always express admit rates as percentages (e.g., "10.3%", "43.9%"), never as decimals. In the JSON simulation params block, use decimals (e.g., 0.103, 0.439).
 - **State-specific opportunities:** The STATE AID PROGRAMS section below contains the family's state-specific programs. Name these programs, state requirements, and tell the family whether their kid is on track to qualify.
 
 ${financialAidFacts}
@@ -118,7 +118,6 @@ ${financialAidFacts}
 
 **Probability and Financial Estimates:**
 - Be conservative with admit probability estimates. A 3.85 GPA and 1320 SAT/PSAT does not get an 18% chance at a 15% acceptance rate school with no hooks. Apply realistic adjustments: above-average profile at a reach school still means single-digit to low-teens probability. Hooks (recruited athlete, legacy, URM at specific schools, first-gen) can meaningfully shift odds. No hooks = use the overall rate or slightly above as your estimate.
-- Use verified sticker costs and net prices from the school data section as your baseline. Do not guess at costs when the data is right there.
 - Keep financial estimates internally consistent. If you say a school costs "$45-55K" in one section, do not say "$55-65K" in another. Pick a range and use it throughout.
 - The Monte Carlo Parameter Table contains ESTIMATES, not simulations. Present them honestly as probability estimates based on the student's profile, not as outputs of an actual Monte Carlo simulation. Do not claim to have "run 10,000 simulations."
 
@@ -257,41 +256,22 @@ ${schoolData.buildCheatSheet(data)}
 
 ---
 
-**BEFORE YOU OUTPUT YOUR FINAL RESPONSE**, do a silent self-check. Do NOT print this checklist. Just verify internally and fix any issues before generating:
+**BEFORE YOU OUTPUT YOUR FINAL RESPONSE**, do a silent self-check against the rules above. Do NOT print this checklist. Verify each point internally, fix what you find, then output:
 
-1. **Residency check:** Is the student in-state for the state schools you listed? Use in-state tuition and in-state admit rates for their home state schools. Out-of-state for everything else. IMPORTANT: DC residents are NOT in-state for Maryland or Virginia schools. Students from US territories are out-of-state everywhere. If the student is from DC, mention the DC TAG program ($10K/year toward out-of-state public tuition) but do NOT use in-state tuition rates for UMD, UVA, or any other state school.
-2. **Cost consistency:** Does every school's estimated net cost appear the same in the Executive Summary table, the per-school writeups, and the Probability Table? If you said "$18-22K" in one place, don't say "$22-28K" in another.
-2b. **Tier consistency:** Does every school have the SAME tier label (Reach, Target, or Safety) in EVERY section where it appears? Check the Executive Summary table, the school list writeups, the probability table, and the "What If" section. If NC State is a "Target" in one section, it must be "Target" everywhere. If you see a mismatch, pick the correct tier and fix every occurrence.
-3. **Admit probability sanity:** Are your admit probability estimates realistic? A strong-but-not-hooked applicant should NOT exceed the school's overall admit rate by more than ~5 percentage points. Single-digit admit rate schools should stay single-digit for most applicants.
-4. **No-merit schools:** Did you accidentally give a merit scholarship probability to an Ivy, MIT, Stanford, Caltech, or an elite LAC that only offers need-based aid? If so, fix it.
-5. **Financial floor:** Did you name a specific school as the cheapest guaranteed option and give its cost? This must be a safety-tier school with near-certain admission.
-6. **School count:** Do you have 8-12 schools? Is there at least one financial safety, at least one target, and at least one reach?
-7. **Budget alignment:** Does the family's stated budget appear prominently in your financial analysis? For EVERY school, did you compare the estimated net cost to the budget? Are over-budget schools rated "High" or "Very High" in the financial risk column? **RULES:**
-   - Every list must include at least 2-3 schools that are confidently UNDER budget without relying on merit aid (financial safeties).
-   - If the family has a strong financial safety that is well under budget AND has high admission probability, you have more flexibility to include over-budget reaches. In this case, over half the list being over-budget is acceptable as long as the financial floor is clearly identified.
-   - If the family does NOT have a strong financial safety, at least 60% of schools must be at or under budget.
-   - If the family explicitly asked for expensive reach schools (Ivies, Stanford, etc.), lean toward giving them what they asked for rather than padding the list with affordable schools they did not request.
-   - Over-budget schools must be clearly flagged in the executive summary table with "High" or "Very High" financial risk ratings.
-8. **JSON block consistency:** Will the JSON simulation params you output match the numbers in your narrative and table? For EACH school, verify:
-   (a) **admit_pct MUST have exactly 3 decimal places.** This is non-negotiable. Convert your narrative percentage by dividing by 100 and ALWAYS writing 3 digits after the decimal point:
-       45.1% → 0.451 (NOT 0.45)
-       79.7% → 0.797 (NOT 0.80)
-       11.0% → 0.110 (NOT 0.11)
-       86.0% → 0.860 (NOT 0.86)
-       8.4% → 0.084 (NOT 0.08)
-       5.0% → 0.050 (NOT 0.05)
-       Even if the third digit is zero, WRITE IT. 0.110 not 0.11. 0.860 not 0.86. Go through EVERY school right now and count the digits after the decimal in admit_pct. If any has only 2 digits, add the third.
-   (b) sticker_cost minus midpoint of need aid range minus (merit_pct * midpoint of merit range) is within $3K of your narrative net cost estimate. If not, fix it.
-9. **Date check:** Did you reference "${today.getFullYear() - 1}" as a future date anywhere? Search your output for "${today.getFullYear() - 1}" and make sure it only appears in past-tense contexts (e.g., "based on ${today.getFullYear() - 1} data"), never as "this summer" or "upcoming." The current year is ${today.getFullYear()}.
-10. **Fabrication check:** Two different rules depending on the type:
-   - **Scholarship names and dollar amounts:** STRICT. Use ONLY names and amounts that appear VERBATIM in the VERIFIED SCHOOL DATA. If you named a scholarship not in the data, delete it or replace with a generic description. This includes partial matches — use the exact name from the data.
-   - **Academic programs, colleges, institutes, and support centers:** RELAXED. You may reference well-known, established programs from your knowledge (e.g., "Nelson Institute for Environmental Studies" at UW-Madison, "College of Engineering" at a school). These are stable entities unlikely to be wrong. But do NOT invent plausible-sounding programs you are not confident exist.
-11. **Verified data check:** For every school on your list that appears in the VERIFIED SCHOOL DATA section, did you use the verified admit rate, sticker cost, and net price? If you used a different number, you have an error. Go back and fix it. Cross-reference against the QUICK REFERENCE table above.
-12. **REA/SCEA constraint:** If you recommended REA or SCEA for any school (Stanford REA, Harvard SCEA, Yale SCEA, Princeton SCEA, Notre Dame REA, Georgetown REA), go through EVERY other school on the list one by one. For each school ask: is this a private university? If yes, its round MUST be RD or ED2. It CANNOT be EA or ED. Only public/state universities can be EA alongside REA/SCEA. Common private schools that must be RD when REA/SCEA is used: MIT, Case Western, USC, NYU, Boston University, Northeastern, Tulane, Rice, Duke, Emory, WashU, Northwestern, Carnegie Mellon, Johns Hopkins, Vanderbilt, Wake Forest, Lehigh, Villanova, etc. If you see ANY private school marked EA or ED, change it to RD right now.
-13. **State aid programs:** Did you mention the family's state-specific programs from the STATE AID PROGRAMS section? If not, add them.
-14. **Radar schools included:** Go back to "Schools already on your radar." Is every school the family named on your final list? If any are missing, add them now with full analysis. The family specifically asked about these schools. Never drop them. Also verify: does every radar school have an asterisk (*) after its name in the executive summary table? If any are missing the asterisk, add it now.
+1. **Residency:** In-state tuition and admit rates only for the family's home state. DC residents are NOT in-state for Maryland or Virginia (mention DC TAG, $10K/year toward out-of-state public tuition, but keep out-of-state rates). Students from US territories are out-of-state everywhere.
+2. **Consistency:** Every school keeps the same tier label (Reach, Target, or Safety), the same cost range, and the same application round in every section where it appears: executive summary table, per-school writeups, probability table, and What If section.
+3. **Admit probabilities:** Realistic per the estimation rules above. An unhooked applicant should not exceed a school's overall admit rate by more than ~5 percentage points, and single-digit-rate schools stay single-digit.
+4. **No-merit schools:** No merit probability or merit language for need-only schools (Ivies, MIT, Stanford, Caltech, Georgetown, the elite LACs in the reference facts). Their JSON merit fields are all 0.
+5. **School list and budget:** 8-12 schools with at least one safety, one target, and one reach. The financial floor is named with its cost (a safety-tier school with near-certain admission). The budget alignment rules above are satisfied.
+6. **JSON consistency:** Every admit_pct has exactly 3 decimal places matching its narrative percentage, and each school's sticker_cost minus need-aid midpoint minus (merit_pct x merit midpoint) lands within $3K of your narrative net cost.
+7. **Dates:** "${today.getFullYear() - 1}" appears only in past-tense contexts (e.g., "based on ${today.getFullYear() - 1} data"), never as upcoming. The current year is ${today.getFullYear()}.
+8. **Fabrication:** Scholarship names and amounts appear verbatim in the VERIFIED SCHOOL DATA (strict rule); academic programs and institutes may come from well-established knowledge (relaxed rule); no invented people, clubs, family details, or projected accomplishments written as fact.
+9. **Verified data:** Every school with verified data uses the verified admit rate, sticker cost, and net price. Cross-check the QUICK REFERENCE table above.
+10. **REA/SCEA:** If any school is REA or SCEA, no other private school on the list is EA or ED (see the constraint and school list in the Application Strategy Principles).
+11. **State aid:** The family's state programs are mentioned by name.
+12. **Radar schools:** Every radar school is on the list with full analysis and asterisked in the executive summary table.
 
-Fix any inconsistencies you find, then output your final response.
+Fix any issues you find, then output your final response.
 
 ---
 
@@ -319,7 +299,7 @@ Fix any inconsistencies you find, then output your final response.
 
 Rules for the JSON block:
 - Include every school from the school list
-- \`admit_pct\`: your admission probability estimate for this student as a decimal (0 to 1), same as in the table. **Use EXACTLY 3 decimal places to match your narrative percentage.** Examples: 7.7% = 0.077 (NOT 0.08). 4.6% = 0.046 (NOT 0.05). 5.9% = 0.059 (NOT 0.06). 3.9% = 0.039 (NOT 0.04). 37.8% = 0.378 (NOT 0.38). This is the #1 reason plans fail review. For each school, take the percentage you wrote, divide by 100, and write all 3 digits.
+- \`admit_pct\`: your admission probability estimate for this student as a decimal (0 to 1), same as in the table, written with **exactly 3 decimal places**. Take the percentage from your narrative and divide by 100, keeping all three digits even when the last is zero: 45.1% = 0.451, 7.7% = 0.077, 86.0% = 0.860.
 - \`merit_pct\`: probability of receiving a merit scholarship (0 for no-merit schools like Ivies, MIT, Stanford). For merit schools, estimate based on the student's profile
 - \`merit_low\` / \`merit_high\`: annual merit scholarship range if awarded (0/0 for no-merit schools)
 - \`need_aid_low\` / \`need_aid_high\`: estimated annual need-based aid range at this family's income level
@@ -327,9 +307,7 @@ Rules for the JSON block:
 - \`family_budget\`: the family's stated annual budget (use the midpoint if they gave a range, or the upper end if ambiguous)
 - All dollar amounts are integers, no dollar signs or commas
 
-**CRITICAL: The JSON parameters MUST produce net costs that match your narrative.** The simulation engine calculates: net_cost = sticker_cost - merit_award - need_aid. The MEDIAN result (where ~50% of merit recipients get merit, and need aid is the midpoint of your range) must land within $3,000 of the "estimated net cost" you wrote in the executive summary table and per-school writeups. Before writing the JSON block, mentally verify each school:
-- If you wrote "estimated net cost: $18-22K" in the narrative, then sticker_cost minus the midpoint of need_aid_low/need_aid_high minus (merit_pct * midpoint of merit_low/merit_high) should be roughly $18-22K.
-- If the math doesn't work, go back and adjust EITHER the narrative estimate OR the JSON parameters so they match. Do not let them contradict each other.
+**The JSON parameters must produce net costs that match your narrative.** The simulation engine calculates: net_cost = sticker_cost - merit_award - need_aid. The median result must land within $3,000 of the "estimated net cost" you wrote in the executive summary table and per-school writeups. Before writing the JSON block, verify each school: sticker_cost minus the midpoint of need_aid_low/need_aid_high minus (merit_pct * midpoint of merit_low/merit_high) should fall inside your narrative range. If the math doesn't work, adjust either the narrative estimate or the JSON parameters so they agree.
 
 ---
 
@@ -341,7 +319,7 @@ Rules for the JSON block:
 
   // If this is a retry after a failed review, append the feedback
   if (data.review_feedback) {
-    prompt += `\n\n---\n\n**CRITICAL: PREVIOUS ATTEMPT FAILED QUALITY REVIEW. You MUST fix these specific issues in this attempt:**\n\n${data.review_feedback}\n\nDo NOT repeat these mistakes. Address each issue listed above. Double-check your work against these specific failure points before outputting your response.`;
+    prompt += `\n\n---\n\n**A previous attempt at this document failed quality review. Fix these specific issues in this attempt:**\n\n${data.review_feedback}\n\nAddress each issue listed above and check your output against these failure points before responding.`;
   }
 
   return prompt;
@@ -410,7 +388,7 @@ module.exports = async function handler(req, res) {
               <li><strong>Email:</strong> ${data.email || 'Not provided'}</li>
               <li><strong>Payment:</strong> ${data.payment_type || 'free'}</li>
             </ul>
-            <p><a href="https://scaffold-project.vercel.app/admin.html">View in Admin</a></p>`,
+            <p><a href="https://scaffold-hazel.vercel.app/admin.html">View in Admin</a></p>`,
         }),
       }).catch(err => console.error('Notification email failed:', err));
     }
@@ -433,8 +411,10 @@ module.exports = async function handler(req, res) {
 
     const stream = await client.messages.stream({
       model: MODEL,
-      max_tokens: 20000,
-      temperature: GENERATION_TEMPERATURE,
+      // Thinking tokens count toward max_tokens, so the cap includes headroom
+      // beyond the ~12K expected document output
+      max_tokens: 32000,
+      thinking: { type: "adaptive" },
       messages: [{ role: "user", content: prompt }],
     });
 

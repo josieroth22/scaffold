@@ -3,8 +3,9 @@ const { Redis } = require("@upstash/redis");
 const fs = require("fs");
 const path = require("path");
 const schoolData = require("../lib/school-data");
+const { validatePlan } = require("../lib/validate-plan");
 
-const { MODEL, REVIEW_TEMPERATURE } = require("../lib/config");
+const { MODEL } = require("../lib/config");
 
 const client = new Anthropic.default();
 
@@ -54,6 +55,25 @@ module.exports = async function handler(req, res) {
     try { formData = JSON.parse(data.form_data); } catch (e) { formData = {}; }
   } else {
     formData = data.form_data || {};
+  }
+
+  // Programmatic validation pre-pass: deterministic code checks run before the
+  // Claude review. Safe JSON-block fixes (decimal padding, no-merit zeroing)
+  // are applied to the stored output; everything else becomes a finding the
+  // reviewer must carry into its verdict.
+  let validation = { fixedOutput: null, autoFixes: [], flags: [] };
+  try {
+    validation = validatePlan(data.output, formData);
+  } catch (e) {
+    console.error("validate-plan failed (non-fatal, review proceeds):", e);
+  }
+  if (validation.fixedOutput) {
+    data.output = validation.fixedOutput;
+    try {
+      await redis.hset(`submission:${id}`, { output: data.output });
+    } catch (e) {
+      console.error("Failed to persist auto-fixed output:", e);
+    }
   }
 
   // Extract simulation params JSON from the Tier 1 output
@@ -140,6 +160,18 @@ The plan has three places where school costs and probabilities appear:
   // Radar schools for mandatory inclusion check
   const radarSchools = formData.schools_on_radar || "None";
 
+  // Render programmatic validation findings for the review prompt
+  let validationSection = "";
+  if (validation.autoFixes.length > 0 || validation.flags.length > 0) {
+    validationSection = "\n\n---\n\n**PROGRAMMATIC VALIDATION FINDINGS (deterministic code checks):**\n\n";
+    if (validation.autoFixes.length > 0) {
+      validationSection += `These issues were detected and already auto-fixed in the document above. Do NOT flag them:\n${validation.autoFixes.map((f) => "- " + f.detail).join("\n")}\n\n`;
+    }
+    if (validation.flags.length > 0) {
+      validationSection += `These violations were verified by code against the JSON params, the document tables, and the verified school data. Treat them as ground truth: the corresponding check below MUST be FAIL, and your detail field must include the specifics listed here (the fix step builds its corrections from your detail text). Findings marked [needs judgment] are for you to confirm or dismiss:\n${validation.flags.map((f) => `- [${f.check}]${f.severity === "review" ? " [needs judgment]" : ""} ${f.detail}`).join("\n")}\n`;
+    }
+  }
+
   const prompt = `You are a quality reviewer for a college planning product called Scaffold. A family paid $50 for a personalized college strategy document. Your job is to review the generated plan for errors, inconsistencies, and hallucinations.
 
 **FAMILY DETAILS (everything the family submitted):**
@@ -186,25 +218,16 @@ Use this list to verify check #4. If the plan assigns merit aid to any school on
 **STATE AID PROGRAMS (for this family's state):**
 
 ${stateAid}
-
+${validationSection}
 ---
 
 **Review this plan for the following issues. For each category, respond with PASS or FAIL and a brief explanation. If FAIL, quote the specific problematic text.**
 
-1. **Residency accuracy:** Are in-state/out-of-state tuition classifications correct for the student's home state? DC students should NOT be listed as in-state for Maryland or Virginia. Students are only in-state for schools in their own state.
-   **CRITICAL: Also verify the sticker_cost in the JSON params matches the correct residency rate.** If a student is out-of-state at a public university, the sticker cost must reflect out-of-state tuition (typically $45K-$60K), NOT in-state tuition (typically $15K-$35K). For example, a DC student at UMD should have a sticker cost around $55K, not $30K. If the sticker cost uses the wrong residency rate, FAIL this check and flag the dollar amount mismatch.
+1. **Residency accuracy:** Are in-state/out-of-state tuition classifications correct for the student's home state? Students are only in-state for schools in their own state; DC students are NOT in-state for Maryland or Virginia. Verify the JSON sticker_cost reflects the correct residency rate (out-of-state at a public university is typically $45K-$60K, not in-state's $15K-$35K). If programmatic findings above flag a residency-rate mismatch, this check FAILs with those specifics.
 
-2. **Tier and cost consistency across sections:** First check TIER LABELS: For each school, does it have the SAME tier label (Reach, Target, or Safety) in every section where it appears (Executive Summary table, school writeups, probability table, "What If" section)? If any school is called "Safety" in one section and "Target" in another, FAIL and list every mismatch. Then check COSTS:
-   - Do the executive summary table costs match the per-school writeups and the probability table?
-   - Do the narrative cost estimates match the JSON simulation parameters (sticker_cost minus aid ranges should roughly equal the narrative's estimated net cost)?
-   - Do the simulation results (median net cost) roughly align with the narrative estimates (within ~$3K)?
-   If any school's numbers differ by more than $3,000 between ANY two sections, FAIL and list every mismatch with the specific numbers from each section.
+2. **Tier and cost consistency across sections:** Every school must carry the same tier label (Reach, Target, or Safety) in every section where it appears: executive summary table, school writeups, probability table, "What If" section. Costs must agree across those same sections, and both the JSON params (sticker_cost minus aid ranges) and the simulation median must land within ~$3K of the narrative estimates. If any school's tier differs anywhere, or its numbers differ by more than $3,000 between any two sections, FAIL and list every mismatch with the specific values from each section. The programmatic findings above include code-detected tier and net-cost mismatches; your job adds the prose sections that code cannot parse.
 
-3. **Admission rate consistency:** The critical check is whether the JSON admit_pct values have 3 decimal places and match the narrative. For EACH school, check:
-   - Does the JSON admit_pct use exactly 3 decimal places? (0.451 not 0.45, 0.110 not 0.11, 0.860 not 0.86). If ANY school has only 2 decimal places, FAIL.
-   - Does the JSON admit_pct match the narrative percentage? (narrative "45.1%" should yield JSON 0.451). Small rounding differences of 0.001 are acceptable.
-   - Are the estimates realistic? A student-adjusted estimate should not exceed the school's overall admit rate by more than ~5 percentage points.
-   **IMPORTANT:** The narrative, probability table, and school writeups may express the same rate slightly differently (e.g., "about 45%" vs "45.1%" vs "43.9%"). Minor prose variations are NOT a failure. Only fail if the JSON value is clearly wrong (wrong number of decimals, or off by more than 2 percentage points from the narrative).
+3. **Admission rate consistency:** Decimal formatting of admit_pct is checked and auto-fixed by code before this review reaches you, so do not fail on decimal count. Your job, for each school: (a) does the JSON admit_pct match the narrative percentage (narrative "45.1%" should yield 0.451; FAIL if off by more than 2 percentage points), and (b) are the estimates realistic (a student-adjusted estimate should not exceed the school's overall admit rate by more than ~5 percentage points)? Minor prose variations ("about 45%" vs "45.1%") are not failures.
 
 4. **No-merit school check:** Are merit scholarships incorrectly assigned to schools that only offer need-based aid? Check EVERY school on the list against the NO-MERIT LIST provided above. If a school appears on that list and the plan shows merit_pct > 0 in the JSON, or describes merit scholarship opportunities in the narrative, FAIL. Also check: if the narrative says "no merit aid" for a school, does the JSON have merit_pct=0?
 
@@ -244,10 +267,7 @@ ${stateAid}
    - **Costs:** Compare sticker cost and net price against verified numbers. If any differ by more than $3,000, FAIL and list every discrepancy.
    The verified data is ground truth from CDS 2024-25 reports and the College Scorecard. **This check is ONLY about admit rates and costs.** Do NOT fail this check because the plan mentions academic programs, colleges, or institutes not in the verified data — that is handled by the fabricated_content check, which has relaxed rules for well-known academic programs.
 
-13. **REA/SCEA constraint:** If the plan recommends Restrictive Early Action or Single-Choice Early Action at any school (Harvard SCEA, Yale SCEA, Princeton SCEA, Stanford REA, Notre Dame REA, Georgetown REA), verify that NO other private school on the list is marked EA or ED. Only public/state universities may be EA alongside an REA/SCEA school. Other private schools must be RD or ED2.
-   - **This is a hard rule with NO exceptions.** Do NOT rationalize (e.g., "it's acceptable if REA is not pursued"). The plan as written must be internally consistent. If Stanford is REA and Case Western is EA, that is a FAIL. Period.
-   - Check every school on the list. For each one, determine: (a) is it public or private? (b) what application round is recommended? If any private school is EA/ED while another school is REA/SCEA, FAIL immediately.
-   - Common private schools that CANNOT be EA alongside an REA/SCEA: MIT, Case Western, USC, NYU, Boston University, Northeastern, Tulane, Rice, Duke, Emory, WashU, Northwestern, etc.
+13. **REA/SCEA constraint:** If the plan recommends Restrictive Early Action or Single-Choice Early Action at any school (Harvard, Yale, Princeton, Stanford, Notre Dame, Georgetown), no other private school on the list may be EA or ED. RD and ED2 are fine, and public/state universities may stay EA. This is a hard rule with no exceptions; do not rationalize a violation as acceptable. The programmatic findings above flag violations detected from the JSON params (treat those as confirmed FAILs); also check the narrative tables for any school the code marked [needs judgment] or could not classify as public vs private.
 
 14. **State aid programs:** If the STATE AID PROGRAMS section above lists programs for this family's state, does the plan mention them? For example, if the family is in Florida and the state aid section mentions Bright Futures, does the plan discuss Bright Futures and whether this student is on track? If significant state programs exist and are completely absent from the plan, FAIL.
 
@@ -292,12 +312,14 @@ Only output the JSON block. No other text.`;
   try {
     const response = await client.messages.create({
       model: MODEL,
-      max_tokens: 5000,
-      temperature: REVIEW_TEMPERATURE,
+      // Thinking tokens count toward max_tokens; the verdict JSON itself is ~2K
+      max_tokens: 12000,
+      thinking: { type: "adaptive" },
       messages: [{ role: "user", content: prompt }],
     });
 
-    const text = response.content[0].text;
+    // With adaptive thinking, content[0] may be a thinking block
+    const text = response.content.find((b) => b.type === "text").text;
 
     // Extract JSON from response
     let review;
@@ -312,6 +334,31 @@ Only output the JSON block. No other text.`;
     } else {
       review = { raw: text };
     }
+
+    // Enforce programmatic findings: code-verified violations fail their
+    // checks even if the model reviewer let them pass
+    if (review && review.checks) {
+      for (const flag of validation.flags) {
+        if (flag.severity === "review") continue; // reviewer's judgment call
+        const note = `[programmatic] ${flag.detail}`;
+        const existing = review.checks[flag.check];
+        if (!existing) {
+          review.checks[flag.check] = { status: "FAIL", detail: note };
+        } else if (existing.status !== "FAIL") {
+          existing.status = "FAIL";
+          existing.detail = existing.detail ? `${existing.detail} ${note}` : note;
+        }
+      }
+      const failCount = Object.values(review.checks).filter(
+        (c) => c && c.status === "FAIL"
+      ).length;
+      review.issues_found = failCount;
+      if (failCount > 0) review.overall = "FAIL";
+    }
+    review.validator = {
+      auto_fixes: validation.autoFixes,
+      flags: validation.flags,
+    };
 
     // Track review count and history
     const prevCount = parseInt(data.review_count) || 0;
