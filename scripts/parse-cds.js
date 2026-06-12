@@ -24,7 +24,7 @@ const SCHOOLS_DIR = path.join(__dirname, "..", "data", "schools");
 const ERRORS_FILE = path.join(__dirname, "..", "data", "cds-parse-errors.json");
 const PDFTOTEXT = "/opt/homebrew/bin/pdftotext";
 const DELAY_MS = 500;
-const MODEL = "claude-opus-4-20250514";
+const MODEL = "claude-fable-5";
 const MAX_TOKENS = 4000;
 
 // ---------------------------------------------------------------------------

@@ -1,7 +1,7 @@
 const Anthropic = require("@anthropic-ai/sdk");
 const { Redis } = require("@upstash/redis");
 const schoolData = require("../lib/school-data");
-const { MODEL, GENERATION_TEMPERATURE } = require("../lib/config");
+const { MODEL } = require("../lib/config");
 
 const client = new Anthropic.default();
 const redis = new Redis({
@@ -157,8 +157,10 @@ Then generate each of these sections. Each should stand alone so a parent can ju
 
     const stream = await client.messages.stream({
       model: MODEL,
-      max_tokens: 16000,
-      temperature: GENERATION_TEMPERATURE,
+      // Thinking tokens count toward max_tokens, so the cap includes headroom
+      // beyond the ~12K expected section output
+      max_tokens: 24000,
+      thinking: { type: "adaptive" },
       messages: [{ role: "user", content: prompt }],
     });
 

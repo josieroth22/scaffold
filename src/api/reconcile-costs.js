@@ -1,6 +1,6 @@
 const Anthropic = require("@anthropic-ai/sdk");
 const { Redis } = require("@upstash/redis");
-const { MODEL, FIX_TEMPERATURE } = require("../lib/config");
+const { MODEL } = require("../lib/config");
 
 const client = new Anthropic.default();
 const redis = new Redis({
@@ -111,7 +111,6 @@ ${cleanOutput}`;
     const response = await client.messages.create({
       model: MODEL,
       max_tokens: 16000,
-      temperature: FIX_TEMPERATURE,
       messages: [{ role: "user", content: prompt }],
     });
 

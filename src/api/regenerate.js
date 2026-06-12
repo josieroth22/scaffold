@@ -1,6 +1,6 @@
 const Anthropic = require("@anthropic-ai/sdk");
 const { Redis } = require("@upstash/redis");
-const { MODEL, GENERATION_TEMPERATURE } = require("../lib/config");
+const { MODEL } = require("../lib/config");
 const { buildPrompt } = require("./generate");
 
 const client = new Anthropic.default();
@@ -94,8 +94,10 @@ module.exports = async function handler(req, res) {
 
     const stream = await client.messages.stream({
       model: MODEL,
-      max_tokens: 20000,
-      temperature: GENERATION_TEMPERATURE,
+      // Thinking tokens count toward max_tokens, so the cap includes headroom
+      // beyond the ~12K expected document output
+      max_tokens: 32000,
+      thinking: { type: "adaptive" },
       messages: [{ role: "user", content: prompt }],
     });
 

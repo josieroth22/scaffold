@@ -16,7 +16,7 @@ const client = new Anthropic.default();
 const CONTEXT_DIR = path.join(__dirname, "..", "Other Context- Scholarships and Honors");
 const SCHOOLS_DIR = path.join(__dirname, "..", "data", "schools");
 const PDFTOTEXT = "/opt/homebrew/bin/pdftotext";
-const MODEL = "claude-opus-4-20250514";
+const MODEL = "claude-fable-5";
 
 function sleep(ms) {
   return new Promise((r) => setTimeout(r, ms));
