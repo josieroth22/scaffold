@@ -815,4 +815,7 @@ module.exports = {
   getIncomeBracket,
   parseState,
   buildCheatSheet,
+  getSchoolList,
+  loadSchool,
+  findSchoolSlug,
 };
