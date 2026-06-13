@@ -14,7 +14,7 @@
 
 ## IN FLIGHT AT SESSION END
 
-Brett Roth re-baseline rerun: submission `mqbms3ivxsu6pw`, submitted ~8:42 PM ET June 12. First fully clean run (64K caps + reviewer fix + validator). The earlier run `mqblu0bloz8gz6` is the broken double-truncation one — ignore it ("completed" with FAIL review, no sim).
+Brett re-baseline: TWO doomed runs so far. mqblu0bloz8gz6 (32K truncation, fixed) and mqbms3ivxsu6pw (prompt contradiction: "stop after the Monte Carlo Parameter Table" made Fable omit the JSON block, fixed in commit after 2d823e6). Cancel mqbms3ivxsu6pw if still running. Resubmit Brett fresh ~2 min after the fix deploys; that run has all three fixes (64K caps, reviewer full-form visibility, unambiguous output tail).
 
 **When it completes, check (admin or curl `api/submission?code=...&id=mqbms3ivxsu6pw`):**
 1. Document complete? Ends cleanly, has json-simulation-params block, has Tier 2, Monte Carlo charts render on plan.html
