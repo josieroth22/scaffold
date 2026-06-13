@@ -78,6 +78,7 @@ The mission: close the information gap in college planning. A $310K family in Na
   - Test fixture: `scripts/test-validate-plan.js` (covers all checks + edge cases, including the two Brett Roth bugs the reviewer originally missed).
 - [x] Integrate into pipeline — **done June 2026.** Runs as a pre-pass inside review.js (covers all four review call sites with no client changes). Auto-fixes are persisted to Redis; flags are injected into the review prompt as ground truth, and code force-fails the matching checks even if the model reviewer disagrees, so fix-plan always receives the specifics.
 - [ ] Structured extraction for review: extract school names, tiers, rounds, costs into structured JSON first, validate programmatically, and leave Claude review only subjective quality. (Partially covered now: validator findings are structured; full extraction still open.)
+- [ ] Skip the fix loop when the validator raises a regen-severity flag (missing/unparseable JSON params block): find/replace cannot fix an absent block, so intake.html should jump straight to /api/regenerate. Saves ~4 min and ~$2 per occurrence (observed in the first live Fable run).
 
 #### 2. Prompt Consolidation + Fable 5 Re-tune
 *The generation and review prompts have 12+ patches layered from iterative testing, all written against the old Opus model. Fable 5 follows instructions more literally, so this cleanup doubles as the model re-tune.*
@@ -88,6 +89,8 @@ The mission: close the information gap in college planning. A $310K family in Na
 - [ ] Review all other code and docs for staleness
 
 #### 3. Testing
+- [ ] **Website + intake form copy pass:** read index.html, intake.html (all form steps, helper text, placeholders, generating-screen messages), and plan.html with an eye to detail and sounding human (no em dashes, no AI-sounding phrasing). Includes adding a "Reading your family's details..." style status during Fable's silent thinking period at the start of generation. Do before any external eyes.
+- [ ] **UptimeRobot on /api/keep-alive** (free, 5 min setup): pings every 5 minutes, which keeps Redis active and emails on failure. The June 2026 outage went unnoticed because the Vercel cron failed silently. Do before external testers.
 - [ ] **CRO's daughter test prep:** before sharing the link, run a dry-run profile that matches her situation as closely as possible (grade level, region, income band, academic interests) and review that plan line by line. This is a reference customer and a referral source, treat it like a launch.
 - [ ] Share site with friends and collect feedback on plan quality and form UX
 - [ ] Mobile test the full flow (form, generating screen, plan page) on a phone
