@@ -195,6 +195,13 @@ The mission: close the information gap in college planning. A $310K family in Na
 - [ ] **4-year cost projection table:** For each school, show year-by-year cost estimate accounting for tuition inflation (~3-5%/year), potential in-state residency establishment for OOS public schools (year 2 or 3 switch to in-state rates where allowed), and sibling overlap (multiple kids in college simultaneously reduces EFC/SAI, increasing need-based aid). Full picture, not just year-1 sticker shock.
 - [ ] PDF export of the full plan
 
+#### 11b. Admin Portal Revamp (post-Fable-5 pipeline)
+*The June 2026 changes (validator, adaptive thinking, fix/regen flow) outgrew the current admin. Partially done: pipeline legend and a validator findings section in the review tab shipped June 12.*
+- [ ] Capture per-call usage (input/output/thinking tokens) and stop_reason into Redis from every pipeline step; show per-submission cost and a truncation warning in admin. A 32K-cap truncation on the first Fable run was only discoverable by reading the document tail; stop_reason would have made it a one-glance diagnosis.
+- [ ] Show validator activity in the submissions list (auto-fix/flag count badges), not just the detail tab
+- [ ] Review history entries should include validator findings per attempt
+- [ ] Verify stage display covers all statuses (fixing, regenerating, with attempt counts)
+
 #### 12. Polish
 - [ ] Write founder bio and add to website (landing page "About" section or footer)
 - [ ] Testimonials section on homepage
