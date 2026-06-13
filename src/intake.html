@@ -1621,7 +1621,9 @@
     try {
       const statusEl = document.getElementById('gen-status');
       const progressEl = document.getElementById('gen-progress');
-      statusEl.textContent = 'Generating your plan...';
+      // Claude thinks before it writes, so no text streams for the first
+      // minute or two. Say so, or the frozen bar reads as a hang.
+      statusEl.textContent = 'Reading your family\'s details and the school data. This takes a minute or two before writing begins...';
       const MAX_FIX_ATTEMPTS = 2;
       const MAX_REGEN_ATTEMPTS = 1;
 
@@ -1664,7 +1666,7 @@
 
       submissionId = await streamResponse(response, statusEl, progressEl, (text) => {
         markdown += text;
-      }, 0, 40, 13000);
+      }, 0, 40, 30000); // Fable 5 Tier 1 docs measured at ~30K chars
 
       // ============================================================
       // PHASE 2: Review Tier 1 (BEFORE simulation so we catch school
@@ -1758,7 +1760,7 @@
             markdown = '';
             await streamResponse(regenRes, statusEl, progressEl, (text) => {
               markdown += text;
-            }, 52, 62, 13000);
+            }, 52, 62, 30000); // matches Tier 1 calibration
 
             // Review the regenerated Tier 1
             progressEl.style.width = '63%';
@@ -1828,7 +1830,7 @@
       // PHASE 6: Generate Tier 2 (built on reviewed/verified Tier 1)
       // ============================================================
 
-      statusEl.textContent = 'Generating your plan...';
+      statusEl.textContent = 'Building your reference sections. Another brief pause before writing begins...';
       progressEl.style.width = '76%';
 
       const tier2Response = await fetch('/api/generate-tier2', {
