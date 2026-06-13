@@ -1,86 +1,55 @@
-# Session Status - February 21, 2026
+# Session Status - June 12, 2026
 
-## COMPLETED
+## COMPLETED TODAY
 
-### CDS Parsing
-- 136 schools parsed from CDS PDFs/XLSX files
-- 1 skipped (Amherst - already had data)
-- 3 fixed manually (UMass Amherst, Syracuse, U of Arkansas - scanned PDFs, data entered from web sources)
-- CDS name-mismatch audit: 6 issues found and fixed (Emory, Purdue, Tufts, URI labels corrected; Syracuse and Arkansas data replaced)
-- All results saved to `data/schools/*.json` under the `cds` key
+- **Fable 5 migration**: all API calls on `claude-fable-5` ($10/$50 per MTok). Temperature removed (400s on Fable), adaptive thinking on generation + review. Old claude-opus-4-20250514 retires June 15.
+- **Programmatic validator** (`src/lib/validate-plan.js` + pre-pass in review.js, test fixture `scripts/test-validate-plan.js`): REA/SCEA, tier consistency, admit_pct decimals (auto-fix), sticker vs verified data with residency awareness, no-merit enforcement (auto-fix), net-cost vs narrative.
+- **Prompt consolidation** for Fable 5 in generate.js (~1K tokens saved, rules stated once, pressure language removed) and review.js (15 check keys unchanged).
+- **Redis outage fixed**: old Upstash DB archived for inactivity (keep-alive cron was failing silently). New database via Vercel Storage, Pay As You Go plan (cannot be archived), KV-prefix env vars. Old data lost (test submissions + 3 sample plans). Live URL: scaffold-hazel.vercel.app.
+- **Admin**: pipeline legend + validator findings section in review tab.
+- **Bugs found by first live Fable run** (all fixed + deployed):
+  1. 32K max_tokens truncated mid-document: Fable thinks ~25K tokens on this prompt. Generation/regeneration now 64K, Tier 2 48K.
+  2. Reviewer blind spot: FAMILY DETAILS omitted assets/financial_special/preferences, causing false fabricated_content failures (flagged real home equity as invented). Reviewer now sees the full form.
+- **Website copy**: index.html says Claude Fable 5 (2 spots).
 
-### College Scorecard API
-- All 1,492 US 4-year colleges fetched from College Scorecard API
-- Data saved to `data/schools/*.json` under the `scorecard` key
+## IN FLIGHT AT SESSION END
 
-### Scholarship/Honors PDFs (Second Pass Complete)
-- Parser bug fixed (amount field was duplicating scholarship names)
-- Name matching improved (added aliases for William & Mary, Brandeis; lowered overlap threshold)
-- Re-run results: 108 schools updated, 0 unmatched
-- Scholarship amounts being populated via web search (agent running)
+Brett Roth re-baseline rerun: submission `mqbms3ivxsu6pw`, submitted ~8:42 PM ET June 12. First fully clean run (64K caps + reviewer fix + validator). The earlier run `mqblu0bloz8gz6` is the broken double-truncation one — ignore it ("completed" with FAIL review, no sim).
 
-### Reference Data Quality Fixes
-- Alabama National Merit: first_choice_required corrected to true, semifinalist/finalist descriptions updated
-- Vanderbilt National Merit: first_choice_required corrected to true
-- University of Miami honors program: replaced wrong-school data (Miami of Ohio) with correct Foote Fellows data
-- QuestBridge partners: 55 schools tagged from verified partner list
+**When it completes, check (admin or curl `api/submission?code=...&id=mqbms3ivxsu6pw`):**
+1. Document complete? Ends cleanly, has json-simulation-params block, has Tier 2, Monte Carlo charts render on plan.html
+2. Review attempts to pass (Feb baseline: 5 attempts on old Opus)
+3. Validator section in admin review tab: what was auto-fixed/flagged
+4. Output length in chars -> recalibrate intake.html progress bar (`expectedChars`: 13000 for Tier 1 in streamResponse call ~line 1667, 15000 for Tier 2 ~line 1842; the truncated run already produced 24-30K chars for T1)
+5. Read the plan for voice/quality (Fable writes warmer than old Opus)
 
-### State Aid Programs Document
-- Comprehensive document at `data/state-aid-programs.md` covering 45+ states and DC
-- Fact-checked 13 key programs (all accurate or corrected)
-- 12 brief state summaries expanded to full entries
-- 8 missing states added (NJ, MN, VA, OR, CT, MD, MO, SD)
-- Texas TEXAS Grant entry added
-- Rules 3-17 completed (17 total prompt rules)
-- Inconsistencies fixed (section headers, cross-references, Nevada expanded, Scaffold notes for WV/MS/AK)
-- Document reorganized for coherence: state index added, sections renamed, catch-all section merged
+## NEXT STEPS (in order)
 
-### Data Validation
-- Validation script run across all 1,492 schools
-- No corrupt data found
-- 15 "errors" all explainable (negative net prices at generous-aid schools, one rounding artifact)
-- Structural gaps expected (open-admission schools don't report SATs, military academies don't charge tuition)
+1. Verify Brett rerun (above). If pass: run **Sofia Martinez** (full profiles for both: `docs/test-profiles.md`).
+2. Recalibrate progress-bar expectedChars with measured lengths.
+3. Re-measure unit economics with real token usage (project-plan table is scaled estimates; thinking adds ~25K billed output tokens per generation, ~$1.25/call, not in the table). Exact usage: Anthropic console.
+4. UptimeRobot on /api/keep-alive (5 min, before external testers).
+5. Regenerate sample plans (Alejandra, Priya, Jake) — then update the 6 hardcoded plan.html?id= links in index.html.
+6. Copy pass: website + intake form, incl. a status message during Fable's silent thinking period at generation start (bar sits at 0% for 1-3 min, looks frozen).
+7. Dry-run a profile resembling the CRO's daughter before sharing with Jon.
 
-### Spot-Check Results (10 schools verified against real sources)
-- 8/10 fully accurate
-- 2 had CDS name issues (fixed)
-- Howard University net prices confirmed accurate but notably high for low-income students (reflects 21% need met)
+Deferred: legal, Stripe, LLC. Full roadmap: docs/project-plan.md.
 
-## DATA READY FOR PROMPT INJECTION
+## USEFUL
 
-All three data layers are populated and verified:
-1. **Scorecard** (Layer 1): 1,492 schools with admissions, costs, aid data
-2. **CDS** (Layer 2): 136 schools with detailed admissions, financial aid, ED/EA rates
-3. **Reference** (Layer 3): 108 schools with scholarship, National Merit, honors data + 55 QuestBridge tags
-4. **State Aid Document**: 45+ states, 17 prompt rules, state index
+- Admin: scaffold-hazel.vercel.app/admin.html (code in src/api/submissions.js)
+- Intake bypass code: in CLAUDE.md architecture diagram
+- Pipeline watcher: `node scripts/watch-pipeline.js` (polls admin API, logs stage transitions; set IGNORE_ID env var to skip an old submission)
+- Validator test: `node scripts/test-validate-plan.js`
 
-## COMPLETED (this session)
+## CARRIED OVER FROM FEB 21 (verify if still present)
 
-### Inject Data Into Generation Prompt ✓
-- Created `src/api/school-data.js` with loadSchoolsForPrompt(), loadStateAid(), getIncomeBracket()
-- Modified `src/api/generate.js`: injects ~23K tokens of verified school data, state aid, and financial-aid-facts.md
-- Modified `src/api/generate-tier2.js`: added SCHOOL DATA REFERENCE section
-- Modified `src/api/review.js`: added verified data as ground truth, added check #12 (verified data usage)
-- Updated `prompts/financial-aid-facts.md`: added header note about co-injection
-- Updated `docs/project-plan.md`: checked off Phase 3 items, added Phase 3b, updated unit economics
+### Plan rendering bugs
+- Activities list wall of text: Currently:/Goal: descriptions render as one block (fix was deployed but unverified)
+- EA (merit deadline) badge: fix deployed, verify
+- Admit rates showing as decimals in rendered plan ("0.103" instead of "10.3%"): check formatSchoolCompact()/formatSchoolRadar() in school-data.js
+- Honors programs incomplete: GSU and UNC show N/A; honors data only covers ~108 schools from the PDF parse
 
-## STILL TODO
-
-### Plan Rendering Bugs (next session)
-- **Activities list wall of text**: Currently:/Goal: descriptions from all 10 activities render as one giant block. First fix deployed (plan.html: `<br>` splitting + styled labels) but not working — need to inspect actual DOM structure of Jaylen's plan to find why. Likely the content is in an element type not covered by `querySelectorAll('p, li, td')`, or the AI output format doesn't match expectations.
-- **EA (merit deadline) badge**: Fix deployed and should be working (strips parenthetical for matching, shows badge + italic note). Verify on Jaylen's plan.
-- **Admit rates showing as decimals**: e.g. "0.103" instead of "10.3%". Likely the school data formatting in `school-data.js` or the AI is echoing raw Scorecard values. Check `formatSchoolCompact()` and `formatSchoolRadar()` in `src/api/school-data.js`.
-- **Honors programs incomplete**: GSU (Honors College) and UNC (Honors Carolina) both show N/A. Current honors data only covers schools from the scholarship/honors PDF parse (~108 schools). Need to do a broader pass: audit all ~136 CDS schools + major state flagships for honors programs and populate reference.honors_program in their JSONs.
-
-### Deploy + Verify
-- Deploy to Vercel
-- Manual test with Washington family (Atlanta, GA, $72K): verify HOPE/Zell Miller, UGA in-state tuition, no hallucinated scholarships
-- Run 20-profile batch test with CDS data live
-- Regenerate 3 homepage sample plans (Alejandra, Priya, Jake)
-- Add school data count to homepage
-- Add source citations to output
-
-### Minor Cleanup (low priority)
-- Missing CDS schools (all US News 80+): Binghamton, Colorado School of Mines, Chapman, Creighton, Elon, Saint Louis, Temple, U of Missouri, BYU, U of Tennessee, Yeshiva
+### Minor cleanup (low priority)
+- Missing CDS schools (US News 80+): Binghamton, Colorado School of Mines, Chapman, Creighton, Elon, Saint Louis, Temple, U of Missouri, BYU, U of Tennessee, Yeshiva
 - Consider adding DACA/undocumented aid, foster care waivers, military/veteran benefits, Native American tuition waivers to state aid doc
-- Founder-curated reference fields still empty: demonstrated_interest, no_loan_policy, application_notes, strong_programs (for most schools)
