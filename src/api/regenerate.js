@@ -94,9 +94,10 @@ module.exports = async function handler(req, res) {
 
     const stream = await client.messages.stream({
       model: MODEL,
-      // Thinking tokens count toward max_tokens, so the cap includes headroom
-      // beyond the ~12K expected document output
-      max_tokens: 32000,
+      // Thinking tokens count toward max_tokens. Fable 5 spends ~25K tokens
+      // thinking on this prompt, so the cap needs to be far above the ~8K
+      // document output (32K truncated mid-document in testing)
+      max_tokens: 64000,
       thinking: { type: "adaptive" },
       messages: [{ role: "user", content: prompt }],
     });

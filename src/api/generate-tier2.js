@@ -157,9 +157,10 @@ Then generate each of these sections. Each should stand alone so a parent can ju
 
     const stream = await client.messages.stream({
       model: MODEL,
-      // Thinking tokens count toward max_tokens, so the cap includes headroom
-      // beyond the ~12K expected section output
-      max_tokens: 24000,
+      // Thinking tokens count toward max_tokens. Fable 5 thinks heavily on
+      // these prompts (~25K tokens observed on Tier 1), so keep the cap far
+      // above the ~12K expected section output
+      max_tokens: 48000,
       thinking: { type: "adaptive" },
       messages: [{ role: "user", content: prompt }],
     });
