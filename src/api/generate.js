@@ -211,7 +211,7 @@ ${data.additional_context}
 
 ### SECTION 4: OUTPUT INSTRUCTIONS
 
-Generate the Strategy Brief (~5,000 words). This is the core document the parent reads the day they get it. Write it like you're talking directly to them. Reference Sections will follow separately, so stop after the Monte Carlo Parameter Table.
+Generate the Strategy Brief (~5,000 words). This is the core document the parent reads the day they get it. Write it like you're talking directly to them. Reference Sections will follow separately. Your output must end with, in this order: the Probability and Cost Estimates Table, then the json-simulation-params block (specified below — never omit it; the simulation engine cannot run without it), then the short Data Sources section. After Data Sources, stop.
 
 **Start with a title:** \`# [Student First Name]'s College Strategy\` followed by \`*[City], [State] | [Current Grade] | Scaffold [Month Year]*\` on the next line.
 
@@ -248,7 +248,7 @@ End with a clearly formatted **Probability and Cost Estimates Table**. For each 
    - Recommended application round (EA/ED/RD)
    - Any special program probabilities (QuestBridge, recruited athlete, etc.)
 
-Stop after the Monte Carlo Parameter Table. The Reference Sections come next in a separate pass.
+Do not begin the Reference Sections (they come next in a separate pass). After the Probability and Cost Estimates Table, you still owe two things before stopping: the json-simulation-params block and the Data Sources section, both specified below.
 
 ---
 
