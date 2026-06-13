@@ -179,7 +179,9 @@ The plan has three places where school costs and probabilities appear:
 - School: ${formData.school_name}, ${formData.school_type}
 - City: ${formData.city}${formData.state ? ', ' + formData.state : ''}
 - Income: ${formData.income}
+- Assets: ${formData.assets || "Not specified"}
 - College budget: ${formData.college_budget || "Not specified"}
+- Special financial circumstances: ${formData.financial_special || "None"}
 - Academic profile: ${formData.academic_profile || "Not specified"}
 - Academic strengths: ${formData.academic_strengths || "Not specified"}
 - Academic weaknesses: ${formData.academic_weaknesses || "Not specified"}
@@ -191,6 +193,9 @@ The plan has three places where school costs and probabilities appear:
 - Family structure: ${formData.family_structure || "Not specified"}
 - Siblings: ${formData.siblings || "None"}
 - Schools on radar: ${formData.schools_on_radar || "None"}
+- Size preference: ${formData.size_preference || "None"} | Geographic preference: ${formData.geographic_preference || "None"}
+- Must-haves: ${formData.must_haves || "None"} | Deal-breakers: ${formData.deal_breakers || "None"}
+- Willing to relocate: ${formData.relocation || "Not specified"} | Area type: ${formData.area_type || "Not specified"}
 - Teacher quote: ${formData.teacher_quote || "None provided"}
 - Additional context: ${formData.additional_context || "None"}
 
