@@ -156,6 +156,18 @@ The mission: close the information gap in college planning. A $310K family in Na
 - [ ] Download and parse CDS for missing high-priority schools: Georgia Tech, WashU St. Louis, Florida State, Cal Poly SLO, Juilliard. Check school CDS websites or IPEDS for availability.
 - [ ] YouTube college prep channel research: find channels with college prep advice (admissions strategy, financial aid, essay tips, school selection). Summarize key recommendations. Identify common themes or gaps Scaffold's plans should address.
 
+#### 7b. Pipeline v2 (post-demo reliability project)
+*Findings from the June-July 2026 Fable re-baseline. The two small items are safe pre-demo; the structural ones wait until after July 13. Do before Stripe turns on — these are the "customer paid and got nothing/got a flawed plan" risks.*
+
+**Small, safe pre-demo:**
+- [ ] Regen fast-path: skip the two doomed fix attempts when the validator raises a regen-severity flag (also listed under item 1; ~$1.50 and ~4 min saved per occurrence)
+- [ ] Honest completion status + alert: the pipeline currently marks plans "completed" even when the final review failed (observed live: completed with FAIL review). Add a distinct status and email Josie whenever a plan ships with a failing review.
+
+**Structural, post-demo:**
+- [ ] **Server-side orchestration.** The customer's browser tab drives all nine pipeline calls; closing the laptop mid-run kills the plan with no resume. Move orchestration server-side (or add resume-from-Redis-state) and add "we'll email you when it's ready." Biggest single reliability gap before taking payments.
+- [ ] **Structured outputs for sim params.** Both dead re-baseline runs failed by omitting/truncating the JSON block — asking a model to end a 5,000-word document with perfect JSON is fragile by design. Split Tier 1: narrative call, then a small extraction call using output_config json_schema to produce the params from the finished narrative (guaranteed-valid JSON, schema-enforced fields, ~$0.40/plan). Eliminates the validator's worst-case class entirely.
+- [ ] **Deterministic reconciliation.** reconcile-costs is an LLM find/replace over the whole document and is known to corrupt the params block (review.js carries a warning for it). With structured params, reconciliation becomes mostly code, with the LLM touching only narrative sentences.
+
 #### 8. Reliability & Safety
 - [ ] Rate limiting on form submission (prevent spam that runs up API costs)
 - [ ] Character limits on form fields (prevent excessively long inputs that blow up token counts; guide users toward concise answers)
