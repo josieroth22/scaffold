@@ -31,7 +31,7 @@ Brett re-baseline: TWO doomed runs so far. mqblu0bloz8gz6 (32K truncation, fixed
 4. UptimeRobot on /api/keep-alive (5 min, before external testers).
 5. Regenerate sample plans (Alejandra, Priya, Jake) — then update the 6 hardcoded plan.html?id= links in index.html.
 6. Copy pass: website + intake form, incl. a status message during Fable's silent thinking period at generation start (bar sits at 0% for 1-3 min, looks frozen).
-7. Dry-run a profile resembling the CRO's daughter before sharing with Jon.
+7. Dry-run a profile resembling the CRO's daughter before sharing with Jon. **DEADLINE: demo-ready by July 13, 2026 (Josie's first day at Datacor).**
 
 Deferred: legal, Stripe, LLC. Full roadmap: docs/project-plan.md.
 
