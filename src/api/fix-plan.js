@@ -148,7 +148,10 @@ ${cleanOutput}`;
   try {
     const response = await client.messages.create({
       model: MODEL,
-      max_tokens: 4000,
+      // Thinking tokens count toward max_tokens; 4000 caused no-text-block
+      // failures (all budget consumed before any output)
+      max_tokens: 16000,
+      thinking: { type: "adaptive" },
       messages: [{ role: "user", content: prompt }],
     });
 

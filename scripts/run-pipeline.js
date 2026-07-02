@@ -218,6 +218,9 @@ async function main() {
     const ffRes = await post("/api/fix-plan", { id });
     if (ffRes.ok) {
       finalPassed = await review(id, "Review after final fix");
+    } else {
+      const body = await ffRes.text().catch(() => "");
+      log(`final fix-plan returned ${ffRes.status}: ${body.slice(0, 300)}`);
     }
   }
   if (!finalPassed) {

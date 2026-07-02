@@ -108,11 +108,16 @@ ${cleanOutput}`;
   await redis.hset(`submission:${id}`, { status: "reconciling" });
 
   try {
-    const response = await client.messages.create({
+    // Streams internally (no SSE to client): output is a full rewritten
+    // document, and >16K max_tokens requires streaming to avoid SDK timeouts.
+    // Thinking tokens count toward max_tokens, hence the generous cap.
+    const stream = client.messages.stream({
       model: MODEL,
-      max_tokens: 16000,
+      max_tokens: 32000,
+      thinking: { type: "adaptive" },
       messages: [{ role: "user", content: prompt }],
     });
+    const response = await stream.finalMessage();
 
     // Find the text block explicitly; content[0] is not guaranteed to be text
     const reconcileTextBlock = response.content.find((b) => b.type === "text");

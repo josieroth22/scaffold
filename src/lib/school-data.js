@@ -436,14 +436,25 @@ function findSchoolSlug(name, schoolList) {
 
   if (abbrevs[normalized]) return abbrevs[normalized];
 
-  // Partial match: input contains full school name or school name contains full input
-  // Only match if the input is at least 4 chars to avoid false positives
+  // Partial match: input contains full school name or school name contains full input.
+  // Only match if the input is at least 4 chars to avoid false positives.
+  // Collect ALL matches and prefer the main campus / shortest name — otherwise
+  // "Purdue University" matches "Purdue University Fort Wayne" (alphabetically
+  // first) instead of "Purdue University Main Campus".
   if (normalized.length >= 4) {
+    const matches = [];
     for (const entry of schoolList) {
       const entryLower = entry.name.toLowerCase();
       if (entryLower.includes(normalized) || normalized.includes(entryLower)) {
-        return entry.slug;
+        matches.push(entry);
       }
+    }
+    if (matches.length === 1) return matches[0].slug;
+    if (matches.length > 1) {
+      const main = matches.find((e) => /main.campus/i.test(e.slug) || /main campus/i.test(e.name));
+      if (main) return main.slug;
+      matches.sort((a, b) => a.name.length - b.name.length);
+      return matches[0].slug;
     }
   }
 
