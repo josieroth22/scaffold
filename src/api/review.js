@@ -193,6 +193,8 @@ The plan has three places where school costs and probabilities appear:
 - Family structure: ${formData.family_structure || "Not specified"}
 - Siblings: ${formData.siblings || "None"}
 - Schools on radar: ${formData.schools_on_radar || "None"}
+- Priorities (1 = most important): academic fit ${formData.priority_academic_fit || "?"}, cost ${formData.priority_cost || "?"}, merit ${formData.priority_merit || "?"}, prestige ${formData.priority_prestige || "?"}, outcomes ${formData.priority_outcomes || "?"}, location ${formData.priority_location || "?"}, culture ${formData.priority_culture || "?"}
+- Priorities, anything else: ${formData.priority_other || "Nothing additional"}
 - Size preference: ${formData.size_preference || "None"} | Geographic preference: ${formData.geographic_preference || "None"}
 - Must-haves: ${formData.must_haves || "None"} | Deal-breakers: ${formData.deal_breakers || "None"}
 - Willing to relocate: ${formData.relocation || "Not specified"} | Area type: ${formData.area_type || "Not specified"}

@@ -161,7 +161,8 @@ async function main() {
     log(`Fix attempt ${fixAttempt}...`);
     const fixRes = await post("/api/fix-plan", { id });
     if (!fixRes.ok) {
-      log(`fix-plan returned ${fixRes.status}, stopping fix loop`);
+      const body = await fixRes.text().catch(() => "");
+      log(`fix-plan returned ${fixRes.status}: ${body.slice(0, 300)} — stopping fix loop`);
       break;
     }
     reviewPassed = await review(id, `Re-review after fix ${fixAttempt}`);
