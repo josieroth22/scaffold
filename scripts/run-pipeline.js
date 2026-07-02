@@ -51,15 +51,36 @@ async function postJson(pathname, body) {
   return res.json();
 }
 
+// Milliseconds of total stream silence before we declare the connection dead.
+// Must exceed Fable's silent thinking phase (~3 min before first text).
+const STALL_MS = 6 * 60 * 1000;
+
 // Consume an SSE stream from generate/regenerate/generate-tier2.
 // Returns { id, chars } when the server signals done/tier1_done.
+// Throws if the stream goes silent for STALL_MS (e.g. the serverless
+// function was killed at maxDuration and the socket became a zombie).
 async function streamSSE(res, label) {
   const decoder = new TextDecoder();
   let id = null;
   let chars = 0;
   let buf = "";
   let lastLog = Date.now();
+  let firstChunk = true;
+  let lastByte = Date.now();
+  const watchdog = setInterval(() => {
+    if (Date.now() - lastByte > STALL_MS) {
+      clearInterval(watchdog);
+      log(`${label}: no data for ${Math.round(STALL_MS / 60000)} min, aborting (server function likely killed)`);
+      res.body.cancel?.();
+    }
+  }, 15000);
+  watchdog.unref?.();
   for await (const chunk of res.body) {
+    lastByte = Date.now();
+    if (firstChunk) {
+      firstChunk = false;
+      log(`${label}: stream attached, first bytes received`);
+    }
     buf += decoder.decode(chunk, { stream: true });
     let idx;
     while ((idx = buf.indexOf("\n")) >= 0) {
@@ -80,11 +101,19 @@ async function streamSSE(res, label) {
           lastLog = Date.now();
         }
       }
-      if (parsed.error) throw new Error(parsed.error);
-      if (parsed.done || parsed.tier1_done) return { id, chars };
+      if (parsed.error) {
+        clearInterval(watchdog);
+        throw new Error(parsed.error);
+      }
+      if (parsed.done || parsed.tier1_done) {
+        clearInterval(watchdog);
+        return { id, chars };
+      }
     }
   }
-  return { id, chars };
+  clearInterval(watchdog);
+  // Stream ended without a done signal: the server died mid-generation
+  throw new Error(`${label} stream ended without completion signal (${chars} chars received; server function likely hit maxDuration)`);
 }
 
 async function review(id, label) {
