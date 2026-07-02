@@ -38,11 +38,20 @@ function loadProfile(arg) {
 }
 
 async function post(pathname, body) {
-  return fetch(BASE + pathname, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(body),
-  });
+  // One retry on network-level failures (transient resets killed a run on 7/2)
+  for (let attempt = 1; ; attempt++) {
+    try {
+      return await fetch(BASE + pathname, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(body),
+      });
+    } catch (e) {
+      if (attempt >= 2) throw e;
+      log(`${pathname} network error (${e.message}), retrying in 5s...`);
+      await new Promise((r) => setTimeout(r, 5000));
+    }
+  }
 }
 
 async function postJson(pathname, body) {

@@ -99,8 +99,10 @@ module.exports = async function handler(req, res) {
   // Load verified school data so fix-plan can correct to the right numbers
   const verifiedData = schoolData.loadSchoolsForPrompt(formData);
 
-  // Strip the JSON simulation params block from output for the prompt
-  const cleanOutput = data.output.replace(/```json-simulation-params[\s\S]*?```/g, '');
+  // The FULL document including the json-simulation-params block: the
+  // validator flags JSON-side issues, and a fixer that cannot see the JSON
+  // cannot fix them (this blindness cost three doomed fix cycles on 7/2)
+  const cleanOutput = data.output;
 
   const prompt = `You are a copy editor fixing specific issues in a college strategy document. A quality review found the following problems. You must produce a JSON array of find-and-replace operations to fix ONLY these issues.
 
@@ -122,6 +124,7 @@ ${verifiedData.substring(0, 15000)}
 
 RULES:
 - Fix ONLY the issues listed above
+- The json-simulation-params block at the end IS part of the document: corrections to JSON values (sticker_cost, admit_pct, round, merit fields) are made with the same find/replace mechanism, matching the exact JSON text including quotes and spacing
 - Do NOT change school names, tiers, recommendations, or tone
 - Do NOT change admission probabilities (unless flagged above)
 - Do NOT remove content that matches the family's actual input

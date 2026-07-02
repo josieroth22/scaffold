@@ -247,52 +247,58 @@ function expectedStickerCosts(school) {
   return out;
 }
 
-function checkStickerCosts(params, formData, flags) {
+// Auto-fixes wrong JSON sticker_cost values to the verified number (the
+// validator computes the correct figure itself, so LLM involvement is
+// unnecessary). Leaves a review-severity flag so the reviewer verifies the
+// narrative agrees with the corrected number.
+function fixStickerCosts(rawBlock, formData, autoFixes, flags) {
   const familyState = (
     formData.state || schoolData.parseState(formData.city) || ""
   )
     .toUpperCase()
     .slice(0, 2);
 
-  for (const s of params.schools || []) {
-    if (!s.name || s.sticker_cost == null) continue;
+  return rawBlock.replace(/\{[^{}]*\}/g, (objText) => {
+    let s;
+    try {
+      s = JSON.parse(objText);
+    } catch (e) {
+      return objText;
+    }
+    if (!s.name || s.sticker_cost == null) return objText;
     let school = null;
     try {
       const slug = schoolData.findSchoolSlug(s.name, schoolData.getSchoolList());
       if (slug) school = schoolData.loadSchool(slug);
     } catch (e) {
-      continue;
+      return objText;
     }
-    if (!school) continue;
+    if (!school) return objText;
 
     const expected = expectedStickerCosts(school);
     const inState = familyState && school.state === familyState;
     const correct = inState ? expected.in_state : expected.out_of_state;
     const wrong = inState ? expected.out_of_state : expected.in_state;
-    if (correct == null) continue;
+    if (correct == null) return objText;
+    if (Math.abs(s.sticker_cost - correct) <= MONEY_TOLERANCE) return objText;
 
-    if (Math.abs(s.sticker_cost - correct) <= MONEY_TOLERANCE) continue;
+    const rounded = Math.round(correct);
+    const wrongResidency =
+      wrong != null && wrong !== correct && Math.abs(s.sticker_cost - wrong) <= MONEY_TOLERANCE;
 
-    if (
-      wrong != null &&
-      wrong !== correct &&
-      Math.abs(s.sticker_cost - wrong) <= MONEY_TOLERANCE
-    ) {
-      flags.push({
-        check: "residency",
-        school: s.name,
-        severity: "fix",
-        detail: `${s.name}: sticker_cost $${s.sticker_cost} matches the ${inState ? "out-of-state" : "in-state"} rate, but this family (${familyState || "state unknown"}) is ${inState ? "IN-STATE" : "OUT-OF-STATE"} for ${school.state}. Correct sticker cost is ~$${Math.round(correct)}. Fix the JSON sticker_cost and every narrative cost that depends on it.`,
-      });
-    } else {
-      flags.push({
-        check: "verified_data_usage",
-        school: s.name,
-        severity: "fix",
-        detail: `${s.name}: JSON sticker_cost $${s.sticker_cost} does not match verified data (~$${Math.round(correct)} ${inState ? "in-state" : "out-of-state"}, CDS/Scorecard). Difference exceeds $${MONEY_TOLERANCE}. Use the verified number.`,
-      });
-    }
-  }
+    autoFixes.push({
+      check: "verified_data_usage",
+      school: s.name,
+      detail: `${s.name}: JSON sticker_cost $${s.sticker_cost} auto-corrected to verified $${rounded} (${inState ? "in-state" : "out-of-state"}${wrongResidency ? "; the old value matched the wrong residency rate" : ""})`,
+    });
+    flags.push({
+      check: wrongResidency ? "residency" : "cost_consistency",
+      school: s.name,
+      severity: "review",
+      detail: `${s.name}: JSON sticker_cost was auto-corrected from $${s.sticker_cost} to the verified $${rounded} (${inState ? "in-state" : "out-of-state"}). Verify the narrative sticker and net-cost estimates for ${s.name} use $${rounded}; if any section still shows $${s.sticker_cost} or derives net costs from it, FAIL with the exact text to change.`,
+    });
+    return objText.replace(/("sticker_cost"\s*:\s*)[0-9]+/, `$1${rounded}`);
+  });
 }
 
 // ---------------------------------------------------------------------------
@@ -425,9 +431,13 @@ function validatePlan(output, formData) {
     return { fixedOutput, autoFixes, flags };
   }
 
-  // Auto-fixes (JSON block string surgery)
-  let fixedRaw = fixAdmitPctDecimals(block.raw, autoFixes);
-  fixedRaw = fixNoMeritSchools(fixedRaw, autoFixes);
+  // Auto-fixes (JSON block string surgery). Collected separately so a broken
+  // reparse can discard fixes AND their companion flags together.
+  const rawFixes = [];
+  const rawFlags = [];
+  let fixedRaw = fixAdmitPctDecimals(block.raw, rawFixes);
+  fixedRaw = fixNoMeritSchools(fixedRaw, rawFixes);
+  fixedRaw = fixStickerCosts(fixedRaw, formData || {}, rawFixes, rawFlags);
 
   let params = block.parsed;
   if (fixedRaw !== block.raw) {
@@ -437,9 +447,10 @@ function validatePlan(output, formData) {
         PARAMS_BLOCK_RE,
         "```json-simulation-params\n" + fixedRaw.trim() + "\n```"
       );
+      autoFixes.push(...rawFixes);
+      flags.push(...rawFlags);
     } catch (e) {
       // Auto-fix broke the JSON somehow: discard it, validate the original.
-      autoFixes.length = 0;
       params = block.parsed;
       fixedOutput = null;
     }
@@ -448,7 +459,6 @@ function validatePlan(output, formData) {
   // Flag-only checks
   checkReaScea(params, flags);
   checkTierConsistency(output, params, flags);
-  checkStickerCosts(params, formData || {}, flags);
   checkNetCostConsistency(output, params, flags);
   checkParamSanity(params, flags);
 
