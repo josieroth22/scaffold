@@ -2,7 +2,7 @@
   "outputDirectory": "src",
   "functions": {
     "src/api/*.js": {
-      "maxDuration": 300
+      "maxDuration": 800
     }
   },
   "crons": [
