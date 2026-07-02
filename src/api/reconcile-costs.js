@@ -114,7 +114,12 @@ ${cleanOutput}`;
       messages: [{ role: "user", content: prompt }],
     });
 
-    const updatedOutput = response.content[0].text;
+    // Find the text block explicitly; content[0] is not guaranteed to be text
+    const reconcileTextBlock = response.content.find((b) => b.type === "text");
+    if (!reconcileTextBlock) {
+      return res.status(500).json({ error: "Reconcile failed: model response contained no text block (stop_reason: " + response.stop_reason + ")" });
+    }
+    const updatedOutput = reconcileTextBlock.text;
 
     // Re-check cancellation before writing results
     const currentStatus = await redis.hget(`submission:${id}`, "status");

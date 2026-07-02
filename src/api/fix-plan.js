@@ -152,7 +152,12 @@ ${cleanOutput}`;
       messages: [{ role: "user", content: prompt }],
     });
 
-    const text = response.content[0].text;
+    // Find the text block explicitly; content[0] is not guaranteed to be text
+    const textBlock = response.content.find((b) => b.type === "text");
+    if (!textBlock) {
+      return res.status(500).json({ error: "Fix failed: model response contained no text block (stop_reason: " + response.stop_reason + ")" });
+    }
+    const text = textBlock.text;
 
     // Parse the JSON array of replacements
     let replacements;
