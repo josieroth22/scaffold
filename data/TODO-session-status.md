@@ -2,11 +2,7 @@
 
 ## WHERE WE LEFT OFF (pick up here)
 
-**Brett run five (`mr3xz0p0d2x2x5`) is parked mid-pipeline, ready to drive home.**
-Its regenerated Tier 1 is complete server-side (33,913 chars, JSON block present, status `regenerated`) — the local driver died on a network blip after the regen POST, so the remaining steps were never driven. Two options:
-
-1. **Drive it home manually** (~$3, ~12 min): POST in order to `/api/review`, `/api/simulate`, `/api/reconcile-costs`, `/api/generate-tier2` (SSE; curl with `--no-buffer --max-time 700`), `/api/review`, each with `{"id":"mr3xz0p0d2x2x5"}`. All steps now run on the fully repaired stack.
-2. **Fresh run six** (~$5.50, ~25 min): `node scripts/run-pipeline.js brett` — cleanest end-to-end test of everything fixed on July 2.
+**Next action: fresh Brett run on the fully repaired stack** (~$5.50, ~25 min): `node scripts/run-pipeline.js brett` — first end-to-end test of everything fixed July 2. (Run five `mr3xz0p0d2x2x5` was cancelled by Josie at the break; its regenerated Tier 1 existed but the remaining phases were never driven.)
 
 Then, in order (Josie approves each run before it fires):
 1. **Sofia Martinez** — `node scripts/run-pipeline.js sofia` (tests QuestBridge, WI aid, need-based, tight budget)
