@@ -1652,30 +1652,32 @@
       if (el.querySelector('p, ul, ol, table')) return;
       const text = el.textContent;
       const html = el.innerHTML;
-      // Count "Currently" or "Goal" as standalone words
-      const labels = (text.match(/\b(?:Currently|Goal)\b/gi) || []);
+      // Count "Currently" or "Goal" as standalone CAPITALIZED words only:
+      // lowercase prose ("means it's a goal") must not trigger label styling
+      const labels = (text.match(/\b(?:Currently|Goal)\b/g) || []);
       if (labels.length >= 2) {
         // Multiple labels in one element — split into styled blocks
-        // Split the innerHTML on Currently/Goal boundaries
-        const parts = html.split(/(?=(?:<strong>)?(?:Currently|Goal)\b)/gi);
+        // Split the innerHTML on Currently/Goal boundaries (case-sensitive)
+        const parts = html.split(/(?=(?:<strong>)?(?:Currently|Goal)\b)/g);
         const styled = parts.map(part => {
           const partText = part.replace(/<[^>]+>/g, '').trim();
-          if (/^Currently\b/i.test(partText)) {
+          if (/^Currently\b/.test(partText)) {
             return '<span class="act-item act-item-current"><strong class="act-label act-current">Currently:</strong> ' +
-              part.replace(/^(?:<strong>)?Currently\b[^:]*:?\s*(?:<\/strong>)?\s*/i, '') + '</span>';
-          } else if (/^Goal\b/i.test(partText)) {
+              part.replace(/^(?:<strong>)?Currently\b[^:]*:?\s*(?:<\/strong>)?\s*/, '') + '</span>';
+          } else if (/^Goal\b/.test(partText)) {
             return '<span class="act-item act-item-goal"><strong class="act-label act-goal">Goal:</strong> ' +
-              part.replace(/^(?:<strong>)?Goal\b[^:]*:?\s*(?:<\/strong>)?\s*/i, '') + '</span>';
+              part.replace(/^(?:<strong>)?Goal\b[^:]*:?\s*(?:<\/strong>)?\s*/, '') + '</span>';
           }
           return part;
         }).join('');
         el.innerHTML = styled;
-      } else if (labels.length === 1) {
-        // Single label — style it in place
+      } else if (labels.length === 1 && /^(?:Currently|Goal)\b/.test(text.trim())) {
+        // Single label at the START of the element — style it in place.
+        // A mid-sentence capitalized "Goal" in prose stays untouched.
         el.innerHTML = html
-          .replace(/(?:<strong>)?(Currently\b[^:]*:?)(?:<\/strong>)?/i,
+          .replace(/(?:<strong>)?(Currently\b[^:]*:?)(?:<\/strong>)?/,
             '<strong class="act-label act-current">Currently:</strong>')
-          .replace(/(?:<strong>)?(Goal\b[^:]*:?)(?:<\/strong>)?/i,
+          .replace(/(?:<strong>)?(Goal\b[^:]*:?)(?:<\/strong>)?/,
             '<strong class="act-label act-goal">Goal:</strong>');
       }
     });
