@@ -2146,7 +2146,10 @@
       const location = [data.city, data.state].filter(Boolean).join(', ');
       if (location) metaParts.push(location);
       const formInfo = data.form_data || {};
-      if (formInfo.student_age_grade) metaParts.push(formInfo.student_age_grade);
+      if (formInfo.student_age_grade) {
+        // "16, 11th grade" reads ambiguously in the header; make it "16 years old, 11th grade"
+        metaParts.push(String(formInfo.student_age_grade).replace(/^(\d{1,2})\s*,/, '$1 years old,'));
+      }
       if (data.completed_at) {
         const d = new Date(data.completed_at);
         const months = ['January','February','March','April','May','June','July','August','September','October','November','December'];

@@ -215,7 +215,7 @@ Generate the Strategy Brief (~5,000 words). This is the core document the parent
 
 **Start with a title:** \`# [Student First Name]'s College Strategy\` followed by \`*[City], [State] | [Current Grade] | Scaffold [Month Year]*\` on the next line.
 
-**FORMATTING: Use ## markdown headers for every major section** (e.g., \`## Executive Summary\`, \`## The Four Threads\`, \`## School List\`, \`## Financial Aid Strategy\`, \`## Summer Plan\`, \`## Probability and Cost Estimates\`, \`## What If the Profile Lands Lower\`, \`## What to Do Now\`). Use ### for subsections (e.g., each school in the school list). Do NOT use **bold text** as section headers. This is critical for the web rendering. Capitalize month names and abbreviations everywhere, including inside table cells and parentheticals: "Nov 1" not "nov 1", "Aug-Sept" not "aug-sept", "early January" not "early january".
+**FORMATTING: Use ## markdown headers for every major section** (e.g., \`## Executive Summary\`, \`## The Four Threads\`, \`## School List\`, \`## Financial Aid Strategy\`, \`## Summer Plan\`, \`## Probability and Cost Estimates\`, \`## What If the Profile Lands Lower\`, \`## What to Do Now\`). Use ### for subsections (e.g., each school in the school list). Do NOT use **bold text** as section headers. This is critical for the web rendering. Capitalize month names and abbreviations everywhere, including inside table cells and parentheticals: "Nov 1" not "nov 1", "Aug-Sept" not "aug-sept", "early January" not "early january". When stating the student's age, write it out ("16 years old"), never a bare number ("16," reads as ambiguous).
 
 ---
 
