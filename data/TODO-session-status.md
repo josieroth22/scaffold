@@ -1,55 +1,69 @@
-# Session Status - June 12, 2026
+# Session Status - July 2, 2026 (evening)
 
-## COMPLETED TODAY
+## WHERE WE LEFT OFF (pick up here)
 
-- **Fable 5 migration**: all API calls on `claude-fable-5` ($10/$50 per MTok). Temperature removed (400s on Fable), adaptive thinking on generation + review. Old claude-opus-4-20250514 retires June 15.
-- **Programmatic validator** (`src/lib/validate-plan.js` + pre-pass in review.js, test fixture `scripts/test-validate-plan.js`): REA/SCEA, tier consistency, admit_pct decimals (auto-fix), sticker vs verified data with residency awareness, no-merit enforcement (auto-fix), net-cost vs narrative.
-- **Prompt consolidation** for Fable 5 in generate.js (~1K tokens saved, rules stated once, pressure language removed) and review.js (15 check keys unchanged).
-- **Redis outage fixed**: old Upstash DB archived for inactivity (keep-alive cron was failing silently). New database via Vercel Storage, Pay As You Go plan (cannot be archived), KV-prefix env vars. Old data lost (test submissions + 3 sample plans). Live URL: scaffold-hazel.vercel.app.
-- **Admin**: pipeline legend + validator findings section in review tab.
-- **Bugs found by first live Fable run** (all fixed + deployed):
-  1. 32K max_tokens truncated mid-document: Fable thinks ~25K tokens on this prompt. Generation/regeneration now 64K, Tier 2 48K.
-  2. Reviewer blind spot: FAMILY DETAILS omitted assets/financial_special/preferences, causing false fabricated_content failures (flagged real home equity as invented). Reviewer now sees the full form.
-- **Website copy**: index.html says Claude Fable 5 (2 spots).
+**Brett run five (`mr3xz0p0d2x2x5`) is parked mid-pipeline, ready to drive home.**
+Its regenerated Tier 1 is complete server-side (33,913 chars, JSON block present, status `regenerated`) — the local driver died on a network blip after the regen POST, so the remaining steps were never driven. Two options:
 
-## IN FLIGHT AT SESSION END
+1. **Drive it home manually** (~$3, ~12 min): POST in order to `/api/review`, `/api/simulate`, `/api/reconcile-costs`, `/api/generate-tier2` (SSE; curl with `--no-buffer --max-time 700`), `/api/review`, each with `{"id":"mr3xz0p0d2x2x5"}`. All steps now run on the fully repaired stack.
+2. **Fresh run six** (~$5.50, ~25 min): `node scripts/run-pipeline.js brett` — cleanest end-to-end test of everything fixed on July 2.
 
-Brett re-baseline: TWO doomed runs so far. mqblu0bloz8gz6 (32K truncation, fixed) and mqbms3ivxsu6pw (prompt contradiction: "stop after the Monte Carlo Parameter Table" made Fable omit the JSON block, fixed in commit after 2d823e6). Cancel mqbms3ivxsu6pw if still running. Resubmit Brett fresh ~2 min after the fix deploys; that run has all three fixes (64K caps, reviewer full-form visibility, unambiguous output tail).
+Then, in order (Josie approves each run before it fires):
+1. **Sofia Martinez** — `node scripts/run-pipeline.js sofia` (tests QuestBridge, WI aid, need-based, tight budget)
+2. Draft 3 sample-plan profiles (Alejandra, Priya, Jake personas), Josie approves, run all three, update the 6 hardcoded `plan.html?id=` links in index.html
+3. Copy pass: website + intake form (task list #6)
+4. UptimeRobot on /api/keep-alive (Josie, 5 min)
+5. Dry-run profile resembling Jon's daughter (get whatever details Josie can)
+6. Delete temporary `/api/duration-probe` endpoint
+**DEADLINE: demo-ready by July 13 (Josie's first day at Datacor).**
 
-**When it completes, check (admin or curl `api/submission?code=...&id=mqbms3ivxsu6pw`):**
-1. Document complete? Ends cleanly, has json-simulation-params block, has Tier 2, Monte Carlo charts render on plan.html
-2. Review attempts to pass (Feb baseline: 5 attempts on old Opus)
-3. Validator section in admin review tab: what was auto-fixed/flagged
-4. Output length in chars -> recalibrate intake.html progress bar (`expectedChars`: 13000 for Tier 1 in streamResponse call ~line 1667, 15000 for Tier 2 ~line 1842; the truncated run already produced 24-30K chars for T1)
-5. Read the plan for voice/quality (Fable writes warmer than old Opus)
+Run four's complete plan (72K chars, sim, review_failed-but-good) remains readable for QA comparison: plan.html?id=mr3wcxhgdzk3o8
 
-## NEXT STEPS (in order)
+## COMPLETED JULY 2
 
-1. Verify Brett rerun (above). If pass: run **Sofia Martinez** (full profiles for both: `docs/test-profiles.md`).
-2. Recalibrate progress-bar expectedChars with measured lengths.
-3. Re-measure unit economics with real token usage (project-plan table is scaled estimates; thinking adds ~25K billed output tokens per generation, ~$1.25/call, not in the table). Exact usage: Anthropic console.
-4. UptimeRobot on /api/keep-alive (5 min, before external testers).
-5. Regenerate sample plans (Alejandra, Priya, Jake) — then update the 6 hardcoded plan.html?id= links in index.html.
-6. Copy pass: website + intake form, incl. a status message during Fable's silent thinking period at generation start (bar sits at 0% for 1-3 min, looks frozen).
-7. Dry-run a profile resembling the CRO's daughter before sharing with Jon. **DEADLINE: demo-ready by July 13, 2026 (Josie's first day at Datacor).**
+**Platform:** Vercel upgraded to Pro. The 300s function-kill saga's root cause was the dashboard **"Default Max Duration" field** (project Settings → Functions → Advanced Settings) stuck at 300 — it overrides vercel.json. Now 800, verified by probe (survived 390s). vercel.json glob also corrected to `api/*.js` (deployment-root relative), but the dashboard field is the boss.
 
-Deferred: legal, Stripe, LLC. Full roadmap: docs/project-plan.md.
+**Bugs found by live runs and fixed (all deployed):**
+1. Prompt contradiction: "stop after the Monte Carlo Parameter Table" made Fable omit the JSON block → output tail now explicit (table → JSON → Data Sources → stop)
+2. Second reviewer blind spot: priorities/priority_other missing from FAMILY DETAILS → reviewer called the family's own words fabricated
+3. fix-plan token starvation: 4K max_tokens → all-day no-text-block 500s → now 16K + adaptive thinking
+4. reconcile-costs: now streams internally, 32K cap
+5. `content[0].text` landmines in fix-plan + reconcile (thinking-safe extraction + loud failure with stop_reason)
+6. findSchoolSlug matched wrong campus ("Purdue University" → Fort Wayne) → prefers main campus, then shortest name
+7. Reviewer grounding: must compare against numbers PRINTED in verified data, never model memory (Fable cited its own Purdue figure as "verified")
+8. Admit-probability calibration made selectivity-dependent (+5 cap only under ~40% overall; 85-95%+ at true safeties) **plus in-state public exception** (up to 1.5-2x overall, max 60%, reasoning stated in narrative) — Josie caught both calibration flaws reading the plan
+9. plan.html activities-list mangling (Feb bug): label styler matched lowercase prose → now capitalized-only, single labels must start the element
+10. **Validator now auto-fixes JSON sticker_cost** to the verified figure (same string surgery as decimals) with a review-severity flag for narrative verification
+11. **fix-plan was blind to the JSON block by design** (stripped before the model saw it — three doomed fix cycles) → fixer now sees the full document and may patch JSON values
+12. Formatting: months capitalized, ages as "16 years old" (prompt rules + plan.html render fix)
 
-## USEFUL
+**Tooling:** `scripts/run-pipeline.js` (backend submission driver replicating intake.html's orchestration: stall watchdog, network retry, error-body logging) + `scripts/profiles/{brett-roth,sofia-martinez}.json`. Progress bar: thinking-pause status messages, expectedChars 13K→30K.
 
-- Admin: scaffold-hazel.vercel.app/admin.html (code in src/api/submissions.js)
-- Intake bypass code: in CLAUDE.md architecture diagram
-- Pipeline watcher: `node scripts/watch-pipeline.js` (polls admin API, logs stage transitions; set IGNORE_ID env var to skip an old submission)
-- Validator test: `node scripts/test-validate-plan.js`
+**Run ledger (July 2):** run 3 `mr3kolaxqdolm9` (killed by 300s cap, cancelled) · run 4 `mr3wcxhgdzk3o8` (COMPLETE 72K-char doc + sim; review_failed on Purdue bug-chain; kept as QA artifact) · run 5 `mr3xz0p0d2x2x5` (parked at `regenerated`, see top). ~$25-30 API spend today, all of it buying 12 permanent fixes.
 
-## CARRIED OVER FROM FEB 21 (verify if still present)
+**Roadmap additions:** Pipeline v2 gained severity-aware escalation ladder + Tier 2 re-run rung.
 
-### Plan rendering bugs
-- Activities list wall of text: Currently:/Goal: descriptions render as one block (fix was deployed but unverified)
-- EA (merit deadline) badge: fix deployed, verify
-- Admit rates showing as decimals in rendered plan ("0.103" instead of "10.3%"): check formatSchoolCompact()/formatSchoolRadar() in school-data.js
-- Honors programs incomplete: GSU and UNC show N/A; honors data only covers ~108 schools from the PDF parse
+## SESSION LEARNINGS WORTH REMEMBERING
+
+- Fable's world knowledge fights injected data: it wrote its remembered Purdue cost into the JSON even with verified data in the prompt, then cited the same number as "verified" while reviewing. Grounding instructions + validator auto-fix are the countermeasures.
+- Every failure so far has been infrastructure/plumbing; plan content quality has been consistently strong (run 4's review praised strategy, state aid, REA handling, tier consistency).
+- The Feb baseline was 5 attempts to pass on old Opus; the target is beating that on the repaired stack.
+
+## CARRIED OVER (updated)
+
+### Plan rendering
+- ~~Activities list wall of text~~ **FIXED July 2**
+- EA (merit deadline) badge: fix deployed Feb, still unverified
+- Admit rates as decimals in rendered plan: check formatSchoolCompact()/formatSchoolRadar() — unverified
+- Honors programs incomplete: GSU/UNC show N/A (~108-school coverage)
 
 ### Minor cleanup (low priority)
 - Missing CDS schools (US News 80+): Binghamton, Colorado School of Mines, Chapman, Creighton, Elon, Saint Louis, Temple, U of Missouri, BYU, U of Tennessee, Yeshiva
-- Consider adding DACA/undocumented aid, foster care waivers, military/veteran benefits, Native American tuition waivers to state aid doc
+- DACA/undocumented aid, foster care waivers, military/veteran benefits, Native American tuition waivers for state aid doc
+
+## USEFUL
+
+- Live site: scaffold-hazel.vercel.app (+ scaffoldcollegestrategy.com assigned) | Admin: /admin.html (code in src/api/submissions.js)
+- Backend runs: `node scripts/run-pipeline.js <brett|sofia|profile.json>` — no form needed
+- Watcher: `node scripts/watch-pipeline.js` | Validator test: `node scripts/test-validate-plan.js`
+- Duration probe (temporary): /api/duration-probe?seconds=N
