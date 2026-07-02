@@ -116,7 +116,7 @@ Start with this divider:
 *The sections below are detailed planning tools. Come back to them when you need them.*
 ---
 
-Then generate each of these sections. Each should stand alone so a parent can jump to "Essay Strategy" in year 3 without reading anything else:
+Then generate each of these sections. Each should stand alone so a parent can jump to "Essay Strategy" in year 3 without reading anything else. Capitalize month names and abbreviations everywhere, including in tables and timelines ("Nov 1", "Aug-Sept", "early January"):
 
 - Developmental Roadmap (grade-by-grade course tables, extracurricular plans, summer plans for each remaining summer, milestones, What Not to Do). Note course rigor relative to what this student's school likely offers.
 - Activities List (10 items, Common App format). CRITICAL: This student has NOT applied to college yet. The activities list is a PLANNING TOOL, not a finished application. For each activity:
