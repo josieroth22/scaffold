@@ -631,6 +631,18 @@
   }
 
   /* ---- SIMULATION RESULTS ---- */
+  .reading-guide {
+    max-width: 780px;
+    margin: 1.5rem auto 0;
+    padding: 1rem 1.5rem;
+    background: var(--sage-light);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    font-size: 0.92rem;
+    line-height: 1.55;
+    color: var(--ink);
+  }
+
   .sim-section {
     max-width: 780px;
     margin: 0 auto;
@@ -1343,8 +1355,8 @@
     .sidebar-nav { display: block; }
     .outline-toggle { display: none; }
     .hero, .toc, .strategy-body, .sim-section, .plan-footer,
-    .submission-toggle, .submission-info { margin-left: 270px; }
-    .hero-inner, .strategy-body, .sim-section, .plan-footer { max-width: 780px; }
+    .submission-toggle, .submission-info, .reading-guide { margin-left: 270px; }
+    .hero-inner, .strategy-body, .sim-section, .plan-footer, .reading-guide { max-width: 780px; }
   }
 
   /* ---- RESPONSIVE ---- */
@@ -1435,6 +1447,10 @@
       <ul class="toc-list" id="toc-col2"></ul>
     </div>
   </nav>
+
+  <div class="reading-guide">
+    <strong>How to read this plan:</strong> Start with the Executive Summary. Three minutes, everything important. The School List and Financial Aid Strategy are your deep dives when you're ready. Everything under Reference Sections is a tool for later. You don't need it today.
+  </div>
 
   <div class="strategy-body" id="strategy-body"></div>
 
