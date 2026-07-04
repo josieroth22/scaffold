@@ -2084,7 +2084,16 @@
           simH2.scrollIntoView({ behavior: 'smooth' });
         });
         li.appendChild(a);
-        list.appendChild(li);
+        // Insert right after the Probability and Cost Estimates Table entry
+        // to match the section's on-page position (was: appended last, which
+        // made the sidebar claim the simulation lives at the bottom)
+        const anchors = Array.from(list.querySelectorAll('a'));
+        const probEntry =
+          anchors.find(x => /^probability and cost estimates table/i.test(x.textContent.trim())) ||
+          anchors.find(x => /^probability and cost estimates/i.test(x.textContent.trim()));
+        const probLi = probEntry && probEntry.closest('li');
+        if (probLi) probLi.after(li);
+        else list.appendChild(li);
       }
     }
   }
