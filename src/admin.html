@@ -235,6 +235,7 @@
         else if (stage === 'generation_failed') { stage = 'Generation failed'; stageClass = 'status-failed'; }
         else if (stage === 'cancelled') { stage = 'Cancelled'; stageClass = 'status-failed'; }
         else if (stage === 'completed') { stage = 'Done'; stageClass = 'status-completed'; }
+        else if (stage === 'completed_with_issues') { stage = 'Done (review failed)'; stageClass = 'status-failed'; }
         // Show Cancel button for active pipeline stages
         const cancellableStatuses = ['generating', 'tier1_complete', 'simulating', 'sim_complete', 'reconciling', 'reviewing', 'fixing', 'regenerating', 'regenerated', 'generating_tier2', 'tier2_complete'];
         const cancelBtn = cancellableStatuses.includes(s.status) ? ` <button class="btn-retry" onclick="cancelSubmission('${s.id}', this)">Cancel</button>` : '';

@@ -242,12 +242,9 @@ async function main() {
       log(`final fix-plan returned ${ffRes.status}: ${body.slice(0, 300)}`);
     }
   }
-  if (!finalPassed) {
-    await post("/api/update-status", { id, status: "review_failed" }).catch(() => {});
-  }
-
-  // DONE (intake.html marks completed regardless; mirror that)
-  await post("/api/update-status", { id, status: "completed" }).catch(() => {});
+  // DONE — honest completion, mirroring intake.html: a plan that ships despite
+  // a failing final review is completed_with_issues (triggers alert email)
+  await post("/api/update-status", { id, status: finalPassed ? "completed" : "completed_with_issues" }).catch(() => {});
 
   log("================================================");
   log(`RESULT: ${finalPassed ? "PASS" : "REVIEW_FAILED (best version kept)"}`);

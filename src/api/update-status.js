@@ -16,7 +16,7 @@ module.exports = async function handler(req, res) {
   const { id, status } = req.body;
   if (!id || !status) return res.status(400).json({ error: "Missing id or status" });
 
-  const allowed = ["review_failed", "generation_failed", "completed", "cancelled", "regenerating", "regenerated"];
+  const allowed = ["review_failed", "generation_failed", "completed", "completed_with_issues", "cancelled", "regenerating", "regenerated"];
   if (!allowed.includes(status)) {
     return res.status(400).json({ error: "Status not allowed" });
   }
@@ -25,8 +25,11 @@ module.exports = async function handler(req, res) {
     await redis.hset(`submission:${id}`, { status });
 
     // Plan-ready email: fires once, only on completion, only if Resend is
-    // configured (RESEND_API_KEY in Vercel env)
-    if (status === "completed" && process.env.RESEND_API_KEY) {
+    // configured (RESEND_API_KEY in Vercel env). completed_with_issues still
+    // delivers the plan (best-version-ships is by design); Josie gets a
+    // separate alert below.
+    const isCompletion = status === "completed" || status === "completed_with_issues";
+    if (isCompletion && process.env.RESEND_API_KEY) {
       try {
         const sub = await redis.hgetall(`submission:${id}`);
         if (sub && sub.email && !sub.plan_email_sent) {
@@ -55,6 +58,35 @@ module.exports = async function handler(req, res) {
         }
       } catch (e) {
         console.error("Plan email error (non-fatal):", e);
+      }
+    }
+
+    // Alert Josie when a plan ships despite a failing final review, so a
+    // flawed plan in a customer's hands is never a silent event
+    if (status === "completed_with_issues" && process.env.RESEND_API_KEY) {
+      try {
+        const sub = await redis.hgetall(`submission:${id}`);
+        if (sub && !sub.issue_alert_sent) {
+          const name = sub.student_name || "unknown";
+          const resp = await fetch("https://api.resend.com/emails", {
+            method: "POST",
+            headers: {
+              Authorization: `Bearer ${process.env.RESEND_API_KEY}`,
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              from: "Scaffold <plans@scaffoldcollegestrategy.com>",
+              to: "josieroth22@gmail.com",
+              subject: `ALERT: ${name}'s plan shipped with a failing review (${id})`,
+              html: `<p>This plan completed but its final review did not pass. The family received their plan email as usual. Read it before they do.</p>
+                <p><a href="https://scaffoldcollegestrategy.com/plan.html?id=${id}">Open the plan</a> &middot; <a href="https://scaffoldcollegestrategy.com/admin.html">Admin dashboard</a></p>`,
+            }),
+          });
+          if (resp.ok) await redis.hset(`submission:${id}`, { issue_alert_sent: "1" });
+          else console.error("Issue alert email failed:", resp.status);
+        }
+      } catch (e) {
+        console.error("Issue alert error (non-fatal):", e);
       }
     }
 

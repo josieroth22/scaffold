@@ -75,3 +75,23 @@ name, need-based aid math, budget alignment rules at a tight $15K ceiling.
 - Priorities: Cost 1, Academic fit 2, Outcomes 3, Location 4, Merit likelihood 5, Culture 6, Prestige 7
 - Anything else: Someone mentioned QuestBridge to her counselor. We don't know what it is.
 - Additional context: I want her to have real options, not just the cheapest one. But I can't co-sign big loans with two more kids coming up behind her.
+
+## Imani Washington (rising senior, Georgia aid, nursing) — added July 4, 2026
+
+**Stresses:** the untested 12th-grade band (compressed application timeline,
+"what to do in what order this fall"), Georgia HOPE vs Zell Miller by name and
+threshold (3.8 GPA / 1280 SAT sits right at the Zell test-score line — the plan
+must get the cutoff right, not guess), direct-admit nursing pathways, tight
+budget ($15K ceiling, under $10K preferred) with a full-need private (Emory) on
+the radar. Intended for the browser end-to-end test: submit via the real form,
+close the tab mid-build, verify resume and the plan-ready email.
+
+Full form data: `scripts/profiles/imani-washington.json` (also usable with
+`node scripts/run-pipeline.js scripts/profiles/imani-washington.json`).
+
+- 17, 12th grade, Midtown High School, Atlanta Public Schools
+- 3.8 unweighted, 1280 SAT (October retake planned), AP Bio (4), dual enrollment A at Georgia State
+- HOSA chapter VP, Grady Hospital volunteer, church youth leadership, 10 hrs/week at CVS
+- Parents: MARTA bus operator + part-time dental front office; $72K; rent, ~$4K saved; three kids
+- Radar: Georgia State, UGA, Kennesaw State, Augusta, "maybe Emory if the aid math works"
+- Priorities: Cost 1, Outcomes 2, Academic fit 3, Location 4

@@ -78,7 +78,7 @@ The mission: close the information gap in college planning. A $310K family in Na
   - Test fixture: `scripts/test-validate-plan.js` (covers all checks + edge cases, including the two Brett Roth bugs the reviewer originally missed).
 - [x] Integrate into pipeline — **done June 2026.** Runs as a pre-pass inside review.js (covers all four review call sites with no client changes). Auto-fixes are persisted to Redis; flags are injected into the review prompt as ground truth, and code force-fails the matching checks even if the model reviewer disagrees, so fix-plan always receives the specifics.
 - [ ] Structured extraction for review: extract school names, tiers, rounds, costs into structured JSON first, validate programmatically, and leave Claude review only subjective quality. (Partially covered now: validator findings are structured; full extraction still open.)
-- [ ] Skip the fix loop when the validator raises a regen-severity flag (missing/unparseable JSON params block): find/replace cannot fix an absent block, so intake.html should jump straight to /api/regenerate. Saves ~4 min and ~$2 per occurrence (observed in the first live Fable run).
+- [x] Skip the fix loop when the validator raises a regen-severity flag (missing/unparseable JSON params block) — DONE July 4, 2026 in both intake.html and run-pipeline.js. Saves ~4 min and ~$2 per occurrence.
 
 #### 2. Prompt Consolidation + Fable 5 Re-tune
 *The generation and review prompts have 12+ patches layered from iterative testing, all written against the old Opus model. Fable 5 follows instructions more literally, so this cleanup doubles as the model re-tune.*
@@ -161,8 +161,8 @@ The mission: close the information gap in college planning. A $310K family in Na
 *Findings from the June-July 2026 Fable re-baseline. The two small items are safe pre-demo; the structural ones wait until after July 13. Do before Stripe turns on — these are the "customer paid and got nothing/got a flawed plan" risks.*
 
 **Small, safe pre-demo:**
-- [ ] Regen fast-path: skip the two doomed fix attempts when the validator raises a regen-severity flag (also listed under item 1; ~$1.50 and ~4 min saved per occurrence)
-- [ ] Honest completion status + alert: the pipeline currently marks plans "completed" even when the final review failed (observed live: completed with FAIL review). Add a distinct status and email Josie whenever a plan ships with a failing review.
+- [x] Regen fast-path — DONE July 4, 2026 (intake.html + run-pipeline.js; skips doomed fix attempts on regen-severity validator flags)
+- [x] Honest completion status + alert — DONE July 4, 2026. New status `completed_with_issues` when the final review fails but the plan ships (intake main path, resume path, and run-pipeline.js). Family still gets the plan email; Josie gets an alert email (once per plan via `issue_alert_sent`). Admin shows "Done (review failed)".
 
 **Structural, post-demo:**
 - [ ] **Severity-aware escalation ladder.** All failures currently walk the same patch-patch-regen ladder. Branch on failure shape: unfixable-by-patch (missing JSON block) jumps straight to regen; 5+ failed checks (systemic) skips patches; 1-3 surgical findings patch as today.

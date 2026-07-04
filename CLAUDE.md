@@ -51,8 +51,9 @@ POST /api/generate-tier2  -- Tier 2 Reference Sections via SSE
     v
 POST /api/review          -- Final quality check
     |
-    PASS? --> done
+    PASS? --> done (status: completed)
     FAIL? --> one fix attempt, then proceed with best version
+              (status: completed_with_issues + alert email to Josie)
     |
     v
 plan.html?id=<id>         -- Rendered plan with sidebar nav, sim charts
@@ -131,6 +132,7 @@ Live since July 4, 2026. Domain scaffoldcollegestrategy.com verified (DKIM/SPF/M
 
 - **Plan-ready email to family:** update-status.js fires it when status flips to "completed". Sender plans@scaffoldcollegestrategy.com, reply-to Josie's gmail. Sent once per plan via `plan_email_sent` hash flag; safe to re-POST completed.
 - **New-submission notification to Josie:** generate.js, fire-and-forget.
+- **Failing-review alert to Josie:** update-status.js fires it on "completed_with_issues" (plan shipped despite a failing final review). Once per plan via `issue_alert_sent` flag. The family still gets their plan email.
 - Gotcha: the admin submissions API returns a hand-picked field summary that does NOT include `plan_email_sent` — don't use it to check the flag.
 - Free tier limits: 100 emails/day, 3,000/month.
 

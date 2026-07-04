@@ -1338,7 +1338,7 @@
       const r = await fetch('/api/plan?id=' + encodeURIComponent(saved.id));
       if (!r.ok) { clearActive(); return false; }
       const d = await r.json();
-      if (d.status === 'completed') { clearActive(); window.location.href = 'plan.html?id=' + saved.id; return true; }
+      if (d.status === 'completed' || d.status === 'completed_with_issues') { clearActive(); window.location.href = 'plan.html?id=' + saved.id; return true; }
       if (d.status === 'cancelled') { clearActive(); return false; }
       resumePipeline(saved.id);
       return true;
@@ -1384,7 +1384,7 @@
         if (!d) throw new Error('Plan not found');
         if (generationCancelled) return;
       }
-      if (d.status === 'completed') { clearActive(); window.location.href = 'plan.html?id=' + id; return; }
+      if (d.status === 'completed' || d.status === 'completed_with_issues') { clearActive(); window.location.href = 'plan.html?id=' + id; return; }
       if (d.status === 'cancelled') { clearActive(); statusEl.textContent = 'This plan was cancelled.'; return; }
 
       const hasTier2 = (d.output || '').includes('REFERENCE SECTIONS');
@@ -1426,7 +1426,9 @@
         fin = await apiCall('/api/review', { id: id });
       }
 
-      await fetch('/api/update-status', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ id: id, status: 'completed' }) });
+      // Honest completion (request failures don't block: only a real FAIL flags issues)
+      const resumeFinalPassed = (fin && fin.overall) ? fin.overall === 'PASS' : true;
+      await fetch('/api/update-status', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ id: id, status: resumeFinalPassed ? 'completed' : 'completed_with_issues' }) });
       progressEl.style.width = '100%';
       statusEl.textContent = 'Done! Redirecting to your plan...';
       clearActive();
@@ -1838,12 +1840,17 @@
       // ============================================================
 
       progressEl.style.width = '42%';
+      // Regen-severity validator flags (e.g. missing JSON params block) mean
+      // find/replace fixes are doomed: skip straight to regeneration
+      const hasRegenFlag = (rd) => !!(rd && rd.validator && (rd.validator.flags || []).some((f) => f.severity === 'regen'));
+      let needsRegen = false;
       try {
         const reviewData = await apiCall('/api/review', { id: submissionId });
         if (reviewData.overall === 'PASS') {
           reviewPassed = true;
         } else {
-          console.warn('Review FAIL (initial):', reviewData.summary || reviewData);
+          needsRegen = hasRegenFlag(reviewData);
+          console.warn('Review FAIL (initial):' + (needsRegen ? ' [regen-severity flag, skipping fix loop]' : ''), reviewData.summary || reviewData);
         }
       } catch (e) {
         if (e.message === 'Generation cancelled') throw e;
@@ -1856,7 +1863,7 @@
       // ============================================================
 
       let fixAttempt = 0;
-      while (!reviewPassed && fixAttempt < MAX_FIX_ATTEMPTS) {
+      while (!reviewPassed && !needsRegen && fixAttempt < MAX_FIX_ATTEMPTS) {
         fixAttempt++;
         progressEl.style.width = (44 + fixAttempt * 3) + '%';
 
@@ -1890,6 +1897,7 @@
             if (reReviewData.overall === 'PASS') {
               reviewPassed = true;
             } else {
+              needsRegen = hasRegenFlag(reReviewData);
               console.warn('Review FAIL after fix attempt ' + fixAttempt + ':', reReviewData.summary || reReviewData);
             }
           } else {
@@ -2071,16 +2079,6 @@
         } catch (e) { console.warn('Final fix failed:', e); }
       }
 
-      if (!finalPassed) {
-        try {
-          await fetch('/api/update-status', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ id: submissionId, status: 'review_failed' }),
-          });
-        } catch (e) { console.warn('Failed to update status:', e); }
-      }
-
       // ============================================================
       // DONE
       // ============================================================
@@ -2089,12 +2087,13 @@
       statusEl.textContent = 'Done! Redirecting to your plan...';
       clearActive();
 
-      // Mark as completed
+      // Honest completion: a plan that ships despite a failing final review is
+      // marked completed_with_issues (family still gets it; Josie gets an alert)
       try {
         await fetch('/api/update-status', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ id: submissionId, status: 'completed' }),
+          body: JSON.stringify({ id: submissionId, status: finalPassed ? 'completed' : 'completed_with_issues' }),
         });
       } catch (e) { console.warn('Failed to update status:', e); }
 
