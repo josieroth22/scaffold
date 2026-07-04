@@ -40,6 +40,7 @@ module.exports = async function handler(req, res) {
             },
             body: JSON.stringify({
               from: "Scaffold <plans@scaffoldcollegestrategy.com>",
+              reply_to: "josieroth22@gmail.com",
               to: sub.email,
               subject: `${name}'s college strategy is ready`,
               html: `<p>Your Scaffold plan is ready to read.</p>
