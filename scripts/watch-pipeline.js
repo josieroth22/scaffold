@@ -1,6 +1,6 @@
 // Polls the Scaffold admin API and logs pipeline status transitions.
 const URL = "https://scaffold-hazel.vercel.app/api/submissions?code=SCAFFOLD1216";
-const TERMINAL = new Set(["completed", "review_failed", "cancelled", "failed"]);
+const TERMINAL = new Set(["completed", "completed_with_issues", "review_failed", "cancelled", "failed"]);
 const POLL_MS = 30000;
 const MAX_POLLS = 90; // 45 min
 
