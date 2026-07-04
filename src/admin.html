@@ -98,6 +98,7 @@
 
 <div id="dashboard" style="display: none;">
   <h1>Submissions <button onclick="loadSubmissions()" style="font-size:0.75rem; padding:0.3rem 0.8rem; background:var(--sage); color:white; border:none; border-radius:5px; cursor:pointer; font-family:'DM Sans',sans-serif; font-weight:600; vertical-align:middle; margin-left:0.5rem;">Refresh</button> <span style="font-size:0.82rem; font-weight:400; color:var(--muted); margin-left:0.5rem;" id="last-refreshed"></span></h1>
+  <p id="notify-list" style="font-size:0.85rem; color:var(--muted); margin:0.5rem 0 1rem;"></p>
   <p class="subtitle" id="count"></p>
   <div class="stage-key" style="font-size:0.75rem; color:var(--muted); margin-bottom:1rem;">
     <strong>Pipeline:</strong> Tier 1 → Validator + Review T1 → Fix/Regen (if needed) → Sim → Reconcile → Tier 2 → Validator + Final Review → Fix (if needed) → Done | <span style="color:var(--error, #c94d4d);">Review failed</span> | <span style="color:var(--error, #c94d4d);">Cancelled</span>
@@ -172,7 +173,21 @@
     if (e.key === 'Enter') login();
   });
 
+  async function loadNotifyList() {
+    const el = document.getElementById('notify-list');
+    if (!el) return;
+    try {
+      const res = await fetch('/api/notify-signup?code=' + encodeURIComponent(adminCode));
+      if (!res.ok) { el.textContent = ''; return; }
+      const d = await res.json();
+      el.innerHTML = '<strong>Interest list (' + d.count + '):</strong> ' +
+        (d.count ? '<span id="notify-emails">' + d.emails.join(', ') + '</span> ' +
+        '<button onclick="navigator.clipboard.writeText(document.getElementById(\'notify-emails\').textContent)" style="font-size:0.7rem; padding:0.15rem 0.5rem; cursor:pointer;">Copy</button>' : 'none yet');
+    } catch (e) { el.textContent = ''; }
+  }
+
   async function loadSubmissions() {
+    loadNotifyList();
     try {
       const res = await fetch('/api/submissions?code=' + encodeURIComponent(adminCode));
       if (!res.ok) {
