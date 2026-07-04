@@ -46,11 +46,42 @@ module.exports = async function handler(req, res) {
               reply_to: "josieroth22@gmail.com",
               to: sub.email,
               subject: `${name}'s Scaffold College Strategy is ready`,
-              html: `<p>Your <a href="${planUrl}">Scaffold plan</a> is ready to read!</p>
-                <p><a href="${planUrl}" style="font-weight:bold;">Open ${name}'s Scaffold College Strategy</a></p>
-                <p>Start with the Executive Summary. Three minutes, everything important. The rest is there when you need it.</p>
-                <p>This link is private and permanent. Bookmark it, share it with your co-parent or counselor, and come back as things change.</p>
-                <p style="color:#6b6860; font-size:13px;">Scaffold is strategic planning, not professional counseling. No guarantee of admission or scholarship outcomes.</p>`,
+              // Branded to match the site: cream page, warm-white card, sage
+              // accents, serif wordmark/headline (Georgia stands in for
+              // Newsreader; email clients strip web fonts). Table layout +
+              // inline styles for client compatibility.
+              html: `<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background-color:#f8f5f0; padding:32px 16px;">
+  <tr><td align="center">
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:560px; background-color:#fdfcfa; border:1px solid #d9d4cc; border-radius:12px;">
+      <tr><td style="padding:32px 40px 0 40px;">
+        <span style="font-family:Georgia,'Times New Roman',serif; font-size:22px; font-weight:600; letter-spacing:-0.02em; color:#1a1a18;"><span style="color:#4a6741;">S</span>caffold</span>
+      </td></tr>
+      <tr><td style="padding:28px 40px 0 40px;">
+        <h1 style="margin:0; font-family:Georgia,'Times New Roman',serif; font-size:26px; font-weight:600; line-height:1.25; color:#1a1a18;">${name}'s College Strategy is ready</h1>
+      </td></tr>
+      <tr><td style="padding:16px 40px 0 40px; font-family:Arial,Helvetica,sans-serif; font-size:15px; line-height:1.6; color:#1a1a18;">
+        Your <a href="${planUrl}" style="color:#4a6741;">Scaffold plan</a> is ready to read!
+      </td></tr>
+      <tr><td style="padding:24px 40px 0 40px;">
+        <a href="${planUrl}" style="display:inline-block; background-color:#4a6741; color:#ffffff; font-family:Arial,Helvetica,sans-serif; font-size:16px; font-weight:600; text-decoration:none; padding:14px 32px; border-radius:8px;">Open ${name}'s Strategy</a>
+      </td></tr>
+      <tr><td style="padding:24px 40px 0 40px; font-family:Arial,Helvetica,sans-serif; font-size:15px; line-height:1.6; color:#1a1a18;">
+        Start with the Executive Summary. Three minutes, everything important. The rest is there when you need it.
+      </td></tr>
+      <tr><td style="padding:16px 40px 28px 40px; font-family:Arial,Helvetica,sans-serif; font-size:15px; line-height:1.6; color:#1a1a18;">
+        This link is private and permanent. Bookmark it, share it with your co-parent or counselor, and come back as things change.
+      </td></tr>
+      <tr><td style="padding:20px 40px 32px 40px; border-top:1px solid #e8ede6; font-family:Arial,Helvetica,sans-serif; font-size:12px; line-height:1.5; color:#6b6860;">
+        Scaffold is strategic planning, not professional counseling. No guarantee of admission or scholarship outcomes.
+      </td></tr>
+    </table>
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:560px;">
+      <tr><td style="padding:16px 40px; font-family:Arial,Helvetica,sans-serif; font-size:12px; color:#6b6860;" align="center">
+        Scaffold &middot; <a href="https://scaffoldcollegestrategy.com" style="color:#6b6860;">scaffoldcollegestrategy.com</a>
+      </td></tr>
+    </table>
+  </td></tr>
+</table>`,
             }),
           });
           if (resp.ok) await redis.hset(`submission:${id}`, { plan_email_sent: "1" });
