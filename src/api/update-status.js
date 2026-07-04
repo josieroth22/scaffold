@@ -42,9 +42,9 @@ module.exports = async function handler(req, res) {
               from: "Scaffold <plans@scaffoldcollegestrategy.com>",
               reply_to: "josieroth22@gmail.com",
               to: sub.email,
-              subject: `${name}'s college strategy is ready`,
-              html: `<p>Your Scaffold plan is ready to read.</p>
-                <p><a href="${planUrl}" style="font-weight:bold;">Open ${name}'s College Strategy</a></p>
+              subject: `${name}'s Scaffold College Strategy is ready`,
+              html: `<p>Your <a href="${planUrl}">Scaffold plan</a> is ready to read!</p>
+                <p><a href="${planUrl}" style="font-weight:bold;">Open ${name}'s Scaffold College Strategy</a></p>
                 <p>Start with the Executive Summary. Three minutes, everything important. The rest is there when you need it.</p>
                 <p>This link is private and permanent. Bookmark it, share it with your co-parent or counselor, and come back as things change.</p>
                 <p style="color:#6b6860; font-size:13px;">Scaffold is strategic planning, not professional counseling. No guarantee of admission or scholarship outcomes.</p>`,
