@@ -222,6 +222,7 @@ The mission: close the information gap in college planning. A $310K family in Na
 - [ ] Verify stage display covers all statuses (fixing, regenerating, with attempt counts)
 
 #### 12. Polish
+- [ ] **Branded plan-ready email** (Josie, July 4): make the completion email look like the website — logo, palette (ink/cream/sage/terra), serif headline feel. Email-client reality: Gmail/Outlook strip web fonts, so Newsreader/DM Sans become `Georgia, serif` / `Arial, sans-serif` fallbacks; all CSS inline; logo as a hosted image (note: image-heavy emails from young domains flirt with spam filters — keep it one small logo). Template lives in update-status.js; apply same treatment to the new-submission and alert emails while in there.
 - [ ] Write founder bio and add to website (landing page "About" section or footer)
 - [ ] Testimonials section on homepage
 - [x] Delete old static sample files (washington-sample.html, medina-sample.html, kaplan-sample.html) — DONE July 4, 2026
