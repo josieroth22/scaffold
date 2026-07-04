@@ -2049,6 +2049,25 @@
     section.innerHTML = html;
     section.style.display = 'block';
 
+    // Move the simulation up to sit right after the Probability and Cost
+    // Estimates section. The default bottom-of-page slot buried the charts
+    // below ~20 pages of Tier 2 reference material on full-length documents.
+    try {
+      const body = document.getElementById('strategy-body');
+      const heads = Array.from(body.querySelectorAll('h2'));
+      const anchor =
+        heads.find(h => /^probability and cost estimates table/i.test(h.textContent.trim())) ||
+        heads.find(h => /^probability and cost estimates/i.test(h.textContent.trim()));
+      if (anchor) {
+        let node = anchor.nextElementSibling;
+        while (node && !/^H[12]$/.test(node.tagName)) node = node.nextElementSibling;
+        if (node) body.insertBefore(section, node);
+        else body.appendChild(section);
+      }
+    } catch (e) {
+      // Keep the default placement if anything about the structure surprises us
+    }
+
     // Add to sidebar
     const list = document.getElementById('sidebar-list');
     if (list) {
