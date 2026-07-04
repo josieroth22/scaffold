@@ -1265,6 +1265,7 @@
         <div class="progress-fill" id="gen-progress" style="width: 5%; transition: width 1s ease;"></div>
       </div>
       <p style="font-size: 0.78rem; color: var(--muted); margin-top: 0.5rem;" id="gen-status">Generating plan...</p>
+      <p id="plan-link-note" style="display: none; font-size: 0.85rem; margin-top: 1.25rem; line-height: 1.6;">Your plan will live at:<br><a id="plan-link-a" href="" style="color: var(--sage); font-weight: 600; word-break: break-all;"></a><br><span style="color: var(--muted);">Bookmark it. If you close this tab, come back to this page and we'll pick up where we left off.</span></p>
     </div>
     <button id="cancel-gen-btn" onclick="cancelGeneration()" style="margin-top: 1.5rem; padding: 0.5rem 1.2rem; background: none; color: var(--muted); border: 1px solid var(--border); border-radius: 6px; font-family: inherit; font-size: 0.8rem; cursor: pointer;">Cancel</button>
   </div>
@@ -1306,6 +1307,135 @@
     document.getElementById('gate').style.display = 'none';
     document.getElementById('intake-form').style.display = 'block';
     document.querySelector('.progress-wrap').style.display = 'block';
+  }
+
+  // ---- Tab-close protection: permanent link + resume-from-stall ----
+  const ACTIVE_KEY = 'scaffold_active_submission';
+
+  function saveActive(id) {
+    try { localStorage.setItem(ACTIVE_KEY, JSON.stringify({ id: id, at: Date.now() })); } catch (e) {}
+  }
+  function clearActive() {
+    try { localStorage.removeItem(ACTIVE_KEY); } catch (e) {}
+  }
+  function showPlanLink(id) {
+    const note = document.getElementById('plan-link-note');
+    const a = document.getElementById('plan-link-a');
+    if (!note || note.style.display === 'block') return;
+    const url = location.origin + '/plan.html?id=' + id;
+    a.href = url;
+    a.textContent = url;
+    note.style.display = 'block';
+  }
+
+  // On page load: if a recent submission never finished, take over and resume it
+  async function checkResume() {
+    let saved = null;
+    try { saved = JSON.parse(localStorage.getItem(ACTIVE_KEY) || 'null'); } catch (e) {}
+    if (!saved || !saved.id) return false;
+    if (Date.now() - (saved.at || 0) > 48 * 3600 * 1000) { clearActive(); return false; }
+    try {
+      const r = await fetch('/api/plan?id=' + encodeURIComponent(saved.id));
+      if (!r.ok) { clearActive(); return false; }
+      const d = await r.json();
+      if (d.status === 'completed') { clearActive(); window.location.href = 'plan.html?id=' + saved.id; return true; }
+      if (d.status === 'cancelled') { clearActive(); return false; }
+      resumePipeline(saved.id);
+      return true;
+    } catch (e) {
+      return false;
+    }
+  }
+
+  // Drive the remaining pipeline steps for a submission that stalled when
+  // its tab closed. Simplified ladder (one repair pass per review) — the
+  // full fix/regen ladder only runs on fresh submissions.
+  async function resumePipeline(id) {
+    document.getElementById('gate').classList.remove('active');
+    document.getElementById('intake-form').style.display = 'none';
+    document.querySelector('.progress-wrap').style.display = 'none';
+    document.getElementById('generating').classList.add('active');
+    submissionId = id;
+    generationCancelled = false;
+    abortController = new AbortController();
+    const statusEl = document.getElementById('gen-status');
+    const progressEl = document.getElementById('gen-progress');
+    showPlanLink(id);
+    statusEl.textContent = 'Welcome back. Picking up where we left off...';
+    progressEl.style.width = '40%';
+
+    const post = (path) => fetch(path, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ id: id }), signal: abortController.signal });
+    const state = async () => {
+      const r = await fetch('/api/plan?id=' + encodeURIComponent(id));
+      return r.ok ? r.json() : null;
+    };
+
+    try {
+      let d = await state();
+      if (!d) throw new Error('Plan not found');
+
+      // If a server-side generation call is still writing, wait for it
+      let waits = 0;
+      while (['generating', 'regenerating', 'generating_tier2'].includes(d.status) && waits < 40) {
+        statusEl.textContent = 'The generator is still writing. Waiting for it to finish this section...';
+        await new Promise(res => setTimeout(res, 15000));
+        d = await state();
+        waits++;
+        if (!d) throw new Error('Plan not found');
+        if (generationCancelled) return;
+      }
+      if (d.status === 'completed') { clearActive(); window.location.href = 'plan.html?id=' + id; return; }
+      if (d.status === 'cancelled') { clearActive(); statusEl.textContent = 'This plan was cancelled.'; return; }
+
+      const hasTier2 = (d.output || '').includes('REFERENCE SECTIONS');
+
+      if (!hasTier2) {
+        statusEl.textContent = 'Reviewing the strategy brief...';
+        progressEl.style.width = '48%';
+        let rev = await apiCall('/api/review', { id: id });
+        if (rev.overall !== 'PASS') {
+          statusEl.textContent = 'Polishing a few details...';
+          progressEl.style.width = '54%';
+          await post('/api/fix-plan');
+          rev = await apiCall('/api/review', { id: id });
+          if (rev.overall !== 'PASS') {
+            await fetch('/api/update-status', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ id: id, status: 'review_failed' }) }).catch(() => {});
+          }
+        }
+        statusEl.textContent = 'Running your financial simulation...';
+        progressEl.style.width = '66%';
+        try { await apiCall('/api/simulate', { id: id }); } catch (e) {}
+        statusEl.textContent = 'Reconciling costs...';
+        progressEl.style.width = '72%';
+        try { await apiCall('/api/reconcile-costs', { id: id }); } catch (e) {}
+        statusEl.textContent = 'Building your reference sections. A brief pause before writing begins...';
+        progressEl.style.width = '76%';
+        const t2 = await post('/api/generate-tier2');
+        if (t2.ok) { await streamResponse(t2, statusEl, progressEl, () => {}, 76, 90, 34000); }
+      } else {
+        try { await apiCall('/api/simulate', { id: id }); } catch (e) {}
+      }
+
+      statusEl.textContent = 'Final quality check...';
+      progressEl.style.width = '92%';
+      let fin = await apiCall('/api/review', { id: id });
+      if (fin.overall !== 'PASS') {
+        statusEl.textContent = 'One more polish pass...';
+        progressEl.style.width = '96%';
+        await post('/api/fix-plan');
+        fin = await apiCall('/api/review', { id: id });
+      }
+
+      await fetch('/api/update-status', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ id: id, status: 'completed' }) });
+      progressEl.style.width = '100%';
+      statusEl.textContent = 'Done! Redirecting to your plan...';
+      clearActive();
+      setTimeout(() => { window.location.href = 'plan.html?id=' + id; }, 1200);
+    } catch (err) {
+      if (generationCancelled || err.name === 'AbortError' || (err.message && err.message.includes('cancelled'))) return;
+      console.error('Resume failed:', err);
+      statusEl.innerHTML = 'Something went wrong while resuming. <a href="plan.html?id=' + id + '" style="color: var(--sage); font-weight: 600;">View your plan as it stands</a> or refresh this page to try again.';
+    }
   }
 
   async function notifySignup() {
@@ -1567,7 +1697,7 @@
         if (!line.startsWith('data: ')) continue;
         try {
           const parsed = JSON.parse(line.slice(6));
-          if (parsed.id) submissionId = parsed.id;
+          if (parsed.id) { submissionId = parsed.id; saveActive(parsed.id); showPlanLink(parsed.id); }
           if (parsed.text) {
             onText(parsed.text);
             totalChars += parsed.text.length;
@@ -1957,6 +2087,7 @@
 
       progressEl.style.width = '100%';
       statusEl.textContent = 'Done! Redirecting to your plan...';
+      clearActive();
 
       // Mark as completed
       try {
@@ -1990,6 +2121,7 @@
   // Cancel generation from the generating screen
   async function cancelGeneration() {
     generationCancelled = true;
+    clearActive();
     if (abortController) abortController.abort();
     const btn = document.getElementById('cancel-gen-btn');
     btn.textContent = 'Cancelling...';
@@ -2138,7 +2270,7 @@
   }
 
   // Initialize
-  checkAccess();
+  checkResume().then(resumed => { if (!resumed) checkAccess(); });
 </script>
 
 </body>
