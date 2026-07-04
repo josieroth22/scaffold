@@ -301,13 +301,16 @@ The mission: close the information gap in college planning. A $310K family in Na
 | 2 fixes + regen | ~$6.96 | ~$1.75 | ~$8.71 |
 | Worst case (regen + final fix) | ~$7.82 | ~$1.75 | ~$9.57 |
 
-### Summary
+### Summary (updated with July 4, 2026 measured runs)
+
+*Four complete plans generated July 4 (Brett, Sofia, Priya, Jake). Observed pattern: single-submission passes with 0-3 fix cycles, no regenerations. Documents measured at ~30-35K chars (T1) + ~31-40K chars (T2); adaptive thinking adds roughly 15-25K billed output tokens per generation call and 5-8K per review, which the original 2/3-scaled table above understates. Exact per-call token counts still require the Anthropic console until admin usage capture ships (roadmap 11b).*
+
 - **Revenue per plan:** $50
-- **API cost per plan:** ~$4-5.50 typical, ~$8 worst case (plus thinking-token overhead, to be measured)
+- **API cost per plan (measured band):** ~$6 (clean run, e.g. Priya) to ~$9 (multi-fix run, e.g. Sofia); call it **~$7.50 typical**
 - **Stripe fee (2.9% + $0.30):** ~$1.75
-- **Total COGS per plan:** ~$5.50-7.25 typical, ~$9.50 worst case
-- **Margin per plan:** ~$40-44 (81-89%)
-- **Break-even:** ~3-4 plans/month
+- **Total COGS per plan:** ~$8-11
+- **Margin per plan:** ~$39-42 (78-84%)
+- **Break-even:** ~4 plans/month
 - **Upfront investment:** ~$200-400 (LLC filing, first month of subscriptions, $100 buffer)
 
 API costs scale with volume. At 50 plans/month, API spend would be ~$200-275/month. Prepaid API credits get a small discount. As prompt quality improves, the fix/regen rate should drop, keeping most plans on the base path (~$3.78). If Fable 5 quality reduces the fix/regen rate (better instruction following should mean fewer review failures), the typical case moves toward the base path.

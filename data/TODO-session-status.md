@@ -2,6 +2,8 @@
 
 ## WHERE WE LEFT OFF (pick up here)
 
+**UPDATE (July 4 evening): everything below through item 5 is DONE.** Jake PASSED (mr6ij7f02ymbzw) and all three samples are live on the homepage with working tabs, nav dropdown, and plan-page sample bar. Copy pass done for index.html AND intake.html (honest generating-time expectations, email hint fixed, stale static samples deleted, live sample links in intake dropdown). UptimeRobot monitoring live on /api/keep-alive. www.scaffoldcollegestrategy.com added in Vercel: valid cert, 308 redirect verified. Tier 2 progress bar calibrated (34K chars). Unit economics updated with measured July 4 band (~$6-9/plan). REMAINING BEFORE JON: (1) Josie's deep reads of the three sample plans, (2) dry-run profile for Jon's daughter (needs intel), (3) optional post-demo: apex DNS record update to 216.150.1.1 (Vercel recommendation, old IP still works). Original notes follow:
+
 **Jake's sample run (`mr6ij7f02ymbzw`) was in final review at pause time** — check `api/submission?code=...&id=mr6ij7f02ymbzw` or admin. His T1 passed after one fix (budget_alignment); if the final review passed, he needs Josie's read/blessing, then restore his three TODO-marked slots (search repo for `JAKE_ID`): index.html nav dropdown + sample tab + sample-desc CTA link, and plan.html sample-bar entry + `sampleIds` array.
 
 **July 4 results: THE RE-BASELINE IS DONE AND THE SAMPLES ARE (nearly) REGENERATED.**

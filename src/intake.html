@@ -1843,7 +1843,7 @@
       if (tier2Response.ok) {
         await streamResponse(tier2Response, statusEl, progressEl, (text) => {
           markdown += text;
-        }, 76, 90, 20000);
+        }, 76, 90, 34000); // Tier 2 measured at 31-40K chars across July 4 runs
       } else {
         console.warn('Tier 2 failed: ' + tier2Response.status);
       }
