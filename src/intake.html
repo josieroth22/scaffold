@@ -730,9 +730,13 @@
 <!-- ACCESS GATE (shown when no valid code/payment) -->
 <div class="form-container">
   <div class="gate" id="gate">
-    <h2>You need a plan first</h2>
-    <p>Purchase your Scaffold plan on the homepage, then you'll be directed here to fill in your family's details.</p>
-    <a href="index.html#pricing">Get Your Plan ($50)</a>
+    <h2>Plans are coming soon</h2>
+    <p>Scaffold is in final testing. Leave your email and we'll let you know the moment plans are available for purchase.</p>
+    <div class="gate-code" style="margin-bottom: 0.5rem;">
+      <input type="email" id="notify-email-input" placeholder="you@email.com">
+      <button onclick="notifySignup()">Notify Me</button>
+    </div>
+    <p class="gate-code-error" id="notify-msg" style="display: none;"></p>
     <div class="gate-divider">or</div>
     <div class="gate-code">
       <input type="text" id="gate-code-input" placeholder="Enter code">
@@ -1302,6 +1306,36 @@
     document.getElementById('gate').style.display = 'none';
     document.getElementById('intake-form').style.display = 'block';
     document.querySelector('.progress-wrap').style.display = 'block';
+  }
+
+  async function notifySignup() {
+    const input = document.getElementById('notify-email-input');
+    const msg = document.getElementById('notify-msg');
+    const email = (input.value || '').trim();
+    msg.style.display = 'block';
+    msg.style.color = '';
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      msg.textContent = 'Please enter a valid email address.';
+      return;
+    }
+    msg.textContent = 'Adding you to the list...';
+    try {
+      const res = await fetch('/api/notify-signup', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email })
+      });
+      if (res.ok) {
+        msg.style.color = 'var(--sage)';
+        msg.textContent = "You're on the list. We'll email you when plans are available.";
+        input.value = '';
+      } else {
+        const d = await res.json().catch(() => ({}));
+        msg.textContent = d.error || 'Something went wrong. Try again?';
+      }
+    } catch (e) {
+      msg.textContent = 'Something went wrong. Try again?';
+    }
   }
 
   function tryCode() {
