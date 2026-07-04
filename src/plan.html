@@ -1905,7 +1905,7 @@
 
     // Header
     html += '<div class="sim-header">';
-    html += '<h2 id="sim-results">Financial Simulation Results</h2>';
+    html += '<h2 id="sim-results">Admissions and Financial Simulation</h2>';
     html += '<p>Based on ' + sim.iterations.toLocaleString() + ' Monte Carlo iterations using the admission and financial estimates above</p>';
     html += '</div>';
 
@@ -2114,7 +2114,7 @@
         li.className = 'sb-h1';
         const a = document.createElement('a');
         a.href = '#sim-results';
-        a.textContent = 'Financial Simulation';
+        a.textContent = 'Admissions & Financial Simulation';
         a.dataset.target = 'sim-results';
         a.addEventListener('click', e => {
           e.preventDefault();
