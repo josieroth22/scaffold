@@ -76,9 +76,12 @@ src/
     regenerate.js          # Full regen with review feedback injected
     simulate.js            # Monte Carlo simulation (10K iterations, JS)
     reconcile-costs.js     # Reconcile narrative costs with sim results
-    update-status.js       # Redis status updates
+    update-status.js       # Redis status updates + plan-ready email on completion
     plan.js                # Load plan from Redis for rendering
-    submissions.js         # Admin API
+    submissions.js         # Admin API (summary fields only)
+    submission.js          # Single-submission detail API
+    notify-signup.js       # Coming-soon interest list (POST signup, GET list w/ admin code)
+    keep-alive.js          # Redis keep-alive ping (Vercel cron + UptimeRobot)
   lib/
     school-data.js         # Loads and formats school data for prompt injection (~23K tokens)
     validate-plan.js       # Programmatic validator (runs in review.js before Claude review)
@@ -87,11 +90,16 @@ data/
   schools/                 # 1,492 school JSON files (CDS + Scorecard + reference data)
   state-aid-programs.md    # State aid for all 50 states + DC
   financial-aid-facts.md   # No-merit schools, full-need schools, CSS vs FAFSA, QuestBridge, etc.
+  TODO-session-status.md   # Session handoff log (newest update first)
 scripts/
   parse-cds.js             # Parse CDS PDFs/XLSX via Claude API into school JSONs
   test-validate-plan.js    # Validator test fixture (run: node scripts/test-validate-plan.js)
+  run-pipeline.js          # Backend pipeline driver (node scripts/run-pipeline.js <alias|profile.json>)
+  watch-pipeline.js        # Live pipeline status watcher
+  profiles/                # 5 test profiles (brett, sofia, alejandra, priya, jake)
 docs/
   project-plan.md          # Full roadmap, unit economics, architecture
+  test-profiles.md         # Re-baseline test profiles (submit via intake form)
 ```
 
 ## School Data
@@ -146,14 +154,18 @@ Client-side: AbortController on all pipeline fetch calls. Cancel button on intak
 
 ## Current Priority
 
-Goal: shippable content quality. A high-stakes external test (CRO's daughter) is coming, so plan quality comes first. Stripe and legal are deferred until quality is proven.
+Goal: shippable content quality, demo-ready by July 13, 2026 (a high-stakes external test: the CRO's daughter runs a real plan). Stripe and legal are deferred until quality is proven.
 
-Done (June 2026): Fable 5 migration, programmatic validator (validate-plan.js, integrated as a review.js pre-pass), prompt consolidation + Fable re-tune for generate.js and review.js.
+Done (June-July 2026): Fable 5 migration + re-baseline (4 profiles PASS), programmatic validator (validate-plan.js, integrated as a review.js pre-pass), prompt consolidation + Fable re-tune, three live homepage samples, tab-close resume, coming-soon email gate, UptimeRobot monitoring, plan-ready email via Resend.
 
-1. Re-baseline on Fable 5: rerun Brett Roth and Martinez profiles end to end, verify the review checks and the new validator calibrate correctly on the new model, check token usage and cost.
-2. Diverse profile testing (20+ profiles), including a dry-run profile matching the upcoming external tester (CRO's daughter).
+Remaining before the demo:
+1. Josie's deep reads of the three sample plans (Sofia, Priya, Jake).
+2. Browser end-to-end test: real form submission, close tab mid-build, verify resume + the automatic plan email. Use a rising-senior (12th grade) profile — the one untested age band.
+3. plans@ inbound forwarding via ImprovMX, then remove the reply_to from update-status.js (optional for demo; current reply-to fallback works).
 
-Deferred: legal docs, Stripe integration, LLC setup.
+After the demo: diverse profile testing (20+ profiles), Pipeline v2 reliability items. Deferred: legal docs, Stripe integration, LLC setup.
+
+Session-by-session state: `data/TODO-session-status.md` (newest update first).
 
 See `docs/project-plan.md` for full roadmap.
 
@@ -162,5 +174,7 @@ See `docs/project-plan.md` for full roadmap.
 **Fable 5 re-baseline (July 4, 2026):**
 - **Brett Roth** (Boca Raton FL, $200K, engineering): PASS, 0 issues, 0 flags. The six-run debugging saga that got here killed 15+ real bugs (token caps, prompt contradiction, platform timeout, validator/formatter data schism, fixer JSON blindness, reviewer blind spots, calibration). Plan: plan.html?id=mr6c9wqsdt9spd
 - **Sofia Martinez** (Milwaukee WI, $62K, first-gen): PASS end-to-end in ONE submission (2 T1 fixes + 1 final fix, no regen, 19 minutes, ~$7). QuestBridge, Wisconsin aid, need-based paths all validated. Plan: plan.html?id=mr6eqht6rzc0tj
+- **Priya Sharma**: PASS, cleanest run ever, zero T1 fixes. Live homepage sample. Plan: plan.html?id=mr6hjpw1s7g8j0
+- **Jake Miller**: PASS after one fix (budget_alignment). Live homepage sample. Plan: plan.html?id=mr6ij7f02ymbzw
 
 **Old Opus baseline (Feb 2026, for comparison):** Brett 15/15 at attempt 5; Martinez passed after 3 iterations.
