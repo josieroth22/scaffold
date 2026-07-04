@@ -116,7 +116,7 @@ function isNoMeritSchool(name) {
 
 function isPrivateSchool(name) {
   try {
-    const slug = schoolData.findSchoolSlug(name, schoolData.getSchoolList());
+    const slug = schoolData.findSchoolSlug(name, schoolData.getSchoolIndex());
     if (slug) {
       const school = schoolData.loadSchool(slug);
       if (school && school.type) return school.type === "private";
@@ -277,7 +277,7 @@ function fixStickerCosts(rawBlock, formData, autoFixes, flags) {
     if (!s.name || s.sticker_cost == null) return objText;
     let school = null;
     try {
-      const slug = schoolData.findSchoolSlug(s.name, schoolData.getSchoolList());
+      const slug = schoolData.findSchoolSlug(s.name, schoolData.getSchoolIndex());
       if (slug) school = schoolData.loadSchool(slug);
     } catch (e) {
       return objText;

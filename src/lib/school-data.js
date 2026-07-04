@@ -15,6 +15,36 @@ function getSchoolList() {
   return schoolListCache;
 }
 
+// Directory-backed index: the authoritative universe of school records.
+// school-list.json is missing ~29 files (several CDS-parsed, e.g.
+// purdue-university.json), which made name lookups resolve to different
+// records than the ones the prompt actually renders. Anything that needs to
+// agree with the rendered prompt data must use this index, not the list.
+let schoolIndexCache = null;
+function getSchoolIndex() {
+  if (!schoolIndexCache) {
+    schoolIndexCache = fs
+      .readdirSync(SCHOOLS_DIR)
+      .filter((f) => f.endsWith(".json"))
+      .map((f) => {
+        try {
+          const s = JSON.parse(fs.readFileSync(path.join(SCHOOLS_DIR, f), "utf8"));
+          return {
+            name: s.name,
+            slug: s.slug || f.replace(/\.json$/, ""),
+            state: s.state,
+            type: s.type,
+            hasCDS: !!s.cds,
+          };
+        } catch (e) {
+          return null;
+        }
+      })
+      .filter((e) => e && e.name);
+  }
+  return schoolIndexCache;
+}
+
 // Load a single school JSON by slug
 function loadSchool(slug) {
   const filePath = path.join(SCHOOLS_DIR, slug + ".json");
@@ -451,10 +481,15 @@ function findSchoolSlug(name, schoolList) {
     }
     if (matches.length === 1) return matches[0].slug;
     if (matches.length > 1) {
-      const main = matches.find((e) => /main.campus/i.test(e.slug) || /main campus/i.test(e.name));
+      // Prefer the record with CDS data (the one the prompt renders in the
+      // verified section), then main campus, then shortest name
+      const cds = matches.filter((e) => e.hasCDS);
+      if (cds.length === 1) return cds[0].slug;
+      const pool = cds.length > 1 ? cds : matches;
+      const main = pool.find((e) => /main.campus/i.test(e.slug) || /main campus/i.test(e.name));
       if (main) return main.slug;
-      matches.sort((a, b) => a.name.length - b.name.length);
-      return matches[0].slug;
+      pool.sort((a, b) => a.name.length - b.name.length);
+      return pool[0].slug;
     }
   }
 
@@ -827,6 +862,7 @@ module.exports = {
   parseState,
   buildCheatSheet,
   getSchoolList,
+  getSchoolIndex,
   loadSchool,
   findSchoolSlug,
 };
