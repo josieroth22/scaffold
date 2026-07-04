@@ -631,6 +631,11 @@
   }
 
   /* ---- SIMULATION RESULTS ---- */
+  .strategy-body li.li-nested {
+    margin-left: 1.4rem;
+    list-style-type: circle;
+  }
+
   .reading-guide {
     max-width: 780px;
     margin: 1.5rem auto 0;
@@ -1559,6 +1564,12 @@
       .replace(/^---+$/gm, '<hr>')
       // Blockquotes
       .replace(/^> (.+)$/gm, '<blockquote>$1</blockquote>')
+      // Nested (indented) list items first — the generator emits decision
+      // trees as two-space-indented bullets; unhandled, they become bare
+      // text nodes that the collapsible wrapper orphans (the "Admitted:"
+      // bug on Priya's plan)
+      .replace(/^\s+- (.+)$/gm, '<li class="li-nested">$1</li>')
+      .replace(/^\s+\d+\. (.+)$/gm, '<li class="li-nested">$1</li>')
       // Unordered lists
       .replace(/^- (.+)$/gm, '<li>$1</li>')
       // Ordered lists
