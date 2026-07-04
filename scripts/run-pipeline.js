@@ -132,14 +132,15 @@ async function review(id, label) {
     const fails = Object.entries(r.checks || {})
       .filter(([, v]) => v && v.status === "FAIL")
       .map(([k]) => k);
-    const vFlags = ((r.validator || {}).flags || []).length;
+    const flags = (r.validator || {}).flags || [];
     const vFixes = ((r.validator || {}).auto_fixes || []).length;
-    log(`${label}: ${r.overall} (${fails.length} failed${fails.length ? ": " + fails.join(", ") : ""}; validator: ${vFixes} auto-fixes, ${vFlags} flags)`);
-    return passed;
+    const needsRegen = flags.some((f) => f.severity === "regen");
+    log(`${label}: ${r.overall} (${fails.length} failed${fails.length ? ": " + fails.join(", ") : ""}; validator: ${vFixes} auto-fixes, ${flags.length} flags${needsRegen ? "; REGEN-SEVERITY FLAG" : ""})`);
+    return { passed, needsRegen };
   } catch (e) {
     // Mirror intake.html: a broken review call does not block the pipeline
     log(`${label} request failed (${e.message}), proceeding as passed`);
-    return true;
+    return { passed: true, needsRegen: false };
   }
 }
 
@@ -161,11 +162,16 @@ async function main() {
   log(`Tier 1 complete: ${t1.chars} chars (id: ${id})`);
 
   // PHASE 2: initial review
-  let reviewPassed = await review(id, "Review T1");
+  let r = await review(id, "Review T1");
+  let reviewPassed = r.passed;
 
-  // PHASE 3: fix loop
+  // PHASE 3: fix loop — skipped when the validator says the document needs
+  // regeneration (e.g. missing JSON block: find/replace cannot fix absence)
   let fixAttempt = 0;
-  while (!reviewPassed && fixAttempt < MAX_FIX_ATTEMPTS) {
+  if (r.needsRegen) {
+    log("Validator raised a regen-severity flag; skipping fix loop.");
+  }
+  while (!reviewPassed && !r.needsRegen && fixAttempt < MAX_FIX_ATTEMPTS) {
     fixAttempt++;
     log(`Fix attempt ${fixAttempt}...`);
     const fixRes = await post("/api/fix-plan", { id });
@@ -174,7 +180,8 @@ async function main() {
       log(`fix-plan returned ${fixRes.status}: ${body.slice(0, 300)} — stopping fix loop`);
       break;
     }
-    reviewPassed = await review(id, `Re-review after fix ${fixAttempt}`);
+    r = await review(id, `Re-review after fix ${fixAttempt}`);
+    reviewPassed = r.passed;
   }
 
   // PHASE 4: regenerate
@@ -186,7 +193,7 @@ async function main() {
     if (regenRes.ok) {
       const rg = await streamSSE(regenRes, "Regen");
       log(`Regeneration complete: ${rg.chars} chars`);
-      reviewPassed = await review(id, "Review after regen");
+      reviewPassed = (await review(id, "Review after regen")).passed;
     } else {
       log(`regenerate returned ${regenRes.status}`);
     }
@@ -221,12 +228,12 @@ async function main() {
   }
 
   // PHASE 7: final review + one fix
-  let finalPassed = await review(id, "Final review");
+  let finalPassed = (await review(id, "Final review")).passed;
   if (!finalPassed) {
     log("Final fix attempt...");
     const ffRes = await post("/api/fix-plan", { id });
     if (ffRes.ok) {
-      finalPassed = await review(id, "Review after final fix");
+      finalPassed = (await review(id, "Review after final fix")).passed;
     } else {
       const body = await ffRes.text().catch(() => "");
       log(`final fix-plan returned ${ffRes.status}: ${body.slice(0, 300)}`);
