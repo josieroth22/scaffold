@@ -1613,7 +1613,8 @@
       }
 
       table.querySelectorAll('td').forEach(td => {
-        const text = td.textContent.trim().toLowerCase();
+        const rawText = td.textContent.trim(); // original casing, for display
+        const text = rawText.toLowerCase();    // lowercased, for matching only
 
         // Tier badges
         if (text === 'reach') {
@@ -1650,7 +1651,7 @@
           'rolling': 'tier-safety', 'rolling admission': 'tier-safety',
         };
         if (roundColors[roundBase]) {
-          const noteMatch = text.match(/(\(.*\))$/);
+          const noteMatch = rawText.match(/(\(.*\))$/);
           const roundNote = noteMatch ? ' <span class="round-note">' + noteMatch[1] + '</span>' : '';
           const footnoteMatch = td.textContent.trim().match(/([¹²³⁴⁵⁶⁷⁸⁹⁰\*†‡§]+)$/);
           const footnote = footnoteMatch ? '<sup>' + footnoteMatch[1] + '</sup>' : '';
