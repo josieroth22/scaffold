@@ -125,6 +125,7 @@ ${verifiedData.substring(0, 15000)}
 RULES:
 - Fix ONLY the issues listed above
 - The json-simulation-params block at the end IS part of the document: corrections to JSON values (sticker_cost, admit_pct, round, merit fields) are made with the same find/replace mechanism, matching the exact JSON text including quotes and spacing
+- **Direction of cost fixes:** when the narrative and the JSON disagree about a school's sticker cost, the VERIFIED SCHOOL DATA decides which one is right. JSON sticker_cost values that match the verified data are correct: fix the NARRATIVE to agree with them. Never change a JSON sticker_cost away from the verified figure to match narrative text
 - Do NOT change school names, tiers, recommendations, or tone
 - Do NOT change admission probabilities (unless flagged above)
 - Do NOT remove content that matches the family's actual input
