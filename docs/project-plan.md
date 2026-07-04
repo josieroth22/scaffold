@@ -45,7 +45,7 @@ The mission: close the information gap in college planning. A $310K family in Na
 **Infrastructure**
 - Vercel serverless (Node.js), Upstash Redis, Anthropic API (Claude Fable 5), vanilla HTML/CSS/JS
 - Auto-deploy from main working
-- Email notification code written in generate.js: fire-and-forget via Resend, guarded by RESEND_API_KEY. Still needs: Resend account, API key, domain verification, env var in Vercel.
+- Email LIVE via Resend (July 4, 2026): domain scaffoldcollegestrategy.com verified (DKIM/SPF/MX + DMARC p=none at Squarespace DNS), RESEND_API_KEY in Vercel. Two sends: (1) plan-ready email to the family on completion (update-status.js; sender plans@scaffoldcollegestrategy.com, reply-to Josie's gmail, once-per-plan via plan_email_sent flag), (2) new-submission notification to Josie (generate.js, unverified until next real submission). Delivery confirmed to Gmail inbox (not spam). Free tier: 100/day, 3K/month.
 
 ---
 
@@ -128,13 +128,13 @@ The mission: close the information gap in college planning. A $310K family in Na
 - [ ] Connect Stripe to business bank account
 - [ ] Custom domain (scaffoldcollegestrategy.com) for plan URLs
 - [ ] DNS: point domain nameservers to Vercel (ns1.vercel-dns.com, ns2.vercel-dns.com). **apex domain works (July 4); www.scaffoldcollegestrategy.com does not resolve — add www in Vercel → Domains with a redirect to apex**
-- [ ] Resend setup: account signup, API key, domain verification, add RESEND_API_KEY to Vercel env vars
+- [x] Resend setup: account signup, API key, domain verification, add RESEND_API_KEY to Vercel env vars (DONE July 4, 2026)
 - [ ] **Post-purchase confirmation email** sent immediately after Stripe payment (before plan completion):
   - Receipt (Stripe handles automatically)
   - Order confirmation with realistic time expectation ("Your plan will be ready in ~5 minutes")
   - Support email contact if they don't receive the plan
   - *Currently the email only fires when generation completes — the gap between payment and delivery is anxiety territory*
-- [ ] Email delivery of completed plan link to the family
+- [x] Email delivery of completed plan link to the family (DONE July 4, 2026: update-status.js on completion, dedupe via plan_email_sent)
 - [ ] **Customer support email:** set up support@scaffoldcollegestrategy.com (forwarder to inbox initially). Add visibly to footer, FAQ, post-purchase email. Decide response SLA (recommended: same-day during week, 24h weekend).
 - [ ] **First-week support playbook:** what to do when generation fails after payment (manual retry? auto-refund? apology email?). Document the process now, not when the first complaint comes in.
 - [ ] **Plan URL security audit:** verify submission IDs are cryptographically random UUIDs, not sequential or guessable. Every plan contains income, family details, kids' names — enumerable URLs would be a privacy disaster.

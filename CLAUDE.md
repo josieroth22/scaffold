@@ -117,6 +117,15 @@ These are enforced in generate.js self-checks and review.js. Do not change witho
 - **Budget flexibility:** If strong financial safety exists, over-budget reaches are acceptable
 - **Footnotes:** Use dagger symbol for REA footnotes, not superscript numbers
 
+## Email (Resend)
+
+Live since July 4, 2026. Domain scaffoldcollegestrategy.com verified (DKIM/SPF/MX + DMARC at Squarespace DNS). Key: RESEND_API_KEY in Vercel env (Production + Preview); both sends silently no-op without it.
+
+- **Plan-ready email to family:** update-status.js fires it when status flips to "completed". Sender plans@scaffoldcollegestrategy.com, reply-to Josie's gmail. Sent once per plan via `plan_email_sent` hash flag; safe to re-POST completed.
+- **New-submission notification to Josie:** generate.js, fire-and-forget.
+- Gotcha: the admin submissions API returns a hand-picked field summary that does NOT include `plan_email_sent` — don't use it to check the flag.
+- Free tier limits: 100 emails/day, 3,000/month.
+
 ## Cancellation
 
 Server-side: every API endpoint re-checks Redis status after Claude API call completes. If "cancelled", returns early.
