@@ -637,6 +637,16 @@
     padding: 0 2rem 2rem;
   }
 
+  /* When relocated inside the strategy body (after the Probability section),
+     the standalone offsets above would stack on the body's own sidebar
+     clearance and padding — neutralize them in the nested context */
+  .strategy-body .sim-section {
+    margin: 0 !important;
+    max-width: none;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
   .sim-header {
     text-align: center;
     margin-bottom: 2rem;
