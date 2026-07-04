@@ -126,7 +126,7 @@ The mission: close the information gap in college planning. A $310K family in Na
 - [ ] Stripe integration ($50 one-time payment before form access)
 - [ ] Connect Stripe to business bank account
 - [ ] Custom domain (scaffoldcollegestrategy.com) for plan URLs
-- [ ] DNS: point domain nameservers to Vercel (ns1.vercel-dns.com, ns2.vercel-dns.com)
+- [ ] DNS: point domain nameservers to Vercel (ns1.vercel-dns.com, ns2.vercel-dns.com). **apex domain works (July 4); www.scaffoldcollegestrategy.com does not resolve — add www in Vercel → Domains with a redirect to apex**
 - [ ] Resend setup: account signup, API key, domain verification, add RESEND_API_KEY to Vercel env vars
 - [ ] **Post-purchase confirmation email** sent immediately after Stripe payment (before plan completion):
   - Receipt (Stripe handles automatically)
