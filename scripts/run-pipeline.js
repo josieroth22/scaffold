@@ -21,6 +21,9 @@ const MAX_REGEN_ATTEMPTS = 1;
 const ALIASES = {
   brett: "profiles/brett-roth.json",
   sofia: "profiles/sofia-martinez.json",
+  alejandra: "profiles/alejandra-reyes.json",
+  priya: "profiles/priya-sharma.json",
+  jake: "profiles/jake-miller.json",
 };
 
 function log(msg) {
