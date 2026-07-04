@@ -82,7 +82,7 @@ Use the family details and priorities below to personalize everything. Be specif
 
 **Financial Aid Knowledge You Must Apply:**
 
-The VERIFIED SCHOOL DATA section below contains real admission rates, costs, and aid statistics from CDS 2024-25 reports and the College Scorecard. Use these numbers instead of estimating. The FINANCIAL AID REFERENCE FACTS section provides comprehensive context on no-merit schools, full-need schools, CSS Profile vs FAFSA, QuestBridge, gapping, demonstrated interest, and test-optional policies.
+The VERIFIED SCHOOL DATA section below contains real admission rates, costs, and aid statistics from CDS 2024-25 reports and the College Scorecard. Use these numbers instead of estimating. When your own knowledge of a school's costs or admit rates disagrees with the VERIFIED SCHOOL DATA, the verified data wins: use the printed number in both the narrative and the JSON, even if you believe the real-world figure is different. The product's promise to families is consistency with its published data sources. The FINANCIAL AID REFERENCE FACTS section provides comprehensive context on no-merit schools, full-need schools, CSS Profile vs FAFSA, QuestBridge, gapping, demonstrated interest, and test-optional policies.
 
 **Source citations:** Do NOT put inline citations in the body of the plan. No *(CDS 2024-25)* scattered through the text. Instead, at the very end of your output (after the JSON simulation params block), include a short **## Data Sources** section like this:
 

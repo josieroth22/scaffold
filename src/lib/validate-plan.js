@@ -179,6 +179,15 @@ function nameVariants(name) {
   return variants.map((v) => v.toLowerCase());
 }
 
+// Word-boundary matcher: short names like "MIT" must not match inside words
+// like "admitted" (a live false positive flagged a Case Western row as MIT)
+function lineMatchesName(lineLC, variants) {
+  return variants.some((v) => {
+    const escaped = v.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+    return new RegExp("\\b" + escaped + "\\b", "i").test(lineLC);
+  });
+}
+
 function checkTierConsistency(output, params, flags) {
   const narrative = output.replace(PARAMS_BLOCK_RE, "");
   // Only table rows and explicit "Tier:" lines. Prose mentions of
@@ -195,7 +204,7 @@ function checkTierConsistency(output, params, flags) {
 
     for (const line of candidateLines) {
       const lineLC = line.toLowerCase();
-      if (!variants.some((v) => lineLC.includes(v))) continue;
+      if (!lineMatchesName(lineLC, variants)) continue;
       const tierMatch = lineLC.match(/\b(reach|target|safety)\b/);
       if (tierMatch && !seen.has(tierMatch[1])) {
         seen.set(tierMatch[1], line.trim().slice(0, 160));
@@ -348,7 +357,7 @@ function checkNetCostConsistency(output, params, flags) {
 
     const variants = nameVariants(s.name);
     const row = tableRows.find((l) =>
-      variants.some((v) => l.toLowerCase().includes(v))
+      lineMatchesName(l.toLowerCase(), variants)
     );
     if (!row) continue;
     const money = parseMoneyRange(row);
