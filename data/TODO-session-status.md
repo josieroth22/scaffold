@@ -1,19 +1,32 @@
-# Session Status - July 2, 2026 (evening)
+# Session Status - July 4, 2026 (afternoon)
 
 ## WHERE WE LEFT OFF (pick up here)
 
-**DONE July 4: Brett PASS (mr6c9wqsdt9spd) and Sofia PASS end-to-end in one submission (mr6eqht6rzc0tj). Both market halves validated. Next: sample-plan runs (profiles ready in scripts/profiles/), copy pass, UptimeRobot, daughter dry-run.**
+**Jake's sample run (`mr6ij7f02ymbzw`) was in final review at pause time** — check `api/submission?code=...&id=mr6ij7f02ymbzw` or admin. His T1 passed after one fix (budget_alignment); if the final review passed, he needs Josie's read/blessing, then restore his three TODO-marked slots (search repo for `JAKE_ID`): index.html nav dropdown + sample tab + sample-desc CTA link, and plan.html sample-bar entry + `sampleIds` array.
 
-Then, in order (Josie approves each run before it fires):
-1. **Sofia Martinez** — `node scripts/run-pipeline.js sofia` (tests QuestBridge, WI aid, need-based, tight budget)
-2. Draft 3 sample-plan profiles (Alejandra, Priya, Jake personas), Josie approves, run all three, update the 6 hardcoded `plan.html?id=` links in index.html
-3. Copy pass: website + intake form (task list #6)
-4. UptimeRobot on /api/keep-alive (Josie, 5 min)
-5. Dry-run profile resembling Jon's daughter (get whatever details Josie can)
-6. Delete temporary `/api/duration-probe` endpoint
-**DEADLINE: demo-ready by July 13 (Josie's first day at Datacor).**
+**July 4 results: THE RE-BASELINE IS DONE AND THE SAMPLES ARE (nearly) REGENERATED.**
+- Brett: PASS (mr6c9wqsdt9spd) after the validator/data bug chain was fixed
+- Sofia: PASS end-to-end in one submission (mr6eqht6rzc0tj) — now the live homepage sample (replaced Alejandra persona)
+- Priya: PASS, cleanest run ever, zero T1 fixes (mr6hjpw1s7g8j0) — blessed, live on homepage
+- Jake: in flight at pause (see above). Fix pattern across samples: 3 fixes / 0 fixes / 1 fix, zero regens.
 
-Run four's complete plan (72K chars, sim, review_failed-but-good) remains readable for QA comparison: plan.html?id=mr3wcxhgdzk3o8
+**Remaining before Jon (deadline July 13):**
+1. Jake blessing + restore his 3 sample slots (JAKE_ID markers)
+2. Copy pass: intake.html form steps still unread (index.html copy reviewed July 4: good; two launch-checklist flags: refund FAQ has no support email yet, "generate an updated plan" implies unbuilt regeneration feature)
+3. UptimeRobot on /api/keep-alive (Josie, 5 min)
+4. Dry-run profile resembling Jon's daughter (needs whatever Josie can learn)
+5. www.scaffoldcollegestrategy.com doesn't resolve — add www redirect in Vercel → Domains
+6. Update unit economics + progress-bar Tier 2 expectedChars with measured data (T1 ~30K chars, T2 ~31-40K chars observed)
+
+## RENDER/UX FIXES SHIPPED JULY 4 (afternoon)
+- Simulation section relocated after Probability table (was buried below Tier 2); width fix for nested context; sidebar nav entry follows suit
+- Nested-list rendering fixed (indented bullets became orphaned bare text — the vanished "Admitted:" branch on Priya's plan)
+- Reading guide box on every plan + orientation line on homepage samples section
+- No-cache headers on HTML (ends the stale-browser confusion permanently)
+- Sample bar on plan pages rewired to live IDs (Sofia/Priya)
+- Homepage: Sofia replaces Alejandra everywhere; Priya restored with live ID
+- Calibration: admit-probability rules made selectivity-dependent + in-state exception; verified-data-wins grounding in generator AND reviewer; fixer precedence rule; validator auto-fixes sticker costs; word-boundary school matching; validator reads directory index (school-list.json is missing 29 files — task #11)
+- Hopkins ED question (Josie): plan's reasoning validated as counselor-grade; ED-for-full-pay-family logic is correct and conditional
 
 ## COMPLETED JULY 2
 
