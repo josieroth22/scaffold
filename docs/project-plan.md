@@ -124,6 +124,7 @@ The mission: close the information gap in college planning. A $310K family in Na
 #### 6. Launch Infrastructure
 *Everything needed to go from free testing to paid product. Deferred while the focus is content quality.*
 - [ ] Stripe integration ($50 one-time payment before form access)
+  - **Un-do the July 2026 coming-soon gate when this ships:** intake.html's access gate currently collects interest emails ("Plans are coming soon" + Notify Me → /api/notify-signup → Redis set `notify_emails`) instead of showing the purchase button. When Stripe is live: restore the purchase flow on the gate, retire or repurpose the notify capture, and **email everyone in `notify_emails`** that plans are available for purchase (that list is warm leads — first revenue).
 - [ ] Connect Stripe to business bank account
 - [ ] Custom domain (scaffoldcollegestrategy.com) for plan URLs
 - [ ] DNS: point domain nameservers to Vercel (ns1.vercel-dns.com, ns2.vercel-dns.com). **apex domain works (July 4); www.scaffoldcollegestrategy.com does not resolve — add www in Vercel → Domains with a redirect to apex**
