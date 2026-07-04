@@ -2225,7 +2225,16 @@
       document.getElementById('plan-meta').textContent = metaParts.join(' · ');
 
       // Strip simulation params JSON block before rendering
-      const cleanOutput = data.output.replace(/```json-simulation-params[\s\S]*?```/g, '');
+      let cleanOutput = data.output.replace(/```json-simulation-params[\s\S]*?```/g, '');
+
+      // Capitalize lowercase months (render-side backstop; older plans predate
+      // the prompt rule). "march/may/mar" only when a digit follows or another
+      // month is dash-joined, so the verb "may" in prose stays untouched.
+      const capMonth = (m) => m.charAt(0).toUpperCase() + m.slice(1);
+      cleanOutput = cleanOutput
+        .replace(/\b(january|february|april|june|july|august|september|october|november|december|jan|feb|apr|jun|jul|aug|sept|sep|oct|nov|dec)\b/g, capMonth)
+        .replace(/\b(march|may|mar)(?=\s+\d)/g, capMonth)
+        .replace(/\b(march|may|mar)(?=\s*[-–]\s*(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec))/gi, capMonth);
 
       // Render content
       const body = document.getElementById('strategy-body');
