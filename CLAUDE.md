@@ -150,5 +150,8 @@ See `docs/project-plan.md` for full roadmap.
 
 ## Test Results
 
-- **Brett Roth** (Boca Raton FL, $200K, engineering): 15/15 passed (attempt 5). Found CWRU EA bug and NC State tier mismatch that reviewer missed.
-- **Martinez** (Milwaukee WI, $62K, first-gen, environmental science): Passed after 3 iterations. Led to major prompt improvements.
+**Fable 5 re-baseline (July 4, 2026):**
+- **Brett Roth** (Boca Raton FL, $200K, engineering): PASS, 0 issues, 0 flags. The six-run debugging saga that got here killed 15+ real bugs (token caps, prompt contradiction, platform timeout, validator/formatter data schism, fixer JSON blindness, reviewer blind spots, calibration). Plan: plan.html?id=mr6c9wqsdt9spd
+- **Sofia Martinez** (Milwaukee WI, $62K, first-gen): PASS end-to-end in ONE submission (2 T1 fixes + 1 final fix, no regen, 19 minutes, ~$7). QuestBridge, Wisconsin aid, need-based paths all validated. Plan: plan.html?id=mr6eqht6rzc0tj
+
+**Old Opus baseline (Feb 2026, for comparison):** Brett 15/15 at attempt 5; Martinez passed after 3 iterations.

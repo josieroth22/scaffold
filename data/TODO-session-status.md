@@ -2,7 +2,7 @@
 
 ## WHERE WE LEFT OFF (pick up here)
 
-**Next action: fresh Brett run on the fully repaired stack** (~$5.50, ~25 min): `node scripts/run-pipeline.js brett` — first end-to-end test of everything fixed July 2. (Run five `mr3xz0p0d2x2x5` was cancelled by Josie at the break; its regenerated Tier 1 existed but the remaining phases were never driven.)
+**DONE July 4: Brett PASS (mr6c9wqsdt9spd) and Sofia PASS end-to-end in one submission (mr6eqht6rzc0tj). Both market halves validated. Next: sample-plan runs (profiles ready in scripts/profiles/), copy pass, UptimeRobot, daughter dry-run.**
 
 Then, in order (Josie approves each run before it fires):
 1. **Sofia Martinez** — `node scripts/run-pipeline.js sofia` (tests QuestBridge, WI aid, need-based, tight budget)
