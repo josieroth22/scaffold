@@ -67,7 +67,7 @@ Admin: admin.html (code: SCAFFOLD1216)
 src/
   index.html               # Marketing landing page
   intake.html              # 7-step intake form + generating screen + cancel
-  plan.html                # Plan renderer (sidebar nav, collapsible sections, sim charts)
+  plan.html                # Plan renderer (sidebar nav, collapsible sections, sim charts, still-building banner + auto-reload)
   admin.html               # Admin dashboard (submission management, auto-polling)
   api/
     generate.js            # Tier 1 generation (buildPrompt + SSE streaming + email notification)
@@ -158,14 +158,15 @@ Client-side: AbortController on all pipeline fetch calls. Cancel button on intak
 
 Goal: shippable content quality, demo-ready by July 13, 2026 (a high-stakes external test: the CRO's daughter runs a real plan). Stripe and legal are deferred until quality is proven.
 
-Done (June-July 2026): Fable 5 migration + re-baseline (4 profiles PASS), programmatic validator (validate-plan.js, integrated as a review.js pre-pass), prompt consolidation + Fable re-tune, three live homepage samples, tab-close resume, coming-soon email gate, UptimeRobot monitoring, plan-ready email via Resend.
+Done (June-July 2026): Fable 5 migration + re-baseline (4 profiles PASS), programmatic validator (validate-plan.js, integrated as a review.js pre-pass), prompt consolidation + Fable re-tune, three live homepage samples, tab-close resume, coming-soon email gate, UptimeRobot monitoring, plan-ready email via Resend (branded July 4), browser end-to-end test (July 5: Imani Washington run via the real form proved tab-close survival + resume + both emails, and flushed out 4 real bugs, all fixed — see Test Results), still-building banner + auto-reload on plan.html, regen fast-path, honest completion status (completed_with_issues + alert email).
 
-Remaining before the demo:
+Remaining before the demo (July 13):
 1. Josie's deep reads of the three sample plans (Sofia, Priya, Jake).
-2. Browser end-to-end test: real form submission, close tab mid-build, verify resume + the automatic plan email. Use a rising-senior (12th grade) profile — the one untested age band.
+2. Send Jon the intro message (drafted July 5; link + code + expectations + heads-up-before-the-run ask).
 3. plans@ inbound forwarding via ImprovMX, then remove the reply_to from update-status.js (optional for demo; current reply-to fallback works).
+4. Quick mobile scroll of a finished plan (full mobile test is post-demo; the intake form's "computer is comfortable" note comes out only after that passes).
 
-After the demo: diverse profile testing (20+ profiles), Pipeline v2 reliability items. Deferred: legal docs, Stripe integration, LLC setup.
+After the demo: server-side orchestration FIRST (before Stripe — decided July 5), then diverse profile testing (20+ profiles) and the rest of Pipeline v2. Deferred: legal docs, Stripe integration, LLC setup.
 
 Session-by-session state: `data/TODO-session-status.md` (newest update first).
 
@@ -178,5 +179,9 @@ See `docs/project-plan.md` for full roadmap.
 - **Sofia Martinez** (Milwaukee WI, $62K, first-gen): PASS end-to-end in ONE submission (2 T1 fixes + 1 final fix, no regen, 19 minutes, ~$7). QuestBridge, Wisconsin aid, need-based paths all validated. Plan: plan.html?id=mr6eqht6rzc0tj
 - **Priya Sharma**: PASS, cleanest run ever, zero T1 fixes. Live homepage sample. Plan: plan.html?id=mr6hjpw1s7g8j0
 - **Jake Miller**: PASS after one fix (budget_alignment). Live homepage sample. Plan: plan.html?id=mr6ij7f02ymbzw
+
+**Browser end-to-end test (July 5, 2026):**
+- **Imani Washington** (Atlanta GA, $72K, 12th grade rising senior, nursing): PASS in ~22 min via the real intake form, one T1 fix cycle. Proved: server keeps writing after tab close, resume drives the back half, new-submission + plan-ready emails, reply-to. Content passed all three designed traps: Zell Miller "already qualifies" with the GSFC core-GPA verification nuance; "UGA does not offer a BSN" stated plainly + no-direct-admit-in-Georgia honesty; Emory "the aid math works" ($11,687 verified net vs $15K ceiling). Also covered the never-run Georgia HOPE/Zell state-aid path. Plan: plan.html?id=mr7vk33b5cr6px
+- Bugs the test caught (all fixed July 5): resume crash (apiCall scoped inside submitForm — every resume ever died at 48%), still-building banner hidden behind the fixed topbar, and `const location` (city/state string) shadowing window.location so location.reload() silently failed inside the poll's catch. Lesson: render-layer bugs need real-browser eyes; stored-data checks can all pass while the page misbehaves.
 
 **Old Opus baseline (Feb 2026, for comparison):** Brett 15/15 at attempt 5; Martinez passed after 3 iterations.
