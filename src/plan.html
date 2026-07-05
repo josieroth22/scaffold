@@ -2196,10 +2196,33 @@
 
       const data = await res.json();
 
+      // Not finished yet: banner + auto-reload when done, so a family
+      // clicking their permanent link early is never confused or stranded
+      const PLAN_DONE = ['completed', 'completed_with_issues'];
+      const stillBuilding = data.status && !PLAN_DONE.includes(data.status) && data.status !== 'cancelled';
+      if (stillBuilding) {
+        document.body.insertAdjacentHTML('afterbegin',
+          '<div id="building-banner" style="background: var(--sage-light); color: var(--ink); border-bottom: 1px solid var(--border); padding: 0.85rem 1.25rem; text-align: center; font-size: 0.95rem;">' +
+          'This plan is still being built (20-30 minutes start to finish). This page will refresh itself when everything is ready, and we\'ll email you the moment it\'s done.' +
+          '</div>');
+        const poll = setInterval(async () => {
+          try {
+            const r = await fetch('/api/plan?id=' + encodeURIComponent(id));
+            if (!r.ok) return;
+            const d = await r.json();
+            if (PLAN_DONE.includes(d.status)) { clearInterval(poll); location.reload(); }
+          } catch (e) {}
+        }, 30000);
+      } else if (data.status === 'cancelled' && !data.output) {
+        document.getElementById('loading').querySelector('h2').textContent = 'This plan was cancelled.';
+        document.getElementById('loading').querySelector('p').textContent = 'It stopped before finishing. Start a new one any time.';
+        return;
+      }
+
       if (!data.output) {
-        // Still generating
-        document.getElementById('loading').querySelector('h2').textContent = 'Your plan is still generating...';
-        document.getElementById('loading').querySelector('p').textContent = 'Refresh this page in a few minutes.';
+        // Too early: nothing written yet. The banner and poll above handle the rest.
+        document.getElementById('loading').querySelector('h2').textContent = 'Your plan is still being written...';
+        document.getElementById('loading').querySelector('p').textContent = 'This page will refresh itself when it\'s ready. No need to do anything.';
         return;
       }
 
