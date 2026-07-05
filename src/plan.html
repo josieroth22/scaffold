@@ -2201,8 +2201,10 @@
       const PLAN_DONE = ['completed', 'completed_with_issues'];
       const stillBuilding = data.status && !PLAN_DONE.includes(data.status) && data.status !== 'cancelled';
       if (stillBuilding) {
-        document.body.insertAdjacentHTML('afterbegin',
-          '<div id="building-banner" style="background: var(--sage-light); color: var(--ink); border-bottom: 1px solid var(--border); padding: 0.85rem 1.25rem; text-align: center; font-size: 0.95rem;">' +
+        // Inside the hero, not body-top: the fixed topbar hides anything
+        // inserted at the top of <body>
+        document.querySelector('.hero').insertAdjacentHTML('afterbegin',
+          '<div id="building-banner" style="background: var(--sage-light); color: var(--ink); border: 1px solid var(--border); border-radius: 10px; padding: 0.85rem 1.25rem; text-align: center; font-size: 0.95rem; max-width: 860px; margin: 0 auto 1.5rem;">' +
           'This plan is still being built (20-30 minutes start to finish). This page will refresh itself when everything is ready, and we\'ll email you the moment it\'s done.' +
           '</div>');
         const poll = setInterval(async () => {
