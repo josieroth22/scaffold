@@ -39,6 +39,7 @@ module.exports = async function handler(req, res) {
           submissions.push({
             id: data.id,
             student_name: data.student_name,
+            student_last_name: data.student_last_name,
             email: data.email,
             city: data.city,
             state: data.state,
