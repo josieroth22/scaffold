@@ -347,8 +347,10 @@ module.exports = async function handler(req, res) {
 
   const prompt = buildPrompt(data);
 
-  // Generate a unique ID for this submission
-  const id = Date.now().toString(36) + Math.random().toString(36).slice(2, 8);
+  // Generate a unique ID for this submission. Crypto-random, not
+  // Math.random: plan URLs are the only access control on family
+  // financial data, so IDs must be unguessable.
+  const id = Date.now().toString(36) + require("crypto").randomBytes(6).toString("hex");
 
   // Store the submission immediately
   try {

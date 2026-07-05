@@ -139,13 +139,13 @@ The mission: close the information gap in college planning. A $310K family in Na
 - [ ] **plans@ inbound forwarding:** ImprovMX free tier (Squarespace's own forwarding errors out on this domain, tried July 4). Then remove the reply_to from update-status.js so replies show only plans@. Details in data/TODO-session-status.md UPDATE 5.
 - [ ] **Customer support email:** set up support@scaffoldcollegestrategy.com (forwarder to inbox — use ImprovMX, same as plans@; Squarespace forwarding is broken for this domain). Add visibly to footer, FAQ, post-purchase email. Decide response SLA (recommended: same-day during week, 24h weekend).
 - [ ] **First-week support playbook:** what to do when generation fails after payment (manual retry? auto-refund? apology email?). Document the process now, not when the first complaint comes in.
-- [ ] **Plan URL security audit:** verify submission IDs are cryptographically random UUIDs, not sequential or guessable. Every plan contains income, family details, kids' names — enumerable URLs would be a privacy disaster.
+- [x] **Plan URL security audit:** DONE July 5, 2026. Audit found IDs were timestamp + Math.random (predictable seed, ~31 random bits); upgraded to timestamp + crypto.randomBytes(6) hex (48 crypto-random bits). Applies to new submissions; existing IDs stay valid.
 - [ ] **"Generated on [date]" in plan template:** prominent date on every plan + note that data ages ("Reflects data current as of [date]. Regenerate for updated info."). Sets up the $20 regeneration upsell narrative.
 - [ ] **Monitoring + failure alerts:**
   - Email yourself when a generation fails after payment (worst customer scenario — they paid and got nothing)
   - UptimeRobot free tier pings homepage every 5 min
   - Enable Vercel's built-in alerts for function errors
-- [ ] Open Graph meta tags (so link previews look good on iMessage, social, etc.)
+- [x] Open Graph meta tags — DONE July 5, 2026 (index, intake, plan pages; text-only cards, no og:image asset yet — add one if link previews feel bare)
 - [ ] Analytics (Plausible recommended — simpler, privacy-respecting, ~$9/mo): traffic, form completion rate, drop-off
 
 ### Post-launch

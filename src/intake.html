@@ -5,6 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Tell us about your family. We'll build your personalized college strategy.">
 <title>Build Your Plan - Scaffold</title>
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Scaffold">
+<meta property="og:title" content="Build Your Plan — Scaffold">
+<meta property="og:description" content="Tell us about your family. We'll build your personalized college strategy.">
+<meta name="twitter:card" content="summary">
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root {
@@ -1764,9 +1769,11 @@
       }
     });
 
-    // Combine first + last name into student_name for the prompt
-    data.student_name = (data.student_first_name || '') + ' ' + (data.student_last_name || '');
-    data.student_name = data.student_name.trim();
+    // student_name is FIRST name only (matches the backend profile schema and
+    // how prompts address the student). Combining first+last here caused the
+    // "Imani Washington Washington" email bug: everything downstream appends
+    // student_last_name itself.
+    data.student_name = (data.student_first_name || '').trim();
 
     // Add priority rankings from drag order
     const priorityItems = document.querySelectorAll('#priority-grid .priority-item');
