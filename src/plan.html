@@ -2222,7 +2222,7 @@
             if (r.ok) {
               const d = await r.json();
               console.log('[scaffold] plan status:', d.status);
-              if (PLAN_DONE.includes(d.status)) { location.reload(); return; }
+              if (PLAN_DONE.includes(d.status)) { window.location.reload(); return; }
             }
           } catch (e) {}
           checking = false;
@@ -2252,8 +2252,10 @@
       document.title = title + ' — Scaffold';
 
       let metaParts = [];
-      const location = [data.city, data.state].filter(Boolean).join(', ');
-      if (location) metaParts.push(location);
+      // Not named "location": shadowing window.location here turned
+      // location.reload() into a method call on a city string (July 5 bug)
+      const locationLabel = [data.city, data.state].filter(Boolean).join(', ');
+      if (locationLabel) metaParts.push(locationLabel);
       const formInfo = data.form_data || {};
       if (formInfo.student_age_grade) {
         // "16, 11th grade" reads ambiguously in the header; make it "16 years old, 11th grade"
