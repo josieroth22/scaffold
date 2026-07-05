@@ -2207,14 +2207,30 @@
           '<div id="building-banner" style="background: var(--sage-light); color: var(--ink); border: 1px solid var(--border); border-radius: 10px; padding: 0.85rem 1.25rem; text-align: center; font-size: 0.95rem; max-width: 860px; margin: 0 auto 1.5rem;">' +
           'This plan is still being built (20-30 minutes start to finish). This page will refresh itself when everything is ready, and we\'ll email you the moment it\'s done.' +
           '</div>');
-        const poll = setInterval(async () => {
+        // Self-rescheduling check instead of setInterval (observed July 5: a
+        // long-lived interval simply stopped firing in Chrome), plus an
+        // immediate check when the tab regains focus - the real family
+        // pattern is switch away, come back later, expect it done.
+        let pollTimer = null;
+        let checking = false;
+        const scheduleCheck = (ms) => { clearTimeout(pollTimer); pollTimer = setTimeout(checkDone, ms); };
+        const checkDone = async () => {
+          if (checking) return;
+          checking = true;
           try {
-            const r = await fetch('/api/plan?id=' + encodeURIComponent(id));
-            if (!r.ok) return;
-            const d = await r.json();
-            if (PLAN_DONE.includes(d.status)) { clearInterval(poll); location.reload(); }
+            const r = await fetch('/api/plan?id=' + encodeURIComponent(id) + '&t=' + Date.now(), { cache: 'no-store' });
+            if (r.ok) {
+              const d = await r.json();
+              console.log('[scaffold] plan status:', d.status);
+              if (PLAN_DONE.includes(d.status)) { location.reload(); return; }
+            }
           } catch (e) {}
-        }, 30000);
+          checking = false;
+          scheduleCheck(20000);
+        };
+        scheduleCheck(15000);
+        document.addEventListener('visibilitychange', () => { if (!document.hidden) checkDone(); });
+        window.addEventListener('focus', () => checkDone());
       } else if (data.status === 'cancelled' && !data.output) {
         document.getElementById('loading').querySelector('h2').textContent = 'This plan was cancelled.';
         document.getElementById('loading').querySelector('p').textContent = 'It stopped before finishing. Start a new one any time.';

@@ -6,6 +6,9 @@ const redis = new Redis({
 });
 
 module.exports = async function handler(req, res) {
+  // Status polling (still-building banner) must always see fresh state
+  res.setHeader("Cache-Control", "no-store");
+
   if (req.method !== "GET") {
     return res.status(405).json({ error: "Method not allowed" });
   }
