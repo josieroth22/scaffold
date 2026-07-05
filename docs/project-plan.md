@@ -93,7 +93,7 @@ The mission: close the information gap in college planning. A $310K family in Na
 - [x] **UptimeRobot on /api/keep-alive:** DONE July 4, 2026.
 - [ ] **CRO's daughter test prep:** a profile-specific dry run was dropped July 4 (no intel on her situation); replaced by broad profile coverage plus the browser end-to-end test (real form submission with a rising-senior profile, close tab mid-build, verify resume + plan email).
 - [ ] Share site with friends and collect feedback on plan quality and form UX
-- [ ] Mobile test the full flow (form, generating screen, plan page) on a phone
+- [ ] **Mobile test the full flow** (form, generating screen, plan page) on a phone. Higher stakes than it looks: the mission audience is phone-first, locked phones suspend tabs mid-generation (the resume path's hardest case), and the July 5 intake note recommending a computer should be REMOVED once this passes.
 - [ ] Collect testimonial quotes from testers for homepage
 - [ ] Review generated plans for accuracy, tone, and hallucinated data
 - [ ] Run Washington family test (Atlanta GA, $72K): verify Georgia HOPE/Zell Miller with correct thresholds, UGA in-state tuition, no fabricated scholarship names, costs match verified data
