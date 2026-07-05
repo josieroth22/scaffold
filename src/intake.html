@@ -1365,6 +1365,13 @@
     progressEl.style.width = '40%';
 
     const post = (path) => fetch(path, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ id: id }), signal: abortController.signal });
+    // Resume-scoped twin of the submit flow's apiCall (that one lives inside
+    // submitForm and does not exist on this path)
+    const apiCall = async (path, body) => {
+      const r = await fetch(path, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body || { id: id }), signal: abortController.signal });
+      if (!r.ok) return { ok: false, status: r.status };
+      return r.json();
+    };
     const state = async () => {
       const r = await fetch('/api/plan?id=' + encodeURIComponent(id));
       return r.ok ? r.json() : null;
