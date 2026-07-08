@@ -255,6 +255,8 @@ The mission: close the information gap in college planning. A $310K family in Na
 
 ## Unit Economics
 
+**Terms, for orientation:** COGS (cost of goods sold) is the direct cost of producing one unit of what we sell — for Scaffold, one plan: the Claude API tokens plus Stripe's fee once we charge. Fixed costs (Claude Max, domain, monitoring) don't grow with each plan sold, so they're not COGS; they just set break-even. Revenue minus COGS is the margin per plan — the number that says whether the business works at scale, and why shaving API cost (e.g. prompt caching) is margin on every future sale, not just cheaper testing.
+
 ### Monthly Fixed Costs
 | Item | Cost |
 |------|------|
