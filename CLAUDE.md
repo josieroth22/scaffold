@@ -172,6 +172,16 @@ Session-by-session state: `data/TODO-session-status.md` (newest update first).
 
 See `docs/project-plan.md` for full roadmap.
 
+## Documentation Discipline
+
+At the end of any session with meaningful changes (code, decisions, test results), before wrapping up:
+1. Add a newest-first UPDATE to `data/TODO-session-status.md`: what shipped, what broke and why, what's waiting on Josie.
+2. Sync this file's Current Priority + Test Results if the state of the world changed.
+3. Check off / annotate `docs/project-plan.md` items the session completed; add new items where they belong (with dates and reasons).
+4. Scan all three for contradictions and stale claims — the three layers (session log = what happened, CLAUDE.md = current state, project-plan = roadmap) must tell the same story.
+
+Per session, not per day: docs go stale when work happens, not when time passes. Commit doc updates with the work or immediately after it.
+
 ## Test Results
 
 **Fable 5 re-baseline (July 4, 2026):**
