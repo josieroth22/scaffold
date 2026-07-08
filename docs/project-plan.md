@@ -55,6 +55,8 @@ The mission: close the information gap in college planning. A $310K family in Na
 
 **Current focus (June-July 2026): content quality over monetization, demo-ready by July 13, 2026.** A high-stakes external test is coming (CRO's daughter will run a real plan), so the priority is proving plan quality end to end. Legal, business setup, and Stripe (items 4-6) are deferred until quality is proven.
 
+**Demo exit criteria (decide before the 13th, adjust wording as needed):** the demo "passes" if Jon's family (a) finds no factual errors in their plan, (b) understands it without hand-holding, and (c) answers yes to "would you have paid $50 for this?" Pass → Stripe/legal work unblocks (after server-side orchestration). Anything else → the specific feedback becomes the next quality sprint. Defining this now prevents both endless polishing and launching on a shrug.
+
 ### Phase 0: Fable 5 Migration — DONE (June 2026)
 
 *claude-opus-4-20250514 was deprecated with a June 15, 2026 retirement date. Migrated all API calls to Claude Fable 5 (`claude-fable-5`, $10/M input, $50/M output, down from $15/$75).*
@@ -195,6 +197,9 @@ The mission: close the information gap in college planning. A $310K family in Na
 #### 10. Distribution & Revenue Growth
 *A working product with no traffic is an expensive hobby. Distribution is the Day 11 priority.*
 
+**Positioning**
+- [ ] **Write the "why not just ask ChatGPT?" answer** — the existential objection for a $50 AI product. The real answer: chatbots improvise admit rates and costs; Scaffold injects verified CDS/Scorecard data per school, runs a 10,000-iteration simulation, and force-fails fabricated numbers in review. Belongs on the FAQ and in any pitch. Expect it from testers (possibly Jon).
+
 **Distribution (how do customers find Scaffold?)**
 - [ ] Reddit presence: r/ApplyingToCollege, r/financialaid, r/Parenting. Be careful — these communities are hostile to self-promo. Lead with helpful answers, link only when directly relevant.
 - [ ] Facebook groups for parents of high schoolers (state-specific college planning groups exist)
@@ -210,6 +215,8 @@ The mission: close the information gap in college planning. A $310K family in Na
 - [ ] **Plan regeneration:** allow families to update their info (new grades, changed interests, different school list) and regenerate for ~$20. Reuse same submission ID so the plan URL stays the same. The "Generated on [date]" note creates natural demand.
 
 **Cost optimization**
+- [ ] **Cheaper model for mechanical steps (experiment, evidence-gated).** Generation stays on Fable 5; but fix-plan (guided find/replace) and possibly reconcile are candidates for Haiku/Sonnet at a fraction of the cost — they're ~half the calls in a fix-heavy run. Test against the five known-good July plans before trusting it. Keep review on Fable until proven otherwise (reviewer quality is load-bearing; see the grounding bugs of July 2).
+- [ ] **Batch API for bulk testing only:** 50% discount on the 20-profile batch's generation calls if orchestration tolerates up-to-24h turnaround per step. An option, not a commitment — sequential pipeline steps make this awkward.
 - [ ] **Prompt caching (post-demo, biggest lever).** Every pipeline call re-sends the ~23K-token school data + static prompt at full price. Mark the static prefix with cache_control: 1.25x to write, ~0.1x to read within the 5-min TTL — and one pipeline run makes many calls with the same prefix in quick succession. Could cut per-run cost by a third or more (matters for the 20-profile batch and for unit economics at volume). Note: Claude Max cannot fund product API calls — subscription and API billing are separate by design, so caching is the legitimate cost lever.
 - [ ] **Contact Anthropic sales about enterprise/volume pricing** once volume justifies it. They have a Scale tier with direct sales team for higher-volume API usage.
 
@@ -248,6 +255,7 @@ The mission: close the information gap in college planning. A $310K family in Na
   - **Secondary sweep: April-May** — picks up late publishers
   - Set calendar reminders for both
 - [ ] Refresh Scorecard API data annually (typically updates in fall with prior-year data)
+- [ ] **Model deprecation watch:** Anthropic retires models (lived it: claude-opus-4 deprecated June 2026, forced the Fable migration). Watch deprecation notices for claude-fable-5; when the successor comes, the June 2026 playbook is the procedure: swap config.js, fix API-shape changes, full re-baseline on the test profiles before trusting output. Budget real time — the last one surfaced 15+ bugs.
 - [ ] Document which schools publish CDS as PDF vs Excel vs online-only (affects parse-cds.js workflow)
 - [ ] Document the current data pipeline (fetch scripts, parse scripts, validation) so future refreshes are repeatable
 
