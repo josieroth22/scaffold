@@ -210,6 +210,7 @@ The mission: close the information gap in college planning. A $310K family in Na
 - [ ] **Plan regeneration:** allow families to update their info (new grades, changed interests, different school list) and regenerate for ~$20. Reuse same submission ID so the plan URL stays the same. The "Generated on [date]" note creates natural demand.
 
 **Cost optimization**
+- [ ] **Prompt caching (post-demo, biggest lever).** Every pipeline call re-sends the ~23K-token school data + static prompt at full price. Mark the static prefix with cache_control: 1.25x to write, ~0.1x to read within the 5-min TTL — and one pipeline run makes many calls with the same prefix in quick succession. Could cut per-run cost by a third or more (matters for the 20-profile batch and for unit economics at volume). Note: Claude Max cannot fund product API calls — subscription and API billing are separate by design, so caching is the legitimate cost lever.
 - [ ] **Contact Anthropic sales about enterprise/volume pricing** once volume justifies it. They have a Scale tier with direct sales team for higher-volume API usage.
 
 #### 11. Output Enhancements
