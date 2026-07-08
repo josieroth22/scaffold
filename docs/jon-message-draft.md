@@ -20,7 +20,7 @@ the code **Millie2026** (it's gated while I'm still in testing).
 
 A few things worth knowing going in:
 
-- The form takes about 10 minutes, and it's written for a parent to answer,
+- The form takes about 20 minutes, and it's written for a parent to answer,
   ideally with her in the room. The more honest the answers, the better the
   plan. There are no wrong ones.
 - After you submit, it builds for 20 to 30 minutes. You don't have to babysit
