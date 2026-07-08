@@ -199,7 +199,7 @@ The mission: close the information gap in college planning. A $310K family in Na
 *A working product with no traffic is an expensive hobby. Distribution is the Day 11 priority.*
 
 **Positioning**
-- [ ] **The "why not just ask ChatGPT?" answer** — the existential objection for a $50 AI product. A good version already lives on the site FAQ ("Is this just ChatGPT?" — verified database of 1,492 schools, real cost/admissions data, "the AI generates strategy; the numbers come from verified institutional data"). The full argument adds: a chatbot improvises admit rates and costs with confidence; Scaffold injects each school's actual filed data, runs a real 10,000-iteration simulation, and its review pipeline force-fails any number it can't verify. TO DO: fold the fabrication-force-fail point into the FAQ answer, and rehearse a one-sentence spoken version before external conversations (expect the question from testers, possibly Jon).
+- [x] **The "why not just ask ChatGPT?" answer** — FAQ rewritten July 7 (Josie-approved copy): positions against BOTH alternatives — ChatGPT (confident wrong numbers, and it only answers questions you think to ask) and the $10K counselor (knows the questions, charges 200x) — using real product examples (QuestBridge, state full-tuition GPA programs, "most selective is sometimes cheapest"). Remaining: [ ] rehearse a one-sentence spoken version before external conversations (expect the question from testers, possibly Jon).
 
 **Distribution (how do customers find Scaffold?)**
 - [ ] Reddit presence: r/ApplyingToCollege, r/financialaid, r/Parenting. Be careful — these communities are hostile to self-promo. Lead with helpful answers, link only when directly relevant.
