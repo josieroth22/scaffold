@@ -154,7 +154,7 @@ The mission: close the information gap in college planning. A $310K family in Na
 ### Post-launch
 
 #### 7. Data Quality & Diverse Testing
-- [ ] Run automated 20-profile batch test with CDS data live. Profiles must cover: DC/PR residency edge cases, no-merit schools, tight budgets ($0-$15K), rural first-gen, athletes, arts/conservatory, DACA, divorced families (FAFSA vs CSS split), homeschool, learning disabilities, military/ROTC, CC transfers, international, legacy, LGBTQ+ culture fit. Evaluate every plan, run full review+fix pipeline, iterate prompts based on failure patterns.
+- [ ] Run automated 20-profile batch test with CDS data live. Profiles must cover: DC/PR residency edge cases, no-merit schools, tight budgets ($0-$15K), rural first-gen, athletes, arts/conservatory, DACA, divorced families (FAFSA vs CSS split), homeschool, learning disabilities, military/ROTC, CC transfers, international, legacy, LGBTQ+ culture fit. Evaluate every plan, run full review+fix pipeline, iterate prompts based on failure patterns. Also watch the calibration signal from the July 2026 Jocelyn retro-test: top-decile profiles may systematically beat the conservative admit/scholarship estimates (her real season was a <1% tail under the plan's params, and she made a finalist round priced at 1%).
 - [x] Regenerate homepage sample plans with CDS-backed data — DONE July 4, 2026 (Sofia replaced the Alejandra persona; Sofia/Priya/Jake all live, pipeline-generated)
 - [ ] Add source citations to output ("Based on Emory CDS 2024-2025 data")
 - [ ] Find correct CDS for UCLA (current PDF is fillable form, pdftotext can't extract; need non-fillable PDF or flattened export)
