@@ -382,15 +382,28 @@ module.exports = async function handler(req, res) {
           from: 'Scaffold <notifications@scaffoldcollegestrategy.com>',
           to: 'josieroth22@gmail.com',
           subject: `New Scaffold submission: ${data.student_name} ${data.student_last_name || ''}`,
-          html: `<p>New submission received!</p>
-            <ul>
-              <li><strong>Student:</strong> ${data.student_name} ${data.student_last_name || ''}</li>
-              <li><strong>Location:</strong> ${data.city || ''}${data.state ? ', ' + data.state : ''}</li>
-              <li><strong>Income:</strong> ${data.income || 'Not specified'}</li>
-              <li><strong>Email:</strong> ${data.email || 'Not provided'}</li>
-              <li><strong>Payment:</strong> ${data.payment_type || 'free'}</li>
-            </ul>
-            <p><a href="https://scaffold-hazel.vercel.app/admin.html">View in Admin</a></p>`,
+          // Branded to match the plan-ready email (see update-status.js)
+          html: `<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background-color:#f8f5f0; padding:32px 16px;">
+  <tr><td align="center">
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:560px; background-color:#fdfcfa; border:1px solid #d9d4cc; border-radius:12px;">
+      <tr><td style="padding:32px 40px 0 40px;">
+        <span style="font-family:Georgia,'Times New Roman',serif; font-size:22px; font-weight:600; letter-spacing:-0.02em; color:#1a1a18;"><span style="color:#4a6741;">S</span>caffold</span>
+      </td></tr>
+      <tr><td style="padding:24px 40px 0 40px;">
+        <h1 style="margin:0; font-family:Georgia,'Times New Roman',serif; font-size:22px; font-weight:600; line-height:1.3; color:#1a1a18;">New submission: ${data.student_name} ${data.student_last_name || ''}</h1>
+      </td></tr>
+      <tr><td style="padding:18px 40px 0 40px; font-family:Arial,Helvetica,sans-serif; font-size:15px; line-height:1.8; color:#1a1a18;">
+        <strong>Location:</strong> ${data.city || ''}${data.state ? ', ' + data.state : ''}<br>
+        <strong>Income:</strong> ${data.income || 'Not specified'}<br>
+        <strong>Email:</strong> ${data.email || 'Not provided'}<br>
+        <strong>Payment:</strong> ${data.payment_type || 'free'}
+      </td></tr>
+      <tr><td style="padding:24px 40px 32px 40px;">
+        <a href="https://scaffoldcollegestrategy.com/admin.html" style="display:inline-block; background-color:#4a6741; color:#ffffff; font-family:Arial,Helvetica,sans-serif; font-size:15px; font-weight:600; text-decoration:none; padding:12px 26px; border-radius:8px;">View in Admin</a>
+      </td></tr>
+    </table>
+  </td></tr>
+</table>`,
         }),
       }).catch(err => console.error('Notification email failed:', err));
     }

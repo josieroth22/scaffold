@@ -109,8 +109,27 @@ module.exports = async function handler(req, res) {
               from: "Scaffold <plans@scaffoldcollegestrategy.com>",
               to: "josieroth22@gmail.com",
               subject: `ALERT: ${name}'s plan shipped with a failing review (${id})`,
-              html: `<p>This plan completed but its final review did not pass. The family received their plan email as usual. Read it before they do.</p>
-                <p><a href="https://scaffoldcollegestrategy.com/plan.html?id=${id}">Open the plan</a> &middot; <a href="https://scaffoldcollegestrategy.com/admin.html">Admin dashboard</a></p>`,
+              // Branded like the other Scaffold emails; terra accents because
+              // this one is a warning
+              html: `<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background-color:#f8f5f0; padding:32px 16px;">
+  <tr><td align="center">
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:560px; background-color:#fdfcfa; border:1px solid #d9d4cc; border-left:4px solid #c4652a; border-radius:12px;">
+      <tr><td style="padding:32px 40px 0 40px;">
+        <span style="font-family:Georgia,'Times New Roman',serif; font-size:22px; font-weight:600; letter-spacing:-0.02em; color:#1a1a18;"><span style="color:#4a6741;">S</span>caffold</span>
+      </td></tr>
+      <tr><td style="padding:24px 40px 0 40px;">
+        <h1 style="margin:0; font-family:Georgia,'Times New Roman',serif; font-size:22px; font-weight:600; line-height:1.3; color:#c4652a;">${name}'s plan shipped with a failing review</h1>
+      </td></tr>
+      <tr><td style="padding:18px 40px 0 40px; font-family:Arial,Helvetica,sans-serif; font-size:15px; line-height:1.6; color:#1a1a18;">
+        The plan completed but its final review did not pass. The family received their plan email as usual. Read it before they do.
+      </td></tr>
+      <tr><td style="padding:24px 40px 32px 40px;">
+        <a href="https://scaffoldcollegestrategy.com/plan.html?id=${id}" style="display:inline-block; background-color:#c4652a; color:#ffffff; font-family:Arial,Helvetica,sans-serif; font-size:15px; font-weight:600; text-decoration:none; padding:12px 26px; border-radius:8px;">Open the plan</a>
+        <a href="https://scaffoldcollegestrategy.com/admin.html" style="display:inline-block; margin-left:12px; color:#4a6741; font-family:Arial,Helvetica,sans-serif; font-size:15px; font-weight:600; text-decoration:none; padding:12px 4px;">Admin dashboard</a>
+      </td></tr>
+    </table>
+  </td></tr>
+</table>`,
             }),
           });
           if (resp.ok) await redis.hset(`submission:${id}`, { issue_alert_sent: "1" });
