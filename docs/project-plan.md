@@ -181,7 +181,7 @@ The mission: close the information gap in college planning. A $310K family in Na
 - [ ] Rate limiting on form submission (prevent spam that runs up API costs)
 - [ ] Character limits on form fields (prevent excessively long inputs that blow up token counts; guide users toward concise answers)
 - [ ] Graceful error handling when Claude API is down or times out: friendly error message with support email, save form data so it isn't lost
-- [ ] **Durable plan backup beyond Redis.** Upstash is not archival storage. A family who paid $50 in March and returns in November expects their plan to still exist. Options: nightly backup of completed plans to S3/Vercel Blob, or write a copy to secondary store on completion. Becomes more urgent as volume grows.
+- [ ] **Durable plan backup beyond Redis — PROMOTED to next-up post-demo (Josie, July 8).** Upstash is not archival storage and holds the ONLY copy of every generated plan. A family who paid $50 in March and returns in November expects their plan to still exist. Options: Upstash's backup feature, nightly cron dump to Vercel Blob/S3, or secondary write on completion. Interim protection: manual JSON snapshots via admin APIs committed to the private repo (first: data/backups/redis-snapshot-2026-07-08.json, 12 submissions + interest list, 951KB). Pairs with server-side orchestration infra work. Task #14.
 - [ ] Data retention policy (how long do plans live in Redis? what's the public commitment in Privacy Policy?)
 - [ ] **Bypass code lifecycle:** decide what to do with `Millie2026`. Keep for friends/family? Rotate periodically? Monitor admin for suspicious volume in case it leaks on Reddit. Consider per-person codes for higher-volume sharing.
 - [ ] SEO basics (meta descriptions, Google Search Console)
