@@ -156,17 +156,13 @@ Client-side: AbortController on all pipeline fetch calls. Cancel button on intak
 
 ## Current Priority
 
-Goal: shippable content quality, demo-ready by July 13, 2026 (a high-stakes external test: the CRO's daughter runs a real plan). Stripe and legal are deferred until quality is proven.
+**Goal: LAUNCH — live and charging by early October 2026, public LinkedIn launch October 24-25.** Decided August 13. Cadence: ~6 hrs/weekend (Sat+Sun); full weekend-by-weekend Launch Plan with dates, blackouts, and the three distribution assets ($99 price test, SEO content batch, plan-footer referral loop) lives in `docs/project-plan.md`. Revenue expectation: $15-20K year one with those assets; ops go passive after orchestration ships (weekends 1-2). Jon's family (the July demo that never ran) has access and may test any time — snapshot Redis after their run.
+
+Next up, weekend 1 (Aug 15-16): server-side orchestration (Claude builds) + Josie's deep reads of the three sample plans.
 
 Done (June-July 2026): Fable 5 migration + re-baseline (4 profiles PASS), programmatic validator (validate-plan.js, integrated as a review.js pre-pass), prompt consolidation + Fable re-tune, three live homepage samples, tab-close resume, coming-soon email gate, UptimeRobot monitoring, plan-ready email via Resend (branded July 4), browser end-to-end test (July 5: Imani Washington run via the real form proved tab-close survival + resume + both emails, and flushed out 4 real bugs, all fixed — see Test Results), still-building banner + auto-reload on plan.html, regen fast-path, honest completion status (completed_with_issues + alert email).
 
-Remaining before the demo (July 13):
-1. Josie's deep reads of the three sample plans (Sofia, Priya, Jake).
-2. Send Jon the intro message (drafted July 5; link + code + expectations + heads-up-before-the-run ask).
-3. plans@ inbound forwarding via ImprovMX, then remove the reply_to from update-status.js (optional for demo; current reply-to fallback works).
-4. Quick mobile scroll of a finished plan (full mobile test is post-demo; the intake form's "computer is comfortable" note comes out only after that passes).
-
-After the demo: server-side orchestration FIRST (before Stripe — decided July 5), then diverse profile testing (20+ profiles) and the rest of Pipeline v2. Deferred: legal docs, Stripe integration, LLC setup.
+Carried into the Launch Plan (no longer "pre-demo" items): deep reads → weekend 1; ImprovMX + reply_to removal → weekend 6; mobile pass → weekend 5; server-side orchestration → weekends 1-2; diverse profiles → weekend 4; Stripe + legal + LLC → weekends 3 and 6 (no longer deferred).
 
 Session-by-session state: `data/TODO-session-status.md` (newest update first).
 

@@ -53,10 +53,31 @@ The mission: close the information gap in college planning. A $310K family in Na
 
 ## Roadmap
 
-**Current focus (June-July 2026): content quality over monetization, demo-ready by July 13, 2026.** A high-stakes external test is coming (CRO's daughter will run a real plan), so the priority is proving plan quality end to end. Legal, business setup, and Stripe (items 4-6) are deferred until quality is proven.
+**Current focus (August-October 2026): LAUNCH.** Decided August 13: go live and charging by early October, public LinkedIn launch October 24-25, at a working cadence of ~6 hrs/weekend. The July demo prep completed but the external test never ran on schedule (Josie started at Datacor July 13; Jon's family has access and may test any time — snapshot Redis after their run per the discipline rule). Quality gates now run through the weekend-4 profile batch instead of a single demo.
 
-**Demo exit criteria: TBD — Josie to decide before the 13th.** The point: define in advance what demo outcome unblocks Stripe/legal versus triggers another quality sprint, so the result maps to a plan instead of a mood. Candidate framing (not committed): Jon's family (a) finds no factual errors, (b) understands the plan without hand-holding, (c) says yes to "would you have paid $50 for this?" — pass unlocks monetization work (after server-side orchestration).
-- [ ] **TO DO (Josie, before July 13): settle the demo exit criteria.**
+### Launch Plan (August-October 2026)
+
+One milestone per working weekend; blackouts honored (Sep 11-13 Vermont, Sep 25-27 All Things Go, Oct 9-11 Provincetown). If a weekend slips, everything shifts one working weekend right; the sequence is the contract, not the dates. Josie's total remaining effort: ~40-45 hours.
+
+| # | Weekend | Milestone |
+|---|---------|-----------|
+| 1 | Aug 15-16 | Server-side orchestration (Claude builds; QStash chain vs cron sweeper decided first) + Josie's deep reads of Sofia/Priya/Jake |
+| 2 | Aug 22-23 | Orchestration hardening + automated Redis backup (task #14) + prompt caching |
+| 3 | Aug 29-30 | Stripe test mode + gate un-do prep + legal drafts (ToS/privacy/refund via Termly + product language) + LLC/EIN filed |
+| 4 | Sep 5-6 | Diverse profile batch (10-15 profiles through the full pipeline) |
+| 5 | Sep 19-20 | Fix batch findings + real mobile pass (removes the intake "computer is comfortable" note if it passes) |
+| 6 | **Oct 3-4** | **GO LIVE: Stripe live keys + Stripe Tax, support@/plans@ via ImprovMX, support playbook, price set (see $99 test below), soft launch to notify_emails list + friends. First revenue possible.** |
+| 7 | Oct 17-18 | Digest soft-launch results + polish + SEO content batch published (see below) + buffer |
+| 8 | **Oct 24-25** | **LinkedIn public launch post** |
+
+**Distribution assets (the difference between $3-10K and $15-20K year one — built once, compound after):**
+- [ ] **$99 price test at soft launch.** $15-20K/yr needs ~1 sale/day at $50 but only ~1 every other day at $99; parents comparing against $10K counselors don't blink. Watch conversion, keep whichever price nets more.
+- [ ] **SEO content batch (one-time, mostly Claude-generated):** 15-20 evergreen high-intent pages from the verified data ("what [school] actually costs at [income]", "QuestBridge deadlines explained", "Bright Futures vs Zell Miller"). Publish weekend 7 to catch application season. Not a content treadmill; a planted asset.
+- [ ] **Referral loop on delivered plans:** tasteful "Built by Scaffold — get yours" footer on plan.html. Plans are shared with co-parents and counselors by design; those shares are currently dead ends. ~1 hour, permanent.
+
+**Revenue expectations (August 2026 analysis, documented so future decisions have a baseline):** launch-and-forget = $3-10K/yr; launch + the three assets above + minimal upkeep = $15-20K/yr median at ~1 sale/day-equivalent; $100K/yr requires a dedicated distribution year (content/SEO/Reddit at 5-8 hrs/week, and/or a B2B channel deal with a school or counselor group) and is a separate, later decision. Ops are passive after weekends 1-2 (orchestration + alerts + backups); growth never is.
+
+Legal, business setup, and Stripe below are no longer deferred — they ARE weekends 3 and 6.
 
 ### Phase 0: Fable 5 Migration — DONE (June 2026)
 
@@ -210,7 +231,7 @@ The mission: close the information gap in college planning. A $310K family in Na
 - [ ] SEO content: blog posts on "how to read a CDS," "what is QuestBridge," "state aid in X" — long-tail organic search
 
 **Pricing**
-- [ ] **Validate $50 pricing.** Could be too low (parents who pay $200/hr for tutoring would happily pay $99) or too high (single moms in San Antonio — the stated target — might balk at $50). A/B test post-launch with a price experiment.
+- [ ] **Validate $50 pricing — testing $99 AT soft launch (see Launch Plan).** Could be too low (parents who pay $200/hr for tutoring would happily pay $99) or too high (single moms in San Antonio — the stated target — might balk at $50). Decision input: $99 halves the volume needed for any revenue target. Watch soft-launch conversion and keep whichever price nets more; a lower-income discount code can protect the mission segment.
 
 **Upsells**
 - [ ] **Plan walkthrough upsell:** 30-minute paid meeting ($TBD) where someone walks the family through their plan, answers questions, helps prioritize. Founder-led initially, then hire college counseling students or recent grads. Scheduling via Calendly or similar.
