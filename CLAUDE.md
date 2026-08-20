@@ -82,7 +82,7 @@ src/
     submissions.js         # Admin API (summary fields only)
     submission.js          # Single-submission detail API
     notify-signup.js       # Coming-soon interest list (POST signup, GET list w/ admin code)
-    keep-alive.js          # Redis keep-alive ping (Vercel cron + UptimeRobot)
+    keep-alive.js          # Redis keep-alive via metered SET, not PING (Vercel cron + UptimeRobot; PING is invisible to marketplace activity metering)
   lib/
     school-data.js         # Loads and formats school data for prompt injection (~23K tokens)
     validate-plan.js       # Programmatic validator (runs in review.js before Claude review)
