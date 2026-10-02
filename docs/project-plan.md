@@ -63,6 +63,7 @@ Josie stepped away and downgraded Vercel to Hobby (free) to save $20/mo. While p
 1. Vercel → upgrade back to Pro.
 2. Vercel → Settings → Functions → Advanced → **Default Max Duration = 800**. Non-negotiable: this dashboard field overrides vercel.json, and at 300 every generation dies mid-write (the July 2, 2026 saga).
 3. `vercel.json`: set `"maxDuration"` back to **800** (lowered to 300 so deploys succeed on Hobby).
+   Also restore the 13th function: `git mv paused-functions/regenerate.js src/api/regenerate.js` (moved out because Hobby allows max 12 functions per deployment).
 4. `src/intake.html`: set `CODE_ACCESS_ENABLED = true`.
 5. Push; confirm the deploy succeeds.
 6. Check the model: is `claude-fable-5` still current and undeprecated? If not, run the Model Upgrade Playbook (Data Maintenance section) BEFORE testing.
