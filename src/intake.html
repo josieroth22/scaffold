@@ -742,12 +742,14 @@
       <button onclick="notifySignup()">Notify Me</button>
     </div>
     <p class="gate-code-error" id="notify-msg" style="display: none;"></p>
-    <div class="gate-divider">or</div>
-    <div class="gate-code">
-      <input type="text" id="gate-code-input" placeholder="Enter code">
-      <button onclick="tryCode()">Go</button>
+    <div id="gate-code-block">
+      <div class="gate-divider">or</div>
+      <div class="gate-code">
+        <input type="text" id="gate-code-input" placeholder="Enter code">
+        <button onclick="tryCode()">Go</button>
+      </div>
+      <p class="gate-code-error" id="gate-code-error">Invalid code. Try again.</p>
     </div>
-    <p class="gate-code-error" id="gate-code-error">Invalid code. Try again.</p>
   </div>
 
   <!-- FORM -->
@@ -1293,13 +1295,20 @@
   let currentStep = 1;
   const totalSteps = 7;
   const BYPASS_CODE = 'Millie2026';
+  // PAUSED (Oct 2026): project dormant on Vercel Hobby, where the 300s
+  // function cap kills generation mid-write. With code access off, the gate
+  // is email-signup only and nobody can start a plan that would die.
+  // Reactivation: set back to true AFTER Pro + 800s max duration are restored
+  // (full checklist in docs/project-plan.md, "Reactivation Checklist").
+  const CODE_ACCESS_ENABLED = false;
   let paymentType = 'free';
 
   // Check access
   function checkAccess() {
+    if (!CODE_ACCESS_ENABLED) document.getElementById('gate-code-block').style.display = 'none';
     const params = new URLSearchParams(window.location.search);
     const code = params.get('code');
-    if (code === BYPASS_CODE) {
+    if (CODE_ACCESS_ENABLED && code === BYPASS_CODE) {
       unlockForm();
       return;
     }
@@ -1485,7 +1494,7 @@
 
   function tryCode() {
     const input = document.getElementById('gate-code-input').value.trim();
-    if (input === BYPASS_CODE) {
+    if (CODE_ACCESS_ENABLED && input === BYPASS_CODE) {
       unlockForm();
     } else {
       document.getElementById('gate-code-error').style.display = 'block';
