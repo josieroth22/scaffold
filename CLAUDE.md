@@ -156,7 +156,9 @@ Client-side: AbortController on all pipeline fetch calls. Cancel button on intak
 
 ## Current Priority
 
-**Goal: LAUNCH — live and charging by early October 2026, public LinkedIn launch October 24-25.** Decided August 13. Cadence: ~6 hrs/weekend (Sat+Sun); full weekend-by-weekend Launch Plan with dates, blackouts, and the three distribution assets ($99 price test, SEO content batch, plan-footer referral loop) lives in `docs/project-plan.md`. Revenue expectation: $15-20K year one with those assets; ops go passive after orchestration ships (weekends 1-2). Jon's family (the July demo that never ran) has access and may test any time — snapshot Redis after their run.
+**⏸ PAUSED as of October 2, 2026.** Vercel downgraded to Hobby; code access disabled (`CODE_ACCESS_ENABLED = false` in intake.html); `vercel.json` maxDuration lowered to 300. New plans CANNOT be generated until reactivated. Before any work resumes, follow the **Reactivation Checklist** at the top of the Roadmap in `docs/project-plan.md` (the Default Max Duration = 800 dashboard step is the one that bites). The launch plan below is unchanged in sequence; dates reset on return.
+
+**Goal (on hold): LAUNCH — live and charging by early October 2026, public LinkedIn launch October 24-25.** Decided August 13. Cadence: ~6 hrs/weekend (Sat+Sun); full weekend-by-weekend Launch Plan with dates, blackouts, and the three distribution assets ($99 price test, SEO content batch, plan-footer referral loop) lives in `docs/project-plan.md`. Revenue expectation: $15-20K year one with those assets; ops go passive after orchestration ships (weekends 1-2). Jon's family (the July demo that never ran) has access and may test any time — snapshot Redis after their run.
 
 Next up, weekend 1 (currently aimed at Aug 22-23, but any weekend Josie shows up is weekend 1 — dates slip freely, the sequence is the contract): server-side orchestration (Claude builds) + Josie's deep reads of the three sample plans. Downstream dates shift with it; LinkedIn target moves accordingly (Oct 31-Nov 1 if weekend 1 is Aug 22-23, buffer intact).
 

@@ -53,7 +53,24 @@ The mission: close the information gap in college planning. A $310K family in Na
 
 ## Roadmap
 
-**Current focus (August-October 2026): LAUNCH.** Decided August 13: go live and charging by early October, public LinkedIn launch October 24-25, at a working cadence of ~6 hrs/weekend. The July demo prep completed but the external test never ran on schedule (Josie started at Datacor July 13; Jon's family has access and may test any time — snapshot Redis after their run per the discipline rule). Quality gates now run through the weekend-4 profile batch instead of a single demo.
+### ⏸ PAUSED (October 2, 2026) — Reactivation Checklist
+
+Josie stepped away and downgraded Vercel to Hobby (free) to save $20/mo. While paused: the site, domain, samples, existing plans, and the email-signup gate keep working; **new plans cannot be generated** (Hobby caps functions at 300s; generation needs more), so code access is switched off. Pre-dormancy Redis snapshot: data/backups/redis-latest.json (12 submissions, 3 interest emails).
+
+**While paused, don't:** remove the payment method from Vercel (the Upstash DB "scaffold-temp" is Pay As You Go, billed through Vercel; no card = archival risk returns), or let the domain auto-renew lapse at Squarespace.
+
+**To reactivate, in order:**
+1. Vercel → upgrade back to Pro.
+2. Vercel → Settings → Functions → Advanced → **Default Max Duration = 800**. Non-negotiable: this dashboard field overrides vercel.json, and at 300 every generation dies mid-write (the July 2, 2026 saga).
+3. `vercel.json`: set `"maxDuration"` back to **800** (lowered to 300 so deploys succeed on Hobby).
+4. `src/intake.html`: set `CODE_ACCESS_ENABLED = true`.
+5. Push; confirm the deploy succeeds.
+6. Check the model: is `claude-fable-5` still current and undeprecated? If not, run the Model Upgrade Playbook (Data Maintenance section) BEFORE testing.
+7. Confirm scaffold-temp still shows Pay As You Go, and the Anthropic API key has credit.
+8. Run one full test plan (`node scripts/run-pipeline.js sofia`) to prove max duration, API key, Resend, and Redis end to end.
+9. Re-read data/TODO-session-status.md, snapshot Redis, resume the Launch Plan at chunk 1 (~40 Josie-hours to LinkedIn as of Sep 2026). Let Jon know his code works again if he still wants to test.
+
+**Current focus (August-October 2026): LAUNCH.** *(Paused October 2 — see checklist above; sequence unchanged, dates to be reset on return.)* Decided August 13: go live and charging by early October, public LinkedIn launch October 24-25, at a working cadence of ~6 hrs/weekend. The July demo prep completed but the external test never ran on schedule (Josie started at Datacor July 13; Jon's family has access and may test any time — snapshot Redis after their run per the discipline rule). Quality gates now run through the weekend-4 profile batch instead of a single demo.
 
 ### Launch Plan (August-October 2026)
 
