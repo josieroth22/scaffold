@@ -26,7 +26,7 @@ Vanilla HTML/CSS/JS (no framework). Vercel serverless functions (Node.js). Upsta
 ## Architecture
 
 ```
-Intake form (intake.html) -- bypass code: Millie2026
+Intake form (intake.html) -- bypass code: Millie2026 (disabled while paused)
     |
     v
 POST /api/generate        -- Tier 1 Strategy Brief via SSE
@@ -74,7 +74,6 @@ src/
     generate-tier2.js      # Tier 2 generation
     review.js              # 15-check quality reviewer
     fix-plan.js            # Targeted find/replace fixer
-    regenerate.js          # Full regen with review feedback injected
     simulate.js            # Monte Carlo simulation (10K iterations, JS)
     reconcile-costs.js     # Reconcile narrative costs with sim results
     update-status.js       # Redis status updates + plan-ready email on completion
@@ -87,20 +86,28 @@ src/
     school-data.js         # Loads and formats school data for prompt injection (~23K tokens)
     validate-plan.js       # Programmatic validator (runs in review.js before Claude review)
     config.js              # Model name (single source of truth)
+paused-functions/
+  regenerate.js            # Full regen with review feedback injected (moved out of src/api/ during the pause: Hobby allows max 12 functions; restore on reactivation)
+prompts/
+  financial-aid-facts.md   # No-merit schools, full-need schools, CSS vs FAFSA, QuestBridge, etc. (injected into every generation prompt)
 data/
   schools/                 # 1,492 school JSON files (CDS + Scorecard + reference data)
   state-aid-programs.md    # State aid for all 50 states + DC
-  financial-aid-facts.md   # No-merit schools, full-need schools, CSS vs FAFSA, QuestBridge, etc.
+  backups/                 # Redis snapshots (redis-latest.json, overwritten; git history keeps every version)
   TODO-session-status.md   # Session handoff log (newest update first)
 scripts/
   parse-cds.js             # Parse CDS PDFs/XLSX via Claude API into school JSONs
   test-validate-plan.js    # Validator test fixture (run: node scripts/test-validate-plan.js)
   run-pipeline.js          # Backend pipeline driver (node scripts/run-pipeline.js <alias|profile.json>)
   watch-pipeline.js        # Live pipeline status watcher
-  profiles/                # 5 test profiles (brett, sofia, alejandra, priya, jake)
+  profiles/                # 7 test profiles (brett, sofia, alejandra, priya, jake, imani-washington, jocelyn-roth)
 docs/
   project-plan.md          # Full roadmap, unit economics, architecture
   test-profiles.md         # Re-baseline test profiles (submit via intake form)
+  sample-plan-audit-july5.md  # Fact audit of the 3 homepage samples (pre-clears Josie's deep reads)
+  jocelyn-retro-test.md    # Blind test vs Josie's real 2014 outcomes; 5 product lessons
+  jocelyn-plan-july7.md    # The full plan that retro-test produced
+  jon-message-draft.md     # Intro message for Jon (CRO) re: his daughter testing
 ```
 
 ## School Data
@@ -158,13 +165,13 @@ Client-side: AbortController on all pipeline fetch calls. Cancel button on intak
 
 **⏸ PAUSED as of October 2, 2026.** Vercel downgraded to Hobby; code access disabled (`CODE_ACCESS_ENABLED = false` in intake.html); `vercel.json` maxDuration lowered to 300; `regenerate.js` moved to `paused-functions/` (Hobby's 12-function limit). New plans CANNOT be generated until reactivated. Before any work resumes, follow the **Reactivation Checklist** at the top of the Roadmap in `docs/project-plan.md` (the Default Max Duration = 800 dashboard step is the one that bites). The launch plan below is unchanged in sequence; dates reset on return.
 
-**Goal (on hold): LAUNCH — live and charging by early October 2026, public LinkedIn launch October 24-25.** Decided August 13. Cadence: ~6 hrs/weekend (Sat+Sun); full weekend-by-weekend Launch Plan with dates, blackouts, and the three distribution assets ($99 price test, SEO content batch, plan-footer referral loop) lives in `docs/project-plan.md`. Revenue expectation: $15-20K year one with those assets; ops go passive after orchestration ships (weekends 1-2). Jon's family (the July demo that never ran) has access and may test any time — snapshot Redis after their run.
+**Goal (on hold): LAUNCH.** Take Scaffold live and charging, then announce on LinkedIn. ~40 Josie-hours remain, in 8 chunks (table in the `docs/project-plan.md` Launch Plan). Dates get set on return; the sequence is the contract. Revenue expectation: $15-20K year one with the three distribution assets ($99 price test, SEO content batch, plan-footer referral loop); ops go passive once orchestration ships (chunks 1-2). Jon's family's code access is disabled during the pause; re-enable it and tell Jon on return (reactivation step 9), then snapshot Redis after their run.
 
-Next up, weekend 1 (currently aimed at Aug 22-23, but any weekend Josie shows up is weekend 1 — dates slip freely, the sequence is the contract): server-side orchestration (Claude builds) + Josie's deep reads of the three sample plans. Downstream dates shift with it; LinkedIn target moves accordingly (Oct 31-Nov 1 if weekend 1 is Aug 22-23, buffer intact).
+**First chunk on return:** server-side orchestration (Claude builds) + Josie's deep reads of the three sample plans.
 
-Done (June-July 2026): Fable 5 migration + re-baseline (4 profiles PASS), programmatic validator (validate-plan.js, integrated as a review.js pre-pass), prompt consolidation + Fable re-tune, three live homepage samples, tab-close resume, coming-soon email gate, UptimeRobot monitoring, plan-ready email via Resend (branded July 4), browser end-to-end test (July 5: Imani Washington run via the real form proved tab-close survival + resume + both emails, and flushed out 4 real bugs, all fixed — see Test Results), still-building banner + auto-reload on plan.html, regen fast-path, honest completion status (completed_with_issues + alert email).
+Done (June-July 2026): Fable 5 migration + re-baseline (4 profiles PASS), programmatic validator (validate-plan.js, integrated as a review.js pre-pass), prompt consolidation + Fable re-tune, three live homepage samples, tab-close resume, coming-soon email gate, UptimeRobot monitoring, plan-ready email via Resend (branded July 4), browser end-to-end test (July 5: Imani Washington run via the real form proved tab-close survival + resume + both emails, and flushed out 4 real bugs, all fixed — see Test Results), still-building banner + auto-reload on plan.html, regen fast-path, honest completion status (completed_with_issues + alert email). August 2026: production Redis ("scaffold-temp") upgraded to Pay As You Go after an archival scare; keep-alive switched from PING to a metered SET.
 
-Carried into the Launch Plan (no longer "pre-demo" items): deep reads → weekend 1; ImprovMX + reply_to removal → weekend 6; mobile pass → weekend 5; server-side orchestration → weekends 1-2; diverse profiles → weekend 4; Stripe + legal + LLC → weekends 3 and 6 (no longer deferred).
+Where the old pre-demo items live now: deep reads → chunk 1; server-side orchestration → chunks 1-2; Stripe + legal + LLC → chunks 3 and 6; diverse profiles → chunk 4; mobile pass → chunk 5; ImprovMX + reply_to removal → chunk 6.
 
 Session-by-session state: `data/TODO-session-status.md` (newest update first).
 
@@ -192,5 +199,7 @@ Per session, not per day: docs go stale when work happens, not when time passes.
 **Browser end-to-end test (July 5, 2026):**
 - **Imani Washington** (Atlanta GA, $72K, 12th grade rising senior, nursing): PASS in ~22 min via the real intake form, one T1 fix cycle. Proved: server keeps writing after tab close, resume drives the back half, new-submission + plan-ready emails, reply-to. Content passed all three designed traps: Zell Miller "already qualifies" with the GSFC core-GPA verification nuance; "UGA does not offer a BSN" stated plainly + no-direct-admit-in-Georgia honesty; Emory "the aid math works" ($11,687 verified net vs $15K ceiling). Also covered the never-run Georgia HOPE/Zell state-aid path. Plan: plan.html?id=mr7vk33b5cr6px
 - Bugs the test caught (all fixed July 5): resume crash (apiCall scoped inside submitForm — every resume ever died at 48%), still-building banner hidden behind the fixed topbar, and `const location` (city/state string) shadowing window.location so location.reload() silently failed inside the poll's catch. Lesson: render-layer bugs need real-browser eyes; stored-data checks can all pass while the page misbehaves.
+
+**Retro-test (July 7-8, 2026):** Josie's own 2014 application profile ("Jocelyn Roth") run through the production prompt as a blind test with a 20-year answer key. The plan reproduced her actual strategy and named the Cornelius Vanderbilt Scholarship she won. Writeup + 5 product lessons in `docs/jocelyn-retro-test.md`; full plan in `docs/jocelyn-plan-july7.md`.
 
 **Old Opus baseline (Feb 2026, for comparison):** Brett 15/15 at attempt 5; Martinez passed after 3 iterations.
