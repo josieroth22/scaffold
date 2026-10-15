@@ -108,6 +108,7 @@ docs/
   jocelyn-retro-test.md    # Blind test vs Josie's real 2014 outcomes; 5 product lessons
   jocelyn-plan-july7.md    # The full plan that retro-test produced
   jon-message-draft.md     # Intro message for Jon (CRO) re: his daughter testing
+  competitive-landscape-oct2026.md  # Market map, PrepToDone deep dive, where Scaffold wins/is exposed, what to borrow
 ```
 
 ## School Data
