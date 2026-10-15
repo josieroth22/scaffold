@@ -1273,7 +1273,7 @@
         <div class="progress-fill" id="gen-progress" style="width: 5%; transition: width 1s ease;"></div>
       </div>
       <p style="font-size: 0.78rem; color: var(--muted); margin-top: 0.5rem;" id="gen-status">Generating plan...</p>
-      <p id="plan-link-note" style="display: none; font-size: 0.85rem; margin-top: 1.25rem; line-height: 1.6;">Your plan will live at:<br><a id="plan-link-a" href="" style="color: var(--sage); font-weight: 600; word-break: break-all;"></a><br><span style="color: var(--muted);">Bookmark it. If you close this tab, come back to this page and we'll pick up where we left off.</span></p>
+      <p id="plan-link-note" style="display: none; font-size: 0.85rem; margin-top: 1.25rem; line-height: 1.6;">Your plan will live at:<br><a id="plan-link-a" href="" style="color: var(--sage); font-weight: 600; word-break: break-all;"></a><br><span style="color: var(--muted);">Bookmark it. It's safe to close this tab: your plan keeps building, and we'll email you when it's ready.</span></p>
     </div>
     <button id="cancel-gen-btn" onclick="cancelGeneration()" style="margin-top: 1.5rem; padding: 0.5rem 1.2rem; background: none; color: var(--muted); border: 1px solid var(--border); border-radius: 6px; font-family: inherit; font-size: 0.8rem; cursor: pointer;">Cancel</button>
   </div>
@@ -1355,15 +1355,31 @@
       const d = await r.json();
       if (d.status === 'completed' || d.status === 'completed_with_issues') { clearActive(); window.location.href = 'plan.html?id=' + saved.id; return true; }
       if (d.status === 'cancelled') { clearActive(); return false; }
-      resumePipeline(saved.id);
+      if (d.pipeline === 'server') resumeWatching(saved.id);
+      else resumePipeline(saved.id);
       return true;
     } catch (e) {
       return false;
     }
   }
 
-  // Drive the remaining pipeline steps for a submission that stalled when
-  // its tab closed. Simplified ladder (one repair pass per review) — the
+  // Server-conducted plans keep building without this page; just show progress
+  async function resumeWatching(id) {
+    showGeneratingScreen();
+    submissionId = id;
+    generationCancelled = false;
+    showPlanLink(id);
+    document.getElementById('gen-status').textContent = 'Welcome back. Checking on your plan...';
+    try {
+      await watchPipeline(id);
+    } catch (err) {
+      console.error('Plan failed:', err);
+      document.getElementById('gen-status').innerHTML = 'Something went wrong building this plan. We\'ve been alerted. <a href="plan.html?id=' + id + '" style="color: var(--sage); font-weight: 600;">View your plan as it stands</a>.';
+    }
+  }
+
+  // Legacy: drive the remaining pipeline steps for a browser-conducted
+  // submission (pre-October 2026) that stalled when its tab closed. Simplified ladder (one repair pass per review) — the
   // full fix/regen ladder only runs on fresh submissions.
   async function resumePipeline(id) {
     document.getElementById('gate').classList.remove('active');
@@ -1749,6 +1765,71 @@
     return submissionId;
   }
 
+  // ---- Stage progress for server-conducted plans ----
+  // One entry per pipeline step (src/lib/pipeline.js). Long writing steps
+  // creep from `from` toward `to` over roughly `secs`, since there's no
+  // streamed text to measure any more.
+  const PIPELINE_STAGES = {
+    tier1:   { from: 5,  to: 40, secs: 540, text: 'Drafting your strategy brief. Scaffold reads your family\'s details and the school data first, so the opening minutes are quiet.' },
+    review_t1: { from: 42, to: 46, secs: 120, text: 'Fact-checking the brief against verified school data...' },
+    fix_t1:  { from: 46, to: 52, secs: 150, text: 'Correcting a few details the fact-check caught...' },
+    regen:   { from: 52, to: 62, secs: 540, text: 'Rewriting the strategy brief with the fact-check\'s notes...' },
+    review_regen: { from: 62, to: 65, secs: 120, text: 'Fact-checking the rewrite...' },
+    simulate: { from: 66, to: 68, secs: 20, text: 'Running 10,000 cost simulations...' },
+    reconcile: { from: 68, to: 74, secs: 120, text: 'Matching every cost in the plan to the simulation...' },
+    tier2:   { from: 76, to: 90, secs: 480, text: 'Writing your reference sections (scholarships, deadlines, school-by-school detail)...' },
+    review_final: { from: 90, to: 94, secs: 150, text: 'Final quality check on the full plan...' },
+    fix_final: { from: 94, to: 97, secs: 150, text: 'One more polish pass...' },
+    review_after_final_fix: { from: 97, to: 99, secs: 120, text: 'One more polish pass...' },
+    finish:  { from: 99, to: 99, secs: 10, text: 'Wrapping up...' },
+  };
+
+  function showGeneratingScreen() {
+    document.getElementById('gate').classList.remove('active');
+    document.getElementById('intake-form').style.display = 'none';
+    document.querySelector('.progress-wrap').style.display = 'none';
+    document.getElementById('generating').classList.add('active');
+  }
+
+  // Poll status until the plan is done. Resolves after redirecting; throws
+  // if the server gave up on the plan.
+  async function watchPipeline(id) {
+    const statusEl = document.getElementById('gen-status');
+    const progressEl = document.getElementById('gen-progress');
+    let shown = 5;
+    while (!generationCancelled) {
+      let d = null;
+      try {
+        const r = await fetch('/api/plan?light=1&id=' + encodeURIComponent(id));
+        if (r.ok) d = await r.json();
+      } catch (e) { /* network blip: keep polling */ }
+
+      if (d) {
+        if (d.status === 'completed' || d.status === 'completed_with_issues') {
+          progressEl.style.width = '100%';
+          statusEl.textContent = 'Done! Redirecting to your plan...';
+          clearActive();
+          setTimeout(() => { window.location.href = 'plan.html?id=' + id; }, 1200);
+          return;
+        }
+        if (d.status === 'cancelled') { clearActive(); return; }
+        if (d.pipeline_step === 'failed' || d.status === 'generation_failed') {
+          clearActive();
+          throw new Error('Plan generation failed');
+        }
+        const stage = PIPELINE_STAGES[d.pipeline_step];
+        if (stage) {
+          const elapsed = Math.max(0, (Date.now() - (Number(d.pipeline_updated) || Date.now())) / 1000);
+          const pct = stage.from + (stage.to - stage.from) * Math.min(0.95, elapsed / stage.secs);
+          shown = Math.max(shown, pct); // never move backwards
+          progressEl.style.width = shown + '%';
+          statusEl.textContent = stage.text;
+        }
+      }
+      await new Promise(res => setTimeout(res, 5000));
+    }
+  }
+
   // Form submission
   async function submitForm() {
     // Prevent double-submit
@@ -1807,328 +1888,25 @@
     generationCancelled = false;
     abortController = new AbortController();
 
-    // Call the API
+    // Hand the plan to the server-side conductor (api/advance.js), then just
+    // watch it. Nothing on this page drives the pipeline any more: closing
+    // the tab or locking the phone can't stall the plan.
     try {
-      const statusEl = document.getElementById('gen-status');
-      const progressEl = document.getElementById('gen-progress');
-      // Claude thinks before it writes, so no text streams for the first
-      // minute or two. Say so, or the frozen bar reads as a hang.
-      statusEl.textContent = 'Reading your family\'s details and the school data. This takes a minute or two before writing begins...';
-      const MAX_FIX_ATTEMPTS = 2;
-      const MAX_REGEN_ATTEMPTS = 1;
-
-      // Helper: call a non-streaming API and throw if cancelled
-      async function apiCall(url, body) {
-        if (generationCancelled) throw new Error('Generation cancelled');
-        const res = await fetch(url, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(body),
-          signal: abortController.signal,
-        });
-        if (generationCancelled) throw new Error('Generation cancelled');
-        if (res.ok) {
-          const data = await res.json();
-          if (data.cancelled) throw new Error('Generation cancelled');
-          return data;
-        }
-        return { ok: false, status: res.status };
-      }
-      submissionId = null;
-      let markdown = '';
-      let reviewPassed = false;
-
-      // ============================================================
-      // PHASE 1: Generate Tier 1
-      // ============================================================
-
-      // Stream Tier 1 (Strategy Brief + school list + JSON sim params)
+      document.getElementById('gen-status').textContent = 'Starting your plan...';
       const response = await fetch('/api/generate', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data),
+        body: JSON.stringify({ ...data, orchestrate: true }),
         signal: abortController.signal,
       });
-
       if (!response.ok) {
         throw new Error('Server returned ' + response.status);
       }
-
-      submissionId = await streamResponse(response, statusEl, progressEl, (text) => {
-        markdown += text;
-      }, 0, 40, 30000); // Fable 5 Tier 1 docs measured at ~30K chars
-
-      // ============================================================
-      // PHASE 2: Review Tier 1 (BEFORE simulation so we catch school
-      //          list problems before wasting a sim + reconcile call)
-      // ============================================================
-
-      progressEl.style.width = '42%';
-      // Regen-severity validator flags (e.g. missing JSON params block) mean
-      // find/replace fixes are doomed: skip straight to regeneration
-      const hasRegenFlag = (rd) => !!(rd && rd.validator && (rd.validator.flags || []).some((f) => f.severity === 'regen'));
-      let needsRegen = false;
-      try {
-        const reviewData = await apiCall('/api/review', { id: submissionId });
-        if (reviewData.overall === 'PASS') {
-          reviewPassed = true;
-        } else {
-          needsRegen = hasRegenFlag(reviewData);
-          console.warn('Review FAIL (initial):' + (needsRegen ? ' [regen-severity flag, skipping fix loop]' : ''), reviewData.summary || reviewData);
-        }
-      } catch (e) {
-        if (e.message === 'Generation cancelled') throw e;
-        console.warn('Review request failed:', e);
-        reviewPassed = true;
-      }
-
-      // ============================================================
-      // PHASE 3: Fix loop (find-and-replace patches for Tier 1)
-      // ============================================================
-
-      let fixAttempt = 0;
-      while (!reviewPassed && !needsRegen && fixAttempt < MAX_FIX_ATTEMPTS) {
-        fixAttempt++;
-        progressEl.style.width = (44 + fixAttempt * 3) + '%';
-
-        try {
-          const fixRes = await fetch('/api/fix-plan', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ id: submissionId }),
-            signal: abortController.signal,
-          });
-          if (!fixRes.ok) {
-            console.warn('Fix-plan returned ' + fixRes.status);
-            break;
-          }
-        } catch (e) {
-          if (generationCancelled || e.name === 'AbortError') throw new Error('Generation cancelled');
-          console.warn('Fix-plan request failed:', e);
-          break;
-        }
-
-        // Re-review after fix
-        try {
-          const reReviewRes = await fetch('/api/review', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ id: submissionId }),
-            signal: abortController.signal,
-          });
-          if (reReviewRes.ok) {
-            const reReviewData = await reReviewRes.json();
-            if (reReviewData.overall === 'PASS') {
-              reviewPassed = true;
-            } else {
-              needsRegen = hasRegenFlag(reReviewData);
-              console.warn('Review FAIL after fix attempt ' + fixAttempt + ':', reReviewData.summary || reReviewData);
-            }
-          } else {
-            console.warn('Re-review returned ' + reReviewRes.status + '. Proceeding.');
-            reviewPassed = true;
-          }
-        } catch (e) {
-          console.warn('Re-review request failed:', e);
-          reviewPassed = true;
-        }
-      }
-
-      // ============================================================
-      // PHASE 4: Regenerate Tier 1 if fixes couldn't solve it
-      // ============================================================
-
-      let regenAttempt = 0;
-      if (!reviewPassed && regenAttempt < MAX_REGEN_ATTEMPTS) {
-        regenAttempt++;
-        console.warn('Fix attempts exhausted. Full regeneration...');
-        progressEl.style.width = '52%';
-
-        try {
-          const regenRes = await fetch('/api/regenerate', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ id: submissionId }),
-            signal: abortController.signal,
-          });
-
-          if (regenRes.ok) {
-            markdown = '';
-            await streamResponse(regenRes, statusEl, progressEl, (text) => {
-              markdown += text;
-            }, 52, 62, 30000); // matches Tier 1 calibration
-
-            // Review the regenerated Tier 1
-            progressEl.style.width = '63%';
-            try {
-              const regenReviewRes = await fetch('/api/review', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ id: submissionId }),
-                signal: abortController.signal,
-              });
-              if (regenReviewRes.ok) {
-                const regenReview = await regenReviewRes.json();
-                if (regenReview.overall === 'PASS') {
-                  reviewPassed = true;
-                } else {
-                  console.warn('Review FAIL after regen:', regenReview.summary || regenReview);
-                }
-              }
-            } catch (e) {
-              console.warn('Post-regen review failed:', e);
-            }
-          } else {
-            console.warn('Regeneration returned ' + regenRes.status);
-          }
-        } catch (e) {
-          console.warn('Regeneration request failed:', e);
-        }
-      }
-
-      // If still not passed, mark as review_failed
-      if (!reviewPassed) {
-        console.warn('All attempts exhausted. Proceeding with best version.');
-        try {
-          await fetch('/api/update-status', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ id: submissionId, status: 'review_failed' }),
-          });
-        } catch (e) { console.warn('Failed to update status:', e); }
-      }
-
-      // ============================================================
-      // PHASE 5: Monte Carlo simulation + cost reconciliation
-      //          (runs ONCE on the final reviewed school list)
-      // ============================================================
-
-      statusEl.textContent = 'Generating your plan...';
-      progressEl.style.width = '66%';
-      try {
-        await apiCall('/api/simulate', { id: submissionId });
-      } catch (e) {
-        if (e.message === 'Generation cancelled') throw e;
-        console.warn('Simulation failed:', e);
-      }
-      progressEl.style.width = '70%';
-
-      // Reconcile costs + tier labels with simulation results
-      try {
-        await apiCall('/api/reconcile-costs', { id: submissionId });
-      } catch (e) {
-        if (e.message === 'Generation cancelled') throw e;
-        console.warn('Reconciliation failed:', e);
-      }
-      progressEl.style.width = '74%';
-
-      // ============================================================
-      // PHASE 6: Generate Tier 2 (built on reviewed/verified Tier 1)
-      // ============================================================
-
-      statusEl.textContent = 'Building your reference sections. Another brief pause before writing begins...';
-      progressEl.style.width = '76%';
-
-      const tier2Response = await fetch('/api/generate-tier2', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ id: submissionId }),
-        signal: abortController.signal,
-      });
-
-      if (tier2Response.ok) {
-        await streamResponse(tier2Response, statusEl, progressEl, (text) => {
-          markdown += text;
-        }, 76, 90, 34000); // Tier 2 measured at 31-40K chars across July 4 runs
-      } else {
-        console.warn('Tier 2 failed: ' + tier2Response.status);
-      }
-
-      // ============================================================
-      // PHASE 7: Final review + fix of the complete document
-      // ============================================================
-
-      progressEl.style.width = '92%';
-      let finalPassed = false;
-      try {
-        const finalReviewRes = await fetch('/api/review', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ id: submissionId }),
-          signal: abortController.signal,
-        });
-        if (finalReviewRes.ok) {
-          const finalReview = await finalReviewRes.json();
-          if (finalReview.overall === 'PASS') {
-            finalPassed = true;
-          } else {
-            console.warn('Final review FAIL:', finalReview.summary || finalReview);
-          }
-        } else {
-          finalPassed = true; // Don't block on review errors
-        }
-      } catch (e) {
-        console.warn('Final review failed:', e);
-        finalPassed = true;
-      }
-
-      // One fix attempt on the full doc if final review failed
-      if (!finalPassed) {
-        progressEl.style.width = '96%';
-        try {
-          const finalFixRes = await fetch('/api/fix-plan', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ id: submissionId }),
-            signal: abortController.signal,
-          });
-          if (finalFixRes.ok) {
-            try {
-              const lastReviewRes = await fetch('/api/review', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ id: submissionId }),
-                signal: abortController.signal,
-              });
-              if (lastReviewRes.ok) {
-                const lastReview = await lastReviewRes.json();
-                if (lastReview.overall === 'PASS') {
-                  finalPassed = true;
-                } else {
-                  console.warn('Still failing after final fix:', lastReview.summary || lastReview);
-                }
-              }
-            } catch (e) { console.warn('Last review failed:', e); }
-          }
-        } catch (e) { console.warn('Final fix failed:', e); }
-      }
-
-      // ============================================================
-      // DONE
-      // ============================================================
-
-      progressEl.style.width = '100%';
-      statusEl.textContent = 'Done! Redirecting to your plan...';
-      clearActive();
-
-      // Honest completion: a plan that ships despite a failing final review is
-      // marked completed_with_issues (family still gets it; Josie gets an alert)
-      try {
-        await fetch('/api/update-status', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ id: submissionId, status: finalPassed ? 'completed' : 'completed_with_issues' }),
-        });
-      } catch (e) { console.warn('Failed to update status:', e); }
-
-      // Store the result as backup
-      localStorage.setItem('scaffold_result', markdown);
-
-      // Redirect to the styled plan page
-      setTimeout(() => {
-        window.location.href = 'plan.html?id=' + submissionId;
-      }, 1500);
-
+      const started = await response.json();
+      submissionId = started.id;
+      saveActive(submissionId);
+      showPlanLink(submissionId);
+      await watchPipeline(submissionId);
     } catch (err) {
       if (generationCancelled || err.name === 'AbortError' || (err.message && err.message.includes('cancelled'))) {
         // Cancellation — cancelGeneration() already updated the UI

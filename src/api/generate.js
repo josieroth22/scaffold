@@ -325,27 +325,9 @@ Rules for the JSON block:
   return prompt;
 }
 
-module.exports = async function handler(req, res) {
-  // CORS
-  res.setHeader("Access-Control-Allow-Origin", "*");
-  res.setHeader("Access-Control-Allow-Methods", "POST, OPTIONS");
-  res.setHeader("Access-Control-Allow-Headers", "Content-Type");
-
-  if (req.method === "OPTIONS") {
-    return res.status(200).end();
-  }
-
-  if (req.method !== "POST") {
-    return res.status(405).json({ error: "Method not allowed" });
-  }
-
-  const data = req.body;
-
-  if (!data || !data.student_name) {
-    return res.status(400).json({ error: "Missing form data" });
-  }
-
-  const prompt = buildPrompt(data);
+// Store a new submission (and notify Josie). extraFields lets the
+// server-side conductor seed its pipeline state in the same write.
+async function createSubmission(data, extraFields = {}) {
 
   // Generate a unique ID for this submission. Crypto-random, not
   // Math.random: plan URLs are the only access control on family
@@ -366,6 +348,7 @@ module.exports = async function handler(req, res) {
       submitted_at: new Date().toISOString(),
       status: "generating",
       form_data: JSON.stringify(data),
+      ...extraFields,
     });
     // Add to the submissions list
     await redis.lpush("submissions", id);
@@ -412,6 +395,96 @@ module.exports = async function handler(req, res) {
     // Don't block generation if storage fails
   }
 
+
+  return id;
+}
+
+// Run Tier 1 for an existing submission. onText receives each streamed text
+// delta (the legacy SSE path forwards them to the browser; the server-side
+// conductor ignores them). Returns { ok, cancelled, error }.
+async function runTier1(id, data, onText) {
+  const prompt = buildPrompt(data);
+  let fullOutput = "";
+  let lastSave = Date.now();
+
+  const stream = await client.messages.stream({
+    model: MODEL,
+    // Thinking tokens count toward max_tokens. Fable 5 spends ~25K tokens
+    // thinking on this prompt, so the cap needs to be far above the ~8K
+    // document output (32K truncated mid-document in testing)
+    max_tokens: 64000,
+    thinking: { type: "adaptive" },
+    messages: [{ role: "user", content: prompt }],
+  });
+
+  for await (const event of stream) {
+    if (
+      event.type === "content_block_delta" &&
+      event.delta.type === "text_delta"
+    ) {
+      fullOutput += event.delta.text;
+      if (onText) onText(event.delta.text);
+
+      // Check for cancellation and save partial output every 30 seconds
+      if (Date.now() - lastSave > 30000) {
+        lastSave = Date.now();
+        const currentStatus = await redis.hget(`submission:${id}`, 'status');
+        if (currentStatus === 'cancelled') {
+          redis.hset(`submission:${id}`, { output: fullOutput }).catch(err => console.error("Partial save on cancel failed for", id, err));
+          return { ok: false, cancelled: true };
+        }
+        redis.hset(`submission:${id}`, { output: fullOutput }).catch(err => console.error("Partial save failed for", id, err));
+      }
+    }
+  }
+
+  // Store the Tier 1 output
+  try {
+    await redis.hset(`submission:${id}`, {
+      status: "tier1_complete",
+      output: fullOutput,
+    });
+  } catch (storeErr) {
+    console.error("Failed to store output:", storeErr);
+  }
+  return { ok: true };
+}
+
+module.exports = async function handler(req, res) {
+  // CORS
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.setHeader("Access-Control-Allow-Methods", "POST, OPTIONS");
+  res.setHeader("Access-Control-Allow-Headers", "Content-Type");
+
+  if (req.method === "OPTIONS") {
+    return res.status(200).end();
+  }
+
+  if (req.method !== "POST") {
+    return res.status(405).json({ error: "Method not allowed" });
+  }
+
+  const data = req.body;
+
+  if (!data || !data.student_name) {
+    return res.status(400).json({ error: "Missing form data" });
+  }
+
+  // Server-side orchestration: store the submission, hand it to the
+  // conductor (api/advance.js), and return the id right away. The browser
+  // only polls status from here on, so tab close and locked phones can't
+  // stall the plan.
+  if (data.orchestrate) {
+    const { orchestrate, ...formData } = data;
+    const pipeline = require("../lib/pipeline");
+    const id = await createSubmission(formData, pipeline.initialFields());
+    await pipeline.start(id, req);
+    return res.status(200).json({ id });
+  }
+
+  // Legacy path: Tier 1 streams to the caller, which conducts the rest
+  const id = await createSubmission(data);
+
   try {
     // Stream the response
     res.setHeader("Content-Type", "text/event-stream");
@@ -421,51 +494,13 @@ module.exports = async function handler(req, res) {
     // Send the ID to the client
     res.write(`data: ${JSON.stringify({ id })}\n\n`);
 
-    let fullOutput = "";
-    let lastSave = Date.now();
-
-    const stream = await client.messages.stream({
-      model: MODEL,
-      // Thinking tokens count toward max_tokens. Fable 5 spends ~25K tokens
-      // thinking on this prompt, so the cap needs to be far above the ~8K
-      // document output (32K truncated mid-document in testing)
-      max_tokens: 64000,
-      thinking: { type: "adaptive" },
-      messages: [{ role: "user", content: prompt }],
+    const result = await runTier1(id, data, (text) => {
+      res.write(`data: ${JSON.stringify({ text })}\n\n`);
     });
-
-    for await (const event of stream) {
-      if (
-        event.type === "content_block_delta" &&
-        event.delta.type === "text_delta"
-      ) {
-        fullOutput += event.delta.text;
-        res.write(`data: ${JSON.stringify({ text: event.delta.text })}\n\n`);
-
-        // Check for cancellation and save partial output every 30 seconds
-        if (Date.now() - lastSave > 30000) {
-          lastSave = Date.now();
-          // Check if cancelled
-          const currentStatus = await redis.hget(`submission:${id}`, 'status');
-          if (currentStatus === 'cancelled') {
-            redis.hset(`submission:${id}`, { output: fullOutput }).catch(err => console.error("Partial save on cancel failed for", id, err));
-            res.write(`data: ${JSON.stringify({ error: "Generation cancelled" })}\n\n`);
-            res.end();
-            return;
-          }
-          redis.hset(`submission:${id}`, { output: fullOutput }).catch(err => console.error("Partial save failed for", id, err));
-        }
-      }
-    }
-
-    // Store the Tier 1 output
-    try {
-      await redis.hset(`submission:${id}`, {
-        status: "tier1_complete",
-        output: fullOutput,
-      });
-    } catch (storeErr) {
-      console.error("Failed to store output:", storeErr);
+    if (result.cancelled) {
+      res.write(`data: ${JSON.stringify({ error: "Generation cancelled" })}\n\n`);
+      res.end();
+      return;
     }
 
     res.write(`data: ${JSON.stringify({ tier1_done: true, id })}\n\n`);
@@ -485,3 +520,4 @@ module.exports = async function handler(req, res) {
 
 // Export buildPrompt so regenerate.js can reuse the same prompt
 module.exports.buildPrompt = buildPrompt;
+module.exports.runTier1 = runTier1;

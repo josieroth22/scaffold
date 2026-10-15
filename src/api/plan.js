@@ -42,7 +42,18 @@ module.exports = async function handler(req, res) {
       }
     }
 
+    // light=1: status polling (intake's progress screen) skips the heavy fields
+    const pipelineFields = {
+      pipeline: data.pipeline || null,
+      pipeline_step: data.pipeline_step || null,
+      pipeline_updated: data.pipeline_updated || null,
+    };
+    if (req.query.light) {
+      return res.status(200).json({ id: data.id, status: data.status, ...pipelineFields });
+    }
+
     return res.status(200).json({
+      ...pipelineFields,
       id: data.id,
       student_name: data.student_name,
       student_last_name: data.student_last_name || "",

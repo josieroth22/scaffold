@@ -6,10 +6,14 @@
 //   node scripts/run-pipeline.js brett            (scripts/profiles/brett-roth.json)
 //   node scripts/run-pipeline.js sofia            (scripts/profiles/sofia-martinez.json)
 //   node scripts/run-pipeline.js path/to/profile.json
+//   add --legacy to conduct the steps from this script (the pre-October 2026
+//   browser-style conductor) instead of the server-side one
 //
 // Env: SCAFFOLD_URL to override the base URL (default: production).
 //
-// Keep the phase logic in sync with intake.html (PHASE 1-7 comments there).
+// Default mode submits with orchestrate:true and only watches: the server
+// (src/lib/pipeline.js) runs every step, exactly as for a real family.
+// Legacy mode's phase logic mirrors src/lib/pipeline.js; keep them in sync.
 
 const fs = require("fs");
 const path = require("path");
@@ -147,13 +151,47 @@ async function review(id, label) {
   }
 }
 
+// Server-conducted run: submit, then poll status and log each step change
+async function serverMain(profile) {
+  log(`Submitting ${profile.student_name} ${profile.student_last_name || ""} to ${BASE} (server-conducted)`);
+  const { id } = await postJson("/api/generate", { ...profile, orchestrate: true });
+  log(`Submission id: ${id}`);
+  const started = Date.now();
+  let lastKey = "";
+  for (;;) {
+    await new Promise((r) => setTimeout(r, 10000));
+    let d;
+    try {
+      const r = await fetch(`${BASE}/api/plan?light=1&id=${encodeURIComponent(id)}`);
+      d = await r.json();
+    } catch (e) {
+      log(`status poll failed (${e.message}), retrying`);
+      continue;
+    }
+    const key = `${d.pipeline_step} / ${d.status}`;
+    if (key !== lastKey) {
+      log(`step: ${key}`);
+      lastKey = key;
+    }
+    const done = d.status === "completed" || d.status === "completed_with_issues";
+    if (done || d.pipeline_step === "failed" || d.status === "cancelled") {
+      const mins = ((Date.now() - started) / 60000).toFixed(1);
+      log("================================================");
+      log(`RESULT: ${d.status} in ${mins} min`);
+      log(`Plan: ${BASE}/plan.html?id=${id}`);
+      process.exit(d.status === "completed" ? 0 : 2);
+    }
+  }
+}
+
 async function main() {
-  const arg = process.argv[2];
+  const arg = process.argv.slice(2).find((a) => !a.startsWith("--"));
   if (!arg) {
     console.error("Usage: node scripts/run-pipeline.js <brett|sofia|profile.json>");
     process.exit(1);
   }
   const profile = loadProfile(arg);
+  if (!process.argv.includes("--legacy")) return serverMain(profile);
   log(`Submitting ${profile.student_name} ${profile.student_last_name || ""} to ${BASE}`);
 
   // PHASE 1: Tier 1 (SSE)
