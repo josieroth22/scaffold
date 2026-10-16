@@ -155,13 +155,13 @@ Live since July 4, 2026. Domain scaffoldcollegestrategy.com verified (DKIM/SPF/M
 - **Plan-ready email to family:** update-status.js fires it when status flips to "completed". Sender plans@scaffoldcollegestrategy.com, reply-to Josie's gmail. Sent once per plan via `plan_email_sent` hash flag; safe to re-POST completed.
 - **New-submission notification to Josie:** generate.js, fire-and-forget.
 - **Failing-review alert to Josie:** update-status.js fires it on "completed_with_issues" (plan shipped despite a failing final review). Once per plan via `issue_alert_sent` flag. The family still gets their plan email.
+- **Plan-failed alert to Josie:** src/lib/pipeline.js `failPlan` fires it when the conductor gives up (Tier 1 died twice): status `generation_failed`, the family has no plan. (Since Oct 15, 2026.)
 - Gotcha: the admin submissions API returns a hand-picked field summary that does NOT include `plan_email_sent` — don't use it to check the flag.
 - Free tier limits: 100 emails/day, 3,000/month.
 
 ## Cancellation
 
-Server-side: every API endpoint re-checks Redis status after Claude API call completes. If "cancelled", returns early.
-Client-side: AbortController on all pipeline fetch calls. Cancel button on intake page. Cancel from admin page.
+Cancel button on the intake page and cancel from admin both set status "cancelled" in Redis (update-status.js). Since the server conducts the pipeline (Oct 15, 2026), that flag is the whole mechanism: every step endpoint re-checks it after its Claude call (Tier 1/2 also every 30s while streaming), and the conductor stops and drops the plan from `pipeline:active` on its next tick. The intake page's AbortController now only stops its own status polling.
 
 ## Design System
 

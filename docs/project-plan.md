@@ -27,11 +27,11 @@ The mission: close the information gap in college planning. A $310K family in Na
 - Final review + one fix attempt; honest completion status (completed_with_issues + alert email to Josie when a plan ships despite a failing final review)
 - Regen fast-path: validator regen-severity flags skip the doomed fix loop
 - All steps re-check Redis status for cancellation after Claude API call returns
-- Tab-close survival + resume VERIFIED in a real browser (July 5): generation calls finish server-side after the tab dies; reopening intake.html resumes the pipeline; plan email arrives either way
+- **Server-side conductor (Oct 15, 2026):** src/lib/pipeline.js + /api/advance run every step with no browser involved (self-chaining within a time budget, per-minute cron sweep as backstop, Redis lock per plan, per-plan event log); the intake page only shows stage progress. Proven live by the Jake and Priya runs. (Superseded the July 5 tab-close resume, which drove the pipeline from the browser.)
 
 **Cancellation**
 - Server-side: every endpoint re-checks Redis status after Claude API call completes; returns early if "cancelled"
-- Client-side: AbortController on all pipeline fetch calls; cancel button on intake page; cancel from admin
+- Cancel button on intake page and cancel from admin set status "cancelled"; the conductor stops on its next tick (the browser no longer drives steps, so there's nothing client-side to abort beyond status polling)
 
 **Data**
 - 136 schools with CDS 2024-25 data (admit rates, costs, aid stats, test scores) parsed via `scripts/parse-cds.js`
@@ -48,7 +48,7 @@ The mission: close the information gap in college planning. A $310K family in Na
 - Vercel serverless (Node.js), Upstash Redis, Anthropic API (Claude Fable 5), vanilla HTML/CSS/JS
 - Auto-deploy from main working
 - Email LIVE via Resend (July 4, 2026): domain scaffoldcollegestrategy.com verified (DKIM/SPF/MX + DMARC p=none at Squarespace DNS), RESEND_API_KEY in Vercel. Three sends, all branded to match the site (July 4-7) and all verified live: (1) plan-ready email to the family on completion (update-status.js; sender plans@scaffoldcollegestrategy.com, reply-to Josie's gmail, once-per-plan via plan_email_sent flag), (2) new-submission notification to Josie (generate.js), (3) failing-review alert to Josie on completed_with_issues. Delivery confirmed to Gmail inbox (not spam). Free tier: 100/day, 3K/month.
-- Hosting state: Vercel Pro when active (required: 800s functions, 13 functions); downgraded to Hobby while paused (Oct 2026). Redis "scaffold-temp" on Upstash Pay As You Go (Aug 2026), billed through Vercel.
+- Hosting state: Vercel Pro (required: 800s functions, 14 functions, per-minute cron); was Hobby during the Oct 2-15, 2026 pause. Project Root Directory is `src`, so config lives in `src/vercel.json`. Redis "scaffold-temp" on Upstash Pay As You Go (Aug 2026), billed through Vercel.
 
 ---
 
