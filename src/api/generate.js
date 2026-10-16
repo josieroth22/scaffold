@@ -4,6 +4,7 @@ const fs = require("fs");
 const path = require("path");
 const schoolData = require("../lib/school-data");
 const { MODEL } = require("../lib/config");
+const { schoolCalendar } = require("../lib/school-calendar");
 
 const client = new Anthropic.default();
 const redis = new Redis({
@@ -57,10 +58,9 @@ function buildPrompt(data) {
   }
 
   const today = new Date();
-  const monthNames = ['January','February','March','April','May','June','July','August','September','October','November','December'];
-  const currentDate = `${monthNames[today.getMonth()]} ${today.getFullYear()}`;
+  const { currentDate, preamble } = schoolCalendar(today);
 
-  let prompt = `**TODAY'S DATE IS ${currentDate}. THE CURRENT SCHOOL YEAR IS ${today.getFullYear() - 1}-${today.getFullYear().toString().slice(2)}.** Every date, timeline, and deadline in this document must be consistent with this. "This summer" = summer ${today.getFullYear()}. "Next school year" = ${today.getFullYear()}-${(today.getFullYear() + 1).toString().slice(2)}. FAFSA references = the ${today.getFullYear()}-${(today.getFullYear() + 1).toString().slice(2)} cycle. Tax year references = ${today.getFullYear() - 1} taxes. Never reference a date before ${currentDate} as upcoming or current.
+  let prompt = `${preamble}
 
 I'd like you to build a comprehensive college application and scholarship strategy document for my family. This is the Strategy Brief (Tier 1). A detailed Developmental Roadmap with grade-by-grade course tables, activities plans, and milestones will be generated separately as Tier 2. Focus this document on two parts:
 

@@ -2,6 +2,7 @@ const Anthropic = require("@anthropic-ai/sdk");
 const { Redis } = require("@upstash/redis");
 const schoolData = require("../lib/school-data");
 const { MODEL } = require("../lib/config");
+const { schoolCalendar } = require("../lib/school-calendar");
 
 const client = new Anthropic.default();
 const redis = new Redis({
@@ -57,11 +58,9 @@ module.exports = async function handler(req, res) {
 
   const tier1Output = data.output;
 
-  const today = new Date();
-  const monthNames = ['January','February','March','April','May','June','July','August','September','October','November','December'];
-  const currentDate = `${monthNames[today.getMonth()]} ${today.getFullYear()}`;
+  const { preamble } = schoolCalendar(new Date());
 
-  const prompt = `**Today's date is ${currentDate}.** All timelines, deadlines, summer plans, and recommendations must reflect this. Do not reference dates that have already passed. "This summer" means the upcoming summer, not a past one.
+  const prompt = `${preamble} All timelines, deadlines, summer plans, and recommendations must reflect this. Do not reference dates that have already passed.
 
 You wrote the Strategy Brief below for this family. Now write the Reference Sections. These are the detailed planning tools the parent comes back to over the years. Keep the same voice, the same schools, the same financial assumptions. Write like you're still talking to the same parent. Use their kid's name. Be specific.
 
