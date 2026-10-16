@@ -304,6 +304,19 @@ async function advance(id, base) {
   return result;
 }
 
+// Vercel blocks a function that keeps re-invoking itself: after ~4-5 chained
+// hops the trigger gets HTTP 508 (loop detection; seen live Oct 15, 2026).
+// So one invocation runs consecutive steps while its time budget allows, and
+// a typical plan needs ~2 invocations instead of ~10. Budgets are generous
+// upper bounds per step (seconds); the run stops starting new steps once
+// elapsed + next step's budget would pass RUN_BUDGET_MS (maxDuration is 800s).
+const STEP_BUDGET_S = {
+  tier1: 540, regen: 540, tier2: 480,
+  review_t1: 180, review_regen: 180, review_final: 180, review_after_final_fix: 180,
+  fix_t1: 180, fix_final: 180, reconcile: 240, simulate: 60, finish: 60,
+};
+const RUN_BUDGET_MS = 700 * 1000;
+
 async function advanceInner(id, base) {
   // "t" prefix keeps the token a string: Upstash JSON-parses stored values,
   // so an all-digit hex token would come back as a number and never match
@@ -311,62 +324,20 @@ async function advanceInner(id, base) {
   const got = await redis.set(lockKey(id), token, { nx: true, ex: LOCK_TTL_S });
   if (!got) return { skipped: "locked", lock_ttl: await redis.ttl(lockKey(id)).catch(() => null) };
 
+  const started = Date.now();
+  const ran = [];
   let chain = false;
   try {
-    const s = await redis.hgetall(`submission:${id}`);
-    if (!s || s.pipeline !== "server") {
-      await redis.srem(ACTIVE_SET, id);
-      return { skipped: "not a server pipeline" };
-    }
-    const step = s.pipeline_step;
-    if (s.status === "cancelled" || step === "done" || step === "failed") {
-      await redis.srem(ACTIVE_SET, id);
-      return { skipped: step === "done" ? "done" : s.status };
-    }
-    if (!STEPS[step]) throw new Error(`unknown pipeline step: ${step}`);
-
-    // Count the attempt BEFORE running, so a step that kills its function
-    // is visible to the next tick as a retry
-    const tries = num(s.pipeline_step_tries) + 1;
-    if (tries > MAX_STEP_TRIES) {
-      const fallback = ON_GIVE_UP[step];
-      if (!fallback) {
-        await failPlan(id, `step ${step} died ${MAX_STEP_TRIES} times`);
-        return { failed: step };
-      }
-      console.error(`pipeline ${id}: giving up on ${step} after ${MAX_STEP_TRIES} tries, moving to ${fallback}`);
-      await redis.hset(`submission:${id}`, { pipeline_step: fallback, pipeline_step_tries: 0, pipeline_updated: Date.now() });
+    for (;;) {
+      const r = await runOneStep(id);
+      if (r.ran) ran.push(r.ran);
+      const summary = { ...r, ran: ran.join(">") || undefined };
+      if (!r.next || r.next === "done") return summary;
+      const budget = (STEP_BUDGET_S[r.next] || 300) * 1000;
+      if (Date.now() - started + budget < RUN_BUDGET_MS) continue;
       chain = true;
-      return { gaveUp: step, next: fallback };
+      return summary;
     }
-    await redis.hset(`submission:${id}`, { pipeline_step_tries: tries, pipeline_updated: Date.now() });
-
-    let out;
-    try {
-      out = await STEPS[step](id, s);
-    } catch (err) {
-      // Leave pipeline_step as is: the sweep retries it (counted above)
-      console.error(`pipeline ${id}: step ${step} threw:`, err);
-      await redis.hset(`submission:${id}`, { pipeline_error: `${step}: ${err.message}`.slice(0, 500), pipeline_updated: 0 });
-      return { error: err.message };
-    }
-
-    if (out.cancelled) {
-      await redis.hset(`submission:${id}`, { pipeline_step: "done", pipeline_updated: Date.now() });
-      await redis.srem(ACTIVE_SET, id);
-      return { cancelled: true };
-    }
-
-    const fields = { ...(out.set || {}), pipeline_step: out.next, pipeline_step_tries: 0, pipeline_updated: Date.now() };
-    // Same marker the browser conductors write when T1 ships unpassed
-    if (out.reviewFailed) fields.status = "review_failed";
-    await redis.hset(`submission:${id}`, fields);
-    if (out.next === "done") {
-      await redis.srem(ACTIVE_SET, id);
-    } else {
-      chain = true;
-    }
-    return { ran: step, next: out.next };
   } finally {
     // Release only our own lock
     try {
@@ -374,6 +345,61 @@ async function advanceInner(id, base) {
     } catch (e) {}
     if (chain) await trigger(id, base);
   }
+}
+
+// Run the submission's current step (caller holds the lock). Returns
+// { ran, next } on a transition, { gaveUp, next } after repeated deaths, or a
+// terminal { skipped | failed | error | cancelled } with no next.
+async function runOneStep(id) {
+  const s = await redis.hgetall(`submission:${id}`);
+  if (!s || s.pipeline !== "server") {
+    await redis.srem(ACTIVE_SET, id);
+    return { skipped: "not a server pipeline" };
+  }
+  const step = s.pipeline_step;
+  if (s.status === "cancelled" || step === "done" || step === "failed") {
+    await redis.srem(ACTIVE_SET, id);
+    return { skipped: step === "done" ? "done" : s.status };
+  }
+  if (!STEPS[step]) throw new Error(`unknown pipeline step: ${step}`);
+
+  // Count the attempt BEFORE running, so a step that kills its function
+  // is visible to the next tick as a retry
+  const tries = num(s.pipeline_step_tries) + 1;
+  if (tries > MAX_STEP_TRIES) {
+    const fallback = ON_GIVE_UP[step];
+    if (!fallback) {
+      await failPlan(id, `step ${step} died ${MAX_STEP_TRIES} times`);
+      return { failed: step };
+    }
+    console.error(`pipeline ${id}: giving up on ${step} after ${MAX_STEP_TRIES} tries, moving to ${fallback}`);
+    await redis.hset(`submission:${id}`, { pipeline_step: fallback, pipeline_step_tries: 0, pipeline_updated: Date.now() });
+    return { gaveUp: step, next: fallback };
+  }
+  await redis.hset(`submission:${id}`, { pipeline_step_tries: tries, pipeline_updated: Date.now() });
+
+  let out;
+  try {
+    out = await STEPS[step](id, s);
+  } catch (err) {
+    // Leave pipeline_step as is: the sweep retries it (counted above)
+    console.error(`pipeline ${id}: step ${step} threw:`, err);
+    await redis.hset(`submission:${id}`, { pipeline_error: `${step}: ${err.message}`.slice(0, 500), pipeline_updated: 0 });
+    return { error: err.message };
+  }
+
+  if (out.cancelled) {
+    await redis.hset(`submission:${id}`, { pipeline_step: "done", pipeline_updated: Date.now() });
+    await redis.srem(ACTIVE_SET, id);
+    return { cancelled: true };
+  }
+
+  const fields = { ...(out.set || {}), pipeline_step: out.next, pipeline_step_tries: 0, pipeline_updated: Date.now() };
+  // Same marker the browser conductors write when T1 ships unpassed
+  if (out.reviewFailed) fields.status = "review_failed";
+  await redis.hset(`submission:${id}`, fields);
+  if (out.next === "done") await redis.srem(ACTIVE_SET, id);
+  return { ran: step, next: out.next };
 }
 
 async function failPlan(id, reason) {
