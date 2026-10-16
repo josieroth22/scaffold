@@ -85,6 +85,18 @@
   .review-summary-fail { background: #fce4ec; color: #c62828; }
   .review-history-section { margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid var(--border); }
   .review-history-section h4 { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); margin-bottom: 0.5rem; }
+  .badge-step { display: inline-block; margin-left: 0.4rem; font-size: 0.68rem; font-weight: 600; background: var(--sage-light); color: var(--sage); padding: 0.1rem 0.4rem; border-radius: 3px; font-family: monospace; }
+  .badge-failed { display: inline-block; margin-left: 0.4rem; font-size: 0.68rem; font-weight: 700; background: #fce4ec; color: #c62828; padding: 0.1rem 0.4rem; border-radius: 3px; }
+  .pipe-summary { display: grid; grid-template-columns: max-content 1fr; gap: 0.35rem 1rem; font-size: 0.85rem; margin-bottom: 1rem; }
+  .pipe-summary dt { color: var(--muted); font-weight: 600; }
+  .pipe-error { color: #c62828; word-break: break-word; }
+  .pipe-log { background: white; border: 1px solid var(--border); border-radius: 6px; max-height: 500px; overflow-y: auto; }
+  .pipe-row { display: flex; gap: 1rem; padding: 0.4rem 0.75rem; border-bottom: 1px solid var(--border); font-size: 0.8rem; line-height: 1.5; }
+  .pipe-row:last-child { border-bottom: none; }
+  .pipe-time { flex-shrink: 0; width: 5.5rem; color: var(--muted); font-variant-numeric: tabular-nums; cursor: help; }
+  .pipe-msg { word-break: break-word; }
+  .pipe-row-bad .pipe-msg { color: #c62828; font-weight: 600; }
+  .pipe-row-warn .pipe-msg { color: #b8860b; }
 </style>
 </head>
 <body>
@@ -130,6 +142,7 @@
       <button class="detail-tab" onclick="switchTab('output')">Raw Output</button>
       <button class="detail-tab" onclick="switchTab('rendered')">Rendered Plan</button>
       <button class="detail-tab" onclick="switchTab('review')">Review</button>
+      <button class="detail-tab" onclick="switchTab('pipeline')">Pipeline</button>
     </div>
     <div class="tab-content active" id="tab-form">
       <div class="detail-section">
@@ -147,6 +160,9 @@
     </div>
     <div class="tab-content" id="tab-review">
       <div id="detail-review"></div>
+    </div>
+    <div class="tab-content" id="tab-pipeline">
+      <div id="detail-pipeline"></div>
     </div>
   </div>
 </div>
@@ -239,7 +255,7 @@
         // Show Cancel button for active pipeline stages
         const cancellableStatuses = ['generating', 'tier1_complete', 'simulating', 'sim_complete', 'reconciling', 'reviewing', 'fixing', 'regenerating', 'regenerated', 'generating_tier2', 'tier2_complete'];
         const cancelBtn = cancellableStatuses.includes(s.status) ? ` <button class="btn-retry" onclick="cancelSubmission('${s.id}', this)">Cancel</button>` : '';
-        const stageBadge = `<span class="${stageClass}">${stage}</span>${cancelBtn}`;
+        const stageBadge = `<span class="${stageClass}">${stage}</span>${pipelineBadge(s)}${cancelBtn}`;
         let simBadge = '<span class="badge-sim-none">-</span>';
         if (s.has_simulation) {
           simBadge = '<span class="badge-sim-ok">OK</span>';
@@ -333,6 +349,7 @@
 
       // Render review tab
       renderReviewTab(data);
+      renderPipelineTab(data);
 
       // Set plan link
       document.getElementById('detail-plan-link').href = 'plan.html?id=' + id;
@@ -395,6 +412,87 @@
       btn.disabled = false;
       alert('Cancel request failed: ' + e.message);
     }
+  }
+
+  // ---- Server-side pipeline (src/lib/pipeline.js) ----
+  const STEP_LABELS = {
+    tier1: 'Tier 1', review_t1: 'Review T1', fix_t1: 'Fix T1', regen: 'Regenerate',
+    review_regen: 'Review regen', simulate: 'Simulate', reconcile: 'Reconcile',
+    tier2: 'Tier 2', review_final: 'Final review', fix_final: 'Final fix',
+    review_after_final_fix: 'Re-review', finish: 'Finishing', done: 'Done', failed: 'Failed'
+  };
+  const TERMINAL_STATUSES = ['completed', 'completed_with_issues', 'cancelled', 'generation_failed'];
+
+  function esc(t) {
+    return String(t == null ? '' : t).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+  }
+
+  function stepLabel(step) { return STEP_LABELS[step] || step; }
+
+  // Compact badge for the list: current step while a server-conducted plan is active, red Failed when the conductor gave up
+  function pipelineBadge(s) {
+    if (s.status === 'generation_failed' || (s.pipeline === 'server' && s.pipeline_step === 'failed')) {
+      return '<span class="badge-failed">Failed</span>';
+    }
+    if (s.pipeline !== 'server' || !s.pipeline_step || s.pipeline_step === 'done') return '';
+    if (TERMINAL_STATUSES.includes(s.status)) return '';
+    return '<span class="badge-step" title="Server pipeline step: ' + esc(s.pipeline_step) + '">' + esc(stepLabel(s.pipeline_step)) + '</span>';
+  }
+
+  // Turn one stored tick/trigger message into plain words
+  function describeEvent(msg) {
+    let m = msg.match(/^trigger (\d{3}) (.*)$/);
+    if (m) {
+      const ok = m[1].startsWith('2');
+      return { text: 'trigger ' + m[1] + (m[1] === '508' ? ' (Vercel loop protection, cron will pick it up)' : ok ? ' (hand-off accepted)' : ' (hand-off rejected)'), cls: ok ? '' : 'warn' };
+    }
+    m = msg.match(/^trigger error (.*)$/);
+    if (m) return { text: 'trigger failed: ' + m[1], cls: 'bad' };
+    m = msg.match(/^tick (\{.*\})$/);
+    if (m) {
+      let r;
+      try { r = JSON.parse(m[1]); } catch (e) { return { text: msg, cls: '' }; }
+      if (r.failed) return { text: 'PLAN FAILED at ' + r.failed + ' (step died too many times)', cls: 'bad' };
+      if (r.error) return { text: 'step threw an error: ' + r.error + (r.ran ? ' (after ' + r.ran + ')' : ''), cls: 'bad' };
+      if (r.cancelled) return { text: 'cancelled', cls: 'warn' };
+      if (r.gaveUp) return { text: 'gave up on ' + r.gaveUp + ' after repeated deaths, moving to ' + r.next, cls: 'warn' };
+      if (r.skipped) return { text: 'tick skipped: ' + r.skipped + (r.lock_ttl != null ? ' (lock ' + r.lock_ttl + 's left)' : ''), cls: '' };
+      if (r.ran) return { text: 'tick ran ' + r.ran + (r.next ? ' \u2192 ' + r.next : ''), cls: '' };
+    }
+    return { text: msg, cls: '' };
+  }
+
+  function renderPipelineTab(data) {
+    const el = document.getElementById('detail-pipeline');
+    if (data.pipeline !== 'server') {
+      el.innerHTML = '<p style="color:var(--muted)">Not a server-conducted plan (no pipeline log).</p>';
+      return;
+    }
+    const failed = data.status === 'generation_failed' || data.pipeline_step === 'failed';
+    let html = '<dl class="pipe-summary">' +
+      '<dt>Current step</dt><dd>' + esc(stepLabel(data.pipeline_step) || '-') + (data.pipeline_step ? ' <span class="badge-step" style="margin-left:0.3rem">' + esc(data.pipeline_step) + '</span>' : '') + (failed ? ' <span class="badge-failed">Failed</span>' : '') + '</dd>' +
+      '<dt>Status</dt><dd>' + esc(data.status || '-') + '</dd>' +
+      '<dt>Last error</dt><dd class="' + (data.pipeline_error ? 'pipe-error' : '') + '">' + (data.pipeline_error ? esc(data.pipeline_error) : 'none') + '</dd>' +
+      '</dl>';
+    const log = data.pipeline_log || [];
+    html += '<div class="detail-section"><h3>Event log (newest first)</h3>';
+    if (!log.length) {
+      html += '<p style="color:var(--muted); font-size:0.85rem;">No events recorded (the log expires after 30 days).</p>';
+    } else {
+      html += '<div class="pipe-log">';
+      for (const line of log) {
+        const str = typeof line === 'string' ? line : JSON.stringify(line);
+        const i = str.indexOf(' ');
+        const iso = i > 0 ? str.slice(0, i) : '';
+        const d = new Date(iso);
+        const valid = iso && !isNaN(d);
+        const ev = describeEvent(valid ? str.slice(i + 1) : str);
+        html += '<div class="pipe-row' + (ev.cls ? ' pipe-row-' + ev.cls : '') + '"><span class="pipe-time" title="' + esc(valid ? d.toLocaleString() : '') + '">' + (valid ? d.toLocaleTimeString() : '-') + '</span><span class="pipe-msg">' + esc(ev.text) + '</span></div>';
+      }
+      html += '</div>';
+    }
+    html += '</div>';
+    el.innerHTML = html;
   }
 
   function formatReviewColumn(s) {

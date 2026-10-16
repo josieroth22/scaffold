@@ -54,6 +54,8 @@ module.exports = async function handler(req, res) {
             review_status: reviewStatus,
             review_count: parseInt(data.review_count) || 0,
             reviewed_at: data.reviewed_at || null,
+            pipeline: data.pipeline || null,
+            pipeline_step: data.pipeline_step || null,
           });
         }
       }
