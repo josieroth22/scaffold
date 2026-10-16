@@ -47,9 +47,12 @@ module.exports = async function handler(req, res) {
       pipeline: data.pipeline || null,
       pipeline_step: data.pipeline_step || null,
       pipeline_updated: data.pipeline_updated || null,
+      pipeline_last_trigger: data.pipeline_last_trigger || null,
+      pipeline_error: data.pipeline_error || null,
     };
     if (req.query.light) {
-      return res.status(200).json({ id: data.id, status: data.status, ...pipelineFields });
+      const lastSweep = data.pipeline ? await redis.get("pipeline:last_sweep") : null;
+      return res.status(200).json({ id: data.id, status: data.status, ...pipelineFields, pipeline_last_sweep: lastSweep });
     }
 
     return res.status(200).json({

@@ -15,7 +15,7 @@ module.exports = async function handler(req, res) {
     return res.status(401).json({ error: "Unauthorized" });
   }
 
-  const base = pipeline.baseUrl(req);
+  const base = pipeline.baseUrl();
 
   if (req.method === "GET") {
     try {

@@ -46,13 +46,13 @@ function initialFields() {
 
 // ---- Triggering -----------------------------------------------------------
 
-function baseUrl(req) {
-  const host = req && req.headers && (req.headers["x-forwarded-host"] || req.headers.host);
-  if (host) {
-    const proto = (req.headers["x-forwarded-proto"] || "https").split(",")[0];
-    return `${proto}://${host}`;
-  }
-  return "https://scaffoldcollegestrategy.com";
+// Always call back on the production domain. Deriving it from the incoming
+// request broke the chain: cron invocations arrive on the deployment-specific
+// URL, which sits behind Vercel's deployment protection, so callbacks there
+// bounce with a 401 before reaching our code.
+function baseUrl() {
+  const prod = process.env.VERCEL_PROJECT_PRODUCTION_URL;
+  return prod ? `https://${prod}` : "https://scaffoldcollegestrategy.com";
 }
 
 function authHeaders() {
@@ -69,15 +69,25 @@ async function trigger(id, base) {
       body: JSON.stringify({ id }),
     });
     if (!r.ok) console.error(`pipeline trigger for ${id} returned ${r.status}`);
+    await noteTrigger(id, `${r.status} ${base}`);
   } catch (e) {
     // The cron sweep picks it up within ~2 minutes
     console.error(`pipeline trigger for ${id} failed:`, e.message);
+    await noteTrigger(id, `error ${e.message} ${base}`);
   }
+}
+
+// Last trigger outcome on the submission itself, so a broken chain is
+// diagnosable from /api/plan?light=1 without digging through Vercel logs
+async function noteTrigger(id, result) {
+  try {
+    await redis.hset(`submission:${id}`, { pipeline_last_trigger: `${new Date().toISOString()} ${result}`.slice(0, 300) });
+  } catch (e) {}
 }
 
 async function start(id, req) {
   await redis.sadd(ACTIVE_SET, id);
-  await trigger(id, baseUrl(req));
+  await trigger(id, baseUrl());
 }
 
 // ---- Running a step handler in-process ------------------------------------
@@ -375,6 +385,7 @@ async function failPlan(id, reason) {
 // has lost its chain.
 async function sweep(base) {
   const ids = (await redis.smembers(ACTIVE_SET)) || [];
+  await redis.set("pipeline:last_sweep", `${new Date().toISOString()} active=${ids.length}`);
   const kicked = [];
   for (const id of ids) {
     if (await redis.exists(lockKey(id))) continue;
