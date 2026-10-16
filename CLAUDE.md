@@ -23,13 +23,24 @@ The mission: close the information gap in college planning. A $310K family in Na
 
 Vanilla HTML/CSS/JS (no framework). Vercel serverless functions (Node.js). Upstash Redis. Anthropic API (Claude Fable 5).
 
+**Vercel gotcha:** the project's Root Directory is `src`, so Vercel reads `src/vercel.json` (crons, maxDuration, headers). A repo-root vercel.json is silently ignored; that's why no cron ran before Oct 15, 2026. Callbacks between functions must target the production domain (`VERCEL_PROJECT_PRODUCTION_URL`), never the request's host: deployment URLs sit behind deployment protection.
+
 ## Architecture
 
+The server conducts the pipeline (since October 15, 2026): intake.html POSTs
+/api/generate with orchestrate:true and then only polls status. /api/advance
+(src/lib/pipeline.js) runs one step per invocation, records the next step in
+the submission hash, and re-triggers itself; a per-minute Vercel cron re-kicks
+any chain that broke. A Redis lock per submission keeps a step from running twice.
+
 ```
-Intake form (intake.html) -- bypass code: Millie2026 (disabled while paused)
+Intake form (intake.html) -- bypass code: Millie2026
     |
     v
-POST /api/generate        -- Tier 1 Strategy Brief via SSE
+POST /api/generate        -- stores submission, hands off to /api/advance
+    |
+    v
+Tier 1 Strategy Brief
     |
     v
 POST /api/review          -- programmatic validator + 15-check quality review
@@ -70,24 +81,25 @@ src/
   plan.html                # Plan renderer (sidebar nav, collapsible sections, sim charts, still-building banner + auto-reload)
   admin.html               # Admin dashboard (submission management, auto-polling)
   api/
-    generate.js            # Tier 1 generation (buildPrompt + SSE streaming + email notification)
+    generate.js            # Submission intake + Tier 1 (buildPrompt, runTier1, new-submission email; orchestrate:true hands off to advance)
+    advance.js             # Pipeline conductor: POST runs the next step (waitUntil), GET is the per-minute cron sweep; CRON_SECRET auth
+    regenerate.js          # Full regen with review feedback injected
     generate-tier2.js      # Tier 2 generation
     review.js              # 15-check quality reviewer
     fix-plan.js            # Targeted find/replace fixer
     simulate.js            # Monte Carlo simulation (10K iterations, JS)
     reconcile-costs.js     # Reconcile narrative costs with sim results
     update-status.js       # Redis status updates + plan-ready email on completion
-    plan.js                # Load plan from Redis for rendering
+    plan.js                # Load plan from Redis for rendering (light=1: status + pipeline step only, for polling)
     submissions.js         # Admin API (summary fields only)
     submission.js          # Single-submission detail API
     notify-signup.js       # Coming-soon interest list (POST signup, GET list w/ admin code)
-    keep-alive.js          # Redis keep-alive via metered SET, not PING (Vercel cron + UptimeRobot; PING is invisible to marketplace activity metering)
+    keep-alive.js          # Redis keep-alive via metered SET, not PING (UptimeRobot, plus a daily Vercel cron that only actually runs since Oct 15, 2026; PING is invisible to marketplace activity metering)
   lib/
     school-data.js         # Loads and formats school data for prompt injection (~23K tokens)
     validate-plan.js       # Programmatic validator (runs in review.js before Claude review)
     config.js              # Model name (single source of truth)
-paused-functions/
-  regenerate.js            # Full regen with review feedback injected (moved out of src/api/ during the pause: Hobby allows max 12 functions; restore on reactivation)
+    pipeline.js            # Server-side step ladder (state machine, lock, retries, sweep); mirrors run-pipeline.js --legacy
 prompts/
   financial-aid-facts.md   # No-merit schools, full-need schools, CSS vs FAFSA, QuestBridge, etc. (injected into every generation prompt)
 data/
@@ -98,8 +110,9 @@ data/
 scripts/
   parse-cds.js             # Parse CDS PDFs/XLSX via Claude API into school JSONs
   test-validate-plan.js    # Validator test fixture (run: node scripts/test-validate-plan.js)
-  run-pipeline.js          # Backend pipeline driver (node scripts/run-pipeline.js <alias|profile.json>)
+  run-pipeline.js          # Test driver (node scripts/run-pipeline.js <alias|profile.json>): submits server-conducted and watches; --legacy conducts from the script
   watch-pipeline.js        # Live pipeline status watcher
+  snapshot-redis.js        # One-command Redis backup via admin APIs (SCAFFOLD_ADMIN_CODE=... node scripts/snapshot-redis.js "note")
   profiles/                # 7 test profiles (brett, sofia, alejandra, priya, jake, imani-washington, jocelyn-roth)
 docs/
   project-plan.md          # Full roadmap, unit economics, architecture
@@ -108,6 +121,7 @@ docs/
   jocelyn-retro-test.md    # Blind test vs Josie's real 2014 outcomes; 5 product lessons
   jocelyn-plan-july7.md    # The full plan that retro-test produced
   jon-message-draft.md     # Intro message for Jon (CRO) re: his daughter testing
+  deep-read-flags-oct2026.md       # Claude's pre-read of the 3 homepage samples: flags for Josie's deep read (Oct 15)
   competitive-landscape-oct2026.md  # Market map, PrepToDone deep dive, where Scaffold wins/is exposed, what to borrow
 ```
 
@@ -164,11 +178,11 @@ Client-side: AbortController on all pipeline fetch calls. Cancel button on intak
 
 ## Current Priority
 
-**⏸ PAUSED as of October 2, 2026.** Vercel downgraded to Hobby; code access disabled (`CODE_ACCESS_ENABLED = false` in intake.html); `vercel.json` maxDuration lowered to 300; `regenerate.js` moved to `paused-functions/` (Hobby's 12-function limit). New plans CANNOT be generated until reactivated. Before any work resumes, follow the **Reactivation Checklist** at the top of the Roadmap in `docs/project-plan.md` (the Default Max Duration = 800 dashboard step is the one that bites). The launch plan below is unchanged in sequence; dates reset on return.
+**ACTIVE again as of October 15, 2026.** Reactivated per the checklist in `docs/project-plan.md` (Vercel Pro, Default Max Duration 800, regenerate.js back in src/api/, code access on); Sofia re-test PASS. Launch Plan chunk 1 in progress: server-side orchestration shipped Oct 15 (see Architecture); Josie's deep reads of the three samples remain.
 
-**Goal (on hold): LAUNCH.** Take Scaffold live and charging, then announce on LinkedIn. ~40 Josie-hours remain, in 8 chunks (table in the `docs/project-plan.md` Launch Plan). Dates get set on return; the sequence is the contract. Revenue expectation: $15-20K year one with the three distribution assets ($99 price test, SEO content batch, plan-footer referral loop); ops go passive once orchestration ships (chunks 1-2). Jon's family's code access is disabled during the pause; re-enable it and tell Jon on return (reactivation step 9), then snapshot Redis after their run.
+**Goal: LAUNCH.** Take Scaffold live and charging, then announce on LinkedIn. ~40 Josie-hours remain, in 8 chunks (table in the `docs/project-plan.md` Launch Plan). Dates get set on return; the sequence is the contract. Revenue expectation: $15-20K year one with the three distribution assets ($99 price test, SEO content batch, plan-footer referral loop); ops go passive once orchestration ships (chunks 1-2). Code access is back on: tell Jon his family can test again (reactivation step 9), then snapshot Redis after their run.
 
-**First chunk on return:** server-side orchestration (Claude builds) + Josie's deep reads of the three sample plans.
+**Chunk 1 status:** orchestration built + deployed Oct 15; remaining: Josie's deep reads of the three sample plans, a real-browser intake run (incl. a phone), then chunk 2 (hardening, automated Redis backup, prompt caching).
 
 Done (June-July 2026): Fable 5 migration + re-baseline (4 profiles PASS), programmatic validator (validate-plan.js, integrated as a review.js pre-pass), prompt consolidation + Fable re-tune, three live homepage samples, tab-close resume, coming-soon email gate, UptimeRobot monitoring, plan-ready email via Resend (branded July 4), browser end-to-end test (July 5: Imani Washington run via the real form proved tab-close survival + resume + both emails, and flushed out 4 real bugs, all fixed — see Test Results), still-building banner + auto-reload on plan.html, regen fast-path, honest completion status (completed_with_issues + alert email). August 2026: production Redis ("scaffold-temp") upgraded to Pay As You Go after an archival scare; keep-alive switched from PING to a metered SET.
 
@@ -185,7 +199,7 @@ At the end of any session with meaningful changes (code, decisions, test results
 2. Sync this file's Current Priority + Test Results if the state of the world changed.
 3. Check off / annotate `docs/project-plan.md` items the session completed; add new items where they belong (with dates and reasons).
 4. Scan all three for contradictions and stale claims — the three layers (session log = what happened, CLAUDE.md = current state, project-plan = roadmap) must tell the same story.
-5. If the session touched Redis (new submission, test run, status change): snapshot all submissions + interest list via the admin APIs to `data/backups/redis-latest.json` (overwrite; git history keeps every version) and commit it with the docs. Redis holds the only live copy of every plan until automated backup ships (task #14). Also snapshot immediately after any real customer/external-tester plan completes.
+5. If the session touched Redis (new submission, test run, status change): snapshot all submissions + interest list via the admin APIs (`scripts/snapshot-redis.js`) to `data/backups/redis-latest.json` (overwrite; git history keeps every version) and commit it with the docs. Redis holds the only live copy of every plan until automated backup ships (task #14). Also snapshot immediately after any real customer/external-tester plan completes.
 
 Per session, not per day: docs go stale when work happens, not when time passes. Commit doc updates with the work or immediately after it.
 
@@ -200,6 +214,12 @@ Per session, not per day: docs go stale when work happens, not when time passes.
 **Browser end-to-end test (July 5, 2026):**
 - **Imani Washington** (Atlanta GA, $72K, 12th grade rising senior, nursing): PASS in ~22 min via the real intake form, one T1 fix cycle. Proved: server keeps writing after tab close, resume drives the back half, new-submission + plan-ready emails, reply-to. Content passed all three designed traps: Zell Miller "already qualifies" with the GSFC core-GPA verification nuance; "UGA does not offer a BSN" stated plainly + no-direct-admit-in-Georgia honesty; Emory "the aid math works" ($11,687 verified net vs $15K ceiling). Also covered the never-run Georgia HOPE/Zell state-aid path. Plan: plan.html?id=mr7vk33b5cr6px
 - Bugs the test caught (all fixed July 5): resume crash (apiCall scoped inside submitForm — every resume ever died at 48%), still-building banner hidden behind the fixed topbar, and `const location` (city/state string) shadowing window.location so location.reload() silently failed inside the poll's catch. Lesson: render-layer bugs need real-browser eyes; stored-data checks can all pass while the page misbehaves.
+
+**Reactivation + server-orchestration tests (October 15, 2026):**
+- **Sofia** (legacy conductor, reactivation proof): PASS in 16 min. Plan: plan.html?id=mva622lu610f27940f04
+- **Jake** (first server-conducted run): pipeline ran end to end with no client, including a real stall rescued by the cron sweep; shipped completed_with_issues because the reviewer caught the school-year framing bug (11th grader planned as a senior; fixed same day in src/lib/school-calendar.js). Plan: plan.html?id=mva6mwhg3d4d28b1d2a9. Lesson: date-dependent prompt logic must be tested at more than one time of year; July test runs could not have caught it.
+- **Jake re-run** (after the date fix): PASS in 19.4 min, zero T1 fixes, correctly framed as a junior. Plan: plan.html?id=mva8cwpb4b3c5c7e3ffb
+- **Priya** (after the Vercel 508 loop-protection fix): PASS in 17.6 min, 2 invocations / 1 hand-off, no stalls. Plan: plan.html?id=mva94j513b57f3ff8ce6
 
 **Retro-test (July 7-8, 2026):** Josie's own 2014 application profile ("Jocelyn Roth") run through the production prompt as a blind test with a 20-year answer key. The plan reproduced her actual strategy and named the Cornelius Vanderbilt Scholarship she won. Writeup + 5 product lessons in `docs/jocelyn-retro-test.md`; full plan in `docs/jocelyn-plan-july7.md`.
 
