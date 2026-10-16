@@ -41,6 +41,8 @@ const KNOWN_PRIVATE_SCHOOLS = [
 ];
 
 const MONEY_TOLERANCE = 3000;
+// Need-aid midpoint above which a "no need aid" plan contradicts its own JSON.
+const FULL_PAY_NEED_AID_TOLERANCE = 5000;
 
 // ---------------------------------------------------------------------------
 // JSON params block helpers
@@ -133,12 +135,52 @@ function isPrivateSchool(name) {
 // Check: REA/SCEA constraint
 // ---------------------------------------------------------------------------
 
-function checkReaScea(params, flags) {
+// Harvard and Stanford allow a non-binding early application to another
+// private school when applying early is required for that school's merit
+// scholarship or special-program consideration (Stanford's example is USC).
+// Binding ED elsewhere is still barred. Checked Oct 15, 2026:
+//   https://college.harvard.edu/resources/faq/if-i-apply-restrictive-early-action-harvard-may-i-apply-another-colleges-early
+//   https://admission.stanford.edu/apply/first-year/decision_process.html
+// Other REA/SCEA schools (Yale, Princeton, Notre Dame, Georgetown) were not
+// verified for this exception, so it applies to these two only.
+const REA_MERIT_EXCEPTION_SCHOOLS = ["harvard", "stanford"];
+
+function allowsMeritEarlyException(reaSchoolName) {
+  const n = String(reaSchoolName || "").toLowerCase();
+  return REA_MERIT_EXCEPTION_SCHOOLS.some((s) => n.includes(s));
+}
+
+// Does the narrative justify this school's early round with merit or
+// special-program consideration? Looks for one line that names the school
+// and mentions both merit/scholarship/special program and early/deadline.
+function narrativeCitesMeritDeadline(output, schoolName) {
+  const narrative = output.replace(PARAMS_BLOCK_RE, "");
+  const variants = nameVariants(schoolName);
+  // Plans usually write "USC", not "University of Southern California".
+  const acronym = schoolName
+    .split(/\s+/)
+    .filter((w) => !/^(of|the|and|at|in)$/i.test(w))
+    .map((w) => w[0])
+    .join("")
+    .toLowerCase();
+  if (acronym.length >= 3) variants.push(acronym);
+  return narrative.split("\n").some((line) => {
+    const lc = line.toLowerCase();
+    return (
+      lineMatchesName(lc, variants) &&
+      /\b(merit|scholarships?|special (academic )?program)\b/.test(lc) &&
+      /\b(early|deadline|ea)\b/.test(lc)
+    );
+  });
+}
+
+function checkReaScea(output, params, flags) {
   const schools = params.schools || [];
   const reaSchool = schools.find((s) =>
     /\b(REA|SCEA)\b/i.test(String(s.round || ""))
   );
   if (!reaSchool) return;
+  const meritException = allowsMeritEarlyException(reaSchool.name);
 
   for (const s of schools) {
     if (s === reaSchool) continue;
@@ -148,6 +190,25 @@ function checkReaScea(params, flags) {
       round === "EA" || round === "ED" || round === "ED1" || round === "ED I";
     if (!isEarlyRound) continue;
     const isPrivate = isPrivateSchool(s.name);
+    // Merit-deadline exception: non-binding EA only, Harvard/Stanford only.
+    if (isPrivate !== false && meritException && round === "EA") {
+      if (narrativeCitesMeritDeadline(output, s.name)) {
+        flags.push({
+          check: "rea_scea_constraint",
+          school: s.name,
+          severity: "review",
+          detail: `${reaSchool.name} is ${reaSchool.round} and ${s.name} is EA. ${reaSchool.name}'s policy allows this only if applying early is required for ${s.name}'s merit scholarship or special-program consideration. The plan cites a merit/scholarship reason; confirm it is true for ${s.name} (e.g., USC requires Early Action for most merit awards). If not, ${s.name} must move to RD.`,
+        });
+      } else {
+        flags.push({
+          check: "rea_scea_constraint",
+          school: s.name,
+          severity: "fix",
+          detail: `${reaSchool.name} is ${reaSchool.round}, so ${s.name} (private) cannot be EA unless applying early is required for its merit scholarship or special-program consideration, and the plan does not say that. Either change ${s.name} to RD (or ED2) in the JSON round field, the executive summary table, the per-school writeup, and anywhere else its application round appears, or, if ${s.name}'s merit consideration truly requires the early deadline, state that in its writeup and the † footnote.`,
+        });
+      }
+      continue;
+    }
     if (isPrivate === true) {
       flags.push({
         check: "rea_scea_constraint",
@@ -205,6 +266,8 @@ function checkTierConsistency(output, params, flags) {
     for (const line of candidateLines) {
       const lineLC = line.toLowerCase();
       if (!lineMatchesName(lineLC, variants)) continue;
+      // "Safety (admission only)" is the required form of Safety for a Very
+      // High financial-risk school; it matches "safety" here on purpose.
       const tierMatch = lineLC.match(/\b(reach|target|safety)\b/);
       if (tierMatch && !seen.has(tierMatch[1])) {
         seen.set(tierMatch[1], line.trim().slice(0, 160));
@@ -226,6 +289,76 @@ function checkTierConsistency(output, params, flags) {
         detail: `Tier mismatch for ${school.name}: JSON params say "${school.tier}" but the document tables show ${evidence}. Pick the correct tier and make it identical everywhere.`,
       });
     }
+  }
+}
+
+// ---------------------------------------------------------------------------
+// Check: Safety label on an unaffordable school
+// ---------------------------------------------------------------------------
+
+// A parent reads "Safety" as "the fallback we can count on". A Safety rated
+// Very High financial risk must carry the "(admission only)" qualifier.
+function checkSafetyLabel(output, flags) {
+  const narrative = output.replace(PARAMS_BLOCK_RE, "");
+  for (const line of narrative.split("\n")) {
+    if (!line.trim().startsWith("|")) continue;
+    if (!/\bvery high\b/i.test(line)) continue;
+    if (!/\bsafety\b(?!\s*\(admission only\))/i.test(line)) continue;
+    flags.push({
+      check: "cost_consistency",
+      severity: "fix",
+      detail: `A Safety-tier school is rated Very High financial risk but labeled a bare "Safety" in: ${line.trim().slice(0, 160)}. Change its tier label to "Safety (admission only)" in this table and everywhere else its tier label appears (the JSON tier stays "safety").`,
+    });
+  }
+}
+
+// ---------------------------------------------------------------------------
+// Check: full-pay plan with need aid in the JSON
+// ---------------------------------------------------------------------------
+
+// Phrases where the plan tells the family they get no/near-zero need aid.
+const NO_NEED_AID_RE = new RegExp(
+  [
+    "\\b(essentially|virtually|basically|effectively|practically|nearly|near|close to)[- ](zero|no|nothing)( in)? need(?:[- ]based)? (aid|grants?)",
+    "\\b(zero|negligible) need(?:[- ]based)? (aid|grants?)",
+    "\\b(little|minimal) (to|or) no need(?:[- ]based)? (aid|grants?)",
+    "\\b(won['’]t|will not|don['’]t|do not|wouldn['’]t|would not) (qualify|be eligible) for (any |much |meaningful )?need(?:[- ]based)? (aid|grants?)",
+    "\\bneed(?:[- ]based)? (aid|grants?) (is|will be|would be) (essentially |effectively |virtually )?(zero|nil|negligible|nothing)",
+  ].join("|"),
+  "i"
+);
+
+// A claim scoped to some schools ("at most schools", "except MIT") is not a
+// blanket no-need-aid conclusion; the full-need exceptions are the point.
+const SCOPED_CLAIM_RE = /^[^.\n]{0,40}\b(at most|most schools|many schools|except|outside of|other than)\b/i;
+
+function findNoNeedAidClaim(narrative) {
+  const re = new RegExp(NO_NEED_AID_RE.source, "gi");
+  let m;
+  while ((m = re.exec(narrative))) {
+    const after = narrative.slice(m.index + m[0].length);
+    if (!SCOPED_CLAIM_RE.test(after)) return m[0];
+  }
+  return null;
+}
+
+function checkFullPayNeedAid(output, params, flags) {
+  const narrative = output.replace(PARAMS_BLOCK_RE, "");
+  const claim = findNoNeedAidClaim(narrative);
+  if (!claim) return;
+  for (const s of params.schools || []) {
+    if (!s.name || s.need_aid_low == null || s.need_aid_high == null) continue;
+    const needMid = (s.need_aid_low + s.need_aid_high) / 2;
+    if (needMid <= FULL_PAY_NEED_AID_TOLERANCE) continue;
+    // Publics give a family this far above the top bracket no need aid; a
+    // full-need private might, if the plan says so for that school.
+    const isPrivate = isPrivateSchool(s.name);
+    flags.push({
+      check: "cost_consistency",
+      school: s.name,
+      severity: isPrivate === false ? "fix" : "review",
+      detail: `The plan tells the family "${claim}", but the JSON gives ${s.name} need_aid $${s.need_aid_low}-$${s.need_aid_high}. If the claim is right, price ${s.name} at sticker ($${s.sticker_cost}) minus likely merit, set need_aid_low/need_aid_high to ~0, and update its net cost everywhere it appears. If ${s.name} really would give this family need-based aid, the blanket claim is wrong: say which schools still give need aid instead.`,
+    });
   }
 }
 
@@ -466,9 +599,11 @@ function validatePlan(output, formData) {
   }
 
   // Flag-only checks
-  checkReaScea(params, flags);
+  checkReaScea(output, params, flags);
   checkTierConsistency(output, params, flags);
   checkNetCostConsistency(output, params, flags);
+  checkFullPayNeedAid(output, params, flags);
+  checkSafetyLabel(output, flags);
   checkParamSanity(params, flags);
 
   return { fixedOutput, autoFixes, flags };

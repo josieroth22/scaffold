@@ -1,7 +1,7 @@
 # State-Specific College Financial Aid Programs
 ## Reference Document for Scaffold
 
-*Last updated: February 2026*
+*Last updated: October 2026 (Wisconsin WAES + Bucky's Tuition Promise, Ohio OCOG wording + College Credit Plus); February 2026 otherwise*
 *Sources: Official state agency websites, verified via web search*
 
 ---
@@ -61,7 +61,7 @@ Find any state's programs quickly:
 | New York | 3 | Excelsior Scholarship |
 | North Carolina | 3 | Next NC, NC Promise |
 | North Dakota | 3 | ND Scholarship |
-| Ohio | 3 | OCOG, Buckeye Bridge |
+| Ohio | 3 | OCOG, Buckeye Bridge, College Credit Plus |
 | Oklahoma | 3 | Oklahoma's Promise |
 | Oregon | 3, 4 | Opportunity Grant, Oregon Promise |
 | Pennsylvania | 3 | PA State Grant, Grow PA |
@@ -75,7 +75,7 @@ Find any state's programs quickly:
 | Virginia | 3, 4 | VTAG, VGAP, Commonwealth Award; G3 |
 | Washington | 3 | Washington College Grant |
 | West Virginia | 1 | PROMISE (merit) |
-| Wisconsin | 3 | Wisconsin Grant |
+| Wisconsin | 3 | Wisconsin Grant, Academic Excellence Scholarship, Bucky's Tuition Promise |
 | Wyoming | 1 | Hathaway Scholarship (merit) |
 
 ---
@@ -927,14 +927,14 @@ Most of these are "last-dollar" scholarships: federal and state aid are applied 
 
 ---
 
-### OHIO -- Ohio College Opportunity Grant (OCOG), Buckeye Bridge Initiative
+### OHIO -- Ohio College Opportunity Grant (OCOG), Buckeye Bridge Initiative, College Credit Plus
 
 **Ohio College Opportunity Grant (OCOG)**
-- Requirements: Ohio resident, SAI of 3,750 or less, household income $96,000 or less, enrolled in associate or bachelor's program at eligible Ohio institution (public or private nonprofit). Must complete FAFSA by October 1 (unusually early deadline).
+- Requirements: Ohio resident, SAI of 3,750 or less, household income $96,000 or less, enrolled in associate or bachelor's program at eligible Ohio institution (public or private nonprofit). FAFSA must be received by October 1 of the award year (a 2026-27 award needs the 2026-27 FAFSA in by Oct 1, 2026). File as early as the FAFSA opens anyway.
 - Covers: Up to $5,000/year ($2,500/semester) for full-time enrollment in 2025-26.
-- Renewal: FAFSA by October 1 each year, maintain SAI/income thresholds, satisfactory academic progress.
+- Renewal: FAFSA received by October 1 of each award year, maintain SAI/income thresholds, satisfactory academic progress.
 - Duration: 10 semesters or 15 quarters (5 years).
-- Key details: The October 1 FAFSA deadline is critical — missing it forfeits OCOG for the entire year. Available at both public and private nonprofit Ohio institutions.
+- Key details: The October 1 deadline falls in the award year itself (about a year after the FAFSA opens), so it is forgiving, not early. Missing it still forfeits OCOG for the entire year. Available at both public and private nonprofit Ohio institutions.
 
 **Buckeye Bridge Initiative (Ohio State + Columbus State)**
 - Requirements: Graduate from Columbus State Community College with an associate degree. Family AGI $100,000 or less. Must file FAFSA by February 1. Must transfer to Ohio State within 3 semesters of graduating Columbus State.
@@ -942,7 +942,12 @@ Most of these are "last-dollar" scholarships: federal and state aid are applied 
 - Duration: Up to 8 semesters at Ohio State.
 - Key details: Launches Spring 2026. Partnership between two specific institutions only, not statewide. The $100,000 threshold is generous.
 
-**Scaffold note:** For Ohio families, the plan MUST emphasize the October 1 FAFSA deadline for OCOG — one of the earliest in the country. For Columbus-area families under $100K, Buckeye Bridge (Columbus State to Ohio State, tuition-free) should be highlighted as a potentially transformative option. Note it's brand new (2026) and the 3-semester transfer window is tight.
+**College Credit Plus (dual enrollment)**
+- Requirements: Ohio students in grades 7-12 who are admitted to a participating college. Students file a Letter of Intent with their school in the spring window before the year they participate (Feb 1-Apr 1 in 2024-25; confirm current dates).
+- Covers: At public Ohio colleges, tuition, books, and fees are free for public-school students. Private colleges and homeschool students may carry limited costs.
+- Key details: Earns high school and college credit at the same time; credits transfer to Ohio public colleges and universities. Source: education.ohio.gov College Credit Plus.
+
+**Scaffold note:** For Ohio families, the plan MUST name the OCOG deadline: the FAFSA must be received by October 1 of the award year. That is a forgiving deadline, not an early one, so do not call it one of the earliest in the country; still tell the family to file as soon as the FAFSA opens. For Columbus-area families under $100K, Buckeye Bridge (Columbus State to Ohio State, tuition-free) should be highlighted as a potentially transformative option. Note it's brand new (2026) and the 3-semester transfer window is tight. For Ohio students still in high school, name College Credit Plus: free college credit at public Ohio colleges that transfers to Ohio publics, a standard move for cost-first families and for students who need to show more rigor.
 
 ---
 
@@ -965,16 +970,28 @@ Most of these are "last-dollar" scholarships: federal and state aid are applied 
 
 ---
 
-### WISCONSIN -- Wisconsin Grant
+### WISCONSIN -- Wisconsin Grant, Academic Excellence Scholarship, Bucky's Tuition Promise
 
 **Wisconsin Grant**
 - Requirements: Wisconsin resident, undergraduate, must complete FAFSA, demonstrate financial need. Four sub-programs: WG-UW (UW System), WG-WTC (Technical Colleges), WG-TR (Tribal), WG-PNP (Private Nonprofits).
 - Covers: $875 to $3,500/year for full-time enrollment in 2025-26. Prorated for part-time: 9-11 credits = 75%, 6-8 credits = 50%, 1-5 credits = 25%. WG-PNP: approximately $250 to $3,150.
 - Renewal: Annual FAFSA, continued financial need, satisfactory academic progress.
 - Duration: Maximum 10 semesters across all four sub-programs.
-- Key details: Four separate programs unified under one name, each with its own funding pool and award formulas set annually by HEAB. Wisconsin has no statewide merit scholarship program.
+- Key details: Four separate programs unified under one name, each with its own funding pool and award formulas set annually by HEAB. Wisconsin has only one small statewide merit award, the Academic Excellence Scholarship (below).
 
-**Scaffold note:** For Wisconsin families, note the Wisconsin Grant as a need-based supplement to Pell ($875-$3,500). Flag that Wisconsin offers no statewide merit scholarship, so institutional merit awards from individual campuses (UW-Madison, Marquette, etc.) are where the larger scholarship dollars come from. The 10-semester cap means students who take longer than 5 years lose state grant eligibility.
+**Wisconsin Academic Excellence Scholarship (WAES, HEAB)**
+- Requirements: The high school designates its top-GPA senior(s); the number of awards per school scales with enrollment (Act 80: a school with 1-499 students gets one). Nominations run Feb-Mar of senior year (Feb 18-Mar 13 for 2026 graduates). Must enroll full-time by Sept 30 after designation at a UW campus, Wisconsin technical college, independent (private nonprofit) Wisconsin college, or tribal college.
+- Covers: $2,250/year toward tuition (the state funds half, the college the other half).
+- Duration: Up to 8 semesters.
+- Key details: One small award per school, so a student benefits only if they are #1 (or near it, at large schools) in GPA. Source: heab.state.wi.us/features/aes.html.
+
+**Bucky's Tuition Promise (UW-Madison)**
+- Requirements: Wisconsin resident admitted to UW-Madison, family AGI of $65,000 or less (eligibility is by AGI, not SAI). From 2026-27, every eligible student must submit the CSS Profile for their incoming year in addition to the FAFSA.
+- Covers: Tuition and segregated fees.
+- Duration: 8 consecutive semesters for first-years, 4 for transfers.
+- Key details: Launched in 2018 at $56,000; the limit is now $65,000. Source: financialaid.wisc.edu/types-of-aid/tuition-promise.
+
+**Scaffold note:** For Wisconsin families, note the Wisconsin Grant as a need-based supplement to Pell ($875-$3,500). Wisconsin has only one small statewide merit award, WAES ($2,250/year for the top-GPA senior(s) at each high school); name it, but it is not something a family can plan around beyond being #1 in the class. Institutional merit awards from individual campuses (UW-Madison, Marquette, etc.) are where the larger scholarship dollars come from. For a family at or under $65,000 AGI with a student who could be admitted to UW-Madison, name Bucky's Tuition Promise outright with the $65,000 threshold and the CSS Profile requirement. The 10-semester cap means students who take longer than 5 years lose state grant eligibility.
 
 ---
 
@@ -986,7 +1003,7 @@ These rules apply across all plans, regardless of the family's state.
 
 2. **Frame merit thresholds as concrete goals.** "Protect the 3.7 GPA" (Georgia). "Get to 1200 SAT" (Georgia). "Hit ACT 27 for TOPS Honors" (Louisiana). These are actionable targets that belong in the developmental roadmap.
 
-3. **Flag early-action deadlines explicitly.** Indiana 21st Century Scholars (must enroll by 8th grade), Oklahoma's Promise (apply by 8th-12th grade, earlier is better), and FAFSA deadlines that vary by state (Ohio: October 1, Illinois MAP: as early as possible, Iowa Future Ready: December 31). If the student is young enough to act on these, they belong in the "do this now" section of the plan.
+3. **Flag early-action deadlines explicitly.** Indiana 21st Century Scholars (must enroll by 8th grade), Oklahoma's Promise (apply by 8th-12th grade, earlier is better), and FAFSA deadlines that vary by state (Illinois MAP: as early as possible, Iowa Future Ready: December 31; Ohio's OCOG deadline is October 1 of the award year, which is late, not early, but file on opening day anyway). If the student is young enough to act on these, they belong in the "do this now" section of the plan.
 
 4. **Model state aid as a layer, not a standalone number.** Show families the full stack: Pell + state grant + institutional merit + federal loans = net cost. Never present a state program in isolation. A $4,500 Tennessee HOPE on top of a $7,395 Pell on top of a $10,000 institutional merit award tells a very different story than HOPE alone.
 
