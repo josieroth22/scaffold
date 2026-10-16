@@ -121,7 +121,8 @@ docs/
   jocelyn-retro-test.md    # Blind test vs Josie's real 2014 outcomes; 5 product lessons
   jocelyn-plan-july7.md    # The full plan that retro-test produced
   jon-message-draft.md     # Intro message for Jon (CRO) re: his daughter testing
-  deep-read-flags-oct2026.md       # Claude's pre-read of the 3 homepage samples: flags for Josie's deep read (Oct 15)
+  deep-read-flags-oct2026.md       # Claude's pre-read of the 3 homepage samples: flags for Josie's deep read (Oct 15) + sourced evidence and draft answers
+  beta-materials-draft.md          # Beta round drafts: privacy note, surveys, outcomes consent, invite email (Josie to edit; 10 open decisions)
   competitive-landscape-oct2026.md  # Market map, PrepToDone deep dive, where Scaffold wins/is exposed, what to borrow
 ```
 
