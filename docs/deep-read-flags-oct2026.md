@@ -10,6 +10,11 @@ hurt by, stale specifics, tone, and what a paid counselor would add.
 list shares the generator's blind spots. Josie's read is the independent check;
 treat these as starting points, not a substitute.
 
+**Questions for Josie to check before the next session** (added Oct 15; answers decide the chunk 3 fixes):
+1. **Wisconsin merit scholarship:** does the Wisconsin Academic Excellence Scholarship (HEAB) currently exist? Our state-aid data says Wisconsin has no statewide merit program.
+2. **Harvard/Stanford restrictive early action:** do their current policies allow an early application elsewhere when that school's early deadline is required for merit scholarship consideration (e.g., USC Dec 1)? If yes, our REA/SCEA prompt rule is too strict.
+3. **Full-pay family pricing:** should public safeties for high-income, no-need families be priced at sticker minus likely merit instead of the income-bracket average net price?
+
 Legend: **[verify]** = Claude suspects a fact but couldn't confirm it from repo
 data; **[judgment]** = Josie's call; **[gap]** = something a counselor would add.
 
