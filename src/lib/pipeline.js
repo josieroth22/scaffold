@@ -83,6 +83,18 @@ async function noteTrigger(id, result) {
   try {
     await redis.hset(`submission:${id}`, { pipeline_last_trigger: `${new Date().toISOString()} ${result}`.slice(0, 300) });
   } catch (e) {}
+  await logEvent(id, `trigger ${result}`);
+}
+
+// Capped per-plan event log (newest first): every hand-off and every tick's
+// outcome, for diagnosing dropped chains. Read via /api/submission (admin).
+async function logEvent(id, msg) {
+  try {
+    const key = `pipeline_log:${id}`;
+    await redis.lpush(key, `${new Date().toISOString()} ${msg}`.slice(0, 300));
+    await redis.ltrim(key, 0, 99);
+    await redis.expire(key, 60 * 60 * 24 * 30);
+  } catch (e) {}
 }
 
 async function start(id, req) {
@@ -287,9 +299,17 @@ const ON_GIVE_UP = {
 // ---- One conductor tick ----------------------------------------------------
 
 async function advance(id, base) {
-  const token = crypto.randomBytes(8).toString("hex");
+  const result = await advanceInner(id, base);
+  await logEvent(id, `tick ${JSON.stringify(result)}`);
+  return result;
+}
+
+async function advanceInner(id, base) {
+  // "t" prefix keeps the token a string: Upstash JSON-parses stored values,
+  // so an all-digit hex token would come back as a number and never match
+  const token = "t" + crypto.randomBytes(8).toString("hex");
   const got = await redis.set(lockKey(id), token, { nx: true, ex: LOCK_TTL_S });
-  if (!got) return { skipped: "locked" };
+  if (!got) return { skipped: "locked", lock_ttl: await redis.ttl(lockKey(id)).catch(() => null) };
 
   let chain = false;
   try {

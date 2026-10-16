@@ -53,7 +53,12 @@ module.exports = async function handler(req, res) {
         }
       }
 
+      const pipelineLog = data.pipeline ? await redis.lrange(`pipeline_log:${id}`, 0, 99) : [];
       return res.status(200).json({
+        pipeline: data.pipeline || null,
+        pipeline_step: data.pipeline_step || null,
+        pipeline_error: data.pipeline_error || null,
+        pipeline_log: pipelineLog,
         id: data.id,
         student_name: data.student_name,
         email: data.email,
