@@ -74,37 +74,39 @@ Josie stepped away and downgraded Vercel to Hobby (free) to save $20/mo. While p
 8. Run one full test plan (`node scripts/run-pipeline.js sofia`) to prove max duration, API key, Resend, and Redis end to end.
 9. Re-read data/TODO-session-status.md, snapshot Redis, resume the Launch Plan at chunk 1 (~40 Josie-hours to LinkedIn as of Sep 2026). Let Jon know his code works again if he still wants to test.
 
-**Current focus: LAUNCH (active again since Oct 15, 2026; chunk 1 in progress).** Decided August 13, 2026: take Scaffold live and charging, then announce it on LinkedIn, at ~6 hrs/weekend. No launch work happened before the October pause, so the full plan below is still ahead. Dates get set on return; the sequence is the contract.
+**Current focus: LAUNCH (active again since Oct 15, 2026; chunk 1 code done; next session: chunk 3 beta prep, starting with verifying the deep-read flags).** Decided August 13, 2026: take Scaffold live and charging, then announce it on LinkedIn, at ~6 hrs/weekend. No launch work happened before the October pause, so the full plan below is still ahead. Dates get set on return; the sequence is the contract.
 
-### Launch Plan (~40 Josie-hours to the LinkedIn post)
+### Launch Plan (~43 Josie-hours to the LinkedIn post; beta-first since Oct 15, 2026)
 
-Everything code-shaped is Claude's work; Josie's hours are decisions, accounts, quality judgment, and testing. Money becomes possible at the end of chunk 6 (~33 hours in).
+Everything code-shaped is Claude's work; Josie's hours are decisions, accounts, quality judgment, and testing. Money becomes possible at the end of chunk 7 (~36 hours in).
+
+**Resequenced Oct 15, 2026 (Sam's suggestion, adopted by Josie):** a free **beta round with real families comes before Stripe and legal.** The Oct 15 deep-read pre-pass and the school-year date bug showed that test profiles can't surface everything; real families will, and it's better they find it free. The beta also sets the price with evidence before Stripe hard-codes one, and starts the outcomes data the case study and hero stats need. The DC LLC is filed in the background during beta prep (~$99, not feedback-dependent); Stripe, Stripe Tax, and the polished ToS/refund policy wait. The old "diverse profile batch" chunk is mostly replaced by real beta families; synthetic profiles only fill gaps the beta doesn't cover.
 
 | # | Josie hrs | Milestone |
 |---|-----------|-----------|
-| 1 | ~6 | Server-side orchestration (**built + deployed Oct 15**: self-chaining + per-minute cron sweep, chosen over QStash) + Josie's deep reads of Sofia/Priya/Jake (facts pre-cleared in docs/sample-plan-audit-july5.md; **Claude's pre-read flags in docs/deep-read-flags-oct2026.md**, Sofia + Priya done). Highest-leverage chunk: it's what makes charging money safe. |
-| 2 | ~4 | Orchestration hardening + automated Redis backup + prompt caching |
-| 3 | ~6 | Stripe test mode + gate un-do prep + legal drafts (ToS/privacy/refund via Termly + product language) + LLC/EIN filed. The most irreducibly-Josie chunk. |
-| 4 | ~5 | Diverse profile batch (10-15 profiles through the full pipeline) |
-| 5 | ~6 | Fix batch findings + real mobile pass (removes the intake "computer is comfortable" note if it passes) |
-| 6 | ~6 | **GO LIVE:** Stripe live keys + Stripe Tax, support@/plans@ via ImprovMX, support playbook, price set (see $99 test below), soft launch to the notify_emails list + friends. **First revenue possible.** |
-| 7 | ~4 | Digest soft-launch results + polish + publish the SEO content batch |
-| 8 | ~2 | **LinkedIn public launch post** |
+| 1 | ~6 | Server-side orchestration (**DONE Oct 15**: self-chaining + per-minute cron sweep, ~2 invocations per plan, proven by the Priya run) + Josie's deep reads of Sofia/Priya/Jake (facts pre-cleared in docs/sample-plan-audit-july5.md; **Claude's pre-read flags for all three in docs/deep-read-flags-oct2026.md**). |
+| 2 | ~4 | Orchestration hardening (real-browser + locked-phone intake run, admin pipeline view, retire legacy conductors) + automated Redis backup + prompt caching |
+| 3 | ~4 | **Beta prep (NEXT SESSION starts here):** verify the deep-read flags together, fix the confirmed systemic ones (full-pay public-school pricing, REA/SCEA rule, Wisconsin merit scholarship data, stale resources, Safety-label-on-unaffordable-school) and re-test; one-paragraph privacy/deletion note on the intake form; 5-question post-plan survey; outcomes-follow-up consent checkbox; pick 5-10 beta families (include current seniors so outcomes land spring 2027) + Jon's family. File the DC LLC in the background. |
+| 4 | ~5 | **Beta round:** families run through the real form via the bypass code (~$7 API each); Josie collects survey answers and talks to 2-3 families directly; digest findings. |
+| 5 | ~6 | Fix beta findings + fill coverage gaps with synthetic profiles where the beta was thin + real mobile pass (removes the intake "computer is comfortable" note if it passes) |
+| 6 | ~5 | Stripe test mode + gate un-do prep + legal drafts (ToS/privacy/refund via Termly + product language) + EIN/bank account (LLC filed in chunk 3). The most irreducibly-Josie chunk. |
+| 7 | ~6 | **GO LIVE:** Stripe live keys + Stripe Tax, support@/plans@ via ImprovMX, support playbook, price set from beta answers (see $99 test below), soft launch to the notify_emails list + friends. **First revenue possible.** |
+| 8 | ~5 | Digest soft-launch results + polish + publish the SEO content batch + Scaffold-vs-ChatGPT case study + hero stats with real n |
+| 9 | ~2 | **LinkedIn public launch post** |
 
-**Proposed resequence (Oct 15, 2026, from Sam via Josie; DECISION PENDING):** run a free **beta round with real families before Stripe/legal** (chunks 3 and 6). Rationale: the Oct 15 deep-read pre-pass and the date bug showed four test profiles can't surface everything; real families will, and it's better they find it free. Claude's tweak: file the DC LLC in the background anyway (~$99, not feedback-dependent); defer Stripe, Stripe Tax, and polished ToS/refund. Shape: 5-10 families from Josie's network + Jon's family via the bypass code (~$7 API each), a one-paragraph privacy/deletion note on the form now, a 5-question post-plan survey (what was wrong / missing / would act on / would pay / how much), and fix the verified systemic issues from docs/deep-read-flags-oct2026.md before the first beta family. If adopted: chunk 1 → chunk 2 → **beta** → chunk 3 → ...
 - [ ] **Outcomes follow-up with gift card (Josie, Oct 15).** Close the loop: a consent checkbox at intake ("OK to email you about outcomes; $X gift card for a 10-minute survey"), a quick satisfaction survey at delivery, and an **outcomes survey in spring of senior year**: where they applied (and round), admits/denials, actual aid offers (net cost per school, the key calibration data), where they enrolled, which advice they used. Include some current seniors in the beta so outcomes arrive spring 2027, not 2028. This is the data foundation for the later-stage public prediction ledger (see docs/competitive-landscape-oct2026.md).
 
 **Distribution assets (the difference between $3-10K and $15-20K year one — built once, compound after):**
 - [ ] **$99 price test at soft launch.** $15-20K/yr needs ~1 sale/day at $50 but only ~1 every other day at $99; parents comparing against $10K counselors don't blink. Watch conversion, keep whichever price nets more.
-- [ ] **SEO content batch (one-time, mostly Claude-generated):** 15-20 evergreen high-intent pages from the verified data ("what [school] actually costs at [income]", "QuestBridge deadlines explained", "Bright Futures vs Zell Miller"). Publish in chunk 7, ideally timed to catch an application-season wave (Aug-Nov or Jan-Mar). Not a content treadmill; a planted asset. **Consider upgrading to a free "what will [school] cost at my income?" lookup** built on the net-price-by-income data Scaffold already has: same SEO value, but it also collects emails and earns trust before anyone pays. Every competitor has a free tier; Scaffold's is only the sample plans. See docs/competitive-landscape-oct2026.md.
+- [ ] **SEO content batch (one-time, mostly Claude-generated):** 15-20 evergreen high-intent pages from the verified data ("what [school] actually costs at [income]", "QuestBridge deadlines explained", "Bright Futures vs Zell Miller"). Publish in chunk 8, ideally timed to catch an application-season wave (Aug-Nov or Jan-Mar). Not a content treadmill; a planted asset. **Consider upgrading to a free "what will [school] cost at my income?" lookup** built on the net-price-by-income data Scaffold already has: same SEO value, but it also collects emails and earns trust before anyone pays. Every competitor has a free tier; Scaffold's is only the sample plans. See docs/competitive-landscape-oct2026.md.
 - [ ] **Referral loop on delivered plans:** tasteful "Built by Scaffold — get yours" footer on plan.html. Plans are shared with co-parents and counselors by design; those shares are currently dead ends. ~1 hour, permanent.
 
-- [ ] **Scaffold vs ChatGPT case study (Josie, Oct 15).** The question every parent will ask is "why not just ask ChatGPT?" Answer it with evidence: run the same family profiles (e.g., Sofia, Priya, Jake, and the Jocelyn retro-test) through a plain chatbot prompt and through Scaffold, then compare side by side on verifiable facts (admit rates, net prices, deadlines, state programs, scholarship names), fabrication count, and whether the advice would have hurt the family. The Jocelyn retro-test (docs/jocelyn-retro-test.md) is the strongest single exhibit: a known 20-year answer key. Publish as a landing-page section + LinkedIn post material (chunk 7/8). Keep it honest: note where the chatbot did fine.
+- [ ] **Scaffold vs ChatGPT case study (Josie, Oct 15).** The question every parent will ask is "why not just ask ChatGPT?" Answer it with evidence: run the same family profiles (e.g., Sofia, Priya, Jake, and the Jocelyn retro-test) through a plain chatbot prompt and through Scaffold, then compare side by side on verifiable facts (admit rates, net prices, deadlines, state programs, scholarship names), fabrication count, and whether the advice would have hurt the family. The Jocelyn retro-test (docs/jocelyn-retro-test.md) is the strongest single exhibit: a known 20-year answer key. Publish as a landing-page section + LinkedIn post material (chunk 8/9). Keep it honest: note where the chatbot did fine.
 - [ ] **Hero stats for the landing page (Josie, Oct 15).** E.g., "% of families who'd recommend Scaffold" (from the beta survey), "% of cost estimates within $X of real aid offers" and admit-odds calibration (from the outcomes survey), plus verifiable product facts available today (1,492 schools, verified CDS/Scorecard data, every state's aid programs). Depends on the beta round and outcomes follow-up above; only publish numbers with a real n behind them, and say what n is.
 
 **Revenue expectations (August 2026 analysis, documented so future decisions have a baseline):** launch-and-forget = $3-10K/yr; launch + the three assets above + minimal upkeep = $15-20K/yr median at ~1 sale/day-equivalent; $100K/yr requires a dedicated distribution year (content/SEO/Reddit at 5-8 hrs/week, and/or a B2B channel deal with a school or counselor group) and is a separate, later decision. Ops are passive after chunks 1-2 (orchestration + alerts + backups); growth never is.
 
-Legal, business setup, and Stripe below are no longer deferred: they ARE chunks 3 and 6.
+Legal, business setup, and Stripe below are no longer deferred: they ARE chunks 6 and 7 (the DC LLC is filed earlier, during chunk 3 beta prep).
 
 ### Phase 0: Fable 5 Migration — DONE (June 2026)
 
@@ -153,7 +155,7 @@ Legal, business setup, and Stripe below are no longer deferred: they ARE chunks 
 - [ ] Run 20+ test submissions covering diverse profiles (see Phase 7 for full edge case list)
 
 #### 4. Legal
-*Required before charging strangers. Scheduled as Launch Plan chunk 3.*
+*Required before charging strangers. Scheduled as Launch Plan chunk 6 (after the beta round).*
 - [ ] Terms of Service (collecting sensitive financial data and info about minors)
 - [ ] Privacy Policy (legally required, especially with financial/education data; COPPA may apply). Must commit to a data deletion process for GDPR/CCPA requests.
 - [ ] Formal disclaimer page. Termly's templates won't cover product-specific risks — add language for:
@@ -175,7 +177,7 @@ Legal, business setup, and Stripe below are no longer deferred: they ARE chunks 
 - [ ] **Sales tax handling:** Enable Stripe Tax (~0.5% fee) to handle registration, calculation, and remittance. Digital products are taxed in ~20 states (WA, TX, PA, etc.). Without this, you're personally liable for uncollected sales tax in states that require it.
 
 #### 6. Launch Infrastructure
-*Everything needed to go from free testing to paid product. Scheduled as Launch Plan chunks 3 and 6.*
+*Everything needed to go from free testing to paid product. Scheduled as Launch Plan chunks 6 and 7.*
 - [ ] Stripe integration ($50 one-time payment before form access)
   - **Un-do the July 2026 coming-soon gate when this ships:** intake.html's access gate currently collects interest emails ("Plans are coming soon" + Notify Me → /api/notify-signup → Redis set `notify_emails`) instead of showing the purchase button. When Stripe is live: restore the purchase flow on the gate, retire or repurpose the notify capture, and **email everyone in `notify_emails`** that plans are available for purchase (that list is warm leads — first revenue).
 - [ ] Connect Stripe to business bank account
