@@ -142,7 +142,9 @@ These are enforced in generate.js self-checks and review.js. Do not change witho
 
 - **Admit rates:** Must use exactly 3 decimal places (45.1% = 0.451, not 0.45)
 - **Risk ratings:** Only "Very Low / Low / Moderate / High / Very High" - no custom labels
-- **REA/SCEA:** If one school is REA/SCEA, all other private schools must be RD. Explicit list of common private schools in the prompt.
+- **REA/SCEA:** If one school is REA/SCEA, all other private schools must be RD. Explicit list of common private schools in the prompt. Exception (since Oct 2026, from Harvard's and Stanford's published policies): alongside Harvard SCEA or Stanford REA only, a private school may stay EA (never ED) when its early deadline is required for merit scholarship or special-program consideration (Stanford names USC), and the plan must say so. validate-plan.js enforces it (fix if the plan gives no merit reason, needs-judgment if it does).
+- **Full-pay pricing:** When the plan concludes need-based aid is essentially zero (income far above the top net-price bracket), every school, publics included, is priced at sticker minus likely merit, not the bracket-average net price, and JSON need_aid is ~0. validate-plan.js flags substantial need_aid when the text says no/near-zero need aid.
+- **Safety label:** A Safety-tier school rated Very High financial risk must read "Safety (admission only)" wherever a tier label appears, never a bare "Safety". JSON tier stays "safety". validate-plan.js flags bare Safety + Very High table rows.
 - **Tier consistency:** Every school must have same tier label across all sections
 - **Fabrication:** Strict for scholarship names (must match verified data). Relaxed for academic programs (Claude can reference well-known programs).
 - **State aid:** Must mention state programs by name if they exist for the family's state

@@ -273,6 +273,7 @@ Approximately 70-75 colleges in the U.S. commit to meeting 100% of every admitte
 - Non-binding (like EA), but with restrictions on where else the student can apply early.
 - **REA/SCEA means the student CANNOT apply Early Action or Early Decision to any other PRIVATE school.** They CAN still apply EA to public/state universities.
 - This is critical for application planning: if a student applies REA to Stanford, they cannot apply EA to MIT, Rice, or any other private school. MIT, Rice, etc. would have to be Regular Decision.
+- **Exception (Harvard and Stanford only):** both allow a non-binding early application to another private school when applying early is required to be considered for that school's merit scholarships or a special academic program. Stanford's policy names USC as its example. Binding ED elsewhere is never allowed. Other REA/SCEA schools' rules differ (Yale's is narrower), so do not extend the exception to them.
 
 **Schools that use REA/SCEA (as of 2025-26):**
 - Harvard (SCEA)
@@ -284,7 +285,7 @@ Approximately 70-75 colleges in the U.S. commit to meeting 100% of every admitte
 - Boston College (EA with restrictions similar to REA)
 
 **Key implications for families:**
-- If recommending REA/SCEA at one school, every other private school on the list MUST be RD (or ED2 in January). Only public universities can be EA alongside an REA/SCEA application.
+- If recommending REA/SCEA at one school, every other private school on the list MUST be RD (or ED2 in January). Only public universities can be EA alongside an REA/SCEA application, except under the Harvard/Stanford merit-deadline exception above.
 - This makes the REA/SCEA choice high-stakes strategically. A student applying Stanford REA cannot also apply MIT EA. Plan the entire application calendar around this constraint.
 - ED gives the strongest admissions boost at schools that offer it (typically 1.5-2x the RD admit rate), but at the cost of financial flexibility. REA/SCEA gives a smaller boost (varies by school) with no binding commitment.
 
